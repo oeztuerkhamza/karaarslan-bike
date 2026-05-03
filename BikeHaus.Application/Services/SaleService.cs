@@ -1,0 +1,344 @@
+using BikeHaus.Application.DTOs;
+using BikeHaus.Application.Interfaces;
+using BikeHaus.Application.Mappings;
+using BikeHaus.Domain.Entities;
+using BikeHaus.Domain.Enums;
+using BikeHaus.Domain.Interfaces;
+using Microsoft.Extensions.Logging;
+
+namespace BikeHaus.Application.Services;
+
+public class SaleService : ISaleService
+{
+    private const string AccessoryOnlyRahmennummer = "ACC-ACCESSORY-ONLY";
+    private readonly ISaleRepository _saleRepository;
+    private readonly IBicycleRepository _bicycleRepository;
+    private readonly ICustomerRepository _customerRepository;
+    private readonly IPdfService _pdfService;
+    private readonly IEmailService _emailService;
+    private readonly ILogger<SaleService> _logger;
+
+    public SaleService(
+        ISaleRepository saleRepository,
+        IBicycleRepository bicycleRepository,
+        ICustomerRepository customerRepository,
+        IPdfService pdfService,
+        IEmailService emailService,
+        ILogger<SaleService> logger)
+    {
+        _saleRepository = saleRepository;
+        _bicycleRepository = bicycleRepository;
+        _customerRepository = customerRepository;
+        _pdfService = pdfService;
+        _emailService = emailService;
+        _logger = logger;
+    }
+
+    public async Task<IEnumerable<SaleListDto>> GetAllAsync()
+    {
+        var sales = await _saleRepository.GetAllAsync();
+        return sales.Select(s => s.ToListDto());
+    }
+
+    public async Task<PaginatedResult<SaleListDto>> GetPaginatedAsync(PaginationParams paginationParams)
+    {
+        var paymentMethod = !string.IsNullOrEmpty(paginationParams.Status) &&
+            Enum.TryParse<Domain.Enums.PaymentMethod>(paginationParams.Status, out var pm) ? pm : (Domain.Enums.PaymentMethod?)null;
+        var term = paginationParams.SearchTerm?.ToLower();
+        var marke = paginationParams.Marke?.ToLower();
+        var fahrradtyp = paginationParams.Fahrradtyp?.ToLower();
+        var farbe = paginationParams.Farbe?.ToLower();
+
+        System.Linq.Expressions.Expression<Func<Sale, bool>> predicate = s =>
+            // Payment method filter
+            (!paymentMethod.HasValue || s.Zahlungsart == paymentMethod.Value) &&
+            // Search filter
+            (string.IsNullOrEmpty(term) ||
+                s.BelegNummer.ToLower().Contains(term) ||
+                s.Bicycle.Marke.ToLower().Contains(term) ||
+                s.Bicycle.Modell.ToLower().Contains(term) ||
+                (s.Bicycle.Rahmennummer != null && s.Bicycle.Rahmennummer.ToLower().Contains(term)) ||
+                s.Buyer.Vorname.ToLower().Contains(term) ||
+                s.Buyer.Nachname.ToLower().Contains(term)) &&
+            // Bicycle property filters
+            (string.IsNullOrEmpty(marke) || s.Bicycle.Marke.ToLower().Contains(marke)) &&
+            (string.IsNullOrEmpty(fahrradtyp) || (s.Bicycle.Fahrradtyp != null && s.Bicycle.Fahrradtyp.ToLower().Contains(fahrradtyp))) &&
+            (string.IsNullOrEmpty(farbe) || (s.Bicycle.Farbe != null && s.Bicycle.Farbe.ToLower().Contains(farbe)));
+
+        var (items, totalCount) = await _saleRepository.GetPaginatedAsync(
+            paginationParams.Page,
+            paginationParams.PageSize,
+            predicate);
+
+        return new PaginatedResult<SaleListDto>
+        {
+            Items = items.Select(s => s.ToListDto()),
+            TotalCount = totalCount,
+            Page = paginationParams.Page,
+            PageSize = paginationParams.PageSize
+        };
+    }
+
+    public async Task<SaleDto?> GetByIdAsync(int id)
+    {
+        var sale = await _saleRepository.GetWithDetailsAsync(id);
+        return sale?.ToDto();
+    }
+
+    public async Task<SaleDto?> GetByBicycleIdAsync(int bicycleId)
+    {
+        var sale = await _saleRepository.GetByBicycleIdAsync(bicycleId);
+        return sale?.ToDto();
+    }
+
+    public async Task<SaleDto> CreateAsync(SaleCreateDto dto)
+    {
+        Bicycle bicycle;
+        if (dto.IsAccessoryOnly)
+        {
+            bicycle = await GetOrCreateAccessoryOnlyBicycleAsync();
+        }
+        else
+        {
+            // Verify bicycle exists and is available
+            bicycle = await _bicycleRepository.GetByIdAsync(dto.BicycleId)
+                ?? throw new KeyNotFoundException($"Bicycle with ID {dto.BicycleId} not found.");
+
+            if (bicycle.Status != BikeStatus.Available)
+                throw new InvalidOperationException("This bicycle is not available for sale.");
+        }
+
+        // Create or find Buyer
+        var buyer = dto.Buyer.ToEntity();
+        buyer = await _customerRepository.AddAsync(buyer);
+
+        // Create Sale
+        var sale = new Sale
+        {
+            BicycleId = bicycle.Id,
+            BuyerId = buyer.Id,
+            PurchaseId = dto.PurchaseId,
+            Preis = dto.Preis,
+            Zahlungsart = dto.Zahlungsart,
+            Verkaufsdatum = dto.Verkaufsdatum ?? DateTime.UtcNow,
+            Garantie = dto.Garantie,
+            GarantieBedingungen = dto.GarantieBedingungen,
+            Notizen = dto.Notizen,
+            BelegNummer = !string.IsNullOrWhiteSpace(dto.BelegNummer)
+                ? dto.BelegNummer
+                : await _saleRepository.GenerateBelegNummerAsync(),
+            Rabatt = dto.Rabatt
+        };
+
+        // Add signatures if provided
+        if (dto.BuyerSignature != null)
+        {
+            sale.BuyerSignature = dto.BuyerSignature.ToEntity();
+        }
+        if (dto.SellerSignature != null)
+        {
+            sale.SellerSignature = dto.SellerSignature.ToEntity();
+        }
+
+        // Add accessories if provided
+        if (dto.Accessories != null && dto.Accessories.Count > 0)
+        {
+            foreach (var accessory in dto.Accessories)
+            {
+                sale.Accessories.Add(new SaleAccessory
+                {
+                    Bezeichnung = accessory.Bezeichnung,
+                    Preis = accessory.Preis,
+                    Menge = accessory.Menge
+                });
+            }
+        }
+
+        // Add payments if provided
+        if (dto.Zahlungen != null && dto.Zahlungen.Count > 0)
+        {
+            foreach (var zahlung in dto.Zahlungen)
+            {
+                sale.Zahlungen.Add(new SalePayment
+                {
+                    Zahlungsart = zahlung.Zahlungsart,
+                    Betrag = zahlung.Betrag
+                });
+            }
+        }
+
+        var created = await _saleRepository.AddAsync(sale);
+
+        if (!dto.IsAccessoryOnly)
+        {
+            // Update bicycle status
+            bicycle.Status = BikeStatus.Sold;
+            bicycle.UpdatedAt = DateTime.UtcNow;
+            await _bicycleRepository.UpdateAsync(bicycle);
+        }
+
+        var result = await _saleRepository.GetWithDetailsAsync(created.Id);
+
+        if (result != null)
+            await TrySendSaleReceiptAsync(result);
+
+        return result!.ToDto();
+    }
+
+    private async Task TrySendSaleReceiptAsync(Sale sale)
+    {
+        if (string.IsNullOrWhiteSpace(sale.Buyer.Email))
+            return;
+
+        try
+        {
+            var pdfBytes = await _pdfService.GenerateVerkaufsbelegAsync(sale.Id);
+            await _emailService.SendSaleReceiptAsync(
+                sale.Buyer.Email,
+                sale.Buyer.FullName,
+                sale.BelegNummer,
+                pdfBytes);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(
+                ex,
+                "Failed to send sale receipt email for sale {SaleId} ({BelegNummer})",
+                sale.Id,
+                sale.BelegNummer);
+        }
+    }
+
+    private async Task<Bicycle> GetOrCreateAccessoryOnlyBicycleAsync()
+    {
+        var existing = await _bicycleRepository.FindAsync(b =>
+            b.Marke == "Zubehör" &&
+            b.Modell == "Direktverkauf" &&
+            b.Rahmennummer != null &&
+            b.Rahmennummer.StartsWith("ACC-"));
+
+        var accessoryBike = existing.FirstOrDefault();
+        if (accessoryBike != null)
+        {
+            return accessoryBike;
+        }
+
+        return await _bicycleRepository.AddAsync(new Bicycle
+        {
+            Marke = "Zubehör",
+            Modell = "Direktverkauf",
+            Rahmennummer = AccessoryOnlyRahmennummer,
+            Farbe = "Schwarz",
+            Reifengroesse = "28",
+            Fahrradtyp = "Sonstige",
+            Art = "Unisex",
+            Beschreibung = "System-Fahrrad für Zubehör-Direktverkäufe",
+            Status = BikeStatus.Available,
+            Zustand = BikeCondition.Neu,
+            IsPublishedOnWebsite = false,
+            IsPublishedOnKleinanzeigen = false
+        });
+    }
+
+    public async Task<SaleDto> UpdateAsync(int id, SaleUpdateDto dto)
+    {
+        var sale = await _saleRepository.GetWithDetailsAsync(id)
+            ?? throw new KeyNotFoundException($"Verkauf mit ID {id} nicht gefunden.");
+
+        // Update Buyer
+        var buyer = sale.Buyer;
+        buyer.Vorname = dto.Buyer.Vorname;
+        buyer.Nachname = dto.Buyer.Nachname;
+        buyer.Strasse = dto.Buyer.Strasse;
+        buyer.Hausnummer = dto.Buyer.Hausnummer;
+        buyer.PLZ = dto.Buyer.PLZ;
+        buyer.Stadt = dto.Buyer.Stadt;
+        buyer.Telefon = dto.Buyer.Telefon;
+        buyer.Email = dto.Buyer.Email;
+        buyer.UpdatedAt = DateTime.UtcNow;
+        await _customerRepository.UpdateAsync(buyer);
+
+        // Update Sale
+        sale.Preis = dto.Preis;
+        sale.Zahlungsart = dto.Zahlungsart;
+        sale.Verkaufsdatum = dto.Verkaufsdatum;
+        sale.Garantie = dto.Garantie;
+        sale.GarantieBedingungen = dto.GarantieBedingungen;
+        sale.Notizen = dto.Notizen;
+        sale.Rabatt = dto.Rabatt;
+        if (!string.IsNullOrWhiteSpace(dto.BelegNummer))
+            sale.BelegNummer = dto.BelegNummer;
+        sale.UpdatedAt = DateTime.UtcNow;
+
+        // Update Accessories - clear and recreate
+        sale.Accessories.Clear();
+        if (dto.Accessories != null && dto.Accessories.Count > 0)
+        {
+            foreach (var accessory in dto.Accessories)
+            {
+                sale.Accessories.Add(new SaleAccessory
+                {
+                    SaleId = sale.Id,
+                    Bezeichnung = accessory.Bezeichnung,
+                    Preis = accessory.Preis,
+                    Menge = accessory.Menge
+                });
+            }
+        }
+
+        // Update Payments - clear and recreate
+        sale.Zahlungen.Clear();
+        if (dto.Zahlungen != null && dto.Zahlungen.Count > 0)
+        {
+            foreach (var zahlung in dto.Zahlungen)
+            {
+                sale.Zahlungen.Add(new SalePayment
+                {
+                    SaleId = sale.Id,
+                    Zahlungsart = zahlung.Zahlungsart,
+                    Betrag = zahlung.Betrag
+                });
+            }
+        }
+
+        await _saleRepository.UpdateAsync(sale);
+
+        var updated = await _saleRepository.GetWithDetailsAsync(id);
+        return updated!.ToDto();
+    }
+
+    public async Task DeleteAsync(int id)
+    {
+        var sale = await _saleRepository.GetByIdAsync(id)
+            ?? throw new KeyNotFoundException($"Verkauf mit ID {id} nicht gefunden.");
+
+        try
+        {
+            // Reset bicycle status to Available
+            var bicycle = await _bicycleRepository.GetByIdAsync(sale.BicycleId);
+            if (bicycle != null)
+            {
+                bicycle.Status = BikeStatus.Available;
+                await _bicycleRepository.UpdateAsync(bicycle);
+            }
+
+            await _saleRepository.DeleteAsync(id);
+        }
+        catch (Exception ex) when (ex.InnerException?.Message?.Contains("FOREIGN KEY") == true)
+        {
+            throw new InvalidOperationException(
+                "Verkauf kann nicht gelöscht werden. Es gibt verknüpfte Datensätze (z.B. Rückgaben). " +
+                "Bitte löschen Sie zuerst die verknüpften Datensätze.");
+        }
+    }
+
+    public async Task<byte[]> GeneratePdfAsync(int id)
+    {
+        return await _pdfService.GenerateVerkaufsbelegAsync(id);
+    }
+
+    public async Task<string> GetNextBelegNummerAsync()
+    {
+        return await _saleRepository.GenerateBelegNummerAsync();
+    }
+}

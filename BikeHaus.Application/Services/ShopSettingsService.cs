@@ -1,0 +1,264 @@
+using BikeHaus.Application.DTOs;
+using BikeHaus.Application.Interfaces;
+using BikeHaus.Domain.Entities;
+using BikeHaus.Domain.Interfaces;
+using System.Text.Json;
+
+namespace BikeHaus.Application.Services;
+
+public class ShopSettingsService : IShopSettingsService
+{
+    private readonly IShopSettingsRepository _repository;
+    private readonly IMailboxProvisioningService _mailboxProvisioningService;
+
+    public ShopSettingsService(IShopSettingsRepository repository, IMailboxProvisioningService mailboxProvisioningService)
+    {
+        _repository = repository;
+        _mailboxProvisioningService = mailboxProvisioningService;
+    }
+
+    public async Task<ShopSettingsDto?> GetSettingsAsync()
+    {
+        var settings = await _repository.GetSettingsAsync();
+        if (settings == null) return null;
+
+        return MapToDto(settings);
+    }
+
+    public async Task<ShopSettingsDto> UpdateSettingsAsync(UpdateShopSettingsDto dto)
+    {
+        var settings = await _repository.GetSettingsAsync();
+
+        if (settings == null)
+        {
+            // Create new settings if none exist
+            settings = new ShopSettings
+            {
+                ShopName = dto.ShopName,
+                Strasse = dto.Strasse,
+                Hausnummer = dto.Hausnummer,
+                PLZ = dto.PLZ,
+                Stadt = dto.Stadt,
+                Telefon = dto.Telefon,
+                Email = dto.Email,
+                Website = dto.Website,
+                Steuernummer = dto.Steuernummer,
+                UstIdNr = dto.UstIdNr,
+                Bankname = dto.Bankname,
+                IBAN = dto.IBAN,
+                BIC = dto.BIC,
+                InhaberVorname = dto.InhaberVorname,
+                InhaberNachname = dto.InhaberNachname,
+                FahrradNummerStart = dto.FahrradNummerStart > 0 ? dto.FahrradNummerStart : 1,
+                KleinanzeigenUrl = dto.KleinanzeigenUrl,
+                GoogleReviewUrl = dto.GoogleReviewUrl,
+                Oeffnungszeiten = dto.Oeffnungszeiten,
+                Zusatzinfo = dto.Zusatzinfo,
+                CompanyEmails = dto.CompanyEmails
+            };
+            await _repository.AddAsync(settings);
+        }
+        else
+        {
+            // Update existing settings
+            settings.ShopName = dto.ShopName;
+            settings.Strasse = dto.Strasse;
+            settings.Hausnummer = dto.Hausnummer;
+            settings.PLZ = dto.PLZ;
+            settings.Stadt = dto.Stadt;
+            settings.Telefon = dto.Telefon;
+            settings.Email = dto.Email;
+            settings.Website = dto.Website;
+            settings.Steuernummer = dto.Steuernummer;
+            settings.UstIdNr = dto.UstIdNr;
+            settings.Bankname = dto.Bankname;
+            settings.IBAN = dto.IBAN;
+            settings.BIC = dto.BIC;
+            settings.InhaberVorname = dto.InhaberVorname;
+            settings.InhaberNachname = dto.InhaberNachname;
+            settings.FahrradNummerStart = dto.FahrradNummerStart > 0 ? dto.FahrradNummerStart : 1;
+            settings.KleinanzeigenUrl = dto.KleinanzeigenUrl;
+            settings.GoogleReviewUrl = dto.GoogleReviewUrl;
+            settings.Oeffnungszeiten = dto.Oeffnungszeiten;
+            settings.Zusatzinfo = dto.Zusatzinfo;
+            settings.CompanyEmails = dto.CompanyEmails;
+            settings.UpdatedAt = DateTime.UtcNow;
+
+            await _repository.UpdateAsync(settings);
+        }
+
+        return MapToDto(settings);
+    }
+
+    public async Task<ShopSettingsDto> CreateCompanyEmailAsync(CreateCompanyEmailDto dto)
+    {
+        var email = dto.Email.Trim();
+        var password = dto.Password;
+
+        await _mailboxProvisioningService.CreateMailboxAsync(email, password);
+
+        var settings = await GetOrCreateSettingsAsync();
+        var emails = ParseCompanyEmails(settings.CompanyEmails);
+        if (!emails.Contains(email, StringComparer.OrdinalIgnoreCase))
+        {
+            emails.Add(email);
+            settings.CompanyEmails = JsonSerializer.Serialize(emails);
+            settings.UpdatedAt = DateTime.UtcNow;
+            await _repository.UpdateAsync(settings);
+        }
+
+        return MapToDto(settings);
+    }
+
+    public async Task ChangeCompanyEmailPasswordAsync(ChangeCompanyEmailPasswordDto dto)
+    {
+        var email = dto.Email.Trim();
+        var newPassword = dto.NewPassword;
+
+        var settings = await _repository.GetSettingsAsync();
+        var emails = ParseCompanyEmails(settings?.CompanyEmails);
+        if (!emails.Contains(email, StringComparer.OrdinalIgnoreCase))
+            throw new InvalidOperationException("E-Mail-Adresse ist nicht in den Unternehmenseinstellungen vorhanden.");
+
+        await _mailboxProvisioningService.ChangePasswordAsync(email, newPassword);
+    }
+
+    public async Task<ShopSettingsDto> UploadLogoAsync(UploadLogoDto dto)
+    {
+        var settings = await _repository.GetSettingsAsync();
+
+        if (settings == null)
+        {
+            settings = new ShopSettings
+            {
+                ShopName = "Karaaslan Bisiklet",
+                LogoBase64 = dto.LogoBase64,
+                LogoFileName = dto.FileName
+            };
+            await _repository.AddAsync(settings);
+        }
+        else
+        {
+            settings.LogoBase64 = dto.LogoBase64;
+            settings.LogoFileName = dto.FileName;
+            settings.UpdatedAt = DateTime.UtcNow;
+            await _repository.UpdateAsync(settings);
+        }
+
+        return MapToDto(settings);
+    }
+
+    public async Task DeleteLogoAsync()
+    {
+        var settings = await _repository.GetSettingsAsync();
+        if (settings != null)
+        {
+            settings.LogoBase64 = null;
+            settings.LogoFileName = null;
+            settings.UpdatedAt = DateTime.UtcNow;
+            await _repository.UpdateAsync(settings);
+        }
+    }
+
+    public async Task<ShopSettingsDto> UploadOwnerSignatureAsync(UploadSignatureDto dto)
+    {
+        var settings = await _repository.GetSettingsAsync();
+
+        if (settings == null)
+        {
+            settings = new ShopSettings
+            {
+                ShopName = "Karaaslan Bisiklet",
+                InhaberSignatureBase64 = dto.SignatureBase64,
+                InhaberSignatureFileName = dto.FileName
+            };
+            await _repository.AddAsync(settings);
+        }
+        else
+        {
+            settings.InhaberSignatureBase64 = dto.SignatureBase64;
+            settings.InhaberSignatureFileName = dto.FileName;
+            settings.UpdatedAt = DateTime.UtcNow;
+            await _repository.UpdateAsync(settings);
+        }
+
+        return MapToDto(settings);
+    }
+
+    public async Task DeleteOwnerSignatureAsync()
+    {
+        var settings = await _repository.GetSettingsAsync();
+        if (settings != null)
+        {
+            settings.InhaberSignatureBase64 = null;
+            settings.InhaberSignatureFileName = null;
+            settings.UpdatedAt = DateTime.UtcNow;
+            await _repository.UpdateAsync(settings);
+        }
+    }
+
+    private static ShopSettingsDto MapToDto(ShopSettings settings)
+    {
+        return new ShopSettingsDto
+        {
+            Id = settings.Id,
+            ShopName = settings.ShopName,
+            Strasse = settings.Strasse,
+            Hausnummer = settings.Hausnummer,
+            PLZ = settings.PLZ,
+            Stadt = settings.Stadt,
+            Telefon = settings.Telefon,
+            Email = settings.Email,
+            Website = settings.Website,
+            Steuernummer = settings.Steuernummer,
+            UstIdNr = settings.UstIdNr,
+            Bankname = settings.Bankname,
+            IBAN = settings.IBAN,
+            BIC = settings.BIC,
+            LogoBase64 = settings.LogoBase64,
+            LogoFileName = settings.LogoFileName,
+            InhaberVorname = settings.InhaberVorname,
+            InhaberNachname = settings.InhaberNachname,
+            InhaberSignatureBase64 = settings.InhaberSignatureBase64,
+            InhaberSignatureFileName = settings.InhaberSignatureFileName,
+            FahrradNummerStart = settings.FahrradNummerStart,
+            KleinanzeigenUrl = settings.KleinanzeigenUrl,
+            GoogleReviewUrl = settings.GoogleReviewUrl,
+            Oeffnungszeiten = settings.Oeffnungszeiten,
+            Zusatzinfo = settings.Zusatzinfo,
+            FullAddress = settings.FullAddress,
+            CompanyEmails = settings.CompanyEmails
+        };
+    }
+
+    private async Task<ShopSettings> GetOrCreateSettingsAsync()
+    {
+        var settings = await _repository.GetSettingsAsync();
+        if (settings != null) return settings;
+
+        settings = new ShopSettings
+        {
+            ShopName = "Karaaslan Bisiklet",
+            FahrradNummerStart = 1
+        };
+
+        await _repository.AddAsync(settings);
+        return settings;
+    }
+
+    private static List<string> ParseCompanyEmails(string? companyEmailsJson)
+    {
+        if (string.IsNullOrWhiteSpace(companyEmailsJson))
+            return new List<string>();
+
+        try
+        {
+            return JsonSerializer.Deserialize<List<string>>(companyEmailsJson) ?? new List<string>();
+        }
+        catch
+        {
+            return new List<string>();
+        }
+    }
+}
+

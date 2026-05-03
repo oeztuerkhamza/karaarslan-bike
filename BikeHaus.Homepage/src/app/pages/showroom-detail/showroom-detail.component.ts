@@ -1,0 +1,1357 @@
+import { Component, inject, OnInit, OnDestroy, signal } from '@angular/core';
+import { CommonModule, DOCUMENT } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { Meta, Title } from '@angular/platform-browser';
+import { TranslationService } from '../../services/translation.service';
+import { ApiService } from '../../services/api.service';
+import { KleinanzeigenListing, PublicBicycle } from '../../models/models';
+import { environment } from '../../../environments/environment';
+
+@Component({
+  selector: 'app-showroom-detail',
+  standalone: true,
+  imports: [CommonModule, RouterModule, FormsModule],
+  template: `
+    <!-- Loading -->
+    <div *ngIf="loading()" class="loading-wrap">
+      <div class="container">
+        <div class="sk-layout">
+          <div class="sk-gallery"><div class="sk-main-img"></div></div>
+          <div class="sk-details">
+            <div class="sk-line w30"></div>
+            <div class="sk-line w90"></div>
+            <div class="sk-line w50"></div>
+            <div class="sk-line w70"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-page" *ngIf="!loading()">
+      <!-- Breadcrumb Bar -->
+      <nav class="breadcrumb-bar">
+        <div class="container">
+          <a [routerLink]="['/' + lang(), 'showroom']" class="back-link">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            <span>{{ t().backToShowroom }}</span>
+          </a>
+        </div>
+      </nav>
+
+      <div class="container" *ngIf="listing()">
+        <article class="detail-layout">
+          <!-- ── LEFT: Gallery ── -->
+          <div class="gallery-col">
+            <figure class="main-image-wrap">
+              <img
+                *ngIf="listing()!.images.length > 0"
+                [src]="listing()!.images[selectedImage()].imageUrl"
+                [alt]="listing()!.title"
+                class="main-img"
+                width="800"
+                height="600"
+                fetchpriority="high"
+                (error)="onImageError($event)"
+              />
+              <div *ngIf="listing()!.images.length === 0" class="no-image">
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="var(--color-text-muted)"
+                  stroke-width="1"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                  <circle cx="8.5" cy="8.5" r="1.5" />
+                  <polyline points="21 15 16 10 5 21" />
+                </svg>
+              </div>
+
+              <!-- Nav Arrows -->
+              <button
+                *ngIf="listing()!.images.length > 1"
+                class="g-nav g-prev"
+                (click)="prevImage()"
+                aria-label="Previous"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <path d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                *ngIf="listing()!.images.length > 1"
+                class="g-nav g-next"
+                (click)="nextImage()"
+                aria-label="Next"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <path d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+
+              <!-- Counter -->
+              <span class="img-counter" *ngIf="listing()!.images.length > 1">
+                {{ selectedImage() + 1 }} / {{ listing()!.images.length }}
+              </span>
+            </figure>
+
+            <!-- Thumbnail Strip -->
+            <div class="thumb-strip" *ngIf="listing()!.images.length > 1">
+              <button
+                *ngFor="let img of listing()!.images; let i = index"
+                class="thumb"
+                [class.active]="selectedImage() === i"
+                (click)="selectedImage.set(i)"
+              >
+                <img
+                  [src]="img.imageUrl"
+                  [alt]="listing()!.title + ' — Bild ' + (i + 1)"
+                  loading="lazy"
+                  width="120"
+                  height="90"
+                />
+              </button>
+            </div>
+          </div>
+
+          <!-- ── RIGHT: Details ── -->
+          <aside class="details-col">
+            <div class="details-inner">
+              <!-- Condition + Category Badges -->
+              <div class="badge-row">
+                <span class="condition-badge" [class.is-new]="isNew()">{{
+                  isNew() ? t().conditionNew : t().conditionUsed
+                }}</span>
+                <span *ngIf="displayCategory()" class="cat-badge">{{
+                  displayCategory()
+                }}</span>
+              </div>
+
+              <!-- Title -->
+              <h1 class="title">{{ listing()!.title }}</h1>
+
+              <!-- Price Card -->
+              <div class="price-card" *ngIf="listing()!.priceText">
+                <span class="price-value">{{ listing()!.priceText }}</span>
+              </div>
+
+              <!-- Meta Info -->
+              <div class="meta-list">
+                <div *ngIf="listing()!.location" class="meta-row">
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="var(--color-accent)"
+                    stroke-width="2"
+                  >
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  <span>{{ listing()!.location }}</span>
+                </div>
+                <div class="meta-row">
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="var(--color-accent)"
+                    stroke-width="2"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <circle cx="8.5" cy="8.5" r="1.5" />
+                    <polyline points="21 15 16 10 5 21" />
+                  </svg>
+                  <span>{{ listing()!.images.length }} {{ t().photos }}</span>
+                </div>
+              </div>
+
+              <!-- CTA -->
+              <a
+                [href]="listing()!.externalUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary cta-link"
+              >
+                {{ t().viewOnKleinanzeigen }}
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"
+                  />
+                </svg>
+              </a>
+
+              <!-- Google Maps -->
+              <a
+                href="https://maps.google.com/?q=Heckerstra%C3%9Fe+27+[SEHIR]+im+Breisgau"
+                target="_blank"
+                rel="noopener"
+                class="btn-maps"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                Google Maps
+              </a>
+
+              <!-- WhatsApp Contact -->
+              <div class="whatsapp-contact">
+                <div class="whatsapp-header">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="#25D366"
+                  >
+                    <path
+                      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                    />
+                  </svg>
+                  <span>{{ t().whatsappTitle }}</span>
+                </div>
+                <div class="whatsapp-listing-preview">
+                  <strong>{{ listing()!.title }}</strong>
+                  <span *ngIf="listing()!.price">{{ listing()!.price }}€</span>
+                </div>
+                <textarea
+                  class="whatsapp-textarea"
+                  [placeholder]="t().whatsappPlaceholder"
+                  [(ngModel)]="userWhatsappMessage"
+                  rows="3"
+                ></textarea>
+                <a
+                  [href]="getWhatsappLink()"
+                  target="_blank"
+                  rel="noopener"
+                  class="btn-whatsapp"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                    />
+                  </svg>
+                  {{ t().whatsappSend }}
+                </a>
+              </div>
+            </div>
+          </aside>
+        </article>
+
+        <!-- ── Description (full width below) ── -->
+        <section *ngIf="listing()!.description" class="desc-section">
+          <h2>{{ t().description }}</h2>
+          <div
+            class="desc-body"
+            [innerHTML]="formatDescription(listing()!.description!)"
+          ></div>
+        </section>
+
+        <!-- ── Ähnliche Fahrräder (Internal Linking) ── -->
+        <section *ngIf="relatedListings().length" class="related-section">
+          <h2>{{ t().relatedBikes || 'Ähnliche Fahrräder' }}</h2>
+          <div class="related-grid">
+            <a
+              *ngFor="let rel of relatedListings()"
+              [routerLink]="['/' + lang(), 'showroom', rel.id]"
+              class="related-card"
+            >
+              <div class="related-img-wrap">
+                <img
+                  *ngIf="rel.images.length"
+                  [src]="rel.images[0].imageUrl"
+                  [alt]="rel.title"
+                  loading="lazy"
+                  width="280"
+                  height="210"
+                />
+              </div>
+              <div class="related-info">
+                <span class="related-title">{{ rel.title }}</span>
+                <span *ngIf="rel.price" class="related-price"
+                  >{{ rel.price }} €</span
+                >
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- ── Ratgeber-Empfehlung (Blog Internal Link) ── -->
+        <section class="blog-cta-section">
+          <h2>{{ t().ratgeberTitle || 'Ratgeber & Tipps' }}</h2>
+          <div class="blog-cta-grid">
+            <a
+              [routerLink]="[
+                '/' + lang(),
+                'ratgeber',
+                'gebrauchtes-fahrrad-kaufen-tipps',
+              ]"
+              class="blog-cta-card"
+            >
+              <span class="blog-cta-icon">📋</span>
+              <span class="blog-cta-text">{{
+                t().blogCta1 ||
+                  'Gebrauchtes Fahrrad kaufen — Tipps & Checkliste'
+              }}</span>
+            </a>
+            <a
+              [routerLink]="[
+                '/' + lang(),
+                'ratgeber',
+                'welches-fahrrad-passt-zu-mir',
+              ]"
+              class="blog-cta-card"
+            >
+              <span class="blog-cta-icon">🚲</span>
+              <span class="blog-cta-text">{{
+                t().blogCta2 || 'Welches Fahrrad passt zu mir?'
+              }}</span>
+            </a>
+            <a
+              [routerLink]="[
+                '/' + lang(),
+                'ratgeber',
+                'fahrrad-inspektion-kosten',
+              ]"
+              class="blog-cta-card"
+            >
+              <span class="blog-cta-icon">🔧</span>
+              <span class="blog-cta-text">{{
+                t().blogCta3 || 'Fahrrad Inspektion — Was kostet es?'
+              }}</span>
+            </a>
+          </div>
+        </section>
+      </div>
+
+      <!-- Not Found -->
+      <div *ngIf="!listing() && !loading()" class="container not-found-wrap">
+        <svg
+          width="48"
+          height="48"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="var(--color-text-muted)"
+          stroke-width="1.5"
+        >
+          <circle cx="11" cy="11" r="8" />
+          <path d="M21 21l-4.35-4.35" />
+        </svg>
+        <p>{{ t().noResults }}</p>
+        <a [routerLink]="['/' + lang(), 'showroom']" class="btn-primary">{{
+          t().backToShowroom
+        }}</a>
+      </div>
+    </div>
+  `,
+  styles: [
+    `
+      /* ── Loading Skeleton ── */
+      .loading-wrap {
+        padding: 7rem 0 4rem;
+      }
+
+      .sk-layout {
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: 2.5rem;
+      }
+
+      .sk-main-img {
+        aspect-ratio: 4/3;
+        border-radius: 20px;
+        background: linear-gradient(
+          90deg,
+          var(--color-surface) 25%,
+          var(--color-surface-alt, #1a1a1a) 50%,
+          var(--color-surface) 75%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 1.5s infinite;
+      }
+
+      .sk-details {
+        padding-top: 1rem;
+      }
+
+      .sk-line {
+        height: 16px;
+        border-radius: 8px;
+        margin-bottom: 1.25rem;
+        background: linear-gradient(
+          90deg,
+          var(--color-surface) 25%,
+          var(--color-surface-alt, #1a1a1a) 50%,
+          var(--color-surface) 75%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 1.5s infinite;
+      }
+
+      .w30 {
+        width: 30%;
+      }
+      .w50 {
+        width: 50%;
+      }
+      .w70 {
+        width: 70%;
+      }
+      .w90 {
+        width: 90%;
+      }
+
+      @keyframes shimmer {
+        to {
+          background-position: -200% 0;
+        }
+      }
+
+      /* ── Page ── */
+      .detail-page {
+        padding-bottom: 4rem;
+        background:
+          radial-gradient(circle at top, rgba(255, 87, 34, 0.08), transparent 32%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 24%),
+          var(--color-bg);
+      }
+
+      .breadcrumb-bar {
+        position: relative;
+        padding: 6.75rem 0 1.75rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        margin-bottom: 2.5rem;
+        overflow: hidden;
+      }
+
+      .breadcrumb-bar::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 12% 0%, rgba(255, 87, 34, 0.12), transparent 22%),
+          radial-gradient(circle at 88% 0%, rgba(255, 255, 255, 0.05), transparent 18%);
+        pointer-events: none;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        position: relative;
+        z-index: 1;
+        color: rgba(255, 255, 255, 0.72);
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: 600;
+        transition: color 0.2s;
+        padding: 0.9rem 1.05rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .back-link:hover {
+        color: var(--color-accent);
+      }
+
+      /* ── Layout ── */
+      .detail-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 420px;
+        gap: 2rem;
+        align-items: start;
+      }
+
+      /* ── Gallery ── */
+      .gallery-col {
+        min-width: 0;
+      }
+
+      .main-image-wrap {
+        position: relative;
+        border-radius: 28px;
+        overflow: hidden;
+        background: #0d0d0d;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        aspect-ratio: 4/3;
+        margin: 0;
+        box-shadow: 0 28px 70px rgba(0, 0, 0, 0.22);
+      }
+
+      .main-image-wrap::after {
+        content: '';
+        position: absolute;
+        inset: auto 0 0 0;
+        height: 36%;
+        background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.45));
+        pointer-events: none;
+      }
+
+      .main-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .no-image {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--color-surface);
+      }
+
+      .g-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(8px);
+        color: #fff;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition:
+          opacity 0.25s,
+          background 0.2s;
+      }
+
+      .main-image-wrap:hover .g-nav {
+        opacity: 1;
+      }
+
+      .g-nav:hover {
+        background: rgba(0, 0, 0, 0.8);
+      }
+      .g-prev {
+        left: 1rem;
+      }
+      .g-next {
+        right: 1rem;
+      }
+
+      .img-counter {
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(6px);
+        color: #fff;
+        padding: 0.3rem 0.9rem;
+        border-radius: 50px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+      }
+
+      /* Thumbnails */
+      .thumb-strip {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+        overflow-x: auto;
+        padding-bottom: 0.25rem;
+        scrollbar-width: thin;
+        scrollbar-color: var(--color-border) transparent;
+      }
+
+      .thumb {
+        flex-shrink: 0;
+        width: 86px;
+        height: 62px;
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+        padding: 0;
+        background: none;
+        transition:
+          border-color 0.2s,
+          opacity 0.2s,
+          transform 0.2s;
+        opacity: 0.62;
+      }
+
+      .thumb.active {
+        border-color: var(--color-accent);
+        opacity: 1;
+        transform: translateY(-2px);
+      }
+
+      .thumb:hover {
+        opacity: 1;
+      }
+
+      .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* ── Details Column ── */
+      .details-col {
+        position: sticky;
+        top: 6rem;
+      }
+
+      .details-inner {
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
+          var(--color-surface);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 28px;
+        padding: 2rem;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+      }
+
+      .badge-row {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+      }
+
+      .condition-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--color-text-secondary);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.42rem 0.95rem;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .condition-badge.is-new {
+        background: rgba(76, 175, 80, 0.15);
+        color: #4caf50;
+      }
+
+      .cat-badge {
+        display: inline-block;
+        background: rgba(255, 87, 34, 0.1);
+        color: var(--color-accent);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.42rem 0.95rem;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 87, 34, 0.18);
+      }
+
+      .title {
+        font-size: clamp(1.65rem, 3vw, 2.35rem);
+        font-weight: 800;
+        color: var(--color-text);
+        line-height: 1.05;
+        margin: 0 0 1.35rem;
+        letter-spacing: -0.035em;
+      }
+
+      .price-card {
+        background:
+          linear-gradient(135deg, rgba(255, 87, 34, 0.16), rgba(255, 87, 34, 0.05)),
+          rgba(255, 87, 34, 0.08);
+        border: 1px solid rgba(255, 87, 34, 0.2);
+        border-radius: 20px;
+        padding: 1.15rem 1.3rem;
+        margin-bottom: 1.5rem;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      }
+
+      .price-value {
+        font-size: clamp(1.7rem, 3vw, 2.4rem);
+        font-weight: 800;
+        color: var(--color-accent);
+        letter-spacing: -0.04em;
+      }
+
+      /* Meta */
+      .meta-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-bottom: 1.8rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .meta-row {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-size: 0.88rem;
+        color: var(--color-text-secondary);
+      }
+
+      .meta-row svg {
+        flex-shrink: 0;
+      }
+
+      /* CTA */
+      .cta-link {
+        width: 100%;
+        justify-content: center;
+        text-decoration: none;
+        padding: 0.95rem 1.5rem;
+        border-radius: 16px;
+      }
+
+      .btn-maps {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        margin-top: 0.8rem;
+        padding: 0.9rem 1.5rem;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--color-text-secondary);
+        font-size: 0.88rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition:
+          border-color 0.25s,
+          color 0.25s;
+      }
+
+      .btn-maps:hover {
+        border-color: var(--color-accent);
+        color: var(--color-accent);
+      }
+
+      .whatsapp-contact {
+        margin-top: 1.6rem;
+        padding: 1.1rem;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .whatsapp-header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: var(--color-text);
+        margin-bottom: 0.85rem;
+      }
+
+      .whatsapp-listing-preview {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 0.85rem;
+        background: rgba(0, 0, 0, 0.18);
+        border-radius: 14px;
+        margin-bottom: 0.85rem;
+        font-size: 0.85rem;
+      }
+
+      .whatsapp-listing-preview strong {
+        color: var(--color-text);
+        line-height: 1.4;
+      }
+
+      .whatsapp-listing-preview span {
+        color: var(--color-accent);
+        font-weight: 600;
+      }
+
+      .whatsapp-textarea {
+        width: 100%;
+        padding: 0.85rem;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(0, 0, 0, 0.18);
+        color: var(--color-text);
+        font-size: 0.9rem;
+        font-family: inherit;
+        resize: vertical;
+        min-height: 70px;
+        margin-bottom: 0.85rem;
+        transition: border-color 0.25s;
+      }
+
+      .whatsapp-textarea::placeholder {
+        color: var(--color-text-muted);
+      }
+
+      .whatsapp-textarea:focus {
+        outline: none;
+        border-color: #25d366;
+      }
+
+      .btn-whatsapp {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 0.9rem 1rem;
+        border-radius: 14px;
+        background: #25d366;
+        color: #fff;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition:
+          background 0.25s,
+          transform 0.15s;
+      }
+
+      .btn-whatsapp:hover {
+        background: #1eb655;
+        transform: translateY(-1px);
+      }
+
+      .desc-section {
+        margin-top: 3rem;
+        padding-top: 2.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        max-width: 800px;
+      }
+
+      .desc-section h2 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--color-text);
+        margin-bottom: 1rem;
+      }
+
+      .desc-body {
+        font-size: 0.95rem;
+        line-height: 1.8;
+        color: var(--color-text-secondary);
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+
+      .related-section {
+        margin-top: 3rem;
+        padding-top: 2.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .related-section h2 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--color-text);
+        margin-bottom: 1.25rem;
+      }
+
+      .related-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1rem;
+      }
+
+      .related-card {
+        text-decoration: none;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
+          var(--color-surface);
+        transition:
+          border-color 0.25s,
+          transform 0.15s;
+      }
+
+      .related-card:hover {
+        border-color: var(--color-accent);
+        transform: translateY(-2px);
+      }
+
+      .related-img-wrap {
+        aspect-ratio: 4/3;
+        overflow: hidden;
+        background: #0d0d0d;
+      }
+
+      .related-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .related-info {
+        padding: 0.75rem 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+      }
+
+      .related-title {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--color-text);
+        line-height: 1.3;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .related-price {
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--color-accent);
+      }
+
+      /* ── Blog CTA Section ── */
+      .blog-cta-section {
+        margin-top: 2.5rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .blog-cta-section h2 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--color-text);
+        margin-bottom: 1rem;
+      }
+
+      .blog-cta-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 0.75rem;
+      }
+
+      .blog-cta-card {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem 1.25rem;
+        border-radius: 12px;
+        border: 1px solid var(--color-border);
+        background: var(--color-surface);
+        text-decoration: none;
+        transition:
+          border-color 0.25s,
+          background 0.2s;
+      }
+
+      .blog-cta-card:hover {
+        border-color: var(--color-accent);
+        background: rgba(255, 87, 34, 0.05);
+      }
+
+      .blog-cta-icon {
+        font-size: 1.3rem;
+        flex-shrink: 0;
+      }
+
+      .blog-cta-text {
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--color-text);
+        line-height: 1.35;
+      }
+
+      /* ── Not Found ── */
+      .not-found-wrap {
+        text-align: center;
+        padding: 8rem 1rem;
+      }
+
+      .not-found-wrap svg {
+        margin-bottom: 1rem;
+      }
+      .not-found-wrap p {
+        color: var(--color-text-secondary);
+        margin-bottom: 1.5rem;
+      }
+
+      /* ── Responsive ── */
+      @media (max-width: 960px) {
+        .detail-layout {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .sk-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .details-col {
+          position: static;
+        }
+
+        .details-inner {
+          padding: 1.5rem;
+        }
+
+        .breadcrumb-bar {
+          padding-top: 5.5rem;
+          margin-bottom: 1.5rem;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .main-image-wrap {
+          border-radius: 14px;
+        }
+
+        .title {
+          font-size: 1.15rem;
+        }
+
+        .price-value {
+          font-size: 1.3rem;
+        }
+
+        .g-nav {
+          opacity: 1;
+          width: 36px;
+          height: 36px;
+        }
+      }
+    `,
+  ],
+})
+export class ShowroomDetailComponent implements OnInit, OnDestroy {
+  private translationService = inject(TranslationService);
+  private apiService = inject(ApiService);
+  private route = inject(ActivatedRoute);
+  private titleService = inject(Title);
+  private metaService = inject(Meta);
+  private document = inject(DOCUMENT);
+
+  private productSchemaElement: HTMLScriptElement | null = null;
+
+  t = this.translationService.translations;
+  lang = this.translationService.currentLanguage;
+
+  listing = signal<KleinanzeigenListing | null>(null);
+  relatedListings = signal<KleinanzeigenListing[]>([]);
+  loading = signal(true);
+  selectedImage = signal(0);
+  userWhatsappMessage = '';
+  private whatsappPhone = '[WA_NUMARA]';
+
+  private static readonly NEW_PATTERN =
+    /\b(neue?[smrn]?|nagelneu|brandneu|unbenutzt|originalverpackt|\bovp\b)\b/i;
+
+  isNew = () =>
+    ShowroomDetailComponent.NEW_PATTERN.test(this.listing()?.title || '');
+
+  displayCategory(): string | null {
+    const cat = this.listing()?.category;
+    if (!cat || /kleinanzeigen|[SEHIR]/i.test(cat)) return null;
+    return cat;
+  }
+
+  getWhatsappLink(): string {
+    const listing = this.listing();
+    if (!listing) return '';
+
+    const t = this.t();
+    const priceText = listing.price ? ` - ${listing.price}€` : '';
+    const listingUrl = `https://[DOMAIN]/showroom/${listing.id}`;
+    const baseText = `${listingUrl}\n\n${t.whatsappInterested}\n${listing.title}${priceText}\n\n`;
+    const userMsg = this.userWhatsappMessage.trim();
+    const fullText =
+      baseText + (userMsg ? `${t.whatsappQuestion}\n${userMsg}` : '');
+
+    return `https://wa.me/${this.whatsappPhone}?text=${encodeURIComponent(fullText)}`;
+  }
+
+  ngOnInit(): void {
+    this.apiService.getShopInfo().subscribe({
+      next: (data) => {
+        if (data?.telefon) {
+          this.whatsappPhone = data.telefon.replace(/[^0-9]/g, '');
+        }
+      },
+    });
+
+    this.route.params.subscribe((params) => {
+      const id = +params['id'];
+      if (id) {
+        this.loadListing(id);
+      }
+    });
+  }
+
+  private loadListing(id: number): void {
+    // ID >= 900000 means BikeHaus bicycle (offset to avoid collision with KA IDs)
+    const BIKEHAUS_ID_OFFSET = 900000;
+
+    if (id >= BIKEHAUS_ID_OFFSET) {
+      // BikeHaus bicycle - get from gebrauchte-fahrraeder endpoint
+      const realId = id - BIKEHAUS_ID_OFFSET;
+      this.apiService.getGebrauchteFahrradById(realId).subscribe({
+        next: (bike) => {
+          // Convert PublicBicycle to KleinanzeigenListing format
+          const listing = this.convertBicycleToListing(bike, id);
+          this.listing.set(listing);
+          this.loading.set(false);
+          this.updateSeoMeta(listing, id);
+          this.loadRelated(listing);
+        },
+        error: () => this.loading.set(false),
+      });
+    } else {
+      // Kleinanzeigen listing
+      this.apiService.getListingById(id).subscribe({
+        next: (data) => {
+          this.listing.set(data);
+          this.loading.set(false);
+          this.updateSeoMeta(data, id);
+          this.loadRelated(data);
+        },
+        error: () => this.loading.set(false),
+      });
+    }
+  }
+
+  private loadRelated(current: KleinanzeigenListing): void {
+    this.apiService.getListings().subscribe({
+      next: (all) => {
+        const category = current.category?.toLowerCase() || '';
+        const related = all
+          .filter(
+            (l) =>
+              l.id !== current.id &&
+              l.category?.toLowerCase() === category &&
+              l.images.length > 0,
+          )
+          .slice(0, 4);
+        // If not enough in same category, fill with random others
+        if (related.length < 4) {
+          const others = all
+            .filter(
+              (l) =>
+                l.id !== current.id &&
+                !related.find((r) => r.id === l.id) &&
+                l.images.length > 0,
+            )
+            .slice(0, 4 - related.length);
+          related.push(...others);
+        }
+        this.relatedListings.set(related);
+      },
+    });
+  }
+
+  private convertBicycleToListing(
+    bike: PublicBicycle,
+    displayId: number,
+  ): KleinanzeigenListing {
+    const titleParts = [bike.marke, bike.modell];
+    if (bike.fahrradtyp) titleParts.push(bike.fahrradtyp);
+    if (bike.reifengroesse) titleParts.push(`${bike.reifengroesse} Zoll`);
+    if (bike.rahmengroesse) titleParts.push(`${bike.rahmengroesse} cm`);
+
+    const baseUrl = environment.apiUrl;
+
+    return {
+      id: displayId,
+      externalId: `bike-${bike.id}`,
+      title: titleParts.join(' '),
+      description: bike.beschreibung || '',
+      price: bike.preis || undefined,
+      priceText: bike.preis ? `${bike.preis} €` : 'VB',
+      category: this.mapArtToCategory(bike.art),
+      location: '[SEHIR]',
+      externalUrl: '',
+      isActive: true,
+      firstScrapedAt: bike.createdAt,
+      lastScrapedAt: bike.createdAt,
+      images: bike.images.map((img, idx) => ({
+        id: img.id,
+        kleinanzeigenListingId: displayId,
+        imageUrl: `${baseUrl}/gallery-image/${img.filePath}`,
+        localPath: img.filePath,
+        sortOrder: img.sortOrder,
+      })),
+    };
+  }
+
+  private mapArtToCategory(art?: string): string {
+    if (!art) return 'Sonstige Fahrräder';
+    const lower = art.toLowerCase();
+    if (lower.includes('herren')) return 'Herren Fahrräder';
+    if (lower.includes('damen')) return 'Damen Fahrräder';
+    if (lower.includes('kinder')) return 'Kinder Fahrräder';
+    if (lower.includes('unisex')) return 'Sonstige Fahrräder';
+    return 'Sonstige Fahrräder';
+  }
+
+  private updateSeoMeta(data: KleinanzeigenListing, id: number): void {
+    if (data) {
+      const title = `${data.title} — Karaaslan Bisiklet`;
+      const price = data.price ? `${data.price}€` : '';
+      const desc = `${data.title} ${price}. ${this.t().detailMetaDescSuffix}`;
+
+      this.titleService.setTitle(title);
+      this.metaService.updateTag({ name: 'description', content: desc });
+      this.metaService.updateTag({ property: 'og:title', content: title });
+      this.metaService.updateTag({
+        property: 'og:description',
+        content: desc,
+      });
+      this.metaService.updateTag({
+        property: 'og:url',
+        content: `https://[DOMAIN]/showroom/${id}`,
+      });
+      if (data.images?.length) {
+        this.metaService.updateTag({
+          property: 'og:image',
+          content: data.images[0].imageUrl,
+        });
+      }
+
+      // Add Product Schema.org for SEO
+      this.addProductSchema(data, id);
+    }
+  }
+
+  private addProductSchema(data: KleinanzeigenListing, id: number): void {
+    // Remove existing schema if any
+    this.removeProductSchema();
+
+    const schema = {
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      '@id': `https://[DOMAIN]/${this.lang()}/showroom/${id}#product`,
+      name: data.title,
+      description: data.description || data.title,
+      image: data.images?.map((img) => img.imageUrl) || [],
+      url: `https://[DOMAIN]/${this.lang()}/showroom/${id}`,
+      brand: {
+        '@type': 'Brand',
+        name: 'Karaaslan Bisiklet',
+      },
+      seller: {
+        '@type': 'LocalBusiness',
+        name: 'Karaaslan Bisiklet',
+        url: 'https://[DOMAIN]',
+      },
+      offers: {
+        '@type': 'Offer',
+        url: `https://[DOMAIN]/${this.lang()}/showroom/${id}`,
+        priceCurrency: 'EUR',
+        price: data.price || 0,
+        priceValidUntil: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
+          .toISOString()
+          .split('T')[0],
+        availability: 'https://schema.org/InStock',
+        itemCondition: this.isNew()
+          ? 'https://schema.org/NewCondition'
+          : 'https://schema.org/UsedCondition',
+        seller: {
+          '@type': 'LocalBusiness',
+          name: 'Karaaslan Bisiklet',
+        },
+      },
+      category: data.category || this.t().bikeFallbackCategory,
+    };
+
+    this.productSchemaElement = this.document.createElement('script');
+    this.productSchemaElement.type = 'application/ld+json';
+    this.productSchemaElement.text = JSON.stringify(schema);
+    this.document.head.appendChild(this.productSchemaElement);
+  }
+
+  private removeProductSchema(): void {
+    if (this.productSchemaElement && this.productSchemaElement.parentNode) {
+      this.productSchemaElement.parentNode.removeChild(
+        this.productSchemaElement,
+      );
+      this.productSchemaElement = null;
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.removeProductSchema();
+  }
+
+  prevImage(): void {
+    const images = this.listing()?.images || [];
+    const current = this.selectedImage();
+    this.selectedImage.set(current === 0 ? images.length - 1 : current - 1);
+  }
+
+  nextImage(): void {
+    const images = this.listing()?.images || [];
+    const current = this.selectedImage();
+    this.selectedImage.set(current === images.length - 1 ? 0 : current + 1);
+  }
+
+  formatDescription(text: string): string {
+    return text.replace(/\n/g, '<br>');
+  }
+
+  onImageError(event: Event): void {
+    const img = event.target as HTMLImageElement;
+    img.style.display = 'none';
+  }
+}
+

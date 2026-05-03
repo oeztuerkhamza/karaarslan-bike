@@ -1,0 +1,895 @@
+﻿import {
+  Component,
+  OnInit,
+  OnDestroy,
+  HostListener,
+  ElementRef,
+  inject,
+} from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { BicycleService } from '../../services/bicycle.service';
+import { ExcelExportService } from '../../services/excel-export.service';
+import { TranslationService } from '../../services/translation.service';
+import { NotificationService } from '../../services/notification.service';
+import { DialogService } from '../../services/dialog.service';
+import { Bicycle, BikeStatus, PaginatedResult } from '../../models/models';
+import { PaginationComponent } from '../../components/pagination/pagination.component';
+
+@Component({
+  selector: 'app-bicycle-list',
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterLink, PaginationComponent],
+  template: `
+    <div class="page">
+      <div class="page-header">
+        <h1>{{ t.bicycles }}</h1>
+        <div class="header-actions">
+          <a routerLink="/purchases/new" class="btn btn-primary"
+            >+ {{ t.newPurchase }}</a
+          >
+        </div>
+      </div>
+
+      <div class="filters">
+        <input
+          type="text"
+          [placeholder]="t.searchBicyclePlaceholder"
+          [(ngModel)]="searchTerm"
+          (input)="onSearch()"
+          class="search-input"
+        />
+        <button
+          class="btn btn-outline filter-toggle"
+          [class.active]="showFilters"
+          (click)="showFilters = !showFilters"
+        >
+          🔽 {{ t.filters }}
+          <span class="filter-badge" *ngIf="activeFilterCount > 0">{{
+            activeFilterCount
+          }}</span>
+        </button>
+        <button
+          *ngIf="activeFilterCount > 0"
+          class="btn btn-outline btn-clear"
+          (click)="clearFilters()"
+        >
+          ✕ {{ t.clearFilters }}
+        </button>
+      </div>
+
+      <!-- Advanced Filters Row -->
+      <div class="filter-row" *ngIf="showFilters">
+        <div class="filter-item">
+          <label>{{ t.status }}</label>
+          <select [(ngModel)]="statusFilter" (change)="onFilterChange()">
+            <option value="">{{ t.allStatus }}</option>
+            <option value="Available">{{ t.available }}</option>
+            <option value="Sold">{{ t.sold }}</option>
+            <option value="Reserved">{{ t.reserved }}</option>
+          </select>
+        </div>
+        <div class="filter-item">
+          <label>{{ t.condition }}</label>
+          <select [(ngModel)]="zustandFilter" (change)="onFilterChange()">
+            <option value="">{{ t.all }}</option>
+            <option value="Neu">{{ t.newCondition }}</option>
+            <option value="Gebraucht">{{ t.usedCondition }}</option>
+          </select>
+        </div>
+        <div class="filter-item">
+          <label>{{ t.wheelSize }}</label>
+          <select [(ngModel)]="reifengroesseFilter" (change)="onFilterChange()">
+            <option value="">{{ t.all }}</option>
+            <option value="12">12"</option>
+            <option value="14">14"</option>
+            <option value="16">16"</option>
+            <option value="18">18"</option>
+            <option value="20">20"</option>
+            <option value="24">24"</option>
+            <option value="26">26"</option>
+            <option value="27.5">27.5"</option>
+            <option value="28">28"</option>
+            <option value="29">29"</option>
+          </select>
+        </div>
+        <div class="filter-item">
+          <label>{{ t.bicycleType }}</label>
+          <select [(ngModel)]="fahrradtypFilter" (change)="onFilterChange()">
+            <option value="">{{ t.all }}</option>
+            <option value="E-Bike">E-Bike</option>
+            <option value="E-Trekking Pedelec">E-Trekking Pedelec</option>
+            <option value="Trekking">Trekking</option>
+            <option value="City">City</option>
+            <option value="MTB">Mountainbike</option>
+            <option value="Rennrad">Rennrad</option>
+            <option value="Kinderfahrrad">Kinderfahrrad</option>
+            <option value="Lastenrad">Lastenrad</option>
+            <option value="Sonstige">Sonstige</option>
+          </select>
+        </div>
+        <div class="filter-item">
+          <label>{{ t.brand }}</label>
+          <input
+            type="text"
+            [(ngModel)]="markeFilter"
+            (input)="onFilterChange()"
+            [placeholder]="t.filterByBrand"
+          />
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>{{ t.brand }}</th>
+              <th>{{ t.model }}</th>
+              <th>{{ t.frameNumber }}</th>
+              <th>{{ t.wheelSize }}</th>
+              <th>{{ t.bicycleType }}</th>
+              <th>{{ t.condition }}</th>
+              <th>{{ t.status }}</th>
+              <th class="actions-col">{{ t.actions }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="let b of paginatedResult?.items"
+              class="clickable-row"
+              (click)="toggleMenu($event, b)"
+            >
+              <td>{{ b.marke }}</td>
+              <td>{{ b.modell }}</td>
+              <td class="mono" style="text-transform: uppercase">
+                {{ b.rahmennummer || '–' }}
+              </td>
+              <td>{{ b.reifengroesse ? b.reifengroesse + '"' : '–' }}</td>
+              <td>{{ b.fahrradtyp || '–' }}</td>
+              <td>
+                <span
+                  class="badge"
+                  [class]="'badge-' + b.zustand.toLowerCase()"
+                >
+                  {{ b.zustand }}
+                </span>
+              </td>
+              <td>
+                <span class="badge" [class]="'badge-' + b.status.toLowerCase()">
+                  {{ statusLabel(b.status) }}
+                </span>
+                <span
+                  class="publish-icon"
+                  *ngIf="b.isPublishedOnWebsite"
+                  title="Website"
+                  >🌐</span
+                >
+                <span
+                  class="publish-icon"
+                  *ngIf="b.isPublishedOnKleinanzeigen"
+                  title="Kleinanzeigen"
+                  >📢</span
+                >
+                <span
+                  class="publish-icon ka-nr"
+                  *ngIf="b.kleinanzeigenAnzeigeNr"
+                  [title]="'KA: ' + b.kleinanzeigenAnzeigeNr"
+                  >🔖</span
+                >
+              </td>
+              <td class="actions-cell">
+                <span class="action-icon">⋮</span>
+                <div
+                  *ngIf="activeMenuId === b.id"
+                  class="popup-menu"
+                  (click)="$event.stopPropagation()"
+                >
+                  <button class="popup-item" (click)="goToDetail(b)">
+                    <span class="popup-icon">🔍</span>
+                    {{ t.details }}
+                  </button>
+                  <button
+                    *ngIf="b.status === 'Available'"
+                    class="popup-item popup-item-primary"
+                    (click)="goToSale(b)"
+                  >
+                    <span class="popup-icon">💰</span>
+                    {{ t.sell }}
+                  </button>
+                  <!-- <button
+                    *ngIf="b.status === 'Available'"
+                    class="popup-item popup-item-publish"
+                    (click)="togglePublishWebsite(b)"
+                  >
+                    <span class="popup-icon">🌐</span>
+                    {{ b.isPublishedOnWebsite ? t.unpublishFromWebsite : t.publishOnWebsite }}
+                  </button>
+                  <button
+                    *ngIf="b.status === 'Available'"
+                    class="popup-item popup-item-kleinanzeigen"
+                    (click)="togglePublishKleinanzeigen(b)"
+                  >
+                    <span class="popup-icon">📢</span>
+                    {{ b.isPublishedOnKleinanzeigen ? t.unpublishFromKleinanzeigen : t.publishOnKleinanzeigen }}
+                  </button> -->
+                  <button
+                    *ngIf="b.kleinanzeigenAnzeigeNr"
+                    class="popup-item popup-item-danger"
+                    (click)="deleteKleinanzeigenAd(b)"
+                  >
+                    <span class="popup-icon">🗑️</span>
+                    KA-Anzeige löschen
+                  </button>
+                  <div class="popup-divider"></div>
+                  <button
+                    class="popup-item popup-item-danger"
+                    (click)="deleteBicycle(b)"
+                  >
+                    <span class="popup-icon">🗑️</span>
+                    {{ t.delete }}
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p *ngIf="paginatedResult?.items?.length === 0" class="empty">
+          {{ t.noBicyclesFound }}
+        </p>
+
+        <app-pagination
+          *ngIf="paginatedResult && paginatedResult.totalCount > 0"
+          [currentPage]="currentPage"
+          [pageSize]="pageSize"
+          [totalCount]="paginatedResult.totalCount"
+          [totalPages]="paginatedResult.totalPages"
+          [hasPrevious]="paginatedResult.hasPrevious"
+          [hasNext]="paginatedResult.hasNext"
+          (pageChange)="onPageChange($event)"
+          (pageSizeChange)="onPageSizeChange($event)"
+        ></app-pagination>
+      </div>
+    </div>
+  `,
+  styles: [
+    `
+      .page {
+        max-width: 1200px;
+        margin: 0 auto;
+        animation: fadeIn 0.4s ease;
+      }
+      .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 22px;
+      }
+      .page-header h1 {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--text-primary);
+      }
+      .header-actions {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      .filters {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 14px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .search-input {
+        flex: 1;
+        min-width: 250px;
+        padding: 10px 14px;
+        border: 1.5px solid var(--border-light, #e2e8f0);
+        border-radius: var(--radius-md, 10px);
+        font-size: 0.92rem;
+        background: var(--bg-card, #fff);
+        color: var(--text-primary);
+        transition: var(--transition-fast);
+      }
+      .search-input:focus {
+        outline: none;
+        border-color: var(--accent-primary, #6366f1);
+        box-shadow: 0 0 0 3px
+          var(--accent-primary-light, rgba(99, 102, 241, 0.1));
+      }
+      .filter-toggle {
+        position: relative;
+      }
+      .filter-toggle.active {
+        border-color: var(--accent-primary, #6366f1);
+        color: var(--accent-primary, #6366f1);
+        background: var(--accent-primary-light, rgba(99, 102, 241, 0.06));
+      }
+      .filter-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 18px;
+        height: 18px;
+        padding: 0 5px;
+        background: var(--accent-primary, #6366f1);
+        color: white;
+        border-radius: 50px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        margin-left: 6px;
+      }
+      .btn-clear {
+        color: var(--accent-danger, #ef4444);
+        border-color: var(--accent-danger, #ef4444);
+      }
+      .btn-clear:hover {
+        background: var(--accent-danger-light, rgba(239, 68, 68, 0.08));
+      }
+      .filter-row {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 18px;
+        flex-wrap: wrap;
+        padding: 16px;
+        background: var(--bg-card, #fff);
+        border: 1.5px solid var(--border-light, #e2e8f0);
+        border-radius: var(--radius-lg, 14px);
+        animation: fadeIn 0.2s ease;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-4px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .filter-item {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        min-width: 140px;
+        flex: 1;
+      }
+      .filter-item label {
+        font-size: 0.72rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        color: var(--text-secondary, #64748b);
+      }
+      .filter-item select,
+      .filter-item input {
+        padding: 8px 10px;
+        border: 1.5px solid var(--border-light, #e2e8f0);
+        border-radius: var(--radius-md, 10px);
+        font-size: 0.85rem;
+        background: var(--bg-card, #fff);
+        color: var(--text-primary);
+        transition: var(--transition-fast);
+      }
+      .filter-item select:focus,
+      .filter-item input:focus {
+        outline: none;
+        border-color: var(--accent-primary, #6366f1);
+        box-shadow: 0 0 0 3px
+          var(--accent-primary-light, rgba(99, 102, 241, 0.1));
+      }
+      .table-container {
+        background: var(--bg-card, #fff);
+        border-radius: var(--radius-lg, 14px);
+        border: 1.5px solid var(--border-light, #e2e8f0);
+        overflow: visible;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th {
+        text-align: left;
+        padding: 10px 12px;
+        background: var(--table-stripe, #f8fafc);
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--text-secondary, #64748b);
+        border-bottom: 1.5px solid var(--border-light, #e2e8f0);
+      }
+      td {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        color: var(--text-primary);
+        border-bottom: 1px solid var(--border-light, #e2e8f0);
+      }
+      .clickable-row {
+        cursor: pointer;
+        transition: var(--transition-fast);
+      }
+      .clickable-row:hover td {
+        background: var(--table-hover, #f1f5f9);
+      }
+      .mono {
+        font-family: 'SF Mono', 'Consolas', monospace;
+        font-size: 0.82rem;
+        color: var(--accent-primary, #6366f1);
+        background: var(--accent-primary-light, rgba(99, 102, 241, 0.08));
+        padding: 2px 8px;
+        border-radius: 6px;
+        font-weight: 600;
+      }
+      .badge {
+        padding: 4px 11px;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+      .badge-available {
+        background: var(--accent-success-light, rgba(16, 185, 129, 0.08));
+        color: var(--accent-success, #10b981);
+      }
+      .badge-sold {
+        background: var(--accent-danger-light, rgba(239, 68, 68, 0.08));
+        color: var(--accent-danger, #ef4444);
+      }
+      .badge-reserved {
+        background: rgba(245, 158, 11, 0.08);
+        color: #f59e0b;
+      }
+      .badge-neu {
+        background: rgba(59, 130, 246, 0.08);
+        color: #3b82f6;
+      }
+      .badge-gebraucht {
+        background: rgba(100, 116, 139, 0.08);
+        color: #64748b;
+      }
+      .actions-col {
+        width: 80px;
+        text-align: center;
+      }
+      .actions-cell {
+        position: relative;
+        text-align: center;
+      }
+      .action-icon {
+        font-size: 1.3rem;
+        color: var(--text-secondary, #64748b);
+        cursor: pointer;
+        padding: 4px 8px;
+        border-radius: var(--radius-sm, 6px);
+        transition: var(--transition-fast);
+      }
+      .action-icon:hover {
+        background: var(--table-hover, #f1f5f9);
+        color: var(--accent-primary, #6366f1);
+      }
+      .popup-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        z-index: 9999;
+        min-width: 170px;
+        background: var(--bg-card, #fff);
+        border: 1.5px solid var(--border-light, #e2e8f0);
+        border-radius: var(--radius-lg, 14px);
+        box-shadow: var(--shadow-lg);
+        padding: 6px 0;
+        animation: fadeIn 0.15s ease;
+      }
+      .popup-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        padding: 9px 14px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-size: 0.88rem;
+        font-weight: 500;
+        color: var(--text-primary);
+        text-align: left;
+        transition: var(--transition-fast);
+        border-radius: 0;
+      }
+      .popup-item:hover {
+        background: var(--table-hover, #f1f5f9);
+      }
+      .popup-item-primary {
+        color: var(--accent-success, #10b981);
+      }
+      .popup-item-primary:hover {
+        background: var(--accent-success-light, rgba(16, 185, 129, 0.08));
+      }
+      .popup-item-publish {
+        color: #8b5cf6;
+      }
+      .popup-item-publish:hover {
+        background: rgba(139, 92, 246, 0.08);
+      }
+      .popup-item-kleinanzeigen {
+        color: #059669;
+      }
+      .popup-item-kleinanzeigen:hover {
+        background: rgba(5, 150, 105, 0.08);
+      }
+      .popup-item-danger {
+        color: var(--accent-danger, #ef4444);
+      }
+      .popup-item-danger:hover {
+        background: var(--accent-danger-light, rgba(239, 68, 68, 0.08));
+      }
+      .popup-icon {
+        font-size: 1rem;
+      }
+      .popup-divider {
+        height: 1px;
+        background: var(--border-light, #e2e8f0);
+        margin: 4px 0;
+      }
+      .empty {
+        text-align: center;
+        color: var(--text-secondary, #64748b);
+        padding: 48px 20px;
+        font-size: 0.95rem;
+      }
+      .publish-icon {
+        font-size: 0.75rem;
+        margin-left: 4px;
+        vertical-align: middle;
+      }
+      .btn {
+        padding: 8px 16px;
+        border-radius: var(--radius-md, 10px);
+        font-weight: 600;
+        font-size: 0.85rem;
+        cursor: pointer;
+        border: none;
+        transition: var(--transition-fast);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        text-decoration: none;
+      }
+      .btn-primary {
+        background: var(--accent-primary, #6366f1);
+        color: white;
+      }
+      .btn-primary:hover {
+        background: var(--accent-primary-hover, #4f46e5);
+        box-shadow: var(--shadow-sm);
+      }
+      .btn-outline {
+        background: var(--bg-card, #fff);
+        color: var(--text-primary);
+        border: 1.5px solid var(--border-light, #e2e8f0);
+      }
+      .btn-outline:hover {
+        border-color: var(--accent-primary, #6366f1);
+        color: var(--accent-primary, #6366f1);
+        background: var(--accent-primary-light, rgba(99, 102, 241, 0.06));
+      }
+    `,
+  ],
+})
+export class BicycleListComponent implements OnInit, OnDestroy {
+  private translationService = inject(TranslationService);
+  private notificationService = inject(NotificationService);
+  private dialogService = inject(DialogService);
+  paginatedResult: PaginatedResult<Bicycle> | null = null;
+  searchTerm = '';
+  statusFilter = '';
+  zustandFilter = '';
+  fahrradtypFilter = '';
+  reifengroesseFilter = '';
+  markeFilter = '';
+  showFilters = false;
+  activeMenuId: number | null = null;
+  currentPage = 1;
+  pageSize = 20;
+
+  private searchDebounce: any;
+  private messageHandler: ((event: MessageEvent) => void) | null = null;
+
+  get t() {
+    return this.translationService.translations();
+  }
+
+  get activeFilterCount(): number {
+    let count = 0;
+    if (this.statusFilter) count++;
+    if (this.zustandFilter) count++;
+    if (this.fahrradtypFilter) count++;
+    if (this.reifengroesseFilter) count++;
+    if (this.markeFilter) count++;
+    return count;
+  }
+
+  constructor(
+    private bicycleService: BicycleService,
+    private router: Router,
+    private elementRef: ElementRef,
+    private excelExportService: ExcelExportService,
+  ) {}
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    if (!this.elementRef.nativeElement.contains(event.target)) {
+      this.activeMenuId = null;
+    }
+  }
+
+  ngOnInit() {
+    this.load();
+
+    // Listen for Kleinanzeigen ad number from Chrome extension
+    this.messageHandler = (event: MessageEvent) => {
+      if (
+        event.data?.type === 'BIKEHAUS_KA_AD_SAVED' &&
+        event.data.bicycleId &&
+        event.data.anzeigeNr
+      ) {
+        this.bicycleService
+          .setKleinanzeigenAnzeigeNr(event.data.bicycleId, event.data.anzeigeNr)
+          .subscribe({
+            next: () => {
+              this.notificationService.success(
+                `Kleinanzeigen Anzeige-Nr ${event.data.anzeigeNr} gespeichert`,
+              );
+              this.load();
+            },
+            error: () => {
+              this.notificationService.error(
+                'Fehler beim Speichern der Anzeige-Nr',
+              );
+            },
+          });
+      }
+    };
+    window.addEventListener('message', this.messageHandler);
+  }
+
+  ngOnDestroy() {
+    if (this.messageHandler) {
+      window.removeEventListener('message', this.messageHandler);
+    }
+  }
+
+  load() {
+    this.bicycleService
+      .getPaginated(
+        this.currentPage,
+        this.pageSize,
+        this.statusFilter || undefined,
+        this.searchTerm || undefined,
+        this.zustandFilter || undefined,
+        this.fahrradtypFilter || undefined,
+        this.reifengroesseFilter || undefined,
+        this.markeFilter || undefined,
+      )
+      .subscribe((data) => {
+        this.paginatedResult = data;
+      });
+  }
+
+  onSearch() {
+    clearTimeout(this.searchDebounce);
+    this.searchDebounce = setTimeout(() => {
+      this.currentPage = 1;
+      this.load();
+    }, 300);
+  }
+
+  onFilterChange() {
+    this.currentPage = 1;
+    this.load();
+  }
+
+  clearFilters() {
+    this.statusFilter = '';
+    this.zustandFilter = '';
+    this.fahrradtypFilter = '';
+    this.reifengroesseFilter = '';
+    this.markeFilter = '';
+    this.currentPage = 1;
+    this.load();
+  }
+
+  onPageChange(page: number) {
+    this.currentPage = page;
+    this.load();
+  }
+
+  onPageSizeChange(size: number) {
+    this.pageSize = size;
+    this.currentPage = 1;
+    this.load();
+  }
+
+  statusLabel(s: BikeStatus): string {
+    const map: Record<string, string> = {
+      Available: this.t.available,
+      Sold: this.t.sold,
+      Reserved: this.t.reserved,
+    };
+    return map[s] || s;
+  }
+
+  toggleMenu(event: MouseEvent, bicycle: Bicycle) {
+    event.stopPropagation();
+    this.activeMenuId = this.activeMenuId === bicycle.id ? null : bicycle.id;
+  }
+
+  closeMenu() {
+    this.activeMenuId = null;
+  }
+
+  goToDetail(b: Bicycle) {
+    this.closeMenu();
+    this.router.navigate(['/bicycles', b.id]);
+  }
+
+  goToSale(b: Bicycle) {
+    this.closeMenu();
+    this.router.navigate(['/sales/new'], { queryParams: { bicycleId: b.id } });
+  }
+
+  togglePublishWebsite(b: Bicycle) {
+    this.closeMenu();
+    this.bicycleService.togglePublishWebsite(b.id).subscribe({
+      next: (updated) => {
+        this.notificationService.success(
+          updated.isPublishedOnWebsite
+            ? this.t.publishedOnWebsite
+            : this.t.unpublishedFromWebsite,
+        );
+        this.load();
+      },
+      error: () => {
+        this.notificationService.error(this.t.saveChangesError);
+      },
+    });
+  }
+
+  togglePublishKleinanzeigen(b: Bicycle) {
+    this.closeMenu();
+    this.bicycleService.togglePublishKleinanzeigen(b.id).subscribe({
+      next: (updated) => {
+        this.notificationService.success(
+          updated.isPublishedOnKleinanzeigen
+            ? this.t.publishedOnKleinanzeigen
+            : this.t.unpublishedFromKleinanzeigen,
+        );
+        if (updated.isPublishedOnKleinanzeigen) {
+          // Fetch full bike details including images, then send to Chrome extension
+          this.bicycleService.getById(b.id).subscribe({
+            next: (fullBike) => {
+              // Determine API base URL for image serving
+              const apiBaseUrl =
+                window.location.hostname === 'localhost'
+                  ? 'http://localhost:5196/api'
+                  : `${window.location.protocol}//api.${window.location.hostname.replace('admin.', '')}/api`;
+
+              // Send bicycle data to Chrome extension via postMessage
+              window.postMessage(
+                {
+                  type: 'BIKEHAUS_KA_PUBLISH',
+                  bicycle: {
+                    id: fullBike.id,
+                    marke: fullBike.marke,
+                    modell: fullBike.modell,
+                    fahrradtyp: fullBike.fahrradtyp,
+                    art: fullBike.art,
+                    rahmengroesse: fullBike.rahmengroesse,
+                    reifengroesse: fullBike.reifengroesse,
+                    farbe: fullBike.farbe,
+                    zustand: fullBike.zustand,
+                    beschreibung: fullBike.beschreibung,
+                    verkaufspreisVorschlag: fullBike.verkaufspreisVorschlag,
+                    images: fullBike.images || [],
+                    apiBaseUrl: apiBaseUrl,
+                  },
+                },
+                '*',
+              );
+            },
+          });
+        } else {
+          this.load();
+        }
+      },
+      error: () => {
+        this.notificationService.error(this.t.saveChangesError);
+      },
+    });
+  }
+
+  exportExcel() {
+    const data = this.paginatedResult?.items || [];
+    this.excelExportService.exportToExcel(data, 'Fahrraeder', [
+      { key: 'marke', header: 'Marke' },
+      { key: 'modell', header: 'Modell' },
+      { key: 'rahmennummer', header: 'Rahmennummer' },
+      { key: 'farbe', header: 'Farbe' },
+      { key: 'reifengroesse', header: 'Reifengröße' },
+      { key: 'fahrradtyp', header: 'Fahrradtyp' },
+      { key: 'zustand', header: 'Zustand' },
+      { key: 'status', header: 'Status' },
+    ]);
+  }
+
+  deleteBicycle(b: Bicycle) {
+    this.closeMenu();
+    this.dialogService
+      .danger(this.t.delete, this.t.deleteConfirmBicycle)
+      .then((confirmed) => {
+        if (confirmed) {
+          this.bicycleService.delete(b.id).subscribe({
+            next: () => {
+              this.notificationService.success(this.t.deleteSuccess);
+              this.load();
+            },
+            error: (err) => {
+              this.notificationService.error(
+                err.error?.error || this.t.deleteError,
+              );
+            },
+          });
+        }
+      });
+  }
+
+  deleteKleinanzeigenAd(b: Bicycle) {
+    this.closeMenu();
+    if (!b.kleinanzeigenAnzeigeNr) return;
+    this.dialogService
+      .danger(
+        'KA-Anzeige löschen',
+        `Anzeige ${b.kleinanzeigenAnzeigeNr} auf Kleinanzeigen löschen?`,
+      )
+      .then((confirmed) => {
+        if (confirmed) {
+          // Send delete request to Chrome extension
+          window.postMessage(
+            {
+              type: 'BIKEHAUS_KA_DELETE',
+              bicycleId: b.id,
+              anzeigeNr: b.kleinanzeigenAnzeigeNr,
+            },
+            '*',
+          );
+          // Clear the Anzeige-Nr in the backend
+          this.bicycleService.setKleinanzeigenAnzeigeNr(b.id, '').subscribe({
+            next: () => {
+              // Also unpublish from KA if published
+              if (b.isPublishedOnKleinanzeigen) {
+                this.bicycleService.togglePublishKleinanzeigen(b.id).subscribe({
+                  next: () => {
+                    this.notificationService.success(
+                      'KA-Anzeige gelöscht & Veröffentlichung aufgehoben',
+                    );
+                    this.load();
+                  },
+                });
+              } else {
+                this.notificationService.success('KA-Anzeige-Nr entfernt');
+                this.load();
+              }
+            },
+            error: () => {
+              this.notificationService.error(
+                'Fehler beim Entfernen der Anzeige-Nr',
+              );
+            },
+          });
+        }
+      });
+  }
+}
