@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Homepage German (Default) -->
+  <url>
+    <loc>https://[DOMAIN]/de</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://[DOMAIN]/de"/>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Showroom -->
+  <url>
+    <loc>https://[DOMAIN]/de/showroom</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/showroom"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/showroom"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/showroom"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/showroom"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://[DOMAIN]/de/showroom"/>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.97</priority>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://[DOMAIN]/de/about</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/about"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/about"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/about"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://[DOMAIN]/de/contact</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/contact"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Ratgeber (Blog) -->
+  <url>
+    <loc>https://[DOMAIN]/de/ratgeber</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/ratgeber"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/ratgeber"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/ratgeber"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/ratgeber"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://[DOMAIN]/de/ratgeber"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- FAQ -->
+  <url>
+    <loc>https://[DOMAIN]/de/faq</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/faq"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/faq"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/faq"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/faq"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://[DOMAIN]/de/faq"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Articles -->
+  <url>
+    <loc>https://[DOMAIN]/de/ratgeber/gebrauchtes-fahrrad-kaufen-tipps</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/ratgeber/gebrauchtes-fahrrad-kaufen-tipps"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/ratgeber/gebrauchtes-fahrrad-kaufen-tipps"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/ratgeber/gebrauchtes-fahrrad-kaufen-tipps"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/ratgeber/gebrauchtes-fahrrad-kaufen-tipps"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://[DOMAIN]/de/ratgeber/welches-fahrrad-passt-zu-mir</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/ratgeber/welches-fahrrad-passt-zu-mir"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/ratgeber/welches-fahrrad-passt-zu-mir"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/ratgeber/welches-fahrrad-passt-zu-mir"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/ratgeber/welches-fahrrad-passt-zu-mir"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://[DOMAIN]/de/ratgeber/fahrrad-rahmengroesse-berechnen</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/ratgeber/fahrrad-rahmengroesse-berechnen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/ratgeber/fahrrad-rahmengroesse-berechnen"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/ratgeber/fahrrad-rahmengroesse-berechnen"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/ratgeber/fahrrad-rahmengroesse-berechnen"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://[DOMAIN]/de/ratgeber/e-bike-gebraucht-kaufen</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/ratgeber/e-bike-gebraucht-kaufen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/ratgeber/e-bike-gebraucht-kaufen"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/ratgeber/e-bike-gebraucht-kaufen"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/ratgeber/e-bike-gebraucht-kaufen"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://[DOMAIN]/de/ratgeber/fahrradladen-[SEHIR]</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/ratgeber/fahrradladen-[SEHIR]"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/ratgeber/fahrradladen-[SEHIR]"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/ratgeber/fahrradladen-[SEHIR]"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/ratgeber/fahrradladen-[SEHIR]"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://[DOMAIN]/de/ratgeber/kinderfahrrad-groesse</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/ratgeber/kinderfahrrad-groesse"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/ratgeber/kinderfahrrad-groesse"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/ratgeber/kinderfahrrad-groesse"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/ratgeber/kinderfahrrad-groesse"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://[DOMAIN]/de/ratgeber/fahrrad-inspektion-kosten</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/ratgeber/fahrrad-inspektion-kosten"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/ratgeber/fahrrad-inspektion-kosten"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/ratgeber/fahrrad-inspektion-kosten"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/ratgeber/fahrrad-inspektion-kosten"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://[DOMAIN]/de/ratgeber/fahrrad-pendler-stadtraeder</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/ratgeber/fahrrad-pendler-stadtraeder"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/ratgeber/fahrrad-pendler-stadtraeder"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/ratgeber/fahrrad-pendler-stadtraeder"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/ratgeber/fahrrad-pendler-stadtraeder"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Neue Fahrräder -->
+  <url>
+    <loc>https://[DOMAIN]/de/neue-fahrraeder</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/neue-fahrraeder"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/neue-fahrraeder"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/neue-fahrraeder"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/neue-fahrraeder"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://[DOMAIN]/de/neue-fahrraeder"/>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.92</priority>
+  </url>
+
+  <!-- Zubehör -->
+  <url>
+    <loc>https://[DOMAIN]/de/zubehoer</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/zubehoer"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/zubehoer"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/zubehoer"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/zubehoer"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://[DOMAIN]/de/zubehoer"/>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+
+  <!-- Fahrradverleih -->
+  <url>
+    <loc>https://[DOMAIN]/de/fahrradverleih</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/fahrradverleih"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/fahrradverleih"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/fahrradverleih"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/fahrradverleih"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://[DOMAIN]/de/fahrradverleih"/>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- Garantie -->
+  <url>
+    <loc>https://[DOMAIN]/de/garantie</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/garantie"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/garantie"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/garantie"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/garantie"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- City Landing Pages (Local SEO) -->
+  <url>
+    <loc>https://[DOMAIN]/de/fahrrad-emmendingen</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/fahrrad-emmendingen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/fahrrad-emmendingen"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/fahrrad-emmendingen"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/fahrrad-emmendingen"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://[DOMAIN]/de/fahrrad-bad-krozingen</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/fahrrad-bad-krozingen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/fahrrad-bad-krozingen"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/fahrrad-bad-krozingen"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/fahrrad-bad-krozingen"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://[DOMAIN]/de/fahrrad-breisach</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/fahrrad-breisach"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/fahrrad-breisach"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/fahrrad-breisach"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/fahrrad-breisach"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://[DOMAIN]/de/fahrrad-gundelfingen</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/fahrrad-gundelfingen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/fahrrad-gundelfingen"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/fahrrad-gundelfingen"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/fahrrad-gundelfingen"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://[DOMAIN]/de/fahrrad-march</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/fahrrad-march"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/fahrrad-march"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/fahrrad-march"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/fahrrad-march"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- English Pages -->
+  <url>
+    <loc>https://[DOMAIN]/en</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://[DOMAIN]/de"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://[DOMAIN]/en/showroom</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/showroom"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/showroom"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/showroom"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/showroom"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://[DOMAIN]/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/contact"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- French Pages -->
+  <url>
+    <loc>https://[DOMAIN]/fr</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://[DOMAIN]/de"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://[DOMAIN]/fr/showroom</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/showroom"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/showroom"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/showroom"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/showroom"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://[DOMAIN]/fr/contact</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/contact"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Turkish Pages -->
+  <url>
+    <loc>https://[DOMAIN]/tr</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://[DOMAIN]/de"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://[DOMAIN]/tr/showroom</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/showroom"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/showroom"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/showroom"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/showroom"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://[DOMAIN]/tr/contact</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/contact"/>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
+

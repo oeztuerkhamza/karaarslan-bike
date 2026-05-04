@@ -1,0 +1,28 @@
+# Robots.txt for Karaaslan Bisiklet
+# https://[DOMAIN]
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://[DOMAIN]/sitemap.xml
+Sitemap: https://[DOMAIN]/sitemap-products.xml
+
+# LLM/AI Crawler Info
+# https://llmstxt.org
+# AI crawlers can find structured info at /llms.txt
+
+# Crawl-delay (optional, be friendly to search engines)
+Crawl-delay: 1
+
+# Block unnecessary paths
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /assets/icons/
+
+# Allow important assets
+Allow: /assets/logo.svg
+Allow: /assets/og-image.jpg
+Allow: /llms.txt
+Allow: /llms-full.txt
+
