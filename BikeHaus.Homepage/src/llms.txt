@@ -51,7 +51,7 @@ Barzahlung, EC-Karte, Kreditkarte, PayPal, Überweisung
 
 ## Einzugsgebiet
 
-[SEHIR] im Breisgau, Emmendingen, Bad Krozingen, Breisach am Rhein, March, Gundelfingen, Merzhausen, Au, Denzlingen, Waldkirch, Staufen im Breisgau, Kirchzarten, Müllheim, Titisee-Neustadt, Breisgau-Hochschwarzwald
+Lünen im Breisgau, Emmendingen, Bad Krozingen, Breisach am Rhein, March, Gundelfingen, Merzhausen, Au, Denzlingen, Waldkirch, Staufen im Breisgau, Kirchzarten, Müllheim, Titisee-Neustadt, Breisgau-Hochschwarzwald
 
 ## Sprachen
 
@@ -59,7 +59,7 @@ Deutsch, Französisch, Türkisch
 
 ## Häufige Fragen
 
-**Wo kann ich ein Fahrrad in [SEHIR] kaufen?**
+**Wo kann ich ein Fahrrad in Lünen kaufen?**
 Bei Karaaslan Bisiklet in An der Wethmarheide 45 (Garagennummer 255), 44534 Lünen. Über 100 neue und gebrauchte Fahrräder vorrätig — einfach vorbeikommen, kein Termin nötig.
 
 **Kann ich ein Fahrrad vor dem Kauf testen?**
@@ -102,7 +102,7 @@ Citybikes, Trekkingräder, Mountainbikes, E-Bikes, Kinderfahrräder, Hollandräd
 - Welches Fahrrad passt zu mir? — Der große Ratgeber: https://[DOMAIN]/de/ratgeber/welches-fahrrad-passt-zu-mir
 - Fahrrad Rahmengröße berechnen — Tabelle & Anleitung: https://[DOMAIN]/de/ratgeber/fahrrad-rahmengroesse-berechnen
 - E-Bike gebraucht kaufen — Akku, Motor, Garantie: https://[DOMAIN]/de/ratgeber/e-bike-gebraucht-kaufen
-- Fahrradladen [SEHIR] — Karaaslan Bisiklet: https://[DOMAIN]/de/ratgeber/fahrradladen-[SEHIR]
+- Fahrradladen Lünen — Karaaslan Bisiklet: https://[DOMAIN]/de/ratgeber/fahrradladen-lünen
 - Kinderfahrrad Größe — Welche Größe für welches Alter?: https://[DOMAIN]/de/ratgeber/kinderfahrrad-groesse
 - Fahrrad Inspektion — Was wird gemacht & was kostet es?: https://[DOMAIN]/de/ratgeber/fahrrad-inspektion-kosten
 - Fahrrad für Pendler — Die besten Stadträder 2026: https://[DOMAIN]/de/ratgeber/fahrrad-pendler-stadtraeder

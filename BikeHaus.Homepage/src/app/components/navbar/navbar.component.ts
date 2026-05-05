@@ -33,7 +33,7 @@ import { ShopInfoService } from '../../services/shop-info.service';
             height="40"
           />
           <span class="brand-name"
-            >Bike Haus<span class="brand-city">[SEHIR]</span></span
+            >Karaarslan Bike<span class="brand-city">Lünen</span></span
           >
         </a>
 

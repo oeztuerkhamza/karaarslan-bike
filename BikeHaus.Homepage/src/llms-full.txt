@@ -63,11 +63,11 @@ Barzahlung, EC-Karte, Kreditkarte, PayPal, Überweisung
 
 ## Einzugsgebiet
 
-[SEHIR] im Breisgau, Emmendingen, Bad Krozingen, Breisach am Rhein, March, Gundelfingen, Merzhausen, Au, Denzlingen, Waldkirch, Staufen im Breisgau, Kirchzarten, Müllheim, Titisee-Neustadt, Breisgau-Hochschwarzwald
+Lünen im Breisgau, Emmendingen, Bad Krozingen, Breisach am Rhein, March, Gundelfingen, Merzhausen, Au, Denzlingen, Waldkirch, Staufen im Breisgau, Kirchzarten, Müllheim, Titisee-Neustadt, Breisgau-Hochschwarzwald
 
 ## Häufig gestellte Fragen (FAQ)
 
-**Wo kann ich ein Fahrrad in [SEHIR] kaufen?**
+**Wo kann ich ein Fahrrad in Lünen kaufen?**
 Bei Karaaslan Bisiklet in An der Wethmarheide 45 (Garagennummer 255), 44534 Lünen. Über 100 neue und gebrauchte Fahrräder vorrätig — einfach vorbeikommen, kein Termin nötig.
 
 **Was kostet ein gebrauchtes Fahrrad?**
@@ -79,7 +79,7 @@ Ja, alle Fahrräder können während der Öffnungszeiten probegefahren werden. K
 **Bieten Sie eine Garantie auf Gebrauchträder?**
 Ja — 3 Tage Rückgaberecht und 3 Monate Garantie auf alle Gebrauchträder. Neue Fahrräder haben 24 Monate Garantie.
 
-**Gibt es gebrauchte E-Bikes in [SEHIR]?**
+**Gibt es gebrauchte E-Bikes in Lünen?**
 Ja, wir bieten geprüfte gebrauchte E-Bikes mit dokumentiertem Akku-Zustand und Garantie.
 
 **Kaufen Sie auch Fahrräder an?**
@@ -118,7 +118,7 @@ Nein, aktuell bieten wir keine Ratenzahlung an. Zahlung bei Übergabe in bar, pe
 - Welches Fahrrad passt zu mir?: https://[DOMAIN]/de/ratgeber/welches-fahrrad-passt-zu-mir
 - Fahrrad Rahmengröße berechnen: https://[DOMAIN]/de/ratgeber/fahrrad-rahmengroesse-berechnen
 - E-Bike gebraucht kaufen: https://[DOMAIN]/de/ratgeber/e-bike-gebraucht-kaufen
-- Fahrradladen [SEHIR]: https://[DOMAIN]/de/ratgeber/fahrradladen-[SEHIR]
+- Fahrradladen Lünen: https://[DOMAIN]/de/ratgeber/fahrradladen-lünen
 - Kinderfahrrad Größe — Tabelle nach Alter: https://[DOMAIN]/de/ratgeber/kinderfahrrad-groesse
 - Fahrrad Inspektion — Kosten & Ablauf: https://[DOMAIN]/de/ratgeber/fahrrad-inspektion-kosten
 - Fahrrad für Pendler — Stadträder 2026: https://[DOMAIN]/de/ratgeber/fahrrad-pendler-stadtraeder
@@ -154,8 +154,8 @@ Nein, aktuell bieten wir keine Ratenzahlung an. Zahlung bei Übergabe in bar, pe
    URL: https://[DOMAIN]/de/ratgeber/e-bike-gebraucht-kaufen
    Zusammenfassung: Worauf beim Kauf eines gebrauchten E-Bikes achten: Akku-Kapazität, Ladezyklen, Motor-Check.
 
-5. Fahrradladen [SEHIR] — Karaaslan Bisiklet
-   URL: https://[DOMAIN]/de/ratgeber/fahrradladen-[SEHIR]
+5. Fahrradladen Lünen — Karaaslan Bisiklet
+   URL: https://[DOMAIN]/de/ratgeber/fahrradladen-lünen
    Zusammenfassung: Vorstellung von Karaaslan Bisiklet — Sortiment, Öffnungszeiten, Anfahrt, Besonderheiten.
 
 ## Live-Daten (API)

@@ -404,7 +404,7 @@ export class FahrradStadtComponent implements OnInit, OnDestroy {
 
   mapUrl = computed(() => {
     if (!this.city()) return '';
-    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2000!2d7.8194!3d47.9877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47911b7a5f0b3b0d%3A0x0!2sHeckerstra%C3%9Fe+27%2C+[PLZ]+[SEHIR]!5e0!3m2!1sde!2sde!4v1`;
+    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2000!2d7.8194!3d47.9877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47911b7a5f0b3b0d%3A0x0!2sHeckerstra%C3%9Fe+27%2C+44534+Lünen!5e0!3m2!1sde!2sde!4v1`;
   });
 
   private schemaEl?: HTMLScriptElement;
@@ -448,9 +448,9 @@ export class FahrradStadtComponent implements OnInit, OnDestroy {
       telephone: '+49163 7390301',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: '[ADRES]',
-        addressLocality: '[SEHIR]',
-        postalCode: '[PLZ]',
+        streetAddress: 'An der Wethmarheide 45, Garagennummer 255',
+        addressLocality: 'Lünen',
+        postalCode: '44534',
         addressCountry: 'DE',
       },
       geo: {

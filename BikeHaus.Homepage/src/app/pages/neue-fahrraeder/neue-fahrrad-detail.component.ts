@@ -337,7 +337,7 @@ import { environment } from '../../../environments/environment';
 
               <!-- Google Maps -->
               <a
-                href="https://maps.google.com/?q=Heckerstra%C3%9Fe+27+[SEHIR]+im+Breisgau"
+                href="https://maps.google.com/?q=Heckerstra%C3%9Fe+27+Lünen+im+Breisgau"
                 target="_blank"
                 rel="noopener"
                 class="btn-maps"
@@ -823,7 +823,7 @@ export class NeueFahrradDetailComponent implements OnInit {
   whatsappUrl = computed(() => {
     const b = this.bike();
     if (!b) return '';
-    const tel = this.shopInfo()?.telefon || '[TELEFON]';
+    const tel = this.shopInfo()?.telefon || '+49 163 7390301';
     const phone = tel.replace(/[^0-9]/g, '');
     const text = `Hallo, ich interessiere mich für das Fahrrad: ${b.titel}${b.preis ? ' (' + b.preis + '€)' : ''}. Ist es noch verfügbar?`;
     return `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;

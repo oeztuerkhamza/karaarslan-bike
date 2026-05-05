@@ -44,7 +44,7 @@ import { environment } from '../../../environments/environment';
                 <path d="M15 6l-4 8h6l-2 3.5" />
                 <path d="M5.5 17.5L9 9h3" />
               </svg>
-              Fahrradverleih [SEHIR]
+              Fahrradverleih Lünen
             </span>
             <h1 class="rental-hero-h1">
               Fahrrad mieten<br /><span class="rental-hero-accent"
@@ -53,7 +53,7 @@ import { environment } from '../../../environments/environment';
             </h1>
             <p class="rental-hero-sub">
               Sofort verfügbar – fair, flexibel, ohne versteckte Kosten.<br />Direkt
-              bei uns in [SEHIR] abholen.
+              bei uns in Lünen abholen.
             </p>
             <div class="rental-hero-features">
               <span class="rfeat"
@@ -1146,7 +1146,7 @@ import { environment } from '../../../environments/environment';
             </div>
             <div class="wa-content">
               <h3>WhatsApp</h3>
-              <p>[TELEFON]</p>
+              <p>+49 163 7390301</p>
               <span class="wa-hint">{{ t().contactWhatsappHint }}</span>
             </div>
             <svg
@@ -3427,7 +3427,7 @@ export class FahrradverleihComponent implements OnInit {
 
     const faqDe = [
       {
-        q: 'Was kostet Fahrrad mieten in [SEHIR]?',
+        q: 'Was kostet Fahrrad mieten in Lünen?',
         a: 'Bei Karaarslan Bike mieten Sie ein Fahrrad ab 6,80 € pro Tag (14-Tage-Paket). Tagesmiete ab 12 €, Wochenpaket ab 55 €.',
       },
       {
@@ -3436,10 +3436,10 @@ export class FahrradverleihComponent implements OnInit {
       },
       {
         q: 'Wo kann ich das Fahrrad abholen?',
-        a: 'Die Abholung erfolgt direkt bei uns: [ADRES], [PLZ] [SEHIR]. Sofort verfügbar — kein Vorausbezahlen nötig.',
+        a: 'Die Abholung erfolgt direkt bei uns: An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Sofort verfügbar — kein Vorausbezahlen nötig.',
       },
       {
-        q: 'Welche Fahrräder kann ich in [SEHIR] mieten?',
+        q: 'Welche Fahrräder kann ich in Lünen mieten?',
         a: 'Wir vermieten Citybikes, Trekkingräder und E-Bikes. Alle Räder sind geprüft und fahrbereit.',
       },
       {
@@ -3450,7 +3450,7 @@ export class FahrradverleihComponent implements OnInit {
 
     const faqEn = [
       {
-        q: 'How much does it cost to rent a bike in [SEHIR]?',
+        q: 'How much does it cost to rent a bike in Lünen?',
         a: 'At Karaarslan Bike, bike rental starts from €6.80 per day (14-day package). Day rate from €12, weekly package from €55.',
       },
       {
@@ -3459,10 +3459,10 @@ export class FahrradverleihComponent implements OnInit {
       },
       {
         q: 'Where can I pick up the bike?',
-        a: 'Pick up directly at our shop: [ADRES], [PLZ] [SEHIR]. Available immediately — no prepayment required.',
+        a: 'Pick up directly at our shop: An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Available immediately — no prepayment required.',
       },
       {
-        q: 'Which bikes can I rent in [SEHIR]?',
+        q: 'Which bikes can I rent in Lünen?',
         a: 'We rent city bikes, trekking bikes and e-bikes. All bikes are inspected and ready to ride.',
       },
       {
@@ -3482,7 +3482,7 @@ export class FahrradverleihComponent implements OnInit {
       },
       {
         q: 'Où récupérer le vélo ?',
-        a: 'Récupérez directement en magasin : [ADRES], [PLZ] [SEHIR]. Disponible immédiatement — sans prépaiement.',
+        a: 'Récupérez directement en magasin : An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Disponible immédiatement — sans prépaiement.',
       },
       {
         q: 'Quels types de vélos peut-on louer à Fribourg ?',
@@ -3492,7 +3492,7 @@ export class FahrradverleihComponent implements OnInit {
 
     const faqTr = [
       {
-        q: "[SEHIR]'da bisiklet kiralama ne kadar tutar?",
+        q: "Lünen'da bisiklet kiralama ne kadar tutar?",
         a: "Karaarslan Bike'da bisiklet kiralama 6,80 €/gün'den başlar (14 günlük paket). Günlük ücret 12 €'dan, haftalık paket 55 €'dan başlar.",
       },
       {
@@ -3501,10 +3501,10 @@ export class FahrradverleihComponent implements OnInit {
       },
       {
         q: 'Bisikleti nereden alabilirim?',
-        a: 'Bisikletinizi doğrudan mağazamızdan alabilirsiniz: [ADRES], [PLZ] [SEHIR]. Hemen mevcut — ön ödeme gerekmez.',
+        a: 'Bisikletinizi doğrudan mağazamızdan alabilirsiniz: An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Hemen mevcut — ön ödeme gerekmez.',
       },
       {
-        q: "[SEHIR]'da hangi bisikletler kiralanabilir?",
+        q: "Lünen'da hangi bisikletler kiralanabilir?",
         a: 'Şehir bisikletleri, trekking bisikletleri ve e-bisikletler kiralıyoruz. Tüm bisikletler kontrol edilmiş ve sürüşe hazır.',
       },
     ];
@@ -3523,23 +3523,23 @@ export class FahrradverleihComponent implements OnInit {
         {
           '@type': 'Service',
           '@id': `${pageUrl}#service`,
-          name: 'Fahrradverleih [SEHIR]',
+          name: 'Fahrradverleih Lünen',
           alternateName: [
-            'Bike Rental [SEHIR]',
-            'Location vélo [SEHIR]',
-            '[SEHIR] Bisiklet Kiralama',
+            'Bike Rental Lünen',
+            'Location vélo Lünen',
+            'Lünen Bisiklet Kiralama',
           ],
           description:
-            'Fahrradverleih in [SEHIR] — Cityräder, Trekkingräder und E-Bikes mieten ab 6,80 € pro Tag. Helm und Schloss inklusive.',
+            'Fahrradverleih in Lünen — Cityräder, Trekkingräder und E-Bikes mieten ab 6,80 € pro Tag. Helm und Schloss inklusive.',
           provider: {
             '@type': 'LocalBusiness',
             '@id': 'https://karaarslan-bike.de/#organization',
             name: 'Karaarslan Bike',
             address: {
               '@type': 'PostalAddress',
-              streetAddress: '[ADRES]',
-              addressLocality: '[SEHIR]',
-              postalCode: '[PLZ]',
+              streetAddress: 'An der Wethmarheide 45, Garagennummer 255',
+              addressLocality: 'Lünen',
+              postalCode: '44534',
               addressRegion: 'Nordrhein-Westfalen',
               addressCountry: 'DE',
             },
@@ -3548,7 +3548,7 @@ export class FahrradverleihComponent implements OnInit {
           },
           areaServed: {
             '@type': 'City',
-            name: '[SEHIR]',
+            name: 'Lünen',
           },
           offers: [
             {

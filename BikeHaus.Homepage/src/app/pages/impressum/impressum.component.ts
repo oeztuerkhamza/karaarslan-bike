@@ -38,7 +38,7 @@ import { PublicShopInfo } from '../../models/models';
               E-Mail: {{ shopInfo()?.email || 'karaarslan-bike.de@gmail.com'
               }}<br />
               Telefon / WhatsApp:
-              {{ shopInfo()?.telefon || '[TELEFON]' }}
+              {{ shopInfo()?.telefon || '+49 163 7390301' }}
             </p>
           </section>
 

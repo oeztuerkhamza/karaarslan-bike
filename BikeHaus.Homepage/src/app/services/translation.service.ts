@@ -534,9 +534,9 @@ export interface Translations {
 
 const TRANSLATIONS: Record<Language, Translations> = {
   de: {
-    metaTitle: 'Fahrrad kaufen & mieten [SEHIR] | Karaarslan Bike',
+    metaTitle: 'Fahrrad kaufen & mieten Lünen | Karaarslan Bike',
     metaDescription:
-      'Fahrrad kaufen & mieten in [SEHIR] ✓ Über 100 geprüfte Räder ✓ City, Trekking, E-Bike ✓ 3 Monate Garantie ✓ Fahrradverleih ab 6,80 €/Tag. Persönlich & fair.',
+      'Fahrrad kaufen & mieten in Lünen ✓ Über 100 geprüfte Räder ✓ City, Trekking, E-Bike ✓ 3 Monate Garantie ✓ Fahrradverleih ab 6,80 €/Tag. Persönlich & fair.',
 
     home: 'Start',
     showroom: 'Showroom',
@@ -544,9 +544,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     about: 'Über uns',
     contact: 'Kontakt',
 
-    heroH1: 'Fahrräder in [SEHIR] — neu & gebraucht.',
+    heroH1: 'Fahrräder in Lünen — neu & gebraucht.',
     heroSub:
-      'Neue und geprüfte Gebrauchträder in [SEHIR] — fair bewertet, nachhaltig aufbereitet, persönlich beraten.',
+      'Neue und geprüfte Gebrauchträder in Lünen — fair bewertet, nachhaltig aufbereitet, persönlich beraten.',
     ctaPrimary: 'Neue Fahrräder entdecken',
     ctaSecondary: 'Showroom ansehen',
 
@@ -637,7 +637,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     galleryLabel: 'UNSER LADEN',
     galleryTitle: 'Einblicke in unser Karaarslan Bike.',
     gallerySub:
-      'Schauen Sie sich unseren Laden in [SEHIR] an — hier warten Ihre nächsten Räder auf Sie.',
+      'Schauen Sie sich unseren Laden in Lünen an — hier warten Ihre nächsten Räder auf Sie.',
 
     bikeCheckLabel: 'SERVICE',
     bikeCheckTitle: 'Kostenloser Fahrrad-Check!',
@@ -674,7 +674,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     aboutLabel: 'ÜBER UNS',
     aboutTitle: 'Wer wir sind.',
     aboutText:
-      'Wir sind ein unabhängiger Fahrradhändler in [SEHIR]. Unser Sortiment umfasst geprüfte Gebrauchträder und ausgewählte Neuräder — für jeden Einsatzzweck und jedes Budget.',
+      'Wir sind ein unabhängiger Fahrradhändler in Lünen. Unser Sortiment umfasst geprüfte Gebrauchträder und ausgewählte Neuräder — für jeden Einsatzzweck und jedes Budget.',
     aboutMission:
       'Unsere Mission: Hochwertige Mobilität zugänglich machen — nachhaltig, fair und persönlich.',
     openingHours: 'Öffnungszeiten',
@@ -688,7 +688,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     address: 'Adresse',
     visitUs: 'Besuchen Sie uns',
 
-    footerTagline: 'Neue & gebrauchte Fahrräder in [SEHIR].',
+    footerTagline: 'Neue & gebrauchte Fahrräder in Lünen.',
     quickLinks: 'Navigation',
     legalNotice: 'Impressum',
     privacy: 'Datenschutz',
@@ -718,7 +718,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     bikeRentalPageLabel: 'SERVICE',
     bikeRentalPageTitle: 'Fahrradverleih – Einfach und flexibel',
     bikeRentalIntro:
-      'Entdecken Sie [SEHIR] bequem mit dem Fahrrad. Mieten Sie bei uns Fahrräder zu günstigen Preisen und ohne Aufwand.',
+      'Entdecken Sie Lünen bequem mit dem Fahrrad. Mieten Sie bei uns Fahrräder zu günstigen Preisen und ohne Aufwand.',
     bikeRentalPricesTitle: 'Fahrradmiete Preise',
     bikeRentalHeroPrice: '1 Tag -> 12 €',
     bikeRentalTierShort: 'Kurzzeit',
@@ -764,7 +764,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     rentalHeroTitle: 'Fahrrad mieten',
     rentalHeroSub:
-      'Sofort verfügbar – fair, flexibel, ohne versteckte Kosten. Direkt bei uns in [SEHIR] abholen.',
+      'Sofort verfügbar – fair, flexibel, ohne versteckte Kosten. Direkt bei uns in Lünen abholen.',
     rentalHeroWaCta: 'Fragen? WhatsApp',
     rentalHeroScrollCta: 'Fahrrad auswählen & jetzt reservieren',
     rentalPricingTitle: 'Fair. Transparent. Ohne Extras.',
@@ -810,7 +810,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     testimonialsLabel: 'KUNDENSTIMMEN',
     testimonialsTitle: 'Was unsere Kunden sagen',
-    testimonialsSub: 'Über 500 zufriedene Kunden in [SEHIR] vertrauen uns',
+    testimonialsSub: 'Über 500 zufriedene Kunden in Lünen vertrauen uns',
 
     repairLabel: 'WERKSTATT',
     repairTitle: 'Unsere Reparaturen',
@@ -832,7 +832,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Wir sind auf Verkauf spezialisiert. Für Reparaturen kontaktieren Sie uns bitte vorab per Telefon oder E-Mail.',
     faq5Q: 'Wo finde ich Sie?',
     faq5A:
-      '[ADRES], [PLZ] [SEHIR]. Kommen Sie einfach während der Öffnungszeiten vorbei — kein Termin nötig.',
+      'An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Kommen Sie einfach während der Öffnungszeiten vorbei — kein Termin nötig.',
 
     // WhatsApp Contact
     whatsappTitle: 'Verkäufer kontaktieren',
@@ -860,7 +860,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     aboutHeadline: 'Mehr als nur Fahrräder.',
     aboutHeadlineAccent: 'Eine Leidenschaft.',
     aboutIntroText:
-      'Was als bescheidene Idee begann, ist heute ein Ort geworden, an dem Menschen aller Altersgruppen ihr perfektes Fahrrad finden. Als kleines Familienunternehmen in [SEHIR] glauben wir daran, dass jedes Rad eine Geschichte erzählt — und jeder Mensch die Freiheit verdient, seine eigene Geschichte auf zwei Rädern zu schreiben.',
+      'Was als bescheidene Idee begann, ist heute ein Ort geworden, an dem Menschen aller Altersgruppen ihr perfektes Fahrrad finden. Als kleines Familienunternehmen in Lünen glauben wir daran, dass jedes Rad eine Geschichte erzählt — und jeder Mensch die Freiheit verdient, seine eigene Geschichte auf zwei Rädern zu schreiben.',
     aboutFeatureInvoice: 'Rechnung & Kaufvertrag',
     aboutFeatureTrust: 'Vertrauen & Qualität',
     aboutQuote:
@@ -868,7 +868,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     aboutQuoteAuthor: '— Die Familie hinter Karaarslan Bike',
     aboutMetaTitle: 'Über uns — Karaarslan Bike | Ihr Fahrradhändler',
     aboutMetaDescription:
-      'Lernen Sie Karaarslan Bike kennen. Fair, nachhaltig, persönlich — Ihr lokaler Fahrradhändler in [SEHIR] für neue und gebrauchte Fahrräder.',
+      'Lernen Sie Karaarslan Bike kennen. Fair, nachhaltig, persönlich — Ihr lokaler Fahrradhändler in Lünen für neue und gebrauchte Fahrräder.',
 
     // Brands
     brandsLabel: 'MARKEN',
@@ -914,10 +914,10 @@ const TRANSLATIONS: Record<Language, Translations> = {
     contactWhatsappHint: 'Direkt schreiben',
     contactMetaTitle: 'Kontakt — Karaarslan Bike | Adresse & Öffnungszeiten',
     contactMetaDescription:
-      'Kontaktieren Sie Karaarslan Bike. Adresse, Öffnungszeiten, WhatsApp, Telefon. Besuchen Sie uns in [PLZ] [SEHIR], Ruhr area.',
+      'Kontaktieren Sie Karaarslan Bike. Adresse, Öffnungszeiten, WhatsApp, Telefon. Besuchen Sie uns in 44534 Lünen, Ruhr area.',
 
     // Home trust badges
-    trustBadgeSince: 'Seit 2020 in [SEHIR]',
+    trustBadgeSince: 'Seit 2020 in Lünen',
     trustBadgeCustomers: '500+ zufriedene Kunden',
     ariaStarsRating: '5 von 5 Sternen',
 
@@ -929,13 +929,13 @@ const TRANSLATIONS: Record<Language, Translations> = {
     gearsUnit: 'Gänge',
     filterFrameSize: 'Rahmengröße (Size)',
     showroomMetaTitle:
-      'Gebrauchte Fahrräder kaufen [SEHIR] | Showroom | Karaarslan Bike',
+      'Gebrauchte Fahrräder kaufen Lünen | Showroom | Karaarslan Bike',
     showroomMetaDescription:
-      'Gebrauchte & neue Fahrräder kaufen in [SEHIR] ✓ Über 100 geprüfte Räder ✓ City, Trekking, Mountain, E-Bike ✓ 3 Monate Garantie ✓ Sofort abholbereit. Karaarslan Bike.',
+      'Gebrauchte & neue Fahrräder kaufen in Lünen ✓ Über 100 geprüfte Räder ✓ City, Trekking, Mountain, E-Bike ✓ 3 Monate Garantie ✓ Sofort abholbereit. Karaarslan Bike.',
 
     // Showroom detail
     detailMetaDescSuffix:
-      'Jetzt bei Karaarslan Bike in [PLZ] [SEHIR], Ruhr area ansehen.',
+      'Jetzt bei Karaarslan Bike in 44534 Lünen, Ruhr area ansehen.',
     bikeFallbackCategory: 'Fahrrad',
 
     // Footer
@@ -959,9 +959,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     // Accessories page
     accessoriesMetaTitle:
-      'Fahrradzubehör [SEHIR] | Helme, Taschen & Schlösser | Karaarslan Bike',
+      'Fahrradzubehör Lünen | Helme, Taschen & Schlösser | Karaarslan Bike',
     accessoriesMetaDescription:
-      'Fahrradzubehör in [SEHIR] kaufen ✓ Helme, Taschen, Schlösser, Beleuchtung & mehr ✓ Direkt im Karaarslan Bike — [ADRES], [PLZ] [SEHIR].',
+      'Fahrradzubehör in Lünen kaufen ✓ Helme, Taschen, Schlösser, Beleuchtung & mehr ✓ Direkt im Karaarslan Bike — An der Wethmarheide 45, Garagennummer 255, 44534 Lünen.',
     accessoriesTitle: 'Zubehör',
     accessoriesSub: 'Taschen, Helme, Schlösser und mehr für Ihr Fahrrad.',
     accessoriesNoItems: 'Derzeit keine Zubehörartikel verfügbar.',
@@ -973,9 +973,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     // Neue Fahrräder
     neueFahrraeder: 'Neue Fahrräder',
     neueFahrraederMetaTitle:
-      'Neue Fahrräder kaufen [SEHIR] | City, Trekking, E-Bike | Karaarslan Bike',
+      'Neue Fahrräder kaufen Lünen | City, Trekking, E-Bike | Karaarslan Bike',
     neueFahrraederMetaDescription:
-      'Neue Fahrräder in [SEHIR] kaufen ✓ City, Trekking, Mountain & E-Bikes ✓ 2 Jahre Garantie ✓ Sofort verfügbar ✓ Faire Preise. Jetzt im Showroom ansehen — Karaarslan Bike.',
+      'Neue Fahrräder in Lünen kaufen ✓ City, Trekking, Mountain & E-Bikes ✓ 2 Jahre Garantie ✓ Sofort verfügbar ✓ Faire Preise. Jetzt im Showroom ansehen — Karaarslan Bike.',
     neueFahrraederTitle: 'Neue Fahrräder',
     neueFahrraederSub: 'Fabrikneue Räder mit 2 Jahren Geschäftsgarantie.',
     neueFahrraederBrand: 'Marke',
@@ -996,7 +996,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     ratgeberLabel: 'Wissen & Tipps',
     ratgeberTitle: 'Fahrrad Ratgeber',
     ratgeberSub:
-      'Tipps, Checklisten und Wissenswertes rund ums Fahrrad — von Ihrem Fahrradhändler in [SEHIR].',
+      'Tipps, Checklisten und Wissenswertes rund ums Fahrrad — von Ihrem Fahrradhändler in Lünen.',
     ratgeberMetaTitle: 'Fahrrad Ratgeber — Tipps & Wissen | Karaarslan Bike',
     ratgeberMetaDescription:
       'Fahrrad Ratgeber: Gebrauchtes Fahrrad kaufen, Rahmengröße berechnen, E-Bike Tipps und mehr. Expertenwissen von Karaarslan Bike.',
@@ -1006,13 +1006,13 @@ const TRANSLATIONS: Record<Language, Translations> = {
     ratgeberTldr: 'Zusammenfassung',
     ratgeberRelated: 'Weitere Ratgeber',
     ratgeberBackToList: 'Alle Ratgeber anzeigen',
-    faqMetaTitle: 'FAQ Fahrrad [SEHIR] — Häufige Fragen | Karaarslan Bike',
+    faqMetaTitle: 'FAQ Fahrrad Lünen — Häufige Fragen | Karaarslan Bike',
     faqMetaDescription:
-      'Häufige Fragen zu Fahrrad kaufen & mieten in [SEHIR]: Garantie, E-Bikes, Probefahrt, Öffnungszeiten, Preise. Alle Antworten von Karaarslan Bike.',
+      'Häufige Fragen zu Fahrrad kaufen & mieten in Lünen: Garantie, E-Bikes, Probefahrt, Öffnungszeiten, Preise. Alle Antworten von Karaarslan Bike.',
     bikeRentalMetaTitle:
-      'Fahrrad mieten [SEHIR] ab 6,80 €/Tag | Karaarslan Bike',
+      'Fahrrad mieten Lünen ab 6,80 €/Tag | Karaarslan Bike',
     bikeRentalMetaDescription:
-      'Fahrradverleih [SEHIR] — Cityrad, Trekking & E-Bike mieten ab 6,80 €/Tag. Helm & Schloss inklusive. Sofort abholen, kein Vorausbezahlen. ✓ Karaarslan Bike.',
+      'Fahrradverleih Lünen — Cityrad, Trekking & E-Bike mieten ab 6,80 €/Tag. Helm & Schloss inklusive. Sofort abholen, kein Vorausbezahlen. ✓ Karaarslan Bike.',
     garantieMetaTitle: 'Garantiebedingungen — Karaarslan Bike',
     garantieMetaDescription:
       'Garantiebedingungen für neue und gebrauchte Fahrräder bei Karaarslan Bike. 2 Jahre für Neuräder, 3 Monate für Gebrauchträder.',
@@ -1024,9 +1024,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Datenschutzerklärung von Karaarslan Bike. Informationen zur Verarbeitung Ihrer personenbezogenen Daten.',
     faqCtaText: 'Noch Fragen? Kontaktieren Sie uns!',
     faqCtaButton: 'Kontakt aufnehmen',
-    faqQ1: 'Wo kann ich ein Fahrrad in [SEHIR] kaufen?',
+    faqQ1: 'Wo kann ich ein Fahrrad in Lünen kaufen?',
     faqA1:
-      'Bei Karaarslan Bike in der [ADRES], [PLZ] [SEHIR] im Ruhrgebiet. Wir haben über 100 neue und gebrauchte Fahrräder vorrätig — einfach vorbeikommen, kein Termin nötig.',
+      'Bei Karaarslan Bike in der An der Wethmarheide 45, Garagennummer 255, 44534 Lünen im Ruhrgebiet. Wir haben über 100 neue und gebrauchte Fahrräder vorrätig — einfach vorbeikommen, kein Termin nötig.',
     faqQ2: 'Kann ich ein Fahrrad vor dem Kauf probefahren?',
     faqA2:
       'Ja! Alle Fahrräder können während unserer Öffnungszeiten vor Ort probegefahren werden — ohne Termin, einfach vorbeikommen.',
@@ -1084,7 +1084,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     svcAngeboteBadge: 'Neue Fahrräder',
     svcAngeboteTitle: 'Neue Fahrräder',
     svcAngeboteSub:
-      'Fabrikneue Räder mit 2 Jahren Händlergarantie – direkt aus [SEHIR].',
+      'Fabrikneue Räder mit 2 Jahren Händlergarantie – direkt aus Lünen.',
     svcAngeboteCta: 'Alle neuen Fahrräder',
 
     cityWarrantyIncl: 'Garantie inkl.',
@@ -1101,9 +1101,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
   },
 
   en: {
-    metaTitle: 'Buy & Rent a Bike in [SEHIR] | Karaarslan Bike',
+    metaTitle: 'Buy & Rent a Bike in Lünen | Karaarslan Bike',
     metaDescription:
-      'Buy or rent a bike in [SEHIR] ✓ 100+ inspected bikes ✓ City, Trekking, E-Bike ✓ Bike rental from €6.80/day ✓ 3-month warranty. Your local bike shop in [SEHIR].',
+      'Buy or rent a bike in Lünen ✓ 100+ inspected bikes ✓ City, Trekking, E-Bike ✓ Bike rental from €6.80/day ✓ 3-month warranty. Your local bike shop in Lünen.',
 
     home: 'Home',
     showroom: 'Showroom',
@@ -1111,9 +1111,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     about: 'About',
     contact: 'Contact',
 
-    heroH1: 'Bikes in [SEHIR] — new & used.',
+    heroH1: 'Bikes in Lünen — new & used.',
     heroSub:
-      'New and certified used bikes in [SEHIR] — fair prices, sustainable refurbishment, personal advice.',
+      'New and certified used bikes in Lünen — fair prices, sustainable refurbishment, personal advice.',
     ctaPrimary: 'Discover New Bikes',
     ctaSecondary: 'View Showroom',
 
@@ -1201,7 +1201,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     galleryLabel: 'OUR SHOP',
     galleryTitle: 'Inside our Karaarslan Bike.',
-    gallerySub: 'Take a look at our shop in [SEHIR] — your next bike awaits.',
+    gallerySub: 'Take a look at our shop in Lünen — your next bike awaits.',
 
     bikeCheckLabel: 'SERVICE',
     bikeCheckTitle: 'Free Bike Check!',
@@ -1236,7 +1236,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     aboutLabel: 'ABOUT US',
     aboutTitle: 'Who we are.',
     aboutText:
-      'We are an independent bicycle dealer in [SEHIR]. Our range includes certified used bikes and selected new bikes — for every purpose and every budget.',
+      'We are an independent bicycle dealer in Lünen. Our range includes certified used bikes and selected new bikes — for every purpose and every budget.',
     aboutMission:
       'Our mission: Making quality mobility accessible — sustainable, fair, and personal.',
     openingHours: 'Opening Hours',
@@ -1250,7 +1250,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     address: 'Address',
     visitUs: 'Visit Us',
 
-    footerTagline: 'New & used bikes in [SEHIR].',
+    footerTagline: 'New & used bikes in Lünen.',
     quickLinks: 'Navigation',
     legalNotice: 'Legal Notice',
     privacy: 'Privacy Policy',
@@ -1280,7 +1280,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     bikeRentalPageLabel: 'SERVICE',
     bikeRentalPageTitle: 'Bike Rental – Simple and Flexible',
     bikeRentalIntro:
-      'Discover [SEHIR] comfortably by bike. Rent bicycles from us at affordable prices with no hassle.',
+      'Discover Lünen comfortably by bike. Rent bicycles from us at affordable prices with no hassle.',
     bikeRentalPricesTitle: 'Bike Rental Prices',
     bikeRentalHeroPrice: '1 day -> 12 €',
     bikeRentalTierShort: 'Short-term',
@@ -1325,7 +1325,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     rentalHeroTitle: 'Rent a bike',
     rentalHeroSub:
-      'Available immediately – fair, flexible, no hidden costs. Pick up directly from us in [SEHIR].',
+      'Available immediately – fair, flexible, no hidden costs. Pick up directly from us in Lünen.',
     rentalHeroWaCta: 'Questions? WhatsApp',
     rentalHeroScrollCta: 'Choose a bike & reserve now',
     rentalPricingTitle: 'Fair. Transparent. No extras.',
@@ -1371,7 +1371,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     testimonialsLabel: 'TESTIMONIALS',
     testimonialsTitle: 'What our customers say',
-    testimonialsSub: 'Over 500 satisfied customers in [SEHIR] trust us',
+    testimonialsSub: 'Over 500 satisfied customers in Lünen trust us',
 
     repairLabel: 'WORKSHOP',
     repairTitle: 'Our Repairs',
@@ -1393,7 +1393,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'We specialize in sales. For repairs, please contact us in advance by phone or email.',
     faq5Q: 'Where can I find you?',
     faq5A:
-      '[ADRES], [PLZ] [SEHIR]. Just drop by during opening hours — no appointment needed.',
+      'An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Just drop by during opening hours — no appointment needed.',
 
     whatsappTitle: 'Contact Seller',
     whatsappPlaceholder: 'Your question or message...',
@@ -1417,7 +1417,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     aboutHeadline: 'More than just bikes.',
     aboutHeadlineAccent: 'A passion.',
     aboutIntroText:
-      'What started as a humble idea has become a place where people of all ages find their perfect bike. As a small family business in [SEHIR], we believe that every bike tells a story — and everyone deserves the freedom to write their own story on two wheels.',
+      'What started as a humble idea has become a place where people of all ages find their perfect bike. As a small family business in Lünen, we believe that every bike tells a story — and everyone deserves the freedom to write their own story on two wheels.',
     aboutFeatureInvoice: 'Invoice & Purchase Contract',
     aboutFeatureTrust: 'Trust & Quality',
     aboutQuote:
@@ -1425,7 +1425,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     aboutQuoteAuthor: '— The Family Behind Karaarslan Bike',
     aboutMetaTitle: 'About Us — Karaarslan Bike | Your Bicycle Dealer',
     aboutMetaDescription:
-      'Get to know Karaarslan Bike. Fair, sustainable, personal — your local bicycle dealer in [SEHIR] for new and used bikes.',
+      'Get to know Karaarslan Bike. Fair, sustainable, personal — your local bicycle dealer in Lünen for new and used bikes.',
 
     brandsLabel: 'BRANDS',
     brandsTitle: 'Our Brands — New & Used',
@@ -1467,9 +1467,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     contactWhatsappHint: 'Write directly',
     contactMetaTitle: 'Contact — Karaarslan Bike | Address & Hours',
     contactMetaDescription:
-      'Contact Karaarslan Bike. Address, opening hours, WhatsApp, phone. Visit us at [PLZ] [SEHIR], Ruhr area.',
+      'Contact Karaarslan Bike. Address, opening hours, WhatsApp, phone. Visit us at 44534 Lünen, Ruhr area.',
 
-    trustBadgeSince: 'In [SEHIR] since 2020',
+    trustBadgeSince: 'In Lünen since 2020',
     trustBadgeCustomers: '500+ satisfied customers',
     ariaStarsRating: '5 out of 5 stars',
 
@@ -1480,12 +1480,12 @@ const TRANSLATIONS: Record<Language, Translations> = {
     gearsUnit: 'gears',
     filterFrameSize: 'Frame Size',
     showroomMetaTitle:
-      'Buy Used Bikes in [SEHIR] | Showroom | Karaarslan Bike',
+      'Buy Used Bikes in Lünen | Showroom | Karaarslan Bike',
     showroomMetaDescription:
-      'Buy used & new bikes in [SEHIR] ✓ 100+ inspected bikes ✓ City, Trekking, Mountain, E-Bike ✓ 3-month warranty ✓ Ready to ride. Karaarslan Bike.',
+      'Buy used & new bikes in Lünen ✓ 100+ inspected bikes ✓ City, Trekking, Mountain, E-Bike ✓ 3-month warranty ✓ Ready to ride. Karaarslan Bike.',
 
     detailMetaDescSuffix:
-      'View now at Karaarslan Bike in [PLZ] [SEHIR], Ruhr area.',
+      'View now at Karaarslan Bike in 44534 Lünen, Ruhr area.',
     bikeFallbackCategory: 'Bicycle',
 
     legalLabel: 'Legal',
@@ -1505,9 +1505,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     catSonstige: 'Other Bikes',
 
     accessoriesMetaTitle:
-      'Bike Accessories [SEHIR] | Helmets, Bags & Locks | Karaarslan Bike',
+      'Bike Accessories Lünen | Helmets, Bags & Locks | Karaarslan Bike',
     accessoriesMetaDescription:
-      'Buy bike accessories in [SEHIR] ✓ Helmets, bags, locks, lights & more ✓ In-store at Karaarslan Bike — [ADRES], [PLZ] [SEHIR].',
+      'Buy bike accessories in Lünen ✓ Helmets, bags, locks, lights & more ✓ In-store at Karaarslan Bike — An der Wethmarheide 45, Garagennummer 255, 44534 Lünen.',
     accessoriesTitle: 'Accessories',
     accessoriesSub: 'Bags, helmets, locks, and more for your bike.',
     accessoriesNoItems: 'No accessories available at the moment.',
@@ -1518,9 +1518,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     neueFahrraeder: 'New Bikes',
     neueFahrraederMetaTitle:
-      'New Bikes [SEHIR] | City, Trekking & E-Bikes | Karaarslan Bike',
+      'New Bikes Lünen | City, Trekking & E-Bikes | Karaarslan Bike',
     neueFahrraederMetaDescription:
-      'Buy new bikes in [SEHIR] ✓ City, Trekking, Mountain & E-Bikes ✓ 2-year warranty ✓ In stock & ready to ride ✓ Fair prices. Visit our showroom — Karaarslan Bike.',
+      'Buy new bikes in Lünen ✓ City, Trekking, Mountain & E-Bikes ✓ 2-year warranty ✓ In stock & ready to ride ✓ Fair prices. Visit our showroom — Karaarslan Bike.',
     neueFahrraederTitle: 'New Bikes',
     neueFahrraederSub: 'Brand new bikes with 2 years shop warranty.',
     neueFahrraederBrand: 'Brand',
@@ -1541,7 +1541,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     ratgeberLabel: 'Knowledge & Tips',
     ratgeberTitle: 'Bike Guide',
     ratgeberSub:
-      'Tips, checklists and everything you need to know about bikes — from your [SEHIR] bike dealer.',
+      'Tips, checklists and everything you need to know about bikes — from your Lünen bike dealer.',
     ratgeberMetaTitle: 'Bike Guide — Tips & Knowledge | Karaarslan Bike',
     ratgeberMetaDescription:
       'Bike guide: buying used bikes, frame size calculator, e-bike tips and more. Expert knowledge from Karaarslan Bike.',
@@ -1552,13 +1552,13 @@ const TRANSLATIONS: Record<Language, Translations> = {
     ratgeberRelated: 'Related guides',
     ratgeberBackToList: 'Back to all guides',
     faqMetaTitle:
-      'FAQ — Bike Shop [SEHIR] | Frequently Asked Questions | Karaarslan Bike',
+      'FAQ — Bike Shop Lünen | Frequently Asked Questions | Karaarslan Bike',
     faqMetaDescription:
-      'Frequently asked questions about buying & renting bikes in [SEHIR]: warranty, e-bikes, test rides, opening hours, prices. Answered by Karaarslan Bike.',
+      'Frequently asked questions about buying & renting bikes in Lünen: warranty, e-bikes, test rides, opening hours, prices. Answered by Karaarslan Bike.',
     bikeRentalMetaTitle:
-      'Bike Rental [SEHIR] from €6.80/day | Karaarslan Bike',
+      'Bike Rental Lünen from €6.80/day | Karaarslan Bike',
     bikeRentalMetaDescription:
-      'Rent a bike in [SEHIR] from €6.80/day. City bikes, trekking & e-bikes available. Helmet & lock included. Pick up same day — no prepayment. ✓ Karaarslan Bike.',
+      'Rent a bike in Lünen from €6.80/day. City bikes, trekking & e-bikes available. Helmet & lock included. Pick up same day — no prepayment. ✓ Karaarslan Bike.',
     garantieMetaTitle: 'Warranty Terms — Karaarslan Bike',
     garantieMetaDescription:
       'Warranty terms for new and used bicycles at Karaarslan Bike. 2 years for new bikes, 3 months for used bikes.',
@@ -1570,9 +1570,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Privacy policy of Karaarslan Bike. Information about the processing of your personal data.',
     faqCtaText: 'Still have questions? Contact us!',
     faqCtaButton: 'Get in touch',
-    faqQ1: 'Where can I buy a bike in [SEHIR]?',
+    faqQ1: 'Where can I buy a bike in Lünen?',
     faqA1:
-      'At Karaarslan Bike, [ADRES], [PLZ] [SEHIR]. We have over 100 new and used bikes in stock — just stop by, no appointment needed.',
+      'At Karaarslan Bike, An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. We have over 100 new and used bikes in stock — just stop by, no appointment needed.',
     faqQ2: 'Can I test ride a bike before buying?',
     faqA2:
       'Yes! All bikes can be test ridden during our opening hours — no appointment required.',
@@ -1628,7 +1628,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     svcAngeboteBadge: 'New Bikes',
     svcAngeboteTitle: 'New Bikes',
     svcAngeboteSub:
-      'Brand-new bikes with 2-year dealer warranty – direct from [SEHIR].',
+      'Brand-new bikes with 2-year dealer warranty – direct from Lünen.',
     svcAngeboteCta: 'All New Bikes',
 
     cityWarrantyIncl: 'Warranty incl.',
@@ -1647,7 +1647,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
   fr: {
     metaTitle: 'Acheter & louer un vélo à Dortmund | Karaarslan Bike',
     metaDescription:
-      'Achetez ou louez un vélo à [SEHIR] ✓ 100+ vélos certifiés ✓ Ville, Trekking, VAE ✓ Location dès 6,80 €/jour ✓ 3 mois de garantie. Votre magasin de vélos à [SEHIR].',
+      'Achetez ou louez un vélo à Lünen ✓ 100+ vélos certifiés ✓ Ville, Trekking, VAE ✓ Location dès 6,80 €/jour ✓ 3 mois de garantie. Votre magasin de vélos à Lünen.',
 
     home: 'Accueil',
     showroom: 'Showroom',
@@ -1655,9 +1655,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     about: 'À propos',
     contact: 'Contact',
 
-    heroH1: 'vélos à [SEHIR] — neufs & occasion.',
+    heroH1: 'vélos à Lünen — neufs & occasion.',
     heroSub:
-      "Vélos neufs et d'occasion certifiés à [SEHIR] — prix transparents, remise en état durable, conseil personnalisé.",
+      "Vélos neufs et d'occasion certifiés à Lünen — prix transparents, remise en état durable, conseil personnalisé.",
     ctaPrimary: 'Découvrir les nouveaux vélos',
     ctaSecondary: 'Voir le showroom',
 
@@ -1786,7 +1786,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     aboutLabel: 'À PROPOS',
     aboutTitle: 'Qui nous sommes.',
     aboutText:
-      "Nous sommes un marchand de vélos indépendant à [SEHIR]. Notre sélection comprend des vélos d'occasion certifiés et des vélos neufs — pour chaque usage et chaque budget.",
+      "Nous sommes un marchand de vélos indépendant à Lünen. Notre sélection comprend des vélos d'occasion certifiés et des vélos neufs — pour chaque usage et chaque budget.",
     aboutMission:
       'Notre mission : rendre la mobilité de qualité accessible — de manière durable, honnête et personnelle.',
     openingHours: "Heures d'ouverture",
@@ -1947,7 +1947,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       "Nous nous spécialisons dans la vente. Pour les réparations, contactez-nous à l'avance par téléphone ou e-mail.",
     faq5Q: 'Où vous trouver ?',
     faq5A:
-      "[ADRES], [PLZ] Dortmund. Passez simplement pendant les heures d'ouverture — pas de rendez-vous nécessaire.",
+      "An der Wethmarheide 45, Garagennummer 255, 44534 Dortmund. Passez simplement pendant les heures d'ouverture — pas de rendez-vous nécessaire.",
 
     // WhatsApp Contact
     whatsappTitle: 'Contacter le vendeur',
@@ -2029,7 +2029,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     contactWhatsappHint: 'Écrire directement',
     contactMetaTitle: 'Contact — Karaarslan Bike | Adresse & Horaires',
     contactMetaDescription:
-      "Contactez Karaarslan Bike. Adresse, horaires d'ouverture, WhatsApp, téléphone. Rendez-nous visite à [PLZ] [SEHIR].",
+      "Contactez Karaarslan Bike. Adresse, horaires d'ouverture, WhatsApp, téléphone. Rendez-nous visite à 44534 Lünen.",
 
     // Home trust badges
     trustBadgeSince: 'Depuis 2020 à Dortmund',
@@ -2045,11 +2045,11 @@ const TRANSLATIONS: Record<Language, Translations> = {
     filterFrameSize: 'Taille de cadre',
     showroomMetaTitle: 'Acheter vélo Dortmund | Showroom | Karaarslan Bike',
     showroomMetaDescription:
-      "Achetez des vélos neufs et d'occasion à [SEHIR] ✓ 100+ vélos certifiés ✓ Ville, Trekking, VTT, VAE ✓ 3 mois de garantie ✓ Disponibles immédiatement.",
+      "Achetez des vélos neufs et d'occasion à Lünen ✓ 100+ vélos certifiés ✓ Ville, Trekking, VTT, VAE ✓ 3 mois de garantie ✓ Disponibles immédiatement.",
 
     // Showroom detail
     detailMetaDescSuffix:
-      'Voir maintenant chez Karaarslan Bike à [PLZ] [SEHIR].',
+      'Voir maintenant chez Karaarslan Bike à 44534 Lünen.',
     bikeFallbackCategory: 'Vélo',
 
     // Footer
@@ -2075,7 +2075,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     accessoriesMetaTitle:
       'Accessoires vélo Dortmund | Casques, Sacoches & Antivols | Karaarslan Bike',
     accessoriesMetaDescription:
-      'Achetez des accessoires vélo à [SEHIR] ✓ Casques, sacoches, antivols, éclairage & plus ✓ En magasin — [ADRES], [PLZ] [SEHIR].',
+      'Achetez des accessoires vélo à Lünen ✓ Casques, sacoches, antivols, éclairage & plus ✓ En magasin — An der Wethmarheide 45, Garagennummer 255, 44534 Lünen.',
     accessoriesTitle: 'Accessoires',
     accessoriesSub: 'Sacoches, casques, antivols et plus pour votre vélo.',
     accessoriesNoItems: 'Aucun accessoire disponible pour le moment.',
@@ -2089,7 +2089,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     neueFahrraederMetaTitle:
       'Acheter vélos neufs à Dortmund | City, Trekking, VAE | Karaarslan Bike',
     neueFahrraederMetaDescription:
-      'Achetez des vélos neufs à [SEHIR] ✓ Vélos de ville, trekking, VTT & VAE ✓ 2 ans de garantie ✓ En stock immédiatement ✓ Prix honnêtes. Karaarslan Bike.',
+      'Achetez des vélos neufs à Lünen ✓ Vélos de ville, trekking, VTT & VAE ✓ 2 ans de garantie ✓ En stock immédiatement ✓ Prix honnêtes. Karaarslan Bike.',
     neueFahrraederTitle: 'Vélos neufs',
     neueFahrraederSub: 'Vélos neufs avec 2 ans de garantie magasin.',
     neueFahrraederBrand: 'Marque',
@@ -2110,7 +2110,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     ratgeberLabel: 'Savoir & Conseils',
     ratgeberTitle: 'Guide Vélo',
     ratgeberSub:
-      "Conseils, checklists et tout ce qu'il faut savoir sur les vélos — par votre vélociste à [SEHIR].",
+      "Conseils, checklists et tout ce qu'il faut savoir sur les vélos — par votre vélociste à Lünen.",
     ratgeberMetaTitle: 'Guide Vélo — Conseils & Savoir | Karaarslan Bike',
     ratgeberMetaDescription:
       "Guide vélo : acheter un vélo d'occasion, calculer la taille du cadre, conseils VAE et plus.",
@@ -2123,11 +2123,11 @@ const TRANSLATIONS: Record<Language, Translations> = {
     faqMetaTitle:
       'FAQ — Magasin vélo Dortmund | Questions fréquentes | Karaarslan Bike',
     faqMetaDescription:
-      "Questions fréquentes sur l'achat et la location de vélos à [SEHIR] : garantie, VAE, essais, horaires, tarifs. Répondu par Karaarslan Bike.",
+      "Questions fréquentes sur l'achat et la location de vélos à Lünen : garantie, VAE, essais, horaires, tarifs. Répondu par Karaarslan Bike.",
     bikeRentalMetaTitle:
-      'Location vélo [SEHIR] dès 6,80 €/jour | Karaarslan Bike',
+      'Location vélo Lünen dès 6,80 €/jour | Karaarslan Bike',
     bikeRentalMetaDescription:
-      'Louez un vélo à [SEHIR] dès 6,80 €/jour. Vélos city, trekking & VAE disponibles. Casque & antivol inclus. Départ immédiat sans prépaiement. ✓ Karaarslan Bike.',
+      'Louez un vélo à Lünen dès 6,80 €/jour. Vélos city, trekking & VAE disponibles. Casque & antivol inclus. Départ immédiat sans prépaiement. ✓ Karaarslan Bike.',
     garantieMetaTitle: 'Conditions de garantie — Karaarslan Bike',
     garantieMetaDescription:
       "Conditions de garantie pour les vélos neufs et d'occasion chez Karaarslan Bike. 2 ans pour les neufs, 3 mois pour les occasions.",
@@ -2139,9 +2139,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Politique de confidentialité de Karaarslan Bike. Informations sur le traitement de vos données personnelles.',
     faqCtaText: 'Encore des questions ? Contactez-nous !',
     faqCtaButton: 'Nous contacter',
-    faqQ1: 'Où acheter un vélo à [SEHIR] ?',
+    faqQ1: 'Où acheter un vélo à Lünen ?',
     faqA1:
-      'Chez Karaarslan Bike, [ADRES], [PLZ] [SEHIR]. Plus de 100 vélos neufs et occasion en stock — venez sans rendez-vous.',
+      'Chez Karaarslan Bike, An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Plus de 100 vélos neufs et occasion en stock — venez sans rendez-vous.',
     faqQ2: "Puis-je essayer un vélo avant l'achat ?",
     faqA2:
       "Oui ! Tous les vélos peuvent être testés pendant nos heures d'ouverture — sans rendez-vous.",
@@ -2197,7 +2197,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     svcAngeboteBadge: 'Vélos neufs',
     svcAngeboteTitle: 'Vélos neufs',
     svcAngeboteSub:
-      'Vélos neufs de marque avec 2 ans de garantie revendeur – depuis [SEHIR].',
+      'Vélos neufs de marque avec 2 ans de garantie revendeur – depuis Lünen.',
     svcAngeboteCta: 'Tous les vélos neufs',
 
     cityWarrantyIncl: 'Garantie incl.',
@@ -2214,9 +2214,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
   },
 
   tr: {
-    metaTitle: "[SEHIR]'da Bisiklet Al & Kirala | Karaarslan Bike",
+    metaTitle: "Lünen'da Bisiklet Al & Kirala | Karaarslan Bike",
     metaDescription:
-      "[SEHIR]'da bisiklet satın alın veya kiralayın ✓ 100+ kontrollü bisiklet ✓ Şehir, Trekking, E-bisiklet ✓ Kiralama 6,80 €/gün'den ✓ 3 ay garanti. [SEHIR] bisiklet mağazanız.",
+      "Lünen'da bisiklet satın alın veya kiralayın ✓ 100+ kontrollü bisiklet ✓ Şehir, Trekking, E-bisiklet ✓ Kiralama 6,80 €/gün'den ✓ 3 ay garanti. Lünen bisiklet mağazanız.",
 
     home: 'Ana Sayfa',
     showroom: 'Showroom',
@@ -2224,9 +2224,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     about: 'Hakkımızda',
     contact: 'İletişim',
 
-    heroH1: "[SEHIR]'da Bisikletler — yeni & ikinci el.",
+    heroH1: "Lünen'da Bisikletler — yeni & ikinci el.",
     heroSub:
-      "[SEHIR]'da yeni ve kontrol edilmiş ikinci el bisikletler — adil fiyat, sürdürülebilir bakım, kişisel danışmanlık.",
+      "Lünen'da yeni ve kontrol edilmiş ikinci el bisikletler — adil fiyat, sürdürülebilir bakım, kişisel danışmanlık.",
     ctaPrimary: 'Yeni Bisikletleri Keşfet',
     ctaSecondary: "Showroom'u Gör",
 
@@ -2316,7 +2316,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     galleryLabel: 'DÜKKAN',
     galleryTitle: "Karaarslan Bike'tan kareler.",
     gallerySub:
-      "[SEHIR]'daki dükkânımıza göz atın — bir sonraki bisikletiniz sizi burada bekliyor.",
+      "Lünen'daki dükkânımıza göz atın — bir sonraki bisikletiniz sizi burada bekliyor.",
 
     bikeCheckLabel: 'SERVİS',
     bikeCheckTitle: 'Ücretsiz Bisiklet Kontrolü!',
@@ -2353,7 +2353,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     aboutLabel: 'HAKKIMIZDA',
     aboutTitle: 'Biz kimiz.',
     aboutText:
-      "[SEHIR]'da bağımsız bir bisiklet satıcısıyız. Seçkimiz kontrol edilmiş ikinci el bisikletler ve özenle seçilmiş yeni bisikletlerden oluşur — her kullanım amacı ve bütçe için.",
+      "Lünen'da bağımsız bir bisiklet satıcısıyız. Seçkimiz kontrol edilmiş ikinci el bisikletler ve özenle seçilmiş yeni bisikletlerden oluşur — her kullanım amacı ve bütçe için.",
     aboutMission:
       'Misyonumuz: Kaliteli mobiliteyi erişilebilir kılmak — sürdürülebilir, adil ve kişisel.',
     openingHours: 'Çalışma Saatleri',
@@ -2368,7 +2368,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     address: 'Adres',
     visitUs: 'Bizi Ziyaret Edin',
 
-    footerTagline: "[SEHIR]'da yeni & ikinci el bisikletler.",
+    footerTagline: "Lünen'da yeni & ikinci el bisikletler.",
     quickLinks: 'Navigasyon',
     legalNotice: 'Yasal Bildirim',
     privacy: 'Gizlilik',
@@ -2398,7 +2398,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     bikeRentalPageLabel: 'HİZMET',
     bikeRentalPageTitle: 'Bisiklet Kiralama – Kolay ve Esnek',
     bikeRentalIntro:
-      "[SEHIR]'u bisikletle keşfedin. Bizden uygun fiyatlı ve kolay bir şekilde bisiklet kiralayabilirsiniz.",
+      "Lünen'u bisikletle keşfedin. Bizden uygun fiyatlı ve kolay bir şekilde bisiklet kiralayabilirsiniz.",
     bikeRentalPricesTitle: 'Bisiklet Kiralama Fiyatları',
     bikeRentalHeroPrice: '1 Gün -> 12 €',
     bikeRentalTierShort: 'Kısa süre',
@@ -2444,7 +2444,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     rentalHeroTitle: 'Bisiklet Kirala',
     rentalHeroSub:
-      "Hemen mevcut – adil, esnek, gizli maliyet yok. Doğrudan [SEHIR]'daki dükkânımızdan teslim alın.",
+      "Hemen mevcut – adil, esnek, gizli maliyet yok. Doğrudan Lünen'daki dükkânımızdan teslim alın.",
     rentalHeroWaCta: 'Sorularınız? WhatsApp',
     rentalHeroScrollCta: 'Bisiklet seç & hemen rezerve et',
     rentalPricingTitle: 'Adil. Şeffaf. Ekstra yok.',
@@ -2490,7 +2490,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     testimonialsLabel: 'MÜŞTERİ YORUMLARI',
     testimonialsTitle: 'Müşterilerimiz ne diyor',
-    testimonialsSub: "[SEHIR]'da 500'den fazla memnun müşteri bize güveniyor",
+    testimonialsSub: "Lünen'da 500'den fazla memnun müşteri bize güveniyor",
 
     repairLabel: 'ATÖLYE',
     repairTitle: 'Tamir Çalışmalarımız',
@@ -2511,7 +2511,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Satış konusunda uzmanız. Tamir için önceden telefon veya e-posta ile iletişime geçin.',
     faq5Q: 'Sizi nerede bulabilirim?',
     faq5A:
-      '[ADRES], [PLZ] [SEHIR]. Açılış saatlerinde gelin — randevu gerekmiyor.',
+      'An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Açılış saatlerinde gelin — randevu gerekmiyor.',
 
     // WhatsApp Contact
     whatsappTitle: 'Satıcıyla İletişime Geç',
@@ -2539,7 +2539,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     aboutHeadline: 'Bisikletten fazlası.',
     aboutHeadlineAccent: 'Bir tutku.',
     aboutIntroText:
-      "Mütevazı bir fikirle başlayan şey, bugün her yaştan insanın mükemmel bisikletini bulduğu bir yer haline geldi. [SEHIR]'daki küçük bir aile işletmesi olarak, her bisikletin bir hikaye anlattığına ve herkesin iki tekerlek üzerinde kendi hikayesini yazma özgürlüğünü hak ettiğine inanıyoruz.",
+      "Mütevazı bir fikirle başlayan şey, bugün her yaştan insanın mükemmel bisikletini bulduğu bir yer haline geldi. Lünen'daki küçük bir aile işletmesi olarak, her bisikletin bir hikaye anlattığına ve herkesin iki tekerlek üzerinde kendi hikayesini yazma özgürlüğünü hak ettiğine inanıyoruz.",
     aboutFeatureInvoice: 'Fatura & Satış Sözleşmesi',
     aboutFeatureTrust: 'Güven & Kalite',
     aboutQuote:
@@ -2547,7 +2547,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     aboutQuoteAuthor: "— Karaarslan Bike'un arkasındaki aile",
     aboutMetaTitle: 'Hakkımızda — Karaarslan Bike | Bisiklet Mağazanız',
     aboutMetaDescription:
-      "Karaarslan Bike'u tanıyın. Adil, sürdürülebilir, kişisel — [SEHIR]'daki yerel bisiklet mağazanız.",
+      "Karaarslan Bike'u tanıyın. Adil, sürdürülebilir, kişisel — Lünen'daki yerel bisiklet mağazanız.",
 
     // Brands
     brandsLabel: 'MARKALAR',
@@ -2594,10 +2594,10 @@ const TRANSLATIONS: Record<Language, Translations> = {
     contactMetaTitle:
       'İletişim — Karaarslan Bike | Adres & Çalışma Saatleri',
     contactMetaDescription:
-      "Karaarslan Bike ile iletişime geçin. Adres, çalışma saatleri, WhatsApp, telefon. [PLZ] [SEHIR]'da bizi ziyaret edin.",
+      "Karaarslan Bike ile iletişime geçin. Adres, çalışma saatleri, WhatsApp, telefon. 44534 Lünen'da bizi ziyaret edin.",
 
     // Home trust badges
-    trustBadgeSince: "2020'den beri [SEHIR]'da",
+    trustBadgeSince: "2020'den beri Lünen'da",
     trustBadgeCustomers: '500+ memnun müşteri',
     ariaStarsRating: '5 üzerinden 5 yıldız',
 
@@ -2609,13 +2609,13 @@ const TRANSLATIONS: Record<Language, Translations> = {
     gearsUnit: 'Vites',
     filterFrameSize: 'Kadro Boyutu',
     showroomMetaTitle:
-      "[SEHIR]'da İkinci El & Yeni Bisiklet Al | Showroom | Karaarslan Bike",
+      "Lünen'da İkinci El & Yeni Bisiklet Al | Showroom | Karaarslan Bike",
     showroomMetaDescription:
-      "[SEHIR]'da yeni ve ikinci el bisiklet satın alın ✓ 100+ kontrollü bisiklet ✓ Şehir, Trekking, Dağ, E-bisiklet ✓ 3 ay garanti ✓ Hemen teslim. Karaarslan Bike.",
+      "Lünen'da yeni ve ikinci el bisiklet satın alın ✓ 100+ kontrollü bisiklet ✓ Şehir, Trekking, Dağ, E-bisiklet ✓ 3 ay garanti ✓ Hemen teslim. Karaarslan Bike.",
 
     // Showroom detail
     detailMetaDescSuffix:
-      "Şimdi [PLZ] [SEHIR]'daki Karaarslan Bike'da görün.",
+      "Şimdi 44534 Lünen'daki Karaarslan Bike'da görün.",
     bikeFallbackCategory: 'Bisiklet',
 
     // Footer
@@ -2639,9 +2639,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     // Accessories page
     accessoriesMetaTitle:
-      'Bisiklet Aksesuarları [SEHIR] | Kask, Çanta & Kilit | Karaarslan Bike',
+      'Bisiklet Aksesuarları Lünen | Kask, Çanta & Kilit | Karaarslan Bike',
     accessoriesMetaDescription:
-      "[SEHIR]'da bisiklet aksesuarı satın alın ✓ Kask, çanta, kilit, aydınlatma & daha fazlası ✓ Karaarslan Bike — [ADRES], [PLZ] [SEHIR].",
+      "Lünen'da bisiklet aksesuarı satın alın ✓ Kask, çanta, kilit, aydınlatma & daha fazlası ✓ Karaarslan Bike — An der Wethmarheide 45, Garagennummer 255, 44534 Lünen.",
     accessoriesTitle: 'Aksesuar',
     accessoriesSub: 'Bisikletiniz için çanta, kask, kilit ve daha fazlası.',
     accessoriesNoItems: 'Şu anda mevcut aksesuar bulunmamaktadır.',
@@ -2653,9 +2653,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     // Neue Fahrräder
     neueFahrraeder: 'Yeni Bisikletler',
     neueFahrraederMetaTitle:
-      "[SEHIR]'da Yeni Bisiklet Al | Şehir, Trekking, E-Bisiklet | Karaarslan Bike",
+      "Lünen'da Yeni Bisiklet Al | Şehir, Trekking, E-Bisiklet | Karaarslan Bike",
     neueFahrraederMetaDescription:
-      "[SEHIR]'da yeni bisiklet satın alın ✓ Şehir, Trekking, Dağ & E-bisiklet ✓ 2 yıl garanti ✓ Stokta & hemen teslim ✓ Uygun fiyat. Karaarslan Bike.",
+      "Lünen'da yeni bisiklet satın alın ✓ Şehir, Trekking, Dağ & E-bisiklet ✓ 2 yıl garanti ✓ Stokta & hemen teslim ✓ Uygun fiyat. Karaarslan Bike.",
     neueFahrraederTitle: 'Yeni Bisikletler',
     neueFahrraederSub: '2 yıl mağaza garantili sıfır bisikletler.',
     neueFahrraederBrand: 'Marka',
@@ -2688,13 +2688,13 @@ const TRANSLATIONS: Record<Language, Translations> = {
     ratgeberRelated: 'İlgili rehberler',
     ratgeberBackToList: 'Tüm rehberlere dön',
     faqMetaTitle:
-      'SSS — [SEHIR] Bisiklet Mağazası | Sık Sorulan Sorular | Karaarslan Bike',
+      'SSS — Lünen Bisiklet Mağazası | Sık Sorulan Sorular | Karaarslan Bike',
     faqMetaDescription:
-      "[SEHIR]'da bisiklet alma ve kiralama hakkında sık sorulan sorular: garanti, e-bisiklet, deneme sürüşü, çalışma saatleri, fiyatlar. Karaarslan Bike.",
+      "Lünen'da bisiklet alma ve kiralama hakkında sık sorulan sorular: garanti, e-bisiklet, deneme sürüşü, çalışma saatleri, fiyatlar. Karaarslan Bike.",
     bikeRentalMetaTitle:
-      '[SEHIR] Bisiklet Kiralama 6,80 €/gün | Karaarslan Bike',
+      'Lünen Bisiklet Kiralama 6,80 €/gün | Karaarslan Bike',
     bikeRentalMetaDescription:
-      "[SEHIR]'da bisiklet kiralayın — 6,80 €/gün'den itibaren. Şehir, trekking ve e-bisiklet mevcut. Kask ve kilit dahil. Hemen teslim alın. ✓ Karaarslan Bike.",
+      "Lünen'da bisiklet kiralayın — 6,80 €/gün'den itibaren. Şehir, trekking ve e-bisiklet mevcut. Kask ve kilit dahil. Hemen teslim alın. ✓ Karaarslan Bike.",
     garantieMetaTitle: 'Garanti Koşulları — Karaarslan Bike',
     garantieMetaDescription:
       "Karaarslan Bike'da yeni ve ikinci el bisikletler için garanti koşulları. Yeni bisikletlerde 2 yıl, ikinci elde 3 ay garanti.",
@@ -2706,9 +2706,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Karaarslan Bike gizlilik politikası. Kişisel verilerinizin işlenmesi hakkında bilgiler.',
     faqCtaText: 'Başka sorunuz mu var? Bize ulaşın!',
     faqCtaButton: 'İletişime geçin',
-    faqQ1: "[SEHIR]'da bisiklet nereden alabilirim?",
+    faqQ1: "Lünen'da bisiklet nereden alabilirim?",
     faqA1:
-      'Karaarslan Bike, [ADRES], [PLZ] [SEHIR]. 100+ yeni ve ikinci el bisiklet stokta — randevusuz gelin.',
+      'Karaarslan Bike, An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. 100+ yeni ve ikinci el bisiklet stokta — randevusuz gelin.',
     faqQ2: 'Satın almadan önce bisikleti deneyebilir miyim?',
     faqA2:
       'Evet! Tüm bisikletler çalışma saatlerinde denenebilir — randevu gerekmez.',
@@ -2763,7 +2763,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     svcAngeboteBadge: 'Yeni Bisikletler',
     svcAngeboteTitle: 'Yeni Bisikletler',
     svcAngeboteSub:
-      "2 yıl bayi garantili sıfır bisikletler – [SEHIR]'dan direkt.",
+      "2 yıl bayi garantili sıfır bisikletler – Lünen'dan direkt.",
     svcAngeboteCta: 'Tüm Yeni Bisikletler',
 
     cityWarrantyIncl: 'Garanti dahil',

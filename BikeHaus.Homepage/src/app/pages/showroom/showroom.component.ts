@@ -1337,7 +1337,7 @@ export class ShowroomComponent implements OnInit, OnDestroy {
   // Available categories (dynamically computed from data)
   availableCategories = computed(() => {
     const counts = new Map<string, number>();
-    const hiddenPattern = /kleinanzeigen|[SEHIR]/i;
+    const hiddenPattern = /kleinanzeigen|Lünen/i;
     this.allListings().forEach((l) => {
       if (l.category && !hiddenPattern.test(l.category)) {
         counts.set(l.category, (counts.get(l.category) || 0) + 1);
@@ -1596,7 +1596,7 @@ export class ShowroomComponent implements OnInit, OnDestroy {
       price: bike.preis || undefined,
       priceText: bike.preis ? `${bike.preis} €` : 'VB',
       category: this.mapArtToCategory(bike.art),
-      location: '[SEHIR]',
+      location: 'Lünen',
       externalUrl: '',
       isActive: true,
       firstScrapedAt: bike.createdAt,

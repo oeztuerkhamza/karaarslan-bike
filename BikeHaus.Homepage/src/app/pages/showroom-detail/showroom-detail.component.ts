@@ -217,7 +217,7 @@ import { environment } from '../../../environments/environment';
 
               <!-- Google Maps -->
               <a
-                href="https://maps.google.com/?q=Heckerstra%C3%9Fe+27+[SEHIR]+im+Breisgau"
+                href="https://maps.google.com/?q=Heckerstra%C3%9Fe+27+Lünen+im+Breisgau"
                 target="_blank"
                 rel="noopener"
                 class="btn-maps"
@@ -1127,7 +1127,7 @@ export class ShowroomDetailComponent implements OnInit, OnDestroy {
 
   displayCategory(): string | null {
     const cat = this.listing()?.category;
-    if (!cat || /kleinanzeigen|[SEHIR]/i.test(cat)) return null;
+    if (!cat || /kleinanzeigen|Lünen/i.test(cat)) return null;
     return cat;
   }
 
@@ -1243,7 +1243,7 @@ export class ShowroomDetailComponent implements OnInit, OnDestroy {
       price: bike.preis || undefined,
       priceText: bike.preis ? `${bike.preis} €` : 'VB',
       category: this.mapArtToCategory(bike.art),
-      location: '[SEHIR]',
+      location: 'Lünen',
       externalUrl: '',
       isActive: true,
       firstScrapedAt: bike.createdAt,

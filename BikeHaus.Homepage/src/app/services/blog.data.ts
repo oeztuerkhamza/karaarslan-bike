@@ -90,12 +90,12 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           },
           {
             type: 'heading',
-            content: 'Wo gebrauchte Fahrräder in [SEHIR] kaufen?',
+            content: 'Wo gebrauchte Fahrräder in Lünen kaufen?',
           },
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike in der [ADRES] bietet über 100 geprüfte neue und gebrauchte Fahrräder. Alle Räder haben Garantie und können vor Ort probegefahren werden. Wir sind Mo–Fr 10–18 Uhr und Sa 10–14 Uhr für Sie da.',
+              'Karaarslan Bike in der An der Wethmarheide 45, Garagennummer 255 bietet über 100 geprüfte neue und gebrauchte Fahrräder. Alle Räder haben Garantie und können vor Ort probegefahren werden. Wir sind Mo–Fr 10–18 Uhr und Sa 10–14 Uhr für Sie da.',
           },
           {
             type: 'cta',
@@ -109,7 +109,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         title: 'Buying a Used Bike — What to Look For',
         metaTitle: 'Buying a Used Bike — Tips & Checklist | Karaarslan Bike',
         metaDescription:
-          'Buy a used bike without risk. Learn what to check — frame, brakes, gears & tires. Expert checklist from your [SEHIR] bike shop.',
+          'Buy a used bike without risk. Learn what to check — frame, brakes, gears & tires. Expert checklist from your Lünen bike shop.',
         excerpt:
           'A used bicycle can be a great deal — or a disappointment. Use our checklist to buy safely.',
         tldr: 'Check frame, brakes, gears, tires and bearings. Buy from a dealer with warranty instead of privately. At Karaarslan Bike you get inspected used bikes with a 3-month warranty.',
@@ -225,7 +225,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Welches Fahrrad passt zu mir? Ratgeber 2026 | Karaarslan Bike',
         metaDescription:
-          'Citybike, Trekkingrad, Mountainbike oder E-Bike? Finden Sie heraus, welcher Fahrradtyp zu Ihrem Fahrstil passt. Kostenlose Beratung in [SEHIR].',
+          'Citybike, Trekkingrad, Mountainbike oder E-Bike? Finden Sie heraus, welcher Fahrradtyp zu Ihrem Fahrstil passt. Kostenlose Beratung in Lünen.',
         excerpt:
           'City, Trekking, Mountain oder E-Bike? Wir helfen Ihnen, den richtigen Fahrradtyp für Ihren Alltag zu finden.',
         tldr: 'Kurze Stadtstrecken → Citybike. Pendeln → Trekkingrad. Lange Strecken → E-Bike. Sport & Gelände → Mountainbike. Kostenlose Beratung bei Karaarslan Bike.',
@@ -246,7 +246,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Ideal für den täglichen Weg zur Arbeit, zum Einkaufen oder für kurze Strecken in der Stadt. Citybikes haben einen bequemen, aufrechten Sitz, Schutzbleche, Gepäckträger und Licht. In [SEHIR] die beliebteste Wahl für Pendler und Studenten.',
+              'Ideal für den täglichen Weg zur Arbeit, zum Einkaufen oder für kurze Strecken in der Stadt. Citybikes haben einen bequemen, aufrechten Sitz, Schutzbleche, Gepäckträger und Licht. In Lünen die beliebteste Wahl für Pendler und Studenten.',
           },
           {
             type: 'heading',
@@ -264,7 +264,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Breite Reifen, Federung und robuster Rahmen — Mountainbikes sind für Waldwege, Trails und sportliches Fahren gemacht. Im Schwarzwald rund um [SEHIR] gibt es unzählige Trails.',
+              'Breite Reifen, Federung und robuster Rahmen — Mountainbikes sind für Waldwege, Trails und sportliches Fahren gemacht. Im Schwarzwald rund um Lünen gibt es unzählige Trails.',
           },
           {
             type: 'heading',
@@ -273,7 +273,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Ein E-Bike (Pedelec) unterstützt Sie mit einem Elektromotor bis 25 km/h. Ideal für Pendler mit langen Strecken, Berge oder wenn Sie einfach entspannter ankommen möchten. In [SEHIR] mit seinen Steigungen besonders beliebt.',
+              'Ein E-Bike (Pedelec) unterstützt Sie mit einem Elektromotor bis 25 km/h. Ideal für Pendler mit langen Strecken, Berge oder wenn Sie einfach entspannter ankommen möchten. In Lünen mit seinen Steigungen besonders beliebt.',
           },
           {
             type: 'heading',
@@ -292,7 +292,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'tip',
             content:
-              'Unsicher? Kommen Sie einfach bei Karaarslan Bike vorbei. Wir beraten Sie kostenlos und Sie können verschiedene Räder probefahren. [ADRES], Mo–Fr 10–18 Uhr.',
+              'Unsicher? Kommen Sie einfach bei Karaarslan Bike vorbei. Wir beraten Sie kostenlos und Sie können verschiedene Räder probefahren. An der Wethmarheide 45, Garagennummer 255, Mo–Fr 10–18 Uhr.',
           },
           {
             type: 'cta',
@@ -307,7 +307,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Which Bike is Right for Me? Guide 2026 | Karaarslan Bike',
         metaDescription:
-          'City bike, trekking, mountain or e-bike? Find out which type suits your riding style. Free advice in [SEHIR].',
+          'City bike, trekking, mountain or e-bike? Find out which type suits your riding style. Free advice in Lünen.',
         excerpt:
           'City, trekking, mountain or e-bike? We help you find the right bike type.',
         tldr: 'Short city trips → city bike. Commuting → trekking bike. Long distances → e-bike. Sport & trails → mountain bike. Free advice at Karaarslan Bike.',
@@ -699,14 +699,14 @@ export const BLOG_ARTICLES: BlogArticle[] = [
 
   // ─── Article 5: Karaarslan Bike ───
   {
-    slug: 'fahrradladen-[SEHIR]',
-    coverImage: 'assets/blog/fahrradladen-[SEHIR].jpg',
+    slug: 'fahrradladen-Lünen',
+    coverImage: 'assets/blog/fahrradladen-Lünen.jpg',
     date: '2026-04-12',
     readingTime: 5,
     category: 'lokal',
     tags: [
       'fahrradladen',
-      '[SEHIR]',
+      'Lünen',
       'fahrradgeschäft',
       'fahrradhändler',
       'bike shop',
@@ -721,10 +721,10 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Karaarslan Bike — Ihr Fahrradgeschäft | Karaarslan Bike',
         metaDescription:
-          'Fahrradladen in [SEHIR] gesucht? Karaarslan Bike: Über 100 neue & gebrauchte Fahrräder, E-Bikes, Garantie, Probefahrt. [ADRES].',
+          'Fahrradladen in Lünen gesucht? Karaarslan Bike: Über 100 neue & gebrauchte Fahrräder, E-Bikes, Garantie, Probefahrt. An der Wethmarheide 45, Garagennummer 255.',
         excerpt:
-          'Ihr Fahrradladen in [SEHIR]: Karaarslan Bike bietet über 100 neue und gebrauchte Fahrräder mit Garantie.',
-        tldr: 'Karaarslan Bike: [ADRES], [PLZ] [SEHIR]. Über 100 neue & gebrauchte Fahrräder, E-Bikes, Garantie. Mo–Fr 10–18, Sa 10–14 Uhr. WhatsApp: [TELEFON].',
+          'Ihr Fahrradladen in Lünen: Karaarslan Bike bietet über 100 neue und gebrauchte Fahrräder mit Garantie.',
+        tldr: 'Karaarslan Bike: An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Über 100 neue & gebrauchte Fahrräder, E-Bikes, Garantie. Mo–Fr 10–18, Sa 10–14 Uhr. WhatsApp: +49 163 7390301.',
         sections: [
           {
             type: 'heading',
@@ -733,7 +733,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike ist ein Fahrradgeschäft in der [ADRES], [PLZ] [SEHIR]. Wir bieten neue und gebrauchte Fahrräder — darunter Citybikes, Trekkingräder, Mountainbikes, E-Bikes, Kinderfahrräder und Hollandräder.',
+              'Karaarslan Bike ist ein Fahrradgeschäft in der An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Wir bieten neue und gebrauchte Fahrräder — darunter Citybikes, Trekkingräder, Mountainbikes, E-Bikes, Kinderfahrräder und Hollandräder.',
           },
           {
             type: 'heading',
@@ -763,7 +763,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
               'Freitag: 11:00 – 13:00 & 15:00 – 18:00 Uhr',
               'Samstag: 11:30 – 17:00 Uhr',
               'Sonn- und feiertags geschlossen',
-              'WhatsApp: [TELEFON]',
+              'WhatsApp: +49 163 7390301',
               'E-Mail: karaarslan-bike.de@gmail.com',
             ],
           },
@@ -774,7 +774,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike befindet sich in der [ADRES], im Stadtteil Haslach. Gut erreichbar mit dem Auto (Parkplätze vorhanden) oder mit der Straßenbahn. Aus Emmendingen, Bad Krozingen, Breisach, March und Gundelfingen sind wir in 15–25 Minuten erreichbar.',
+              'Karaarslan Bike befindet sich in der An der Wethmarheide 45, Garagennummer 255, im Stadtteil Haslach. Gut erreichbar mit dem Auto (Parkplätze vorhanden) oder mit der Straßenbahn. Aus Emmendingen, Bad Krozingen, Breisach, March und Gundelfingen sind wir in 15–25 Minuten erreichbar.',
           },
           {
             type: 'cta',
@@ -785,22 +785,22 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         ],
       },
       en: {
-        title: 'Bike Shop [SEHIR] — Karaarslan Bike',
-        metaTitle: 'Bike Shop [SEHIR] — Your Bike Store | Karaarslan Bike',
+        title: 'Bike Shop Lünen — Karaarslan Bike',
+        metaTitle: 'Bike Shop Lünen — Your Bike Store | Karaarslan Bike',
         metaDescription:
-          'Looking for a bike shop in [SEHIR]? Karaarslan Bike: 100+ new & used bikes, e-bikes, warranty, test rides.',
+          'Looking for a bike shop in Lünen? Karaarslan Bike: 100+ new & used bikes, e-bikes, warranty, test rides.',
         excerpt:
-          'Your bike shop in [SEHIR]: Over 100 new and used bikes with warranty.',
-        tldr: 'Karaarslan Bike: [ADRES], [PLZ] [SEHIR]. 100+ new & used bikes, e-bikes, warranty. Mon–Fri 10–18, Sat 10–14. WhatsApp: [TELEFON].',
+          'Your bike shop in Lünen: Over 100 new and used bikes with warranty.',
+        tldr: 'Karaarslan Bike: An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. 100+ new & used bikes, e-bikes, warranty. Mon–Fri 10–18, Sat 10–14. WhatsApp: +49 163 7390301.',
         sections: [
           {
             type: 'heading',
-            content: 'Karaarslan Bike — Your bike dealer in [SEHIR]',
+            content: 'Karaarslan Bike — Your bike dealer in Lünen',
           },
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike is a bike shop at [ADRES], [PLZ] [SEHIR]. We offer new and used bikes with warranty.',
+              'Karaarslan Bike is a bike shop at An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. We offer new and used bikes with warranty.',
           },
           {
             type: 'cta',
@@ -811,22 +811,22 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         ],
       },
       fr: {
-        title: 'Magasin de vélos [SEHIR] — Karaarslan Bike',
-        metaTitle: 'Magasin de vélos [SEHIR] | Karaarslan Bike',
+        title: 'Magasin de vélos Lünen — Karaarslan Bike',
+        metaTitle: 'Magasin de vélos Lünen | Karaarslan Bike',
         metaDescription:
-          'Vous cherchez un magasin de vélos à [SEHIR] ? Karaarslan Bike : plus de 100 vélos neufs et occasion.',
+          'Vous cherchez un magasin de vélos à Lünen ? Karaarslan Bike : plus de 100 vélos neufs et occasion.',
         excerpt:
-          'Votre magasin de vélos à [SEHIR] : plus de 100 vélos avec garantie.',
-        tldr: 'Karaarslan Bike : [ADRES], [PLZ] [SEHIR]. Plus de 100 vélos neufs et occasion, VAE, garantie. Lun–Ven 10–18, Sam 10–14.',
+          'Votre magasin de vélos à Lünen : plus de 100 vélos avec garantie.',
+        tldr: 'Karaarslan Bike : An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Plus de 100 vélos neufs et occasion, VAE, garantie. Lun–Ven 10–18, Sam 10–14.',
         sections: [
           {
             type: 'heading',
-            content: 'Karaarslan Bike — Votre vélociste à [SEHIR]',
+            content: 'Karaarslan Bike — Votre vélociste à Lünen',
           },
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike est un magasin de vélos à la [ADRES], [PLZ] [SEHIR].',
+              'Karaarslan Bike est un magasin de vélos à la An der Wethmarheide 45, Garagennummer 255, 44534 Lünen.',
           },
           {
             type: 'cta',
@@ -837,22 +837,22 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         ],
       },
       tr: {
-        title: '[SEHIR] Bisikletçi — Karaarslan Bike',
-        metaTitle: '[SEHIR] Bisiklet Dükkanı | Karaarslan Bike',
+        title: 'Lünen Bisikletçi — Karaarslan Bike',
+        metaTitle: 'Lünen Bisiklet Dükkanı | Karaarslan Bike',
         metaDescription:
-          "[SEHIR]'da bisiklet dükkanı arıyorsunuz? Karaarslan Bike: 100+ yeni ve ikinci el bisiklet, garanti, deneme sürüşü.",
+          "Lünen'da bisiklet dükkanı arıyorsunuz? Karaarslan Bike: 100+ yeni ve ikinci el bisiklet, garanti, deneme sürüşü.",
         excerpt:
-          "[SEHIR]'daki bisiklet dükkanınız: Garantili 100+ yeni ve ikinci el bisiklet.",
-        tldr: 'Karaarslan Bike: [ADRES], [PLZ] [SEHIR]. 100+ yeni ve ikinci el bisiklet, e-bisiklet, garanti. Pzt–Cum 10–18, Cmt 10–14. WhatsApp: [TELEFON].',
+          "Lünen'daki bisiklet dükkanınız: Garantili 100+ yeni ve ikinci el bisiklet.",
+        tldr: 'Karaarslan Bike: An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. 100+ yeni ve ikinci el bisiklet, e-bisiklet, garanti. Pzt–Cum 10–18, Cmt 10–14. WhatsApp: +49 163 7390301.',
         sections: [
           {
             type: 'heading',
-            content: "Karaarslan Bike — [SEHIR]'daki bisiklet mağazanız",
+            content: "Karaarslan Bike — Lünen'daki bisiklet mağazanız",
           },
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike, [ADRES], [PLZ] [SEHIR] adresinde bulunan bir bisiklet mağazasıdır.',
+              'Karaarslan Bike, An der Wethmarheide 45, Garagennummer 255, 44534 Lünen adresinde bulunan bir bisiklet mağazasıdır.',
           },
           {
             type: 'cta',
@@ -877,7 +877,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       'größe',
       'alter',
       'tabelle',
-      'kinderfahrrad [SEHIR]',
+      'kinderfahrrad Lünen',
     ],
     relatedSlugs: [
       'welches-fahrrad-passt-zu-mir',
@@ -889,7 +889,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Kinderfahrrad Größe — Tabelle nach Alter & Körpergröße | Karaarslan Bike',
         metaDescription:
-          'Welche Kinderfahrrad-Größe passt? Größentabelle nach Alter & Körpergröße ✓ 12 bis 26 Zoll ✓ Tipps vom Fachhändler aus [SEHIR].',
+          'Welche Kinderfahrrad-Größe passt? Größentabelle nach Alter & Körpergröße ✓ 12 bis 26 Zoll ✓ Tipps vom Fachhändler aus Lünen.',
         excerpt:
           'Die richtige Fahrradgröße ist entscheidend für Sicherheit und Spaß. Unsere Tabelle zeigt, welches Rad zu welchem Alter passt.',
         tldr: 'Kinderfahrräder gibt es von 12 bis 26 Zoll. Entscheidend ist die Körpergröße, nicht nur das Alter. Ab 95 cm → 12 Zoll, ab 105 cm → 16 Zoll, ab 120 cm → 20 Zoll, ab 135 cm → 24 Zoll, ab 140 cm → 26 Zoll. Bei Karaarslan Bike können Kinder Probe fahren.',
@@ -960,7 +960,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           "Children's Bike Size Guide — Chart by Age & Height | Karaarslan Bike",
         metaDescription:
-          "Which children's bike size fits? Size chart by age & height ✓ 12 to 26 inch ✓ Expert tips from [SEHIR]'s bike shop.",
+          "Which children's bike size fits? Size chart by age & height ✓ 12 to 26 inch ✓ Expert tips from Lünen's bike shop.",
         excerpt:
           'The right bike size is crucial for safety and fun. Our chart shows which bike fits which age.',
         tldr: 'Children\'s bikes range from 12 to 26 inches. Body height matters more than age. From 95 cm → 12", 105 cm → 16", 120 cm → 20", 135 cm → 24", 140 cm → 26". Test rides available at Karaarslan Bike.',
@@ -1006,7 +1006,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Taille vélo enfant — Tableau par âge & taille | Karaarslan Bike',
         metaDescription:
-          'Quelle taille de vélo pour votre enfant? Tableau de tailles par âge et taille ✓ 12 à 26 pouces ✓ Conseils experts de [SEHIR].',
+          'Quelle taille de vélo pour votre enfant? Tableau de tailles par âge et taille ✓ 12 à 26 pouces ✓ Conseils experts de Lünen.',
         excerpt:
           'La bonne taille de vélo est essentielle pour la sécurité et le plaisir. Notre tableau montre quel vélo convient à quel âge.',
         tldr: 'Les vélos enfants vont de 12 à 26 pouces. La taille du corps est plus importante que l\'âge. Dès 95 cm → 12", 105 cm → 16", 120 cm → 20", 135 cm → 24". Essais chez Karaarslan Bike.',
@@ -1033,7 +1033,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Çocuk Bisikleti Beden Tablosu — Yaş & Boya Göre | Karaarslan Bike',
         metaDescription:
-          "Çocuğunuza hangi bisiklet bedeni uyar? Yaş ve boya göre beden tablosu ✓ 12'den 26 inç'e ✓ [SEHIR]'dan uzman tavsiyeleri.",
+          "Çocuğunuza hangi bisiklet bedeni uyar? Yaş ve boya göre beden tablosu ✓ 12'den 26 inç'e ✓ Lünen'dan uzman tavsiyeleri.",
         excerpt:
           'Doğru bisiklet bedeni güvenlik ve eğlence için çok önemli. Tablomuz hangi bisikletin hangi yaşa uyduğunu gösterir.',
         tldr: 'Çocuk bisikletleri 12\'den 26 inç\'e kadar. Boy uzunluğu yaştan daha önemli. 95 cm → 12", 105 cm → 16", 120 cm → 20", 135 cm → 24". Karaarslan Bike\'da deneme sürüşü yapılabilir.',
@@ -1072,14 +1072,14 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       'reparatur',
       'fahrrad check',
     ],
-    relatedSlugs: ['gebrauchtes-fahrrad-kaufen-tipps', 'fahrradladen-[SEHIR]'],
+    relatedSlugs: ['gebrauchtes-fahrrad-kaufen-tipps', 'fahrradladen-Lünen'],
     translations: {
       de: {
         title: 'Fahrrad Inspektion — Was wird gemacht & was kostet es?',
         metaTitle:
           'Fahrrad Inspektion — Kosten, Ablauf & Checkliste | Karaarslan Bike',
         metaDescription:
-          'Was kostet eine Fahrrad Inspektion? Was wird geprüft? Ablauf, Kosten (30–80 €) und Checkliste ✓ Tipps vom Fahrradladen in [SEHIR].',
+          'Was kostet eine Fahrrad Inspektion? Was wird geprüft? Ablauf, Kosten (30–80 €) und Checkliste ✓ Tipps vom Fahrradladen in Lünen.',
         excerpt:
           'Eine regelmäßige Inspektion hält Ihr Fahrrad sicher und verhindert teure Reparaturen. Hier erfahren Sie, was geprüft wird und was es kostet.',
         tldr: 'Eine Fahrrad-Inspektion kostet je nach Umfang 30–80 €. Geprüft werden Bremsen, Schaltung, Reifen, Kette, Lager, Beleuchtung und Speichenspannung. Empfohlen: 1× pro Jahr oder alle 2.000 km.',
@@ -1156,7 +1156,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Bike Inspection — Costs, Process & Checklist | Karaarslan Bike',
         metaDescription:
-          'How much does a bike inspection cost? What gets checked? Process, costs (€30–80), and checklist ✓ Tips from a bike shop in [SEHIR].',
+          'How much does a bike inspection cost? What gets checked? Process, costs (€30–80), and checklist ✓ Tips from a bike shop in Lünen.',
         excerpt:
           'A regular inspection keeps your bike safe and prevents expensive repairs. Learn what gets checked and what it costs.',
         tldr: 'A bike inspection costs €30–80 depending on scope. Brakes, gears, tires, chain, bearings, lights and spoke tension are checked. Recommended: once a year or every 2,000 km.',
@@ -1205,7 +1205,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Révision vélo — Coûts, déroulement & checklist | Karaarslan Bike',
         metaDescription:
-          'Combien coûte une révision vélo? Que vérifie-t-on? Déroulement, coûts (30–80 €) et checklist ✓ Conseils du vélociste à [SEHIR].',
+          'Combien coûte une révision vélo? Que vérifie-t-on? Déroulement, coûts (30–80 €) et checklist ✓ Conseils du vélociste à Lünen.',
         excerpt:
           'Une révision régulière garde votre vélo en sécurité et évite les réparations coûteuses.',
         tldr: 'Une révision vélo coûte entre 30 et 80 €. Freins, vitesses, pneus, chaîne, roulements et éclairage sont vérifiés. Recommandé : 1× par an.',
@@ -1232,7 +1232,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Bisiklet Bakımı — Maliyet, Süreç & Kontrol Listesi | Karaarslan Bike',
         metaDescription:
-          'Bisiklet bakımı ne kadara mal olur? Neler kontrol edilir? Süreç, maliyetler (30–80 €) ve kontrol listesi ✓ [SEHIR] bisikletçisinden ipuçları.',
+          'Bisiklet bakımı ne kadara mal olur? Neler kontrol edilir? Süreç, maliyetler (30–80 €) ve kontrol listesi ✓ Lünen bisikletçisinden ipuçları.',
         excerpt:
           'Düzenli bakım bisikletinizi güvende tutar ve pahalı tamirleri önler.',
         tldr: "Bisiklet bakımı 30–80 € arası. Frenler, vitesler, lastikler, zincir, rulmanlar ve ışıklar kontrol edilir. Önerilen: yılda 1 kez veya 2.000 km'de bir.",
@@ -1269,7 +1269,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       'stadtrad',
       'cityrad',
       'fahrrad arbeit',
-      'pendlerrad [SEHIR]',
+      'pendlerrad Lünen',
     ],
     relatedSlugs: ['welches-fahrrad-passt-zu-mir', 'e-bike-gebraucht-kaufen'],
     translations: {
@@ -1278,7 +1278,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Pendlerfahrrad — Die besten Stadträder & Tipps | Karaarslan Bike',
         metaDescription:
-          'Das beste Fahrrad für Pendler: Citybike, Trekkingrad oder E-Bike? Vergleich, Tipps & Empfehlungen 2026 ✓ Vom Fahrradladen in [SEHIR].',
+          'Das beste Fahrrad für Pendler: Citybike, Trekkingrad oder E-Bike? Vergleich, Tipps & Empfehlungen 2026 ✓ Vom Fahrradladen in Lünen.',
         excerpt:
           'Wer täglich mit dem Rad zur Arbeit fährt, braucht ein zuverlässiges, bequemes und wartungsarmes Fahrrad. Wir zeigen die besten Optionen.',
         tldr: 'Für Pendler empfehlen wir Citybikes (Kurzstrecke bis 5 km), Trekkingräder (5–15 km) oder E-Bikes (ab 10 km oder Steigungen). Wichtig: Nabenschaltung, Nabendynamo, Schutzbleche, Gepäckträger. Bei Karaarslan Bike finden Sie geprüfte Pendlerräder ab 199 €.',
@@ -1317,7 +1317,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Ab 10 km Pendelstrecke oder bei Steigungen lohnt sich ein E-Bike. Sie kommen entspannt und ohne zu schwitzen an. In [SEHIR] besonders beliebt: E-Trekkingräder mit Bosch- oder Shimano-Motor.',
+              'Ab 10 km Pendelstrecke oder bei Steigungen lohnt sich ein E-Bike. Sie kommen entspannt und ohne zu schwitzen an. In Lünen besonders beliebt: E-Trekkingräder mit Bosch- oder Shimano-Motor.',
           },
           {
             type: 'heading',
@@ -1338,7 +1338,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'tip',
             content:
-              'Tipp für [SEHIR]: Die Stadt hat über 420 km Radwege. Mit einem guten Pendlerrad sind die meisten Arbeitswege unter 20 Minuten. Nutzen Sie auch den Fahrradparkplatz am Hauptbahnhof für Bahn+Rad-Kombis.',
+              'Tipp für Lünen: Die Stadt hat über 420 km Radwege. Mit einem guten Pendlerrad sind die meisten Arbeitswege unter 20 Minuten. Nutzen Sie auch den Fahrradparkplatz am Hauptbahnhof für Bahn+Rad-Kombis.',
           },
           {
             type: 'heading',
@@ -1362,7 +1362,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Commuter Bike — Best City Bikes & Tips | Karaarslan Bike',
         metaDescription:
-          'The best bike for commuters: City bike, trekking bike or e-bike? Comparison, tips & recommendations 2026 ✓ From a bike shop in [SEHIR].',
+          'The best bike for commuters: City bike, trekking bike or e-bike? Comparison, tips & recommendations 2026 ✓ From a bike shop in Lünen.',
         excerpt:
           'If you ride to work every day, you need a reliable, comfortable and low-maintenance bike. We show you the best options.',
         tldr: 'For commuters we recommend: City bikes (short distances up to 5 km), trekking bikes (5–15 km), or e-bikes (10+ km or hills). Key features: internal gears, hub dynamo, fenders, rack. Tested commuter bikes from €199 at Karaarslan Bike.',
@@ -1416,7 +1416,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Vélo pendulaire — Meilleurs vélos de ville & conseils | Karaarslan Bike',
         metaDescription:
-          'Le meilleur vélo pour pendulaires: vélo de ville, VTC ou VAE? Comparaison, conseils & recommandations 2026 ✓ Du vélociste à [SEHIR].',
+          'Le meilleur vélo pour pendulaires: vélo de ville, VTC ou VAE? Comparaison, conseils & recommandations 2026 ✓ Du vélociste à Lünen.',
         excerpt:
           "Si vous pédalez au travail tous les jours, vous avez besoin d'un vélo fiable, confortable et facile à entretenir.",
         tldr: "Pour les pendulaires: vélos de ville (jusqu'à 5 km), VTC (5–15 km) ou VAE (10+ km ou côtes). Important: moyeu à vitesses intégrées, dynamo moyeu, garde-boue, porte-bagages. Vélos testés à partir de 199 € chez Karaarslan Bike.",
@@ -1443,7 +1443,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'İşe Gidiş Bisikleti — En İyi Şehir Bisikletleri & İpuçları | Karaarslan Bike',
         metaDescription:
-          'İşe gitmek için en iyi bisiklet: Şehir bisikleti, trekking bisikleti veya e-bisiklet? Karşılaştırma, ipuçları & 2026 önerileri ✓ [SEHIR] bisikletçisinden.',
+          'İşe gitmek için en iyi bisiklet: Şehir bisikleti, trekking bisikleti veya e-bisiklet? Karşılaştırma, ipuçları & 2026 önerileri ✓ Lünen bisikletçisinden.',
         excerpt:
           'Her gün bisikletle işe gidiyorsanız, güvenilir, rahat ve bakımı kolay bir bisiklete ihtiyacınız var.',
         tldr: "İşe gidişte önerilerimiz: Şehir bisikletleri (5 km'ye kadar), trekking bisikletleri (5–15 km) veya e-bisikletler (10+ km veya yokuşlar). Önemli: iç vites, jant dinamo, çamurluk, bagaj. Karaarslan Bike'da 199 €'dan itibaren test edilmiş bisikletler.",

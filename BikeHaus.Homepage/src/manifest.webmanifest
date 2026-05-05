@@ -1,7 +1,7 @@
 {
   "name": "Karaaslan Bisiklet",
-  "short_name": "BikeHaus",
-  "description": "Ihr Fahrradhändler in [SEHIR] - Neue und gebrauchte Fahrräder",
+  "short_name": "Karaarslan Bike",
+  "description": "Ihr Fahrradhändler in Lünen - Neue und gebrauchte Fahrräder",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0A0A0A",

@@ -121,11 +121,11 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://[DOMAIN]/de/ratgeber/fahrradladen-[SEHIR]</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/ratgeber/fahrradladen-[SEHIR]"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/ratgeber/fahrradladen-[SEHIR]"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/ratgeber/fahrradladen-[SEHIR]"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/ratgeber/fahrradladen-[SEHIR]"/>
+    <loc>https://[DOMAIN]/de/ratgeber/fahrradladen-lünen</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/ratgeber/fahrradladen-lünen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/ratgeber/fahrradladen-lünen"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/ratgeber/fahrradladen-lünen"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/ratgeber/fahrradladen-lünen"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>

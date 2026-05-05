@@ -42,14 +42,14 @@ import { DialogComponent } from './components/dialog/dialog.component';
           <div class="brand-icon-wrap">
             <img
               [src]="logoSrc()"
-              alt="Bike Haus Logo"
+              alt="Karaarslan Bike Logo"
               class="brand-logo"
               [class.no-filter]="hasCustomLogo()"
             />
           </div>
           <div class="brand-info">
             <span class="brand-name">BikeHaus</span>
-            <span class="brand-sub">[SEHIR]</span>
+            <span class="brand-sub">Lünen</span>
           </div>
         </div>
 
@@ -568,7 +568,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
           </button>
           <img
             [src]="logoSrc()"
-            alt="Bike Haus"
+            alt="Karaarslan Bike"
             class="topbar-logo"
             [class.no-filter]="hasCustomLogo()"
           />

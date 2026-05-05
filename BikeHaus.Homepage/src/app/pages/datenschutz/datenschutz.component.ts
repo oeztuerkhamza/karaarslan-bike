@@ -42,8 +42,8 @@ import { TranslationService } from '../../services/translation.service';
             </p>
             <p>
               Karaarslan Bike<br />
-              [ADRES]<br />
-              [PLZ] [SEHIR]<br />
+              An der Wethmarheide 45, Garagennummer 255<br />
+              44534 Lünen<br />
               E-Mail: karaarslan-bike.de&#64;gmail.com
             </p>
           </section>
@@ -97,10 +97,10 @@ import { TranslationService } from '../../services/translation.service';
             </p>
             <p>
               Karaarslan Bike<br />
-              [ADRES]<br />
-              [PLZ] [SEHIR]<br />
+              An der Wethmarheide 45, Garagennummer 255<br />
+              44534 Lünen<br />
               E-Mail: karaarslan-bike.de&#64;gmail.com<br />
-              WhatsApp: [TELEFON]
+              WhatsApp: +49 163 7390301
             </p>
             <p>
               Verantwortliche Stelle ist die natürliche oder juristische Person,
