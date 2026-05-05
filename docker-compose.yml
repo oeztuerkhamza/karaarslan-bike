@@ -25,7 +25,7 @@ services:
       - Smtp__FromEmail=${SMTP_FROMEMAIL:-no-reply@karaarslan-bike.de}
       - Smtp__FromName=${SMTP_FROMNAME:-Karaarslan Bike}
     extra_hosts:
-      - "mail.karaarslan-bike.de:host-gateway"
+      - 'mail.karaarslan-bike.de:host-gateway'
     networks:
       - karaaslan-network
 
