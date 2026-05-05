@@ -5,23 +5,26 @@ Kaldığın yerden devam etmek için bu dosyayı oku.
 
 ---
 
-## Durum: 🟡 Domain & Firma Adı Tamamlandı — Kalan Bilgiler Bekleniyor
+## Durum: � Production'da Canlı — Mail Sunucusu Aktif
 
 ### Bilinen Bilgiler
-| Bilgi | Değer |
-|-------|-------|
-| Firma adı | Karaarslan Bike |
-| Domain | karaarslan-bike.de |
+
+| Bilgi     | Değer              |
+| --------- | ------------------ |
+| Firma adı | Karaarslan Bike    |
+| Domain    | karaarslan-bike.de |
 
 ---
 
 ## ✅ Tamamlanan Adımlar
 
 ### Adım 1 — Proje Kopyalama
+
 - `d:\projects\bikehausfreiburg` → `d:\projects\Karaaslan` olarak kopyalandı
 - node_modules, .git, dist, veritabanı dosyaları hariç tutuldu
 
 ### Adım 2 — SEO: Lünen & Çevresi
+
 - `index.html` güncellendi: geo bölge `DE-NW`, koordinatlar `51.6167, 7.5167`, `addressRegion: Nordrhein-Westfalen`
 - `areaServed` schema: Freiburg çevresi → Dortmund, Werne, Selm, Bergkamen, Kamen, Castrop-Rauxel, Hamm, Unna, Schwerte, Herne, Kreis Unna
 - Keywords: Lünen çevresindeki ilçelerle güncellendi
@@ -29,42 +32,75 @@ Kaldığın yerden devam etmek için bu dosyayı oku.
 - `home.component.ts`: JSON-LD koordinatlar ve areaServed güncellendi
 
 ### Adım 3 — Backend Konfigürasyon (appsettings.json)
+
 - `BikeHaus.API/appsettings.json` güncellendi: JWT Issuer/Audience, DB adı, firma adı
 - `BikeHaus.API/appsettings.Production.json` güncellendi: SMTP, firma adı
 
 ### Adım 3 — Frontend Ortam Dosyaları
+
 - `BikeHaus.Homepage/src/environments/environment.prod.ts` → domain placeholder güncellendi
 - `BikeHaus.Client/src/environments/environment.prod.ts` → domain placeholder güncellendi
 
 ### Adım 4 — Çeviri Servisi (Homepage)
+
 - `BikeHaus.Homepage/src/app/services/translation.service.ts` güncellendi
   - Tüm "Bike Haus Freiburg" → "Karaaslan Bisiklet" → "Karaarslan Bike" olarak değiştirildi
   - WhatsApp, Instagram, Facebook linkleri → [PLACEHOLDER] yapıldı
   - Adres, şehir bilgileri → [PLACEHOLDER] yapıldı
 
 ### Adım 4b — Firma Adı & Domain Güncelleme (2026-05-04)
+
 - Tüm "Karaaslan Bisiklet" → "Karaarslan Bike" (36 dosya)
 - Tüm `[DOMAIN]` → `karaarslan-bike.de` (36 dosya)
 - JWT Issuer/Audience, DB adı, Nginx, Docker Compose dahil
 
 ### Adım 5 — HTML Meta & Schema
+
 - `BikeHaus.Homepage/src/index.html` güncellendi
   - title, meta description, meta keywords güncellendi
   - schema.org LocalBusiness verisi güncellendi
   - DNS prefetch URL'leri → [PLACEHOLDER] yapıldı
 
 ### Adım 6 — Docker Compose
+
 - `docker-compose.yml` güncellendi: domain, servis adları
 
 ### Adım 7 — Nginx Config
+
 - `nginx/nginx.conf` güncellendi: server_name direktifleri
+- `mail.karaarslan-bike.de` reverse proxy bloğu eklendi (SOGo WebObjects header'ları dahil)
+
+### Adım 8 — Sunucu & Docker Deploy (2026-05-04/05)
+
+- VPS: Netcup, IP `152.53.250.199`, Ubuntu 22.04
+- GitHub repo: `oeztuerkhamza/karaarslan-bike` (master branch)
+- `/opt/karaarslan/` → symlink `/opt/bikehaus/`
+- `docker compose up -d` ile tüm servisler ayağa kalktı
+- SSL: Let's Encrypt (certbot Docker), tüm subdomain'ler dahil (karaarslan-bike.de, www, admin, api, mail)
+- Servisler: `karaaslan-app` (API), `karaaslan-client` (admin SPA), `karaaslan-homepage` (SSR), `karaaslan-nginx`
+
+### Adım 9 — Mailcow Mail Sunucusu (2026-05-05)
+
+- Mailcow `/opt/mailcow/` dizinine kuruldu (18 container, hepsi Up)
+- `mailcow.conf` manuel oluşturuldu (generate_config.sh dondu)
+- SSL sertifikası: `mail.karaarslan-bike.de` için certbot `--expand` ile yenilendi
+- `dhparams.pem` oluşturuldu
+- `HTTPS_BIND=0.0.0.0`, `HTTP_PORT=8080`, `HTTPS_PORT=8444`
+- Mailbox'lar: `no-reply@karaarslan-bike.de`, `info@karaarslan-bike.de`
+- DNS: MX, SPF, DKIM, DMARC, PTR (IPv4+IPv6) kayıtları eklendi ve doğrulandı
+- SMTP 587/STARTTLS test edildi (swaks ile)
+- Uygulama `.env` SMTP ayarları güncellendi
+- SOGo webmail login sonrası "Unauthorized" düzeltildi (x-webobjects-\* header'ları eklendi)
+- Günlük SSL yenileme cron: `/etc/cron.d/certbot-mailcow` → `/opt/renew-certs.sh`
 
 ---
 
-## ⏳ Bekleyen Adımlar (Bilgi Gelince Yapılacak)
+## ⏳ Bekleyen / Yapılabilecek Adımlar
 
-### Adım 8 — Logo & Görseller (❗ Bilgi Gerekli)
+### Adım 10 — Logo & Görseller (❗ Henüz Yapılmadı)
+
 Değiştirilecek dosyalar:
+
 - `BikeHaus.Homepage/src/assets/logo.svg`
 - `BikeHaus.Homepage/src/assets/logo.png`
 - `BikeHaus.Homepage/src/assets/logo.webp`
@@ -72,44 +108,25 @@ Değiştirilecek dosyalar:
 - `BikeHaus.Client/src/assets/logo.svg`
 - `BikeHaus.Homepage/src/assets/shop/` (7 adet dükkân fotoğrafı)
 
-### Adım 9 — Gerçek Firma Bilgilerini Doldur (❗ Bilgi Gerekli)
-Aşağıdaki bilgiler placeholder olarak bırakıldı, doldurulması gerekiyor:
+### Adım 11 — Gerçek Firma Bilgilerini Doldur (❗ Kısmen Eksik)
 
-| Bilgi | Placeholder | Doldurulacak Dosyalar |
-|-------|-------------|----------------------|
-| Domain adı | `[DOMAIN]` | docker-compose.yml, nginx.conf, environment.prod.ts, index.html |
-| Adres | `[ADRES]` | translation.service.ts, home.component.ts, index.html |
-| Telefon/WhatsApp | `[TELEFON]` | translation.service.ts |
-| E-posta | `[EMAIL]` | appsettings.json, appsettings.Production.json |
-| Instagram URL | `[INSTAGRAM_URL]` | translation.service.ts |
-| Facebook URL | `[FACEBOOK_URL]` | translation.service.ts |
-| Google Places ID | `[GOOGLE_PLACES_ID]` | appsettings.json |
-| SMTP Host | `[SMTP_HOST]` | appsettings.Production.json |
-| Çalışma saatleri | `[CALISMA_SAATLERI]` | index.html (schema.org), translation.service.ts |
+Aşağıdaki bilgiler hâlâ placeholder:
 
-### Adım 10 — Git Repo Kurulumu (❗ Sunucu Gerekli)
-```bash
-cd d:\projects\Karaaslan
-git init
-git remote add origin https://github.com/[KULLANICI]/karaaslan-bisiklet
-git add .
-git commit -m "feat: initial Karaaslan setup from BikeHaus template"
-git push -u origin main
-```
+| Bilgi            | Placeholder          | Doldurulacak Dosyalar                                 |
+| ---------------- | -------------------- | ----------------------------------------------------- |
+| Adres            | `[ADRES]`            | translation.service.ts, home.component.ts, index.html |
+| Telefon/WhatsApp | `[TELEFON]`          | translation.service.ts                                |
+| Instagram URL    | `[INSTAGRAM_URL]`    | translation.service.ts                                |
+| Facebook URL     | `[FACEBOOK_URL]`     | translation.service.ts                                |
+| Google Places ID | `[GOOGLE_PLACES_ID]` | appsettings.json                                      |
+| Çalışma saatleri | `[CALISMA_SAATLERI]` | index.html (schema.org), translation.service.ts       |
 
-### Adım 11 — Sunucu Kurulumu (❗ VPS Gerekli)
-- VPS al (Ubuntu 22.04 önerilir)
-- Docker & Docker Compose kur
-- DNS kayıtlarını ekle (A records: domain + admin + api + mail)
-- `.env` dosyasını oluştur (JWT secret, Google API keys, SMTP password)
-- `docker compose up -d --build` ile ilk deploy
+### Adım 12 — Test (❗ Yapılacak)
 
-### Adım 12 — Test
-- [ ] `https://[DOMAIN]` → homepage yüklüyor mu?
-- [ ] `https://admin.[DOMAIN]` → admin paneli açılıyor mu?
-- [ ] Admin girişi → bisiklet ekle → homepage'de görünüyor mu?
-- [ ] Kiralama formu → e-posta bildirimi geliyor mu?
-- [ ] SSL sertifikası geçerli mi?
+- [ ] Kiralama formu → e-posta bildirimi geliyor mu? (SMTP entegrasyonu test)
+- [ ] SOGo webmail → gelen/giden mail testi (Gmail'e gönder, spam değil mi?)
+- [ ] Mailcow restart sonrası container'lar otomatik başlıyor mu? (reboot testi)
+- [ ] SSL yenileme cron testi (`bash /opt/renew-certs.sh` çalışıyor mu?)
 
 ---
 
