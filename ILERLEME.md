@@ -1,11 +1,17 @@
-# Karaaslan Projesi — İlerleme Takibi
+# Karaarslan Bike Projesi — İlerleme Takibi
 
-Bu dosya, BikeHaus Freiburg projesinin Karaaslan firması için uyarlanma sürecini adım adım kaydeder.
+Bu dosya, BikeHaus Freiburg projesinin Karaarslan Bike firması için uyarlanma sürecini adım adım kaydeder.
 Kaldığın yerden devam etmek için bu dosyayı oku.
 
 ---
 
-## Durum: 🟡 Kod Değişiklikleri Tamamlandı — Firma Bilgileri Bekleniyor
+## Durum: 🟡 Domain & Firma Adı Tamamlandı — Kalan Bilgiler Bekleniyor
+
+### Bilinen Bilgiler
+| Bilgi | Değer |
+|-------|-------|
+| Firma adı | Karaarslan Bike |
+| Domain | karaarslan-bike.de |
 
 ---
 
@@ -32,9 +38,14 @@ Kaldığın yerden devam etmek için bu dosyayı oku.
 
 ### Adım 4 — Çeviri Servisi (Homepage)
 - `BikeHaus.Homepage/src/app/services/translation.service.ts` güncellendi
-  - Tüm "Bike Haus Freiburg" → "Karaaslan Bisiklet" olarak değiştirildi
+  - Tüm "Bike Haus Freiburg" → "Karaaslan Bisiklet" → "Karaarslan Bike" olarak değiştirildi
   - WhatsApp, Instagram, Facebook linkleri → [PLACEHOLDER] yapıldı
   - Adres, şehir bilgileri → [PLACEHOLDER] yapıldı
+
+### Adım 4b — Firma Adı & Domain Güncelleme (2026-05-04)
+- Tüm "Karaaslan Bisiklet" → "Karaarslan Bike" (36 dosya)
+- Tüm `[DOMAIN]` → `karaarslan-bike.de` (36 dosya)
+- JWT Issuer/Audience, DB adı, Nginx, Docker Compose dahil
 
 ### Adım 5 — HTML Meta & Schema
 - `BikeHaus.Homepage/src/index.html` güncellendi

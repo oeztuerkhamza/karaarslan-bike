@@ -23,11 +23,11 @@ import { ShopInfoService } from '../../services/shop-info.service';
         <a
           [routerLink]="['/' + currentLang()]"
           class="brand"
-          aria-label="Karaaslan Bisiklet Home"
+          aria-label="Karaarslan Bike Home"
         >
           <img
             [src]="logoUrl()"
-            alt="Karaaslan Bisiklet"
+            alt="Karaarslan Bike"
             class="brand-logo"
             width="40"
             height="40"

@@ -4,7 +4,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { TranslationService, Language } from './translation.service';
 
-const BASE_URL = 'https://[DOMAIN]';
+const BASE_URL = 'https://karaarslan-bike.de';
 const SUPPORTED_LANGS: Language[] = ['de', 'en', 'fr', 'tr'];
 
 @Injectable({ providedIn: 'root' })

@@ -310,7 +310,7 @@ export class RatgeberComponent implements OnInit {
   ngOnInit(): void {
     const t = this.t();
     const lang = this.lang();
-    const url = `https://[DOMAIN]/${lang}/ratgeber`;
+    const url = `https://karaarslan-bike.de/${lang}/ratgeber`;
 
     this.titleService.setTitle(t.ratgeberMetaTitle);
     this.metaService.updateTag({

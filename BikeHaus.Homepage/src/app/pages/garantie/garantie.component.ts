@@ -217,7 +217,7 @@ export class GarantieComponent implements OnInit {
   ngOnInit(): void {
     const t = this.t();
     const lang = this.lang();
-    const pageUrl = `https://[DOMAIN]/${lang}/garantie`;
+    const pageUrl = `https://karaarslan-bike.de/${lang}/garantie`;
 
     this.titleService.setTitle(t.garantieMetaTitle);
     this.metaService.updateTag({

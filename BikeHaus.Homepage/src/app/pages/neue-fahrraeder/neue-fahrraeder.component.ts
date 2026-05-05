@@ -1007,7 +1007,7 @@ export class NeueFahrraederComponent implements OnInit, OnDestroy {
   private setSeo(): void {
     const t = this.t();
     const lang = this.lang();
-    const pageUrl = `https://[DOMAIN]/${lang}/neue-fahrraeder`;
+    const pageUrl = `https://karaarslan-bike.de/${lang}/neue-fahrraeder`;
 
     this.title.setTitle(t.neueFahrraederMetaTitle);
     this.meta.updateTag({

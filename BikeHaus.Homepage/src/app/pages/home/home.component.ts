@@ -48,7 +48,7 @@ interface Testimonial {
         <div class="hero-radial"></div>
       </div>
       <div class="container hero-inner">
-        <span class="hero-label fade-in">Karaaslan Bisiklet</span>
+        <span class="hero-label fade-in">Karaarslan Bike</span>
         <h1 id="hero-heading" class="hero-h1 fade-in d1">
           {{ t().heroH1 }}
         </h1>
@@ -532,7 +532,7 @@ interface Testimonial {
           >
             <img
               [src]="photo"
-              [alt]="'Karaaslan Bisiklet - Foto ' + (i + 1)"
+              [alt]="'Karaarslan Bike - Foto ' + (i + 1)"
               loading="lazy"
               width="400"
               height="300"
@@ -583,7 +583,7 @@ interface Testimonial {
       </button>
       <img
         [src]="shopPhotos[lightboxIndex]"
-        [alt]="'Karaaslan Bisiklet - Foto ' + (lightboxIndex + 1)"
+        [alt]="'Karaarslan Bike - Foto ' + (lightboxIndex + 1)"
         class="lightbox-img"
         width="1200"
         height="800"
@@ -3143,7 +3143,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
     this.metaService.updateTag({
       property: 'og:url',
-      content: `https://[DOMAIN]/${this.lang()}`,
+      content: `https://karaarslan-bike.de/${this.lang()}`,
     });
 
     // Add Review/Rating Schema for SEO
@@ -3195,10 +3195,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     const schema = {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
-      '@id': 'https://[DOMAIN]/#localbusiness',
-      name: 'Karaaslan Bisiklet',
-      image: 'https://[DOMAIN]/assets/logo.png',
-      url: 'https://[DOMAIN]',
+      '@id': 'https://karaarslan-bike.de/#localbusiness',
+      name: 'Karaarslan Bike',
+      image: 'https://karaarslan-bike.de/assets/logo.png',
+      url: 'https://karaarslan-bike.de',
       telephone: '+49-155-66300011',
       address: {
         '@type': 'PostalAddress',
@@ -3209,8 +3209,8 @@ export class HomeComponent implements OnInit, OnDestroy {
       },
       geo: {
         '@type': 'GeoCoordinates',
-        latitude: [LAT],
-        longitude: [LNG],
+        latitude: '51.6339',
+        longitude: '7.3149',
       },
       aggregateRating: {
         '@type': 'AggregateRating',
@@ -3382,5 +3382,3 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.shopPhotos.length;
   }
 }
-
-

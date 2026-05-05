@@ -439,10 +439,10 @@ export class ZubehoerDetailComponent implements OnInit {
           this.item.set(item);
           this.loading.set(false);
           // SEO meta tags
-          const title = `${item.titel} | Karaaslan Bisiklet`;
+          const title = `${item.titel} | Karaarslan Bike`;
           const desc = item.beschreibung
             ? item.beschreibung.substring(0, 160)
-            : `${item.titel} — Fahrradzubehör bei Karaaslan Bisiklet kaufen.`;
+            : `${item.titel} — Fahrradzubehör bei Karaarslan Bike kaufen.`;
           this.titleService.setTitle(title);
           this.metaService.updateTag({ name: 'description', content: desc });
           this.metaService.updateTag({ property: 'og:title', content: title });

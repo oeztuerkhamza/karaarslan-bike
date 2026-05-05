@@ -19,11 +19,11 @@ services:
       - PLAYWRIGHT_BROWSERS_PATH=/app/.playwright
       - Smtp__Host=${SMTP_HOST:-[SMTP_HOST]}
       - Smtp__Port=${SMTP_PORT:-587}
-      - Smtp__Username=${SMTP_USERNAME:-no-reply@[DOMAIN]}
+      - Smtp__Username=${SMTP_USERNAME:-no-reply@karaarslan-bike.de}
       - Smtp__Password=${SMTP_PASSWORD}
       - Smtp__UseSsl=${SMTP_USESSL:-false}
-      - Smtp__FromEmail=${SMTP_FROMEMAIL:-no-reply@[DOMAIN]}
-      - Smtp__FromName=${SMTP_FROMNAME:-Karaaslan Bisiklet}
+      - Smtp__FromEmail=${SMTP_FROMEMAIL:-no-reply@karaarslan-bike.de}
+      - Smtp__FromName=${SMTP_FROMNAME:-Karaarslan Bike}
     networks:
       - karaaslan-network
 

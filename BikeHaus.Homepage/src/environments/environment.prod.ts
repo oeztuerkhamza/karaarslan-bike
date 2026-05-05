@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://api.[DOMAIN]/api/public',
+  apiUrl: 'https://api.karaarslan-bike.de/api/public',
 };

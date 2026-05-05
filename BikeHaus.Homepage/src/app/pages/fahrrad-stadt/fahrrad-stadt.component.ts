@@ -97,7 +97,7 @@ import {
                 allowfullscreen
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
-                [title]="tr().cityDirectionsFrom + ' ' + c.cityName + ' — Karaaslan Bisiklet'"
+                [title]="tr().cityDirectionsFrom + ' ' + c.cityName + ' — Karaarslan Bike'"
               ></iframe>
             </div>
             <a
@@ -246,10 +246,10 @@ export class FahrradStadtComponent implements OnInit, OnDestroy {
     const schema = {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
-      '@id': `https://[DOMAIN]/${this.lang()}/${c.slug}#localbusiness`,
-      name: 'Karaaslan Bisiklet',
-      image: 'https://[DOMAIN]/assets/images/og-image.jpg',
-      url: `https://[DOMAIN]/${this.lang()}/${c.slug}`,
+      '@id': `https://karaarslan-bike.de/${this.lang()}/${c.slug}#localbusiness`,
+      name: 'Karaarslan Bike',
+      image: 'https://karaarslan-bike.de/assets/images/og-image.jpg',
+      url: `https://karaarslan-bike.de/${this.lang()}/${c.slug}`,
       telephone: '+[WA_NUMARA]',
       address: {
         '@type': 'PostalAddress',

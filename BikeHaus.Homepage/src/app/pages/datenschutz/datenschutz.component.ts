@@ -41,10 +41,10 @@ import { TranslationService } from '../../services/translation.service';
               Websitebetreiber:
             </p>
             <p>
-              Karaaslan Bisiklet<br />
+              Karaarslan Bike<br />
               [ADRES]<br />
               [PLZ] [SEHIR]<br />
-              E-Mail: [DOMAIN]&#64;gmail.com
+              E-Mail: karaarslan-bike.de&#64;gmail.com
             </p>
           </section>
 
@@ -96,10 +96,10 @@ import { TranslationService } from '../../services/translation.service';
               Website ist:
             </p>
             <p>
-              Karaaslan Bisiklet<br />
+              Karaarslan Bike<br />
               [ADRES]<br />
               [PLZ] [SEHIR]<br />
-              E-Mail: [DOMAIN]&#64;gmail.com<br />
+              E-Mail: karaarslan-bike.de&#64;gmail.com<br />
               WhatsApp: [TELEFON]
             </p>
             <p>

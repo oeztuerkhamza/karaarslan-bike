@@ -14,8 +14,8 @@ import { ShopInfoService } from '../../services/shop-info.service';
         <!-- Brand -->
         <div class="footer-brand">
           <div class="footer-logo">
-            <img [src]="logoUrl()" alt="Karaaslan Bisiklet" class="logo-img" />
-            <span class="logo-text">Karaaslan Bisiklet</span>
+            <img [src]="logoUrl()" alt="Karaarslan Bike" class="logo-img" />
+            <span class="logo-text">Karaarslan Bike</span>
           </div>
           <p class="footer-tagline">{{ t().footerTagline }}</p>
         </div>
@@ -102,7 +102,7 @@ import { ShopInfoService } from '../../services/shop-info.service';
 
       <div class="footer-bottom">
         <div class="container footer-bottom-inner">
-          <p>&copy; {{ year }} Karaaslan Bisiklet. {{ t().allRights }}</p>
+          <p>&copy; {{ year }} Karaarslan Bike. {{ t().allRights }}</p>
         </div>
       </div>
     </footer>

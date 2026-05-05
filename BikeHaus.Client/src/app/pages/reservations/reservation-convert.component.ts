@@ -209,7 +209,7 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
               </div>
               <div class="sig-line"></div>
               <div class="sig-name">
-                {{ sellerSignerName || 'Karaaslan Bisiklet' }}
+                {{ sellerSignerName || 'Karaarslan Bike' }}
               </div>
               <div class="sig-label">{{ t.sellerSignature }}</div>
             </div>
@@ -688,7 +688,7 @@ export class ReservationConvertComponent implements OnInit {
           this.sellerSignatureData = settings.inhaberSignatureBase64;
           this.sellerSignerName =
             `${settings.inhaberVorname || ''} ${settings.inhaberNachname || ''}`.trim() ||
-            'Karaaslan Bisiklet';
+            'Karaarslan Bike';
         }
       },
       error: (err: Error) => console.error('Error loading settings:', err),
@@ -739,7 +739,7 @@ export class ReservationConvertComponent implements OnInit {
     const sellerSig: SignatureCreate | undefined = this.sellerSignatureData
       ? {
           signatureData: this.sellerSignatureData,
-          signerName: this.sellerSignerName || 'Karaaslan Bisiklet',
+          signerName: this.sellerSignerName || 'Karaarslan Bike',
           signatureType: 'ShopOwner' as any,
         }
       : undefined;

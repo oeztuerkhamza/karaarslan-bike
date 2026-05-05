@@ -19,7 +19,7 @@ import { environment } from '../../../environments/environment';
         <img
           *ngIf="bike.images.length"
           [src]="getImageUrl(bike.images[0].filePath)"
-          [alt]="bike.titel + ' — Karaaslan Bisiklet'"
+          [alt]="bike.titel + ' — Karaarslan Bike'"
           loading="lazy"
           width="400"
           height="300"

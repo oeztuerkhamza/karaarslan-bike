@@ -1733,7 +1733,7 @@ export class SaleFormComponent implements OnInit {
     const sellerSig: SignatureCreate | undefined = this.sellerSignatureData
       ? {
           signatureData: this.sellerSignatureData,
-          signerName: this.sellerSignerName || 'Karaaslan Bisiklet',
+          signerName: this.sellerSignerName || 'Karaarslan Bike',
           signatureType: 'ShopOwner' as any,
         }
       : undefined;

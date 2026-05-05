@@ -552,7 +552,7 @@ export class RatgeberDetailComponent implements OnInit, OnDestroy {
     trans: BlogArticleTranslation,
     lang: string,
   ): void {
-    const url = `https://[DOMAIN]/${lang}/ratgeber/${article.slug}`;
+    const url = `https://karaarslan-bike.de/${lang}/ratgeber/${article.slug}`;
 
     this.titleService.setTitle(trans.metaTitle);
     this.metaService.updateTag({
@@ -575,7 +575,7 @@ export class RatgeberDetailComponent implements OnInit, OnDestroy {
     });
     this.metaService.updateTag({
       property: 'article:author',
-      content: 'Karaaslan Bisiklet',
+      content: 'Karaarslan Bike',
     });
     this.metaService.updateTag({
       name: 'robots',
@@ -593,28 +593,28 @@ export class RatgeberDetailComponent implements OnInit, OnDestroy {
     const schema = {
       '@context': 'https://schema.org',
       '@type': 'Article',
-      '@id': `https://[DOMAIN]/${lang}/ratgeber/${article.slug}#article`,
+      '@id': `https://karaarslan-bike.de/${lang}/ratgeber/${article.slug}#article`,
       headline: trans.title,
       description: trans.metaDescription,
       datePublished: article.date,
       dateModified: article.date,
       author: {
         '@type': 'Organization',
-        name: 'Karaaslan Bisiklet',
-        url: 'https://[DOMAIN]',
+        name: 'Karaarslan Bike',
+        url: 'https://karaarslan-bike.de',
       },
       publisher: {
         '@type': 'Organization',
-        name: 'Karaaslan Bisiklet',
-        url: 'https://[DOMAIN]',
+        name: 'Karaarslan Bike',
+        url: 'https://karaarslan-bike.de',
         logo: {
           '@type': 'ImageObject',
-          url: 'https://[DOMAIN]/assets/logo.svg',
+          url: 'https://karaarslan-bike.de/assets/logo.svg',
         },
       },
       mainEntityOfPage: {
         '@type': 'WebPage',
-        '@id': `https://[DOMAIN]/${lang}/ratgeber/${article.slug}`,
+        '@id': `https://karaarslan-bike.de/${lang}/ratgeber/${article.slug}`,
       },
       inLanguage: lang,
       articleSection: article.category,
@@ -652,19 +652,19 @@ export class RatgeberDetailComponent implements OnInit, OnDestroy {
           '@type': 'ListItem',
           position: 1,
           name: 'Startseite',
-          item: `https://[DOMAIN]/${lang}`,
+          item: `https://karaarslan-bike.de/${lang}`,
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Ratgeber',
-          item: `https://[DOMAIN]/${lang}/ratgeber`,
+          item: `https://karaarslan-bike.de/${lang}/ratgeber`,
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: trans.title,
-          item: `https://[DOMAIN]/${lang}/ratgeber/${article.slug}`,
+          item: `https://karaarslan-bike.de/${lang}/ratgeber/${article.slug}`,
         },
       ],
     };

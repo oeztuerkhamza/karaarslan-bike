@@ -42,12 +42,12 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       de: {
         title: 'Gebrauchtes Fahrrad kaufen — Worauf achten?',
         metaTitle:
-          'Gebrauchtes Fahrrad kaufen — Tipps & Checkliste | Karaaslan Bisiklet',
+          'Gebrauchtes Fahrrad kaufen — Tipps & Checkliste | Karaarslan Bike',
         metaDescription:
           'Gebrauchtes Fahrrad kaufen ohne Risiko. Erfahren Sie, worauf Sie bei Rahmen, Bremsen, Schaltung & Reifen achten müssen. Checkliste vom Fachhändler.',
         excerpt:
           'Ein gebrauchtes Fahrrad kann ein Schnäppchen sein — oder eine Enttäuschung. Mit unserer Checkliste kaufen Sie sicher.',
-        tldr: 'Achten Sie auf Rahmen, Bremsen, Schaltung, Reifen und Lager. Kaufen Sie beim Fachhändler mit Garantie statt privat. Bei Karaaslan Bisiklet gibt es geprüfte Gebrauchträder mit 3 Monaten Garantie.',
+        tldr: 'Achten Sie auf Rahmen, Bremsen, Schaltung, Reifen und Lager. Kaufen Sie beim Fachhändler mit Garantie statt privat. Bei Karaarslan Bike gibt es geprüfte Gebrauchträder mit 3 Monaten Garantie.',
         sections: [
           {
             type: 'heading',
@@ -56,7 +56,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Ein gebrauchtes Fahrrad ist nachhaltig, preiswert und sofort verfügbar. Bei einem seriösen Händler wie Karaaslan Bisiklet bekommen Sie geprüfte Räder mit Garantie — das ist der größte Vorteil gegenüber Privatverkäufen auf Kleinanzeigen.',
+              'Ein gebrauchtes Fahrrad ist nachhaltig, preiswert und sofort verfügbar. Bei einem seriösen Händler wie Karaarslan Bike bekommen Sie geprüfte Räder mit Garantie — das ist der größte Vorteil gegenüber Privatverkäufen auf Kleinanzeigen.',
           },
           {
             type: 'heading',
@@ -77,7 +77,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'tip',
             content:
-              'Bei Karaaslan Bisiklet wird jedes Gebrauchtrad technisch geprüft und mit 3 Monaten Garantie verkauft. Sie können jedes Fahrrad vor Ort probefahren — kein Termin nötig.',
+              'Bei Karaarslan Bike wird jedes Gebrauchtrad technisch geprüft und mit 3 Monaten Garantie verkauft. Sie können jedes Fahrrad vor Ort probefahren — kein Termin nötig.',
           },
           {
             type: 'heading',
@@ -95,7 +95,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Karaaslan Bisiklet in der [ADRES] bietet über 100 geprüfte neue und gebrauchte Fahrräder. Alle Räder haben Garantie und können vor Ort probegefahren werden. Wir sind Mo–Fr 10–18 Uhr und Sa 10–14 Uhr für Sie da.',
+              'Karaarslan Bike in der [ADRES] bietet über 100 geprüfte neue und gebrauchte Fahrräder. Alle Räder haben Garantie und können vor Ort probegefahren werden. Wir sind Mo–Fr 10–18 Uhr und Sa 10–14 Uhr für Sie da.',
           },
           {
             type: 'cta',
@@ -107,12 +107,12 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       en: {
         title: 'Buying a Used Bike — What to Look For',
-        metaTitle: 'Buying a Used Bike — Tips & Checklist | Karaaslan Bisiklet',
+        metaTitle: 'Buying a Used Bike — Tips & Checklist | Karaarslan Bike',
         metaDescription:
           'Buy a used bike without risk. Learn what to check — frame, brakes, gears & tires. Expert checklist from your [SEHIR] bike shop.',
         excerpt:
           'A used bicycle can be a great deal — or a disappointment. Use our checklist to buy safely.',
-        tldr: 'Check frame, brakes, gears, tires and bearings. Buy from a dealer with warranty instead of privately. At Karaaslan Bisiklet you get inspected used bikes with a 3-month warranty.',
+        tldr: 'Check frame, brakes, gears, tires and bearings. Buy from a dealer with warranty instead of privately. At Karaarslan Bike you get inspected used bikes with a 3-month warranty.',
         sections: [
           {
             type: 'heading',
@@ -121,7 +121,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'A used bike is sustainable, affordable and available right away. At a trusted dealer like Karaaslan Bisiklet you get inspected bikes with warranty — the biggest advantage over private sales.',
+              'A used bike is sustainable, affordable and available right away. At a trusted dealer like Karaarslan Bike you get inspected bikes with warranty — the biggest advantage over private sales.',
           },
           {
             type: 'heading',
@@ -142,7 +142,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'tip',
             content:
-              'At Karaaslan Bisiklet every used bike is technically inspected and sold with a 3-month warranty. Test ride any bike on site — no appointment needed.',
+              'At Karaarslan Bike every used bike is technically inspected and sold with a 3-month warranty. Test ride any bike on site — no appointment needed.',
           },
           {
             type: 'cta',
@@ -154,12 +154,12 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       fr: {
         title: "Acheter un vélo d'occasion — À quoi faire attention ?",
-        metaTitle: "Acheter un vélo d'occasion — Conseils | Karaaslan Bisiklet",
+        metaTitle: "Acheter un vélo d'occasion — Conseils | Karaarslan Bike",
         metaDescription:
           "Achetez un vélo d'occasion sans risque. Découvrez ce qu'il faut vérifier — cadre, freins, vitesses & pneus.",
         excerpt:
           "Un vélo d'occasion peut être une bonne affaire — ou une déception. Suivez notre checklist.",
-        tldr: 'Vérifiez le cadre, les freins, les vitesses et les pneus. Achetez chez un professionnel avec garantie. Chez Karaaslan Bisiklet : vélos contrôlés avec 3 mois de garantie.',
+        tldr: 'Vérifiez le cadre, les freins, les vitesses et les pneus. Achetez chez un professionnel avec garantie. Chez Karaarslan Bike : vélos contrôlés avec 3 mois de garantie.',
         sections: [
           {
             type: 'heading',
@@ -168,7 +168,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              "Un vélo d'occasion est durable, abordable et disponible immédiatement. Chez Karaaslan Bisiklet, chaque vélo est contrôlé et vendu avec garantie.",
+              "Un vélo d'occasion est durable, abordable et disponible immédiatement. Chez Karaarslan Bike, chaque vélo est contrôlé et vendu avec garantie.",
           },
           {
             type: 'cta',
@@ -180,12 +180,12 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       tr: {
         title: 'İkinci El Bisiklet Alırken Nelere Dikkat Etmeli?',
-        metaTitle: 'İkinci El Bisiklet Alma Rehberi | Karaaslan Bisiklet',
+        metaTitle: 'İkinci El Bisiklet Alma Rehberi | Karaarslan Bike',
         metaDescription:
           'İkinci el bisiklet alırken nelere dikkat etmelisiniz? Kadro, fren, vites ve lastik kontrol listesi.',
         excerpt:
           'İkinci el bisiklet hem uygun fiyatlı hem sürdürülebilir olabilir — doğru kontrolle.',
-        tldr: "Kadro, fren, vites, lastik ve yataklara dikkat edin. Garantili satıcıdan alın. Karaaslan Bisiklet'da kontrollü bisikletler 3 ay garantiyle satılır.",
+        tldr: "Kadro, fren, vites, lastik ve yataklara dikkat edin. Garantili satıcıdan alın. Karaarslan Bike'da kontrollü bisikletler 3 ay garantiyle satılır.",
         sections: [
           {
             type: 'heading',
@@ -194,7 +194,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              "İkinci el bisiklet sürdürülebilir, uygun fiyatlı ve hemen kullanıma hazırdır. Karaaslan Bisiklet'da her bisiklet teknik kontrolden geçer ve 3 ay garantiyle satılır.",
+              "İkinci el bisiklet sürdürülebilir, uygun fiyatlı ve hemen kullanıma hazırdır. Karaarslan Bike'da her bisiklet teknik kontrolden geçer ve 3 ay garantiyle satılır.",
           },
           {
             type: 'cta',
@@ -223,12 +223,12 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       de: {
         title: 'Welches Fahrrad passt zu mir? — Der große Ratgeber',
         metaTitle:
-          'Welches Fahrrad passt zu mir? Ratgeber 2026 | Karaaslan Bisiklet',
+          'Welches Fahrrad passt zu mir? Ratgeber 2026 | Karaarslan Bike',
         metaDescription:
           'Citybike, Trekkingrad, Mountainbike oder E-Bike? Finden Sie heraus, welcher Fahrradtyp zu Ihrem Fahrstil passt. Kostenlose Beratung in [SEHIR].',
         excerpt:
           'City, Trekking, Mountain oder E-Bike? Wir helfen Ihnen, den richtigen Fahrradtyp für Ihren Alltag zu finden.',
-        tldr: 'Kurze Stadtstrecken → Citybike. Pendeln → Trekkingrad. Lange Strecken → E-Bike. Sport & Gelände → Mountainbike. Kostenlose Beratung bei Karaaslan Bisiklet.',
+        tldr: 'Kurze Stadtstrecken → Citybike. Pendeln → Trekkingrad. Lange Strecken → E-Bike. Sport & Gelände → Mountainbike. Kostenlose Beratung bei Karaarslan Bike.',
         sections: [
           {
             type: 'heading',
@@ -292,7 +292,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'tip',
             content:
-              'Unsicher? Kommen Sie einfach bei Karaaslan Bisiklet vorbei. Wir beraten Sie kostenlos und Sie können verschiedene Räder probefahren. [ADRES], Mo–Fr 10–18 Uhr.',
+              'Unsicher? Kommen Sie einfach bei Karaarslan Bike vorbei. Wir beraten Sie kostenlos und Sie können verschiedene Räder probefahren. [ADRES], Mo–Fr 10–18 Uhr.',
           },
           {
             type: 'cta',
@@ -305,12 +305,12 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       en: {
         title: 'Which Bike is Right for Me? — Complete Guide',
         metaTitle:
-          'Which Bike is Right for Me? Guide 2026 | Karaaslan Bisiklet',
+          'Which Bike is Right for Me? Guide 2026 | Karaarslan Bike',
         metaDescription:
           'City bike, trekking, mountain or e-bike? Find out which type suits your riding style. Free advice in [SEHIR].',
         excerpt:
           'City, trekking, mountain or e-bike? We help you find the right bike type.',
-        tldr: 'Short city trips → city bike. Commuting → trekking bike. Long distances → e-bike. Sport & trails → mountain bike. Free advice at Karaaslan Bisiklet.',
+        tldr: 'Short city trips → city bike. Commuting → trekking bike. Long distances → e-bike. Sport & trails → mountain bike. Free advice at Karaarslan Bike.',
         sections: [
           {
             type: 'heading',
@@ -331,11 +331,11 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       fr: {
         title: 'Quel vélo me convient ? — Guide complet',
-        metaTitle: 'Quel vélo me convient ? Guide 2026 | Karaaslan Bisiklet',
+        metaTitle: 'Quel vélo me convient ? Guide 2026 | Karaarslan Bike',
         metaDescription:
           'Vélo de ville, trekking, VTT ou VAE ? Trouvez le type de vélo adapté à votre style.',
         excerpt: 'Ville, trekking, VTT ou VAE ? Nous vous aidons à choisir.',
-        tldr: 'Trajets courts → vélo de ville. Trajets quotidiens → trekking. Longues distances → VAE. Sport → VTT. Conseils gratuits chez Karaaslan Bisiklet.',
+        tldr: 'Trajets courts → vélo de ville. Trajets quotidiens → trekking. Longues distances → VAE. Sport → VTT. Conseils gratuits chez Karaarslan Bike.',
         sections: [
           {
             type: 'heading',
@@ -357,12 +357,12 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       tr: {
         title: 'Bana Hangi Bisiklet Uygun? — Kapsamlı Rehber',
         metaTitle:
-          'Bana Hangi Bisiklet Uygun? 2026 Rehberi | Karaaslan Bisiklet',
+          'Bana Hangi Bisiklet Uygun? 2026 Rehberi | Karaarslan Bike',
         metaDescription:
           'Şehir, trekking, dağ veya elektrikli bisiklet? Sürüş tarzınıza uygun tipi bulun.',
         excerpt:
           'Şehir, trekking, dağ veya e-bisiklet? Size uygun tipi bulmanıza yardımcı olalım.',
-        tldr: "Kısa şehir içi → şehir bisikleti. İşe gidiş → trekking. Uzun mesafe → e-bisiklet. Spor & arazi → dağ bisikleti. Karaaslan Bisiklet'da ücretsiz danışmanlık.",
+        tldr: "Kısa şehir içi → şehir bisikleti. İşe gidiş → trekking. Uzun mesafe → e-bisiklet. Spor & arazi → dağ bisikleti. Karaarslan Bike'da ücretsiz danışmanlık.",
         sections: [
           {
             type: 'heading',
@@ -400,7 +400,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       de: {
         title: 'Fahrrad Rahmengröße berechnen — Tabelle & Anleitung',
         metaTitle:
-          'Fahrrad Rahmengröße berechnen — Tabelle 2026 | Karaaslan Bisiklet',
+          'Fahrrad Rahmengröße berechnen — Tabelle 2026 | Karaarslan Bike',
         metaDescription:
           'Fahrrad Rahmengröße berechnen: Schrittlänge messen, Formel anwenden, richtige Größe finden. Mit Tabelle für City, Trekking, MTB & E-Bike.',
         excerpt:
@@ -456,7 +456,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'tip',
             content:
-              'Zwischen zwei Größen? Wählen Sie die kleinere Größe, wenn Sie sportlich fahren, und die größere für komfortables Fahren. Bei Karaaslan Bisiklet beraten wir Sie gerne persönlich.',
+              'Zwischen zwei Größen? Wählen Sie die kleinere Größe, wenn Sie sportlich fahren, und die größere für komfortables Fahren. Bei Karaarslan Bike beraten wir Sie gerne persönlich.',
           },
           {
             type: 'cta',
@@ -469,7 +469,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       en: {
         title: 'Calculate Bike Frame Size — Table & Guide',
         metaTitle:
-          'Bike Frame Size Calculator — Table 2026 | Karaaslan Bisiklet',
+          'Bike Frame Size Calculator — Table 2026 | Karaarslan Bike',
         metaDescription:
           'Calculate your bike frame size: measure inseam, apply formula, find the right size. Tables for city, trekking, MTB & e-bike.',
         excerpt:
@@ -496,7 +496,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       fr: {
         title: 'Calculer la taille du cadre — Tableau & Guide',
         metaTitle:
-          'Calculer la taille du cadre vélo — Tableau 2026 | Karaaslan Bisiklet',
+          'Calculer la taille du cadre vélo — Tableau 2026 | Karaarslan Bike',
         metaDescription:
           'Calculez votre taille de cadre : mesurez votre entrejambe, appliquez la formule.',
         excerpt:
@@ -522,7 +522,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       tr: {
         title: 'Bisiklet Kadro Boyu Hesaplama — Tablo & Rehber',
-        metaTitle: 'Bisiklet Kadro Boyu Hesaplama | Karaaslan Bisiklet',
+        metaTitle: 'Bisiklet Kadro Boyu Hesaplama | Karaarslan Bike',
         metaDescription:
           'Bisiklet kadro boyunuzu hesaplayın: bacak içi ölçümü, formül ve tablo.',
         excerpt: 'Doğru kadro boyu konfor ve güvenlik için çok önemlidir.',
@@ -564,12 +564,12 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       de: {
         title: 'E-Bike gebraucht kaufen — Akku, Motor, Garantie',
         metaTitle:
-          'E-Bike gebraucht kaufen — Worauf achten? | Karaaslan Bisiklet',
+          'E-Bike gebraucht kaufen — Worauf achten? | Karaarslan Bike',
         metaDescription:
           'Gebrauchtes E-Bike kaufen: Akku-Zustand, Motor-Check, Garantie. Was Sie beim Kauf eines gebrauchten Pedelecs wissen müssen.',
         excerpt:
           'Ein gebrauchtes E-Bike kann über 1.000 € sparen. Worauf Sie bei Akku, Motor und Garantie achten sollten.',
-        tldr: 'Ein gutes gebrauchtes E-Bike kostet 800–1.500 € (50 % Ersparnis). Achten Sie auf Akku-Restkapazität (mind. 70 %), Ladezyklen und Motor-Zustand. Bei Karaaslan Bisiklet: geprüfte E-Bikes mit dokumentiertem Akku-Zustand.',
+        tldr: 'Ein gutes gebrauchtes E-Bike kostet 800–1.500 € (50 % Ersparnis). Achten Sie auf Akku-Restkapazität (mind. 70 %), Ladezyklen und Motor-Zustand. Bei Karaarslan Bike: geprüfte E-Bikes mit dokumentiertem Akku-Zustand.',
         sections: [
           {
             type: 'heading',
@@ -606,7 +606,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'tip',
             content:
-              'Bei Karaaslan Bisiklet werden alle gebrauchten E-Bikes technisch geprüft und der Akku-Zustand dokumentiert. So kaufen Sie ohne böse Überraschungen.',
+              'Bei Karaarslan Bike werden alle gebrauchten E-Bikes technisch geprüft und der Akku-Zustand dokumentiert. So kaufen Sie ohne böse Überraschungen.',
           },
           {
             type: 'cta',
@@ -618,12 +618,12 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       en: {
         title: 'Buying a Used E-Bike — Battery, Motor, Warranty',
-        metaTitle: 'Buying a Used E-Bike — What to Check | Karaaslan Bisiklet',
+        metaTitle: 'Buying a Used E-Bike — What to Check | Karaarslan Bike',
         metaDescription:
           'Used e-bike buying guide: battery health, motor check, warranty. What you need to know before buying a used pedelec.',
         excerpt:
           'A used e-bike can save over €1,000. What to check regarding battery, motor and warranty.',
-        tldr: 'A good used e-bike costs €800–1,500 (50% savings). Check battery capacity (min. 70%), charge cycles and motor condition. At Karaaslan Bisiklet: inspected e-bikes with documented battery health.',
+        tldr: 'A good used e-bike costs €800–1,500 (50% savings). Check battery capacity (min. 70%), charge cycles and motor condition. At Karaarslan Bike: inspected e-bikes with documented battery health.',
         sections: [
           {
             type: 'heading',
@@ -644,7 +644,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       fr: {
         title: "Acheter un VAE d'occasion — Batterie, Moteur, Garantie",
-        metaTitle: "VAE d'occasion — Que vérifier ? | Karaaslan Bisiklet",
+        metaTitle: "VAE d'occasion — Que vérifier ? | Karaarslan Bike",
         metaDescription:
           "Guide d'achat VAE d'occasion : état de la batterie, vérification du moteur, garantie.",
         excerpt: "Un VAE d'occasion permet d'économiser plus de 1 000 €.",
@@ -670,7 +670,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       tr: {
         title: 'İkinci El E-Bisiklet Alma Rehberi — Akü, Motor, Garanti',
         metaTitle:
-          'İkinci El E-Bisiklet Alırken Nelere Dikkat Etmeli? | Karaaslan Bisiklet',
+          'İkinci El E-Bisiklet Alırken Nelere Dikkat Etmeli? | Karaarslan Bike',
         metaDescription:
           'İkinci el e-bisiklet alırken akü durumu, motor kontrolü ve garanti hakkında bilmeniz gerekenler.',
         excerpt:
@@ -697,7 +697,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     },
   },
 
-  // ─── Article 5: Karaaslan Bisiklet ───
+  // ─── Article 5: Karaarslan Bike ───
   {
     slug: 'fahrradladen-[SEHIR]',
     coverImage: 'assets/blog/fahrradladen-[SEHIR].jpg',
@@ -717,27 +717,27 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     ],
     translations: {
       de: {
-        title: 'Karaaslan Bisiklet — Karaaslan Bisiklet',
+        title: 'Karaarslan Bike — Karaarslan Bike',
         metaTitle:
-          'Karaaslan Bisiklet — Ihr Fahrradgeschäft | Karaaslan Bisiklet',
+          'Karaarslan Bike — Ihr Fahrradgeschäft | Karaarslan Bike',
         metaDescription:
-          'Fahrradladen in [SEHIR] gesucht? Karaaslan Bisiklet: Über 100 neue & gebrauchte Fahrräder, E-Bikes, Garantie, Probefahrt. [ADRES].',
+          'Fahrradladen in [SEHIR] gesucht? Karaarslan Bike: Über 100 neue & gebrauchte Fahrräder, E-Bikes, Garantie, Probefahrt. [ADRES].',
         excerpt:
-          'Ihr Fahrradladen in [SEHIR]: Karaaslan Bisiklet bietet über 100 neue und gebrauchte Fahrräder mit Garantie.',
-        tldr: 'Karaaslan Bisiklet: [ADRES], [PLZ] [SEHIR]. Über 100 neue & gebrauchte Fahrräder, E-Bikes, Garantie. Mo–Fr 10–18, Sa 10–14 Uhr. WhatsApp: [TELEFON].',
+          'Ihr Fahrradladen in [SEHIR]: Karaarslan Bike bietet über 100 neue und gebrauchte Fahrräder mit Garantie.',
+        tldr: 'Karaarslan Bike: [ADRES], [PLZ] [SEHIR]. Über 100 neue & gebrauchte Fahrräder, E-Bikes, Garantie. Mo–Fr 10–18, Sa 10–14 Uhr. WhatsApp: [TELEFON].',
         sections: [
           {
             type: 'heading',
-            content: 'Karaaslan Bisiklet — Ihr Fahrradhändler',
+            content: 'Karaarslan Bike — Ihr Fahrradhändler',
           },
           {
             type: 'paragraph',
             content:
-              'Karaaslan Bisiklet ist ein Fahrradgeschäft in der [ADRES], [PLZ] [SEHIR]. Wir bieten neue und gebrauchte Fahrräder — darunter Citybikes, Trekkingräder, Mountainbikes, E-Bikes, Kinderfahrräder und Hollandräder.',
+              'Karaarslan Bike ist ein Fahrradgeschäft in der [ADRES], [PLZ] [SEHIR]. Wir bieten neue und gebrauchte Fahrräder — darunter Citybikes, Trekkingräder, Mountainbikes, E-Bikes, Kinderfahrräder und Hollandräder.',
           },
           {
             type: 'heading',
-            content: 'Warum Karaaslan Bisiklet?',
+            content: 'Warum Karaarslan Bike?',
           },
           {
             type: 'list',
@@ -764,7 +764,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
               'Samstag: 11:30 – 17:00 Uhr',
               'Sonn- und feiertags geschlossen',
               'WhatsApp: [TELEFON]',
-              'E-Mail: [DOMAIN]@gmail.com',
+              'E-Mail: karaarslan-bike.de@gmail.com',
             ],
           },
           {
@@ -774,7 +774,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Karaaslan Bisiklet befindet sich in der [ADRES], im Stadtteil Haslach. Gut erreichbar mit dem Auto (Parkplätze vorhanden) oder mit der Straßenbahn. Aus Emmendingen, Bad Krozingen, Breisach, March und Gundelfingen sind wir in 15–25 Minuten erreichbar.',
+              'Karaarslan Bike befindet sich in der [ADRES], im Stadtteil Haslach. Gut erreichbar mit dem Auto (Parkplätze vorhanden) oder mit der Straßenbahn. Aus Emmendingen, Bad Krozingen, Breisach, March und Gundelfingen sind wir in 15–25 Minuten erreichbar.',
           },
           {
             type: 'cta',
@@ -785,22 +785,22 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         ],
       },
       en: {
-        title: 'Bike Shop [SEHIR] — Karaaslan Bisiklet',
-        metaTitle: 'Bike Shop [SEHIR] — Your Bike Store | Karaaslan Bisiklet',
+        title: 'Bike Shop [SEHIR] — Karaarslan Bike',
+        metaTitle: 'Bike Shop [SEHIR] — Your Bike Store | Karaarslan Bike',
         metaDescription:
-          'Looking for a bike shop in [SEHIR]? Karaaslan Bisiklet: 100+ new & used bikes, e-bikes, warranty, test rides.',
+          'Looking for a bike shop in [SEHIR]? Karaarslan Bike: 100+ new & used bikes, e-bikes, warranty, test rides.',
         excerpt:
           'Your bike shop in [SEHIR]: Over 100 new and used bikes with warranty.',
-        tldr: 'Karaaslan Bisiklet: [ADRES], [PLZ] [SEHIR]. 100+ new & used bikes, e-bikes, warranty. Mon–Fri 10–18, Sat 10–14. WhatsApp: [TELEFON].',
+        tldr: 'Karaarslan Bike: [ADRES], [PLZ] [SEHIR]. 100+ new & used bikes, e-bikes, warranty. Mon–Fri 10–18, Sat 10–14. WhatsApp: [TELEFON].',
         sections: [
           {
             type: 'heading',
-            content: 'Karaaslan Bisiklet — Your bike dealer in [SEHIR]',
+            content: 'Karaarslan Bike — Your bike dealer in [SEHIR]',
           },
           {
             type: 'paragraph',
             content:
-              'Karaaslan Bisiklet is a bike shop at [ADRES], [PLZ] [SEHIR]. We offer new and used bikes with warranty.',
+              'Karaarslan Bike is a bike shop at [ADRES], [PLZ] [SEHIR]. We offer new and used bikes with warranty.',
           },
           {
             type: 'cta',
@@ -811,22 +811,22 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         ],
       },
       fr: {
-        title: 'Magasin de vélos [SEHIR] — Karaaslan Bisiklet',
-        metaTitle: 'Magasin de vélos [SEHIR] | Karaaslan Bisiklet',
+        title: 'Magasin de vélos [SEHIR] — Karaarslan Bike',
+        metaTitle: 'Magasin de vélos [SEHIR] | Karaarslan Bike',
         metaDescription:
-          'Vous cherchez un magasin de vélos à [SEHIR] ? Karaaslan Bisiklet : plus de 100 vélos neufs et occasion.',
+          'Vous cherchez un magasin de vélos à [SEHIR] ? Karaarslan Bike : plus de 100 vélos neufs et occasion.',
         excerpt:
           'Votre magasin de vélos à [SEHIR] : plus de 100 vélos avec garantie.',
-        tldr: 'Karaaslan Bisiklet : [ADRES], [PLZ] [SEHIR]. Plus de 100 vélos neufs et occasion, VAE, garantie. Lun–Ven 10–18, Sam 10–14.',
+        tldr: 'Karaarslan Bike : [ADRES], [PLZ] [SEHIR]. Plus de 100 vélos neufs et occasion, VAE, garantie. Lun–Ven 10–18, Sam 10–14.',
         sections: [
           {
             type: 'heading',
-            content: 'Karaaslan Bisiklet — Votre vélociste à [SEHIR]',
+            content: 'Karaarslan Bike — Votre vélociste à [SEHIR]',
           },
           {
             type: 'paragraph',
             content:
-              'Karaaslan Bisiklet est un magasin de vélos à la [ADRES], [PLZ] [SEHIR].',
+              'Karaarslan Bike est un magasin de vélos à la [ADRES], [PLZ] [SEHIR].',
           },
           {
             type: 'cta',
@@ -837,22 +837,22 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         ],
       },
       tr: {
-        title: '[SEHIR] Bisikletçi — Karaaslan Bisiklet',
-        metaTitle: '[SEHIR] Bisiklet Dükkanı | Karaaslan Bisiklet',
+        title: '[SEHIR] Bisikletçi — Karaarslan Bike',
+        metaTitle: '[SEHIR] Bisiklet Dükkanı | Karaarslan Bike',
         metaDescription:
-          "[SEHIR]'da bisiklet dükkanı arıyorsunuz? Karaaslan Bisiklet: 100+ yeni ve ikinci el bisiklet, garanti, deneme sürüşü.",
+          "[SEHIR]'da bisiklet dükkanı arıyorsunuz? Karaarslan Bike: 100+ yeni ve ikinci el bisiklet, garanti, deneme sürüşü.",
         excerpt:
           "[SEHIR]'daki bisiklet dükkanınız: Garantili 100+ yeni ve ikinci el bisiklet.",
-        tldr: 'Karaaslan Bisiklet: [ADRES], [PLZ] [SEHIR]. 100+ yeni ve ikinci el bisiklet, e-bisiklet, garanti. Pzt–Cum 10–18, Cmt 10–14. WhatsApp: [TELEFON].',
+        tldr: 'Karaarslan Bike: [ADRES], [PLZ] [SEHIR]. 100+ yeni ve ikinci el bisiklet, e-bisiklet, garanti. Pzt–Cum 10–18, Cmt 10–14. WhatsApp: [TELEFON].',
         sections: [
           {
             type: 'heading',
-            content: "Karaaslan Bisiklet — [SEHIR]'daki bisiklet mağazanız",
+            content: "Karaarslan Bike — [SEHIR]'daki bisiklet mağazanız",
           },
           {
             type: 'paragraph',
             content:
-              'Karaaslan Bisiklet, [ADRES], [PLZ] [SEHIR] adresinde bulunan bir bisiklet mağazasıdır.',
+              'Karaarslan Bike, [ADRES], [PLZ] [SEHIR] adresinde bulunan bir bisiklet mağazasıdır.',
           },
           {
             type: 'cta',
@@ -887,12 +887,12 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       de: {
         title: 'Kinderfahrrad Größe — Welche Größe für welches Alter?',
         metaTitle:
-          'Kinderfahrrad Größe — Tabelle nach Alter & Körpergröße | Karaaslan Bisiklet',
+          'Kinderfahrrad Größe — Tabelle nach Alter & Körpergröße | Karaarslan Bike',
         metaDescription:
           'Welche Kinderfahrrad-Größe passt? Größentabelle nach Alter & Körpergröße ✓ 12 bis 26 Zoll ✓ Tipps vom Fachhändler aus [SEHIR].',
         excerpt:
           'Die richtige Fahrradgröße ist entscheidend für Sicherheit und Spaß. Unsere Tabelle zeigt, welches Rad zu welchem Alter passt.',
-        tldr: 'Kinderfahrräder gibt es von 12 bis 26 Zoll. Entscheidend ist die Körpergröße, nicht nur das Alter. Ab 95 cm → 12 Zoll, ab 105 cm → 16 Zoll, ab 120 cm → 20 Zoll, ab 135 cm → 24 Zoll, ab 140 cm → 26 Zoll. Bei Karaaslan Bisiklet können Kinder Probe fahren.',
+        tldr: 'Kinderfahrräder gibt es von 12 bis 26 Zoll. Entscheidend ist die Körpergröße, nicht nur das Alter. Ab 95 cm → 12 Zoll, ab 105 cm → 16 Zoll, ab 120 cm → 20 Zoll, ab 135 cm → 24 Zoll, ab 140 cm → 26 Zoll. Bei Karaarslan Bike können Kinder Probe fahren.',
         sections: [
           {
             type: 'heading',
@@ -940,7 +940,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           },
           {
             type: 'heading',
-            content: 'Kinderfahrräder bei Karaaslan Bisiklet',
+            content: 'Kinderfahrräder bei Karaarslan Bike',
           },
           {
             type: 'paragraph',
@@ -958,12 +958,12 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       en: {
         title: "Children's Bike Size — Which Size for Which Age?",
         metaTitle:
-          "Children's Bike Size Guide — Chart by Age & Height | Karaaslan Bisiklet",
+          "Children's Bike Size Guide — Chart by Age & Height | Karaarslan Bike",
         metaDescription:
           "Which children's bike size fits? Size chart by age & height ✓ 12 to 26 inch ✓ Expert tips from [SEHIR]'s bike shop.",
         excerpt:
           'The right bike size is crucial for safety and fun. Our chart shows which bike fits which age.',
-        tldr: 'Children\'s bikes range from 12 to 26 inches. Body height matters more than age. From 95 cm → 12", 105 cm → 16", 120 cm → 20", 135 cm → 24", 140 cm → 26". Test rides available at Karaaslan Bisiklet.',
+        tldr: 'Children\'s bikes range from 12 to 26 inches. Body height matters more than age. From 95 cm → 12", 105 cm → 16", 120 cm → 20", 135 cm → 24", 140 cm → 26". Test rides available at Karaarslan Bike.',
         sections: [
           {
             type: 'heading',
@@ -1004,12 +1004,12 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       fr: {
         title: 'Taille de vélo enfant — Quelle taille pour quel âge\u00a0?',
         metaTitle:
-          'Taille vélo enfant — Tableau par âge & taille | Karaaslan Bisiklet',
+          'Taille vélo enfant — Tableau par âge & taille | Karaarslan Bike',
         metaDescription:
           'Quelle taille de vélo pour votre enfant? Tableau de tailles par âge et taille ✓ 12 à 26 pouces ✓ Conseils experts de [SEHIR].',
         excerpt:
           'La bonne taille de vélo est essentielle pour la sécurité et le plaisir. Notre tableau montre quel vélo convient à quel âge.',
-        tldr: 'Les vélos enfants vont de 12 à 26 pouces. La taille du corps est plus importante que l\'âge. Dès 95 cm → 12", 105 cm → 16", 120 cm → 20", 135 cm → 24". Essais chez Karaaslan Bisiklet.',
+        tldr: 'Les vélos enfants vont de 12 à 26 pouces. La taille du corps est plus importante que l\'âge. Dès 95 cm → 12", 105 cm → 16", 120 cm → 20", 135 cm → 24". Essais chez Karaarslan Bike.',
         sections: [
           {
             type: 'heading',
@@ -1031,12 +1031,12 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       tr: {
         title: 'Çocuk Bisikleti Beden — Hangi Yaş İçin Hangi Beden?',
         metaTitle:
-          'Çocuk Bisikleti Beden Tablosu — Yaş & Boya Göre | Karaaslan Bisiklet',
+          'Çocuk Bisikleti Beden Tablosu — Yaş & Boya Göre | Karaarslan Bike',
         metaDescription:
           "Çocuğunuza hangi bisiklet bedeni uyar? Yaş ve boya göre beden tablosu ✓ 12'den 26 inç'e ✓ [SEHIR]'dan uzman tavsiyeleri.",
         excerpt:
           'Doğru bisiklet bedeni güvenlik ve eğlence için çok önemli. Tablomuz hangi bisikletin hangi yaşa uyduğunu gösterir.',
-        tldr: 'Çocuk bisikletleri 12\'den 26 inç\'e kadar. Boy uzunluğu yaştan daha önemli. 95 cm → 12", 105 cm → 16", 120 cm → 20", 135 cm → 24". Karaaslan Bisiklet\'da deneme sürüşü yapılabilir.',
+        tldr: 'Çocuk bisikletleri 12\'den 26 inç\'e kadar. Boy uzunluğu yaştan daha önemli. 95 cm → 12", 105 cm → 16", 120 cm → 20", 135 cm → 24". Karaarslan Bike\'da deneme sürüşü yapılabilir.',
         sections: [
           {
             type: 'heading',
@@ -1077,7 +1077,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       de: {
         title: 'Fahrrad Inspektion — Was wird gemacht & was kostet es?',
         metaTitle:
-          'Fahrrad Inspektion — Kosten, Ablauf & Checkliste | Karaaslan Bisiklet',
+          'Fahrrad Inspektion — Kosten, Ablauf & Checkliste | Karaarslan Bike',
         metaDescription:
           'Was kostet eine Fahrrad Inspektion? Was wird geprüft? Ablauf, Kosten (30–80 €) und Checkliste ✓ Tipps vom Fahrradladen in [SEHIR].',
         excerpt:
@@ -1145,7 +1145,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'cta',
             content:
-              'Inspektion fällig? Kommen Sie bei Karaaslan Bisiklet vorbei!',
+              'Inspektion fällig? Kommen Sie bei Karaarslan Bike vorbei!',
             link: '/contact',
             linkText: 'Kontakt & Anfahrt',
           },
@@ -1154,7 +1154,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       en: {
         title: 'Bike Inspection — What Gets Checked & What Does It Cost?',
         metaTitle:
-          'Bike Inspection — Costs, Process & Checklist | Karaaslan Bisiklet',
+          'Bike Inspection — Costs, Process & Checklist | Karaarslan Bike',
         metaDescription:
           'How much does a bike inspection cost? What gets checked? Process, costs (€30–80), and checklist ✓ Tips from a bike shop in [SEHIR].',
         excerpt:
@@ -1193,7 +1193,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           },
           {
             type: 'cta',
-            content: 'Need an inspection? Visit Karaaslan Bisiklet!',
+            content: 'Need an inspection? Visit Karaarslan Bike!',
             link: '/contact',
             linkText: 'Contact & Directions',
           },
@@ -1203,7 +1203,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         title:
           "Révision vélo — Qu'est-ce qui est vérifié et combien ça coûte\u00a0?",
         metaTitle:
-          'Révision vélo — Coûts, déroulement & checklist | Karaaslan Bisiklet',
+          'Révision vélo — Coûts, déroulement & checklist | Karaarslan Bike',
         metaDescription:
           'Combien coûte une révision vélo? Que vérifie-t-on? Déroulement, coûts (30–80 €) et checklist ✓ Conseils du vélociste à [SEHIR].',
         excerpt:
@@ -1221,7 +1221,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           },
           {
             type: 'cta',
-            content: "Besoin d'une révision? Passez chez Karaaslan Bisiklet!",
+            content: "Besoin d'une révision? Passez chez Karaarslan Bike!",
             link: '/contact',
             linkText: 'Contact & Itinéraire',
           },
@@ -1230,7 +1230,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       tr: {
         title: 'Bisiklet Bakımı — Neler Kontrol Edilir & Ne Kadara Mal Olur?',
         metaTitle:
-          'Bisiklet Bakımı — Maliyet, Süreç & Kontrol Listesi | Karaaslan Bisiklet',
+          'Bisiklet Bakımı — Maliyet, Süreç & Kontrol Listesi | Karaarslan Bike',
         metaDescription:
           'Bisiklet bakımı ne kadara mal olur? Neler kontrol edilir? Süreç, maliyetler (30–80 €) ve kontrol listesi ✓ [SEHIR] bisikletçisinden ipuçları.',
         excerpt:
@@ -1248,7 +1248,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           },
           {
             type: 'cta',
-            content: "Bakım zamanı mı? Karaaslan Bisiklet'a gelin!",
+            content: "Bakım zamanı mı? Karaarslan Bike'a gelin!",
             link: '/contact',
             linkText: 'İletişim & Yol Tarifi',
           },
@@ -1276,12 +1276,12 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       de: {
         title: 'Fahrrad für Pendler — Die besten Stadträder 2026',
         metaTitle:
-          'Pendlerfahrrad — Die besten Stadträder & Tipps | Karaaslan Bisiklet',
+          'Pendlerfahrrad — Die besten Stadträder & Tipps | Karaarslan Bike',
         metaDescription:
           'Das beste Fahrrad für Pendler: Citybike, Trekkingrad oder E-Bike? Vergleich, Tipps & Empfehlungen 2026 ✓ Vom Fahrradladen in [SEHIR].',
         excerpt:
           'Wer täglich mit dem Rad zur Arbeit fährt, braucht ein zuverlässiges, bequemes und wartungsarmes Fahrrad. Wir zeigen die besten Optionen.',
-        tldr: 'Für Pendler empfehlen wir Citybikes (Kurzstrecke bis 5 km), Trekkingräder (5–15 km) oder E-Bikes (ab 10 km oder Steigungen). Wichtig: Nabenschaltung, Nabendynamo, Schutzbleche, Gepäckträger. Bei Karaaslan Bisiklet finden Sie geprüfte Pendlerräder ab 199 €.',
+        tldr: 'Für Pendler empfehlen wir Citybikes (Kurzstrecke bis 5 km), Trekkingräder (5–15 km) oder E-Bikes (ab 10 km oder Steigungen). Wichtig: Nabenschaltung, Nabendynamo, Schutzbleche, Gepäckträger. Bei Karaarslan Bike finden Sie geprüfte Pendlerräder ab 199 €.',
         sections: [
           {
             type: 'heading',
@@ -1342,7 +1342,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           },
           {
             type: 'heading',
-            content: 'Pendlerräder bei Karaaslan Bisiklet',
+            content: 'Pendlerräder bei Karaarslan Bike',
           },
           {
             type: 'paragraph',
@@ -1360,12 +1360,12 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       en: {
         title: 'Bikes for Commuters — The Best City Bikes 2026',
         metaTitle:
-          'Commuter Bike — Best City Bikes & Tips | Karaaslan Bisiklet',
+          'Commuter Bike — Best City Bikes & Tips | Karaarslan Bike',
         metaDescription:
           'The best bike for commuters: City bike, trekking bike or e-bike? Comparison, tips & recommendations 2026 ✓ From a bike shop in [SEHIR].',
         excerpt:
           'If you ride to work every day, you need a reliable, comfortable and low-maintenance bike. We show you the best options.',
-        tldr: 'For commuters we recommend: City bikes (short distances up to 5 km), trekking bikes (5–15 km), or e-bikes (10+ km or hills). Key features: internal gears, hub dynamo, fenders, rack. Tested commuter bikes from €199 at Karaaslan Bisiklet.',
+        tldr: 'For commuters we recommend: City bikes (short distances up to 5 km), trekking bikes (5–15 km), or e-bikes (10+ km or hills). Key features: internal gears, hub dynamo, fenders, rack. Tested commuter bikes from €199 at Karaarslan Bike.',
         sections: [
           {
             type: 'heading',
@@ -1414,12 +1414,12 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       fr: {
         title: 'Vélo pour pendulaires — Les meilleurs vélos de ville 2026',
         metaTitle:
-          'Vélo pendulaire — Meilleurs vélos de ville & conseils | Karaaslan Bisiklet',
+          'Vélo pendulaire — Meilleurs vélos de ville & conseils | Karaarslan Bike',
         metaDescription:
           'Le meilleur vélo pour pendulaires: vélo de ville, VTC ou VAE? Comparaison, conseils & recommandations 2026 ✓ Du vélociste à [SEHIR].',
         excerpt:
           "Si vous pédalez au travail tous les jours, vous avez besoin d'un vélo fiable, confortable et facile à entretenir.",
-        tldr: "Pour les pendulaires: vélos de ville (jusqu'à 5 km), VTC (5–15 km) ou VAE (10+ km ou côtes). Important: moyeu à vitesses intégrées, dynamo moyeu, garde-boue, porte-bagages. Vélos testés à partir de 199 € chez Karaaslan Bisiklet.",
+        tldr: "Pour les pendulaires: vélos de ville (jusqu'à 5 km), VTC (5–15 km) ou VAE (10+ km ou côtes). Important: moyeu à vitesses intégrées, dynamo moyeu, garde-boue, porte-bagages. Vélos testés à partir de 199 € chez Karaarslan Bike.",
         sections: [
           {
             type: 'heading',
@@ -1441,12 +1441,12 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       tr: {
         title: 'İşe Gidiş İçin Bisiklet — 2026 En İyi Şehir Bisikletleri',
         metaTitle:
-          'İşe Gidiş Bisikleti — En İyi Şehir Bisikletleri & İpuçları | Karaaslan Bisiklet',
+          'İşe Gidiş Bisikleti — En İyi Şehir Bisikletleri & İpuçları | Karaarslan Bike',
         metaDescription:
           'İşe gitmek için en iyi bisiklet: Şehir bisikleti, trekking bisikleti veya e-bisiklet? Karşılaştırma, ipuçları & 2026 önerileri ✓ [SEHIR] bisikletçisinden.',
         excerpt:
           'Her gün bisikletle işe gidiyorsanız, güvenilir, rahat ve bakımı kolay bir bisiklete ihtiyacınız var.',
-        tldr: "İşe gidişte önerilerimiz: Şehir bisikletleri (5 km'ye kadar), trekking bisikletleri (5–15 km) veya e-bisikletler (10+ km veya yokuşlar). Önemli: iç vites, jant dinamo, çamurluk, bagaj. Karaaslan Bisiklet'da 199 €'dan itibaren test edilmiş bisikletler.",
+        tldr: "İşe gidişte önerilerimiz: Şehir bisikletleri (5 km'ye kadar), trekking bisikletleri (5–15 km) veya e-bisikletler (10+ km veya yokuşlar). Önemli: iç vites, jant dinamo, çamurluk, bagaj. Karaarslan Bike'da 199 €'dan itibaren test edilmiş bisikletler.",
         sections: [
           {
             type: 'heading',

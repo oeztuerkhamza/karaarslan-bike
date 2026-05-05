@@ -707,7 +707,7 @@ export class ZubehoerComponent implements OnInit {
   ngOnInit() {
     const t = this.t();
     const lang = this.lang();
-    const pageUrl = `https://[DOMAIN]/${lang}/zubehoer`;
+    const pageUrl = `https://karaarslan-bike.de/${lang}/zubehoer`;
 
     this.titleService.setTitle(t.accessoriesMetaTitle);
     this.metaService.updateTag({

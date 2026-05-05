@@ -848,10 +848,10 @@ export class NeueFahrradDetailComponent implements OnInit {
   }
 
   private setSeo(bike: NeueFahrrad): void {
-    this.title.setTitle(`${bike.titel} — Karaaslan Bisiklet`);
+    this.title.setTitle(`${bike.titel} — Karaarslan Bike`);
     this.meta.updateTag({
       name: 'description',
-      content: `${bike.titel} — ${bike.preisText || bike.preis + ' €'} — Neue Fahrräder bei Karaaslan Bisiklet.`,
+      content: `${bike.titel} — ${bike.preisText || bike.preis + ' €'} — Neue Fahrräder bei Karaarslan Bike.`,
     });
   }
 

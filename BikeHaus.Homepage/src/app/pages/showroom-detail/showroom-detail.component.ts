@@ -1113,7 +1113,7 @@ export class ShowroomDetailComponent implements OnInit, OnDestroy {
 
     const t = this.t();
     const priceText = listing.price ? ` - ${listing.price}€` : '';
-    const listingUrl = `https://[DOMAIN]/showroom/${listing.id}`;
+    const listingUrl = `https://karaarslan-bike.de/showroom/${listing.id}`;
     const baseText = `${listingUrl}\n\n${t.whatsappInterested}\n${listing.title}${priceText}\n\n`;
     const userMsg = this.userWhatsappMessage.trim();
     const fullText =
@@ -1246,7 +1246,7 @@ export class ShowroomDetailComponent implements OnInit, OnDestroy {
 
   private updateSeoMeta(data: KleinanzeigenListing, id: number): void {
     if (data) {
-      const title = `${data.title} — Karaaslan Bisiklet`;
+      const title = `${data.title} — Karaarslan Bike`;
       const price = data.price ? `${data.price}€` : '';
       const desc = `${data.title} ${price}. ${this.t().detailMetaDescSuffix}`;
 
@@ -1259,7 +1259,7 @@ export class ShowroomDetailComponent implements OnInit, OnDestroy {
       });
       this.metaService.updateTag({
         property: 'og:url',
-        content: `https://[DOMAIN]/showroom/${id}`,
+        content: `https://karaarslan-bike.de/showroom/${id}`,
       });
       if (data.images?.length) {
         this.metaService.updateTag({
@@ -1280,23 +1280,23 @@ export class ShowroomDetailComponent implements OnInit, OnDestroy {
     const schema = {
       '@context': 'https://schema.org',
       '@type': 'Product',
-      '@id': `https://[DOMAIN]/${this.lang()}/showroom/${id}#product`,
+      '@id': `https://karaarslan-bike.de/${this.lang()}/showroom/${id}#product`,
       name: data.title,
       description: data.description || data.title,
       image: data.images?.map((img) => img.imageUrl) || [],
-      url: `https://[DOMAIN]/${this.lang()}/showroom/${id}`,
+      url: `https://karaarslan-bike.de/${this.lang()}/showroom/${id}`,
       brand: {
         '@type': 'Brand',
-        name: 'Karaaslan Bisiklet',
+        name: 'Karaarslan Bike',
       },
       seller: {
         '@type': 'LocalBusiness',
-        name: 'Karaaslan Bisiklet',
-        url: 'https://[DOMAIN]',
+        name: 'Karaarslan Bike',
+        url: 'https://karaarslan-bike.de',
       },
       offers: {
         '@type': 'Offer',
-        url: `https://[DOMAIN]/${this.lang()}/showroom/${id}`,
+        url: `https://karaarslan-bike.de/${this.lang()}/showroom/${id}`,
         priceCurrency: 'EUR',
         price: data.price || 0,
         priceValidUntil: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
@@ -1308,7 +1308,7 @@ export class ShowroomDetailComponent implements OnInit, OnDestroy {
           : 'https://schema.org/UsedCondition',
         seller: {
           '@type': 'LocalBusiness',
-          name: 'Karaaslan Bisiklet',
+          name: 'Karaarslan Bike',
         },
       },
       category: data.category || this.t().bikeFallbackCategory,

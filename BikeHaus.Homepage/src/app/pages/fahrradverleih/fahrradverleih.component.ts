@@ -3380,7 +3380,7 @@ export class FahrradverleihComponent implements OnInit {
   ngOnInit(): void {
     const t = this.t();
     const lang = this.lang();
-    const pageUrl = `https://[DOMAIN]/${lang}/fahrradverleih`;
+    const pageUrl = `https://karaarslan-bike.de/${lang}/fahrradverleih`;
 
     this.titleService.setTitle(t.bikeRentalMetaTitle);
 
@@ -3428,7 +3428,7 @@ export class FahrradverleihComponent implements OnInit {
     const faqDe = [
       {
         q: 'Was kostet Fahrrad mieten in [SEHIR]?',
-        a: 'Bei Karaaslan Bisiklet mieten Sie ein Fahrrad ab 6,80 € pro Tag (14-Tage-Paket). Tagesmiete ab 12 €, Wochenpaket ab 55 €.',
+        a: 'Bei Karaarslan Bike mieten Sie ein Fahrrad ab 6,80 € pro Tag (14-Tage-Paket). Tagesmiete ab 12 €, Wochenpaket ab 55 €.',
       },
       {
         q: 'Was ist im Fahrradverleih inklusive?',
@@ -3451,7 +3451,7 @@ export class FahrradverleihComponent implements OnInit {
     const faqEn = [
       {
         q: 'How much does it cost to rent a bike in [SEHIR]?',
-        a: 'At Karaaslan Bisiklet, bike rental starts from €6.80 per day (14-day package). Day rate from €12, weekly package from €55.',
+        a: 'At Karaarslan Bike, bike rental starts from €6.80 per day (14-day package). Day rate from €12, weekly package from €55.',
       },
       {
         q: 'What is included in the bike rental?',
@@ -3474,7 +3474,7 @@ export class FahrradverleihComponent implements OnInit {
     const faqFr = [
       {
         q: 'Combien coûte la location de vélo à Fribourg-en-Brisgau ?',
-        a: 'Chez Karaaslan Bisiklet, la location commence à 6,80 €/jour (forfait 14 jours). Tarif journalier à partir de 12 €, forfait semaine à partir de 55 €.',
+        a: 'Chez Karaarslan Bike, la location commence à 6,80 €/jour (forfait 14 jours). Tarif journalier à partir de 12 €, forfait semaine à partir de 55 €.',
       },
       {
         q: "Qu'est-ce qui est inclus dans la location de vélo ?",
@@ -3493,7 +3493,7 @@ export class FahrradverleihComponent implements OnInit {
     const faqTr = [
       {
         q: "[SEHIR]'da bisiklet kiralama ne kadar tutar?",
-        a: "Karaaslan Bisiklet'da bisiklet kiralama 6,80 €/gün'den başlar (14 günlük paket). Günlük ücret 12 €'dan, haftalık paket 55 €'dan başlar.",
+        a: "Karaarslan Bike'da bisiklet kiralama 6,80 €/gün'den başlar (14 günlük paket). Günlük ücret 12 €'dan, haftalık paket 55 €'dan başlar.",
       },
       {
         q: 'Bisiklet kiralamaya neler dahildir?',
@@ -3533,8 +3533,8 @@ export class FahrradverleihComponent implements OnInit {
             'Fahrradverleih in [SEHIR] — Cityräder, Trekkingräder und E-Bikes mieten ab 6,80 € pro Tag. Helm und Schloss inklusive.',
           provider: {
             '@type': 'LocalBusiness',
-            '@id': 'https://[DOMAIN]/#organization',
-            name: 'Karaaslan Bisiklet',
+            '@id': 'https://karaarslan-bike.de/#organization',
+            name: 'Karaarslan Bike',
             address: {
               '@type': 'PostalAddress',
               streetAddress: '[ADRES]',
@@ -3544,7 +3544,7 @@ export class FahrradverleihComponent implements OnInit {
               addressCountry: 'DE',
             },
             telephone: '+49-155-66300011',
-            url: 'https://[DOMAIN]/de',
+            url: 'https://karaarslan-bike.de/de',
           },
           areaServed: {
             '@type': 'City',
@@ -3594,8 +3594,8 @@ export class FahrradverleihComponent implements OnInit {
             {
               '@type': 'ListItem',
               position: 1,
-              name: 'Karaaslan Bisiklet',
-              item: `https://[DOMAIN]/${lang}`,
+              name: 'Karaarslan Bike',
+              item: `https://karaarslan-bike.de/${lang}`,
             },
             {
               '@type': 'ListItem',

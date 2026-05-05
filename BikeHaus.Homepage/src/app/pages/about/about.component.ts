@@ -1087,7 +1087,7 @@ export class AboutComponent implements OnInit {
   ngOnInit(): void {
     // SEO
     const lang = this.lang();
-    const pageUrl = `https://[DOMAIN]/${lang}/about`;
+    const pageUrl = `https://karaarslan-bike.de/${lang}/about`;
 
     this.titleService.setTitle(this.t().aboutMetaTitle);
     this.metaService.updateTag({

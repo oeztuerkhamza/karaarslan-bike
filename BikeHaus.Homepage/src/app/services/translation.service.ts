@@ -534,7 +534,7 @@ export interface Translations {
 
 const TRANSLATIONS: Record<Language, Translations> = {
   de: {
-    metaTitle: 'Fahrrad kaufen & mieten [SEHIR] | Karaaslan Bisiklet',
+    metaTitle: 'Fahrrad kaufen & mieten [SEHIR] | Karaarslan Bike',
     metaDescription:
       'Fahrrad kaufen & mieten in [SEHIR] ✓ Über 100 geprüfte Räder ✓ City, Trekking, E-Bike ✓ 3 Monate Garantie ✓ Fahrradverleih ab 6,80 €/Tag. Persönlich & fair.',
 
@@ -615,7 +615,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     trustLabel: 'QUALITÄT',
     trustTitle: 'Qualität, der Sie vertrauen können.',
     trustSub:
-      'Jedes Fahrrad bei Karaaslan Bisiklet wird sorgfältig geprüft, bevor es in unseren Showroom kommt.',
+      'Jedes Fahrrad bei Karaarslan Bike wird sorgfältig geprüft, bevor es in unseren Showroom kommt.',
     trust1: 'Technische Inspektion aller sicherheitsrelevanten Komponenten',
     trust2: 'Professionelle Aufbereitung und gründliche Reinigung',
     trust3: 'Faire Bewertung und transparente Preisgestaltung',
@@ -624,7 +624,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     storyLabel: 'UNSERE GESCHICHTE',
     storyTitle: 'Aus Leidenschaft für das Radfahren.',
     storyText:
-      'Karaaslan Bisiklet wurde aus der Überzeugung gegründet, dass gute Fahrräder nicht teuer sein müssen — und dass jedes Rad eine zweite Chance verdient.',
+      'Karaarslan Bike wurde aus der Überzeugung gegründet, dass gute Fahrräder nicht teuer sein müssen — und dass jedes Rad eine zweite Chance verdient.',
     storyValue1Title: 'Nachhaltigkeit',
     storyValue1Desc:
       'Jedes Gebrauchtrad, das wir aufbereiten, bedeutet weniger Abfall und mehr Mobilität.',
@@ -635,7 +635,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Mechanik trifft Leidenschaft. Jedes Rad wird mit Sorgfalt behandelt.',
 
     galleryLabel: 'UNSER LADEN',
-    galleryTitle: 'Einblicke in unser Karaaslan Bisiklet.',
+    galleryTitle: 'Einblicke in unser Karaarslan Bike.',
     gallerySub:
       'Schauen Sie sich unseren Laden in [SEHIR] an — hier warten Ihre nächsten Räder auf Sie.',
 
@@ -706,7 +706,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     warrantyUsedText:
       '3 Monate Garantie auf: Kette, Schaltung, Schaltwerk, Dynamo, Pedale und hydraulische Bremsen.',
     warrantyRepairNote:
-      'Reparaturen im Garantiefall dürfen ausschließlich durch Karaaslan Bisiklet durchgeführt werden.',
+      'Reparaturen im Garantiefall dürfen ausschließlich durch Karaarslan Bike durchgeführt werden.',
     warrantyExcludedTitle: 'Von der Garantie ausgeschlossen',
     warrantyExcludedItems:
       'Reifen, Schläuche, Bremsbeläge, Lampen. Ebenfalls ausgeschlossen: Schäden durch Unfälle oder unsachgemäße Nutzung.',
@@ -865,10 +865,10 @@ const TRANSLATIONS: Record<Language, Translations> = {
     aboutFeatureTrust: 'Vertrauen & Qualität',
     aboutQuote:
       'Jedes Fahrrad, das wir verkaufen, bringt Freude — und das ist der schönste Lohn.',
-    aboutQuoteAuthor: '— Die Familie hinter Karaaslan Bisiklet',
-    aboutMetaTitle: 'Über uns — Karaaslan Bisiklet | Ihr Fahrradhändler',
+    aboutQuoteAuthor: '— Die Familie hinter Karaarslan Bike',
+    aboutMetaTitle: 'Über uns — Karaarslan Bike | Ihr Fahrradhändler',
     aboutMetaDescription:
-      'Lernen Sie Karaaslan Bisiklet kennen. Fair, nachhaltig, persönlich — Ihr lokaler Fahrradhändler in [SEHIR] für neue und gebrauchte Fahrräder.',
+      'Lernen Sie Karaarslan Bike kennen. Fair, nachhaltig, persönlich — Ihr lokaler Fahrradhändler in [SEHIR] für neue und gebrauchte Fahrräder.',
 
     // Brands
     brandsLabel: 'MARKEN',
@@ -912,9 +912,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     // Contact extended
     contactWhatsappHint: 'Direkt schreiben',
-    contactMetaTitle: 'Kontakt — Karaaslan Bisiklet | Adresse & Öffnungszeiten',
+    contactMetaTitle: 'Kontakt — Karaarslan Bike | Adresse & Öffnungszeiten',
     contactMetaDescription:
-      'Kontaktieren Sie Karaaslan Bisiklet. Adresse, Öffnungszeiten, WhatsApp, Telefon. Besuchen Sie uns in [PLZ] [SEHIR], Ruhr area.',
+      'Kontaktieren Sie Karaarslan Bike. Adresse, Öffnungszeiten, WhatsApp, Telefon. Besuchen Sie uns in [PLZ] [SEHIR], Ruhr area.',
 
     // Home trust badges
     trustBadgeSince: 'Seit 2020 in [SEHIR]',
@@ -929,13 +929,13 @@ const TRANSLATIONS: Record<Language, Translations> = {
     gearsUnit: 'Gänge',
     filterFrameSize: 'Rahmengröße (Size)',
     showroomMetaTitle:
-      'Gebrauchte Fahrräder kaufen [SEHIR] | Showroom | Karaaslan Bisiklet',
+      'Gebrauchte Fahrräder kaufen [SEHIR] | Showroom | Karaarslan Bike',
     showroomMetaDescription:
-      'Gebrauchte & neue Fahrräder kaufen in [SEHIR] ✓ Über 100 geprüfte Räder ✓ City, Trekking, Mountain, E-Bike ✓ 3 Monate Garantie ✓ Sofort abholbereit. Karaaslan Bisiklet.',
+      'Gebrauchte & neue Fahrräder kaufen in [SEHIR] ✓ Über 100 geprüfte Räder ✓ City, Trekking, Mountain, E-Bike ✓ 3 Monate Garantie ✓ Sofort abholbereit. Karaarslan Bike.',
 
     // Showroom detail
     detailMetaDescSuffix:
-      'Jetzt bei Karaaslan Bisiklet in [PLZ] [SEHIR], Ruhr area ansehen.',
+      'Jetzt bei Karaarslan Bike in [PLZ] [SEHIR], Ruhr area ansehen.',
     bikeFallbackCategory: 'Fahrrad',
 
     // Footer
@@ -943,7 +943,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     languageLabel: 'Sprache',
 
     // Bike card
-    bikeAltSuffix: ' — Fahrrad bei Karaaslan Bisiklet',
+    bikeAltSuffix: ' — Fahrrad bei Karaarslan Bike',
 
     // Category translations
     catDamen: 'Damen-Fahrräder',
@@ -959,9 +959,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     // Accessories page
     accessoriesMetaTitle:
-      'Fahrradzubehör [SEHIR] | Helme, Taschen & Schlösser | Karaaslan Bisiklet',
+      'Fahrradzubehör [SEHIR] | Helme, Taschen & Schlösser | Karaarslan Bike',
     accessoriesMetaDescription:
-      'Fahrradzubehör in [SEHIR] kaufen ✓ Helme, Taschen, Schlösser, Beleuchtung & mehr ✓ Direkt im Karaaslan Bisiklet — [ADRES], [PLZ] [SEHIR].',
+      'Fahrradzubehör in [SEHIR] kaufen ✓ Helme, Taschen, Schlösser, Beleuchtung & mehr ✓ Direkt im Karaarslan Bike — [ADRES], [PLZ] [SEHIR].',
     accessoriesTitle: 'Zubehör',
     accessoriesSub: 'Taschen, Helme, Schlösser und mehr für Ihr Fahrrad.',
     accessoriesNoItems: 'Derzeit keine Zubehörartikel verfügbar.',
@@ -973,9 +973,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     // Neue Fahrräder
     neueFahrraeder: 'Neue Fahrräder',
     neueFahrraederMetaTitle:
-      'Neue Fahrräder kaufen [SEHIR] | City, Trekking, E-Bike | Karaaslan Bisiklet',
+      'Neue Fahrräder kaufen [SEHIR] | City, Trekking, E-Bike | Karaarslan Bike',
     neueFahrraederMetaDescription:
-      'Neue Fahrräder in [SEHIR] kaufen ✓ City, Trekking, Mountain & E-Bikes ✓ 2 Jahre Garantie ✓ Sofort verfügbar ✓ Faire Preise. Jetzt im Showroom ansehen — Karaaslan Bisiklet.',
+      'Neue Fahrräder in [SEHIR] kaufen ✓ City, Trekking, Mountain & E-Bikes ✓ 2 Jahre Garantie ✓ Sofort verfügbar ✓ Faire Preise. Jetzt im Showroom ansehen — Karaarslan Bike.',
     neueFahrraederTitle: 'Neue Fahrräder',
     neueFahrraederSub: 'Fabrikneue Räder mit 2 Jahren Geschäftsgarantie.',
     neueFahrraederBrand: 'Marke',
@@ -997,36 +997,36 @@ const TRANSLATIONS: Record<Language, Translations> = {
     ratgeberTitle: 'Fahrrad Ratgeber',
     ratgeberSub:
       'Tipps, Checklisten und Wissenswertes rund ums Fahrrad — von Ihrem Fahrradhändler in [SEHIR].',
-    ratgeberMetaTitle: 'Fahrrad Ratgeber — Tipps & Wissen | Karaaslan Bisiklet',
+    ratgeberMetaTitle: 'Fahrrad Ratgeber — Tipps & Wissen | Karaarslan Bike',
     ratgeberMetaDescription:
-      'Fahrrad Ratgeber: Gebrauchtes Fahrrad kaufen, Rahmengröße berechnen, E-Bike Tipps und mehr. Expertenwissen von Karaaslan Bisiklet.',
+      'Fahrrad Ratgeber: Gebrauchtes Fahrrad kaufen, Rahmengröße berechnen, E-Bike Tipps und mehr. Expertenwissen von Karaarslan Bike.',
     ratgeberReadMore: 'Weiterlesen',
     ratgeberReadTime: 'Lesezeit',
-    ratgeberTip: 'Tipp von Karaaslan Bisiklet',
+    ratgeberTip: 'Tipp von Karaarslan Bike',
     ratgeberTldr: 'Zusammenfassung',
     ratgeberRelated: 'Weitere Ratgeber',
     ratgeberBackToList: 'Alle Ratgeber anzeigen',
-    faqMetaTitle: 'FAQ Fahrrad [SEHIR] — Häufige Fragen | Karaaslan Bisiklet',
+    faqMetaTitle: 'FAQ Fahrrad [SEHIR] — Häufige Fragen | Karaarslan Bike',
     faqMetaDescription:
-      'Häufige Fragen zu Fahrrad kaufen & mieten in [SEHIR]: Garantie, E-Bikes, Probefahrt, Öffnungszeiten, Preise. Alle Antworten von Karaaslan Bisiklet.',
+      'Häufige Fragen zu Fahrrad kaufen & mieten in [SEHIR]: Garantie, E-Bikes, Probefahrt, Öffnungszeiten, Preise. Alle Antworten von Karaarslan Bike.',
     bikeRentalMetaTitle:
-      'Fahrrad mieten [SEHIR] ab 6,80 €/Tag | Karaaslan Bisiklet',
+      'Fahrrad mieten [SEHIR] ab 6,80 €/Tag | Karaarslan Bike',
     bikeRentalMetaDescription:
-      'Fahrradverleih [SEHIR] — Cityrad, Trekking & E-Bike mieten ab 6,80 €/Tag. Helm & Schloss inklusive. Sofort abholen, kein Vorausbezahlen. ✓ Karaaslan Bisiklet.',
-    garantieMetaTitle: 'Garantiebedingungen — Karaaslan Bisiklet',
+      'Fahrradverleih [SEHIR] — Cityrad, Trekking & E-Bike mieten ab 6,80 €/Tag. Helm & Schloss inklusive. Sofort abholen, kein Vorausbezahlen. ✓ Karaarslan Bike.',
+    garantieMetaTitle: 'Garantiebedingungen — Karaarslan Bike',
     garantieMetaDescription:
-      'Garantiebedingungen für neue und gebrauchte Fahrräder bei Karaaslan Bisiklet. 2 Jahre für Neuräder, 3 Monate für Gebrauchträder.',
-    impressumMetaTitle: 'Impressum — Karaaslan Bisiklet',
+      'Garantiebedingungen für neue und gebrauchte Fahrräder bei Karaarslan Bike. 2 Jahre für Neuräder, 3 Monate für Gebrauchträder.',
+    impressumMetaTitle: 'Impressum — Karaarslan Bike',
     impressumMetaDescription:
-      'Impressum und rechtliche Angaben von Karaaslan Bisiklet gemäß § 5 TMG.',
-    datenschutzMetaTitle: 'Datenschutz — Karaaslan Bisiklet',
+      'Impressum und rechtliche Angaben von Karaarslan Bike gemäß § 5 TMG.',
+    datenschutzMetaTitle: 'Datenschutz — Karaarslan Bike',
     datenschutzMetaDescription:
-      'Datenschutzerklärung von Karaaslan Bisiklet. Informationen zur Verarbeitung Ihrer personenbezogenen Daten.',
+      'Datenschutzerklärung von Karaarslan Bike. Informationen zur Verarbeitung Ihrer personenbezogenen Daten.',
     faqCtaText: 'Noch Fragen? Kontaktieren Sie uns!',
     faqCtaButton: 'Kontakt aufnehmen',
     faqQ1: 'Wo kann ich ein Fahrrad in [SEHIR] kaufen?',
     faqA1:
-      'Bei Karaaslan Bisiklet in der [ADRES], [PLZ] [SEHIR] im Ruhrgebiet. Wir haben über 100 neue und gebrauchte Fahrräder vorrätig — einfach vorbeikommen, kein Termin nötig.',
+      'Bei Karaarslan Bike in der [ADRES], [PLZ] [SEHIR] im Ruhrgebiet. Wir haben über 100 neue und gebrauchte Fahrräder vorrätig — einfach vorbeikommen, kein Termin nötig.',
     faqQ2: 'Kann ich ein Fahrrad vor dem Kauf probefahren?',
     faqA2:
       'Ja! Alle Fahrräder können während unserer Öffnungszeiten vor Ort probegefahren werden — ohne Termin, einfach vorbeikommen.',
@@ -1101,7 +1101,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
   },
 
   en: {
-    metaTitle: 'Buy & Rent a Bike in [SEHIR] | Karaaslan Bisiklet',
+    metaTitle: 'Buy & Rent a Bike in [SEHIR] | Karaarslan Bike',
     metaDescription:
       'Buy or rent a bike in [SEHIR] ✓ 100+ inspected bikes ✓ City, Trekking, E-Bike ✓ Bike rental from €6.80/day ✓ 3-month warranty. Your local bike shop in [SEHIR].',
 
@@ -1180,7 +1180,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     trustLabel: 'QUALITY',
     trustTitle: 'Quality you can trust.',
     trustSub:
-      'Every bike at Karaaslan Bisiklet is carefully inspected before entering our showroom.',
+      'Every bike at Karaarslan Bike is carefully inspected before entering our showroom.',
     trust1: 'Technical inspection of all safety-relevant components',
     trust2: 'Professional refurbishment and thorough cleaning',
     trust3: 'Fair evaluation and transparent pricing',
@@ -1189,7 +1189,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     storyLabel: 'OUR STORY',
     storyTitle: 'Driven by passion for cycling.',
     storyText:
-      "Karaaslan Bisiklet was founded on the belief that good bikes don't have to be expensive — and that every bike deserves a second chance.",
+      "Karaarslan Bike was founded on the belief that good bikes don't have to be expensive — and that every bike deserves a second chance.",
     storyValue1Title: 'Sustainability',
     storyValue1Desc:
       'Every used bike we refurbish means less waste and more mobility.',
@@ -1200,7 +1200,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Mechanics meets passion. Every bike is treated with care.',
 
     galleryLabel: 'OUR SHOP',
-    galleryTitle: 'Inside our Karaaslan Bisiklet.',
+    galleryTitle: 'Inside our Karaarslan Bike.',
     gallerySub: 'Take a look at our shop in [SEHIR] — your next bike awaits.',
 
     bikeCheckLabel: 'SERVICE',
@@ -1268,7 +1268,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     warrantyUsedText:
       '3 months warranty on: chain, gears, derailleur, dynamo, pedals and hydraulic brakes.',
     warrantyRepairNote:
-      'Warranty repairs must be carried out exclusively by Karaaslan Bisiklet.',
+      'Warranty repairs must be carried out exclusively by Karaarslan Bike.',
     warrantyExcludedTitle: 'Excluded from Warranty',
     warrantyExcludedItems:
       'Tires, tubes, brake pads, lights. Also excluded: damage from accidents or improper use.',
@@ -1422,10 +1422,10 @@ const TRANSLATIONS: Record<Language, Translations> = {
     aboutFeatureTrust: 'Trust & Quality',
     aboutQuote:
       "Every bike we sell brings joy — and that's the greatest reward.",
-    aboutQuoteAuthor: '— The Family Behind Karaaslan Bisiklet',
-    aboutMetaTitle: 'About Us — Karaaslan Bisiklet | Your Bicycle Dealer',
+    aboutQuoteAuthor: '— The Family Behind Karaarslan Bike',
+    aboutMetaTitle: 'About Us — Karaarslan Bike | Your Bicycle Dealer',
     aboutMetaDescription:
-      'Get to know Karaaslan Bisiklet. Fair, sustainable, personal — your local bicycle dealer in [SEHIR] for new and used bikes.',
+      'Get to know Karaarslan Bike. Fair, sustainable, personal — your local bicycle dealer in [SEHIR] for new and used bikes.',
 
     brandsLabel: 'BRANDS',
     brandsTitle: 'Our Brands — New & Used',
@@ -1465,9 +1465,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     sunShort: 'Sun',
 
     contactWhatsappHint: 'Write directly',
-    contactMetaTitle: 'Contact — Karaaslan Bisiklet | Address & Hours',
+    contactMetaTitle: 'Contact — Karaarslan Bike | Address & Hours',
     contactMetaDescription:
-      'Contact Karaaslan Bisiklet. Address, opening hours, WhatsApp, phone. Visit us at [PLZ] [SEHIR], Ruhr area.',
+      'Contact Karaarslan Bike. Address, opening hours, WhatsApp, phone. Visit us at [PLZ] [SEHIR], Ruhr area.',
 
     trustBadgeSince: 'In [SEHIR] since 2020',
     trustBadgeCustomers: '500+ satisfied customers',
@@ -1480,18 +1480,18 @@ const TRANSLATIONS: Record<Language, Translations> = {
     gearsUnit: 'gears',
     filterFrameSize: 'Frame Size',
     showroomMetaTitle:
-      'Buy Used Bikes in [SEHIR] | Showroom | Karaaslan Bisiklet',
+      'Buy Used Bikes in [SEHIR] | Showroom | Karaarslan Bike',
     showroomMetaDescription:
-      'Buy used & new bikes in [SEHIR] ✓ 100+ inspected bikes ✓ City, Trekking, Mountain, E-Bike ✓ 3-month warranty ✓ Ready to ride. Karaaslan Bisiklet.',
+      'Buy used & new bikes in [SEHIR] ✓ 100+ inspected bikes ✓ City, Trekking, Mountain, E-Bike ✓ 3-month warranty ✓ Ready to ride. Karaarslan Bike.',
 
     detailMetaDescSuffix:
-      'View now at Karaaslan Bisiklet in [PLZ] [SEHIR], Ruhr area.',
+      'View now at Karaarslan Bike in [PLZ] [SEHIR], Ruhr area.',
     bikeFallbackCategory: 'Bicycle',
 
     legalLabel: 'Legal',
     languageLabel: 'Language',
 
-    bikeAltSuffix: ' — Bike at Karaaslan Bisiklet',
+    bikeAltSuffix: ' — Bike at Karaarslan Bike',
 
     catDamen: "Women's Bikes",
     catHerren: "Men's Bikes",
@@ -1505,9 +1505,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     catSonstige: 'Other Bikes',
 
     accessoriesMetaTitle:
-      'Bike Accessories [SEHIR] | Helmets, Bags & Locks | Karaaslan Bisiklet',
+      'Bike Accessories [SEHIR] | Helmets, Bags & Locks | Karaarslan Bike',
     accessoriesMetaDescription:
-      'Buy bike accessories in [SEHIR] ✓ Helmets, bags, locks, lights & more ✓ In-store at Karaaslan Bisiklet — [ADRES], [PLZ] [SEHIR].',
+      'Buy bike accessories in [SEHIR] ✓ Helmets, bags, locks, lights & more ✓ In-store at Karaarslan Bike — [ADRES], [PLZ] [SEHIR].',
     accessoriesTitle: 'Accessories',
     accessoriesSub: 'Bags, helmets, locks, and more for your bike.',
     accessoriesNoItems: 'No accessories available at the moment.',
@@ -1518,9 +1518,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     neueFahrraeder: 'New Bikes',
     neueFahrraederMetaTitle:
-      'New Bikes [SEHIR] | City, Trekking & E-Bikes | Karaaslan Bisiklet',
+      'New Bikes [SEHIR] | City, Trekking & E-Bikes | Karaarslan Bike',
     neueFahrraederMetaDescription:
-      'Buy new bikes in [SEHIR] ✓ City, Trekking, Mountain & E-Bikes ✓ 2-year warranty ✓ In stock & ready to ride ✓ Fair prices. Visit our showroom — Karaaslan Bisiklet.',
+      'Buy new bikes in [SEHIR] ✓ City, Trekking, Mountain & E-Bikes ✓ 2-year warranty ✓ In stock & ready to ride ✓ Fair prices. Visit our showroom — Karaarslan Bike.',
     neueFahrraederTitle: 'New Bikes',
     neueFahrraederSub: 'Brand new bikes with 2 years shop warranty.',
     neueFahrraederBrand: 'Brand',
@@ -1542,37 +1542,37 @@ const TRANSLATIONS: Record<Language, Translations> = {
     ratgeberTitle: 'Bike Guide',
     ratgeberSub:
       'Tips, checklists and everything you need to know about bikes — from your [SEHIR] bike dealer.',
-    ratgeberMetaTitle: 'Bike Guide — Tips & Knowledge | Karaaslan Bisiklet',
+    ratgeberMetaTitle: 'Bike Guide — Tips & Knowledge | Karaarslan Bike',
     ratgeberMetaDescription:
-      'Bike guide: buying used bikes, frame size calculator, e-bike tips and more. Expert knowledge from Karaaslan Bisiklet.',
+      'Bike guide: buying used bikes, frame size calculator, e-bike tips and more. Expert knowledge from Karaarslan Bike.',
     ratgeberReadMore: 'Read more',
     ratgeberReadTime: 'read',
-    ratgeberTip: 'Tip from Karaaslan Bisiklet',
+    ratgeberTip: 'Tip from Karaarslan Bike',
     ratgeberTldr: 'Summary',
     ratgeberRelated: 'Related guides',
     ratgeberBackToList: 'Back to all guides',
     faqMetaTitle:
-      'FAQ — Bike Shop [SEHIR] | Frequently Asked Questions | Karaaslan Bisiklet',
+      'FAQ — Bike Shop [SEHIR] | Frequently Asked Questions | Karaarslan Bike',
     faqMetaDescription:
-      'Frequently asked questions about buying & renting bikes in [SEHIR]: warranty, e-bikes, test rides, opening hours, prices. Answered by Karaaslan Bisiklet.',
+      'Frequently asked questions about buying & renting bikes in [SEHIR]: warranty, e-bikes, test rides, opening hours, prices. Answered by Karaarslan Bike.',
     bikeRentalMetaTitle:
-      'Bike Rental [SEHIR] from €6.80/day | Karaaslan Bisiklet',
+      'Bike Rental [SEHIR] from €6.80/day | Karaarslan Bike',
     bikeRentalMetaDescription:
-      'Rent a bike in [SEHIR] from €6.80/day. City bikes, trekking & e-bikes available. Helmet & lock included. Pick up same day — no prepayment. ✓ Karaaslan Bisiklet.',
-    garantieMetaTitle: 'Warranty Terms — Karaaslan Bisiklet',
+      'Rent a bike in [SEHIR] from €6.80/day. City bikes, trekking & e-bikes available. Helmet & lock included. Pick up same day — no prepayment. ✓ Karaarslan Bike.',
+    garantieMetaTitle: 'Warranty Terms — Karaarslan Bike',
     garantieMetaDescription:
-      'Warranty terms for new and used bicycles at Karaaslan Bisiklet. 2 years for new bikes, 3 months for used bikes.',
-    impressumMetaTitle: 'Legal Notice — Karaaslan Bisiklet',
+      'Warranty terms for new and used bicycles at Karaarslan Bike. 2 years for new bikes, 3 months for used bikes.',
+    impressumMetaTitle: 'Legal Notice — Karaarslan Bike',
     impressumMetaDescription:
-      'Legal notice and business information of Karaaslan Bisiklet according to § 5 TMG.',
-    datenschutzMetaTitle: 'Privacy Policy — Karaaslan Bisiklet',
+      'Legal notice and business information of Karaarslan Bike according to § 5 TMG.',
+    datenschutzMetaTitle: 'Privacy Policy — Karaarslan Bike',
     datenschutzMetaDescription:
-      'Privacy policy of Karaaslan Bisiklet. Information about the processing of your personal data.',
+      'Privacy policy of Karaarslan Bike. Information about the processing of your personal data.',
     faqCtaText: 'Still have questions? Contact us!',
     faqCtaButton: 'Get in touch',
     faqQ1: 'Where can I buy a bike in [SEHIR]?',
     faqA1:
-      'At Karaaslan Bisiklet, [ADRES], [PLZ] [SEHIR]. We have over 100 new and used bikes in stock — just stop by, no appointment needed.',
+      'At Karaarslan Bike, [ADRES], [PLZ] [SEHIR]. We have over 100 new and used bikes in stock — just stop by, no appointment needed.',
     faqQ2: 'Can I test ride a bike before buying?',
     faqA2:
       'Yes! All bikes can be test ridden during our opening hours — no appointment required.',
@@ -1645,7 +1645,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
   },
 
   fr: {
-    metaTitle: 'Acheter & louer un vélo à Dortmund | Karaaslan Bisiklet',
+    metaTitle: 'Acheter & louer un vélo à Dortmund | Karaarslan Bike',
     metaDescription:
       'Achetez ou louez un vélo à [SEHIR] ✓ 100+ vélos certifiés ✓ Ville, Trekking, VAE ✓ Location dès 6,80 €/jour ✓ 3 mois de garantie. Votre magasin de vélos à [SEHIR].',
 
@@ -1726,7 +1726,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     trustLabel: 'QUALITÉ',
     trustTitle: 'Une qualité en laquelle vous pouvez avoir confiance.',
     trustSub:
-      "Chaque vélo chez Karaaslan Bisiklet est soigneusement inspecté avant d'être proposé.",
+      "Chaque vélo chez Karaarslan Bike est soigneusement inspecté avant d'être proposé.",
     trust1: 'Inspection technique complète de tous les composants de sécurité',
     trust2: 'Remise en état professionnelle et nettoyage approfondi',
     trust3: 'Évaluation honnête et tarification transparente',
@@ -1735,7 +1735,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     storyLabel: 'NOTRE HISTOIRE',
     storyTitle: 'Par passion pour le vélo.',
     storyText:
-      'Karaaslan Bisiklet est né de la conviction que les bons vélos ne doivent pas coûter cher — et que chaque vélo mérite une seconde chance.',
+      'Karaarslan Bike est né de la conviction que les bons vélos ne doivent pas coûter cher — et que chaque vélo mérite une seconde chance.',
     storyValue1Title: 'Durabilité',
     storyValue1Desc:
       "Chaque vélo d'occasion que nous remettons en état signifie moins de déchets.",
@@ -1747,7 +1747,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'La mécanique rencontre la passion. Chaque vélo est traité avec soin.',
 
     galleryLabel: 'NOTRE BOUTIQUE',
-    galleryTitle: 'Aperçu de notre Karaaslan Bisiklet.',
+    galleryTitle: 'Aperçu de notre Karaarslan Bike.',
     gallerySub:
       'Découvrez notre magasin à Dortmund — vos prochains vélos vous y attendent.',
 
@@ -1819,7 +1819,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     warrantyUsedText:
       '3 mois de garantie sur : chaîne, vitesses, dérailleur, dynamo, pédales et freins hydrauliques.',
     warrantyRepairNote:
-      'Les réparations sous garantie doivent être effectuées exclusivement par Karaaslan Bisiklet.',
+      'Les réparations sous garantie doivent être effectuées exclusivement par Karaarslan Bike.',
     warrantyExcludedTitle: 'Exclus de la garantie',
     warrantyExcludedItems:
       'Pneus, chambres à air, plaquettes de frein, lampes. Également exclus : dommages causés par des accidents ou une utilisation inappropriée.',
@@ -1980,10 +1980,10 @@ const TRANSLATIONS: Record<Language, Translations> = {
     aboutFeatureTrust: 'Confiance & Qualité',
     aboutQuote:
       "Chaque vélo que nous vendons apporte de la joie — et c'est la plus belle récompense.",
-    aboutQuoteAuthor: '— La famille derrière Karaaslan Bisiklet',
-    aboutMetaTitle: 'À propos — Karaaslan Bisiklet | Votre marchand de vélos',
+    aboutQuoteAuthor: '— La famille derrière Karaarslan Bike',
+    aboutMetaTitle: 'À propos — Karaarslan Bike | Votre marchand de vélos',
     aboutMetaDescription:
-      "Découvrez Karaaslan Bisiklet. Honnête, durable, personnel — votre marchand de vélos local à Dortmund pour vélos neufs et d'occasion.",
+      "Découvrez Karaarslan Bike. Honnête, durable, personnel — votre marchand de vélos local à Dortmund pour vélos neufs et d'occasion.",
 
     // Brands
     brandsLabel: 'MARQUES',
@@ -2027,9 +2027,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     // Contact extended
     contactWhatsappHint: 'Écrire directement',
-    contactMetaTitle: 'Contact — Karaaslan Bisiklet | Adresse & Horaires',
+    contactMetaTitle: 'Contact — Karaarslan Bike | Adresse & Horaires',
     contactMetaDescription:
-      "Contactez Karaaslan Bisiklet. Adresse, horaires d'ouverture, WhatsApp, téléphone. Rendez-nous visite à [PLZ] [SEHIR].",
+      "Contactez Karaarslan Bike. Adresse, horaires d'ouverture, WhatsApp, téléphone. Rendez-nous visite à [PLZ] [SEHIR].",
 
     // Home trust badges
     trustBadgeSince: 'Depuis 2020 à Dortmund',
@@ -2043,13 +2043,13 @@ const TRANSLATIONS: Record<Language, Translations> = {
     filterGears: 'Vitesses',
     gearsUnit: 'vitesses',
     filterFrameSize: 'Taille de cadre',
-    showroomMetaTitle: 'Acheter vélo Dortmund | Showroom | Karaaslan Bisiklet',
+    showroomMetaTitle: 'Acheter vélo Dortmund | Showroom | Karaarslan Bike',
     showroomMetaDescription:
       "Achetez des vélos neufs et d'occasion à [SEHIR] ✓ 100+ vélos certifiés ✓ Ville, Trekking, VTT, VAE ✓ 3 mois de garantie ✓ Disponibles immédiatement.",
 
     // Showroom detail
     detailMetaDescSuffix:
-      'Voir maintenant chez Karaaslan Bisiklet à [PLZ] [SEHIR].',
+      'Voir maintenant chez Karaarslan Bike à [PLZ] [SEHIR].',
     bikeFallbackCategory: 'Vélo',
 
     // Footer
@@ -2057,7 +2057,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     languageLabel: 'Langue',
 
     // Bike card
-    bikeAltSuffix: ' — Vélo chez Karaaslan Bisiklet',
+    bikeAltSuffix: ' — Vélo chez Karaarslan Bike',
 
     // Category translations
     catDamen: 'Vélos femmes',
@@ -2073,7 +2073,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     // Accessories page
     accessoriesMetaTitle:
-      'Accessoires vélo Dortmund | Casques, Sacoches & Antivols | Karaaslan Bisiklet',
+      'Accessoires vélo Dortmund | Casques, Sacoches & Antivols | Karaarslan Bike',
     accessoriesMetaDescription:
       'Achetez des accessoires vélo à [SEHIR] ✓ Casques, sacoches, antivols, éclairage & plus ✓ En magasin — [ADRES], [PLZ] [SEHIR].',
     accessoriesTitle: 'Accessoires',
@@ -2087,9 +2087,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     // Neue Fahrräder
     neueFahrraeder: 'Vélos neufs',
     neueFahrraederMetaTitle:
-      'Acheter vélos neufs à Dortmund | City, Trekking, VAE | Karaaslan Bisiklet',
+      'Acheter vélos neufs à Dortmund | City, Trekking, VAE | Karaarslan Bike',
     neueFahrraederMetaDescription:
-      'Achetez des vélos neufs à [SEHIR] ✓ Vélos de ville, trekking, VTT & VAE ✓ 2 ans de garantie ✓ En stock immédiatement ✓ Prix honnêtes. Karaaslan Bisiklet.',
+      'Achetez des vélos neufs à [SEHIR] ✓ Vélos de ville, trekking, VTT & VAE ✓ 2 ans de garantie ✓ En stock immédiatement ✓ Prix honnêtes. Karaarslan Bike.',
     neueFahrraederTitle: 'Vélos neufs',
     neueFahrraederSub: 'Vélos neufs avec 2 ans de garantie magasin.',
     neueFahrraederBrand: 'Marque',
@@ -2111,37 +2111,37 @@ const TRANSLATIONS: Record<Language, Translations> = {
     ratgeberTitle: 'Guide Vélo',
     ratgeberSub:
       "Conseils, checklists et tout ce qu'il faut savoir sur les vélos — par votre vélociste à [SEHIR].",
-    ratgeberMetaTitle: 'Guide Vélo — Conseils & Savoir | Karaaslan Bisiklet',
+    ratgeberMetaTitle: 'Guide Vélo — Conseils & Savoir | Karaarslan Bike',
     ratgeberMetaDescription:
       "Guide vélo : acheter un vélo d'occasion, calculer la taille du cadre, conseils VAE et plus.",
     ratgeberReadMore: 'Lire la suite',
     ratgeberReadTime: 'de lecture',
-    ratgeberTip: 'Conseil de Karaaslan Bisiklet',
+    ratgeberTip: 'Conseil de Karaarslan Bike',
     ratgeberTldr: 'Résumé',
     ratgeberRelated: 'Autres guides',
     ratgeberBackToList: 'Retour aux guides',
     faqMetaTitle:
-      'FAQ — Magasin vélo Dortmund | Questions fréquentes | Karaaslan Bisiklet',
+      'FAQ — Magasin vélo Dortmund | Questions fréquentes | Karaarslan Bike',
     faqMetaDescription:
-      "Questions fréquentes sur l'achat et la location de vélos à [SEHIR] : garantie, VAE, essais, horaires, tarifs. Répondu par Karaaslan Bisiklet.",
+      "Questions fréquentes sur l'achat et la location de vélos à [SEHIR] : garantie, VAE, essais, horaires, tarifs. Répondu par Karaarslan Bike.",
     bikeRentalMetaTitle:
-      'Location vélo [SEHIR] dès 6,80 €/jour | Karaaslan Bisiklet',
+      'Location vélo [SEHIR] dès 6,80 €/jour | Karaarslan Bike',
     bikeRentalMetaDescription:
-      'Louez un vélo à [SEHIR] dès 6,80 €/jour. Vélos city, trekking & VAE disponibles. Casque & antivol inclus. Départ immédiat sans prépaiement. ✓ Karaaslan Bisiklet.',
-    garantieMetaTitle: 'Conditions de garantie — Karaaslan Bisiklet',
+      'Louez un vélo à [SEHIR] dès 6,80 €/jour. Vélos city, trekking & VAE disponibles. Casque & antivol inclus. Départ immédiat sans prépaiement. ✓ Karaarslan Bike.',
+    garantieMetaTitle: 'Conditions de garantie — Karaarslan Bike',
     garantieMetaDescription:
-      "Conditions de garantie pour les vélos neufs et d'occasion chez Karaaslan Bisiklet. 2 ans pour les neufs, 3 mois pour les occasions.",
-    impressumMetaTitle: 'Mentions légales — Karaaslan Bisiklet',
+      "Conditions de garantie pour les vélos neufs et d'occasion chez Karaarslan Bike. 2 ans pour les neufs, 3 mois pour les occasions.",
+    impressumMetaTitle: 'Mentions légales — Karaarslan Bike',
     impressumMetaDescription:
-      'Mentions légales et informations juridiques de Karaaslan Bisiklet conformément au § 5 TMG.',
-    datenschutzMetaTitle: 'Politique de confidentialité — Karaaslan Bisiklet',
+      'Mentions légales et informations juridiques de Karaarslan Bike conformément au § 5 TMG.',
+    datenschutzMetaTitle: 'Politique de confidentialité — Karaarslan Bike',
     datenschutzMetaDescription:
-      'Politique de confidentialité de Karaaslan Bisiklet. Informations sur le traitement de vos données personnelles.',
+      'Politique de confidentialité de Karaarslan Bike. Informations sur le traitement de vos données personnelles.',
     faqCtaText: 'Encore des questions ? Contactez-nous !',
     faqCtaButton: 'Nous contacter',
     faqQ1: 'Où acheter un vélo à [SEHIR] ?',
     faqA1:
-      'Chez Karaaslan Bisiklet, [ADRES], [PLZ] [SEHIR]. Plus de 100 vélos neufs et occasion en stock — venez sans rendez-vous.',
+      'Chez Karaarslan Bike, [ADRES], [PLZ] [SEHIR]. Plus de 100 vélos neufs et occasion en stock — venez sans rendez-vous.',
     faqQ2: "Puis-je essayer un vélo avant l'achat ?",
     faqA2:
       "Oui ! Tous les vélos peuvent être testés pendant nos heures d'ouverture — sans rendez-vous.",
@@ -2214,7 +2214,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
   },
 
   tr: {
-    metaTitle: "[SEHIR]'da Bisiklet Al & Kirala | Karaaslan Bisiklet",
+    metaTitle: "[SEHIR]'da Bisiklet Al & Kirala | Karaarslan Bike",
     metaDescription:
       "[SEHIR]'da bisiklet satın alın veya kiralayın ✓ 100+ kontrollü bisiklet ✓ Şehir, Trekking, E-bisiklet ✓ Kiralama 6,80 €/gün'den ✓ 3 ay garanti. [SEHIR] bisiklet mağazanız.",
 
@@ -2294,7 +2294,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     trustLabel: 'KALİTE',
     trustTitle: 'Güvenebileceğiniz kalite.',
     trustSub:
-      "Karaaslan Bisiklet'daki her bisiklet, showroom'a çıkmadan önce titizlikle kontrol edilir.",
+      "Karaarslan Bike'daki her bisiklet, showroom'a çıkmadan önce titizlikle kontrol edilir.",
     trust1: 'Tüm güvenlik bileşenlerinin teknik kontrolü',
     trust2: 'Profesyonel yenileme ve kapsamlı temizlik',
     trust3: 'Adil değerleme ve şeffaf fiyatlandırma',
@@ -2303,7 +2303,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     storyLabel: 'HİKAYEMİZ',
     storyTitle: 'Bisiklet tutkusuyla.',
     storyText:
-      'Karaaslan Bisiklet, iyi bisikletlerin pahalı olması gerekmediği ve her bisikletin ikinci bir şansı hak ettiği inancıyla kuruldu.',
+      'Karaarslan Bike, iyi bisikletlerin pahalı olması gerekmediği ve her bisikletin ikinci bir şansı hak ettiği inancıyla kuruldu.',
     storyValue1Title: 'Sürdürülebilirlik',
     storyValue1Desc:
       'Yenilediğimiz her ikinci el bisiklet, daha az atık ve daha fazla mobilite demek.',
@@ -2314,7 +2314,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Mekanik tutku ile buluşur. Her bisiklet özenle ele alınır.',
 
     galleryLabel: 'DÜKKAN',
-    galleryTitle: "Karaaslan Bisiklet'tan kareler.",
+    galleryTitle: "Karaarslan Bike'tan kareler.",
     gallerySub:
       "[SEHIR]'daki dükkânımıza göz atın — bir sonraki bisikletiniz sizi burada bekliyor.",
 
@@ -2386,7 +2386,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     warrantyUsedText:
       '3 ay garanti: zincir, vites, aktarıcı, dinamo, pedallar ve hidrolik frenler.',
     warrantyRepairNote:
-      'Garanti kapsamındaki onarımlar yalnızca Karaaslan Bisiklet tarafından yapılmalıdır.',
+      'Garanti kapsamındaki onarımlar yalnızca Karaarslan Bike tarafından yapılmalıdır.',
     warrantyExcludedTitle: 'Garanti Dışı',
     warrantyExcludedItems:
       'Lastikler, iç lastikler, fren balataları, lambalar. Ayrıca kapsam dışı: kaza veya uygunsuz kullanımdan kaynaklanan hasarlar.',
@@ -2544,10 +2544,10 @@ const TRANSLATIONS: Record<Language, Translations> = {
     aboutFeatureTrust: 'Güven & Kalite',
     aboutQuote:
       'Sattığımız her bisiklet mutluluk getiriyor — ve bu en güzel ödül.',
-    aboutQuoteAuthor: "— Karaaslan Bisiklet'un arkasındaki aile",
-    aboutMetaTitle: 'Hakkımızda — Karaaslan Bisiklet | Bisiklet Mağazanız',
+    aboutQuoteAuthor: "— Karaarslan Bike'un arkasındaki aile",
+    aboutMetaTitle: 'Hakkımızda — Karaarslan Bike | Bisiklet Mağazanız',
     aboutMetaDescription:
-      "Karaaslan Bisiklet'u tanıyın. Adil, sürdürülebilir, kişisel — [SEHIR]'daki yerel bisiklet mağazanız.",
+      "Karaarslan Bike'u tanıyın. Adil, sürdürülebilir, kişisel — [SEHIR]'daki yerel bisiklet mağazanız.",
 
     // Brands
     brandsLabel: 'MARKALAR',
@@ -2592,9 +2592,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     // Contact extended
     contactWhatsappHint: 'Doğrudan yaz',
     contactMetaTitle:
-      'İletişim — Karaaslan Bisiklet | Adres & Çalışma Saatleri',
+      'İletişim — Karaarslan Bike | Adres & Çalışma Saatleri',
     contactMetaDescription:
-      "Karaaslan Bisiklet ile iletişime geçin. Adres, çalışma saatleri, WhatsApp, telefon. [PLZ] [SEHIR]'da bizi ziyaret edin.",
+      "Karaarslan Bike ile iletişime geçin. Adres, çalışma saatleri, WhatsApp, telefon. [PLZ] [SEHIR]'da bizi ziyaret edin.",
 
     // Home trust badges
     trustBadgeSince: "2020'den beri [SEHIR]'da",
@@ -2609,13 +2609,13 @@ const TRANSLATIONS: Record<Language, Translations> = {
     gearsUnit: 'Vites',
     filterFrameSize: 'Kadro Boyutu',
     showroomMetaTitle:
-      "[SEHIR]'da İkinci El & Yeni Bisiklet Al | Showroom | Karaaslan Bisiklet",
+      "[SEHIR]'da İkinci El & Yeni Bisiklet Al | Showroom | Karaarslan Bike",
     showroomMetaDescription:
-      "[SEHIR]'da yeni ve ikinci el bisiklet satın alın ✓ 100+ kontrollü bisiklet ✓ Şehir, Trekking, Dağ, E-bisiklet ✓ 3 ay garanti ✓ Hemen teslim. Karaaslan Bisiklet.",
+      "[SEHIR]'da yeni ve ikinci el bisiklet satın alın ✓ 100+ kontrollü bisiklet ✓ Şehir, Trekking, Dağ, E-bisiklet ✓ 3 ay garanti ✓ Hemen teslim. Karaarslan Bike.",
 
     // Showroom detail
     detailMetaDescSuffix:
-      "Şimdi [PLZ] [SEHIR]'daki Karaaslan Bisiklet'da görün.",
+      "Şimdi [PLZ] [SEHIR]'daki Karaarslan Bike'da görün.",
     bikeFallbackCategory: 'Bisiklet',
 
     // Footer
@@ -2623,7 +2623,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     languageLabel: 'Dil',
 
     // Bike card
-    bikeAltSuffix: " — Karaaslan Bisiklet'da Bisiklet",
+    bikeAltSuffix: " — Karaarslan Bike'da Bisiklet",
 
     // Category translations
     catDamen: 'Kadın Bisikletleri',
@@ -2639,9 +2639,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     // Accessories page
     accessoriesMetaTitle:
-      'Bisiklet Aksesuarları [SEHIR] | Kask, Çanta & Kilit | Karaaslan Bisiklet',
+      'Bisiklet Aksesuarları [SEHIR] | Kask, Çanta & Kilit | Karaarslan Bike',
     accessoriesMetaDescription:
-      "[SEHIR]'da bisiklet aksesuarı satın alın ✓ Kask, çanta, kilit, aydınlatma & daha fazlası ✓ Karaaslan Bisiklet — [ADRES], [PLZ] [SEHIR].",
+      "[SEHIR]'da bisiklet aksesuarı satın alın ✓ Kask, çanta, kilit, aydınlatma & daha fazlası ✓ Karaarslan Bike — [ADRES], [PLZ] [SEHIR].",
     accessoriesTitle: 'Aksesuar',
     accessoriesSub: 'Bisikletiniz için çanta, kask, kilit ve daha fazlası.',
     accessoriesNoItems: 'Şu anda mevcut aksesuar bulunmamaktadır.',
@@ -2653,9 +2653,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     // Neue Fahrräder
     neueFahrraeder: 'Yeni Bisikletler',
     neueFahrraederMetaTitle:
-      "[SEHIR]'da Yeni Bisiklet Al | Şehir, Trekking, E-Bisiklet | Karaaslan Bisiklet",
+      "[SEHIR]'da Yeni Bisiklet Al | Şehir, Trekking, E-Bisiklet | Karaarslan Bike",
     neueFahrraederMetaDescription:
-      "[SEHIR]'da yeni bisiklet satın alın ✓ Şehir, Trekking, Dağ & E-bisiklet ✓ 2 yıl garanti ✓ Stokta & hemen teslim ✓ Uygun fiyat. Karaaslan Bisiklet.",
+      "[SEHIR]'da yeni bisiklet satın alın ✓ Şehir, Trekking, Dağ & E-bisiklet ✓ 2 yıl garanti ✓ Stokta & hemen teslim ✓ Uygun fiyat. Karaarslan Bike.",
     neueFahrraederTitle: 'Yeni Bisikletler',
     neueFahrraederSub: '2 yıl mağaza garantili sıfır bisikletler.',
     neueFahrraederBrand: 'Marka',
@@ -2678,37 +2678,37 @@ const TRANSLATIONS: Record<Language, Translations> = {
     ratgeberSub:
       'İpuçları, kontrol listeleri ve bisiklet hakkında bilmeniz gereken her şey.',
     ratgeberMetaTitle:
-      'Bisiklet Rehberi — İpuçları & Bilgi | Karaaslan Bisiklet',
+      'Bisiklet Rehberi — İpuçları & Bilgi | Karaarslan Bike',
     ratgeberMetaDescription:
       'Bisiklet rehberi: ikinci el bisiklet alma, kadro boyu hesaplama, e-bisiklet ipuçları ve daha fazlası.',
     ratgeberReadMore: 'Devamını oku',
     ratgeberReadTime: 'okuma',
-    ratgeberTip: 'Karaaslan Bisiklet İpucu',
+    ratgeberTip: 'Karaarslan Bike İpucu',
     ratgeberTldr: 'Özet',
     ratgeberRelated: 'İlgili rehberler',
     ratgeberBackToList: 'Tüm rehberlere dön',
     faqMetaTitle:
-      'SSS — [SEHIR] Bisiklet Mağazası | Sık Sorulan Sorular | Karaaslan Bisiklet',
+      'SSS — [SEHIR] Bisiklet Mağazası | Sık Sorulan Sorular | Karaarslan Bike',
     faqMetaDescription:
-      "[SEHIR]'da bisiklet alma ve kiralama hakkında sık sorulan sorular: garanti, e-bisiklet, deneme sürüşü, çalışma saatleri, fiyatlar. Karaaslan Bisiklet.",
+      "[SEHIR]'da bisiklet alma ve kiralama hakkında sık sorulan sorular: garanti, e-bisiklet, deneme sürüşü, çalışma saatleri, fiyatlar. Karaarslan Bike.",
     bikeRentalMetaTitle:
-      '[SEHIR] Bisiklet Kiralama 6,80 €/gün | Karaaslan Bisiklet',
+      '[SEHIR] Bisiklet Kiralama 6,80 €/gün | Karaarslan Bike',
     bikeRentalMetaDescription:
-      "[SEHIR]'da bisiklet kiralayın — 6,80 €/gün'den itibaren. Şehir, trekking ve e-bisiklet mevcut. Kask ve kilit dahil. Hemen teslim alın. ✓ Karaaslan Bisiklet.",
-    garantieMetaTitle: 'Garanti Koşulları — Karaaslan Bisiklet',
+      "[SEHIR]'da bisiklet kiralayın — 6,80 €/gün'den itibaren. Şehir, trekking ve e-bisiklet mevcut. Kask ve kilit dahil. Hemen teslim alın. ✓ Karaarslan Bike.",
+    garantieMetaTitle: 'Garanti Koşulları — Karaarslan Bike',
     garantieMetaDescription:
-      "Karaaslan Bisiklet'da yeni ve ikinci el bisikletler için garanti koşulları. Yeni bisikletlerde 2 yıl, ikinci elde 3 ay garanti.",
-    impressumMetaTitle: 'Yasal Bildirim — Karaaslan Bisiklet',
+      "Karaarslan Bike'da yeni ve ikinci el bisikletler için garanti koşulları. Yeni bisikletlerde 2 yıl, ikinci elde 3 ay garanti.",
+    impressumMetaTitle: 'Yasal Bildirim — Karaarslan Bike',
     impressumMetaDescription:
-      "Karaaslan Bisiklet'un § 5 TMG uyarınca yasal bilgi ve künye bilgileri.",
-    datenschutzMetaTitle: 'Gizlilik Politikası — Karaaslan Bisiklet',
+      "Karaarslan Bike'un § 5 TMG uyarınca yasal bilgi ve künye bilgileri.",
+    datenschutzMetaTitle: 'Gizlilik Politikası — Karaarslan Bike',
     datenschutzMetaDescription:
-      'Karaaslan Bisiklet gizlilik politikası. Kişisel verilerinizin işlenmesi hakkında bilgiler.',
+      'Karaarslan Bike gizlilik politikası. Kişisel verilerinizin işlenmesi hakkında bilgiler.',
     faqCtaText: 'Başka sorunuz mu var? Bize ulaşın!',
     faqCtaButton: 'İletişime geçin',
     faqQ1: "[SEHIR]'da bisiklet nereden alabilirim?",
     faqA1:
-      'Karaaslan Bisiklet, [ADRES], [PLZ] [SEHIR]. 100+ yeni ve ikinci el bisiklet stokta — randevusuz gelin.',
+      'Karaarslan Bike, [ADRES], [PLZ] [SEHIR]. 100+ yeni ve ikinci el bisiklet stokta — randevusuz gelin.',
     faqQ2: 'Satın almadan önce bisikleti deneyebilir miyim?',
     faqA2:
       'Evet! Tüm bisikletler çalışma saatlerinde denenebilir — randevu gerekmez.',
@@ -2794,7 +2794,7 @@ export class TranslationService {
   setLanguage(language: Language): void {
     this._currentLanguage.set(language);
     if (this.isBrowser) {
-      localStorage.setItem('Karaaslan Bisiklet-homepage-language', language);
+      localStorage.setItem('Karaarslan Bike-homepage-language', language);
       this.document.documentElement.lang = language;
     }
   }
@@ -2804,7 +2804,7 @@ export class TranslationService {
       return 'de';
     }
 
-    const stored = localStorage.getItem('Karaaslan Bisiklet-homepage-language');
+    const stored = localStorage.getItem('Karaarslan Bike-homepage-language');
     if (stored && ['de', 'en', 'fr', 'tr'].includes(stored)) {
       return stored as Language;
     }

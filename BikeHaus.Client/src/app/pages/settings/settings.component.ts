@@ -454,7 +454,7 @@ interface EmailAccountForm {
                     type="email"
                     [(ngModel)]="newCompanyEmail"
                     name="newCompanyEmail"
-                    placeholder="z.B. info@[DOMAIN]"
+                    placeholder="z.B. info@karaarslan-bike.de"
                     class="company-email-input"
                     style="flex: 1; padding: 8px 12px; border: 1px solid var(--border-light, #e2e8f0); border-radius: 6px; font-size: 0.9rem;"
                   />
@@ -749,7 +749,7 @@ interface EmailAccountForm {
                   <input
                     type="email"
                     [(ngModel)]="eaf.fromEmail"
-                    placeholder="[DOMAIN]@gmail.com"
+                    placeholder="karaarslan-bike.de@gmail.com"
                   />
                 </div>
                 <div class="form-group">
@@ -757,7 +757,7 @@ interface EmailAccountForm {
                   <input
                     type="text"
                     [(ngModel)]="eaf.fromName"
-                    placeholder="Karaaslan Bisiklet"
+                    placeholder="Karaarslan Bike"
                   />
                 </div>
               </div>

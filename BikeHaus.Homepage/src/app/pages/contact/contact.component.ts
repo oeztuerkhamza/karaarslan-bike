@@ -61,7 +61,7 @@ import { PublicShopInfo } from '../../models/models';
           </a>
 
           <!-- Email -->
-          <a href="mailto:[DOMAIN]&#64;gmail.com" class="contact-card">
+          <a href="mailto:karaarslan-bike.de&#64;gmail.com" class="contact-card">
             <div class="card-icon">
               <svg
                 width="24"
@@ -79,7 +79,7 @@ import { PublicShopInfo } from '../../models/models';
             </div>
             <div class="card-content">
               <h3>{{ t().email }}</h3>
-              <p>[DOMAIN]&#64;gmail.com</p>
+              <p>karaarslan-bike.de&#64;gmail.com</p>
               <span class="card-hint">{{ t().contactEmailHint }}</span>
             </div>
             <svg
@@ -755,7 +755,7 @@ export class ContactComponent implements OnInit {
   ngOnInit(): void {
     // SEO
     const lang = this.lang();
-    const pageUrl = `https://[DOMAIN]/${lang}/contact`;
+    const pageUrl = `https://karaarslan-bike.de/${lang}/contact`;
 
     this.titleService.setTitle(this.t().contactMetaTitle);
     this.metaService.updateTag({

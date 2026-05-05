@@ -1,15 +1,26 @@
 # syntax=docker/dockerfile:1.7
 # =============================================
-# Homepage SSR runtime — expects prebuilt dist/
-# Build is performed by the GitHub Actions runner
-# (faster CPU/RAM than VPS, full npm cache).
+# Stage 1: Build Angular SSR
+# =============================================
+FROM node:20-alpine AS build
+WORKDIR /app
+
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+
+COPY package*.json ./
+RUN --mount=type=cache,target=/root/.npm npm ci
+
+COPY . .
+RUN npm run build -- --configuration production
+
+# =============================================
+# Stage 2: SSR Runtime
 # =============================================
 FROM node:20-alpine AS production
 WORKDIR /app
 
-# Copy the prebuilt Angular SSR output. Server bundle is fully self-contained
-# (all dependencies bundled by Angular CLI), so no node_modules is required.
-COPY dist/bike-haus.homepage ./dist/bike-haus.homepage
+COPY --from=build /app/dist/bike-haus.homepage ./dist/bike-haus.homepage
 
 ENV NODE_ENV=production
 ENV PORT=4000

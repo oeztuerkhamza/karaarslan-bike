@@ -1495,8 +1495,8 @@ export class ShowroomComponent implements OnInit, OnDestroy {
       ? this.t().accessoriesMetaDescription
       : this.t().showroomMetaDescription;
     const ogUrl = this.isAccessoriesMode()
-      ? 'https://[DOMAIN]/zubehoer'
-      : 'https://[DOMAIN]/showroom';
+      ? 'https://karaarslan-bike.de/zubehoer'
+      : 'https://karaarslan-bike.de/showroom';
 
     this.titleService.setTitle(metaTitle);
     this.metaService.updateTag({ name: 'description', content: metaDesc });
@@ -1622,7 +1622,7 @@ export class ShowroomComponent implements OnInit, OnDestroy {
       item: {
         '@type': 'Product',
         name: listing.title,
-        url: `https://[DOMAIN]/showroom/${listing.id}`,
+        url: `https://karaarslan-bike.de/showroom/${listing.id}`,
         image: listing.images?.[0]?.imageUrl || '',
         offers: {
           '@type': 'Offer',

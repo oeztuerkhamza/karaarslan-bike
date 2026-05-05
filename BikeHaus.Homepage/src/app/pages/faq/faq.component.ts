@@ -321,7 +321,7 @@ export class FaqComponent implements OnInit, OnDestroy {
     });
     this.metaService.updateTag({
       property: 'og:url',
-      content: `https://[DOMAIN]/${this.lang()}/faq`,
+      content: `https://karaarslan-bike.de/${this.lang()}/faq`,
     });
 
     const items: FaqItem[] = [

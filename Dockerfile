@@ -12,7 +12,7 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS api-build
 WORKDIR /src
 
 # Copy solution and project files first (for better caching)
-COPY [DOMAIN].sln ./
+COPY BikeHausFreiburg.sln ./
 COPY BikeHaus.API/BikeHaus.API.csproj BikeHaus.API/
 COPY BikeHaus.Application/BikeHaus.Application.csproj BikeHaus.Application/
 COPY BikeHaus.Domain/BikeHaus.Domain.csproj BikeHaus.Domain/

@@ -24,7 +24,7 @@ import { PublicShopInfo } from '../../models/models';
           <section>
             <h2>Angaben gemäß § 5 TMG</h2>
             <p>
-              <strong>{{ shopInfo()?.shopName || 'Karaaslan Bisiklet' }}</strong
+              <strong>{{ shopInfo()?.shopName || 'Karaarslan Bike' }}</strong
               ><br />
               {{ shopInfo()?.strasse }} {{ shopInfo()?.hausnummer }}<br />
               {{ shopInfo()?.plz }} {{ shopInfo()?.stadt }}<br />
@@ -35,7 +35,7 @@ import { PublicShopInfo } from '../../models/models';
           <section>
             <h2>Kontakt</h2>
             <p>
-              E-Mail: {{ shopInfo()?.email || '[DOMAIN]@gmail.com'
+              E-Mail: {{ shopInfo()?.email || 'karaarslan-bike.de@gmail.com'
               }}<br />
               Telefon / WhatsApp:
               {{ shopInfo()?.telefon || '[TELEFON]' }}
@@ -63,7 +63,7 @@ import { PublicShopInfo } from '../../models/models';
           <section>
             <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
             <p>
-              {{ shopInfo()?.shopName || 'Karaaslan Bisiklet' }}<br />
+              {{ shopInfo()?.shopName || 'Karaarslan Bike' }}<br />
               {{ shopInfo()?.strasse }} {{ shopInfo()?.hausnummer }}<br />
               {{ shopInfo()?.plz }} {{ shopInfo()?.stadt }}
             </p>

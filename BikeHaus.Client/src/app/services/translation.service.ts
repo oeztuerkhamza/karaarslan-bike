@@ -767,7 +767,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     skipToMain: 'Zum Hauptinhalt springen',
 
     // Dashboard
-    welcomeToBikeHaus: 'Willkommen bei Karaaslan Bisiklet',
+    welcomeToBikeHaus: 'Willkommen bei Karaarslan Bike',
     buyBicycle: 'Fahrrad ankaufen',
     sellBicycle: 'Fahrrad verkaufen',
     viewInventory: 'Bestand ansehen',
@@ -1525,7 +1525,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     skipToMain: 'Ana içeriğe atla',
 
     // Dashboard
-    welcomeToBikeHaus: "Karaaslan Bisiklet'a hoş geldiniz",
+    welcomeToBikeHaus: "Karaarslan Bike'a hoş geldiniz",
     buyBicycle: 'Bisiklet al',
     sellBicycle: 'Bisiklet sat',
     viewInventory: 'Envanteri görüntüle',
