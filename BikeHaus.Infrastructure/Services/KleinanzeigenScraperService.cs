@@ -403,7 +403,7 @@ public class KleinanzeigenScraperService : IKleinanzeigenScraperService
         // No title-based detection - only use Art attribute from Kleinanzeigen
         // Final fallback: use card category if still empty and valid
         if (string.IsNullOrEmpty(data.Category) && !string.IsNullOrEmpty(card.Category) &&
-            !card.Category.Contains("Kleinanzeigen") && !card.Category.Contains("[SEHIR]"))
+            !card.Category.Contains("Kleinanzeigen") && !card.Category.Contains("LÜNEN"))
         {
             data.Category = card.Category;
         }

@@ -59,7 +59,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         ctaHeading: 'Jetzt vorbeikommen!',
         ctaText: 'Besuchen Sie uns in der [ADRES], [PLZ] [SEHIR]. Geöffnet Mo/Di/Do 11–18 Uhr, Fr 11–13 + 15–18 Uhr, Sa 11:30–17 Uhr. Oder schreiben Sie uns auf WhatsApp: [TELEFON].',
-        directions: 'Von Emmendingen über die B3 Richtung [SEHIR]. In [SEHIR] auf die Heckerstraße abbiegen. Kostenlose Parkplätze vorhanden.',
+        directions: 'Folgen Sie der Navigation zu An der Wethmarheide 45, 44534 Lünen (Garagennummer 255). Kostenlose Parkplätze vorhanden.',
       },
       en: {
         metaTitle: 'Bicycle Emmendingen — Buy bikes at Karaarslan Bike',
@@ -89,7 +89,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         ctaHeading: 'Visit us now!',
         ctaText: 'Visit us at [ADRES], [PLZ] [SEHIR]. Open Mon/Tue/Thu 11–18, Fri 11–13 + 15–18, Sat 11:30–17. Or message us on WhatsApp: [TELEFON].',
-        directions: 'From Emmendingen via the B3 towards [SEHIR]. Turn onto Heckerstraße in [SEHIR]. Free parking available.',
+        directions: 'Follow navigation to An der Wethmarheide 45, 44534 Lünen (Garagennummer 255). Free parking available.',
       },
       fr: {
         metaTitle: 'Vélo Emmendingen — Acheter des vélos chez Karaarslan Bike',
@@ -119,7 +119,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         ctaHeading: 'Venez nous voir!',
         ctaText: 'Rendez-nous visite au [ADRES], [PLZ] [SEHIR]. Ouvert lun/mar/jeu 11h–18h, ven 11h–13h + 15h–18h, sam 11h30–17h. Ou écrivez-nous sur WhatsApp: [TELEFON].',
-        directions: 'Depuis Emmendingen via la B3 direction [SEHIR]. Tournez dans la Heckerstraße à [SEHIR]. Parking gratuit disponible.',
+        directions: 'Suivez la navigation jusqu\'à An der Wethmarheide 45, 44534 Lünen (Garagennummer 255). Parking gratuit disponible.',
       },
       tr: {
         metaTitle: 'Bisiklet Emmendingen — Karaarslan Bike\'da bisiklet alın',
@@ -149,7 +149,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         ctaHeading: 'Hemen gelin!',
         ctaText: '[ADRES], [PLZ] [SEHIR] adresine gelin. Açılış saatleri: Pzt/Sal/Per 11–18, Cum 11–13 + 15–18, Cmt 11:30–17. Ya da WhatsApp\'tan yazın: [TELEFON].',
-        directions: 'Emmendingen\'den B3 üzerinden [SEHIR] yönüne gidin. [SEHIR]\'da Heckerstraße\'ye dönün. Ücretsiz park yeri mevcut.',
+        directions: 'Navigasyonu An der Wethmarheide 45, 44534 Lünen (Garagennummer 255) adresine ayarlayın. Ücretsiz park yeri mevcut.',
       },
     },
   },

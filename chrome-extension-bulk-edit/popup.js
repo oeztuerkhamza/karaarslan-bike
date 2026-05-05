@@ -11,7 +11,7 @@ const STANDARD_TEMPLATE = `Bike Haus Freiburg – Ihr gebrauchte Fahrradladen in
 ✅ Fahrradreservierungen sind leider nicht möglich
 
 Adresse & Öffnungszeiten:
-Heckerstraße 27, Freiburg
+An der Wethmarheide 45, Garagennummer 255, 44534 Lünen
 Mo 11:00–17:30
 Di 11:00–17:30
 Mi 14:00–17:30

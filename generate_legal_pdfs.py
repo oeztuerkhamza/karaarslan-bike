@@ -14,8 +14,8 @@ OUTPUT_DIR = os.path.dirname(os.path.abspath(__file__))
 # Business Details
 FIRMA = "Bike Haus Freiburg"
 INHABER = "Cevdet Akarsu"
-STRASSE = "Heckerstraße 27"
-PLZ_ORT = "79114 Freiburg im Breisgau"
+STRASSE = "An der Wethmarheide 45, Garagennummer 255"
+PLZ_ORT = "44534 Lünen"
 LAND = "Deutschland"
 TELEFON = "+49 155 6630 0011"
 EMAIL = "bikehausfreiburg@gmail.com"

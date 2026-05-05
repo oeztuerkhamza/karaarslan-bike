@@ -135,7 +135,7 @@ public class SettingsController : ControllerBase
                 TotalPrice: null,
                 Deposit: null,
                 AccessoriesText: "-",
-                PickupLocation: "Karaaslan Bisiklet, [SEHIR]",
+                PickupLocation: "Karaaslan Bisiklet, An der Wethmarheide 45, 44534 Lünen",
                 ShopPhone: "",
                 ShopEmail: "no-reply@[DOMAIN]",
                 Language: "de",

@@ -1,12 +1,12 @@
 # Karaaslan Bisiklet
 
-> Fahrradladen in [SEHIR] im Breisgau — Neue und gebrauchte Fahrräder, E-Bikes, Kinderfahrräder mit Garantie.
+> Fahrradladen in Lünen (NRW) — Neue und gebrauchte Fahrräder, E-Bikes, Kinderfahrräder mit Garantie.
 
 > Detailed version: https://[DOMAIN]/llms-full.txt
 
 ## Über uns
 
-Karaaslan Bisiklet ist ein Fahrradgeschäft in der Heckerstraße 27, 79114 [SEHIR] im Breisgau, Deutschland. Wir verkaufen neue und gebrauchte Fahrräder — darunter E-Bikes, Citybikes, Trekkingräder, Mountainbikes, Kinderfahrräder, Hollandräder und Rennräder. Jedes Gebrauchtrad wird technisch geprüft und mit 3 Monaten Garantie verkauft. Neue Fahrräder haben 24 Monate Garantie.
+Karaaslan Bisiklet ist ein Fahrradgeschäft in An der Wethmarheide 45 (Garagennummer 255), 44534 Lünen, Deutschland. Wir verkaufen neue und gebrauchte Fahrräder — darunter E-Bikes, Citybikes, Trekkingräder, Mountainbikes, Kinderfahrräder, Hollandräder und Rennräder. Jedes Gebrauchtrad wird technisch geprüft und mit 3 Monaten Garantie verkauft. Neue Fahrräder haben 24 Monate Garantie.
 
 ## Angebot
 
@@ -33,7 +33,7 @@ Barzahlung, EC-Karte, Kreditkarte, PayPal, Überweisung
 
 ## Kontakt
 
-- Adresse: Heckerstraße 27, 79114 [SEHIR] im Breisgau, Deutschland
+- Adresse: An der Wethmarheide 45, Garagennummer 255, 44534 Lünen, Deutschland
 - WhatsApp: +49 155 6630 0011
 - E-Mail: [DOMAIN]@gmail.com
 - Website: https://[DOMAIN]
@@ -60,7 +60,7 @@ Deutsch, Französisch, Türkisch
 ## Häufige Fragen
 
 **Wo kann ich ein Fahrrad in [SEHIR] kaufen?**
-Bei Karaaslan Bisiklet in der Heckerstraße 27, 79114 [SEHIR]. Über 100 neue und gebrauchte Fahrräder vorrätig — einfach vorbeikommen, kein Termin nötig.
+Bei Karaaslan Bisiklet in An der Wethmarheide 45 (Garagennummer 255), 44534 Lünen. Über 100 neue und gebrauchte Fahrräder vorrätig — einfach vorbeikommen, kein Termin nötig.
 
 **Kann ich ein Fahrrad vor dem Kauf testen?**
 Ja, alle Fahrräder können während der Öffnungszeiten probegefahren werden.

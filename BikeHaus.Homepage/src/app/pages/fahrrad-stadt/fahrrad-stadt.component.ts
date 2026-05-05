@@ -101,7 +101,7 @@ import {
               ></iframe>
             </div>
             <a
-              [href]="'https://www.google.com/maps/dir/' + encodeCity(c.cityName) + '/Heckerstraße+27,+[PLZ]+[SEHIR]'"
+              [href]="'https://www.google.com/maps/dir/' + encodeCity(c.cityName) + '/An+der+Wethmarheide+45,+44534+L%C3%BCnen'"
               target="_blank"
               rel="noopener"
               class="btn-directions"

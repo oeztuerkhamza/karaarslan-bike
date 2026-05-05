@@ -33,8 +33,8 @@ public class PdfService : IPdfService
     private const string DefaultShopType = "FAHRRADLADEN";
     private const string DefaultSteuernummer = "06002/40667";
     private const string DefaultUStIdNr = "DE437595861";
-    private const string DefaultShopStreet = "Heckerstraße 27";
-    private const string DefaultShopCity = "79114 [SEHIR]";
+    private const string DefaultShopStreet = "An der Wethmarheide 45, Garagennummer 255";
+    private const string DefaultShopCity = "44534 Lünen";
     private const string DefaultShopEmail = "[DOMAIN]@gmail.com";
     private const string DefaultShopTelefon = "0 15566300011";
     private const string DefaultBankName = "Sparkasse";
