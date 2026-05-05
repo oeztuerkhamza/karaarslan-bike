@@ -21,7 +21,7 @@ Sa 11:30–17:00
 
 Ankauf:
 Wir kaufen nur qualitativ hochwertige Fahrräder (Cube, Bulls, KTM, Ghost, Frog, Woom, Pyro, Bergamont, Stevens, Giant, Kalkhoff, Steppenwolf).
-Bilder und Preis bitte per Kleinanzeigen oder WhatsApp (+49 15566 300011) senden.
+Bilder und Preis bitte per Kleinanzeigen oder WhatsApp (+49 163 7390301) senden.
 
 Ausstattung & Hinweis:
 Fahrrad ist komplett überprüft und fahrbereit

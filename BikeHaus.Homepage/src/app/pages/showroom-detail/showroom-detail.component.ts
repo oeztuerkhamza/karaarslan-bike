@@ -1093,7 +1093,7 @@ export class ShowroomDetailComponent implements OnInit, OnDestroy {
   loading = signal(true);
   selectedImage = signal(0);
   userWhatsappMessage = '';
-  private whatsappPhone = '[WA_NUMARA]';
+  private whatsappPhone = '491637390301';
 
   private static readonly NEW_PATTERN =
     /\b(neue?[smrn]?|nagelneu|brandneu|unbenutzt|originalverpackt|\bovp\b)\b/i;

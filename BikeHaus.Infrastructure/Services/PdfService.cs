@@ -36,7 +36,7 @@ public class PdfService : IPdfService
     private const string DefaultShopStreet = "An der Wethmarheide 45, Garagennummer 255";
     private const string DefaultShopCity = "44534 Lünen";
     private const string DefaultShopEmail = "[DOMAIN]@gmail.com";
-    private const string DefaultShopTelefon = "0 15566300011";
+    private const string DefaultShopTelefon = "0163 7390301";
     private const string DefaultBankName = "Sparkasse";
     private const string DefaultBankAccountHolder = "Cevdet Akarsu";
     private const string DefaultIBAN = "DE28 6805 0101 00 14 5475 04";

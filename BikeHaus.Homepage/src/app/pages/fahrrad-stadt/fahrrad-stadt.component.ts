@@ -143,7 +143,7 @@ import { CITY_LANDINGS, CityLanding } from '../../services/city-landing.data';
                   >{{ tr().contact }}</a
                 >
                 <a
-                  href="https://wa.me/[WA_NUMARA]"
+                  href="https://wa.me/491637390301"
                   target="_blank"
                   rel="noopener"
                   class="btn-whatsapp"
@@ -445,7 +445,7 @@ export class FahrradStadtComponent implements OnInit, OnDestroy {
       name: 'Karaarslan Bike',
       image: 'https://karaarslan-bike.de/assets/images/og-image.jpg',
       url: `https://karaarslan-bike.de/${this.lang()}/${c.slug}`,
-      telephone: '+[WA_NUMARA]',
+      telephone: '+49163 7390301',
       address: {
         '@type': 'PostalAddress',
         streetAddress: '[ADRES]',

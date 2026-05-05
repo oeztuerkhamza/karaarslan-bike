@@ -117,7 +117,7 @@ interface Testimonial {
               <li>{{ t().svcRepairItem4 }}</li>
             </ul>
             <a
-              href="https://wa.me/[WA_NUMARA]"
+              href="https://wa.me/491637390301"
               target="_blank"
               rel="noopener noreferrer"
               class="svc-card-cta svc-card-cta-whatsapp"

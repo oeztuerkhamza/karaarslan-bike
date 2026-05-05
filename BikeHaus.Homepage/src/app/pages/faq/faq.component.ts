@@ -73,7 +73,7 @@ interface FaqItem {
                 t().faqCtaButton
               }}</a>
               <a
-                href="https://wa.me/[WA_NUMARA]"
+                href="https://wa.me/491637390301"
                 target="_blank"
                 rel="noopener"
                 class="btn-secondary"

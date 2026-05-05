@@ -124,7 +124,7 @@ import { environment } from '../../../environments/environment';
                 </svg>
               </button>
               <a
-                href="https://wa.me/[WA_NUMARA]"
+                href="https://wa.me/491637390301"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="hero-cta-wa"
@@ -222,7 +222,7 @@ import { environment } from '../../../environments/environment';
                 </svg>
               </button>
               <a
-                href="https://wa.me/[WA_NUMARA]"
+                href="https://wa.me/491637390301"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="pcard-cta-wa"
@@ -262,7 +262,7 @@ import { environment } from '../../../environments/environment';
                 </svg>
               </button>
               <a
-                href="https://wa.me/[WA_NUMARA]"
+                href="https://wa.me/491637390301"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="pcard-cta-wa"
@@ -299,7 +299,7 @@ import { environment } from '../../../environments/environment';
                 </svg>
               </button>
               <a
-                href="https://wa.me/[WA_NUMARA]"
+                href="https://wa.me/491637390301"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="pcard-cta-wa"
@@ -4004,7 +4004,7 @@ export class FahrradverleihComponent implements OnInit {
   }
 
   getWhatsappLink(): string {
-    return 'https://wa.me/[WA_NUMARA]';
+    return 'https://wa.me/491637390301';
   }
 
   getImageUrl(path: string): string {
