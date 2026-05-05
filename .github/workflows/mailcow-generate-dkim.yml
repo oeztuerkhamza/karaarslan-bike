@@ -49,17 +49,17 @@ jobs:
               # rspamd üzerinden DKIM key oluştur
               docker compose exec -T rspamd-mailcow sh -c "
                 mkdir -p /var/lib/rspamd/dkim
-                if [ ! -f /var/lib/rspamd/dkim/bikehausfreiburg.com.dkim.key ]; then
-                  rspamadm dkim_keygen -s 'dkim' -d 'bikehausfreiburg.com' \
-                    -k /var/lib/rspamd/dkim/bikehausfreiburg.com.dkim.key \
-                    > /var/lib/rspamd/dkim/bikehausfreiburg.com.dkim.txt 2>&1
+                if [ ! -f /var/lib/rspamd/dkim/karaarslan-bike.de.dkim.key ]; then
+                  rspamadm dkim_keygen -s 'dkim' -d 'karaarslan-bike.de' \
+                    -k /var/lib/rspamd/dkim/karaarslan-bike.de.dkim.key \
+                    > /var/lib/rspamd/dkim/karaarslan-bike.de.dkim.txt 2>&1
                   chown -R _rspamd:_rspamd /var/lib/rspamd/dkim/ 2>/dev/null || true
                   echo 'DKIM key oluşturuldu.'
                 else
                   echo 'DKIM key zaten mevcut.'
                 fi
                 echo '=== DNS TXT Kaydı ==='
-                cat /var/lib/rspamd/dkim/bikehausfreiburg.com.dkim.txt 2>/dev/null || \
+                cat /var/lib/rspamd/dkim/karaarslan-bike.de.dkim.txt 2>/dev/null || \
                 cat /var/lib/rspamd/dkim/*.txt 2>/dev/null
               "
             else
@@ -68,13 +68,13 @@ jobs:
               curl -s -X POST "http://localhost/api/v1/add/dkim" \
                 -H "X-API-Key: $API_KEY" \
                 -H "Content-Type: application/json" \
-                -d '{"dkim_selector":"dkim","domain":["bikehausfreiburg.com"],"key_size":2048}' | python3 -m json.tool || true
+                -d '{"dkim_selector":"dkim","domain":["karaarslan-bike.de"],"key_size":2048}' | python3 -m json.tool || true
 
               sleep 2
 
               # Public key'i al
               echo "=== DKIM Public Key DNS kaydı ==="
-              curl -s "http://localhost/api/v1/get/dkim/bikehausfreiburg.com" \
+              curl -s "http://localhost/api/v1/get/dkim/karaarslan-bike.de" \
                 -H "X-API-Key: $API_KEY" | python3 -m json.tool || true
             fi
 

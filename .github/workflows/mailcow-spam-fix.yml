@@ -28,7 +28,7 @@ jobs:
             cd "$MAILCOW_DIR"
             source mailcow.conf
 
-            DOMAIN="bikehausfreiburg.com"
+            DOMAIN="karaarslan-bike.de"
             SELECTOR="dkim"
             HOSTNAME="${MAILCOW_HOSTNAME:-mail.$DOMAIN}"
 

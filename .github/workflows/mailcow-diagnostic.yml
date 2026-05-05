@@ -44,13 +44,13 @@ jobs:
             echo ""
 
             echo "=== 3. curl to localhost:8081 (mail Host + Forwarded-Proto) ==="
-            curl -sI -H "Host: mail.bikehausfreiburg.com" -H "X-Forwarded-Proto: https" http://localhost:8081/ 2>&1 | head -15
+            curl -sI -H "Host: mail.karaarslan-bike.de" -H "X-Forwarded-Proto: https" http://localhost:8081/ 2>&1 | head -15
             echo ""
 
             echo "=== 4. curl to other common Mailcow ports ==="
             for p in 8080 8443 80 443; do
               echo "--- Port $p (HTTP) ---"
-              curl -sI --max-time 5 -H "Host: mail.bikehausfreiburg.com" -H "X-Forwarded-Proto: https" "http://localhost:$p/" 2>&1 | head -3
+              curl -sI --max-time 5 -H "Host: mail.karaarslan-bike.de" -H "X-Forwarded-Proto: https" "http://localhost:$p/" 2>&1 | head -3
               echo ""
             done
 

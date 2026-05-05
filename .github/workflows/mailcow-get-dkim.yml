@@ -33,7 +33,7 @@ jobs:
             echo "=== DB'den DKIM kaydi ==="
             docker compose exec -T mysql-mailcow mysql \
               -u"$DBUSER" -p"$DBPASS" "$DBNAME" \
-              -e "SELECT domain, dkim_selector FROM dkim WHERE domain='bikehausfreiburg.com';"
+              -e "SELECT domain, dkim_selector FROM dkim WHERE domain='karaarslan-bike.de';"
 
             echo ""
             echo "=== rspamd DKIM dosyalari ==="
@@ -41,4 +41,4 @@ jobs:
 
             echo ""
             echo "=== rspamd DKIM txt dosyasi ==="
-            docker compose exec -T rspamd-mailcow sh -c "cat /var/lib/rspamd/dkim/bikehausfreiburg.com.*.txt 2>/dev/null || cat /var/lib/rspamd/dkim/*.txt 2>/dev/null || echo 'dosya bulunamadi'"
+            docker compose exec -T rspamd-mailcow sh -c "cat /var/lib/rspamd/dkim/karaarslan-bike.de.*.txt 2>/dev/null || cat /var/lib/rspamd/dkim/*.txt 2>/dev/null || echo 'dosya bulunamadi'"

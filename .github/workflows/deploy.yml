@@ -123,7 +123,7 @@ jobs:
 
             echo "==> Writing .env"
             umask 077
-            printf 'JWT_SECRET_KEY=%s\nINDEXNOW_API_KEY=%s\nGOOGLE_PLACES_API_KEY=%s\nGOOGLE_PLACES_PLACE_ID=%s\nSMTP_HOST=mail.bikehausfreiburg.com\nSMTP_PORT=587\nSMTP_USERNAME=no-reply@bikehausfreiburg.com\nSMTP_PASSWORD=%s\nSMTP_USESSL=false\nSMTP_FROMEMAIL=no-reply@bikehausfreiburg.com\nSMTP_FROMNAME=Bike Haus Freiburg\n' \
+            printf 'JWT_SECRET_KEY=%s\nINDEXNOW_API_KEY=%s\nGOOGLE_PLACES_API_KEY=%s\nGOOGLE_PLACES_PLACE_ID=%s\nSMTP_HOST=mail.karaarslan-bike.de\nSMTP_PORT=587\nSMTP_USERNAME=no-reply@karaarslan-bike.de\nSMTP_PASSWORD=%s\nSMTP_USESSL=false\nSMTP_FROMEMAIL=no-reply@karaarslan-bike.de\nSMTP_FROMNAME=Karaarslan Bike\n' \
               "${JWT_SECRET_KEY}" "${INDEXNOW_API_KEY}" "${GOOGLE_PLACES_API_KEY}" "${GOOGLE_PLACES_PLACE_ID}" "${SMTP_PASSWORD}" > .env
             chmod 600 .env
 
@@ -159,13 +159,13 @@ jobs:
             docker pull mcr.microsoft.com/dotnet/aspnet:9.0
 
             echo "==> Building API image"
-            docker compose build bikehaus
+            docker compose build karaaslan
 
             echo "==> Recreating API container"
-            docker compose up -d --force-recreate bikehaus
+            docker compose up -d --force-recreate karaaslan
 
             echo "==> API status"
-            docker compose ps bikehaus
+            docker compose ps karaaslan
 
   # ───────────────────────────────────────────────────────────────
   # Deploy Client (Angular admin SPA) — runs after API
@@ -401,10 +401,10 @@ jobs:
         run: |
           set -euo pipefail
           urls=(
-            "https://bikehausfreiburg.com"
-            "https://admin.bikehausfreiburg.com"
-            "https://api.bikehausfreiburg.com/api/public/neue-fahrraeder"
-            "https://api.bikehausfreiburg.com/api/public/homepage-accessories"
+            "https://karaarslan-bike.de"
+            "https://admin.karaarslan-bike.de"
+            "https://api.karaarslan-bike.de/api/public/neue-fahrraeder"
+            "https://api.karaarslan-bike.de/api/public/homepage-accessories"
           )
           failed=0
           for url in "${urls[@]}"; do
