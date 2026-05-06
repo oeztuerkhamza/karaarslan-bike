@@ -34,10 +34,10 @@
 
 ## Repositories
 
-| Repository                  | Content                            | CI/CD Trigger  |
-| --------------------------- | ---------------------------------- | -------------- |
-| `karaarslan-bike`           | API + Admin Panel + Deploy configs | Push to `master` |
-| `karaarslan-bike-homepage`  | Public Homepage (Angular)          | Push to `master` |
+| Repository                 | Content                            | CI/CD Trigger    |
+| -------------------------- | ---------------------------------- | ---------------- |
+| `karaarslan-bike`          | API + Admin Panel + Deploy configs | Push to `master` |
+| `karaarslan-bike-homepage` | Public Homepage (Angular)          | Push to `master` |
 
 ---
 

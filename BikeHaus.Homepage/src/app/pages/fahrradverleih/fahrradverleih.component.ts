@@ -3865,7 +3865,7 @@ export class FahrradverleihComponent implements OnInit {
       },
       {
         q: 'Wo kann ich das Fahrrad abholen?',
-        a: 'Die Abholung erfolgt direkt bei uns: An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Sofort verfügbar — kein Vorausbezahlen nötig.',
+        a: 'Die Abholung erfolgt direkt bei uns: Alstedder Straße 5, 44534 Lünen. Sofort verfügbar — kein Vorausbezahlen nötig.',
       },
       {
         q: 'Welche Fahrräder kann ich in Freiburg mieten?',
@@ -3888,7 +3888,7 @@ export class FahrradverleihComponent implements OnInit {
       },
       {
         q: 'Where can I pick up the bike?',
-        a: 'Pick up directly at our shop: An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Available immediately — no prepayment required.',
+        a: 'Pick up directly at our shop: Alstedder Straße 5, 44534 Lünen. Available immediately — no prepayment required.',
       },
       {
         q: 'Which bikes can I rent in Freiburg?',
@@ -3911,7 +3911,7 @@ export class FahrradverleihComponent implements OnInit {
       },
       {
         q: 'Où récupérer le vélo ?',
-        a: 'Récupérez directement en magasin : An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Disponible immédiatement — sans prépaiement.',
+        a: 'Récupérez directement en magasin : Alstedder Straße 5, 44534 Lünen. Disponible immédiatement — sans prépaiement.',
       },
       {
         q: 'Quels types de vélos peut-on louer à Fribourg ?',
@@ -3930,7 +3930,7 @@ export class FahrradverleihComponent implements OnInit {
       },
       {
         q: 'Bisikleti nereden alabilirim?',
-        a: 'Bisikletinizi doğrudan mağazamızdan alabilirsiniz: An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Hemen mevcut — ön ödeme gerekmez.',
+        a: 'Bisikletinizi doğrudan mağazamızdan alabilirsiniz: Alstedder Straße 5, 44534 Lünen. Hemen mevcut — ön ödeme gerekmez.',
       },
       {
         q: "Freiburg'da hangi bisikletler kiralanabilir?",
@@ -3966,7 +3966,7 @@ export class FahrradverleihComponent implements OnInit {
             name: 'Karaarslan Bike',
             address: {
               '@type': 'PostalAddress',
-              streetAddress: 'An der Wethmarheide 45, Garagennummer 255',
+              streetAddress: 'Alstedder Straße 5',
               addressLocality: 'Lünen',
               postalCode: '79114',
               addressRegion: 'Baden-Württemberg',

@@ -42,7 +42,7 @@ import { TranslationService } from '../../services/translation.service';
             </p>
             <p>
               Karaarslan Bike<br />
-              An der Wethmarheide 45, Garagennummer 255<br />
+              Alstedder Straße 5<br />
               44534 Lünen<br />
               E-Mail: info&#64;karaarslan-bike.de
             </p>
@@ -97,7 +97,7 @@ import { TranslationService } from '../../services/translation.service';
             </p>
             <p>
               Karaarslan Bike<br />
-              An der Wethmarheide 45, Garagennummer 255<br />
+              Alstedder Straße 5<br />
               44534 Lünen<br />
               E-Mail: info&#64;karaarslan-bike.de<br />
               WhatsApp: +49 155 6630 0011

@@ -120,7 +120,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike in der An der Wethmarheide 45, Garagennummer 255 bietet über 100 geprüfte neue und gebrauchte Fahrräder. Alle Räder haben Garantie und können vor Ort probegefahren werden. Wir sind Mo–Fr 10–18 Uhr und Sa 10–14 Uhr für Sie da.',
+              'Karaarslan Bike in der Alstedder Straße 5 bietet über 100 geprüfte neue und gebrauchte Fahrräder. Alle Räder haben Garantie und können vor Ort probegefahren werden. Wir sind Mo–Fr 10–18 Uhr und Sa 10–14 Uhr für Sie da.',
           },
           {
             type: 'cta',
@@ -321,7 +321,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'tip',
             content:
-              'Unsicher? Kommen Sie einfach bei Karaarslan Bike vorbei. Wir beraten Sie kostenlos und Sie können verschiedene Räder probefahren. An der Wethmarheide 45, Garagennummer 255, Mo–Fr 10–18 Uhr.',
+              'Unsicher? Kommen Sie einfach bei Karaarslan Bike vorbei. Wir beraten Sie kostenlos und Sie können verschiedene Räder probefahren. Alstedder Straße 5, Mo–Fr 10–18 Uhr.',
           },
           {
             type: 'cta',
@@ -333,8 +333,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       en: {
         title: 'Which Bike is Right for Me? — Complete Guide',
-        metaTitle:
-          'Which Bike is Right for Me? Guide 2026 | Karaarslan Bike',
+        metaTitle: 'Which Bike is Right for Me? Guide 2026 | Karaarslan Bike',
         metaDescription:
           'City bike, trekking, mountain or e-bike? Find out which type suits your riding style. Free advice in Freiburg.',
         excerpt:
@@ -385,8 +384,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       tr: {
         title: 'Bana Hangi Bisiklet Uygun? — Kapsamlı Rehber',
-        metaTitle:
-          'Bana Hangi Bisiklet Uygun? 2026 Rehberi | Karaarslan Bike',
+        metaTitle: 'Bana Hangi Bisiklet Uygun? 2026 Rehberi | Karaarslan Bike',
         metaDescription:
           'Şehir, trekking, dağ veya elektrikli bisiklet? Sürüş tarzınıza uygun tipi bulun.',
         excerpt:
@@ -501,8 +499,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       en: {
         title: 'Calculate Bike Frame Size — Table & Guide',
-        metaTitle:
-          'Bike Frame Size Calculator — Table 2026 | Karaarslan Bike',
+        metaTitle: 'Bike Frame Size Calculator — Table 2026 | Karaarslan Bike',
         metaDescription:
           'Calculate your bike frame size: measure inseam, apply formula, find the right size. Tables for city, trekking, MTB & e-bike.',
         excerpt:
@@ -600,8 +597,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     translations: {
       de: {
         title: 'E-Bike gebraucht kaufen — Akku, Motor, Garantie',
-        metaTitle:
-          'E-Bike gebraucht kaufen — Worauf achten? | Karaarslan Bike',
+        metaTitle: 'E-Bike gebraucht kaufen — Worauf achten? | Karaarslan Bike',
         metaDescription:
           'Gebrauchtes E-Bike kaufen: Akku-Zustand, Motor-Check, Garantie. Was Sie beim Kauf eines gebrauchten Pedelecs wissen müssen.',
         excerpt:
@@ -762,10 +758,10 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Fahrradladen Freiburg — Ihr Fahrradgeschäft | Karaarslan Bike',
         metaDescription:
-          'Fahrradladen in Freiburg gesucht? Karaarslan Bike: Über 100 neue & gebrauchte Fahrräder, E-Bikes, Garantie, Probefahrt. An der Wethmarheide 45, Garagennummer 255.',
+          'Fahrradladen in Freiburg gesucht? Karaarslan Bike: Über 100 neue & gebrauchte Fahrräder, E-Bikes, Garantie, Probefahrt. Alstedder Straße 5.',
         excerpt:
           'Ihr Fahrradladen in Freiburg: Karaarslan Bike bietet über 100 neue und gebrauchte Fahrräder mit Garantie.',
-        tldr: 'Karaarslan Bike: An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Über 100 neue & gebrauchte Fahrräder, E-Bikes, Garantie. Mo–Fr 10–18, Sa 10–14 Uhr. WhatsApp: +49 155 6630 0011.',
+        tldr: 'Karaarslan Bike: Alstedder Straße 5, 44534 Lünen. Über 100 neue & gebrauchte Fahrräder, E-Bikes, Garantie. Mo–Fr 10–18, Sa 10–14 Uhr. WhatsApp: +49 155 6630 0011.',
         sections: [
           {
             type: 'heading',
@@ -774,7 +770,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike ist ein Fahrradgeschäft in der An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Wir bieten neue und gebrauchte Fahrräder — darunter Citybikes, Trekkingräder, Mountainbikes, E-Bikes, Kinderfahrräder und Hollandräder.',
+              'Karaarslan Bike ist ein Fahrradgeschäft in der Alstedder Straße 5, 44534 Lünen. Wir bieten neue und gebrauchte Fahrräder — darunter Citybikes, Trekkingräder, Mountainbikes, E-Bikes, Kinderfahrräder und Hollandräder.',
           },
           {
             type: 'heading',
@@ -815,7 +811,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike befindet sich in der An der Wethmarheide 45, Garagennummer 255, im Stadtteil Haslach. Gut erreichbar mit dem Auto (Parkplätze vorhanden) oder mit der Straßenbahn. Aus Emmendingen, Bad Krozingen, Breisach, March und Gundelfingen sind wir in 15–25 Minuten erreichbar.',
+              'Karaarslan Bike befindet sich in der Alstedder Straße 5, im Stadtteil Haslach. Gut erreichbar mit dem Auto (Parkplätze vorhanden) oder mit der Straßenbahn. Aus Emmendingen, Bad Krozingen, Breisach, March und Gundelfingen sind wir in 15–25 Minuten erreichbar.',
           },
           {
             type: 'cta',
@@ -832,7 +828,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           'Looking for a bike shop in Freiburg? Karaarslan Bike: 100+ new & used bikes, e-bikes, warranty, test rides.',
         excerpt:
           'Your bike shop in Freiburg: Over 100 new and used bikes with warranty.',
-        tldr: 'Karaarslan Bike: An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. 100+ new & used bikes, e-bikes, warranty. Mon–Fri 10–18, Sat 10–14. WhatsApp: +49 155 6630 0011.',
+        tldr: 'Karaarslan Bike: Alstedder Straße 5, 44534 Lünen. 100+ new & used bikes, e-bikes, warranty. Mon–Fri 10–18, Sat 10–14. WhatsApp: +49 155 6630 0011.',
         sections: [
           {
             type: 'heading',
@@ -841,7 +837,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike is a bike shop at An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. We offer new and used bikes with warranty.',
+              'Karaarslan Bike is a bike shop at Alstedder Straße 5, 44534 Lünen. We offer new and used bikes with warranty.',
           },
           {
             type: 'cta',
@@ -858,7 +854,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           'Vous cherchez un magasin de vélos à Freiburg ? Karaarslan Bike : plus de 100 vélos neufs et occasion.',
         excerpt:
           'Votre magasin de vélos à Freiburg : plus de 100 vélos avec garantie.',
-        tldr: 'Karaarslan Bike : An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Plus de 100 vélos neufs et occasion, VAE, garantie. Lun–Ven 10–18, Sam 10–14.',
+        tldr: 'Karaarslan Bike : Alstedder Straße 5, 44534 Lünen. Plus de 100 vélos neufs et occasion, VAE, garantie. Lun–Ven 10–18, Sam 10–14.',
         sections: [
           {
             type: 'heading',
@@ -867,7 +863,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike est un magasin de vélos à la An der Wethmarheide 45, Garagennummer 255, 44534 Lünen.',
+              'Karaarslan Bike est un magasin de vélos à la Alstedder Straße 5, 44534 Lünen.',
           },
           {
             type: 'cta',
@@ -884,7 +880,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           "Freiburg'da bisiklet dükkanı arıyorsunuz? Karaarslan Bike: 100+ yeni ve ikinci el bisiklet, garanti, deneme sürüşü.",
         excerpt:
           "Freiburg'daki bisiklet dükkanınız: Garantili 100+ yeni ve ikinci el bisiklet.",
-        tldr: 'Karaarslan Bike: An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. 100+ yeni ve ikinci el bisiklet, e-bisiklet, garanti. Pzt–Cum 10–18, Cmt 10–14. WhatsApp: +49 155 6630 0011.',
+        tldr: 'Karaarslan Bike: Alstedder Straße 5, 44534 Lünen. 100+ yeni ve ikinci el bisiklet, e-bisiklet, garanti. Pzt–Cum 10–18, Cmt 10–14. WhatsApp: +49 155 6630 0011.',
         sections: [
           {
             type: 'heading',
@@ -893,7 +889,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike, An der Wethmarheide 45, Garagennummer 255, 44534 Lünen adresinde bulunan bir bisiklet mağazasıdır.',
+              'Karaarslan Bike, Alstedder Straße 5, 44534 Lünen adresinde bulunan bir bisiklet mağazasıdır.',
           },
           {
             type: 'cta',
@@ -1576,8 +1572,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       en: {
         title: 'Bikes for Commuters — The Best City Bikes 2026',
-        metaTitle:
-          'Commuter Bike — Best City Bikes & Tips | Karaarslan Bike',
+        metaTitle: 'Commuter Bike — Best City Bikes & Tips | Karaarslan Bike',
         metaDescription:
           'The best bike for commuters: City bike, trekking bike or e-bike? Comparison, tips & recommendations 2026 ✓ From a bike shop in Freiburg.',
         excerpt:
@@ -1722,7 +1717,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike bietet Fahrradverleih zu fairen Preisen ohne versteckte Kosten. Kommen Sie einfach in der An der Wethmarheide 45, Garagennummer 255 vorbei, wählen Sie Ihr Fahrrad und fahren Sie los.',
+              'Karaarslan Bike bietet Fahrradverleih zu fairen Preisen ohne versteckte Kosten. Kommen Sie einfach in der Alstedder Straße 5 vorbei, wählen Sie Ihr Fahrrad und fahren Sie los.',
           },
           {
             type: 'heading',
@@ -1785,7 +1780,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike offers bike rental at fair prices with no hidden costs. Just come to An der Wethmarheide 45, Garagennummer 255, choose your bike and ride off. No reservation required for walk-ins — we have city bikes, trekking bikes and e-bikes ready to go.',
+              'Karaarslan Bike offers bike rental at fair prices with no hidden costs. Just come to Alstedder Straße 5, choose your bike and ride off. No reservation required for walk-ins — we have city bikes, trekking bikes and e-bikes ready to go.',
           },
           { type: 'heading', content: 'Bike Rental Prices in Freiburg' },
           {
@@ -1817,7 +1812,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike is located at An der Wethmarheide 45, Garagennummer 255, 44534 Lünen — in the Haslach district. Easily reachable by tram or car (free parking available). Opening hours: Mon, Tue, Thu 11:00–17:30 | Wed 14:00–17:30 | Fri 11:00–13:00 & 15:00–18:00 | Sat 11:30–17:00.',
+              'Karaarslan Bike is located at Alstedder Straße 5, 44534 Lünen — in the Haslach district. Easily reachable by tram or car (free parking available). Opening hours: Mon, Tue, Thu 11:00–17:30 | Wed 14:00–17:30 | Fri 11:00–13:00 & 15:00–18:00 | Sat 11:30–17:00.',
           },
           {
             type: 'heading',
@@ -1859,7 +1854,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike propose la location de vélos à des prix transparents, sans frais cachés. Venez simplement au An der Wethmarheide 45, Garagennummer 255, choisissez votre vélo et partez. Pas de réservation obligatoire — vélos de ville, VTC et VAE disponibles immédiatement.',
+              'Karaarslan Bike propose la location de vélos à des prix transparents, sans frais cachés. Venez simplement au Alstedder Straße 5, choisissez votre vélo et partez. Pas de réservation obligatoire — vélos de ville, VTC et VAE disponibles immédiatement.',
           },
           { type: 'heading', content: 'Tarifs location vélo Fribourg' },
           {
@@ -1891,7 +1886,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike se trouve au An der Wethmarheide 45, Garagennummer 255, 79114 Fribourg-en-Brisgau, dans le quartier Haslach. Facilement accessible en tramway ou en voiture (parking gratuit). Horaires : lun, mar, jeu 11h00–17h30 | mer 14h00–17h30 | ven 11h00–13h00 & 15h00–18h00 | sam 11h30–17h00.',
+              'Karaarslan Bike se trouve au Alstedder Straße 5, 79114 Fribourg-en-Brisgau, dans le quartier Haslach. Facilement accessible en tramway ou en voiture (parking gratuit). Horaires : lun, mar, jeu 11h00–17h30 | mer 14h00–17h30 | ven 11h00–13h00 & 15h00–18h00 | sam 11h30–17h00.',
           },
           { type: 'heading', content: 'FAQ — Location vélo Fribourg' },
           {
@@ -1928,7 +1923,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              "Karaarslan Bike gizli masraf olmadan uygun fiyatlarla bisiklet kiralar. An der Wethmarheide 45, Garagennummer 255'ye gelin, bisikletinizi seçin ve yola çıkın.",
+              "Karaarslan Bike gizli masraf olmadan uygun fiyatlarla bisiklet kiralar. Alstedder Straße 5'ye gelin, bisikletinizi seçin ve yola çıkın.",
           },
           {
             type: 'cta',
@@ -1974,7 +1969,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           'Gebrauchtes Fahrrad in Freiburg kaufen als Expat oder Student ✓ Über 100 Räder ✓ Ab 80 € ✓ 3 Monate Garantie ✓ Persönliche Beratung auf Englisch. Karaarslan Bike.',
         excerpt:
           'Als Expat oder Student in Freiburg? So finden Sie schnell und sicher ein gebrauchtes Fahrrad.',
-        tldr: 'Karaarslan Bike bietet über 100 geprüfte neue und gebrauchte Fahrräder ab 80 €. Englischsprachige Beratung möglich. 3 Monate Garantie. An der Wethmarheide 45, Garagennummer 255.',
+        tldr: 'Karaarslan Bike bietet über 100 geprüfte neue und gebrauchte Fahrräder ab 80 €. Englischsprachige Beratung möglich. 3 Monate Garantie. Alstedder Straße 5.',
         sections: [
           {
             type: 'heading',
@@ -2001,7 +1996,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           'Buy a used or new bike in Freiburg ✓ 100+ bikes in stock ✓ From €80 ✓ 3-month warranty ✓ English-speaking staff ✓ Test ride available. Karaarslan Bike.',
         excerpt:
           'Moving to Freiburg? This guide covers everything expats and students need to know about buying a used or new bike in Freiburg — without the headache.',
-        tldr: 'Karaarslan Bike has 100+ inspected bikes from €80. English-speaking staff available. 3-month warranty on used bikes, 24-month on new. Free test rides. Located at An der Wethmarheide 45, Garagennummer 255, Freiburg.',
+        tldr: 'Karaarslan Bike has 100+ inspected bikes from €80. English-speaking staff available. 3-month warranty on used bikes, 24-month on new. Free test rides. Located at Alstedder Straße 5, Freiburg.',
         sections: [
           {
             type: 'heading',
@@ -2016,7 +2011,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike at An der Wethmarheide 45, Garagennummer 255 is the go-to shop for English-speaking residents. We carry 100+ new and used bikes, all technically inspected. English spoken — no appointment needed, just walk in.',
+              'Karaarslan Bike at Alstedder Straße 5 is the go-to shop for English-speaking residents. We carry 100+ new and used bikes, all technically inspected. English spoken — no appointment needed, just walk in.',
           },
           { type: 'heading', content: 'Used Bike Prices in Freiburg' },
           {
@@ -2080,7 +2075,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           "Acheter un vélo neuf ou d'occasion à Fribourg-en-Brisgau ✓ 100+ vélos en stock ✓ Dès 80 € ✓ 3 mois de garantie ✓ Conseils en français. Karaarslan Bike.",
         excerpt:
           'Vous habitez ou visitez Fribourg ? Ce guide vous explique tout ce que les francophones doivent savoir pour acheter un vélo à Fribourg, sans complication.',
-        tldr: "Karaarslan Bike propose 100+ vélos inspectés dès 80 €. Garantie 3 mois sur les vélos d'occasion, 24 mois sur les neufs. Essais gratuits. An der Wethmarheide 45, Garagennummer 255, Fribourg. À 25 km de l'Alsace.",
+        tldr: "Karaarslan Bike propose 100+ vélos inspectés dès 80 €. Garantie 3 mois sur les vélos d'occasion, 24 mois sur les neufs. Essais gratuits. Alstedder Straße 5, Fribourg. À 25 km de l'Alsace.",
         sections: [
           { type: 'heading', content: 'Pourquoi acheter un vélo à Fribourg ?' },
           {
@@ -2092,7 +2087,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              "Karaarslan Bike, au An der Wethmarheide 45, Garagennummer 255, est le magasin de référence pour les francophones à Fribourg. Nous disposons de 100+ vélos neufs et d'occasion, tous contrôlés techniquement. Pas de rendez-vous nécessaire — venez directement.",
+              "Karaarslan Bike, au Alstedder Straße 5, est le magasin de référence pour les francophones à Fribourg. Nous disposons de 100+ vélos neufs et d'occasion, tous contrôlés techniquement. Pas de rendez-vous nécessaire — venez directement.",
           },
           { type: 'heading', content: 'Prix des vélos à Fribourg' },
           {
@@ -2131,7 +2126,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           "Freiburg'da ikinci el veya yeni bisiklet satın alın ✓ 100+ bisiklet ✓ 80 €'dan ✓ 3 ay garanti ✓ Türkçe konuşan personel. Karaarslan Bike.",
         excerpt:
           "Freiburg'a yeni mi taşındınız? Expat ve öğrenciler için Freiburg'da bisiklet alma rehberi.",
-        tldr: "Karaarslan Bike 80 €'dan 100+ kontrol edilmiş bisiklet sunuyor. İkinci el bisikletlerde 3 ay, yenilerde 24 ay garanti. Ücretsiz deneme sürüşü. An der Wethmarheide 45, Garagennummer 255.",
+        tldr: "Karaarslan Bike 80 €'dan 100+ kontrol edilmiş bisiklet sunuyor. İkinci el bisikletlerde 3 ay, yenilerde 24 ay garanti. Ücretsiz deneme sürüşü. Alstedder Straße 5.",
         sections: [
           { type: 'heading', content: "Freiburg'da Neden Bisiklet?" },
           {
@@ -2255,7 +2250,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike at An der Wethmarheide 45, Garagennummer 255 is the ideal starting point for your cycling adventure. We offer city bikes, trekking bikes and e-bikes with daily prices configured per bike. Lock and basket included. No reservation required.',
+              'Karaarslan Bike at Alstedder Straße 5 is the ideal starting point for your cycling adventure. We offer city bikes, trekking bikes and e-bikes with daily prices configured per bike. Lock and basket included. No reservation required.',
           },
           { type: 'heading', content: 'Cycling Tips for Tourists in Freiburg' },
           {
@@ -2322,7 +2317,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike au An der Wethmarheide 45, Garagennummer 255 est le point de départ idéal pour votre aventure cycliste. Nous proposons des vélos de ville, VTC et VAE avec des tarifs journaliers définis par vélo. Cadenas et panier inclus. Pas de réservation obligatoire.',
+              'Karaarslan Bike au Alstedder Straße 5 est le point de départ idéal pour votre aventure cycliste. Nous proposons des vélos de ville, VTC et VAE avec des tarifs journaliers définis par vélo. Cadenas et panier inclus. Pas de réservation obligatoire.',
           },
           {
             type: 'heading',

@@ -3204,7 +3204,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       availableLanguage: ['German', 'English', 'French', 'Turkish'],
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'An der Wethmarheide 45, Garagennummer 255',
+        streetAddress: 'Alstedder Straße 5',
         addressLocality: 'Lünen',
         postalCode: '79114',
         addressCountry: 'DE',

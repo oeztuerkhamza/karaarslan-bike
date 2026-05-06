@@ -14,7 +14,7 @@ OUTPUT_DIR = os.path.dirname(os.path.abspath(__file__))
 # Business Details
 FIRMA = "Karaarslan Bike"
 INHABER = "Cevdet Akarsu"
-STRASSE = "An der Wethmarheide 45, Garagennummer 255"
+STRASSE = "Alstedder Straße 5"
 PLZ_ORT = "44534 Lünen"
 LAND = "Deutschland"
 TELEFON = "+49 155 6630 0011"

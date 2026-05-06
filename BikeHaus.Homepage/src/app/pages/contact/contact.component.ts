@@ -117,7 +117,7 @@ import { PublicShopInfo } from '../../models/models';
             </div>
             <div class="card-content">
               <h3>{{ t().address }}</h3>
-              <p>An der Wethmarheide 45, Garagennummer 255</p>
+              <p>Alstedder Straße 5</p>
               <p class="sub">
                 44534 Lünen
                 <span class="district">· Haslach</span>

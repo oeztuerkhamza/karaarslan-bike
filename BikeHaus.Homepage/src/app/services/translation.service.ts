@@ -552,7 +552,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     metaTitle:
       'Fahrradladen Freiburg — Fahrrad kaufen & mieten | Karaarslan Bike',
     metaDescription:
-      'Ihr Fahrradladen in Freiburg Haid ✓ Neue & gebrauchte Räder kaufen ✓ E-Bike, City, Trekking, Kinderfahrrad ✓ Fahrradverleih mit tagesgenauen Preisen pro Fahrrad ✓ 3 Monate Garantie. Kein Termin — An der Wethmarheide 45, Garagennummer 255!',
+      'Ihr Fahrradladen in Freiburg Haid ✓ Neue & gebrauchte Räder kaufen ✓ E-Bike, City, Trekking, Kinderfahrrad ✓ Fahrradverleih mit tagesgenauen Preisen pro Fahrrad ✓ 3 Monate Garantie. Kein Termin — Alstedder Straße 5!',
 
     home: 'Start',
     showroom: 'Showroom',
@@ -562,7 +562,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     heroH1: 'Fahrräder in Freiburg — neu & gebraucht.',
     heroSub:
-      'Über 100 geprüfte Fahrräder ✓ E-Bike, City & Trekking ✓ Fahrradverleih mit individuellen Tagespreisen je Fahrrad ✓ 3 Monate Garantie ✓ Sofort fahrbereit — An der Wethmarheide 45, Garagennummer 255, Freiburg.',
+      'Über 100 geprüfte Fahrräder ✓ E-Bike, City & Trekking ✓ Fahrradverleih mit individuellen Tagespreisen je Fahrrad ✓ 3 Monate Garantie ✓ Sofort fahrbereit — Alstedder Straße 5, Freiburg.',
     ctaPrimary: 'Neue Fahrräder entdecken',
     ctaSecondary: 'Showroom ansehen',
 
@@ -864,7 +864,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Wir sind auf Verkauf spezialisiert. Für Reparaturen kontaktieren Sie uns bitte vorab per Telefon oder E-Mail.',
     faq5Q: 'Wo finde ich Sie?',
     faq5A:
-      'An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Kommen Sie einfach während der Öffnungszeiten vorbei — kein Termin nötig.',
+      'Alstedder Straße 5, 44534 Lünen. Kommen Sie einfach während der Öffnungszeiten vorbei — kein Termin nötig.',
 
     // WhatsApp Contact
     whatsappTitle: 'Verkäufer kontaktieren',
@@ -948,7 +948,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     contactMetaTitle:
       'Fahrradladen Freiburg — Kontakt, Adresse & Öffnungszeiten | Bike Haus',
     contactMetaDescription:
-      'Karaarslan Bike Haid — An der Wethmarheide 45, Garagennummer 255, 44534 Lünen ✓ Öffnungszeiten: Mo/Di/Do 11–17:30, Mi 14–17:30, Fr 11–13 & 15–18, Sa 11:30–17 ✓ WhatsApp: +49 155 6630 0011.',
+      'Karaarslan Bike Haid — Alstedder Straße 5, 44534 Lünen ✓ Öffnungszeiten: Mo/Di/Do 11–17:30, Mi 14–17:30, Fr 11–13 & 15–18, Sa 11:30–17 ✓ WhatsApp: +49 155 6630 0011.',
 
     // Home trust badges
     trustBadgeSince: 'Seit 2020 in Freiburg',
@@ -968,8 +968,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Gebrauchte & neue Fahrräder kaufen in Freiburg ✓ Über 100 geprüfte Räder ✓ City, Trekking, Mountain, E-Bike ✓ 3 Monate Garantie ✓ Sofort abholbereit. Karaarslan Bike.',
 
     // Showroom detail
-    detailMetaDescSuffix:
-      'Jetzt bei Karaarslan Bike in 44534 Lünen ansehen.',
+    detailMetaDescSuffix: 'Jetzt bei Karaarslan Bike in 44534 Lünen ansehen.',
     bikeFallbackCategory: 'Fahrrad',
 
     // Footer
@@ -995,7 +994,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     accessoriesMetaTitle:
       'Fahrradzubehör Freiburg | Helme, Taschen & Schlösser | Bike Haus',
     accessoriesMetaDescription:
-      'Fahrradzubehör in Freiburg kaufen ✓ Helme, Taschen, Schlösser, Beleuchtung & mehr ✓ Direkt im Karaarslan Bike — An der Wethmarheide 45, Garagennummer 255, 44534 Lünen.',
+      'Fahrradzubehör in Freiburg kaufen ✓ Helme, Taschen, Schlösser, Beleuchtung & mehr ✓ Direkt im Karaarslan Bike — Alstedder Straße 5, 44534 Lünen.',
     accessoriesTitle: 'Zubehör',
     accessoriesSub: 'Taschen, Helme, Schlösser und mehr für Ihr Fahrrad.',
     accessoriesNoItems: 'Derzeit keine Zubehörartikel verfügbar.',
@@ -1060,7 +1059,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     faqCtaButton: 'Kontakt aufnehmen',
     faqQ1: 'Wo kann ich ein Fahrrad in Freiburg kaufen?',
     faqA1:
-      'Bei Karaarslan Bike in der An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Wir haben über 100 neue und gebrauchte Fahrräder vorrätig — einfach vorbeikommen, kein Termin nötig.',
+      'Bei Karaarslan Bike in der Alstedder Straße 5, 44534 Lünen. Wir haben über 100 neue und gebrauchte Fahrräder vorrätig — einfach vorbeikommen, kein Termin nötig.',
     faqQ2: 'Kann ich ein Fahrrad vor dem Kauf probefahren?',
     faqA2:
       'Ja! Alle Fahrräder können während unserer Öffnungszeiten vor Ort probegefahren werden — ohne Termin, einfach vorbeikommen.',
@@ -1137,7 +1136,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
   en: {
     metaTitle: 'Buy & Rent a Bike in Freiburg | Karaarslan Bike',
     metaDescription:
-      'Bike shop in Freiburg Haid ✓ Buy or rent a bike ✓ 100+ inspected bikes ✓ City, Trekking, E-Bike ✓ Daily bike rental pricing per bike ✓ 3-month warranty. No appointment needed — An der Wethmarheide 45, Garagennummer 255!',
+      'Bike shop in Freiburg Haid ✓ Buy or rent a bike ✓ 100+ inspected bikes ✓ City, Trekking, E-Bike ✓ Daily bike rental pricing per bike ✓ 3-month warranty. No appointment needed — Alstedder Straße 5!',
 
     home: 'Home',
     showroom: 'Showroom',
@@ -1442,7 +1441,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'We specialize in sales. For repairs, please contact us in advance by phone or email.',
     faq5Q: 'Where can I find you?',
     faq5A:
-      'An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Just drop by during opening hours — no appointment needed.',
+      'Alstedder Straße 5, 44534 Lünen. Just drop by during opening hours — no appointment needed.',
 
     whatsappTitle: 'Contact Seller',
     whatsappPlaceholder: 'Your question or message...',
@@ -1516,7 +1515,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     contactWhatsappHint: 'Write directly',
     contactMetaTitle: 'Contact — Karaarslan Bike | Address & Hours',
     contactMetaDescription:
-      'Karaarslan Bike ✓ An der Wethmarheide 45, Garagennummer 255, 44534 Lünen ✓ Mon–Sat 11am–5:30pm ✓ WhatsApp: +49 155 6630 0011 ✓ No appointment needed — just drop by!',
+      'Karaarslan Bike ✓ Alstedder Straße 5, 44534 Lünen ✓ Mon–Sat 11am–5:30pm ✓ WhatsApp: +49 155 6630 0011 ✓ No appointment needed — just drop by!',
 
     trustBadgeSince: 'In Freiburg since 2020',
     trustBadgeCustomers: '500+ satisfied customers',
@@ -1533,8 +1532,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     showroomMetaDescription:
       'Buy used & new bikes in Freiburg ✓ 100+ inspected bikes ✓ City, Trekking, Mountain, E-Bike ✓ 3-month warranty ✓ Ready to ride. Karaarslan Bike.',
 
-    detailMetaDescSuffix:
-      'View now at Karaarslan Bike in 44534 Lünen.',
+    detailMetaDescSuffix: 'View now at Karaarslan Bike in 44534 Lünen.',
     bikeFallbackCategory: 'Bicycle',
 
     legalLabel: 'Legal',
@@ -1556,7 +1554,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     accessoriesMetaTitle:
       'Bike Accessories Freiburg | Helmets, Bags & Locks | Bike Haus',
     accessoriesMetaDescription:
-      'Buy bike accessories in Freiburg ✓ Helmets, bags, locks, lights & more ✓ In-store at Karaarslan Bike — An der Wethmarheide 45, Garagennummer 255, 44534 Lünen.',
+      'Buy bike accessories in Freiburg ✓ Helmets, bags, locks, lights & more ✓ In-store at Karaarslan Bike — Alstedder Straße 5, 44534 Lünen.',
     accessoriesTitle: 'Accessories',
     accessoriesSub: 'Bags, helmets, locks, and more for your bike.',
     accessoriesNoItems: 'No accessories available at the moment.',
@@ -1622,7 +1620,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     faqCtaButton: 'Get in touch',
     faqQ1: 'Where can I buy a bike in Freiburg?',
     faqA1:
-      'At Karaarslan Bike, An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. We have over 100 new and used bikes in stock — just stop by, no appointment needed.',
+      'At Karaarslan Bike, Alstedder Straße 5, 44534 Lünen. We have over 100 new and used bikes in stock — just stop by, no appointment needed.',
     faqQ2: 'Can I test ride a bike before buying?',
     faqA2:
       'Yes! All bikes can be test ridden during our opening hours — no appointment required.',
@@ -1648,7 +1646,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Monday, Tuesday, Thursday: 11:00–17:30. Wednesday: 14:00–17:30. Friday: 11:00–13:00 & 15:00–18:00. Saturday: 11:30–17:00. Sunday and holidays: closed.',
     faqQ10: 'Can I rent a bike in Freiburg?',
     faqA10:
-      'Yes. Karaarslan Bike rents city bikes, trekking bikes and e-bikes with prices configured per bike for days 1 to 7. From day 8 onward, a fixed extra-day surcharge is added to the 7-day price. No reservation needed — just come by An der Wethmarheide 45, Garagennummer 255.',
+      'Yes. Karaarslan Bike rents city bikes, trekking bikes and e-bikes with prices configured per bike for days 1 to 7. From day 8 onward, a fixed extra-day surcharge is added to the 7-day price. No reservation needed — just come by Alstedder Straße 5.',
 
     svcRepairBadge: 'Service',
     svcRepairTitle: 'Bicycle Repair',
@@ -1697,7 +1695,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
   fr: {
     metaTitle: 'Acheter & louer un vélo à Fribourg | Karaarslan Bike',
     metaDescription:
-      'Votre magasin de vélos à Fribourg Haid ✓ Achat & location ✓ 100+ vélos contrôlés ✓ Ville, Trekking, VAE ✓ Location avec tarifs journaliers par vélo ✓ 3 mois de garantie. Sans rendez-vous — An der Wethmarheide 45, Garagennummer 255!',
+      'Votre magasin de vélos à Fribourg Haid ✓ Achat & location ✓ 100+ vélos contrôlés ✓ Ville, Trekking, VAE ✓ Location avec tarifs journaliers par vélo ✓ 3 mois de garantie. Sans rendez-vous — Alstedder Straße 5!',
 
     home: 'Accueil',
     showroom: 'Showroom',
@@ -2013,7 +2011,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       "Nous nous spécialisons dans la vente. Pour les réparations, contactez-nous à l'avance par téléphone ou e-mail.",
     faq5Q: 'Où vous trouver ?',
     faq5A:
-      "An der Wethmarheide 45, Garagennummer 255, 79114 Fribourg. Passez simplement pendant les heures d'ouverture — pas de rendez-vous nécessaire.",
+      "Alstedder Straße 5, 79114 Fribourg. Passez simplement pendant les heures d'ouverture — pas de rendez-vous nécessaire.",
 
     // WhatsApp Contact
     whatsappTitle: 'Contacter le vendeur',
@@ -2095,7 +2093,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     contactWhatsappHint: 'Écrire directement',
     contactMetaTitle: 'Contact — Karaarslan Bike | Adresse & Horaires',
     contactMetaDescription:
-      'Karaarslan Bike ✓ An der Wethmarheide 45, Garagennummer 255, Fribourg ✓ Lun–Sam 11h–17h30 ✓ WhatsApp: +49 155 6630 0011 ✓ Sans rendez-vous — venez nous rendre visite !',
+      'Karaarslan Bike ✓ Alstedder Straße 5, Fribourg ✓ Lun–Sam 11h–17h30 ✓ WhatsApp: +49 155 6630 0011 ✓ Sans rendez-vous — venez nous rendre visite !',
 
     // Home trust badges
     trustBadgeSince: 'Depuis 2020 à Fribourg',
@@ -2141,7 +2139,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     accessoriesMetaTitle:
       'Accessoires vélo Fribourg | Casques, Sacoches & Antivols | Bike Haus',
     accessoriesMetaDescription:
-      'Achetez des accessoires vélo à Fribourg-en-Brisgau ✓ Casques, sacoches, antivols, éclairage & plus ✓ En magasin — An der Wethmarheide 45, Garagennummer 255, 44534 Lünen.',
+      'Achetez des accessoires vélo à Fribourg-en-Brisgau ✓ Casques, sacoches, antivols, éclairage & plus ✓ En magasin — Alstedder Straße 5, 44534 Lünen.',
     accessoriesTitle: 'Accessoires',
     accessoriesSub: 'Sacoches, casques, antivols et plus pour votre vélo.',
     accessoriesNoItems: 'Aucun accessoire disponible pour le moment.',
@@ -2208,7 +2206,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     faqCtaButton: 'Nous contacter',
     faqQ1: 'Où acheter un vélo à Freiburg ?',
     faqA1:
-      'Chez Karaarslan Bike, An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Plus de 100 vélos neufs et occasion en stock — venez sans rendez-vous.',
+      'Chez Karaarslan Bike, Alstedder Straße 5, 44534 Lünen. Plus de 100 vélos neufs et occasion en stock — venez sans rendez-vous.',
     faqQ2: "Puis-je essayer un vélo avant l'achat ?",
     faqA2:
       "Oui ! Tous les vélos peuvent être testés pendant nos heures d'ouverture — sans rendez-vous.",
@@ -2233,7 +2231,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Lundi, mardi, jeudi : 11:00–17:30. Mercredi : 14:00–17:30. Vendredi : 11:00–13:00 & 15:00–18:00. Samedi : 11:30–17:00. Dimanche et jours fériés : fermé.',
     faqQ10: 'Louez-vous des vélos à Fribourg ?',
     faqA10:
-      'Oui. Karaarslan Bike loue des vélos city, trekking et VAE avec des tarifs configurés par vélo pour 1 à 7 jours. À partir du 8e jour, un supplément fixe est ajouté au prix 7 jours. Sans réservation — venez directement An der Wethmarheide 45, Garagennummer 255.',
+      'Oui. Karaarslan Bike loue des vélos city, trekking et VAE avec des tarifs configurés par vélo pour 1 à 7 jours. À partir du 8e jour, un supplément fixe est ajouté au prix 7 jours. Sans réservation — venez directement Alstedder Straße 5.',
 
     svcRepairBadge: 'Service',
     svcRepairTitle: 'Réparation de vélos',
@@ -2283,7 +2281,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
   tr: {
     metaTitle: "Freiburg'da Bisiklet Al & Kirala | Karaarslan Bike",
     metaDescription:
-      "Freiburg Haid'de bisiklet mağazanız ✓ Yeni & ikinci el bisiklet ✓ Bisiklet bazlı günlük kiralama fiyatları ✓ 3 ay garanti ✓ Randevu gerekmez — An der Wethmarheide 45, Garagennummer 255, Freiburg!",
+      "Freiburg Haid'de bisiklet mağazanız ✓ Yeni & ikinci el bisiklet ✓ Bisiklet bazlı günlük kiralama fiyatları ✓ 3 ay garanti ✓ Randevu gerekmez — Alstedder Straße 5, Freiburg!",
 
     home: 'Ana Sayfa',
     showroom: 'Showroom',
@@ -2593,7 +2591,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Satış konusunda uzmanız. Tamir için önceden telefon veya e-posta ile iletişime geçin.',
     faq5Q: 'Sizi nerede bulabilirim?',
     faq5A:
-      'An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Açılış saatlerinde gelin — randevu gerekmiyor.',
+      'Alstedder Straße 5, 44534 Lünen. Açılış saatlerinde gelin — randevu gerekmiyor.',
 
     // WhatsApp Contact
     whatsappTitle: 'Satıcıyla İletişime Geç',
@@ -2673,10 +2671,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     // Contact extended
     contactWhatsappHint: 'Doğrudan yaz',
-    contactMetaTitle:
-      'İletişim — Karaarslan Bike | Adres & Çalışma Saatleri',
+    contactMetaTitle: 'İletişim — Karaarslan Bike | Adres & Çalışma Saatleri',
     contactMetaDescription:
-      'Karaarslan Bike ✓ An der Wethmarheide 45, Garagennummer 255, 44534 Lünen ✓ Pzt–Cmt 11:00–17:30 ✓ WhatsApp: +49 155 6630 0011 ✓ Randevu gerekmez — bizi ziyaret edin!',
+      'Karaarslan Bike ✓ Alstedder Straße 5, 44534 Lünen ✓ Pzt–Cmt 11:00–17:30 ✓ WhatsApp: +49 155 6630 0011 ✓ Randevu gerekmez — bizi ziyaret edin!',
 
     // Home trust badges
     trustBadgeSince: "2020'den beri Freiburg'da",
@@ -2696,8 +2693,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       "Freiburg'da yeni ve ikinci el bisiklet satın alın ✓ 100+ kontrollü bisiklet ✓ Şehir, Trekking, Dağ, E-bisiklet ✓ 3 ay garanti ✓ Hemen teslim. Karaarslan Bike.",
 
     // Showroom detail
-    detailMetaDescSuffix:
-      "Şimdi 44534 Lünen'daki Karaarslan Bike'da görün.",
+    detailMetaDescSuffix: "Şimdi 44534 Lünen'daki Karaarslan Bike'da görün.",
     bikeFallbackCategory: 'Bisiklet',
 
     // Footer
@@ -2723,7 +2719,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     accessoriesMetaTitle:
       'Bisiklet Aksesuarları Freiburg | Kask, Çanta & Kilit | Bike Haus',
     accessoriesMetaDescription:
-      "Freiburg'da bisiklet aksesuarı satın alın ✓ Kask, çanta, kilit, aydınlatma & daha fazlası ✓ Karaarslan Bike — An der Wethmarheide 45, Garagennummer 255, 44534 Lünen.",
+      "Freiburg'da bisiklet aksesuarı satın alın ✓ Kask, çanta, kilit, aydınlatma & daha fazlası ✓ Karaarslan Bike — Alstedder Straße 5, 44534 Lünen.",
     accessoriesTitle: 'Aksesuar',
     accessoriesSub: 'Bisikletiniz için çanta, kask, kilit ve daha fazlası.',
     accessoriesNoItems: 'Şu anda mevcut aksesuar bulunmamaktadır.',
@@ -2759,8 +2755,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     ratgeberTitle: 'Bisiklet Rehberi',
     ratgeberSub:
       'İpuçları, kontrol listeleri ve bisiklet hakkında bilmeniz gereken her şey.',
-    ratgeberMetaTitle:
-      'Bisiklet Rehberi — İpuçları & Bilgi | Karaarslan Bike',
+    ratgeberMetaTitle: 'Bisiklet Rehberi — İpuçları & Bilgi | Karaarslan Bike',
     ratgeberMetaDescription:
       'Bisiklet rehberi: ikinci el bisiklet alma, kadro boyu hesaplama, e-bisiklet ipuçları ve daha fazlası.',
     ratgeberReadMore: 'Devamını oku',
@@ -2790,7 +2785,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     faqCtaButton: 'İletişime geçin',
     faqQ1: "Freiburg'da bisiklet nereden alabilirim?",
     faqA1:
-      'Karaarslan Bike, An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. 100+ yeni ve ikinci el bisiklet stokta — randevusuz gelin.',
+      'Karaarslan Bike, Alstedder Straße 5, 44534 Lünen. 100+ yeni ve ikinci el bisiklet stokta — randevusuz gelin.',
     faqQ2: 'Satın almadan önce bisikleti deneyebilir miyim?',
     faqA2:
       'Evet! Tüm bisikletler çalışma saatlerinde denenebilir — randevu gerekmez.',

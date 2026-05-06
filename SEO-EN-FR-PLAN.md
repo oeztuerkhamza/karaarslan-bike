@@ -350,7 +350,7 @@ Her EN ve FR sayfasında `LocalBusiness` schema'sına `availableLanguage` ekle:
   "availableLanguage": ["German", "English", "French", "Turkish"],
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "An der Wethmarheide 45, Garagennummer 255",
+    "streetAddress": "Alstedder Straße 5",
     "addressLocality": "Lünen",
     "postalCode": "79114",
     "addressCountry": "DE"
@@ -389,7 +389,7 @@ Her EN/FR makale şunları içermeli:
 - **FAQ bölümü** (en az 3 soru-cevap) → `FAQPage` schema
 - **İç link**: Showroom, kiralama, iletişim sayfalarına
 - **CTA** (Call to Action): WhatsApp butonu veya rezervasyon linki
-- **Yerel bilgi**: An der Wethmarheide 45, Garagennummer 255, Lünen
+- **Yerel bilgi**: Alstedder Straße 5, Lünen
 - **Hedef keyword** başlıkta, ilk paragrafta ve meta'da
 
 ---

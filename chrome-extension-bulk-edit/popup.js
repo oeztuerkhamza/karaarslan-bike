@@ -11,7 +11,7 @@ const STANDARD_TEMPLATE = `Karaarslan Bike – Ihr gebrauchte Fahrradladen in Fr
 ✅ Fahrradreservierungen sind leider nicht möglich
 
 Adresse & Öffnungszeiten:
-An der Wethmarheide 45, Garagennummer 255, Freiburg
+Alstedder Straße 5, Freiburg
 Mo 11:00–17:30
 Di 11:00–17:30
 Mi 14:00–17:30

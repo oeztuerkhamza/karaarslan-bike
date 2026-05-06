@@ -114,7 +114,7 @@ Aşağıdaki bilgiler hâlâ placeholder:
 
 | Bilgi            | Placeholder          | Doldurulacak Dosyalar                                 |
 | ---------------- | -------------------- | ----------------------------------------------------- |
-| Adres            | `An der Wethmarheide 45, Garagennummer 255`            | translation.service.ts, home.component.ts, index.html |
+| Adres            | `Alstedder Straße 5` | translation.service.ts, home.component.ts, index.html |
 | Telefon/WhatsApp | `[TELEFON]`          | translation.service.ts                                |
 | Instagram URL    | `[INSTAGRAM_URL]`    | translation.service.ts                                |
 | Facebook URL     | `[FACEBOOK_URL]`     | translation.service.ts                                |
@@ -137,7 +137,7 @@ Aşağıdaki placeholder'lar kodun içine yazıldı, tek tek arama-değiştirme 
 ```
 [DOMAIN]          → Firma domaini (örn. karaaslanbisiklet.com)
 [FIRMA_ADI]       → Kısa firma adı (örn. Karaaslan Bisiklet)
-An der Wethmarheide 45, Garagennummer 255           → Tam sokak adresi
+Alstedder Straße 5           → Tam sokak adresi
 Lünen           → Şehir adı
 44534             → Posta kodu
 [TELEFON]         → Telefon numarası

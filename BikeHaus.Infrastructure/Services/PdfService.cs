@@ -33,7 +33,7 @@ public class PdfService : IPdfService
     private const string DefaultShopType = "FAHRRADLADEN";
     private const string DefaultSteuernummer = "06002/40667";
     private const string DefaultUStIdNr = "DE437595861";
-    private const string DefaultShopStreet = "An der Wethmarheide 45, Garagennummer 255";
+    private const string DefaultShopStreet = "Alstedder Straße 5";
     private const string DefaultShopCity = "44534 Lünen";
     private const string DefaultShopEmail = "info@karaarslan-bike.de";
     private const string DefaultShopTelefon = "0 15566300011";

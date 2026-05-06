@@ -205,7 +205,7 @@ Mevcut FAQ şemasını genişlet + ayrı bir `/de/faq` sayfası oluştur:
 > Fahrradladen in Lünen. Neue und gebrauchte Fahrräder, E-Bikes, Kinderfahrräder.
 
 ## Über uns
-Karaarslan Bike ist ein Fahrradgeschäft in der An der Wethmarheide 45, Garagennummer 255, 44534 Lünen.
+Karaarslan Bike ist ein Fahrradgeschäft in der Alstedder Straße 5, 44534 Lünen.
 Wir verkaufen neue und gebrauchte Fahrräder mit Garantie.
 Öffnungszeiten: Mo, Di, Do 11:00–17:30 | Mi 14:00–17:30 | Fr 11:00–13:00 & 15:00–18:00 | Sa 11:30–17:00 Uhr.
 
@@ -219,7 +219,7 @@ Wir verkaufen neue und gebrauchte Fahrräder mit Garantie.
 - Fahrradverleih
 
 ## Kontakt
-- Adresse: An der Wethmarheide 45, Garagennummer 255, 44534 Lünen
+- Adresse: Alstedder Straße 5, 44534 Lünen
 - WhatsApp: +49 155 6630 0011
 - E-Mail: info@karaarslan-bike.de
 - Website: https://karaarslan-bike.de
@@ -340,7 +340,7 @@ Aşağıdaki dizinlere kayıt ol:
 
 ```
 Karaarslan Bike
-An der Wethmarheide 45, Garagennummer 255
+Alstedder Straße 5
 44534 Lünen
 +49 155 6630 0011
 info@karaarslan-bike.de

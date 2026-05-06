@@ -312,7 +312,7 @@ import { PublicShopInfo } from '../../models/models';
                 </svg>
               </div>
               <h3>{{ t().findUs }}</h3>
-              <p class="address-line">An der Wethmarheide 45, Garagennummer 255</p>
+              <p class="address-line">Alstedder Straße 5</p>
               <p class="address-line">44534 Lünen</p>
               <p class="address-line">Stadtteil Haslach</p>
               <p class="address-line muted">Deutschland</p>
