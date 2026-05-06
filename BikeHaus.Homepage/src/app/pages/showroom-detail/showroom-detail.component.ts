@@ -217,7 +217,7 @@ import { environment } from '../../../environments/environment';
 
               <!-- Google Maps -->
               <a
-                href="https://maps.google.com/?q=Heckerstra%C3%9Fe+27+Freiburg+im+Breisgau"
+                href="https://maps.google.com/?q=An+der+Wethmarheide+45,+Garagennummer+255+L%C3%BCnen"
                 target="_blank"
                 rel="noopener"
                 class="btn-maps"

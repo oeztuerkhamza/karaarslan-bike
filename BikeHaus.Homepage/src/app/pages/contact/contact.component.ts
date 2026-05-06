@@ -61,7 +61,7 @@ import { PublicShopInfo } from '../../models/models';
           </a>
 
           <!-- Email -->
-          <a href="mailto:bikehausfreiburg&#64;gmail.com" class="contact-card">
+          <a href="mailto:info&#64;karaarslan-bike.de" class="contact-card">
             <div class="card-icon">
               <svg
                 width="24"
@@ -79,7 +79,7 @@ import { PublicShopInfo } from '../../models/models';
             </div>
             <div class="card-content">
               <h3>{{ t().email }}</h3>
-              <p>bikehausfreiburg&#64;gmail.com</p>
+              <p>info&#64;karaarslan-bike.de</p>
               <span class="card-hint">{{ t().contactEmailHint }}</span>
             </div>
             <svg
@@ -97,7 +97,7 @@ import { PublicShopInfo } from '../../models/models';
 
           <!-- Address -->
           <a
-            href="https://maps.google.com/?q=Heckerstra%C3%9Fe+27+Freiburg+im+Breisgau"
+            href="https://maps.google.com/?q=An+der+Wethmarheide+45,+Garagennummer+255+L%C3%BCnen"
             target="_blank"
             rel="noopener"
             class="contact-card"
@@ -119,7 +119,7 @@ import { PublicShopInfo } from '../../models/models';
               <h3>{{ t().address }}</h3>
               <p>An der Wethmarheide 45, Garagennummer 255</p>
               <p class="sub">
-                79114 Lünen
+                44534 Lünen
                 <span class="district">· Haslach</span>
               </p>
             </div>

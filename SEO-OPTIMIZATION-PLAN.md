@@ -124,8 +124,8 @@ homepage:
 ```json
 "sameAs": [
   "https://www.google.com/maps/place/Bike+Haus+Freiburg/...",
-  "https://www.instagram.com/bikehausfreiburg/",
-  "https://www.facebook.com/bikehausfreiburg/",
+  "https://www.instagram.com/karaarslanbike/",
+  "https://www.facebook.com/karaarslanbike/",
   "https://wa.me/4915566300011"
 ]
 ```
@@ -219,7 +219,7 @@ Wir verkaufen neue und gebrauchte Fahrräder mit Garantie.
 - Fahrradverleih
 
 ## Kontakt
-- Adresse: An der Wethmarheide 45, Garagennummer 255, 79114 Lünen
+- Adresse: An der Wethmarheide 45, Garagennummer 255, 44534 Lünen
 - WhatsApp: +49 155 6630 0011
 - E-Mail: info@karaarslan-bike.de
 - Website: https://karaarslan-bike.de
@@ -341,7 +341,7 @@ Aşağıdaki dizinlere kayıt ol:
 ```
 Karaarslan Bike
 An der Wethmarheide 45, Garagennummer 255
-79114 Lünen
+44534 Lünen
 +49 155 6630 0011
 info@karaarslan-bike.de
 https://karaarslan-bike.de
@@ -461,7 +461,7 @@ Mevcut şemalara ek:
 - `fahrradladen freiburg`
 - `fahrrad kaufen freiburg`
 - `gebrauchte fahrräder freiburg`
-- `bike haus freiburg`
+- `karaarslan bike lünen`
 - `fahrradgeschäft freiburg`
 - `fahrradhändler freiburg`
 

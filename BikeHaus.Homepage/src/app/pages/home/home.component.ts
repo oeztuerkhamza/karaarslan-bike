@@ -3227,7 +3227,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       paymentAccepted: 'Cash, Credit Card, Debit Card, PayPal, Bank Transfer',
       sameAs: [
         'https://maps.app.goo.gl/Q1fXe7A6PRb8E5wV7',
-        'https://www.instagram.com/bikehausfreiburg',
+        'https://www.instagram.com/karaarslanbike',
         'https://wa.me/4915566300011',
       ],
       openingHoursSpecification: [

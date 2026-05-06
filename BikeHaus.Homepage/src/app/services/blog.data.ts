@@ -774,7 +774,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike ist ein Fahrradgeschäft in der An der Wethmarheide 45, Garagennummer 255, 79114 Lünen. Wir bieten neue und gebrauchte Fahrräder — darunter Citybikes, Trekkingräder, Mountainbikes, E-Bikes, Kinderfahrräder und Hollandräder.',
+              'Karaarslan Bike ist ein Fahrradgeschäft in der An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Wir bieten neue und gebrauchte Fahrräder — darunter Citybikes, Trekkingräder, Mountainbikes, E-Bikes, Kinderfahrräder und Hollandräder.',
           },
           {
             type: 'heading',
@@ -1817,7 +1817,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike is located at An der Wethmarheide 45, Garagennummer 255, 79114 Lünen — in the Haslach district. Easily reachable by tram or car (free parking available). Opening hours: Mon, Tue, Thu 11:00–17:30 | Wed 14:00–17:30 | Fri 11:00–13:00 & 15:00–18:00 | Sat 11:30–17:00.',
+              'Karaarslan Bike is located at An der Wethmarheide 45, Garagennummer 255, 44534 Lünen — in the Haslach district. Easily reachable by tram or car (free parking available). Opening hours: Mon, Tue, Thu 11:00–17:30 | Wed 14:00–17:30 | Fri 11:00–13:00 & 15:00–18:00 | Sat 11:30–17:00.',
           },
           {
             type: 'heading',

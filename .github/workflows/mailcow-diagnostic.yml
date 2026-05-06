@@ -66,7 +66,7 @@ jobs:
             echo ""
 
             echo "=== 7. bikehaus nginx — view actual mail server block ==="
-            docker compose -f /opt/bikehaus/docker-compose.yml exec -T nginx sh -c "nginx -T 2>/dev/null | awk '/server_name mail\\.bikehausfreiburg\\.com/,/^    }$/'" 2>&1 | head -50
+            docker compose -f /opt/bikehaus/docker-compose.yml exec -T nginx sh -c "nginx -T 2>/dev/null | awk '/server_name mail\\.karaarslan-bike\\.de/,/^    }$/'" 2>&1 | head -50
 
             echo ""
             echo "=== DONE ==="

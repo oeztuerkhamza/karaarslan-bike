@@ -969,7 +969,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     // Showroom detail
     detailMetaDescSuffix:
-      'Jetzt bei Karaarslan Bike in 79114 Lünen ansehen.',
+      'Jetzt bei Karaarslan Bike in 44534 Lünen ansehen.',
     bikeFallbackCategory: 'Fahrrad',
 
     // Footer
@@ -1060,7 +1060,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     faqCtaButton: 'Kontakt aufnehmen',
     faqQ1: 'Wo kann ich ein Fahrrad in Freiburg kaufen?',
     faqA1:
-      'Bei Karaarslan Bike in der An der Wethmarheide 45, Garagennummer 255, 79114 Lünen. Wir haben über 100 neue und gebrauchte Fahrräder vorrätig — einfach vorbeikommen, kein Termin nötig.',
+      'Bei Karaarslan Bike in der An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Wir haben über 100 neue und gebrauchte Fahrräder vorrätig — einfach vorbeikommen, kein Termin nötig.',
     faqQ2: 'Kann ich ein Fahrrad vor dem Kauf probefahren?',
     faqA2:
       'Ja! Alle Fahrräder können während unserer Öffnungszeiten vor Ort probegefahren werden — ohne Termin, einfach vorbeikommen.',
@@ -1534,7 +1534,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Buy used & new bikes in Freiburg ✓ 100+ inspected bikes ✓ City, Trekking, Mountain, E-Bike ✓ 3-month warranty ✓ Ready to ride. Karaarslan Bike.',
 
     detailMetaDescSuffix:
-      'View now at Karaarslan Bike in 79114 Lünen.',
+      'View now at Karaarslan Bike in 44534 Lünen.',
     bikeFallbackCategory: 'Bicycle',
 
     legalLabel: 'Legal',
@@ -1622,7 +1622,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     faqCtaButton: 'Get in touch',
     faqQ1: 'Where can I buy a bike in Freiburg?',
     faqA1:
-      'At Karaarslan Bike, An der Wethmarheide 45, Garagennummer 255, 79114 Lünen. We have over 100 new and used bikes in stock — just stop by, no appointment needed.',
+      'At Karaarslan Bike, An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. We have over 100 new and used bikes in stock — just stop by, no appointment needed.',
     faqQ2: 'Can I test ride a bike before buying?',
     faqA2:
       'Yes! All bikes can be test ridden during our opening hours — no appointment required.',

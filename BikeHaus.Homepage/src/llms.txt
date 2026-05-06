@@ -2,13 +2,13 @@
 
 > Fahrradladen in Lünen — Neue und gebrauchte Fahrräder, E-Bikes, Kinderfahrräder mit Garantie.
 
-> **Entity:** Karaarslan Bike | **Type:** Bike Shop (BikeStore) | **Location:** An der Wethmarheide 45, Garagennummer 255, 79114 Lünen, Germany | **Not to be confused with:** Bike House (chain) or businesses in Freiburg, Switzerland.
+> **Entity:** Karaarslan Bike | **Type:** Bike Shop (BikeStore) | **Location:** An der Wethmarheide 45, Garagennummer 255, 44534 Lünen, Germany | **Not to be confused with:** Bike House (chain) or businesses in Freiburg, Switzerland.
 
 > Full details: https://karaarslan-bike.de/llms-full.txt
 
 ## Über uns
 
-Karaarslan Bike ist ein Fahrradgeschäft in der An der Wethmarheide 45, Garagennummer 255, 79114 Lünen, Deutschland. Wir verkaufen neue und gebrauchte Fahrräder — darunter E-Bikes, Citybikes, Trekkingräder, Mountainbikes, Kinderfahrräder, Hollandräder und Rennräder. Jedes Gebrauchtrad wird technisch geprüft und mit 3 Monaten Garantie verkauft. Neue Fahrräder haben 24 Monate Garantie.
+Karaarslan Bike ist ein Fahrradgeschäft in der An der Wethmarheide 45, Garagennummer 255, 44534 Lünen, Deutschland. Wir verkaufen neue und gebrauchte Fahrräder — darunter E-Bikes, Citybikes, Trekkingräder, Mountainbikes, Kinderfahrräder, Hollandräder und Rennräder. Jedes Gebrauchtrad wird technisch geprüft und mit 3 Monaten Garantie verkauft. Neue Fahrräder haben 24 Monate Garantie.
 
 **Sprachen:** Deutsch, Englisch, Französisch, Türkisch
 **Besonderheit:** 25 km von der französischen Grenze (Elsass) — für Besucher aus Frankreich geeignet
@@ -38,7 +38,7 @@ Barzahlung, EC-Karte, Kreditkarte, PayPal, Überweisung
 
 ## Kontakt
 
-- Adresse: An der Wethmarheide 45, Garagennummer 255, 79114 Lünen, Deutschland
+- Adresse: An der Wethmarheide 45, Garagennummer 255, 44534 Lünen, Deutschland
 - WhatsApp: +49 155 6630 0011
 - E-Mail: info@karaarslan-bike.de
 - Website: https://karaarslan-bike.de
@@ -131,7 +131,7 @@ Citybikes, Trekkingräder, Mountainbikes, E-Bikes, Kinderfahrräder, Hollandräd
 
 ## English Information
 
-Karaarslan Bike is a bike shop at An der Wethmarheide 45, Garagennummer 255, 79114 Lünen, Germany. We sell new and used bikes — city bikes, trekking bikes, e-bikes, children's bikes — all technically inspected with 3-month warranty. English-speaking staff available. Bike rental uses bike-specific daily pricing for days 1 to 7, plus a fixed surcharge for each extra day from day 8. Freiburg is 25 km from the French border (Alsace) and is one of Germany's most bike-friendly cities with 420+ km of cycling paths.
+Karaarslan Bike is a bike shop at An der Wethmarheide 45, Garagennummer 255, 44534 Lünen, Germany. We sell new and used bikes — city bikes, trekking bikes, e-bikes, children's bikes — all technically inspected with 3-month warranty. English-speaking staff available. Bike rental uses bike-specific daily pricing for days 1 to 7, plus a fixed surcharge for each extra day from day 8. Freiburg is 25 km from the French border (Alsace) and is one of Germany's most bike-friendly cities with 420+ km of cycling paths.
 
 **Where to buy a bike in Freiburg?**
 Karaarslan Bike, An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. 100+ bikes in stock. Walk-ins welcome, no appointment needed.

@@ -36,8 +36,8 @@
 
 | Repository                  | Content                            | CI/CD Trigger  |
 | --------------------------- | ---------------------------------- | -------------- |
-| `bikehausfreiburg`          | API + Admin Panel + Deploy configs | Push to `master` |
-| `bikehausfreiburg-homepage` | Public Homepage (Angular)          | Push to `master` |
+| `karaarslan-bike`           | API + Admin Panel + Deploy configs | Push to `master` |
+| `karaarslan-bike-homepage`  | Public Homepage (Angular)          | Push to `master` |
 
 ---
 
@@ -50,13 +50,13 @@
 ssh root@152.53.138.135
 
 # Download and run setup script
-curl -sSL https://raw.githubusercontent.com/oeztuerkhamza/bikehausfreiburg/master/deploy/server-setup.sh | bash
+curl -sSL https://raw.githubusercontent.com/oeztuerkhamza/karaarslan-bike/master/deploy/server-setup.sh | bash
 ```
 
 ### 2. Clone Main Repository
 
 ```bash
-git clone -b master https://github.com/oeztuerkhamza/bikehausfreiburg.git /opt/bikehaus
+git clone -b master https://github.com/oeztuerkhamza/karaarslan-bike.git /opt/bikehaus
 cd /opt/bikehaus
 ```
 
@@ -120,7 +120,7 @@ cat ~/.ssh/github-deploy
 
 ### Main App (API + Admin)
 
-1. Make changes to `bikehausfreiburg` repo
+1. Make changes to `karaarslan-bike` repo
 2. Commit and push to `main` branch
 3. GitHub Actions will:
    - SSH to server
@@ -129,7 +129,7 @@ cat ~/.ssh/github-deploy
 
 ### Homepage
 
-1. Make changes to `bikehausfreiburg-homepage` repo
+1. Make changes to `karaarslan-bike-homepage` repo
 2. Commit and push to `main` branch
 3. GitHub Actions will:
    - Build Angular app

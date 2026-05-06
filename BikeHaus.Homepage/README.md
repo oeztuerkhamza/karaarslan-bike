@@ -67,4 +67,4 @@ src/
 
 ## Related Repositories
 
-- [bikehausfreiburg](https://github.com/YOUR_USERNAME/bikehausfreiburg) - API + Admin Panel
+- [karaarslan-bike](https://github.com/YOUR_USERNAME/karaarslan-bike) - API + Admin Panel
