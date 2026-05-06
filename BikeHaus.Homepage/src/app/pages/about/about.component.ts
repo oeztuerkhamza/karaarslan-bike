@@ -313,11 +313,11 @@ import { PublicShopInfo } from '../../models/models';
               </div>
               <h3>{{ t().findUs }}</h3>
               <p class="address-line">An der Wethmarheide 45, Garagennummer 255</p>
-              <p class="address-line">44534 Lünen</p>
+              <p class="address-line">79114 Lünen</p>
               <p class="address-line">Stadtteil Haslach</p>
               <p class="address-line muted">Deutschland</p>
               <a
-                href="https://maps.google.com/?q=Heckerstra%C3%9Fe+27+Lünen+im+Breisgau"
+                href="https://maps.google.com/?q=Heckerstra%C3%9Fe+27+Freiburg+im+Breisgau"
                 target="_blank"
                 rel="noopener"
                 class="map-link"
@@ -1109,4 +1109,3 @@ export class AboutComponent implements OnInit {
     });
   }
 }
-

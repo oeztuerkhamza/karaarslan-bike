@@ -217,7 +217,7 @@ import { environment } from '../../../environments/environment';
 
               <!-- Google Maps -->
               <a
-                href="https://maps.google.com/?q=Heckerstra%C3%9Fe+27+Lünen+im+Breisgau"
+                href="https://maps.google.com/?q=Heckerstra%C3%9Fe+27+Freiburg+im+Breisgau"
                 target="_blank"
                 rel="noopener"
                 class="btn-maps"
@@ -457,11 +457,7 @@ import { environment } from '../../../environments/environment';
       .detail-page {
         padding-bottom: 4rem;
         background:
-          radial-gradient(
-            circle at top,
-            rgba(255, 87, 34, 0.08),
-            transparent 32%
-          ),
+          radial-gradient(circle at top, rgba(255, 87, 34, 0.08), transparent 32%),
           linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 24%),
           var(--color-bg);
       }
@@ -479,16 +475,8 @@ import { environment } from '../../../environments/environment';
         position: absolute;
         inset: 0;
         background:
-          radial-gradient(
-            circle at 12% 0%,
-            rgba(255, 87, 34, 0.12),
-            transparent 22%
-          ),
-          radial-gradient(
-            circle at 88% 0%,
-            rgba(255, 255, 255, 0.05),
-            transparent 18%
-          );
+          radial-gradient(circle at 12% 0%, rgba(255, 87, 34, 0.12), transparent 22%),
+          radial-gradient(circle at 88% 0%, rgba(255, 255, 255, 0.05), transparent 18%);
         pointer-events: none;
       }
 
@@ -665,11 +653,7 @@ import { environment } from '../../../environments/environment';
 
       .details-inner {
         background:
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.045),
-            rgba(255, 255, 255, 0.015)
-          ),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
           var(--color-surface);
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 28px;
@@ -727,11 +711,7 @@ import { environment } from '../../../environments/environment';
 
       .price-card {
         background:
-          linear-gradient(
-            135deg,
-            rgba(255, 87, 34, 0.16),
-            rgba(255, 87, 34, 0.05)
-          ),
+          linear-gradient(135deg, rgba(255, 87, 34, 0.16), rgba(255, 87, 34, 0.05)),
           rgba(255, 87, 34, 0.08);
         border: 1px solid rgba(255, 87, 34, 0.2);
         border-radius: 20px;
@@ -936,11 +916,7 @@ import { environment } from '../../../environments/environment';
         overflow: hidden;
         border: 1px solid rgba(255, 255, 255, 0.08);
         background:
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.045),
-            rgba(255, 255, 255, 0.015)
-          ),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
           var(--color-surface);
         transition:
           border-color 0.25s,
@@ -1117,7 +1093,7 @@ export class ShowroomDetailComponent implements OnInit, OnDestroy {
   loading = signal(true);
   selectedImage = signal(0);
   userWhatsappMessage = '';
-  private whatsappPhone = '491637390301';
+  private whatsappPhone = '4915566300011';
 
   private static readonly NEW_PATTERN =
     /\b(neue?[smrn]?|nagelneu|brandneu|unbenutzt|originalverpackt|\bovp\b)\b/i;
@@ -1127,7 +1103,7 @@ export class ShowroomDetailComponent implements OnInit, OnDestroy {
 
   displayCategory(): string | null {
     const cat = this.listing()?.category;
-    if (!cat || /kleinanzeigen|Lünen/i.test(cat)) return null;
+    if (!cat || /kleinanzeigen|freiburg/i.test(cat)) return null;
     return cat;
   }
 
@@ -1243,7 +1219,7 @@ export class ShowroomDetailComponent implements OnInit, OnDestroy {
       price: bike.preis || undefined,
       priceText: bike.preis ? `${bike.preis} €` : 'VB',
       category: this.mapArtToCategory(bike.art),
-      location: 'Lünen',
+      location: 'Freiburg',
       externalUrl: '',
       isActive: true,
       firstScrapedAt: bike.createdAt,

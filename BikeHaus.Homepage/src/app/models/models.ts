@@ -114,11 +114,13 @@ export interface RentalBikeImage {
 
 export interface RentalPrice {
   day1?: number;
+  day2?: number;
   day3?: number;
+  day4?: number;
+  day5?: number;
+  day6?: number;
   day7?: number;
-  day14?: number;
-  day30?: number;
-  perDayFrom10?: number;
+  additionalDayAfter7?: number;
 }
 
 export interface PublicRentalBicycle {
@@ -224,4 +226,20 @@ export interface GoogleReviewsResponse {
   totalReviews: number;
   reviews: GoogleReview[];
   placeUrl: string;
+}
+
+// ── Rental Reviews ──
+export interface RentalReviewPublic {
+  id: number;
+  ad: string;
+  sterne: number;
+  yorum: string;
+  createdAt: string;
+}
+
+export interface RentalReviewCreate {
+  ad: string;
+  email?: string;
+  sterne: number;
+  yorum: string;
 }

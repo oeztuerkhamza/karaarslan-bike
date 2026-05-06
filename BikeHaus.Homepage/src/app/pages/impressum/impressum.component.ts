@@ -35,10 +35,10 @@ import { PublicShopInfo } from '../../models/models';
           <section>
             <h2>Kontakt</h2>
             <p>
-              E-Mail: {{ shopInfo()?.email || 'karaarslan-bike.de@gmail.com'
+              E-Mail: {{ shopInfo()?.email || 'info@karaarslan-bike.de'
               }}<br />
               Telefon / WhatsApp:
-              {{ shopInfo()?.telefon || '+49 163 7390301' }}
+              {{ shopInfo()?.telefon || '+49 155 6630 0011' }}
             </p>
           </section>
 
@@ -310,4 +310,3 @@ export class ImpressumComponent implements OnInit {
     this.metaService.updateTag({ name: 'robots', content: 'noindex, follow' });
   }
 }
-

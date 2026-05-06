@@ -1,4 +1,4 @@
-# 🚴 Bike Haus Freiburg — 5 Aşamalı SEO Optimizasyon Planı
+# 🚴 Karaarslan Bike — 5 Aşamalı SEO Optimizasyon Planı
 
 > **Hedef:** "fahrradladen freiburg", "fahrrad kaufen freiburg", "bike freiburg" gibi aramalarda Google'da 1. sırada yer almak + AI aramalarında (ChatGPT, Gemini, Perplexity, Bing Copilot) öne çıkmak.
 
@@ -44,7 +44,7 @@ SSR olmadan içerik boş görünür.
 ```nginx
 # ÖNCE (Şu anki durum — YANLIŞ):
 server {
-    server_name bikehausfreiburg.com;
+    server_name karaarslan-bike.de;
     root /usr/share/nginx/html/homepage;
     location / {
         try_files $uri $uri/ /index.html;
@@ -57,7 +57,7 @@ upstream homepage_ssr {
 }
 
 server {
-    server_name bikehausfreiburg.com;
+    server_name karaarslan-bike.de;
 
     # Statik dosyalar direkt nginx'ten
     location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|webp|avif)$ {
@@ -163,7 +163,7 @@ homepage:
 {
   "@type": "Article",
   "headline": "...",
-  "author": { "@type": "Organization", "name": "Bike Haus Freiburg" },
+  "author": { "@type": "Organization", "name": "Karaarslan Bike" },
   "datePublished": "2026-04-15",
   "dateModified": "2026-04-15",
   "publisher": { "@type": "Organization", ... },
@@ -200,12 +200,12 @@ Mevcut FAQ şemasını genişlet + ayrı bir `/de/faq` sayfası oluştur:
 **Dosya:** `/llms.txt`
 
 ```
-# Bike Haus Freiburg
+# Karaarslan Bike
 
-> Fahrradladen in Freiburg im Breisgau. Neue und gebrauchte Fahrräder, E-Bikes, Kinderfahrräder.
+> Fahrradladen in Lünen. Neue und gebrauchte Fahrräder, E-Bikes, Kinderfahrräder.
 
 ## Über uns
-Bike Haus Freiburg ist ein Fahrradgeschäft in der Heckerstraße 27, 79114 Freiburg.
+Karaarslan Bike ist ein Fahrradgeschäft in der An der Wethmarheide 45, Garagennummer 255, 44534 Lünen.
 Wir verkaufen neue und gebrauchte Fahrräder mit Garantie.
 Öffnungszeiten: Mo, Di, Do 11:00–17:30 | Mi 14:00–17:30 | Fr 11:00–13:00 & 15:00–18:00 | Sa 11:30–17:00 Uhr.
 
@@ -219,10 +219,10 @@ Wir verkaufen neue und gebrauchte Fahrräder mit Garantie.
 - Fahrradverleih
 
 ## Kontakt
-- Adresse: Heckerstraße 27, 79114 Freiburg im Breisgau
+- Adresse: An der Wethmarheide 45, Garagennummer 255, 79114 Lünen
 - WhatsApp: +49 155 6630 0011
-- E-Mail: bikehausfreiburg@gmail.com
-- Website: https://bikehausfreiburg.com
+- E-Mail: info@karaarslan-bike.de
+- Website: https://karaarslan-bike.de
 
 ## Einzugsgebiet
 Freiburg, Emmendingen, Bad Krozingen, Breisach, March, Gundelfingen,
@@ -339,12 +339,12 @@ Aşağıdaki dizinlere kayıt ol:
 **Tüm dizinlerde bilgiler BİREBİR AYNI olmalı (NAP Consistency):**
 
 ```
-Bike Haus Freiburg
-Heckerstraße 27
-79114 Freiburg im Breisgau
+Karaarslan Bike
+An der Wethmarheide 45, Garagennummer 255
+79114 Lünen
 +49 155 6630 0011
-bikehausfreiburg@gmail.com
-https://bikehausfreiburg.com
+info@karaarslan-bike.de
+https://karaarslan-bike.de
 ```
 
 ### 4.5 — Lokal İçerik Sayfaları
@@ -357,7 +357,7 @@ Her çevre şehir için landing page:
 - `/de/fahrrad-gundelfingen`
 - `/de/fahrrad-march`
 
-İçerik: "Fahrrad kaufen in Emmendingen? Bike Haus Freiburg ist nur X km entfernt..."
+İçerik: "Fahrrad kaufen in Emmendingen? Karaarslan Bike ist nur X km entfernt..."
 
 **Süre:** 3-4 hafta  
 **Etki:** ⭐⭐⭐⭐⭐ (Lokal SEO, fiziksel mağaza için EN önemli faktör)
@@ -370,7 +370,7 @@ Her çevre şehir için landing page:
 
 Her ürün eklendiğinde otomatik:
 
-- Unique title: `"{Marka} {Model} {Tip} kaufen | Bike Haus Freiburg"`
+- Unique title: `"{Marka} {Model} {Tip} kaufen | Karaarslan Bike"`
 - Unique description: `"{Marka} {Model} — {Durum}, {Fiyat}€. {Tip} in Freiburg kaufen..."`
 - Product Schema.org (✅ zaten var, genişlet)
 - Open Graph image (ürün fotoğrafı)
@@ -400,7 +400,7 @@ Mevcut şemalara ek:
 // VideoObject (varsa ürün videoları)
 {
   "@type": "VideoObject",
-  "name": "Bike Haus Freiburg Showroom Tour",
+  "name": "Karaarslan Bike Showroom Tour",
   "thumbnailUrl": "...",
   "uploadDate": "..."
 }
@@ -410,7 +410,7 @@ Mevcut şemalara ek:
   "@type": "Event",
   "name": "Fahrrad Frühlings-Sale",
   "startDate": "2026-04-20",
-  "location": { "@type": "Place", "name": "Bike Haus Freiburg" }
+  "location": { "@type": "Place", "name": "Karaarslan Bike" }
 }
 
 // HowTo (blog yazıları için)

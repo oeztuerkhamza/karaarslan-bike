@@ -1086,4 +1086,3 @@ export class NeueFahrraederComponent implements OnInit, OnDestroy {
     return map[category] || category;
   }
 }
-

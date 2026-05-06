@@ -6,6 +6,12 @@ import { TranslationService, Language } from './translation.service';
 
 const BASE_URL = 'https://karaarslan-bike.de';
 const SUPPORTED_LANGS: Language[] = ['de', 'en', 'fr', 'tr'];
+// URL segments that indicate a blog route
+const BLOG_SEGMENTS = new Set(['guide', 'ratgeber']);
+// Inline helper – avoids pulling blog.data.ts into the initial bundle
+function getBlogBasePath(lang: Language): string {
+  return lang === 'de' || lang === 'tr' ? 'ratgeber' : 'guide';
+}
 
 @Injectable({ providedIn: 'root' })
 export class SeoService {
@@ -14,6 +20,11 @@ export class SeoService {
   private translationService = inject(TranslationService);
 
   init(): void {
+    // Update SEO for the current route immediately on init
+    const currentUrl = this.router.url || '/de';
+    this.updateCanonicalAndHreflang(currentUrl);
+
+    // Then listen for future navigation events
     this.router.events
       .pipe(filter((e) => e instanceof NavigationEnd))
       .subscribe((e) => {
@@ -24,7 +35,7 @@ export class SeoService {
 
   private updateCanonicalAndHreflang(url: string): void {
     const pathSegments = url.split('/').filter(Boolean);
-    const currentLang = pathSegments[0];
+    const currentLang = pathSegments[0] as Language;
     const pathWithoutLang = pathSegments.slice(1).join('/');
 
     // Update canonical
@@ -49,21 +60,41 @@ export class SeoService {
       .querySelectorAll('link[rel="alternate"][hreflang]')
       .forEach((el) => el.remove());
 
-    // Add hreflang for each supported language
+    // ── Blog article route: /:lang/(guide|ratgeber)/:slug ──
+    // Hreflang is handled by RatgeberDetailComponent (which already imports blog.data).
+    // Here we only update og:url and let the component set language-specific hreflang.
+    if (pathSegments.length === 3 && BLOG_SEGMENTS.has(pathSegments[1])) {
+      this.updateMetaProperty('og:url', canonicalUrl);
+      return;
+    }
+
+    // ── Blog listing route: /:lang/(guide|ratgeber) ──
+    if (pathSegments.length === 2 && BLOG_SEGMENTS.has(pathSegments[1])) {
+      for (const lang of SUPPORTED_LANGS) {
+        this.addHreflangLink(
+          lang,
+          `${BASE_URL}/${lang}/${getBlogBasePath(lang)}`,
+        );
+      }
+      this.addHreflangLink(
+        'x-default',
+        `${BASE_URL}/de/${getBlogBasePath('de')}`,
+      );
+      this.updateMetaProperty('og:url', canonicalUrl);
+      return;
+    }
+
+    // ── Default: simple language prefix swap ──
     for (const lang of SUPPORTED_LANGS) {
       const href = pathWithoutLang
         ? `${BASE_URL}/${lang}/${pathWithoutLang}`
         : `${BASE_URL}/${lang}`;
       this.addHreflangLink(lang, href);
     }
-
-    // x-default points to German
     const xDefaultHref = pathWithoutLang
       ? `${BASE_URL}/de/${pathWithoutLang}`
       : `${BASE_URL}/de`;
     this.addHreflangLink('x-default', xDefaultHref);
-
-    // Update og:url
     this.updateMetaProperty('og:url', canonicalUrl);
   }
 
@@ -84,4 +115,3 @@ export class SeoService {
     }
   }
 }
-

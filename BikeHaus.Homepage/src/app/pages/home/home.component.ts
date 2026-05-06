@@ -48,11 +48,11 @@ interface Testimonial {
         <div class="hero-radial"></div>
       </div>
       <div class="container hero-inner">
-        <span class="hero-label fade-in">Karaarslan Bike</span>
-        <h1 id="hero-heading" class="hero-h1 fade-in d1">
+        <span class="hero-label">Karaarslan Bike</span>
+        <h1 id="hero-heading" class="hero-h1">
           {{ t().heroH1 }}
         </h1>
-        <p class="hero-sub fade-in d2">{{ t().heroSub }}</p>
+        <p class="hero-sub">{{ t().heroSub }}</p>
         <div class="hero-actions fade-in d3">
           <a
             [routerLink]="['/' + lang(), 'neue-fahrraeder']"
@@ -117,7 +117,7 @@ interface Testimonial {
               <li>{{ t().svcRepairItem4 }}</li>
             </ul>
             <a
-              href="https://wa.me/491637390301"
+              href="https://wa.me/491556630011"
               target="_blank"
               rel="noopener noreferrer"
               class="svc-card-cta svc-card-cta-whatsapp"
@@ -160,22 +160,22 @@ interface Testimonial {
             <h2 class="svc-card-title">
               {{ t().homeRentalCardTitle }}<br /><span
                 class="rental-price-inline"
-                >ab <strong>6,80 €</strong> / Tag</span
+                ><strong>1-7 Tage individuell</strong></span
               >
             </h2>
             <div class="rental-packages">
               <div class="rental-pkg">
-                <span class="pkg-days">7 Tage</span>
-                <span class="pkg-price">55 €</span>
-                <span class="pkg-day">7,85 € / Tag</span>
+                <span class="pkg-days">1-7 Tage</span>
+                <span class="pkg-price">pro Fahrrad</span>
+                <span class="pkg-day">tagesgenau konfiguriert</span>
               </div>
               <div class="rental-pkg rental-pkg-highlight">
                 <span class="pkg-badge-top">{{
                   t().homeRentalPopularBadge
                 }}</span>
-                <span class="pkg-days">14 Tage</span>
-                <span class="pkg-price">95 €</span>
-                <span class="pkg-day">6,80 € / Tag</span>
+                <span class="pkg-days">ab Tag 8</span>
+                <span class="pkg-price">7-Tage-Preis + Aufschlag</span>
+                <span class="pkg-day">je weiterer Tag fest hinterlegt</span>
               </div>
             </div>
             <ul class="svc-card-list">
@@ -3059,15 +3059,15 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   // Shop gallery
   shopPhotos: string[] = [
-    '/assets/shop/shop-1.jpeg',
-    '/assets/shop/shop-2.jpeg',
-    '/assets/shop/shop-3.jpeg',
-    '/assets/shop/shop-4.jpeg',
-    '/assets/shop/shop-5.jpeg',
-    '/assets/shop/shop-6.jpeg',
-    '/assets/shop/shop-7.jpeg',
-    '/assets/shop/shop-8.jpeg',
-    '/assets/shop/shop-9.jpeg',
+    '/assets/shop/shop-1.webp',
+    '/assets/shop/shop-2.webp',
+    '/assets/shop/shop-3.webp',
+    '/assets/shop/shop-4.webp',
+    '/assets/shop/shop-5.webp',
+    '/assets/shop/shop-6.webp',
+    '/assets/shop/shop-7.webp',
+    '/assets/shop/shop-8.webp',
+    '/assets/shop/shop-9.webp',
   ];
   lightboxOpen = false;
   lightboxIndex = 0;
@@ -3090,21 +3090,21 @@ export class HomeComponent implements OnInit, OnDestroy {
     {
       name: 'Sandra K.',
       initials: 'SK',
-      text: 'Endlich ein Fahrradladen in Lünen, der ehrlich berät und keine überteuerten Preise hat. Mein Sohn liebt sein neues Kinderfahrrad!',
+      text: 'Endlich ein Fahrradladen in Freiburg, der ehrlich berät und keine überteuerten Preise hat. Mein Sohn liebt sein neues Kinderfahrrad!',
       detail: 'Kinderfahrrad gekauft',
       rating: 5,
     },
     {
       name: 'Michael W.',
       initials: 'MW',
-      text: 'Als Student war ich auf der Suche nach einem günstigen, zuverlässigen Fahrrad. Bei Karaarslan Bike wurde ich fündig. Top Qualität zum fairen Preis!',
+      text: 'Als Student war ich auf der Suche nach einem günstigen, zuverlässigen Fahrrad. Bei Bike Haus wurde ich fündig. Top Qualität zum fairen Preis!',
       detail: 'Cityrad gekauft',
       rating: 5,
     },
     {
       name: 'Elena B.',
       initials: 'EB',
-      text: 'Ich habe mein altes Fahrrad hier verkauft und gleich ein E-Bike mitgenommen. Unkompliziert und fair. Beste Fahrradhandlung in Lünen!',
+      text: 'Ich habe mein altes Fahrrad hier verkauft und gleich ein E-Bike mitgenommen. Unkompliziert und fair. Beste Fahrradhandlung in Freiburg!',
       detail: 'E-Bike gekauft',
       rating: 5,
     },
@@ -3194,23 +3194,25 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     const schema = {
       '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
+      '@type': ['LocalBusiness', 'BikeStore'],
       '@id': 'https://karaarslan-bike.de/#localbusiness',
       name: 'Karaarslan Bike',
       image: 'https://karaarslan-bike.de/assets/logo.png',
       url: 'https://karaarslan-bike.de',
       telephone: '+49-155-66300011',
+      email: 'info@karaarslan-bike.de',
+      availableLanguage: ['German', 'English', 'French', 'Turkish'],
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'An der Wethmarheide 45, Garagennummer 255',
         addressLocality: 'Lünen',
-        postalCode: '44534',
+        postalCode: '79114',
         addressCountry: 'DE',
       },
       geo: {
         '@type': 'GeoCoordinates',
-        latitude: '51.6339',
-        longitude: '7.3149',
+        latitude: 47.999,
+        longitude: 7.8421,
       },
       aggregateRating: {
         '@type': 'AggregateRating',
@@ -3221,6 +3223,13 @@ export class HomeComponent implements OnInit, OnDestroy {
       },
       review: reviews,
       priceRange: '€-€€€',
+      currenciesAccepted: 'EUR',
+      paymentAccepted: 'Cash, Credit Card, Debit Card, PayPal, Bank Transfer',
+      sameAs: [
+        'https://maps.app.goo.gl/Q1fXe7A6PRb8E5wV7',
+        'https://www.instagram.com/bikehausfreiburg',
+        'https://wa.me/4915566300011',
+      ],
       openingHoursSpecification: [
         {
           '@type': 'OpeningHoursSpecification',

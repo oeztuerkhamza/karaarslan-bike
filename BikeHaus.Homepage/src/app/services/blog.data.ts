@@ -2,6 +2,7 @@ import { Language } from './translation.service';
 
 export interface BlogArticle {
   slug: string;
+  slugTranslations?: Partial<Record<Language, string>>;
   coverImage: string;
   date: string;
   readingTime: number;
@@ -9,6 +10,26 @@ export interface BlogArticle {
   tags: string[];
   relatedSlugs: string[];
   translations: Record<Language, BlogArticleTranslation>;
+}
+
+/** Returns the URL slug for the given language */
+export function getBlogSlug(article: BlogArticle, lang: Language): string {
+  return article.slugTranslations?.[lang] ?? article.slug;
+}
+
+/** Returns the URL path segment for blog listing per language */
+export function getBlogBasePath(lang: Language): string {
+  return lang === 'de' || lang === 'tr' ? 'ratgeber' : 'guide';
+}
+
+/** Finds an article by the slug for the given language */
+export function findArticleBySlug(
+  slug: string,
+  lang: Language,
+): BlogArticle | undefined {
+  return BLOG_ARTICLES.find(
+    (a) => a.slug === slug || a.slugTranslations?.[lang] === slug,
+  );
 }
 
 export interface BlogArticleTranslation {
@@ -32,7 +53,11 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   // ─── Article 1: Gebrauchtes Fahrrad kaufen ───
   {
     slug: 'gebrauchtes-fahrrad-kaufen-tipps',
-    coverImage: 'assets/blog/gebrauchtes-fahrrad.jpg',
+    slugTranslations: {
+      en: 'buying-used-bike-freiburg-tips',
+      fr: 'acheter-velo-occasion-fribourg-conseils',
+    },
+    coverImage: 'assets/blog/gebrauchtes-fahrrad.webp',
     date: '2026-04-12',
     readingTime: 8,
     category: 'ratgeber',
@@ -90,7 +115,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           },
           {
             type: 'heading',
-            content: 'Wo gebrauchte Fahrräder in Lünen kaufen?',
+            content: 'Wo gebrauchte Fahrräder in Freiburg kaufen?',
           },
           {
             type: 'paragraph',
@@ -109,7 +134,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         title: 'Buying a Used Bike — What to Look For',
         metaTitle: 'Buying a Used Bike — Tips & Checklist | Karaarslan Bike',
         metaDescription:
-          'Buy a used bike without risk. Learn what to check — frame, brakes, gears & tires. Expert checklist from your Lünen bike shop.',
+          'Buy a used bike without risk. Learn what to check — frame, brakes, gears & tires. Expert checklist from your Freiburg bike shop.',
         excerpt:
           'A used bicycle can be a great deal — or a disappointment. Use our checklist to buy safely.',
         tldr: 'Check frame, brakes, gears, tires and bearings. Buy from a dealer with warranty instead of privately. At Karaarslan Bike you get inspected used bikes with a 3-month warranty.',
@@ -210,7 +235,11 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   // ─── Article 2: Welches Fahrrad passt zu mir? ───
   {
     slug: 'welches-fahrrad-passt-zu-mir',
-    coverImage: 'assets/blog/welches-fahrrad.jpg',
+    slugTranslations: {
+      en: 'which-bike-is-right-for-me',
+      fr: 'quel-velo-me-convient',
+    },
+    coverImage: 'assets/blog/welches-fahrrad.webp',
     date: '2026-04-12',
     readingTime: 10,
     category: 'ratgeber',
@@ -225,7 +254,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Welches Fahrrad passt zu mir? Ratgeber 2026 | Karaarslan Bike',
         metaDescription:
-          'Citybike, Trekkingrad, Mountainbike oder E-Bike? Finden Sie heraus, welcher Fahrradtyp zu Ihrem Fahrstil passt. Kostenlose Beratung in Lünen.',
+          'Citybike, Trekkingrad, Mountainbike oder E-Bike? Finden Sie heraus, welcher Fahrradtyp zu Ihrem Fahrstil passt. Kostenlose Beratung in Freiburg.',
         excerpt:
           'City, Trekking, Mountain oder E-Bike? Wir helfen Ihnen, den richtigen Fahrradtyp für Ihren Alltag zu finden.',
         tldr: 'Kurze Stadtstrecken → Citybike. Pendeln → Trekkingrad. Lange Strecken → E-Bike. Sport & Gelände → Mountainbike. Kostenlose Beratung bei Karaarslan Bike.',
@@ -246,7 +275,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Ideal für den täglichen Weg zur Arbeit, zum Einkaufen oder für kurze Strecken in der Stadt. Citybikes haben einen bequemen, aufrechten Sitz, Schutzbleche, Gepäckträger und Licht. In Lünen die beliebteste Wahl für Pendler und Studenten.',
+              'Ideal für den täglichen Weg zur Arbeit, zum Einkaufen oder für kurze Strecken in der Stadt. Citybikes haben einen bequemen, aufrechten Sitz, Schutzbleche, Gepäckträger und Licht. In Freiburg die beliebteste Wahl für Pendler und Studenten.',
           },
           {
             type: 'heading',
@@ -264,7 +293,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Breite Reifen, Federung und robuster Rahmen — Mountainbikes sind für Waldwege, Trails und sportliches Fahren gemacht. Im Schwarzwald rund um Lünen gibt es unzählige Trails.',
+              'Breite Reifen, Federung und robuster Rahmen — Mountainbikes sind für Waldwege, Trails und sportliches Fahren gemacht. Im Schwarzwald rund um Freiburg gibt es unzählige Trails.',
           },
           {
             type: 'heading',
@@ -273,7 +302,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Ein E-Bike (Pedelec) unterstützt Sie mit einem Elektromotor bis 25 km/h. Ideal für Pendler mit langen Strecken, Berge oder wenn Sie einfach entspannter ankommen möchten. In Lünen mit seinen Steigungen besonders beliebt.',
+              'Ein E-Bike (Pedelec) unterstützt Sie mit einem Elektromotor bis 25 km/h. Ideal für Pendler mit langen Strecken, Berge oder wenn Sie einfach entspannter ankommen möchten. In Freiburg mit seinen Steigungen besonders beliebt.',
           },
           {
             type: 'heading',
@@ -307,7 +336,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Which Bike is Right for Me? Guide 2026 | Karaarslan Bike',
         metaDescription:
-          'City bike, trekking, mountain or e-bike? Find out which type suits your riding style. Free advice in Lünen.',
+          'City bike, trekking, mountain or e-bike? Find out which type suits your riding style. Free advice in Freiburg.',
         excerpt:
           'City, trekking, mountain or e-bike? We help you find the right bike type.',
         tldr: 'Short city trips → city bike. Commuting → trekking bike. Long distances → e-bike. Sport & trails → mountain bike. Free advice at Karaarslan Bike.',
@@ -387,7 +416,11 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   // ─── Article 3: Fahrrad Rahmengröße berechnen ───
   {
     slug: 'fahrrad-rahmengroesse-berechnen',
-    coverImage: 'assets/blog/rahmengroesse.jpg',
+    slugTranslations: {
+      en: 'bike-frame-size-calculator-guide',
+      fr: 'calculer-taille-cadre-velo',
+    },
+    coverImage: 'assets/blog/rahmengroesse.webp',
     date: '2026-04-12',
     readingTime: 6,
     category: 'ratgeber',
@@ -551,7 +584,11 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   // ─── Article 4: E-Bike gebraucht kaufen ───
   {
     slug: 'e-bike-gebraucht-kaufen',
-    coverImage: 'assets/blog/ebike-gebraucht.jpg',
+    slugTranslations: {
+      en: 'buying-used-e-bike-guide',
+      fr: 'acheter-velo-electrique-occasion',
+    },
+    coverImage: 'assets/blog/ebike-gebraucht.webp',
     date: '2026-04-12',
     readingTime: 7,
     category: 'ratgeber',
@@ -697,16 +734,20 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     },
   },
 
-  // ─── Article 5: Karaarslan Bike ───
+  // ─── Article 5: Fahrradladen Freiburg ───
   {
-    slug: 'fahrradladen-Lünen',
-    coverImage: 'assets/blog/fahrradladen-Lünen.jpg',
+    slug: 'fahrradladen-freiburg',
+    slugTranslations: {
+      en: 'bike-shop-freiburg',
+      fr: 'magasin-velo-fribourg',
+    },
+    coverImage: 'assets/blog/fahrradladen-freiburg.webp',
     date: '2026-04-12',
     readingTime: 5,
     category: 'lokal',
     tags: [
       'fahrradladen',
-      'Lünen',
+      'freiburg',
       'fahrradgeschäft',
       'fahrradhändler',
       'bike shop',
@@ -717,23 +758,23 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     ],
     translations: {
       de: {
-        title: 'Karaarslan Bike — Karaarslan Bike',
+        title: 'Fahrradladen Freiburg — Karaarslan Bike',
         metaTitle:
-          'Karaarslan Bike — Ihr Fahrradgeschäft | Karaarslan Bike',
+          'Fahrradladen Freiburg — Ihr Fahrradgeschäft | Karaarslan Bike',
         metaDescription:
-          'Fahrradladen in Lünen gesucht? Karaarslan Bike: Über 100 neue & gebrauchte Fahrräder, E-Bikes, Garantie, Probefahrt. An der Wethmarheide 45, Garagennummer 255.',
+          'Fahrradladen in Freiburg gesucht? Karaarslan Bike: Über 100 neue & gebrauchte Fahrräder, E-Bikes, Garantie, Probefahrt. An der Wethmarheide 45, Garagennummer 255.',
         excerpt:
-          'Ihr Fahrradladen in Lünen: Karaarslan Bike bietet über 100 neue und gebrauchte Fahrräder mit Garantie.',
-        tldr: 'Karaarslan Bike: An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Über 100 neue & gebrauchte Fahrräder, E-Bikes, Garantie. Mo–Fr 10–18, Sa 10–14 Uhr. WhatsApp: +49 163 7390301.',
+          'Ihr Fahrradladen in Freiburg: Karaarslan Bike bietet über 100 neue und gebrauchte Fahrräder mit Garantie.',
+        tldr: 'Karaarslan Bike: An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Über 100 neue & gebrauchte Fahrräder, E-Bikes, Garantie. Mo–Fr 10–18, Sa 10–14 Uhr. WhatsApp: +49 155 6630 0011.',
         sections: [
           {
             type: 'heading',
-            content: 'Karaarslan Bike — Ihr Fahrradhändler',
+            content: 'Karaarslan Bike — Ihr Fahrradhändler in Freiburg',
           },
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike ist ein Fahrradgeschäft in der An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Wir bieten neue und gebrauchte Fahrräder — darunter Citybikes, Trekkingräder, Mountainbikes, E-Bikes, Kinderfahrräder und Hollandräder.',
+              'Karaarslan Bike ist ein Fahrradgeschäft in der An der Wethmarheide 45, Garagennummer 255, 79114 Lünen. Wir bieten neue und gebrauchte Fahrräder — darunter Citybikes, Trekkingräder, Mountainbikes, E-Bikes, Kinderfahrräder und Hollandräder.',
           },
           {
             type: 'heading',
@@ -763,8 +804,8 @@ export const BLOG_ARTICLES: BlogArticle[] = [
               'Freitag: 11:00 – 13:00 & 15:00 – 18:00 Uhr',
               'Samstag: 11:30 – 17:00 Uhr',
               'Sonn- und feiertags geschlossen',
-              'WhatsApp: +49 163 7390301',
-              'E-Mail: karaarslan-bike.de@gmail.com',
+              'WhatsApp: +49 155 6630 0011',
+              'E-Mail: info@karaarslan-bike.de',
             ],
           },
           {
@@ -785,17 +826,17 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         ],
       },
       en: {
-        title: 'Bike Shop Lünen — Karaarslan Bike',
-        metaTitle: 'Bike Shop Lünen — Your Bike Store | Karaarslan Bike',
+        title: 'Bike Shop Freiburg — Karaarslan Bike',
+        metaTitle: 'Bike Shop Freiburg — Your Bike Store | Karaarslan Bike',
         metaDescription:
-          'Looking for a bike shop in Lünen? Karaarslan Bike: 100+ new & used bikes, e-bikes, warranty, test rides.',
+          'Looking for a bike shop in Freiburg? Karaarslan Bike: 100+ new & used bikes, e-bikes, warranty, test rides.',
         excerpt:
-          'Your bike shop in Lünen: Over 100 new and used bikes with warranty.',
-        tldr: 'Karaarslan Bike: An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. 100+ new & used bikes, e-bikes, warranty. Mon–Fri 10–18, Sat 10–14. WhatsApp: +49 163 7390301.',
+          'Your bike shop in Freiburg: Over 100 new and used bikes with warranty.',
+        tldr: 'Karaarslan Bike: An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. 100+ new & used bikes, e-bikes, warranty. Mon–Fri 10–18, Sat 10–14. WhatsApp: +49 155 6630 0011.',
         sections: [
           {
             type: 'heading',
-            content: 'Karaarslan Bike — Your bike dealer in Lünen',
+            content: 'Karaarslan Bike — Your bike dealer in Freiburg',
           },
           {
             type: 'paragraph',
@@ -811,17 +852,17 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         ],
       },
       fr: {
-        title: 'Magasin de vélos Lünen — Karaarslan Bike',
-        metaTitle: 'Magasin de vélos Lünen | Karaarslan Bike',
+        title: 'Magasin de vélos Freiburg — Karaarslan Bike',
+        metaTitle: 'Magasin de vélos Freiburg | Karaarslan Bike',
         metaDescription:
-          'Vous cherchez un magasin de vélos à Lünen ? Karaarslan Bike : plus de 100 vélos neufs et occasion.',
+          'Vous cherchez un magasin de vélos à Freiburg ? Karaarslan Bike : plus de 100 vélos neufs et occasion.',
         excerpt:
-          'Votre magasin de vélos à Lünen : plus de 100 vélos avec garantie.',
+          'Votre magasin de vélos à Freiburg : plus de 100 vélos avec garantie.',
         tldr: 'Karaarslan Bike : An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Plus de 100 vélos neufs et occasion, VAE, garantie. Lun–Ven 10–18, Sam 10–14.',
         sections: [
           {
             type: 'heading',
-            content: 'Karaarslan Bike — Votre vélociste à Lünen',
+            content: 'Karaarslan Bike — Votre vélociste à Freiburg',
           },
           {
             type: 'paragraph',
@@ -837,17 +878,17 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         ],
       },
       tr: {
-        title: 'Lünen Bisikletçi — Karaarslan Bike',
-        metaTitle: 'Lünen Bisiklet Dükkanı | Karaarslan Bike',
+        title: 'Freiburg Bisikletçi — Karaarslan Bike',
+        metaTitle: 'Freiburg Bisiklet Dükkanı | Karaarslan Bike',
         metaDescription:
-          "Lünen'da bisiklet dükkanı arıyorsunuz? Karaarslan Bike: 100+ yeni ve ikinci el bisiklet, garanti, deneme sürüşü.",
+          "Freiburg'da bisiklet dükkanı arıyorsunuz? Karaarslan Bike: 100+ yeni ve ikinci el bisiklet, garanti, deneme sürüşü.",
         excerpt:
-          "Lünen'daki bisiklet dükkanınız: Garantili 100+ yeni ve ikinci el bisiklet.",
-        tldr: 'Karaarslan Bike: An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. 100+ yeni ve ikinci el bisiklet, e-bisiklet, garanti. Pzt–Cum 10–18, Cmt 10–14. WhatsApp: +49 163 7390301.',
+          "Freiburg'daki bisiklet dükkanınız: Garantili 100+ yeni ve ikinci el bisiklet.",
+        tldr: 'Karaarslan Bike: An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. 100+ yeni ve ikinci el bisiklet, e-bisiklet, garanti. Pzt–Cum 10–18, Cmt 10–14. WhatsApp: +49 155 6630 0011.',
         sections: [
           {
             type: 'heading',
-            content: "Karaarslan Bike — Lünen'daki bisiklet mağazanız",
+            content: "Karaarslan Bike — Freiburg'daki bisiklet mağazanız",
           },
           {
             type: 'paragraph',
@@ -868,7 +909,11 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   // ─── Article 6: Kinderfahrrad Größe ───
   {
     slug: 'kinderfahrrad-groesse',
-    coverImage: 'assets/blog/kinderfahrrad-groesse.jpg',
+    slugTranslations: {
+      en: 'childrens-bike-size-guide',
+      fr: 'taille-velo-enfant-guide',
+    },
+    coverImage: 'assets/blog/kinderfahrrad-groesse.webp',
     date: '2026-04-12',
     readingTime: 7,
     category: 'ratgeber',
@@ -877,7 +922,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       'größe',
       'alter',
       'tabelle',
-      'kinderfahrrad Lünen',
+      'kinderfahrrad freiburg',
     ],
     relatedSlugs: [
       'welches-fahrrad-passt-zu-mir',
@@ -887,9 +932,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       de: {
         title: 'Kinderfahrrad Größe — Welche Größe für welches Alter?',
         metaTitle:
-          'Kinderfahrrad Größe — Tabelle nach Alter & Körpergröße | Karaarslan Bike',
+          'Kinderfahrrad Größe: Tabelle 2026 — Welche Größe für welches Alter? | Karaarslan Bike',
         metaDescription:
-          'Welche Kinderfahrrad-Größe passt? Größentabelle nach Alter & Körpergröße ✓ 12 bis 26 Zoll ✓ Tipps vom Fachhändler aus Lünen.',
+          'Kinderfahrrad Größe 2026: Tabelle nach Alter & Körpergröße ✓ 12–26 Zoll ✓ Woom, Cube, Trek ✓ Innenbeinlänge messen ✓ Probefahrt vor Ort — Karaarslan Bike Haid.',
         excerpt:
           'Die richtige Fahrradgröße ist entscheidend für Sicherheit und Spaß. Unsere Tabelle zeigt, welches Rad zu welchem Alter passt.',
         tldr: 'Kinderfahrräder gibt es von 12 bis 26 Zoll. Entscheidend ist die Körpergröße, nicht nur das Alter. Ab 95 cm → 12 Zoll, ab 105 cm → 16 Zoll, ab 120 cm → 20 Zoll, ab 135 cm → 24 Zoll, ab 140 cm → 26 Zoll. Bei Karaarslan Bike können Kinder Probe fahren.',
@@ -953,6 +998,35 @@ export const BLOG_ARTICLES: BlogArticle[] = [
             link: '/showroom',
             linkText: 'Zum Showroom',
           },
+          {
+            type: 'heading',
+            content: 'Woom Kinderfahrräder — Größenübersicht',
+          },
+          {
+            type: 'paragraph',
+            content:
+              'Woom ist eine der beliebtesten Kinderfahrrad-Marken — bekannt für geringes Gewicht und kindgerechte Ergonomie. Bei Karaarslan Bike führen wir gebrauchte Woom-Räder. Hier die passenden Modelle nach Körpergröße:',
+          },
+          {
+            type: 'list',
+            items: [
+              'Woom 1 (12 Zoll): Laufrad ab 85 cm Körpergröße, ab ca. 18 Monaten.',
+              'Woom 2 (14 Zoll): Körpergröße 95–110 cm, ca. 3–5 Jahre.',
+              'Woom 3 (16 Zoll): Körpergröße 105–120 cm, ca. 4–7 Jahre.',
+              'Woom 4 (20 Zoll): Körpergröße 115–130 cm, ca. 6–9 Jahre.',
+              'Woom 5 (24 Zoll): Körpergröße 125–145 cm, ca. 7–11 Jahre.',
+              'Woom 6 (26 Zoll): Körpergröße 135–155 cm, ca. 9–14 Jahre.',
+            ],
+          },
+          {
+            type: 'heading',
+            content: 'Innenbeinlänge messen — so geht es richtig',
+          },
+          {
+            type: 'paragraph',
+            content:
+              'Die Innenbeinlänge (Schrittlänge) ist präziser als das Alter. Messen Sie so: Kind steht barfuß mit Rücken zur Wand. Ein Buch wird fest zwischen die Beine in Schritthöhe gehalten (Buchrücken nach oben). Den Abstand von Buchoberkante bis zum Boden messen — das ist die Innenbeinlänge. Faustregel: Innenbeinlänge × 1,0 bis 1,06 = empfohlene Rahmenhöhe in cm.',
+          },
         ],
       },
       en: {
@@ -960,7 +1034,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           "Children's Bike Size Guide — Chart by Age & Height | Karaarslan Bike",
         metaDescription:
-          "Which children's bike size fits? Size chart by age & height ✓ 12 to 26 inch ✓ Expert tips from Lünen's bike shop.",
+          "Which children's bike size fits? Size chart by age & height ✓ 12 to 26 inch ✓ Expert tips from Freiburg's bike shop.",
         excerpt:
           'The right bike size is crucial for safety and fun. Our chart shows which bike fits which age.',
         tldr: 'Children\'s bikes range from 12 to 26 inches. Body height matters more than age. From 95 cm → 12", 105 cm → 16", 120 cm → 20", 135 cm → 24", 140 cm → 26". Test rides available at Karaarslan Bike.',
@@ -994,6 +1068,48 @@ export const BLOG_ARTICLES: BlogArticle[] = [
               "Tip: Measure your child's inseam length. The child should be able to touch the ground with both balls of their feet while sitting on the saddle.",
           },
           {
+            type: 'heading',
+            content: "What to look for when buying a children's bike?",
+          },
+          {
+            type: 'list',
+            items: [
+              'Coaster brake: Recommended up to age 6 — small hands often lack strength for hand brakes.',
+              "Weight: A lighter bike is easier to control. Rule of thumb: max. 30–40% of the child's body weight.",
+              'Training wheels: Not recommended by experts — better to start with a balance bike.',
+              'Lighting: Required by law for road use.',
+              'Mudguards & chain guard: Protect clothing and improve safety.',
+            ],
+          },
+          {
+            type: 'heading',
+            content: "Frequently Asked Questions About Children's Bike Sizes",
+          },
+          {
+            type: 'paragraph',
+            content:
+              "How much growing room should a children's bike have? One size up is acceptable — the child should just be able to touch the ground. Going two sizes up is dangerous.",
+          },
+          {
+            type: 'paragraph',
+            content:
+              "Should I buy new or used? Used children's bikes are a smart choice since children grow quickly. At Karaarslan Bike, every used bike is safety-checked and comes with a 3-month warranty.",
+          },
+          {
+            type: 'paragraph',
+            content:
+              'Balance bike or bike with training wheels? Balance bikes (no pedals, no training wheels) teach natural balance. Children who start on a balance bike typically learn to ride a pedal bike within days.',
+          },
+          {
+            type: 'heading',
+            content: "Children's Bikes at Karaarslan Bike",
+          },
+          {
+            type: 'paragraph',
+            content:
+              "We stock new and used children's bikes from 12 to 26 inch. Every used bike is safety-checked and comes with a 3-month warranty. Your child can test ride before you buy — we'll find the perfect size together.",
+          },
+          {
             type: 'cta',
             content: "Browse children's bikes in our showroom",
             link: '/showroom',
@@ -1006,7 +1122,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Taille vélo enfant — Tableau par âge & taille | Karaarslan Bike',
         metaDescription:
-          'Quelle taille de vélo pour votre enfant? Tableau de tailles par âge et taille ✓ 12 à 26 pouces ✓ Conseils experts de Lünen.',
+          'Quelle taille de vélo pour votre enfant? Tableau de tailles par âge et taille ✓ 12 à 26 pouces ✓ Conseils experts de Freiburg.',
         excerpt:
           'La bonne taille de vélo est essentielle pour la sécurité et le plaisir. Notre tableau montre quel vélo convient à quel âge.',
         tldr: 'Les vélos enfants vont de 12 à 26 pouces. La taille du corps est plus importante que l\'âge. Dès 95 cm → 12", 105 cm → 16", 120 cm → 20", 135 cm → 24". Essais chez Karaarslan Bike.',
@@ -1016,9 +1132,63 @@ export const BLOG_ARTICLES: BlogArticle[] = [
             content: 'Pourquoi la bonne taille de vélo est-elle si importante?',
           },
           {
+            type: 'heading',
+            content: 'Tableau des tailles : vélo enfant par taille corporelle',
+          },
+          {
+            type: 'list',
+            items: [
+              '12 pouces : Taille 95–105 cm (env. 2–4 ans)',
+              '14 pouces : Taille 100–110 cm (env. 3–5 ans)',
+              '16 pouces : Taille 105–120 cm (env. 4–6 ans)',
+              '18 pouces : Taille 110–125 cm (env. 5–7 ans)',
+              '20 pouces : Taille 120–135 cm (env. 6–9 ans)',
+              '24 pouces : Taille 135–145 cm (env. 8–12 ans)',
+              '26 pouces : Taille à partir de 140 cm (env. 10–14 ans)',
+            ],
+          },
+          {
+            type: 'tip',
+            content:
+              "Conseil : Mesurez l'entrejambe de votre enfant. L'enfant doit pouvoir toucher le sol avec les deux pieds à plat lorsqu'il est assis sur la selle.",
+          },
+          {
+            type: 'heading',
+            content:
+              "À quoi faire attention lors de l'achat d'un vélo enfant\u00a0?",
+          },
+          {
+            type: 'list',
+            items: [
+              "Frein à rétropédalage : Recommandé jusqu'à 6 ans — les petites mains manquent souvent de force pour les freins à main.",
+              'Poids : Un vélo léger est plus facile à contrôler. Règle : max. 30–40 % du poids corporel.',
+              'Stabilisateurs : Non recommandés par les experts — mieux vaut commencer avec un vélo sans pédales.',
+              'Éclairage : Obligatoire pour la circulation routière.',
+              'Garde-boues & protection de chaîne : Protègent les vêtements.',
+            ],
+          },
+          {
+            type: 'heading',
+            content: 'Questions fréquentes sur les tailles de vélos enfants',
+          },
+          {
             type: 'paragraph',
             content:
-              "Un vélo trop grand ou trop petit n'est pas seulement inconfortable — il est aussi dangereux. Les enfants qui ne peuvent pas toucher le sol ne peuvent pas réagir correctement en cas de danger.",
+              "Combien de marge de croissance prévoir\u00a0? Une taille au-dessus est acceptable — l'enfant doit juste pouvoir toucher le sol. Deux tailles au-dessus, c'est dangereux.",
+          },
+          {
+            type: 'paragraph',
+            content:
+              "Vélo d'équilibre ou stabilisateurs\u00a0? Le vélo d'équilibre (sans pédales ni stabilisateurs) apprend l'équilibre naturellement. Les enfants qui commencent par un vélo d'équilibre apprennent généralement à pédaler en quelques jours.",
+          },
+          {
+            type: 'heading',
+            content: 'Vélos enfants chez Karaarslan Bike',
+          },
+          {
+            type: 'paragraph',
+            content:
+              "Nous proposons des vélos enfants neufs et d'occasion de 12 à 26 pouces. Chaque vélo d'occasion est contrôlé et livré avec 3 mois de garantie. Votre enfant peut faire un essai avant l'achat — nous trouverons ensemble la taille parfaite.",
           },
           {
             type: 'cta',
@@ -1033,7 +1203,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Çocuk Bisikleti Beden Tablosu — Yaş & Boya Göre | Karaarslan Bike',
         metaDescription:
-          "Çocuğunuza hangi bisiklet bedeni uyar? Yaş ve boya göre beden tablosu ✓ 12'den 26 inç'e ✓ Lünen'dan uzman tavsiyeleri.",
+          "Çocuğunuza hangi bisiklet bedeni uyar? Yaş ve boya göre beden tablosu ✓ 12'den 26 inç'e ✓ Freiburg'dan uzman tavsiyeleri.",
         excerpt:
           'Doğru bisiklet bedeni güvenlik ve eğlence için çok önemli. Tablomuz hangi bisikletin hangi yaşa uyduğunu gösterir.',
         tldr: 'Çocuk bisikletleri 12\'den 26 inç\'e kadar. Boy uzunluğu yaştan daha önemli. 95 cm → 12", 105 cm → 16", 120 cm → 20", 135 cm → 24". Karaarslan Bike\'da deneme sürüşü yapılabilir.',
@@ -1061,7 +1231,11 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   // ─── Article 7: Fahrrad Inspektion — Kosten & Ablauf ───
   {
     slug: 'fahrrad-inspektion-kosten',
-    coverImage: 'assets/blog/fahrrad-inspektion.jpg',
+    slugTranslations: {
+      en: 'bike-inspection-cost-freiburg',
+      fr: 'revision-velo-cout-fribourg',
+    },
+    coverImage: 'assets/blog/fahrrad-inspektion.webp',
     date: '2026-04-12',
     readingTime: 6,
     category: 'ratgeber',
@@ -1072,14 +1246,14 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       'reparatur',
       'fahrrad check',
     ],
-    relatedSlugs: ['gebrauchtes-fahrrad-kaufen-tipps', 'fahrradladen-Lünen'],
+    relatedSlugs: ['gebrauchtes-fahrrad-kaufen-tipps', 'fahrradladen-freiburg'],
     translations: {
       de: {
         title: 'Fahrrad Inspektion — Was wird gemacht & was kostet es?',
         metaTitle:
-          'Fahrrad Inspektion — Kosten, Ablauf & Checkliste | Karaarslan Bike',
+          'Was kostet eine Fahrradinspektion 2026? Ablauf & Checkliste | Karaarslan Bike',
         metaDescription:
-          'Was kostet eine Fahrrad Inspektion? Was wird geprüft? Ablauf, Kosten (30–80 €) und Checkliste ✓ Tipps vom Fahrradladen in Lünen.',
+          'Fahrradinspektion Kosten 2026: Basis 20–30 €, Standard 40–60 €, groß 60–80 €, E-Bike bis 100 €. Was wird geprüft? Ablauf & Checkliste vom Fahrradladen Freiburg.',
         excerpt:
           'Eine regelmäßige Inspektion hält Ihr Fahrrad sicher und verhindert teure Reparaturen. Hier erfahren Sie, was geprüft wird und was es kostet.',
         tldr: 'Eine Fahrrad-Inspektion kostet je nach Umfang 30–80 €. Geprüft werden Bremsen, Schaltung, Reifen, Kette, Lager, Beleuchtung und Speichenspannung. Empfohlen: 1× pro Jahr oder alle 2.000 km.',
@@ -1149,14 +1323,53 @@ export const BLOG_ARTICLES: BlogArticle[] = [
             link: '/contact',
             linkText: 'Kontakt & Anfahrt',
           },
+          {
+            type: 'heading',
+            content: 'Wann ist eine Fahrrad-Inspektion fällig?',
+          },
+          {
+            type: 'list',
+            items: [
+              'Einmal jährlich: Empfehlung für alle Freizeitfahrer.',
+              'Nach 1.500–2.000 km: Richtwert für Pendler und Vielfahrer.',
+              'Nach jedem Winter: Salz und Nässe belasten Kette, Züge und Lager besonders stark.',
+              'Vor langen Touren: Sicherheit geht vor — kurzer Check lohnt sich.',
+              'Nach einem Sturz: Rahmen und Gabel auf unsichtbare Schäden prüfen lassen.',
+            ],
+          },
+          {
+            type: 'heading',
+            content: 'Was kostet eine E-Bike Inspektion?',
+          },
+          {
+            type: 'paragraph',
+            content:
+              'E-Bikes erfordern zusätzlich zur mechanischen Prüfung eine Diagnose des Antriebssystems. Dabei werden Akku-Kapazität, Motor, Display und die Softwareversion geprüft. Eine vollständige E-Bike-Inspektion kostet in der Regel 70–120 €, abhängig vom Marken-System (Bosch, Shimano Steps, Brose usw.).',
+          },
+          {
+            type: 'heading',
+            content:
+              'Woran erkenne ich, dass mein Fahrrad eine Inspektion braucht?',
+          },
+          {
+            type: 'list',
+            items: [
+              'Bremsen quietschen oder greifen zu spät.',
+              'Schaltung springt oder schaltet nicht sauber durch.',
+              'Kette springt beim Treten unter Last.',
+              'Fahrrad knarzt, quietscht oder wackelt ungewöhnlich.',
+              'Lenkung oder Sattelstütze lassen sich schwer feststellen.',
+              'Licht flackert oder leuchtet nicht mehr.',
+            ],
+          },
         ],
       },
       en: {
         title: 'Bike Inspection — What Gets Checked & What Does It Cost?',
         metaTitle:
-          'Bike Inspection — Costs, Process & Checklist | Karaarslan Bike',
+          'How Much Does a Bike Inspection Cost 2026? Checklist | Karaarslan Bike',
         metaDescription:
-          'How much does a bike inspection cost? What gets checked? Process, costs (€30–80), and checklist ✓ Tips from a bike shop in Lünen.',
+          'Bike inspection costs 2026: basic check €20–30, standard €40–60, full service €60–80, e-bike up to €100. What gets checked? Process & checklist from Freiburg bike shop.',
         excerpt:
           'A regular inspection keeps your bike safe and prevents expensive repairs. Learn what gets checked and what it costs.',
         tldr: 'A bike inspection costs €30–80 depending on scope. Brakes, gears, tires, chain, bearings, lights and spoke tension are checked. Recommended: once a year or every 2,000 km.',
@@ -1205,7 +1418,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Révision vélo — Coûts, déroulement & checklist | Karaarslan Bike',
         metaDescription:
-          'Combien coûte une révision vélo? Que vérifie-t-on? Déroulement, coûts (30–80 €) et checklist ✓ Conseils du vélociste à Lünen.',
+          'Combien coûte une révision vélo? Que vérifie-t-on? Déroulement, coûts (30–80 €) et checklist ✓ Conseils du vélociste à Freiburg.',
         excerpt:
           'Une révision régulière garde votre vélo en sécurité et évite les réparations coûteuses.',
         tldr: 'Une révision vélo coûte entre 30 et 80 €. Freins, vitesses, pneus, chaîne, roulements et éclairage sont vérifiés. Recommandé : 1× par an.',
@@ -1232,7 +1445,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Bisiklet Bakımı — Maliyet, Süreç & Kontrol Listesi | Karaarslan Bike',
         metaDescription:
-          'Bisiklet bakımı ne kadara mal olur? Neler kontrol edilir? Süreç, maliyetler (30–80 €) ve kontrol listesi ✓ Lünen bisikletçisinden ipuçları.',
+          'Bisiklet bakımı ne kadara mal olur? Neler kontrol edilir? Süreç, maliyetler (30–80 €) ve kontrol listesi ✓ Freiburg bisikletçisinden ipuçları.',
         excerpt:
           'Düzenli bakım bisikletinizi güvende tutar ve pahalı tamirleri önler.',
         tldr: "Bisiklet bakımı 30–80 € arası. Frenler, vitesler, lastikler, zincir, rulmanlar ve ışıklar kontrol edilir. Önerilen: yılda 1 kez veya 2.000 km'de bir.",
@@ -1260,7 +1473,11 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   // ─── Article 8: Fahrrad für Pendler — Die besten Stadträder ───
   {
     slug: 'fahrrad-pendler-stadtraeder',
-    coverImage: 'assets/blog/fahrrad-pendler.jpg',
+    slugTranslations: {
+      en: 'commuter-bike-freiburg-guide',
+      fr: 'velo-pendulaire-fribourg-guide',
+    },
+    coverImage: 'assets/blog/fahrrad-pendler.webp',
     date: '2026-04-12',
     readingTime: 7,
     category: 'ratgeber',
@@ -1269,7 +1486,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       'stadtrad',
       'cityrad',
       'fahrrad arbeit',
-      'pendlerrad Lünen',
+      'pendlerrad freiburg',
     ],
     relatedSlugs: ['welches-fahrrad-passt-zu-mir', 'e-bike-gebraucht-kaufen'],
     translations: {
@@ -1278,7 +1495,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Pendlerfahrrad — Die besten Stadträder & Tipps | Karaarslan Bike',
         metaDescription:
-          'Das beste Fahrrad für Pendler: Citybike, Trekkingrad oder E-Bike? Vergleich, Tipps & Empfehlungen 2026 ✓ Vom Fahrradladen in Lünen.',
+          'Das beste Fahrrad für Pendler: Citybike, Trekkingrad oder E-Bike? Vergleich, Tipps & Empfehlungen 2026 ✓ Vom Fahrradladen in Freiburg.',
         excerpt:
           'Wer täglich mit dem Rad zur Arbeit fährt, braucht ein zuverlässiges, bequemes und wartungsarmes Fahrrad. Wir zeigen die besten Optionen.',
         tldr: 'Für Pendler empfehlen wir Citybikes (Kurzstrecke bis 5 km), Trekkingräder (5–15 km) oder E-Bikes (ab 10 km oder Steigungen). Wichtig: Nabenschaltung, Nabendynamo, Schutzbleche, Gepäckträger. Bei Karaarslan Bike finden Sie geprüfte Pendlerräder ab 199 €.',
@@ -1317,7 +1534,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Ab 10 km Pendelstrecke oder bei Steigungen lohnt sich ein E-Bike. Sie kommen entspannt und ohne zu schwitzen an. In Lünen besonders beliebt: E-Trekkingräder mit Bosch- oder Shimano-Motor.',
+              'Ab 10 km Pendelstrecke oder bei Steigungen lohnt sich ein E-Bike. Sie kommen entspannt und ohne zu schwitzen an. In Freiburg besonders beliebt: E-Trekkingräder mit Bosch- oder Shimano-Motor.',
           },
           {
             type: 'heading',
@@ -1338,7 +1555,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'tip',
             content:
-              'Tipp für Lünen: Die Stadt hat über 420 km Radwege. Mit einem guten Pendlerrad sind die meisten Arbeitswege unter 20 Minuten. Nutzen Sie auch den Fahrradparkplatz am Hauptbahnhof für Bahn+Rad-Kombis.',
+              'Tipp für Freiburg: Die Stadt hat über 420 km Radwege. Mit einem guten Pendlerrad sind die meisten Arbeitswege unter 20 Minuten. Nutzen Sie auch den Fahrradparkplatz am Hauptbahnhof für Bahn+Rad-Kombis.',
           },
           {
             type: 'heading',
@@ -1362,7 +1579,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Commuter Bike — Best City Bikes & Tips | Karaarslan Bike',
         metaDescription:
-          'The best bike for commuters: City bike, trekking bike or e-bike? Comparison, tips & recommendations 2026 ✓ From a bike shop in Lünen.',
+          'The best bike for commuters: City bike, trekking bike or e-bike? Comparison, tips & recommendations 2026 ✓ From a bike shop in Freiburg.',
         excerpt:
           'If you ride to work every day, you need a reliable, comfortable and low-maintenance bike. We show you the best options.',
         tldr: 'For commuters we recommend: City bikes (short distances up to 5 km), trekking bikes (5–15 km), or e-bikes (10+ km or hills). Key features: internal gears, hub dynamo, fenders, rack. Tested commuter bikes from €199 at Karaarslan Bike.',
@@ -1416,7 +1633,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Vélo pendulaire — Meilleurs vélos de ville & conseils | Karaarslan Bike',
         metaDescription:
-          'Le meilleur vélo pour pendulaires: vélo de ville, VTC ou VAE? Comparaison, conseils & recommandations 2026 ✓ Du vélociste à Lünen.',
+          'Le meilleur vélo pour pendulaires: vélo de ville, VTC ou VAE? Comparaison, conseils & recommandations 2026 ✓ Du vélociste à Freiburg.',
         excerpt:
           "Si vous pédalez au travail tous les jours, vous avez besoin d'un vélo fiable, confortable et facile à entretenir.",
         tldr: "Pour les pendulaires: vélos de ville (jusqu'à 5 km), VTC (5–15 km) ou VAE (10+ km ou côtes). Important: moyeu à vitesses intégrées, dynamo moyeu, garde-boue, porte-bagages. Vélos testés à partir de 199 € chez Karaarslan Bike.",
@@ -1443,7 +1660,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'İşe Gidiş Bisikleti — En İyi Şehir Bisikletleri & İpuçları | Karaarslan Bike',
         metaDescription:
-          'İşe gitmek için en iyi bisiklet: Şehir bisikleti, trekking bisikleti veya e-bisiklet? Karşılaştırma, ipuçları & 2026 önerileri ✓ Lünen bisikletçisinden.',
+          'İşe gitmek için en iyi bisiklet: Şehir bisikleti, trekking bisikleti veya e-bisiklet? Karşılaştırma, ipuçları & 2026 önerileri ✓ Freiburg bisikletçisinden.',
         excerpt:
           'Her gün bisikletle işe gidiyorsanız, güvenilir, rahat ve bakımı kolay bir bisiklete ihtiyacınız var.',
         tldr: "İşe gidişte önerilerimiz: Şehir bisikletleri (5 km'ye kadar), trekking bisikletleri (5–15 km) veya e-bisikletler (10+ km veya yokuşlar). Önemli: iç vites, jant dinamo, çamurluk, bagaj. Karaarslan Bike'da 199 €'dan itibaren test edilmiş bisikletler.",
@@ -1467,5 +1684,696 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
     },
   },
-];
 
+  // ─── Article 9: Bike Rental Freiburg (EN-first) ───
+  {
+    slug: 'bike-rental-freiburg-guide',
+    slugTranslations: {
+      en: 'bike-rental-freiburg-guide',
+      fr: 'location-velo-fribourg-guide',
+      de: 'fahrradverleih-freiburg-guide',
+    },
+    coverImage: 'assets/blog/fahrradverleih.webp',
+    date: '2026-05-01',
+    readingTime: 7,
+    category: 'rental',
+    tags: [
+      'bike rental freiburg',
+      'rent a bike freiburg',
+      'bicycle hire freiburg',
+      'location vélo Fribourg',
+    ],
+    relatedSlugs: ['fahrradladen-freiburg', 'welches-fahrrad-passt-zu-mir'],
+    translations: {
+      de: {
+        title: 'Fahrrad mieten in Freiburg — Preise, Tipps & Buchung 2026',
+        metaTitle:
+          'Fahrrad mieten Freiburg 2026 — Tagespreise pro Fahrrad | Karaarslan Bike',
+        metaDescription:
+          'Fahrrad mieten in Freiburg ✓ 1 bis 7 Tage individuell pro Fahrrad ✓ ab Tag 8 mit Zusatzpreis ✓ Schloss & Helm inklusive ✓ Kein Vorausbezahlen. Karaarslan Bike.',
+        excerpt:
+          'Fahrrad mieten in Freiburg: faire Preise, sofort verfügbar, ohne versteckte Kosten. Alles was Sie wissen müssen.',
+        tldr: 'Karaarslan Bike vermietet Fahrräder mit individuell gepflegten Tagespreisen pro Fahrrad. Für 1 bis 7 Tage gilt der jeweilige Fahrradpreis, danach der 7-Tage-Preis plus Zusatz pro weiterem Tag. Schloss & Helm inklusive. Kaution: 300 € bar.',
+        sections: [
+          {
+            type: 'heading',
+            content: "Fahrrad mieten in Freiburg — So einfach geht's",
+          },
+          {
+            type: 'paragraph',
+            content:
+              'Karaarslan Bike bietet Fahrradverleih zu fairen Preisen ohne versteckte Kosten. Kommen Sie einfach in der An der Wethmarheide 45, Garagennummer 255 vorbei, wählen Sie Ihr Fahrrad und fahren Sie los.',
+          },
+          {
+            type: 'heading',
+            content: 'Preisübersicht Fahrradverleih Freiburg',
+          },
+          {
+            type: 'list',
+            items: [
+              '1 bis 7 Tage: je Fahrrad individuell konfiguriert',
+              'Ab Tag 8: 7-Tage-Preis plus Zusatz pro weiterem Tag',
+              'Preisübersicht direkt am jeweiligen Fahrrad sichtbar',
+            ],
+          },
+          { type: 'heading', content: 'Was ist inklusive?' },
+          {
+            type: 'list',
+            items: [
+              'Faltschloss',
+              'Fahrradkorb',
+              'Haftpflichtversicherung nicht inbegriffen (empfohlen)',
+            ],
+          },
+          {
+            type: 'tip',
+            content:
+              'Tipp: Vergleichen Sie die Preise direkt am gewünschten Fahrrad. Für längere Mieten sehen Sie dort sofort, wie sich der 7-Tage-Preis und der Zusatz pro Tag zusammensetzen.',
+          },
+          { type: 'heading', content: 'Öffnungszeiten für Fahrradverleih' },
+          {
+            type: 'list',
+            items: [
+              'Mo, Di, Do: 11:00–17:30',
+              'Mittwoch: 14:00–17:30',
+              'Freitag: 11:00–13:00 & 15:00–18:00',
+              'Samstag: 11:30–17:00',
+            ],
+          },
+          {
+            type: 'cta',
+            content: 'Jetzt Fahrrad reservieren',
+            link: '/fahrradverleih',
+            linkText: 'Zur Reservierung',
+          },
+        ],
+      },
+      en: {
+        title: 'Bike Rental Freiburg — Prices, Tips & Booking 2026',
+        metaTitle:
+          'Bike Rental Freiburg 2026 — Daily Pricing Per Bike | Karaarslan Bike',
+        metaDescription:
+          'Rent a bike in Freiburg ✓ days 1 to 7 priced individually per bike ✓ fixed extra-day surcharge from day 8 ✓ lock & helmet included. Karaarslan Bike.',
+        excerpt:
+          'Everything you need to know about bike rental in Freiburg: prices, pickup, included equipment and tips for exploring the city.',
+        tldr: 'Karaarslan Bike rents bikes with individually configured daily prices per bike. Days 1 to 7 use the bike-specific rate, and from day 8 onward the 7-day price is extended by a fixed extra-day surcharge. Lock & helmet included. Deposit: €300 cash.',
+        sections: [
+          {
+            type: 'heading',
+            content: 'Bike Rental in Freiburg — How It Works',
+          },
+          {
+            type: 'paragraph',
+            content:
+              'Karaarslan Bike offers bike rental at fair prices with no hidden costs. Just come to An der Wethmarheide 45, Garagennummer 255, choose your bike and ride off. No reservation required for walk-ins — we have city bikes, trekking bikes and e-bikes ready to go.',
+          },
+          { type: 'heading', content: 'Bike Rental Prices in Freiburg' },
+          {
+            type: 'list',
+            items: [
+              'Days 1 to 7: individually configured per bike',
+              'From day 8: 7-day price plus fixed surcharge per extra day',
+              'Exact price list is shown next to each bike',
+            ],
+          },
+          { type: 'heading', content: "What's included?" },
+          {
+            type: 'list',
+            items: [
+              'Folding lock',
+              'Bicycle basket',
+              'Deposit: €300 cash (fully refunded on return)',
+            ],
+          },
+          {
+            type: 'tip',
+            content:
+              'Tourist tip: check the exact day-by-day list on the bike you want. For longer rentals you will also see the fixed surcharge that applies after day 7.',
+          },
+          {
+            type: 'heading',
+            content: 'Where to pick up your rental bike in Freiburg',
+          },
+          {
+            type: 'paragraph',
+            content:
+              'Karaarslan Bike is located at An der Wethmarheide 45, Garagennummer 255, 79114 Lünen — in the Haslach district. Easily reachable by tram or car (free parking available). Opening hours: Mon, Tue, Thu 11:00–17:30 | Wed 14:00–17:30 | Fri 11:00–13:00 & 15:00–18:00 | Sat 11:30–17:00.',
+          },
+          {
+            type: 'heading',
+            content: 'Frequently Asked Questions — Bike Rental Freiburg',
+          },
+          {
+            type: 'list',
+            items: [
+              'Do I need to book in advance? No reservation needed — just walk in during opening hours.',
+              'Can I rent an e-bike? Yes, subject to availability. Contact us via WhatsApp to check.',
+              'Is there a helmet included? Yes, helmets are available free of charge.',
+              'What if I return the bike late? A late fee of €12 per started day is charged.',
+              'Can I rent for just a few hours? Minimum rental period is 1 day.',
+            ],
+          },
+          {
+            type: 'cta',
+            content: 'Book your rental bike now',
+            link: '/fahrradverleih',
+            linkText: 'Reserve a Bike',
+          },
+        ],
+      },
+      fr: {
+        title:
+          'Location de vélos à Fribourg — Tarifs, Conseils & Réservation 2026',
+        metaTitle:
+          'Location vélo Fribourg 2026 — Tarifs journaliers par vélo | Karaarslan Bike',
+        metaDescription:
+          'Louer un vélo à Fribourg-en-Brisgau ✓ tarifs 1 à 7 jours définis par vélo ✓ supplément fixe à partir du 8e jour ✓ cadenas & casque inclus. Karaarslan Bike.',
+        excerpt:
+          'Tout ce que vous devez savoir sur la location de vélos à Fribourg : tarifs, retrait, équipement inclus et conseils pour explorer la ville.',
+        tldr: 'Karaarslan Bike loue des vélos avec des tarifs journaliers définis individuellement pour chaque vélo. De 1 à 7 jours, le prix dépend du vélo choisi, puis le tarif 7 jours est prolongé par un supplément fixe par jour ajouté. Cadenas & casque inclus. Caution : 300 € en espèces.',
+        sections: [
+          {
+            type: 'heading',
+            content: 'Location de vélos à Fribourg — Comment ça marche',
+          },
+          {
+            type: 'paragraph',
+            content:
+              'Karaarslan Bike propose la location de vélos à des prix transparents, sans frais cachés. Venez simplement au An der Wethmarheide 45, Garagennummer 255, choisissez votre vélo et partez. Pas de réservation obligatoire — vélos de ville, VTC et VAE disponibles immédiatement.',
+          },
+          { type: 'heading', content: 'Tarifs location vélo Fribourg' },
+          {
+            type: 'list',
+            items: [
+              '1 à 7 jours : tarif configuré individuellement par vélo',
+              'À partir du 8e jour : prix 7 jours + supplément fixe par jour ajouté',
+              'La liste exacte des prix apparaît à côté de chaque vélo',
+            ],
+          },
+          { type: 'heading', content: "Qu'est-ce qui est inclus ?" },
+          {
+            type: 'list',
+            items: [
+              'Cadenas pliable',
+              'Panier vélo',
+              'Caution : 300 € en espèces (intégralement remboursée au retour)',
+            ],
+          },
+          {
+            type: 'tip',
+            content:
+              'Conseil pour les visiteurs alsaciens : Fribourg est à seulement 25 km de la frontière française. Louez un vélo chez nous et découvrez les pistes cyclables le long du Rhin, la Forêt-Noire ou le centre historique de Fribourg.',
+          },
+          {
+            type: 'heading',
+            content: 'Où récupérer votre vélo de location à Fribourg',
+          },
+          {
+            type: 'paragraph',
+            content:
+              'Karaarslan Bike se trouve au An der Wethmarheide 45, Garagennummer 255, 79114 Fribourg-en-Brisgau, dans le quartier Haslach. Facilement accessible en tramway ou en voiture (parking gratuit). Horaires : lun, mar, jeu 11h00–17h30 | mer 14h00–17h30 | ven 11h00–13h00 & 15h00–18h00 | sam 11h30–17h00.',
+          },
+          { type: 'heading', content: 'FAQ — Location vélo Fribourg' },
+          {
+            type: 'list',
+            items: [
+              "Faut-il réserver à l'avance ? Non, venez simplement pendant les heures d'ouverture.",
+              'Peut-on louer un VAE (vélo électrique) ? Oui, sous réserve de disponibilité. Contactez-nous via WhatsApp.',
+              'Le casque est-il inclus ? Oui, casques disponibles gratuitement.',
+              "Que se passe-t-il si je rends le vélo en retard ? Des frais de 12 € par jour entamé s'appliquent.",
+            ],
+          },
+          {
+            type: 'cta',
+            content: 'Réserver votre vélo maintenant',
+            link: '/fahrradverleih',
+            linkText: 'Réserver un vélo',
+          },
+        ],
+      },
+      tr: {
+        title: "Freiburg'da Bisiklet Kiralama — Fiyatlar & Rezervasyon 2026",
+        metaTitle:
+          'Freiburg Bisiklet Kiralama 2026 — Bisiklet Bazlı Günlük Fiyat | Karaarslan Bike',
+        metaDescription:
+          "Freiburg'da bisiklet kiralayın ✓ 1-7 gün için bisiklet bazlı fiyat ✓ 8. günden sonra sabit ek gün ücreti ✓ kilit & kask dahil ✓ Karaarslan Bike.",
+        excerpt:
+          "Freiburg'da bisiklet kiralama hakkında bilmeniz gereken her şey: fiyatlar, teslim, dahil ekipman ve ipuçları.",
+        tldr: 'Karaarslan Bike her bisiklet için günlük fiyatları ayrı tanımlar. 1-7 gün arasında seçilen bisikletin fiyatı geçerlidir, 8. günden sonra ise 7 günlük fiyatın üstüne sabit ek gün ücreti eklenir. Kilit & kask dahil. Depozito: 300 € nakit.',
+        sections: [
+          {
+            type: 'heading',
+            content: "Freiburg'da Bisiklet Kiralama — Nasıl Çalışır",
+          },
+          {
+            type: 'paragraph',
+            content:
+              "Karaarslan Bike gizli masraf olmadan uygun fiyatlarla bisiklet kiralar. An der Wethmarheide 45, Garagennummer 255'ye gelin, bisikletinizi seçin ve yola çıkın.",
+          },
+          {
+            type: 'cta',
+            content: 'Şimdi bisiklet rezervasyonu yapın',
+            link: '/fahrradverleih',
+            linkText: 'Rezervasyon',
+          },
+        ],
+      },
+    },
+  },
+
+  // ─── Article 10: Buy Used Bike Freiburg Expat Guide (EN-first) ───
+  {
+    slug: 'buy-used-bike-freiburg-expat',
+    slugTranslations: {
+      en: 'buy-used-bike-freiburg-expat',
+      fr: 'acheter-velo-occasion-fribourg-guide',
+      de: 'gebrauchtes-fahrrad-kaufen-freiburg-expat',
+    },
+    coverImage: 'assets/blog/gebrauchtes-fahrrad.webp',
+    date: '2026-05-01',
+    readingTime: 6,
+    category: 'guide',
+    tags: [
+      'buy used bike freiburg',
+      'second hand bike freiburg',
+      'used bicycle freiburg',
+      'expat freiburg bike',
+      'acheter vélo Fribourg',
+    ],
+    relatedSlugs: [
+      'gebrauchtes-fahrrad-kaufen-tipps',
+      'bike-rental-freiburg-guide',
+    ],
+    translations: {
+      de: {
+        title:
+          'Gebrauchtes Fahrrad kaufen in Freiburg — Expat & Studenten Guide',
+        metaTitle:
+          'Gebrauchtes Fahrrad Freiburg kaufen — Expat Guide | Karaarslan Bike',
+        metaDescription:
+          'Gebrauchtes Fahrrad in Freiburg kaufen als Expat oder Student ✓ Über 100 Räder ✓ Ab 80 € ✓ 3 Monate Garantie ✓ Persönliche Beratung auf Englisch. Karaarslan Bike.',
+        excerpt:
+          'Als Expat oder Student in Freiburg? So finden Sie schnell und sicher ein gebrauchtes Fahrrad.',
+        tldr: 'Karaarslan Bike bietet über 100 geprüfte neue und gebrauchte Fahrräder ab 80 €. Englischsprachige Beratung möglich. 3 Monate Garantie. An der Wethmarheide 45, Garagennummer 255.',
+        sections: [
+          {
+            type: 'heading',
+            content: 'Als Expat in Freiburg: Warum ein Fahrrad?',
+          },
+          {
+            type: 'paragraph',
+            content:
+              'Freiburg hat über 420 km Radwege — eines der besten Fahrradnetze Deutschlands. Als Expat oder Student ist ein Fahrrad das günstigste und schnellste Fortbewegungsmittel.',
+          },
+          {
+            type: 'cta',
+            content: 'Zum Showroom',
+            link: '/showroom',
+            linkText: 'Fahrräder ansehen',
+          },
+        ],
+      },
+      en: {
+        title: 'Buy a Used Bike in Freiburg — Expat & Student Guide 2026',
+        metaTitle:
+          'Buy Used Bike Freiburg — Expat & Student Guide | Karaarslan Bike',
+        metaDescription:
+          'Buy a used or new bike in Freiburg ✓ 100+ bikes in stock ✓ From €80 ✓ 3-month warranty ✓ English-speaking staff ✓ Test ride available. Karaarslan Bike.',
+        excerpt:
+          'Moving to Freiburg? This guide covers everything expats and students need to know about buying a used or new bike in Freiburg — without the headache.',
+        tldr: 'Karaarslan Bike has 100+ inspected bikes from €80. English-speaking staff available. 3-month warranty on used bikes, 24-month on new. Free test rides. Located at An der Wethmarheide 45, Garagennummer 255, Freiburg.',
+        sections: [
+          {
+            type: 'heading',
+            content: 'Why Every Expat in Freiburg Needs a Bike',
+          },
+          {
+            type: 'paragraph',
+            content:
+              "Freiburg has over 420 km of cycling paths — one of Germany's best cycling networks. As an expat or student, a bike is the fastest and cheapest way to get around the city, reach the university, or explore the Black Forest on weekends.",
+          },
+          { type: 'heading', content: 'Where to Buy a Used Bike in Freiburg' },
+          {
+            type: 'paragraph',
+            content:
+              'Karaarslan Bike at An der Wethmarheide 45, Garagennummer 255 is the go-to shop for English-speaking residents. We carry 100+ new and used bikes, all technically inspected. English spoken — no appointment needed, just walk in.',
+          },
+          { type: 'heading', content: 'Used Bike Prices in Freiburg' },
+          {
+            type: 'list',
+            items: [
+              'Budget city bikes: from €80–€200',
+              'Quality trekking bikes: €200–€500',
+              'Used e-bikes: from €800',
+              'New bikes with 2-year warranty: from €350',
+            ],
+          },
+          { type: 'heading', content: 'Warranty & Returns' },
+          {
+            type: 'paragraph',
+            content:
+              'All used bikes come with a 3-month warranty covering chain, gears, dynamo, pedals and hydraulic brakes. 3-day return policy. New bikes carry a 24-month warranty.',
+          },
+          {
+            type: 'heading',
+            content: 'What to Bring When Buying a Bike in Germany',
+          },
+          {
+            type: 'list',
+            items: [
+              'ID or passport (for purchase contract)',
+              'Payment: cash, debit card, PayPal, or bank transfer accepted',
+              'No German bank account needed — cash is fine',
+            ],
+          },
+          {
+            type: 'tip',
+            content:
+              'Tip: Freiburg is very flat in the city center but has hills heading toward the Black Forest. A trekking bike or e-bike is ideal if you live in districts like Günterstal, Kappel or Gundelfingen.',
+          },
+          {
+            type: 'heading',
+            content: 'FAQ — Buying a Bike in Freiburg as an Expat',
+          },
+          {
+            type: 'list',
+            items: [
+              "Do I need to register a bike in Germany? No, bikes don't need to be registered. But we recommend a frame number sticker for theft protection.",
+              'Is there a bike lock included? Locks are sold separately from €15. We have a great selection in-store.',
+              'Can I pay in cash? Yes. We also accept EC card, PayPal, and bank transfer.',
+              'Do you speak English? Yes — our staff can assist you in English.',
+            ],
+          },
+          {
+            type: 'cta',
+            content: 'Browse our bike showroom',
+            link: '/showroom',
+            linkText: 'View All Bikes',
+          },
+        ],
+      },
+      fr: {
+        title: 'Acheter un vélo à Fribourg — Guide pour francophones 2026',
+        metaTitle:
+          'Acheter vélo Fribourg — Guide complet 2026 | Karaarslan Bike',
+        metaDescription:
+          "Acheter un vélo neuf ou d'occasion à Fribourg-en-Brisgau ✓ 100+ vélos en stock ✓ Dès 80 € ✓ 3 mois de garantie ✓ Conseils en français. Karaarslan Bike.",
+        excerpt:
+          'Vous habitez ou visitez Fribourg ? Ce guide vous explique tout ce que les francophones doivent savoir pour acheter un vélo à Fribourg, sans complication.',
+        tldr: "Karaarslan Bike propose 100+ vélos inspectés dès 80 €. Garantie 3 mois sur les vélos d'occasion, 24 mois sur les neufs. Essais gratuits. An der Wethmarheide 45, Garagennummer 255, Fribourg. À 25 km de l'Alsace.",
+        sections: [
+          { type: 'heading', content: 'Pourquoi acheter un vélo à Fribourg ?' },
+          {
+            type: 'paragraph',
+            content:
+              "Fribourg-en-Brisgau est l'une des villes les plus cyclables d'Allemagne, avec plus de 420 km de pistes cyclables. Que vous soyez alsacien, étudiant Erasmus ou résident francophone, un vélo est le moyen le plus pratique et économique pour vous déplacer.",
+          },
+          { type: 'heading', content: 'Où acheter un vélo à Fribourg ?' },
+          {
+            type: 'paragraph',
+            content:
+              "Karaarslan Bike, au An der Wethmarheide 45, Garagennummer 255, est le magasin de référence pour les francophones à Fribourg. Nous disposons de 100+ vélos neufs et d'occasion, tous contrôlés techniquement. Pas de rendez-vous nécessaire — venez directement.",
+          },
+          { type: 'heading', content: 'Prix des vélos à Fribourg' },
+          {
+            type: 'list',
+            items: [
+              "Vélos de ville d'occasion : dès 80–200 €",
+              'VTC de qualité : 200–500 €',
+              "VAE (vélo électrique) d'occasion : dès 800 €",
+              'Vélos neufs avec garantie 2 ans : dès 350 €',
+            ],
+          },
+          { type: 'heading', content: 'Garantie & retours' },
+          {
+            type: 'paragraph',
+            content:
+              "Tous les vélos d'occasion sont garantis 3 mois (chaîne, vitesses, dynamo, pédales, freins hydrauliques). Droit de retour de 3 jours. Les vélos neufs bénéficient d'une garantie de 24 mois.",
+          },
+          {
+            type: 'tip',
+            content:
+              "Bon à savoir pour les Alsaciens : Fribourg n'est qu'à 25 km de la frontière française. Vous pouvez venir acheter votre vélo le matin et repartir à vélo l'après-midi !",
+          },
+          {
+            type: 'cta',
+            content: 'Voir notre sélection de vélos',
+            link: '/showroom',
+            linkText: 'Showroom',
+          },
+        ],
+      },
+      tr: {
+        title: "Freiburg'da İkinci El Bisiklet Al — Expat & Öğrenci Rehberi",
+        metaTitle:
+          "Freiburg'da İkinci El Bisiklet Alma — Expat Rehberi | Karaarslan Bike",
+        metaDescription:
+          "Freiburg'da ikinci el veya yeni bisiklet satın alın ✓ 100+ bisiklet ✓ 80 €'dan ✓ 3 ay garanti ✓ Türkçe konuşan personel. Karaarslan Bike.",
+        excerpt:
+          "Freiburg'a yeni mi taşındınız? Expat ve öğrenciler için Freiburg'da bisiklet alma rehberi.",
+        tldr: "Karaarslan Bike 80 €'dan 100+ kontrol edilmiş bisiklet sunuyor. İkinci el bisikletlerde 3 ay, yenilerde 24 ay garanti. Ücretsiz deneme sürüşü. An der Wethmarheide 45, Garagennummer 255.",
+        sections: [
+          { type: 'heading', content: "Freiburg'da Neden Bisiklet?" },
+          {
+            type: 'paragraph',
+            content:
+              "Freiburg'un 420 km'den fazla bisiklet yolu var. Expat veya öğrenci olarak bisiklet en ucuz ve hızlı ulaşım aracıdır.",
+          },
+          {
+            type: 'cta',
+            content: 'Bisikletlere göz at',
+            link: '/showroom',
+            linkText: "Showroom'a Git",
+          },
+        ],
+      },
+    },
+  },
+
+  // ─── Article 11: Cycling in Freiburg — Routes & Rentals (EN-first) ───
+  {
+    slug: 'cycling-freiburg-routes-guide',
+    slugTranslations: {
+      en: 'cycling-freiburg-routes-guide',
+      fr: 'faire-velo-fribourg-itineraires-guide',
+      de: 'radfahren-freiburg-routen-guide',
+    },
+    coverImage: 'assets/blog/fahrradladen-freiburg.webp',
+    date: '2026-05-01',
+    readingTime: 8,
+    category: 'guide',
+    tags: [
+      'cycling freiburg',
+      'bike routes freiburg',
+      'vélo Fribourg tourisme',
+      'Rhin à Vélo',
+      'schwarzwald radfahren',
+    ],
+    relatedSlugs: [
+      'bike-rental-freiburg-guide',
+      'buy-used-bike-freiburg-expat',
+    ],
+    translations: {
+      de: {
+        title: 'Radfahren in Freiburg — Die besten Routen & Tipps 2026',
+        metaTitle:
+          'Radfahren in Freiburg — Routen, Verleih & Tipps 2026 | Karaarslan Bike',
+        metaDescription:
+          'Die besten Fahrradrouten in Freiburg ✓ Schwarzwald, Rhein, Innenstadt ✓ Fahrradverleih mit individuellen Tagespreisen pro Fahrrad ✓ Tipps für Touristen & Einwohner. Karaarslan Bike.',
+        excerpt:
+          'Freiburg ist eines der fahrradfreundlichsten Städte Deutschlands. Die besten Routen, Sehenswürdigkeiten und Verleih-Tipps.',
+        tldr: 'Freiburg hat 420+ km Radwege. Top-Routen: Schlossberg (2 km), Dreisam-Radweg (12 km), Rhein-Radweg EV15. Fahrrad mieten bei Karaarslan Bike mit individuellen Tagespreisen pro Fahrrad.',
+        sections: [
+          {
+            type: 'heading',
+            content: 'Warum Freiburg ideal für Radfahrer ist',
+          },
+          {
+            type: 'paragraph',
+            content:
+              'Freiburg wurde mehrfach als fahrradfreundlichste Großstadt Deutschlands ausgezeichnet. Über 420 km Radwege, eine flache Innenstadt und hervorragende Anbindung an Schwarzwald und Rhein machen die Stadt zum Paradies für Radfahrer.',
+          },
+          {
+            type: 'heading',
+            content: 'Die besten Fahrradrouten in und um Freiburg',
+          },
+          {
+            type: 'list',
+            items: [
+              'Schlossberg-Rundtour (2 km): Einfache Tour mit herrlichem Blick über Freiburg.',
+              'Dreisam-Radweg (12 km): Entspannt entlang des Flusses nach Kirchzarten.',
+              'Rhein-Radweg EV15 (beliebig): Flaches Fahren entlang des Rheins Richtung Basel oder Breisach.',
+              'Kaiserstuhl-Runde (50 km): Wein, Natur und Aussicht — für Konditionierte.',
+              'Schwarzwald-Einstieg: Von Freiburg nach Staufen oder ins Münstertal.',
+            ],
+          },
+          {
+            type: 'cta',
+            content: 'Fahrrad für Ihre Tour mieten',
+            link: '/fahrradverleih',
+            linkText: 'Zum Verleih',
+          },
+        ],
+      },
+      en: {
+        title: 'Cycling in Freiburg — Best Routes, Rentals & Tips 2026',
+        metaTitle:
+          'Cycling in Freiburg 2026 — Routes, Bike Rental & Tips | Karaarslan Bike',
+        metaDescription:
+          'Best cycling routes in Freiburg ✓ Black Forest, Rhine, City ✓ Bike rental with daily pricing per bike ✓ Tips for tourists & residents. Your guide to cycling in Freiburg.',
+        excerpt:
+          "Freiburg is one of Germany's most bike-friendly cities. Discover the best cycling routes, how to rent a bike, and everything you need to explore the city on two wheels.",
+        tldr: 'Freiburg has 420+ km of cycling paths. Top routes: Schlossberg viewpoint (2 km), Dreisam river path (12 km), Rhine Cycle Route EV15. Rent a bike from Karaarslan Bike with daily pricing configured per bike.',
+        sections: [
+          {
+            type: 'heading',
+            content: "Why Freiburg is Germany's Best Cycling City",
+          },
+          {
+            type: 'paragraph',
+            content:
+              "Freiburg has won the title of Germany's most bike-friendly city multiple times. With 420+ km of cycle paths, a flat city center, and stunning access to the Black Forest and Rhine, it's a paradise for cyclists of all levels.",
+          },
+          {
+            type: 'heading',
+            content: 'Best Cycling Routes in and around Freiburg',
+          },
+          {
+            type: 'list',
+            items: [
+              "Schlossberg Loop (2 km): Easy ride with a spectacular view over Freiburg's old town.",
+              'Dreisam River Path (12 km): Relaxed cycling along the river toward Kirchzarten.',
+              'Rhine Cycle Route EV15 (unlimited): Flat cycling along the Rhine toward Basel or Breisach.',
+              'Kaiserstuhl Circuit (50 km): Wine country, nature and views — for experienced cyclists.',
+              'Black Forest entry routes: From Freiburg toward Staufen or the Münstertal valley.',
+            ],
+          },
+          {
+            type: 'heading',
+            content: 'How to Rent a Bike in Freiburg for Your Route',
+          },
+          {
+            type: 'paragraph',
+            content:
+              'Karaarslan Bike at An der Wethmarheide 45, Garagennummer 255 is the ideal starting point for your cycling adventure. We offer city bikes, trekking bikes and e-bikes with daily prices configured per bike. Lock and basket included. No reservation required.',
+          },
+          { type: 'heading', content: 'Cycling Tips for Tourists in Freiburg' },
+          {
+            type: 'list',
+            items: [
+              'Helmets are not legally required but strongly recommended.',
+              'Most city routes are flat — a standard city bike is sufficient.',
+              'For Black Forest trails, consider a trekking bike or e-bike.',
+              'The Rhine Cycle Route (EV15) passes just 20 minutes from Freiburg.',
+              'Freiburg has excellent bike parking at the main train station (Fahrradstation).',
+            ],
+          },
+          {
+            type: 'tip',
+            content:
+              "Pro tip: The EuroVelo 15 (Rhine Cycle Route) is one of Europe's most scenic cycling routes. Pick up your bike at Karaarslan Bike and join the route at Breisach or Neuenburg — just 20–30 minutes away.",
+          },
+          {
+            type: 'cta',
+            content: 'Rent a bike for your Freiburg adventure',
+            link: '/fahrradverleih',
+            linkText: 'Rent a Bike',
+          },
+        ],
+      },
+      fr: {
+        title:
+          'Faire du vélo à Fribourg — Itinéraires, Location & Conseils 2026',
+        metaTitle:
+          'Vélo à Fribourg 2026 — Itinéraires, Location & Conseils | Karaarslan Bike',
+        metaDescription:
+          "Les meilleurs itinéraires vélo à Fribourg ✓ Forêt-Noire, Rhin, Centre-ville ✓ Location avec tarifs journaliers par vélo ✓ Rhin à Vélo ✓ À 25 km de l'Alsace. Karaarslan Bike.",
+        excerpt:
+          "Fribourg-en-Brisgau est l'une des villes les plus cyclables d'Allemagne. Découvrez les meilleurs itinéraires, comment louer un vélo et tout ce qu'il faut savoir pour explorer la région à deux roues.",
+        tldr: 'Fribourg compte 420+ km de pistes cyclables. Itinéraires phares : tour du Schlossberg (2 km), piste cyclable de la Dreisam (12 km), Rhin à Vélo EV15. Location vélo chez Karaarslan Bike avec tarifs journaliers définis par vélo.',
+        sections: [
+          {
+            type: 'heading',
+            content: 'Pourquoi Fribourg est la capitale allemande du vélo',
+          },
+          {
+            type: 'paragraph',
+            content:
+              "Fribourg-en-Brisgau est régulièrement élue ville la plus cyclable d'Allemagne. Avec plus de 420 km de pistes cyclables, un centre-ville plat et un accès exceptionnel à la Forêt-Noire et au Rhin, c'est un paradis pour les cyclistes.",
+          },
+          {
+            type: 'heading',
+            content: 'Les meilleurs itinéraires vélo à Fribourg',
+          },
+          {
+            type: 'list',
+            items: [
+              'Tour du Schlossberg (2 km) : Balade facile avec une vue spectaculaire sur la vieille ville.',
+              'Piste cyclable de la Dreisam (12 km) : Balade tranquille le long de la rivière vers Kirchzarten.',
+              'Rhin à Vélo EV15 : Cyclisme à plat le long du Rhin vers Bâle ou Breisach.',
+              'Circuit du Kaiserstuhl (50 km) : Vignobles, nature et panoramas.',
+              'Accès à la Forêt-Noire : De Fribourg vers Staufen ou la vallée de Münster.',
+            ],
+          },
+          {
+            type: 'heading',
+            content: 'Comment louer un vélo à Fribourg pour votre itinéraire',
+          },
+          {
+            type: 'paragraph',
+            content:
+              'Karaarslan Bike au An der Wethmarheide 45, Garagennummer 255 est le point de départ idéal pour votre aventure cycliste. Nous proposons des vélos de ville, VTC et VAE avec des tarifs journaliers définis par vélo. Cadenas et panier inclus. Pas de réservation obligatoire.',
+          },
+          {
+            type: 'heading',
+            content:
+              'Le Rhin à Vélo depuis Fribourg — Conseils pour les Alsaciens',
+          },
+          {
+            type: 'paragraph',
+            content:
+              "La piste cyclable EuroVelo 15 (Rhin à Vélo) est l'un des itinéraires les plus beaux d'Europe. Fribourg se trouve à 20 minutes à vélo du Rhin. Partez de chez nous, rejoignez Breisach ou Neuenburg et découvrez l'itinéraire rhénan franco-allemand.",
+          },
+          {
+            type: 'tip',
+            content:
+              "Idéal pour les Alsaciens : Louez votre vélo à Fribourg le matin, faites le Rhin à Vélo jusqu'à Breisach et rentrez en train avec votre vélo (vélos acceptés dans les trains régionaux). Une journée inoubliable !",
+          },
+          {
+            type: 'cta',
+            content: 'Louer un vélo pour votre aventure à Fribourg',
+            link: '/fahrradverleih',
+            linkText: 'Louer un vélo',
+          },
+        ],
+      },
+      tr: {
+        title: "Freiburg'da Bisiklet Rotaları — Kiralama & İpuçları 2026",
+        metaTitle:
+          'Freiburg Bisiklet Rotaları 2026 — Kiralama & Rehber | Karaarslan Bike',
+        metaDescription:
+          "Freiburg'da en iyi bisiklet rotaları ✓ Schwarzwald, Ren, Şehir Merkezi ✓ bisiklet bazlı günlük kiralama fiyatları ✓ Turist ve sakinler için ipuçları.",
+        excerpt:
+          "Freiburg, Almanya'nın en bisiklet dostu şehirlerinden biri. En iyi rotalar, bisiklet kiralama ve iki tekerlekle keşif rehberi.",
+        tldr: "Freiburg 420+ km bisiklet yoluna sahip. En iyi rotalar: Schlossberg (2 km), Dreisam nehir yolu (12 km), Ren Bisiklet Rotası EV15. Karaarslan Bike'da bisiklet bazlı günlük fiyatlarla kiralama yapılır.",
+        sections: [
+          {
+            type: 'heading',
+            content: "Freiburg Neden Almanya'nın En İyi Bisiklet Şehri?",
+          },
+          {
+            type: 'paragraph',
+            content:
+              "Freiburg 420+ km bisiklet yoluyla Almanya'nın en bisiklet dostu şehri unvanını defalarca kazanmıştır.",
+          },
+          {
+            type: 'cta',
+            content: 'Bisiklet kirala',
+            link: '/fahrradverleih',
+            linkText: 'Kiralama Sayfası',
+          },
+        ],
+      },
+    },
+  },
+];

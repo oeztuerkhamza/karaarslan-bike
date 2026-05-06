@@ -5,12 +5,12 @@
 
   <!-- Homepage German (Default) -->
   <url>
-    <loc>https://[DOMAIN]/de</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://[DOMAIN]/de"/>
+    <loc>https://karaarslan-bike.de/de</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://karaarslan-bike.de/de"/>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -18,12 +18,12 @@
 
   <!-- Showroom -->
   <url>
-    <loc>https://[DOMAIN]/de/showroom</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/showroom"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/showroom"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/showroom"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/showroom"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://[DOMAIN]/de/showroom"/>
+    <loc>https://karaarslan-bike.de/de/showroom</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/showroom"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/showroom"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/showroom"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/showroom"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://karaarslan-bike.de/de/showroom"/>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.97</priority>
@@ -31,11 +31,11 @@
 
   <!-- About -->
   <url>
-    <loc>https://[DOMAIN]/de/about</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/about"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/about"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/about"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/about"/>
+    <loc>https://karaarslan-bike.de/de/about</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/about"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/about"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/about"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -43,11 +43,11 @@
 
   <!-- Contact -->
   <url>
-    <loc>https://[DOMAIN]/de/contact</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/contact"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/contact"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/contact"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/contact"/>
+    <loc>https://karaarslan-bike.de/de/contact</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/contact"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -55,12 +55,12 @@
 
   <!-- Ratgeber (Blog) -->
   <url>
-    <loc>https://[DOMAIN]/de/ratgeber</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/ratgeber"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/ratgeber"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/ratgeber"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/ratgeber"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://[DOMAIN]/de/ratgeber"/>
+    <loc>https://karaarslan-bike.de/de/ratgeber</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/ratgeber"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/ratgeber"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://karaarslan-bike.de/de/ratgeber"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
@@ -68,12 +68,12 @@
 
   <!-- FAQ -->
   <url>
-    <loc>https://[DOMAIN]/de/faq</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/faq"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/faq"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/faq"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/faq"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://[DOMAIN]/de/faq"/>
+    <loc>https://karaarslan-bike.de/de/faq</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/faq"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/faq"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/faq"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/faq"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://karaarslan-bike.de/de/faq"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -81,94 +81,148 @@
 
   <!-- Blog Articles -->
   <url>
-    <loc>https://[DOMAIN]/de/ratgeber/gebrauchtes-fahrrad-kaufen-tipps</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/ratgeber/gebrauchtes-fahrrad-kaufen-tipps"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/ratgeber/gebrauchtes-fahrrad-kaufen-tipps"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/ratgeber/gebrauchtes-fahrrad-kaufen-tipps"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/ratgeber/gebrauchtes-fahrrad-kaufen-tipps"/>
+    <loc>https://karaarslan-bike.de/de/ratgeber/gebrauchtes-fahrrad-kaufen-tipps</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/gebrauchtes-fahrrad-kaufen-tipps"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/ratgeber/gebrauchtes-fahrrad-kaufen-tipps"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/ratgeber/gebrauchtes-fahrrad-kaufen-tipps"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber/gebrauchtes-fahrrad-kaufen-tipps"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://[DOMAIN]/de/ratgeber/welches-fahrrad-passt-zu-mir</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/ratgeber/welches-fahrrad-passt-zu-mir"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/ratgeber/welches-fahrrad-passt-zu-mir"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/ratgeber/welches-fahrrad-passt-zu-mir"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/ratgeber/welches-fahrrad-passt-zu-mir"/>
+    <loc>https://karaarslan-bike.de/de/ratgeber/welches-fahrrad-passt-zu-mir</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/welches-fahrrad-passt-zu-mir"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/ratgeber/welches-fahrrad-passt-zu-mir"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/ratgeber/welches-fahrrad-passt-zu-mir"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber/welches-fahrrad-passt-zu-mir"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://[DOMAIN]/de/ratgeber/fahrrad-rahmengroesse-berechnen</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/ratgeber/fahrrad-rahmengroesse-berechnen"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/ratgeber/fahrrad-rahmengroesse-berechnen"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/ratgeber/fahrrad-rahmengroesse-berechnen"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/ratgeber/fahrrad-rahmengroesse-berechnen"/>
+    <loc>https://karaarslan-bike.de/de/ratgeber/fahrrad-rahmengroesse-berechnen</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/fahrrad-rahmengroesse-berechnen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/bike-frame-size-calculator-guide"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/calculer-taille-cadre-velo"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber/fahrrad-rahmengroesse-berechnen"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://[DOMAIN]/de/ratgeber/e-bike-gebraucht-kaufen</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/ratgeber/e-bike-gebraucht-kaufen"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/ratgeber/e-bike-gebraucht-kaufen"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/ratgeber/e-bike-gebraucht-kaufen"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/ratgeber/e-bike-gebraucht-kaufen"/>
+    <loc>https://karaarslan-bike.de/de/ratgeber/e-bike-gebraucht-kaufen</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/e-bike-gebraucht-kaufen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/buying-used-e-bike-guide"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/acheter-velo-electrique-occasion"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber/e-bike-gebraucht-kaufen"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://[DOMAIN]/de/ratgeber/fahrradladen-lünen</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/ratgeber/fahrradladen-lünen"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/ratgeber/fahrradladen-lünen"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/ratgeber/fahrradladen-lünen"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/ratgeber/fahrradladen-lünen"/>
+    <loc>https://karaarslan-bike.de/de/ratgeber/fahrradladen-freiburg</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/fahrradladen-freiburg"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/bike-shop-freiburg"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/magasin-velo-fribourg"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber/fahrradladen-freiburg"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://[DOMAIN]/de/ratgeber/kinderfahrrad-groesse</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/ratgeber/kinderfahrrad-groesse"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/ratgeber/kinderfahrrad-groesse"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/ratgeber/kinderfahrrad-groesse"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/ratgeber/kinderfahrrad-groesse"/>
+    <loc>https://karaarslan-bike.de/de/ratgeber/kinderfahrrad-groesse</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/kinderfahrrad-groesse"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/childrens-bike-size-guide"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/taille-velo-enfant-guide"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber/kinderfahrrad-groesse"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://[DOMAIN]/de/ratgeber/fahrrad-inspektion-kosten</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/ratgeber/fahrrad-inspektion-kosten"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/ratgeber/fahrrad-inspektion-kosten"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/ratgeber/fahrrad-inspektion-kosten"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/ratgeber/fahrrad-inspektion-kosten"/>
+    <loc>https://karaarslan-bike.de/de/ratgeber/fahrrad-inspektion-kosten</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/fahrrad-inspektion-kosten"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/bike-inspection-cost-freiburg"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/revision-velo-cout-fribourg"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber/fahrrad-inspektion-kosten"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://[DOMAIN]/de/ratgeber/fahrrad-pendler-stadtraeder</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/ratgeber/fahrrad-pendler-stadtraeder"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/ratgeber/fahrrad-pendler-stadtraeder"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/ratgeber/fahrrad-pendler-stadtraeder"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/ratgeber/fahrrad-pendler-stadtraeder"/>
+    <loc>https://karaarslan-bike.de/de/ratgeber/fahrrad-pendler-stadtraeder</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/fahrrad-pendler-stadtraeder"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/commuter-bike-freiburg-guide"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/velo-pendulaire-fribourg-guide"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber/fahrrad-pendler-stadtraeder"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
+  <!-- Blog Articles 1-2 with correct EN/FR slugs -->
+  <url>
+    <loc>https://karaarslan-bike.de/de/ratgeber/gebrauchtes-fahrrad-kaufen-tipps</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/gebrauchtes-fahrrad-kaufen-tipps"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/buying-used-bike-freiburg-tips"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/acheter-velo-occasion-fribourg-conseils"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber/gebrauchtes-fahrrad-kaufen-tipps"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://karaarslan-bike.de/de/ratgeber/welches-fahrrad-passt-zu-mir</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/welches-fahrrad-passt-zu-mir"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/which-bike-is-right-for-me"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/quel-velo-me-convient"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber/welches-fahrrad-passt-zu-mir"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- New Articles 9-11 (DE) -->
+  <url>
+    <loc>https://karaarslan-bike.de/de/ratgeber/fahrradverleih-freiburg-guide</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/fahrradverleih-freiburg-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/bike-rental-freiburg-guide"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/location-velo-fribourg-guide"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber/fahrradverleih-freiburg-guide"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://karaarslan-bike.de/de/ratgeber/gebrauchtes-fahrrad-kaufen-freiburg-expat</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/gebrauchtes-fahrrad-kaufen-freiburg-expat"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/buy-used-bike-freiburg-expat"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/acheter-velo-occasion-fribourg-guide"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber/gebrauchtes-fahrrad-kaufen-freiburg-expat"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://karaarslan-bike.de/de/ratgeber/radfahren-freiburg-routen-guide</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/radfahren-freiburg-routen-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/cycling-freiburg-routes-guide"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/faire-velo-fribourg-itineraires-guide"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber/radfahren-freiburg-routen-guide"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+
   <!-- Neue Fahrräder -->
   <url>
-    <loc>https://[DOMAIN]/de/neue-fahrraeder</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/neue-fahrraeder"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/neue-fahrraeder"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/neue-fahrraeder"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/neue-fahrraeder"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://[DOMAIN]/de/neue-fahrraeder"/>
+    <loc>https://karaarslan-bike.de/de/neue-fahrraeder</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/neue-fahrraeder"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/neue-fahrraeder"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/neue-fahrraeder"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/neue-fahrraeder"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://karaarslan-bike.de/de/neue-fahrraeder"/>
     <lastmod>2026-05-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.92</priority>
@@ -176,12 +230,12 @@
 
   <!-- Zubehör -->
   <url>
-    <loc>https://[DOMAIN]/de/zubehoer</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/zubehoer"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/zubehoer"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/zubehoer"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/zubehoer"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://[DOMAIN]/de/zubehoer"/>
+    <loc>https://karaarslan-bike.de/de/zubehoer</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/zubehoer"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/zubehoer"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/zubehoer"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/zubehoer"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://karaarslan-bike.de/de/zubehoer"/>
     <lastmod>2026-05-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.82</priority>
@@ -189,12 +243,12 @@
 
   <!-- Fahrradverleih -->
   <url>
-    <loc>https://[DOMAIN]/de/fahrradverleih</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/fahrradverleih"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/fahrradverleih"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/fahrradverleih"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/fahrradverleih"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://[DOMAIN]/de/fahrradverleih"/>
+    <loc>https://karaarslan-bike.de/de/fahrradverleih</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/fahrradverleih"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/fahrradverleih"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/fahrradverleih"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/fahrradverleih"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://karaarslan-bike.de/de/fahrradverleih"/>
     <lastmod>2026-05-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
@@ -202,11 +256,11 @@
 
   <!-- Garantie -->
   <url>
-    <loc>https://[DOMAIN]/de/garantie</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/garantie"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/garantie"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/garantie"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/garantie"/>
+    <loc>https://karaarslan-bike.de/de/garantie</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/garantie"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/garantie"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/garantie"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/garantie"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -214,51 +268,51 @@
 
   <!-- City Landing Pages (Local SEO) -->
   <url>
-    <loc>https://[DOMAIN]/de/fahrrad-emmendingen</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/fahrrad-emmendingen"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/fahrrad-emmendingen"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/fahrrad-emmendingen"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/fahrrad-emmendingen"/>
+    <loc>https://karaarslan-bike.de/de/fahrrad-emmendingen</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/fahrrad-emmendingen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/fahrrad-emmendingen"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/fahrrad-emmendingen"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/fahrrad-emmendingen"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://[DOMAIN]/de/fahrrad-bad-krozingen</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/fahrrad-bad-krozingen"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/fahrrad-bad-krozingen"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/fahrrad-bad-krozingen"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/fahrrad-bad-krozingen"/>
+    <loc>https://karaarslan-bike.de/de/fahrrad-bad-krozingen</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/fahrrad-bad-krozingen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/fahrrad-bad-krozingen"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/fahrrad-bad-krozingen"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/fahrrad-bad-krozingen"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://[DOMAIN]/de/fahrrad-breisach</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/fahrrad-breisach"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/fahrrad-breisach"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/fahrrad-breisach"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/fahrrad-breisach"/>
+    <loc>https://karaarslan-bike.de/de/fahrrad-breisach</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/fahrrad-breisach"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/fahrrad-breisach"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/fahrrad-breisach"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/fahrrad-breisach"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://[DOMAIN]/de/fahrrad-gundelfingen</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/fahrrad-gundelfingen"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/fahrrad-gundelfingen"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/fahrrad-gundelfingen"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/fahrrad-gundelfingen"/>
+    <loc>https://karaarslan-bike.de/de/fahrrad-gundelfingen</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/fahrrad-gundelfingen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/fahrrad-gundelfingen"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/fahrrad-gundelfingen"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/fahrrad-gundelfingen"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://[DOMAIN]/de/fahrrad-march</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/fahrrad-march"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/fahrrad-march"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/fahrrad-march"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/fahrrad-march"/>
+    <loc>https://karaarslan-bike.de/de/fahrrad-march</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/fahrrad-march"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/fahrrad-march"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/fahrrad-march"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/fahrrad-march"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -266,102 +320,334 @@
 
   <!-- English Pages -->
   <url>
-    <loc>https://[DOMAIN]/en</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://[DOMAIN]/de"/>
+    <loc>https://karaarslan-bike.de/en</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://karaarslan-bike.de/de"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://[DOMAIN]/en/showroom</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/showroom"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/showroom"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/showroom"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/showroom"/>
+    <loc>https://karaarslan-bike.de/en/showroom</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/showroom"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/showroom"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/showroom"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/showroom"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://[DOMAIN]/en/contact</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/contact"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/contact"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/contact"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/contact"/>
+    <loc>https://karaarslan-bike.de/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/contact"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <!-- English Guide pages -->
+  <url>
+    <loc>https://karaarslan-bike.de/en/guide</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://karaarslan-bike.de/de/ratgeber"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://karaarslan-bike.de/en/guide/buying-used-bike-freiburg-tips</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/gebrauchtes-fahrrad-kaufen-tipps"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/buying-used-bike-freiburg-tips"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/acheter-velo-occasion-fribourg-conseils"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber/gebrauchtes-fahrrad-kaufen-tipps"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://karaarslan-bike.de/en/guide/which-bike-is-right-for-me</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/welches-fahrrad-passt-zu-mir"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/which-bike-is-right-for-me"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/quel-velo-me-convient"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber/welches-fahrrad-passt-zu-mir"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://karaarslan-bike.de/en/guide/bike-frame-size-calculator-guide</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/fahrrad-rahmengroesse-berechnen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/bike-frame-size-calculator-guide"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/calculer-taille-cadre-velo"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber/fahrrad-rahmengroesse-berechnen"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://karaarslan-bike.de/en/guide/buying-used-e-bike-guide</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/e-bike-gebraucht-kaufen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/buying-used-e-bike-guide"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/acheter-velo-electrique-occasion"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber/e-bike-gebraucht-kaufen"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://karaarslan-bike.de/en/guide/bike-shop-freiburg</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/fahrradladen-freiburg"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/bike-shop-freiburg"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/magasin-velo-fribourg"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber/fahrradladen-freiburg"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://karaarslan-bike.de/en/guide/childrens-bike-size-guide</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/kinderfahrrad-groesse"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/childrens-bike-size-guide"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/taille-velo-enfant-guide"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber/kinderfahrrad-groesse"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://karaarslan-bike.de/en/guide/bike-inspection-cost-freiburg</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/fahrrad-inspektion-kosten"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/bike-inspection-cost-freiburg"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/revision-velo-cout-fribourg"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber/fahrrad-inspektion-kosten"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://karaarslan-bike.de/en/guide/commuter-bike-freiburg-guide</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/fahrrad-pendler-stadtraeder"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/commuter-bike-freiburg-guide"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/velo-pendulaire-fribourg-guide"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber/fahrrad-pendler-stadtraeder"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://karaarslan-bike.de/en/guide/bike-rental-freiburg-guide</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/fahrradverleih-freiburg-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/bike-rental-freiburg-guide"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/location-velo-fribourg-guide"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber/fahrradverleih-freiburg-guide"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://karaarslan-bike.de/en/guide/buy-used-bike-freiburg-expat</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/gebrauchtes-fahrrad-kaufen-freiburg-expat"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/buy-used-bike-freiburg-expat"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/acheter-velo-occasion-fribourg-guide"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber/gebrauchtes-fahrrad-kaufen-freiburg-expat"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://karaarslan-bike.de/en/guide/cycling-freiburg-routes-guide</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/radfahren-freiburg-routen-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/cycling-freiburg-routes-guide"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/faire-velo-fribourg-itineraires-guide"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber/radfahren-freiburg-routen-guide"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
   </url>
 
   <!-- French Pages -->
   <url>
-    <loc>https://[DOMAIN]/fr</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://[DOMAIN]/de"/>
+    <loc>https://karaarslan-bike.de/fr</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://karaarslan-bike.de/de"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://[DOMAIN]/fr/showroom</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/showroom"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/showroom"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/showroom"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/showroom"/>
+    <loc>https://karaarslan-bike.de/fr/showroom</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/showroom"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/showroom"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/showroom"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/showroom"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://[DOMAIN]/fr/contact</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/contact"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/contact"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/contact"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/contact"/>
+    <loc>https://karaarslan-bike.de/fr/contact</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/contact"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <!-- French Guide pages -->
+  <url>
+    <loc>https://karaarslan-bike.de/fr/guide</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/ratgeber"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://karaarslan-bike.de/de/ratgeber"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://karaarslan-bike.de/fr/guide/acheter-velo-occasion-fribourg-conseils</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/gebrauchtes-fahrrad-kaufen-tipps"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/buying-used-bike-freiburg-tips"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/acheter-velo-occasion-fribourg-conseils"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://karaarslan-bike.de/fr/guide/quel-velo-me-convient</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/welches-fahrrad-passt-zu-mir"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/which-bike-is-right-for-me"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/quel-velo-me-convient"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://karaarslan-bike.de/fr/guide/calculer-taille-cadre-velo</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/fahrrad-rahmengroesse-berechnen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/bike-frame-size-calculator-guide"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/calculer-taille-cadre-velo"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://karaarslan-bike.de/fr/guide/acheter-velo-electrique-occasion</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/e-bike-gebraucht-kaufen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/buying-used-e-bike-guide"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/acheter-velo-electrique-occasion"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://karaarslan-bike.de/fr/guide/magasin-velo-fribourg</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/fahrradladen-freiburg"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/bike-shop-freiburg"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/magasin-velo-fribourg"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://karaarslan-bike.de/fr/guide/taille-velo-enfant-guide</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/kinderfahrrad-groesse"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/childrens-bike-size-guide"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/taille-velo-enfant-guide"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://karaarslan-bike.de/fr/guide/revision-velo-cout-fribourg</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/fahrrad-inspektion-kosten"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/bike-inspection-cost-freiburg"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/revision-velo-cout-fribourg"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://karaarslan-bike.de/fr/guide/velo-pendulaire-fribourg-guide</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/fahrrad-pendler-stadtraeder"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/commuter-bike-freiburg-guide"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/velo-pendulaire-fribourg-guide"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://karaarslan-bike.de/fr/guide/location-velo-fribourg-guide</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/fahrradverleih-freiburg-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/bike-rental-freiburg-guide"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/location-velo-fribourg-guide"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://karaarslan-bike.de/fr/guide/acheter-velo-occasion-fribourg-guide</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/gebrauchtes-fahrrad-kaufen-freiburg-expat"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/buy-used-bike-freiburg-expat"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/acheter-velo-occasion-fribourg-guide"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://karaarslan-bike.de/fr/guide/faire-velo-fribourg-itineraires-guide</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/radfahren-freiburg-routen-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/cycling-freiburg-routes-guide"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/faire-velo-fribourg-itineraires-guide"/>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
 
   <!-- Turkish Pages -->
   <url>
-    <loc>https://[DOMAIN]/tr</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://[DOMAIN]/de"/>
+    <loc>https://karaarslan-bike.de/tr</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://karaarslan-bike.de/de"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://[DOMAIN]/tr/showroom</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/showroom"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/showroom"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/showroom"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/showroom"/>
+    <loc>https://karaarslan-bike.de/tr/showroom</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/showroom"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/showroom"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/showroom"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/showroom"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://[DOMAIN]/tr/contact</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://[DOMAIN]/de/contact"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://[DOMAIN]/en/contact"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://[DOMAIN]/fr/contact"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://[DOMAIN]/tr/contact"/>
+    <loc>https://karaarslan-bike.de/tr/contact</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://karaarslan-bike.de/tr/contact"/>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
 </urlset>
-

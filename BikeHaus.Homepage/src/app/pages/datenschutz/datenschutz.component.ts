@@ -43,8 +43,8 @@ import { TranslationService } from '../../services/translation.service';
             <p>
               Karaarslan Bike<br />
               An der Wethmarheide 45, Garagennummer 255<br />
-              44534 Lünen<br />
-              E-Mail: karaarslan-bike.de&#64;gmail.com
+              79114 Lünen<br />
+              E-Mail: bikehausfreiburg&#64;gmail.com
             </p>
           </section>
 
@@ -98,9 +98,9 @@ import { TranslationService } from '../../services/translation.service';
             <p>
               Karaarslan Bike<br />
               An der Wethmarheide 45, Garagennummer 255<br />
-              44534 Lünen<br />
-              E-Mail: karaarslan-bike.de&#64;gmail.com<br />
-              WhatsApp: +49 163 7390301
+              79114 Lünen<br />
+              E-Mail: bikehausfreiburg&#64;gmail.com<br />
+              WhatsApp: +49 155 6630 0011
             </p>
             <p>
               Verantwortliche Stelle ist die natürliche oder juristische Person,
@@ -364,4 +364,3 @@ export class DatenschutzComponent implements OnInit {
     this.metaService.updateTag({ name: 'robots', content: 'noindex, follow' });
   }
 }
-

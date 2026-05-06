@@ -73,7 +73,7 @@ interface FaqItem {
                 t().faqCtaButton
               }}</a>
               <a
-                href="https://wa.me/491637390301"
+                href="https://wa.me/4915566300011"
                 target="_blank"
                 rel="noopener"
                 class="btn-secondary"
@@ -236,11 +236,7 @@ interface FaqItem {
 
       .faq-page {
         background:
-          radial-gradient(
-            circle at top,
-            rgba(255, 87, 34, 0.08),
-            transparent 30%
-          ),
+          radial-gradient(circle at top, rgba(255, 87, 34, 0.08), transparent 30%),
           linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 22%),
           var(--color-bg);
       }
@@ -287,11 +283,7 @@ interface FaqItem {
       .faq-cta {
         border-radius: 24px;
         background:
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.045),
-            rgba(255, 255, 255, 0.015)
-          ),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
           var(--color-surface, #111);
         border-color: rgba(255, 255, 255, 0.08);
         box-shadow: 0 18px 44px rgba(0, 0, 0, 0.16);

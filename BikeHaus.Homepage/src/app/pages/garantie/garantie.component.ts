@@ -236,4 +236,3 @@ export class GarantieComponent implements OnInit {
     this.metaService.updateTag({ name: 'robots', content: 'index, follow' });
   }
 }
-

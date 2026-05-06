@@ -44,7 +44,7 @@ import { PublicShopInfo } from '../../models/models';
             </div>
             <div class="card-content">
               <h3>WhatsApp</h3>
-              <p>+49 163 7390301</p>
+              <p>+49 155 6630 0011</p>
               <span class="card-hint">{{ t().contactWhatsappHint }}</span>
             </div>
             <svg
@@ -61,7 +61,7 @@ import { PublicShopInfo } from '../../models/models';
           </a>
 
           <!-- Email -->
-          <a href="mailto:karaarslan-bike.de&#64;gmail.com" class="contact-card">
+          <a href="mailto:bikehausfreiburg&#64;gmail.com" class="contact-card">
             <div class="card-icon">
               <svg
                 width="24"
@@ -79,7 +79,7 @@ import { PublicShopInfo } from '../../models/models';
             </div>
             <div class="card-content">
               <h3>{{ t().email }}</h3>
-              <p>karaarslan-bike.de&#64;gmail.com</p>
+              <p>bikehausfreiburg&#64;gmail.com</p>
               <span class="card-hint">{{ t().contactEmailHint }}</span>
             </div>
             <svg
@@ -97,7 +97,7 @@ import { PublicShopInfo } from '../../models/models';
 
           <!-- Address -->
           <a
-            href="https://maps.google.com/?q=Heckerstra%C3%9Fe+27+Lünen+im+Breisgau"
+            href="https://maps.google.com/?q=Heckerstra%C3%9Fe+27+Freiburg+im+Breisgau"
             target="_blank"
             rel="noopener"
             class="contact-card"
@@ -119,7 +119,7 @@ import { PublicShopInfo } from '../../models/models';
               <h3>{{ t().address }}</h3>
               <p>An der Wethmarheide 45, Garagennummer 255</p>
               <p class="sub">
-                44534 Lünen
+                79114 Lünen
                 <span class="district">· Haslach</span>
               </p>
             </div>
@@ -192,7 +192,7 @@ import { PublicShopInfo } from '../../models/models';
           <h2>{{ t().visitUs }}</h2>
           <div class="map-container">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2669.5!2d7.8194!3d47.9877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47911c9e1e000001%3A0x1!2sHeckerstra%C3%9Fe+27%2C+79117+Lünen+im+Breisgau!5e0!3m2!1sde!2sde!4v1"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2669.5!2d7.8194!3d47.9877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47911c9e1e000001%3A0x1!2sHeckerstra%C3%9Fe+27%2C+79117+Freiburg+im+Breisgau!5e0!3m2!1sde!2sde!4v1"
               width="100%"
               height="400"
               style="border:0; border-radius: 16px;"
@@ -778,7 +778,7 @@ export class ContactComponent implements OnInit {
   }
 
   private getWhatsappPhone(): string {
-    const tel = this.shopInfo()?.telefon || '+49 163 7390301';
+    const tel = this.shopInfo()?.telefon || '+49 155 6630 0011';
     return tel.replace(/[^0-9]/g, '');
   }
 
@@ -792,4 +792,3 @@ export class ContactComponent implements OnInit {
     return `https://wa.me/${phone}?text=${message}`;
   }
 }
-

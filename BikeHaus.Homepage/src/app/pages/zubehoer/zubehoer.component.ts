@@ -744,4 +744,3 @@ export class ZubehoerComponent implements OnInit {
     img.style.display = 'none';
   }
 }
-

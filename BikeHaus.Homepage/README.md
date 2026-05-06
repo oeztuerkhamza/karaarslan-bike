@@ -1,6 +1,6 @@
-# Bike Haus Freiburg - Public Homepage
+# Karaarslan Bike - Public Homepage
 
-Public website for Bike Haus Freiburg, serving the customer-facing storefront at `bikehausfreiburg.com`.
+Public website for Karaarslan Bike, serving the customer-facing storefront at `karaarslan-bike.de`.
 
 ## Tech Stack
 

@@ -321,4 +321,3 @@ export class FooterComponent {
   logoUrl = this.shopInfoService.logoUrl;
   year = new Date().getFullYear();
 }
-

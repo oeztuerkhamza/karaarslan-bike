@@ -295,6 +295,21 @@ export interface Translations {
   rentalStatusSelected: string;
   rentalSundayLabel: string;
 
+  // Rental Reviews
+  rentalReviewsTitle: string;
+  rentalReviewsSubtitle: string;
+  rentalReviewsNoReviews: string;
+  rentalReviewsFormTitle: string;
+  rentalReviewsFormName: string;
+  rentalReviewsFormEmail: string;
+  rentalReviewsFormStars: string;
+  rentalReviewsFormComment: string;
+  rentalReviewsFormSubmit: string;
+  rentalReviewsFormSending: string;
+  rentalReviewsFormSuccess: string;
+  rentalReviewsFormError: string;
+  rentalReviewsFormValidation: string;
+
   // General
   loading: string;
   error: string;
@@ -534,9 +549,10 @@ export interface Translations {
 
 const TRANSLATIONS: Record<Language, Translations> = {
   de: {
-    metaTitle: 'Fahrrad kaufen & mieten Lünen | Karaarslan Bike',
+    metaTitle:
+      'Fahrradladen Freiburg — Fahrrad kaufen & mieten | Karaarslan Bike',
     metaDescription:
-      'Fahrrad kaufen & mieten in Lünen ✓ Über 100 geprüfte Räder ✓ City, Trekking, E-Bike ✓ 3 Monate Garantie ✓ Fahrradverleih ab 6,80 €/Tag. Persönlich & fair.',
+      'Ihr Fahrradladen in Freiburg Haid ✓ Neue & gebrauchte Räder kaufen ✓ E-Bike, City, Trekking, Kinderfahrrad ✓ Fahrradverleih mit tagesgenauen Preisen pro Fahrrad ✓ 3 Monate Garantie. Kein Termin — An der Wethmarheide 45, Garagennummer 255!',
 
     home: 'Start',
     showroom: 'Showroom',
@@ -544,9 +560,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     about: 'Über uns',
     contact: 'Kontakt',
 
-    heroH1: 'Fahrräder in Lünen — neu & gebraucht.',
+    heroH1: 'Fahrräder in Freiburg — neu & gebraucht.',
     heroSub:
-      'Neue und geprüfte Gebrauchträder in Lünen — fair bewertet, nachhaltig aufbereitet, persönlich beraten.',
+      'Über 100 geprüfte Fahrräder ✓ E-Bike, City & Trekking ✓ Fahrradverleih mit individuellen Tagespreisen je Fahrrad ✓ 3 Monate Garantie ✓ Sofort fahrbereit — An der Wethmarheide 45, Garagennummer 255, Freiburg.',
     ctaPrimary: 'Neue Fahrräder entdecken',
     ctaSecondary: 'Showroom ansehen',
 
@@ -635,9 +651,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Mechanik trifft Leidenschaft. Jedes Rad wird mit Sorgfalt behandelt.',
 
     galleryLabel: 'UNSER LADEN',
-    galleryTitle: 'Einblicke in unser Karaarslan Bike.',
+    galleryTitle: 'Einblicke in unser Bike Haus.',
     gallerySub:
-      'Schauen Sie sich unseren Laden in Lünen an — hier warten Ihre nächsten Räder auf Sie.',
+      'Schauen Sie sich unseren Laden in Freiburg an — hier warten Ihre nächsten Räder auf Sie.',
 
     bikeCheckLabel: 'SERVICE',
     bikeCheckTitle: 'Kostenloser Fahrrad-Check!',
@@ -688,7 +704,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     address: 'Adresse',
     visitUs: 'Besuchen Sie uns',
 
-    footerTagline: 'Neue & gebrauchte Fahrräder in Lünen.',
+    footerTagline: 'Neue & gebrauchte Fahrräder in Freiburg.',
     quickLinks: 'Navigation',
     legalNotice: 'Impressum',
     privacy: 'Datenschutz',
@@ -718,9 +734,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     bikeRentalPageLabel: 'SERVICE',
     bikeRentalPageTitle: 'Fahrradverleih – Einfach und flexibel',
     bikeRentalIntro:
-      'Entdecken Sie Lünen bequem mit dem Fahrrad. Mieten Sie bei uns Fahrräder zu günstigen Preisen und ohne Aufwand.',
+      'Entdecken Sie Freiburg bequem mit dem Fahrrad. Mieten Sie bei uns Fahrräder zu günstigen Preisen und ohne Aufwand.',
     bikeRentalPricesTitle: 'Fahrradmiete Preise',
-    bikeRentalHeroPrice: '1 Tag -> 12 €',
+    bikeRentalHeroPrice: '1-7 Tage individuell',
     bikeRentalTierShort: 'Kurzzeit',
     bikeRentalTierPopular: 'Beliebt',
     bikeRentalTierTop: 'Am beliebtesten',
@@ -730,19 +746,19 @@ const TRANSLATIONS: Record<Language, Translations> = {
     bikeRentalDurationDay1: '1 Tag',
     bikeRentalDurationDay3: '3 Tage',
     bikeRentalDurationDay7: '7 Tage',
-    bikeRentalDurationDay14: '14 Tage',
-    bikeRentalDurationDay30: '30 Tage',
-    bikeRentalDurationFromDay10: 'Ab 10 Tagen',
-    bikeRentalPriceDay1: '12 €',
-    bikeRentalPriceDay3: '30 €',
-    bikeRentalPriceDay7: '55 €',
-    bikeRentalPriceDay14: '95 €',
-    bikeRentalPriceDay30: '160 €',
-    bikeRentalPriceAddon: '6,50 € / Tag',
-    bikeRentalDay1: '1 Tag: 12 €',
-    bikeRentalDay7: '7 Tage: 55 €',
-    bikeRentalDay8Plus: 'Ab 10 Tagen: 6,50 € / Tag',
-    bikeRentalMonth: '30 Tage: 160 €',
+    bikeRentalDurationDay14: 'Ab Tag 8',
+    bikeRentalDurationDay30: 'Langzeit',
+    bikeRentalDurationFromDay10: 'Zusatztag',
+    bikeRentalPriceDay1: 'manuell',
+    bikeRentalPriceDay3: 'je Fahrrad',
+    bikeRentalPriceDay7: '1-7 Tage',
+    bikeRentalPriceDay14: '7-Tage-Basis',
+    bikeRentalPriceDay30: '+ Zusatz',
+    bikeRentalPriceAddon: 'pro weiterem Tag',
+    bikeRentalDay1: '1-7 Tage: individuell',
+    bikeRentalDay7: '7 Tage: Basispreis',
+    bikeRentalDay8Plus: 'Ab Tag 8: fixer Zusatz pro Tag',
+    bikeRentalMonth: 'Langzeit: automatisch berechnet',
     bikeRentalDepositTitle: 'Kaution',
     bikeRentalDepositText:
       'Die Mietgebühr wird im Voraus bezahlt. Zusätzlich ist pro Fahrrad eine Kaution in Höhe von 300 € in bar zu hinterlegen. Bei ordnungsgemäßer Rückgabe ohne Schäden oder Verluste wird die Kaution vollständig erstattet.',
@@ -764,7 +780,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     rentalHeroTitle: 'Fahrrad mieten',
     rentalHeroSub:
-      'Sofort verfügbar – fair, flexibel, ohne versteckte Kosten. Direkt bei uns in Lünen abholen.',
+      'Sofort verfügbar – fair, flexibel, ohne versteckte Kosten. Direkt bei uns in Freiburg abholen.',
     rentalHeroWaCta: 'Fragen? WhatsApp',
     rentalHeroScrollCta: 'Fahrrad auswählen & jetzt reservieren',
     rentalPricingTitle: 'Fair. Transparent. Ohne Extras.',
@@ -798,6 +814,22 @@ const TRANSLATIONS: Record<Language, Translations> = {
     rentalStatusSelected: 'Ausgewählt',
     rentalSundayLabel: 'Sonntag',
 
+    rentalReviewsTitle: 'Kundenbewertungen',
+    rentalReviewsSubtitle: 'Was unsere Kunden sagen',
+    rentalReviewsNoReviews: 'Noch keine Bewertungen vorhanden.',
+    rentalReviewsFormTitle: 'Bewertung hinterlassen',
+    rentalReviewsFormName: 'Ihr Name',
+    rentalReviewsFormEmail: 'E-Mail (optional)',
+    rentalReviewsFormStars: 'Bewertung',
+    rentalReviewsFormComment: 'Ihr Kommentar',
+    rentalReviewsFormSubmit: 'Bewertung absenden',
+    rentalReviewsFormSending: 'Wird gesendet...',
+    rentalReviewsFormSuccess:
+      'Danke! Ihre Bewertung wird nach Prüfung veröffentlicht.',
+    rentalReviewsFormError:
+      'Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.',
+    rentalReviewsFormValidation: 'Bitte füllen Sie Name und Kommentar aus.',
+
     loading: 'Wird geladen...',
     error: 'Ein Fehler ist aufgetreten.',
     noResults: 'Keine Ergebnisse.',
@@ -810,7 +842,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     testimonialsLabel: 'KUNDENSTIMMEN',
     testimonialsTitle: 'Was unsere Kunden sagen',
-    testimonialsSub: 'Über 500 zufriedene Kunden in Lünen vertrauen uns',
+    testimonialsSub: 'Über 500 zufriedene Kunden in Freiburg vertrauen uns',
 
     repairLabel: 'WERKSTATT',
     repairTitle: 'Unsere Reparaturen',
@@ -860,15 +892,16 @@ const TRANSLATIONS: Record<Language, Translations> = {
     aboutHeadline: 'Mehr als nur Fahrräder.',
     aboutHeadlineAccent: 'Eine Leidenschaft.',
     aboutIntroText:
-      'Was als bescheidene Idee begann, ist heute ein Ort geworden, an dem Menschen aller Altersgruppen ihr perfektes Fahrrad finden. Als kleines Familienunternehmen in Lünen glauben wir daran, dass jedes Rad eine Geschichte erzählt — und jeder Mensch die Freiheit verdient, seine eigene Geschichte auf zwei Rädern zu schreiben.',
+      'Was als bescheidene Idee begann, ist heute ein Ort geworden, an dem Menschen aller Altersgruppen ihr perfektes Fahrrad finden. Als kleines Familienunternehmen in Freiburg glauben wir daran, dass jedes Rad eine Geschichte erzählt — und jeder Mensch die Freiheit verdient, seine eigene Geschichte auf zwei Rädern zu schreiben.',
     aboutFeatureInvoice: 'Rechnung & Kaufvertrag',
     aboutFeatureTrust: 'Vertrauen & Qualität',
     aboutQuote:
       'Jedes Fahrrad, das wir verkaufen, bringt Freude — und das ist der schönste Lohn.',
-    aboutQuoteAuthor: '— Die Familie hinter Karaarslan Bike',
-    aboutMetaTitle: 'Über uns — Karaarslan Bike | Ihr Fahrradhändler',
+    aboutQuoteAuthor: '— Die Familie hinter Bike Haus',
+    aboutMetaTitle:
+      'Über uns — Karaarslan Bike | Fahrradladen in Freiburg Haid',
     aboutMetaDescription:
-      'Lernen Sie Karaarslan Bike kennen. Fair, nachhaltig, persönlich — Ihr lokaler Fahrradhändler in Lünen für neue und gebrauchte Fahrräder.',
+      'Karaarslan Bike in Haid — Ihr persönlicher Fahrradladen seit 2020. Über 500 zufriedene Kunden ✓ 3 Monate Garantie ✓ Neue & gebrauchte Räder. Lernen Sie uns kennen!',
 
     // Brands
     brandsLabel: 'MARKEN',
@@ -912,12 +945,13 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     // Contact extended
     contactWhatsappHint: 'Direkt schreiben',
-    contactMetaTitle: 'Kontakt — Karaarslan Bike | Adresse & Öffnungszeiten',
+    contactMetaTitle:
+      'Fahrradladen Freiburg — Kontakt, Adresse & Öffnungszeiten | Bike Haus',
     contactMetaDescription:
-      'Kontaktieren Sie Karaarslan Bike. Adresse, Öffnungszeiten, WhatsApp, Telefon. Besuchen Sie uns in 44534 Lünen, Ruhr area.',
+      'Karaarslan Bike Haid — An der Wethmarheide 45, Garagennummer 255, 44534 Lünen ✓ Öffnungszeiten: Mo/Di/Do 11–17:30, Mi 14–17:30, Fr 11–13 & 15–18, Sa 11:30–17 ✓ WhatsApp: +49 155 6630 0011.',
 
     // Home trust badges
-    trustBadgeSince: 'Seit 2020 in Lünen',
+    trustBadgeSince: 'Seit 2020 in Freiburg',
     trustBadgeCustomers: '500+ zufriedene Kunden',
     ariaStarsRating: '5 von 5 Sternen',
 
@@ -929,13 +963,13 @@ const TRANSLATIONS: Record<Language, Translations> = {
     gearsUnit: 'Gänge',
     filterFrameSize: 'Rahmengröße (Size)',
     showroomMetaTitle:
-      'Gebrauchte Fahrräder kaufen Lünen | Showroom | Karaarslan Bike',
+      'Gebrauchte Fahrräder kaufen Freiburg | Showroom | Karaarslan Bike',
     showroomMetaDescription:
-      'Gebrauchte & neue Fahrräder kaufen in Lünen ✓ Über 100 geprüfte Räder ✓ City, Trekking, Mountain, E-Bike ✓ 3 Monate Garantie ✓ Sofort abholbereit. Karaarslan Bike.',
+      'Gebrauchte & neue Fahrräder kaufen in Freiburg ✓ Über 100 geprüfte Räder ✓ City, Trekking, Mountain, E-Bike ✓ 3 Monate Garantie ✓ Sofort abholbereit. Karaarslan Bike.',
 
     // Showroom detail
     detailMetaDescSuffix:
-      'Jetzt bei Karaarslan Bike in 44534 Lünen, Ruhr area ansehen.',
+      'Jetzt bei Karaarslan Bike in 79114 Lünen ansehen.',
     bikeFallbackCategory: 'Fahrrad',
 
     // Footer
@@ -959,9 +993,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     // Accessories page
     accessoriesMetaTitle:
-      'Fahrradzubehör Lünen | Helme, Taschen & Schlösser | Karaarslan Bike',
+      'Fahrradzubehör Freiburg | Helme, Taschen & Schlösser | Bike Haus',
     accessoriesMetaDescription:
-      'Fahrradzubehör in Lünen kaufen ✓ Helme, Taschen, Schlösser, Beleuchtung & mehr ✓ Direkt im Karaarslan Bike — An der Wethmarheide 45, Garagennummer 255, 44534 Lünen.',
+      'Fahrradzubehör in Freiburg kaufen ✓ Helme, Taschen, Schlösser, Beleuchtung & mehr ✓ Direkt im Karaarslan Bike — An der Wethmarheide 45, Garagennummer 255, 44534 Lünen.',
     accessoriesTitle: 'Zubehör',
     accessoriesSub: 'Taschen, Helme, Schlösser und mehr für Ihr Fahrrad.',
     accessoriesNoItems: 'Derzeit keine Zubehörartikel verfügbar.',
@@ -973,9 +1007,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     // Neue Fahrräder
     neueFahrraeder: 'Neue Fahrräder',
     neueFahrraederMetaTitle:
-      'Neue Fahrräder kaufen Lünen | City, Trekking, E-Bike | Karaarslan Bike',
+      'Neue Fahrräder kaufen Freiburg | City, Trekking, E-Bike | Bike Haus',
     neueFahrraederMetaDescription:
-      'Neue Fahrräder in Lünen kaufen ✓ City, Trekking, Mountain & E-Bikes ✓ 2 Jahre Garantie ✓ Sofort verfügbar ✓ Faire Preise. Jetzt im Showroom ansehen — Karaarslan Bike.',
+      'Neue Fahrräder in Freiburg kaufen ✓ City, Trekking, Mountain & E-Bikes ✓ 2 Jahre Garantie ✓ Sofort verfügbar ✓ Faire Preise. Jetzt im Showroom ansehen — Karaarslan Bike.',
     neueFahrraederTitle: 'Neue Fahrräder',
     neueFahrraederSub: 'Fabrikneue Räder mit 2 Jahren Geschäftsgarantie.',
     neueFahrraederBrand: 'Marke',
@@ -996,23 +1030,23 @@ const TRANSLATIONS: Record<Language, Translations> = {
     ratgeberLabel: 'Wissen & Tipps',
     ratgeberTitle: 'Fahrrad Ratgeber',
     ratgeberSub:
-      'Tipps, Checklisten und Wissenswertes rund ums Fahrrad — von Ihrem Fahrradhändler in Lünen.',
+      'Tipps, Checklisten und Wissenswertes rund ums Fahrrad — von Ihrem Fahrradhändler in Freiburg.',
     ratgeberMetaTitle: 'Fahrrad Ratgeber — Tipps & Wissen | Karaarslan Bike',
     ratgeberMetaDescription:
       'Fahrrad Ratgeber: Gebrauchtes Fahrrad kaufen, Rahmengröße berechnen, E-Bike Tipps und mehr. Expertenwissen von Karaarslan Bike.',
     ratgeberReadMore: 'Weiterlesen',
     ratgeberReadTime: 'Lesezeit',
-    ratgeberTip: 'Tipp von Karaarslan Bike',
+    ratgeberTip: 'Tipp von Bike Haus',
     ratgeberTldr: 'Zusammenfassung',
     ratgeberRelated: 'Weitere Ratgeber',
     ratgeberBackToList: 'Alle Ratgeber anzeigen',
-    faqMetaTitle: 'FAQ Fahrrad Lünen — Häufige Fragen | Karaarslan Bike',
+    faqMetaTitle: 'FAQ Fahrrad Freiburg — Häufige Fragen | Karaarslan Bike',
     faqMetaDescription:
-      'Häufige Fragen zu Fahrrad kaufen & mieten in Lünen: Garantie, E-Bikes, Probefahrt, Öffnungszeiten, Preise. Alle Antworten von Karaarslan Bike.',
+      'Häufige Fragen zu Fahrrad kaufen & mieten in Freiburg: Garantie, E-Bikes, Probefahrt, Öffnungszeiten, Preise. Alle Antworten von Karaarslan Bike.',
     bikeRentalMetaTitle:
-      'Fahrrad mieten Lünen ab 6,80 €/Tag | Karaarslan Bike',
+      'Fahrrad mieten Freiburg | Tagespreise pro Fahrrad | Karaarslan Bike',
     bikeRentalMetaDescription:
-      'Fahrradverleih Lünen — Cityrad, Trekking & E-Bike mieten ab 6,80 €/Tag. Helm & Schloss inklusive. Sofort abholen, kein Vorausbezahlen. ✓ Karaarslan Bike.',
+      'Fahrradverleih Freiburg — 1 bis 7 Tage pro Fahrrad individuell bepreist, ab Tag 8 mit festem Zusatzpreis. Helm & Schloss inklusive. Sofort abholen. ✓ Karaarslan Bike.',
     garantieMetaTitle: 'Garantiebedingungen — Karaarslan Bike',
     garantieMetaDescription:
       'Garantiebedingungen für neue und gebrauchte Fahrräder bei Karaarslan Bike. 2 Jahre für Neuräder, 3 Monate für Gebrauchträder.',
@@ -1024,9 +1058,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Datenschutzerklärung von Karaarslan Bike. Informationen zur Verarbeitung Ihrer personenbezogenen Daten.',
     faqCtaText: 'Noch Fragen? Kontaktieren Sie uns!',
     faqCtaButton: 'Kontakt aufnehmen',
-    faqQ1: 'Wo kann ich ein Fahrrad in Lünen kaufen?',
+    faqQ1: 'Wo kann ich ein Fahrrad in Freiburg kaufen?',
     faqA1:
-      'Bei Karaarslan Bike in der An der Wethmarheide 45, Garagennummer 255, 44534 Lünen im Ruhrgebiet. Wir haben über 100 neue und gebrauchte Fahrräder vorrätig — einfach vorbeikommen, kein Termin nötig.',
+      'Bei Karaarslan Bike in der An der Wethmarheide 45, Garagennummer 255, 79114 Lünen. Wir haben über 100 neue und gebrauchte Fahrräder vorrätig — einfach vorbeikommen, kein Termin nötig.',
     faqQ2: 'Kann ich ein Fahrrad vor dem Kauf probefahren?',
     faqA2:
       'Ja! Alle Fahrräder können während unserer Öffnungszeiten vor Ort probegefahren werden — ohne Termin, einfach vorbeikommen.',
@@ -1084,7 +1118,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     svcAngeboteBadge: 'Neue Fahrräder',
     svcAngeboteTitle: 'Neue Fahrräder',
     svcAngeboteSub:
-      'Fabrikneue Räder mit 2 Jahren Händlergarantie – direkt aus Lünen.',
+      'Fabrikneue Räder mit 2 Jahren Händlergarantie – direkt aus Freiburg.',
     svcAngeboteCta: 'Alle neuen Fahrräder',
 
     cityWarrantyIncl: 'Garantie inkl.',
@@ -1101,9 +1135,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
   },
 
   en: {
-    metaTitle: 'Buy & Rent a Bike in Lünen | Karaarslan Bike',
+    metaTitle: 'Buy & Rent a Bike in Freiburg | Karaarslan Bike',
     metaDescription:
-      'Buy or rent a bike in Lünen ✓ 100+ inspected bikes ✓ City, Trekking, E-Bike ✓ Bike rental from €6.80/day ✓ 3-month warranty. Your local bike shop in Lünen.',
+      'Bike shop in Freiburg Haid ✓ Buy or rent a bike ✓ 100+ inspected bikes ✓ City, Trekking, E-Bike ✓ Daily bike rental pricing per bike ✓ 3-month warranty. No appointment needed — An der Wethmarheide 45, Garagennummer 255!',
 
     home: 'Home',
     showroom: 'Showroom',
@@ -1111,9 +1145,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     about: 'About',
     contact: 'Contact',
 
-    heroH1: 'Bikes in Lünen — new & used.',
+    heroH1: 'Bikes in Freiburg — new & used.',
     heroSub:
-      'New and certified used bikes in Lünen — fair prices, sustainable refurbishment, personal advice.',
+      'Buy or rent a bike in Freiburg ✓ Inspected used bikes from €80 ✓ Bike rental with per-bike daily pricing ✓ City, Trekking & E-Bikes ✓ Pick up same day.',
     ctaPrimary: 'Discover New Bikes',
     ctaSecondary: 'View Showroom',
 
@@ -1200,8 +1234,8 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Mechanics meets passion. Every bike is treated with care.',
 
     galleryLabel: 'OUR SHOP',
-    galleryTitle: 'Inside our Karaarslan Bike.',
-    gallerySub: 'Take a look at our shop in Lünen — your next bike awaits.',
+    galleryTitle: 'Inside our Bike Haus.',
+    gallerySub: 'Take a look at our shop in Freiburg — your next bike awaits.',
 
     bikeCheckLabel: 'SERVICE',
     bikeCheckTitle: 'Free Bike Check!',
@@ -1250,7 +1284,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     address: 'Address',
     visitUs: 'Visit Us',
 
-    footerTagline: 'New & used bikes in Lünen.',
+    footerTagline: 'New & used bikes in Freiburg.',
     quickLinks: 'Navigation',
     legalNotice: 'Legal Notice',
     privacy: 'Privacy Policy',
@@ -1280,7 +1314,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     bikeRentalPageLabel: 'SERVICE',
     bikeRentalPageTitle: 'Bike Rental – Simple and Flexible',
     bikeRentalIntro:
-      'Discover Lünen comfortably by bike. Rent bicycles from us at affordable prices with no hassle.',
+      'Discover Freiburg comfortably by bike. Rent bicycles from us at affordable prices with no hassle.',
     bikeRentalPricesTitle: 'Bike Rental Prices',
     bikeRentalHeroPrice: '1 day -> 12 €',
     bikeRentalTierShort: 'Short-term',
@@ -1292,19 +1326,19 @@ const TRANSLATIONS: Record<Language, Translations> = {
     bikeRentalDurationDay1: '1 day',
     bikeRentalDurationDay3: '3 days',
     bikeRentalDurationDay7: '7 days',
-    bikeRentalDurationDay14: '14 days',
-    bikeRentalDurationDay30: '30 days',
-    bikeRentalDurationFromDay10: 'From 10 days',
-    bikeRentalPriceDay1: '12 €',
-    bikeRentalPriceDay3: '30 €',
-    bikeRentalPriceDay7: '55 €',
-    bikeRentalPriceDay14: '95 €',
-    bikeRentalPriceDay30: '160 €',
-    bikeRentalPriceAddon: '6.50 € / day',
-    bikeRentalDay1: '1 Day: 12 €',
-    bikeRentalDay7: '7 Days: 55 €',
-    bikeRentalDay8Plus: 'From day 10: 6.50 € per day',
-    bikeRentalMonth: '30 Days: 160 €',
+    bikeRentalDurationDay14: 'From day 8',
+    bikeRentalDurationDay30: 'Long rental',
+    bikeRentalDurationFromDay10: 'Extra day',
+    bikeRentalPriceDay1: 'manual',
+    bikeRentalPriceDay3: 'per bike',
+    bikeRentalPriceDay7: 'days 1-7',
+    bikeRentalPriceDay14: '7-day base',
+    bikeRentalPriceDay30: '+ surcharge',
+    bikeRentalPriceAddon: 'per added day',
+    bikeRentalDay1: '1-7 days: individual',
+    bikeRentalDay7: '7 days: base price',
+    bikeRentalDay8Plus: 'From day 8: fixed surcharge per day',
+    bikeRentalMonth: 'Long rental: automatic calculation',
     bikeRentalDepositTitle: 'Deposit',
     bikeRentalDepositText:
       'The rental fee is paid in advance. In addition, a cash deposit of 300 € is required per bicycle. If the bicycle is returned properly without damage or loss, the deposit is fully refunded.',
@@ -1325,7 +1359,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     rentalHeroTitle: 'Rent a bike',
     rentalHeroSub:
-      'Available immediately – fair, flexible, no hidden costs. Pick up directly from us in Lünen.',
+      'Available immediately – fair, flexible, no hidden costs. Pick up directly from us in Freiburg.',
     rentalHeroWaCta: 'Questions? WhatsApp',
     rentalHeroScrollCta: 'Choose a bike & reserve now',
     rentalPricingTitle: 'Fair. Transparent. No extras.',
@@ -1359,6 +1393,21 @@ const TRANSLATIONS: Record<Language, Translations> = {
     rentalStatusSelected: 'Selected',
     rentalSundayLabel: 'Sunday',
 
+    rentalReviewsTitle: 'Customer Reviews',
+    rentalReviewsSubtitle: 'What our customers say',
+    rentalReviewsNoReviews: 'No reviews yet.',
+    rentalReviewsFormTitle: 'Leave a Review',
+    rentalReviewsFormName: 'Your name',
+    rentalReviewsFormEmail: 'Email (optional)',
+    rentalReviewsFormStars: 'Rating',
+    rentalReviewsFormComment: 'Your comment',
+    rentalReviewsFormSubmit: 'Submit review',
+    rentalReviewsFormSending: 'Sending...',
+    rentalReviewsFormSuccess:
+      'Thank you! Your review will be published after review.',
+    rentalReviewsFormError: 'An error occurred. Please try again.',
+    rentalReviewsFormValidation: 'Please fill in your name and comment.',
+
     loading: 'Loading...',
     error: 'An error occurred.',
     noResults: 'No results.',
@@ -1371,7 +1420,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     testimonialsLabel: 'TESTIMONIALS',
     testimonialsTitle: 'What our customers say',
-    testimonialsSub: 'Over 500 satisfied customers in Lünen trust us',
+    testimonialsSub: 'Over 500 satisfied customers in Freiburg trust us',
 
     repairLabel: 'WORKSHOP',
     repairTitle: 'Our Repairs',
@@ -1417,12 +1466,12 @@ const TRANSLATIONS: Record<Language, Translations> = {
     aboutHeadline: 'More than just bikes.',
     aboutHeadlineAccent: 'A passion.',
     aboutIntroText:
-      'What started as a humble idea has become a place where people of all ages find their perfect bike. As a small family business in Lünen, we believe that every bike tells a story — and everyone deserves the freedom to write their own story on two wheels.',
+      'What started as a humble idea has become a place where people of all ages find their perfect bike. As a small family business in Freiburg, we believe that every bike tells a story — and everyone deserves the freedom to write their own story on two wheels.',
     aboutFeatureInvoice: 'Invoice & Purchase Contract',
     aboutFeatureTrust: 'Trust & Quality',
     aboutQuote:
       "Every bike we sell brings joy — and that's the greatest reward.",
-    aboutQuoteAuthor: '— The Family Behind Karaarslan Bike',
+    aboutQuoteAuthor: '— The Family Behind Bike Haus',
     aboutMetaTitle: 'About Us — Karaarslan Bike | Your Bicycle Dealer',
     aboutMetaDescription:
       'Get to know Karaarslan Bike. Fair, sustainable, personal — your local bicycle dealer in Lünen for new and used bikes.',
@@ -1467,9 +1516,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     contactWhatsappHint: 'Write directly',
     contactMetaTitle: 'Contact — Karaarslan Bike | Address & Hours',
     contactMetaDescription:
-      'Contact Karaarslan Bike. Address, opening hours, WhatsApp, phone. Visit us at 44534 Lünen, Ruhr area.',
+      'Karaarslan Bike ✓ An der Wethmarheide 45, Garagennummer 255, 44534 Lünen ✓ Mon–Sat 11am–5:30pm ✓ WhatsApp: +49 155 6630 0011 ✓ No appointment needed — just drop by!',
 
-    trustBadgeSince: 'In Lünen since 2020',
+    trustBadgeSince: 'In Freiburg since 2020',
     trustBadgeCustomers: '500+ satisfied customers',
     ariaStarsRating: '5 out of 5 stars',
 
@@ -1480,12 +1529,12 @@ const TRANSLATIONS: Record<Language, Translations> = {
     gearsUnit: 'gears',
     filterFrameSize: 'Frame Size',
     showroomMetaTitle:
-      'Buy Used Bikes in Lünen | Showroom | Karaarslan Bike',
+      'Buy Used Bikes in Freiburg | Showroom | Karaarslan Bike',
     showroomMetaDescription:
-      'Buy used & new bikes in Lünen ✓ 100+ inspected bikes ✓ City, Trekking, Mountain, E-Bike ✓ 3-month warranty ✓ Ready to ride. Karaarslan Bike.',
+      'Buy used & new bikes in Freiburg ✓ 100+ inspected bikes ✓ City, Trekking, Mountain, E-Bike ✓ 3-month warranty ✓ Ready to ride. Karaarslan Bike.',
 
     detailMetaDescSuffix:
-      'View now at Karaarslan Bike in 44534 Lünen, Ruhr area.',
+      'View now at Karaarslan Bike in 79114 Lünen.',
     bikeFallbackCategory: 'Bicycle',
 
     legalLabel: 'Legal',
@@ -1505,9 +1554,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     catSonstige: 'Other Bikes',
 
     accessoriesMetaTitle:
-      'Bike Accessories Lünen | Helmets, Bags & Locks | Karaarslan Bike',
+      'Bike Accessories Freiburg | Helmets, Bags & Locks | Bike Haus',
     accessoriesMetaDescription:
-      'Buy bike accessories in Lünen ✓ Helmets, bags, locks, lights & more ✓ In-store at Karaarslan Bike — An der Wethmarheide 45, Garagennummer 255, 44534 Lünen.',
+      'Buy bike accessories in Freiburg ✓ Helmets, bags, locks, lights & more ✓ In-store at Karaarslan Bike — An der Wethmarheide 45, Garagennummer 255, 44534 Lünen.',
     accessoriesTitle: 'Accessories',
     accessoriesSub: 'Bags, helmets, locks, and more for your bike.',
     accessoriesNoItems: 'No accessories available at the moment.',
@@ -1518,9 +1567,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     neueFahrraeder: 'New Bikes',
     neueFahrraederMetaTitle:
-      'New Bikes Lünen | City, Trekking & E-Bikes | Karaarslan Bike',
+      'New Bikes Freiburg | City, Trekking & E-Bikes | Karaarslan Bike',
     neueFahrraederMetaDescription:
-      'Buy new bikes in Lünen ✓ City, Trekking, Mountain & E-Bikes ✓ 2-year warranty ✓ In stock & ready to ride ✓ Fair prices. Visit our showroom — Karaarslan Bike.',
+      'Buy new bikes in Freiburg ✓ City, Trekking, Mountain & E-Bikes ✓ 2-year warranty ✓ In stock & ready to ride ✓ Fair prices. Visit our showroom — Karaarslan Bike.',
     neueFahrraederTitle: 'New Bikes',
     neueFahrraederSub: 'Brand new bikes with 2 years shop warranty.',
     neueFahrraederBrand: 'Brand',
@@ -1541,24 +1590,25 @@ const TRANSLATIONS: Record<Language, Translations> = {
     ratgeberLabel: 'Knowledge & Tips',
     ratgeberTitle: 'Bike Guide',
     ratgeberSub:
-      'Tips, checklists and everything you need to know about bikes — from your Lünen bike dealer.',
-    ratgeberMetaTitle: 'Bike Guide — Tips & Knowledge | Karaarslan Bike',
+      'Tips, checklists and everything you need to know about bikes — from your Freiburg bike dealer.',
+    ratgeberMetaTitle:
+      'Bike Guide Freiburg — Tips, Checklists & Advice | Karaarslan Bike',
     ratgeberMetaDescription:
-      'Bike guide: buying used bikes, frame size calculator, e-bike tips and more. Expert knowledge from Karaarslan Bike.',
+      'Bike buying guides, rental tips, and cycling routes in Freiburg. Expert advice from your local bike shop — Karaarslan Bike.',
     ratgeberReadMore: 'Read more',
     ratgeberReadTime: 'read',
-    ratgeberTip: 'Tip from Karaarslan Bike',
+    ratgeberTip: 'Tip from Bike Haus',
     ratgeberTldr: 'Summary',
     ratgeberRelated: 'Related guides',
     ratgeberBackToList: 'Back to all guides',
     faqMetaTitle:
-      'FAQ — Bike Shop Lünen | Frequently Asked Questions | Karaarslan Bike',
+      'FAQ — Bike Shop Freiburg | Frequently Asked Questions | Bike Haus',
     faqMetaDescription:
-      'Frequently asked questions about buying & renting bikes in Lünen: warranty, e-bikes, test rides, opening hours, prices. Answered by Karaarslan Bike.',
+      'Frequently asked questions about buying & renting bikes in Freiburg: warranty, e-bikes, test rides, opening hours, prices. Answered by Karaarslan Bike.',
     bikeRentalMetaTitle:
-      'Bike Rental Lünen from €6.80/day | Karaarslan Bike',
+      'Bike Rental Freiburg | Daily Pricing Per Bike | Karaarslan Bike',
     bikeRentalMetaDescription:
-      'Rent a bike in Lünen from €6.80/day. City bikes, trekking & e-bikes available. Helmet & lock included. Pick up same day — no prepayment. ✓ Karaarslan Bike.',
+      'Bike rental in Freiburg with daily pricing configured per bike for days 1 to 7, plus a fixed extra-day surcharge from day 8. Helmet & lock included. ✓ Karaarslan Bike.',
     garantieMetaTitle: 'Warranty Terms — Karaarslan Bike',
     garantieMetaDescription:
       'Warranty terms for new and used bicycles at Karaarslan Bike. 2 years for new bikes, 3 months for used bikes.',
@@ -1570,9 +1620,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Privacy policy of Karaarslan Bike. Information about the processing of your personal data.',
     faqCtaText: 'Still have questions? Contact us!',
     faqCtaButton: 'Get in touch',
-    faqQ1: 'Where can I buy a bike in Lünen?',
+    faqQ1: 'Where can I buy a bike in Freiburg?',
     faqA1:
-      'At Karaarslan Bike, An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. We have over 100 new and used bikes in stock — just stop by, no appointment needed.',
+      'At Karaarslan Bike, An der Wethmarheide 45, Garagennummer 255, 79114 Lünen. We have over 100 new and used bikes in stock — just stop by, no appointment needed.',
     faqQ2: 'Can I test ride a bike before buying?',
     faqA2:
       'Yes! All bikes can be test ridden during our opening hours — no appointment required.',
@@ -1596,9 +1646,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     faqQ9: 'What are your opening hours?',
     faqA9:
       'Monday, Tuesday, Thursday: 11:00–17:30. Wednesday: 14:00–17:30. Friday: 11:00–13:00 & 15:00–18:00. Saturday: 11:30–17:00. Sunday and holidays: closed.',
-    faqQ10: 'Can I trade in my old bike?',
+    faqQ10: 'Can I rent a bike in Freiburg?',
     faqA10:
-      "Yes, trade-ins are possible in individual cases. Just talk to us — we'll find a solution.",
+      'Yes. Karaarslan Bike rents city bikes, trekking bikes and e-bikes with prices configured per bike for days 1 to 7. From day 8 onward, a fixed extra-day surcharge is added to the 7-day price. No reservation needed — just come by An der Wethmarheide 45, Garagennummer 255.',
 
     svcRepairBadge: 'Service',
     svcRepairTitle: 'Bicycle Repair',
@@ -1628,7 +1678,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     svcAngeboteBadge: 'New Bikes',
     svcAngeboteTitle: 'New Bikes',
     svcAngeboteSub:
-      'Brand-new bikes with 2-year dealer warranty – direct from Lünen.',
+      'Brand-new bikes with 2-year dealer warranty – direct from Freiburg.',
     svcAngeboteCta: 'All New Bikes',
 
     cityWarrantyIncl: 'Warranty incl.',
@@ -1645,9 +1695,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
   },
 
   fr: {
-    metaTitle: 'Acheter & louer un vélo à Dortmund | Karaarslan Bike',
+    metaTitle: 'Acheter & louer un vélo à Fribourg | Karaarslan Bike',
     metaDescription:
-      'Achetez ou louez un vélo à Lünen ✓ 100+ vélos certifiés ✓ Ville, Trekking, VAE ✓ Location dès 6,80 €/jour ✓ 3 mois de garantie. Votre magasin de vélos à Lünen.',
+      'Votre magasin de vélos à Fribourg Haid ✓ Achat & location ✓ 100+ vélos contrôlés ✓ Ville, Trekking, VAE ✓ Location avec tarifs journaliers par vélo ✓ 3 mois de garantie. Sans rendez-vous — An der Wethmarheide 45, Garagennummer 255!',
 
     home: 'Accueil',
     showroom: 'Showroom',
@@ -1655,9 +1705,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     about: 'À propos',
     contact: 'Contact',
 
-    heroH1: 'vélos à Lünen — neufs & occasion.',
+    heroH1: 'Vélos à Fribourg — neufs & occasion.',
     heroSub:
-      "Vélos neufs et d'occasion certifiés à Lünen — prix transparents, remise en état durable, conseil personnalisé.",
+      "Achetez ou louez votre vélo à Fribourg-en-Brisgau ✓ Vélos inspectés dès 80 € ✓ Location avec tarifs journaliers définis par vélo ✓ Retrait immédiat ✓ À 25 km de l'Alsace.",
     ctaPrimary: 'Découvrir les nouveaux vélos',
     ctaSecondary: 'Voir le showroom',
 
@@ -1747,9 +1797,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'La mécanique rencontre la passion. Chaque vélo est traité avec soin.',
 
     galleryLabel: 'NOTRE BOUTIQUE',
-    galleryTitle: 'Aperçu de notre Karaarslan Bike.',
+    galleryTitle: 'Aperçu de notre Bike Haus.',
     gallerySub:
-      'Découvrez notre magasin à Dortmund — vos prochains vélos vous y attendent.',
+      'Découvrez notre magasin à Fribourg — vos prochains vélos vous y attendent.',
 
     bikeCheckLabel: 'SERVICE',
     bikeCheckTitle: 'Contrôle vélo gratuit !',
@@ -1786,7 +1836,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     aboutLabel: 'À PROPOS',
     aboutTitle: 'Qui nous sommes.',
     aboutText:
-      "Nous sommes un marchand de vélos indépendant à Lünen. Notre sélection comprend des vélos d'occasion certifiés et des vélos neufs — pour chaque usage et chaque budget.",
+      "Nous sommes un marchand de vélos indépendant à Fribourg-en-Brisgau. Notre sélection comprend des vélos d'occasion certifiés et des vélos neufs — pour chaque usage et chaque budget.",
     aboutMission:
       'Notre mission : rendre la mobilité de qualité accessible — de manière durable, honnête et personnelle.',
     openingHours: "Heures d'ouverture",
@@ -1801,7 +1851,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     address: 'Adresse',
     visitUs: 'Rendez-nous visite',
 
-    footerTagline: "Vélos neufs & d'occasion à Dortmund.",
+    footerTagline: "Vélos neufs & d'occasion à Fribourg.",
     quickLinks: 'Navigation',
     legalNotice: 'Mentions légales',
     privacy: 'Confidentialité',
@@ -1831,7 +1881,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     bikeRentalPageLabel: 'SERVICE',
     bikeRentalPageTitle: 'Location de vélos – Simple et flexible',
     bikeRentalIntro:
-      'Découvrez Dortmund confortablement à vélo. Louez des vélos chez nous à des prix abordables et sans complications.',
+      'Découvrez Fribourg confortablement à vélo. Louez des vélos chez nous à des prix abordables et sans complications.',
     bikeRentalPricesTitle: 'Tarifs location de vélos',
     bikeRentalHeroPrice: '1 jour -> 12 €',
     bikeRentalTierShort: 'Court terme',
@@ -1843,19 +1893,19 @@ const TRANSLATIONS: Record<Language, Translations> = {
     bikeRentalDurationDay1: '1 jour',
     bikeRentalDurationDay3: '3 jours',
     bikeRentalDurationDay7: '7 jours',
-    bikeRentalDurationDay14: '14 jours',
-    bikeRentalDurationDay30: '30 jours',
-    bikeRentalDurationFromDay10: 'À partir de 10 jours',
-    bikeRentalPriceDay1: '12 €',
-    bikeRentalPriceDay3: '30 €',
-    bikeRentalPriceDay7: '55 €',
-    bikeRentalPriceDay14: '95 €',
-    bikeRentalPriceDay30: '160 €',
-    bikeRentalPriceAddon: '6,50 € / jour',
-    bikeRentalDay1: '1 Jour : 12 €',
-    bikeRentalDay7: '7 Jours : 55 €',
-    bikeRentalDay8Plus: 'À partir du 10e jour : 6,50 € par jour',
-    bikeRentalMonth: '30 Jours : 160 €',
+    bikeRentalDurationDay14: 'À partir du 8e jour',
+    bikeRentalDurationDay30: 'Longue durée',
+    bikeRentalDurationFromDay10: 'Jour supplémentaire',
+    bikeRentalPriceDay1: 'manuel',
+    bikeRentalPriceDay3: 'par vélo',
+    bikeRentalPriceDay7: 'jours 1-7',
+    bikeRentalPriceDay14: 'base 7 jours',
+    bikeRentalPriceDay30: '+ supplément',
+    bikeRentalPriceAddon: 'par jour ajouté',
+    bikeRentalDay1: '1 à 7 jours : individuel',
+    bikeRentalDay7: '7 jours : prix de base',
+    bikeRentalDay8Plus: 'À partir du 8e jour : supplément fixe par jour',
+    bikeRentalMonth: 'Longue durée : calcul automatique',
     bikeRentalDepositTitle: 'Caution',
     bikeRentalDepositText:
       "Le prix de location est payé à l'avance. En plus, une caution en espèces de 300 € est exigée par vélo. Si le vélo est retourné correctement, sans dommage ni perte, la caution est remboursée intégralement.",
@@ -1877,7 +1927,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     rentalHeroTitle: 'Louer un vélo',
     rentalHeroSub:
-      'Disponible immédiatement – juste, flexible, sans frais cachés. Récupérez directement chez nous à Dortmund.',
+      'Disponible immédiatement – juste, flexible, sans frais cachés. Récupérez directement chez nous à Fribourg.',
     rentalHeroWaCta: 'Questions ? WhatsApp',
     rentalHeroScrollCta: 'Choisir un vélo & réserver',
     rentalPricingTitle: 'Juste. Transparent. Sans suppléments.',
@@ -1912,6 +1962,22 @@ const TRANSLATIONS: Record<Language, Translations> = {
     rentalStatusSelected: 'Sélectionné',
     rentalSundayLabel: 'Dimanche',
 
+    rentalReviewsTitle: 'Avis clients',
+    rentalReviewsSubtitle: 'Ce que disent nos clients',
+    rentalReviewsNoReviews: 'Aucun avis pour le moment.',
+    rentalReviewsFormTitle: 'Laisser un avis',
+    rentalReviewsFormName: 'Votre nom',
+    rentalReviewsFormEmail: 'E-mail (optionnel)',
+    rentalReviewsFormStars: 'Note',
+    rentalReviewsFormComment: 'Votre commentaire',
+    rentalReviewsFormSubmit: "Envoyer l'avis",
+    rentalReviewsFormSending: 'Envoi en cours...',
+    rentalReviewsFormSuccess:
+      'Merci ! Votre avis sera publié après vérification.',
+    rentalReviewsFormError: 'Une erreur est survenue. Veuillez réessayer.',
+    rentalReviewsFormValidation:
+      'Veuillez remplir votre nom et votre commentaire.',
+
     loading: 'Chargement...',
     error: 'Une erreur est survenue.',
     noResults: 'Aucun résultat.',
@@ -1925,7 +1991,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     testimonialsLabel: 'TÉMOIGNAGES',
     testimonialsTitle: 'Ce que disent nos clients',
     testimonialsSub:
-      'Plus de 500 clients satisfaits à Dortmund nous font confiance',
+      'Plus de 500 clients satisfaits à Fribourg nous font confiance',
 
     repairLabel: 'ATELIER',
     repairTitle: 'Nos réparations',
@@ -1947,7 +2013,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       "Nous nous spécialisons dans la vente. Pour les réparations, contactez-nous à l'avance par téléphone ou e-mail.",
     faq5Q: 'Où vous trouver ?',
     faq5A:
-      "An der Wethmarheide 45, Garagennummer 255, 44534 Dortmund. Passez simplement pendant les heures d'ouverture — pas de rendez-vous nécessaire.",
+      "An der Wethmarheide 45, Garagennummer 255, 79114 Fribourg. Passez simplement pendant les heures d'ouverture — pas de rendez-vous nécessaire.",
 
     // WhatsApp Contact
     whatsappTitle: 'Contacter le vendeur',
@@ -1975,15 +2041,15 @@ const TRANSLATIONS: Record<Language, Translations> = {
     aboutHeadline: 'Plus que de simples vélos.',
     aboutHeadlineAccent: 'Une passion.',
     aboutIntroText:
-      "Ce qui a commencé comme une modeste idée est devenu un lieu où des personnes de tous âges trouvent leur vélo idéal. En tant que petite entreprise familiale à Dortmund, nous croyons que chaque vélo raconte une histoire — et que chacun mérite la liberté d'écrire la sienne sur deux roues.",
+      "Ce qui a commencé comme une modeste idée est devenu un lieu où des personnes de tous âges trouvent leur vélo idéal. En tant que petite entreprise familiale à Fribourg, nous croyons que chaque vélo raconte une histoire — et que chacun mérite la liberté d'écrire la sienne sur deux roues.",
     aboutFeatureInvoice: 'Facture & contrat de vente',
     aboutFeatureTrust: 'Confiance & Qualité',
     aboutQuote:
       "Chaque vélo que nous vendons apporte de la joie — et c'est la plus belle récompense.",
-    aboutQuoteAuthor: '— La famille derrière Karaarslan Bike',
+    aboutQuoteAuthor: '— La famille derrière Bike Haus',
     aboutMetaTitle: 'À propos — Karaarslan Bike | Votre marchand de vélos',
     aboutMetaDescription:
-      "Découvrez Karaarslan Bike. Honnête, durable, personnel — votre marchand de vélos local à Dortmund pour vélos neufs et d'occasion.",
+      "Découvrez Karaarslan Bike. Honnête, durable, personnel — votre marchand de vélos local à Fribourg pour vélos neufs et d'occasion.",
 
     // Brands
     brandsLabel: 'MARQUES',
@@ -2029,10 +2095,10 @@ const TRANSLATIONS: Record<Language, Translations> = {
     contactWhatsappHint: 'Écrire directement',
     contactMetaTitle: 'Contact — Karaarslan Bike | Adresse & Horaires',
     contactMetaDescription:
-      "Contactez Karaarslan Bike. Adresse, horaires d'ouverture, WhatsApp, téléphone. Rendez-nous visite à 44534 Lünen.",
+      'Karaarslan Bike ✓ An der Wethmarheide 45, Garagennummer 255, Fribourg ✓ Lun–Sam 11h–17h30 ✓ WhatsApp: +49 155 6630 0011 ✓ Sans rendez-vous — venez nous rendre visite !',
 
     // Home trust badges
-    trustBadgeSince: 'Depuis 2020 à Dortmund',
+    trustBadgeSince: 'Depuis 2020 à Fribourg',
     trustBadgeCustomers: '500+ clients satisfaits',
     ariaStarsRating: '5 étoiles sur 5',
 
@@ -2043,13 +2109,13 @@ const TRANSLATIONS: Record<Language, Translations> = {
     filterGears: 'Vitesses',
     gearsUnit: 'vitesses',
     filterFrameSize: 'Taille de cadre',
-    showroomMetaTitle: 'Acheter vélo Dortmund | Showroom | Karaarslan Bike',
+    showroomMetaTitle: 'Acheter vélo Fribourg | Showroom | Karaarslan Bike',
     showroomMetaDescription:
-      "Achetez des vélos neufs et d'occasion à Lünen ✓ 100+ vélos certifiés ✓ Ville, Trekking, VTT, VAE ✓ 3 mois de garantie ✓ Disponibles immédiatement.",
+      "Achetez des vélos neufs et d'occasion à Fribourg-en-Brisgau ✓ 100+ vélos certifiés ✓ Ville, Trekking, VTT, VAE ✓ 3 mois de garantie ✓ Disponibles immédiatement.",
 
     // Showroom detail
     detailMetaDescSuffix:
-      'Voir maintenant chez Karaarslan Bike à 44534 Lünen.',
+      'Voir maintenant chez Karaarslan Bike à 79114 Fribourg-en-Brisgau.',
     bikeFallbackCategory: 'Vélo',
 
     // Footer
@@ -2073,9 +2139,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     // Accessories page
     accessoriesMetaTitle:
-      'Accessoires vélo Dortmund | Casques, Sacoches & Antivols | Karaarslan Bike',
+      'Accessoires vélo Fribourg | Casques, Sacoches & Antivols | Bike Haus',
     accessoriesMetaDescription:
-      'Achetez des accessoires vélo à Lünen ✓ Casques, sacoches, antivols, éclairage & plus ✓ En magasin — An der Wethmarheide 45, Garagennummer 255, 44534 Lünen.',
+      'Achetez des accessoires vélo à Fribourg-en-Brisgau ✓ Casques, sacoches, antivols, éclairage & plus ✓ En magasin — An der Wethmarheide 45, Garagennummer 255, 44534 Lünen.',
     accessoriesTitle: 'Accessoires',
     accessoriesSub: 'Sacoches, casques, antivols et plus pour votre vélo.',
     accessoriesNoItems: 'Aucun accessoire disponible pour le moment.',
@@ -2087,9 +2153,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     // Neue Fahrräder
     neueFahrraeder: 'Vélos neufs',
     neueFahrraederMetaTitle:
-      'Acheter vélos neufs à Dortmund | City, Trekking, VAE | Karaarslan Bike',
+      'Acheter vélos neufs à Fribourg | City, Trekking, VAE | Bike Haus',
     neueFahrraederMetaDescription:
-      'Achetez des vélos neufs à Lünen ✓ Vélos de ville, trekking, VTT & VAE ✓ 2 ans de garantie ✓ En stock immédiatement ✓ Prix honnêtes. Karaarslan Bike.',
+      'Achetez des vélos neufs à Fribourg-en-Brisgau ✓ Vélos de ville, trekking, VTT & VAE ✓ 2 ans de garantie ✓ En stock immédiatement ✓ Prix honnêtes. Karaarslan Bike.',
     neueFahrraederTitle: 'Vélos neufs',
     neueFahrraederSub: 'Vélos neufs avec 2 ans de garantie magasin.',
     neueFahrraederBrand: 'Marque',
@@ -2106,28 +2172,29 @@ const TRANSLATIONS: Record<Language, Translations> = {
     neueFahrraederInterested: 'Intéressé par ce vélo ?',
 
     // Ratgeber / Blog
-    ratgeberNav: 'Conseils',
+    ratgeberNav: 'Guide',
     ratgeberLabel: 'Savoir & Conseils',
     ratgeberTitle: 'Guide Vélo',
     ratgeberSub:
-      "Conseils, checklists et tout ce qu'il faut savoir sur les vélos — par votre vélociste à Lünen.",
-    ratgeberMetaTitle: 'Guide Vélo — Conseils & Savoir | Karaarslan Bike',
+      "Conseils, checklists et tout ce qu'il faut savoir sur les vélos — par votre vélociste à Freiburg.",
+    ratgeberMetaTitle:
+      'Guide Vélo Fribourg — Conseils & Astuces | Karaarslan Bike',
     ratgeberMetaDescription:
-      "Guide vélo : acheter un vélo d'occasion, calculer la taille du cadre, conseils VAE et plus.",
+      "Guides d'achat vélo, conseils location et itinéraires cyclables à Fribourg. Expertise de votre vélociste local — Karaarslan Bike.",
     ratgeberReadMore: 'Lire la suite',
     ratgeberReadTime: 'de lecture',
-    ratgeberTip: 'Conseil de Karaarslan Bike',
+    ratgeberTip: 'Conseil de Bike Haus',
     ratgeberTldr: 'Résumé',
     ratgeberRelated: 'Autres guides',
     ratgeberBackToList: 'Retour aux guides',
     faqMetaTitle:
-      'FAQ — Magasin vélo Dortmund | Questions fréquentes | Karaarslan Bike',
+      'FAQ — Magasin vélo Fribourg | Questions fréquentes | Bike Haus',
     faqMetaDescription:
-      "Questions fréquentes sur l'achat et la location de vélos à Lünen : garantie, VAE, essais, horaires, tarifs. Répondu par Karaarslan Bike.",
+      "Questions fréquentes sur l'achat et la location de vélos à Fribourg : garantie, VAE, essais, horaires, tarifs. Répondu par Karaarslan Bike.",
     bikeRentalMetaTitle:
-      'Location vélo Lünen dès 6,80 €/jour | Karaarslan Bike',
+      'Location vélo Fribourg | Tarifs journaliers par vélo | Karaarslan Bike',
     bikeRentalMetaDescription:
-      'Louez un vélo à Lünen dès 6,80 €/jour. Vélos city, trekking & VAE disponibles. Casque & antivol inclus. Départ immédiat sans prépaiement. ✓ Karaarslan Bike.',
+      'Location vélo à Fribourg avec tarifs journaliers définis vélo par vélo pour 1 à 7 jours, puis supplément fixe à partir du 8e jour. Casque & antivol inclus. ✓ Karaarslan Bike.',
     garantieMetaTitle: 'Conditions de garantie — Karaarslan Bike',
     garantieMetaDescription:
       "Conditions de garantie pour les vélos neufs et d'occasion chez Karaarslan Bike. 2 ans pour les neufs, 3 mois pour les occasions.",
@@ -2139,7 +2206,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Politique de confidentialité de Karaarslan Bike. Informations sur le traitement de vos données personnelles.',
     faqCtaText: 'Encore des questions ? Contactez-nous !',
     faqCtaButton: 'Nous contacter',
-    faqQ1: 'Où acheter un vélo à Lünen ?',
+    faqQ1: 'Où acheter un vélo à Freiburg ?',
     faqA1:
       'Chez Karaarslan Bike, An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. Plus de 100 vélos neufs et occasion en stock — venez sans rendez-vous.',
     faqQ2: "Puis-je essayer un vélo avant l'achat ?",
@@ -2164,9 +2231,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     faqQ9: 'Quels sont vos horaires ?',
     faqA9:
       'Lundi, mardi, jeudi : 11:00–17:30. Mercredi : 14:00–17:30. Vendredi : 11:00–13:00 & 15:00–18:00. Samedi : 11:30–17:00. Dimanche et jours fériés : fermé.',
-    faqQ10: 'Puis-je échanger mon ancien vélo ?',
+    faqQ10: 'Louez-vous des vélos à Fribourg ?',
     faqA10:
-      'Oui, la reprise est possible au cas par cas. Parlez-nous en — nous trouverons une solution.',
+      'Oui. Karaarslan Bike loue des vélos city, trekking et VAE avec des tarifs configurés par vélo pour 1 à 7 jours. À partir du 8e jour, un supplément fixe est ajouté au prix 7 jours. Sans réservation — venez directement An der Wethmarheide 45, Garagennummer 255.',
 
     svcRepairBadge: 'Service',
     svcRepairTitle: 'Réparation de vélos',
@@ -2197,7 +2264,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     svcAngeboteBadge: 'Vélos neufs',
     svcAngeboteTitle: 'Vélos neufs',
     svcAngeboteSub:
-      'Vélos neufs de marque avec 2 ans de garantie revendeur – depuis Lünen.',
+      'Vélos neufs de marque avec 2 ans de garantie revendeur – depuis Freiburg.',
     svcAngeboteCta: 'Tous les vélos neufs',
 
     cityWarrantyIncl: 'Garantie incl.',
@@ -2214,9 +2281,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
   },
 
   tr: {
-    metaTitle: "Lünen'da Bisiklet Al & Kirala | Karaarslan Bike",
+    metaTitle: "Freiburg'da Bisiklet Al & Kirala | Karaarslan Bike",
     metaDescription:
-      "Lünen'da bisiklet satın alın veya kiralayın ✓ 100+ kontrollü bisiklet ✓ Şehir, Trekking, E-bisiklet ✓ Kiralama 6,80 €/gün'den ✓ 3 ay garanti. Lünen bisiklet mağazanız.",
+      "Freiburg Haid'de bisiklet mağazanız ✓ Yeni & ikinci el bisiklet ✓ Bisiklet bazlı günlük kiralama fiyatları ✓ 3 ay garanti ✓ Randevu gerekmez — An der Wethmarheide 45, Garagennummer 255, Freiburg!",
 
     home: 'Ana Sayfa',
     showroom: 'Showroom',
@@ -2224,9 +2291,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     about: 'Hakkımızda',
     contact: 'İletişim',
 
-    heroH1: "Lünen'da Bisikletler — yeni & ikinci el.",
+    heroH1: "Freiburg'da Bisikletler — yeni & ikinci el.",
     heroSub:
-      "Lünen'da yeni ve kontrol edilmiş ikinci el bisikletler — adil fiyat, sürdürülebilir bakım, kişisel danışmanlık.",
+      "Freiburg'da yeni ve kontrol edilmiş ikinci el bisikletler — adil fiyat, sürdürülebilir bakım, kişisel danışmanlık.",
     ctaPrimary: 'Yeni Bisikletleri Keşfet',
     ctaSecondary: "Showroom'u Gör",
 
@@ -2314,9 +2381,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Mekanik tutku ile buluşur. Her bisiklet özenle ele alınır.',
 
     galleryLabel: 'DÜKKAN',
-    galleryTitle: "Karaarslan Bike'tan kareler.",
+    galleryTitle: "Bike Haus'tan kareler.",
     gallerySub:
-      "Lünen'daki dükkânımıza göz atın — bir sonraki bisikletiniz sizi burada bekliyor.",
+      "Freiburg'daki dükkânımıza göz atın — bir sonraki bisikletiniz sizi burada bekliyor.",
 
     bikeCheckLabel: 'SERVİS',
     bikeCheckTitle: 'Ücretsiz Bisiklet Kontrolü!',
@@ -2353,7 +2420,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     aboutLabel: 'HAKKIMIZDA',
     aboutTitle: 'Biz kimiz.',
     aboutText:
-      "Lünen'da bağımsız bir bisiklet satıcısıyız. Seçkimiz kontrol edilmiş ikinci el bisikletler ve özenle seçilmiş yeni bisikletlerden oluşur — her kullanım amacı ve bütçe için.",
+      "Freiburg'da bağımsız bir bisiklet satıcısıyız. Seçkimiz kontrol edilmiş ikinci el bisikletler ve özenle seçilmiş yeni bisikletlerden oluşur — her kullanım amacı ve bütçe için.",
     aboutMission:
       'Misyonumuz: Kaliteli mobiliteyi erişilebilir kılmak — sürdürülebilir, adil ve kişisel.',
     openingHours: 'Çalışma Saatleri',
@@ -2368,7 +2435,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     address: 'Adres',
     visitUs: 'Bizi Ziyaret Edin',
 
-    footerTagline: "Lünen'da yeni & ikinci el bisikletler.",
+    footerTagline: "Freiburg'da yeni & ikinci el bisikletler.",
     quickLinks: 'Navigasyon',
     legalNotice: 'Yasal Bildirim',
     privacy: 'Gizlilik',
@@ -2398,7 +2465,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     bikeRentalPageLabel: 'HİZMET',
     bikeRentalPageTitle: 'Bisiklet Kiralama – Kolay ve Esnek',
     bikeRentalIntro:
-      "Lünen'u bisikletle keşfedin. Bizden uygun fiyatlı ve kolay bir şekilde bisiklet kiralayabilirsiniz.",
+      "Freiburg'u bisikletle keşfedin. Bizden uygun fiyatlı ve kolay bir şekilde bisiklet kiralayabilirsiniz.",
     bikeRentalPricesTitle: 'Bisiklet Kiralama Fiyatları',
     bikeRentalHeroPrice: '1 Gün -> 12 €',
     bikeRentalTierShort: 'Kısa süre',
@@ -2410,19 +2477,19 @@ const TRANSLATIONS: Record<Language, Translations> = {
     bikeRentalDurationDay1: '1 gün',
     bikeRentalDurationDay3: '3 gün',
     bikeRentalDurationDay7: '7 gün',
-    bikeRentalDurationDay14: '14 gün',
-    bikeRentalDurationDay30: '30 gün',
-    bikeRentalDurationFromDay10: '10 günden itibaren',
-    bikeRentalPriceDay1: '12 €',
-    bikeRentalPriceDay3: '30 €',
-    bikeRentalPriceDay7: '55 €',
-    bikeRentalPriceDay14: '95 €',
-    bikeRentalPriceDay30: '160 €',
-    bikeRentalPriceAddon: '6,50 € / gün',
-    bikeRentalDay1: '1 Gün: 12 €',
-    bikeRentalDay7: '7 Gün: 55 €',
-    bikeRentalDay8Plus: '10 günden itibaren: günlük 6,50 €',
-    bikeRentalMonth: '30 Gün: 160 €',
+    bikeRentalDurationDay14: '8. günden itibaren',
+    bikeRentalDurationDay30: 'Uzun kiralama',
+    bikeRentalDurationFromDay10: 'Ek gün',
+    bikeRentalPriceDay1: 'manuel',
+    bikeRentalPriceDay3: 'bisiklet bazlı',
+    bikeRentalPriceDay7: '1-7 gün',
+    bikeRentalPriceDay14: '7 günlük baz',
+    bikeRentalPriceDay30: '+ ek ücret',
+    bikeRentalPriceAddon: 'her ek gün için',
+    bikeRentalDay1: '1-7 gün: ayrı fiyat',
+    bikeRentalDay7: '7 gün: baz fiyat',
+    bikeRentalDay8Plus: '8. günden sonra: sabit ek gün fiyatı',
+    bikeRentalMonth: 'Uzun kiralama: otomatik hesaplanır',
     bikeRentalDepositTitle: 'Depozito',
     bikeRentalDepositText:
       'Kiralama ücreti peşin ödenir. Buna ek olarak her bisiklet için 300 € nakit depozito alınır. Bisiklet hasar veya kayıp olmadan düzgün şekilde iade edilirse depozito tamamen geri ödenir.',
@@ -2444,7 +2511,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     rentalHeroTitle: 'Bisiklet Kirala',
     rentalHeroSub:
-      "Hemen mevcut – adil, esnek, gizli maliyet yok. Doğrudan Lünen'daki dükkânımızdan teslim alın.",
+      "Hemen mevcut – adil, esnek, gizli maliyet yok. Doğrudan Freiburg'daki dükkânımızdan teslim alın.",
     rentalHeroWaCta: 'Sorularınız? WhatsApp',
     rentalHeroScrollCta: 'Bisiklet seç & hemen rezerve et',
     rentalPricingTitle: 'Adil. Şeffaf. Ekstra yok.',
@@ -2478,6 +2545,21 @@ const TRANSLATIONS: Record<Language, Translations> = {
     rentalStatusSelected: 'Seçildi',
     rentalSundayLabel: 'Pazar',
 
+    rentalReviewsTitle: 'Müşteri Yorumları',
+    rentalReviewsSubtitle: 'Müşterilerimiz ne diyor',
+    rentalReviewsNoReviews: 'Henüz yorum yok.',
+    rentalReviewsFormTitle: 'Yorum Yaz',
+    rentalReviewsFormName: 'Adınız',
+    rentalReviewsFormEmail: 'E-posta (isteğe bağlı)',
+    rentalReviewsFormStars: 'Puan',
+    rentalReviewsFormComment: 'Yorumunuz',
+    rentalReviewsFormSubmit: 'Yorum gönder',
+    rentalReviewsFormSending: 'Gönderiliyor...',
+    rentalReviewsFormSuccess:
+      'Teşekkürler! Yorumunuz incelendikten sonra yayınlanacak.',
+    rentalReviewsFormError: 'Bir hata oluştu. Lütfen tekrar deneyin.',
+    rentalReviewsFormValidation: 'Lütfen adınızı ve yorumunuzu doldurun.',
+
     loading: 'Yükleniyor...',
     error: 'Bir hata oluştu.',
     noResults: 'Sonuç bulunamadı.',
@@ -2490,7 +2572,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     testimonialsLabel: 'MÜŞTERİ YORUMLARI',
     testimonialsTitle: 'Müşterilerimiz ne diyor',
-    testimonialsSub: "Lünen'da 500'den fazla memnun müşteri bize güveniyor",
+    testimonialsSub: "Freiburg'da 500'den fazla memnun müşteri bize güveniyor",
 
     repairLabel: 'ATÖLYE',
     repairTitle: 'Tamir Çalışmalarımız',
@@ -2539,15 +2621,15 @@ const TRANSLATIONS: Record<Language, Translations> = {
     aboutHeadline: 'Bisikletten fazlası.',
     aboutHeadlineAccent: 'Bir tutku.',
     aboutIntroText:
-      "Mütevazı bir fikirle başlayan şey, bugün her yaştan insanın mükemmel bisikletini bulduğu bir yer haline geldi. Lünen'daki küçük bir aile işletmesi olarak, her bisikletin bir hikaye anlattığına ve herkesin iki tekerlek üzerinde kendi hikayesini yazma özgürlüğünü hak ettiğine inanıyoruz.",
+      "Mütevazı bir fikirle başlayan şey, bugün her yaştan insanın mükemmel bisikletini bulduğu bir yer haline geldi. Freiburg'daki küçük bir aile işletmesi olarak, her bisikletin bir hikaye anlattığına ve herkesin iki tekerlek üzerinde kendi hikayesini yazma özgürlüğünü hak ettiğine inanıyoruz.",
     aboutFeatureInvoice: 'Fatura & Satış Sözleşmesi',
     aboutFeatureTrust: 'Güven & Kalite',
     aboutQuote:
       'Sattığımız her bisiklet mutluluk getiriyor — ve bu en güzel ödül.',
-    aboutQuoteAuthor: "— Karaarslan Bike'un arkasındaki aile",
+    aboutQuoteAuthor: "— Bike Haus'un arkasındaki aile",
     aboutMetaTitle: 'Hakkımızda — Karaarslan Bike | Bisiklet Mağazanız',
     aboutMetaDescription:
-      "Karaarslan Bike'u tanıyın. Adil, sürdürülebilir, kişisel — Lünen'daki yerel bisiklet mağazanız.",
+      "Karaarslan Bike'u tanıyın. Adil, sürdürülebilir, kişisel — Freiburg'daki yerel bisiklet mağazanız.",
 
     // Brands
     brandsLabel: 'MARKALAR',
@@ -2594,10 +2676,10 @@ const TRANSLATIONS: Record<Language, Translations> = {
     contactMetaTitle:
       'İletişim — Karaarslan Bike | Adres & Çalışma Saatleri',
     contactMetaDescription:
-      "Karaarslan Bike ile iletişime geçin. Adres, çalışma saatleri, WhatsApp, telefon. 44534 Lünen'da bizi ziyaret edin.",
+      'Karaarslan Bike ✓ An der Wethmarheide 45, Garagennummer 255, 44534 Lünen ✓ Pzt–Cmt 11:00–17:30 ✓ WhatsApp: +49 155 6630 0011 ✓ Randevu gerekmez — bizi ziyaret edin!',
 
     // Home trust badges
-    trustBadgeSince: "2020'den beri Lünen'da",
+    trustBadgeSince: "2020'den beri Freiburg'da",
     trustBadgeCustomers: '500+ memnun müşteri',
     ariaStarsRating: '5 üzerinden 5 yıldız',
 
@@ -2609,9 +2691,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     gearsUnit: 'Vites',
     filterFrameSize: 'Kadro Boyutu',
     showroomMetaTitle:
-      "Lünen'da İkinci El & Yeni Bisiklet Al | Showroom | Karaarslan Bike",
+      "Freiburg'da İkinci El & Yeni Bisiklet Al | Showroom | Bike Haus",
     showroomMetaDescription:
-      "Lünen'da yeni ve ikinci el bisiklet satın alın ✓ 100+ kontrollü bisiklet ✓ Şehir, Trekking, Dağ, E-bisiklet ✓ 3 ay garanti ✓ Hemen teslim. Karaarslan Bike.",
+      "Freiburg'da yeni ve ikinci el bisiklet satın alın ✓ 100+ kontrollü bisiklet ✓ Şehir, Trekking, Dağ, E-bisiklet ✓ 3 ay garanti ✓ Hemen teslim. Karaarslan Bike.",
 
     // Showroom detail
     detailMetaDescSuffix:
@@ -2639,9 +2721,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     // Accessories page
     accessoriesMetaTitle:
-      'Bisiklet Aksesuarları Lünen | Kask, Çanta & Kilit | Karaarslan Bike',
+      'Bisiklet Aksesuarları Freiburg | Kask, Çanta & Kilit | Bike Haus',
     accessoriesMetaDescription:
-      "Lünen'da bisiklet aksesuarı satın alın ✓ Kask, çanta, kilit, aydınlatma & daha fazlası ✓ Karaarslan Bike — An der Wethmarheide 45, Garagennummer 255, 44534 Lünen.",
+      "Freiburg'da bisiklet aksesuarı satın alın ✓ Kask, çanta, kilit, aydınlatma & daha fazlası ✓ Karaarslan Bike — An der Wethmarheide 45, Garagennummer 255, 44534 Lünen.",
     accessoriesTitle: 'Aksesuar',
     accessoriesSub: 'Bisikletiniz için çanta, kask, kilit ve daha fazlası.',
     accessoriesNoItems: 'Şu anda mevcut aksesuar bulunmamaktadır.',
@@ -2653,9 +2735,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     // Neue Fahrräder
     neueFahrraeder: 'Yeni Bisikletler',
     neueFahrraederMetaTitle:
-      "Lünen'da Yeni Bisiklet Al | Şehir, Trekking, E-Bisiklet | Karaarslan Bike",
+      "Freiburg'da Yeni Bisiklet Al | Şehir, Trekking, E-Bisiklet | Bike Haus",
     neueFahrraederMetaDescription:
-      "Lünen'da yeni bisiklet satın alın ✓ Şehir, Trekking, Dağ & E-bisiklet ✓ 2 yıl garanti ✓ Stokta & hemen teslim ✓ Uygun fiyat. Karaarslan Bike.",
+      "Freiburg'da yeni bisiklet satın alın ✓ Şehir, Trekking, Dağ & E-bisiklet ✓ 2 yıl garanti ✓ Stokta & hemen teslim ✓ Uygun fiyat. Karaarslan Bike.",
     neueFahrraederTitle: 'Yeni Bisikletler',
     neueFahrraederSub: '2 yıl mağaza garantili sıfır bisikletler.',
     neueFahrraederBrand: 'Marka',
@@ -2683,18 +2765,18 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Bisiklet rehberi: ikinci el bisiklet alma, kadro boyu hesaplama, e-bisiklet ipuçları ve daha fazlası.',
     ratgeberReadMore: 'Devamını oku',
     ratgeberReadTime: 'okuma',
-    ratgeberTip: 'Karaarslan Bike İpucu',
+    ratgeberTip: 'Bike Haus İpucu',
     ratgeberTldr: 'Özet',
     ratgeberRelated: 'İlgili rehberler',
     ratgeberBackToList: 'Tüm rehberlere dön',
     faqMetaTitle:
-      'SSS — Lünen Bisiklet Mağazası | Sık Sorulan Sorular | Karaarslan Bike',
+      'SSS — Freiburg Bisiklet Mağazası | Sık Sorulan Sorular | Bike Haus',
     faqMetaDescription:
-      "Lünen'da bisiklet alma ve kiralama hakkında sık sorulan sorular: garanti, e-bisiklet, deneme sürüşü, çalışma saatleri, fiyatlar. Karaarslan Bike.",
+      "Freiburg'da bisiklet alma ve kiralama hakkında sık sorulan sorular: garanti, e-bisiklet, deneme sürüşü, çalışma saatleri, fiyatlar. Karaarslan Bike.",
     bikeRentalMetaTitle:
-      'Lünen Bisiklet Kiralama 6,80 €/gün | Karaarslan Bike',
+      'Freiburg Bisiklet Kiralama | Bisiklet Bazlı Günlük Fiyat | Karaarslan Bike',
     bikeRentalMetaDescription:
-      "Lünen'da bisiklet kiralayın — 6,80 €/gün'den itibaren. Şehir, trekking ve e-bisiklet mevcut. Kask ve kilit dahil. Hemen teslim alın. ✓ Karaarslan Bike.",
+      "Freiburg'da bisiklet kiralama: 1-7 gün için bisiklet bazlı günlük fiyatlar, 8. günden sonra sabit ek gün ücreti. Kask ve kilit dahil. ✓ Karaarslan Bike.",
     garantieMetaTitle: 'Garanti Koşulları — Karaarslan Bike',
     garantieMetaDescription:
       "Karaarslan Bike'da yeni ve ikinci el bisikletler için garanti koşulları. Yeni bisikletlerde 2 yıl, ikinci elde 3 ay garanti.",
@@ -2706,7 +2788,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Karaarslan Bike gizlilik politikası. Kişisel verilerinizin işlenmesi hakkında bilgiler.',
     faqCtaText: 'Başka sorunuz mu var? Bize ulaşın!',
     faqCtaButton: 'İletişime geçin',
-    faqQ1: "Lünen'da bisiklet nereden alabilirim?",
+    faqQ1: "Freiburg'da bisiklet nereden alabilirim?",
     faqA1:
       'Karaarslan Bike, An der Wethmarheide 45, Garagennummer 255, 44534 Lünen. 100+ yeni ve ikinci el bisiklet stokta — randevusuz gelin.',
     faqQ2: 'Satın almadan önce bisikleti deneyebilir miyim?',
@@ -2763,7 +2845,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     svcAngeboteBadge: 'Yeni Bisikletler',
     svcAngeboteTitle: 'Yeni Bisikletler',
     svcAngeboteSub:
-      "2 yıl bayi garantili sıfır bisikletler – Lünen'dan direkt.",
+      "2 yıl bayi garantili sıfır bisikletler – Freiburg'dan direkt.",
     svcAngeboteCta: 'Tüm Yeni Bisikletler',
 
     cityWarrantyIncl: 'Garanti dahil',
@@ -2794,7 +2876,7 @@ export class TranslationService {
   setLanguage(language: Language): void {
     this._currentLanguage.set(language);
     if (this.isBrowser) {
-      localStorage.setItem('Karaarslan Bike-homepage-language', language);
+      localStorage.setItem('bikehaus-homepage-language', language);
       this.document.documentElement.lang = language;
     }
   }
@@ -2804,7 +2886,7 @@ export class TranslationService {
       return 'de';
     }
 
-    const stored = localStorage.getItem('Karaarslan Bike-homepage-language');
+    const stored = localStorage.getItem('bikehaus-homepage-language');
     if (stored && ['de', 'en', 'fr', 'tr'].includes(stored)) {
       return stored as Language;
     }
@@ -2815,7 +2897,3 @@ export class TranslationService {
     return 'de';
   }
 }
-
-
-
-

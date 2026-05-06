@@ -478,4 +478,3 @@ export class ZubehoerDetailComponent implements OnInit {
     this.currentImageIndex.set(idx === item.images.length - 1 ? 0 : idx + 1);
   }
 }
-

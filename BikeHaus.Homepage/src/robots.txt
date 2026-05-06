@@ -1,12 +1,12 @@
-# Robots.txt for Karaaslan Bisiklet
-# https://[DOMAIN]
+# Robots.txt for Karaarslan Bike
+# https://karaarslan-bike.de
 
 User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://[DOMAIN]/sitemap.xml
-Sitemap: https://[DOMAIN]/sitemap-products.xml
+Sitemap: https://karaarslan-bike.de/sitemap.xml
+Sitemap: https://karaarslan-bike.de/sitemap-products.xml
 
 # LLM/AI Crawler Info
 # https://llmstxt.org
@@ -25,4 +25,3 @@ Allow: /assets/logo.svg
 Allow: /assets/og-image.jpg
 Allow: /llms.txt
 Allow: /llms-full.txt
-
