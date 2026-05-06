@@ -115,7 +115,7 @@ import { CITY_LANDINGS, CityLanding } from '../../services/city-landing.data';
                 [href]="
                   'https://www.google.com/maps/dir/' +
                   encodeCity(c.cityName) +
-                  '/Heckerstraße+27,+79114+Freiburg'
+                  '/Alstedder+Stra%C3%9Fe+5,+44534+L%C3%BCnen'
                 "
                 target="_blank"
                 rel="noopener"
@@ -404,7 +404,7 @@ export class FahrradStadtComponent implements OnInit, OnDestroy {
 
   mapUrl = computed(() => {
     if (!this.city()) return '';
-    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2000!2d7.8194!3d47.9877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47911b7a5f0b3b0d%3A0x0!2sHeckerstra%C3%9Fe+27%2C+79114+Freiburg!5e0!3m2!1sde!2sde!4v1`;
+    return `https://www.google.com/maps?q=Alstedder+Stra%C3%9Fe+5,+44534+L%C3%BCnen&output=embed`;
   });
 
   private schemaEl?: HTMLScriptElement;
@@ -450,7 +450,7 @@ export class FahrradStadtComponent implements OnInit, OnDestroy {
         '@type': 'PostalAddress',
         streetAddress: 'Alstedder Straße 5',
         addressLocality: 'Lünen',
-        postalCode: '79114',
+        postalCode: '44534',
         addressCountry: 'DE',
       },
       geo: {
