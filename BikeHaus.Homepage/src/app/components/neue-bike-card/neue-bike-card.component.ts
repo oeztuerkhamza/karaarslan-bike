@@ -425,7 +425,7 @@ export class NeueBikeCardComponent {
   t = this.translationService.translations;
   lang = this.translationService.currentLanguage;
 
-  private static readonly HIDDEN_CAT = /kleinanzeigen|freiburg/i;
+  private static readonly HIDDEN_CAT = /kleinanzeigen|luenen/i;
 
   get displayCategory(): string | null {
     const cat = this.bike.kategorie;
@@ -458,3 +458,4 @@ export class NeueBikeCardComponent {
     img.style.display = 'none';
   }
 }
+

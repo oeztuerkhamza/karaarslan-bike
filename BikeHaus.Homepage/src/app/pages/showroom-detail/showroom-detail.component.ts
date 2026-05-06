@@ -1103,7 +1103,7 @@ export class ShowroomDetailComponent implements OnInit, OnDestroy {
 
   displayCategory(): string | null {
     const cat = this.listing()?.category;
-    if (!cat || /kleinanzeigen|freiburg/i.test(cat)) return null;
+    if (!cat || /kleinanzeigen|luenen/i.test(cat)) return null;
     return cat;
   }
 
@@ -1219,7 +1219,7 @@ export class ShowroomDetailComponent implements OnInit, OnDestroy {
       price: bike.preis || undefined,
       priceText: bike.preis ? `${bike.preis} €` : 'VB',
       category: this.mapArtToCategory(bike.art),
-      location: 'Freiburg',
+      location: 'Lünen',
       externalUrl: '',
       isActive: true,
       firstScrapedAt: bike.createdAt,
@@ -1354,3 +1354,4 @@ export class ShowroomDetailComponent implements OnInit, OnDestroy {
     img.style.display = 'none';
   }
 }
+

@@ -53,7 +53,7 @@ import {
                 <path d="M15 6l-4 8h6l-2 3.5" />
                 <path d="M5.5 17.5L9 9h3" />
               </svg>
-              Fahrradverleih Freiburg
+              Fahrradverleih Lünen
             </span>
             <h1 class="rental-hero-h1">
               Fahrrad mieten<br /><span class="rental-hero-accent"
@@ -62,7 +62,7 @@ import {
             </h1>
             <p class="rental-hero-sub">
               1 bis 7 Tage individuell je Fahrrad kalkuliert, ab Tag 8 mit
-              festem Zusatzpreis.<br />Direkt bei uns in Freiburg abholen.
+              festem Zusatzpreis.<br />Direkt bei uns in Lünen abholen.
             </p>
             <div class="rental-hero-features">
               <span class="rfeat"
@@ -3856,7 +3856,7 @@ export class FahrradverleihComponent implements OnInit {
 
     const faqDe = [
       {
-        q: 'Was kostet Fahrrad mieten in Freiburg?',
+        q: 'Was kostet Fahrrad mieten in Lünen?',
         a: 'Bei Karaarslan Bike werden die Preise je Fahrrad für 1 bis 7 Tage individuell gepflegt. Ab dem 8. Tag wird der 7-Tage-Preis plus ein fester Zusatz pro weiterem Tag berechnet.',
       },
       {
@@ -3868,7 +3868,7 @@ export class FahrradverleihComponent implements OnInit {
         a: 'Die Abholung erfolgt direkt bei uns: Alstedder Straße 5, 44534 Lünen. Sofort verfügbar — kein Vorausbezahlen nötig.',
       },
       {
-        q: 'Welche Fahrräder kann ich in Freiburg mieten?',
+        q: 'Welche Fahrräder kann ich in Lünen mieten?',
         a: 'Wir vermieten Citybikes, Trekkingräder und E-Bikes. Alle Räder sind geprüft und fahrbereit.',
       },
       {
@@ -3879,7 +3879,7 @@ export class FahrradverleihComponent implements OnInit {
 
     const faqEn = [
       {
-        q: 'How much does it cost to rent a bike in Freiburg?',
+        q: 'How much does it cost to rent a bike in Lünen?',
         a: 'At Karaarslan Bike, each bike has its own configured price for days 1 to 7. From day 8 onward, pricing is based on the 7-day price plus a fixed surcharge for each additional day.',
       },
       {
@@ -3891,7 +3891,7 @@ export class FahrradverleihComponent implements OnInit {
         a: 'Pick up directly at our shop: Alstedder Straße 5, 44534 Lünen. Available immediately — no prepayment required.',
       },
       {
-        q: 'Which bikes can I rent in Freiburg?',
+        q: 'Which bikes can I rent in Lünen?',
         a: 'We rent city bikes, trekking bikes and e-bikes. All bikes are inspected and ready to ride.',
       },
       {
@@ -3902,7 +3902,7 @@ export class FahrradverleihComponent implements OnInit {
 
     const faqFr = [
       {
-        q: 'Combien coûte la location de vélo à Fribourg-en-Brisgau ?',
+        q: 'Combien coûte la location de vélo à Lünen-en-Brisgau ?',
         a: 'Chez Karaarslan Bike, chaque vélo dispose de tarifs configurés individuellement pour 1 à 7 jours. À partir du 8e jour, le calcul utilise le prix 7 jours plus un supplément fixe par jour ajouté.',
       },
       {
@@ -3914,14 +3914,14 @@ export class FahrradverleihComponent implements OnInit {
         a: 'Récupérez directement en magasin : Alstedder Straße 5, 44534 Lünen. Disponible immédiatement — sans prépaiement.',
       },
       {
-        q: 'Quels types de vélos peut-on louer à Fribourg ?',
+        q: 'Quels types de vélos peut-on louer à Lünen ?',
         a: 'Nous louons des vélos de ville, vélos de randonnée et VAE. Tous les vélos sont contrôlés et prêts à rouler.',
       },
     ];
 
     const faqTr = [
       {
-        q: "Freiburg'da bisiklet kiralama ne kadar tutar?",
+        q: "Lünen'da bisiklet kiralama ne kadar tutar?",
         a: "Karaarslan Bike'da fiyatlar her bisiklet için 1 ila 7 gün arasında ayrı ayrı tanımlanır. 8. günden sonra hesaplama, 7 günlük fiyatın üzerine her ek gün için sabit ücret eklenerek yapılır.",
       },
       {
@@ -3933,7 +3933,7 @@ export class FahrradverleihComponent implements OnInit {
         a: 'Bisikletinizi doğrudan mağazamızdan alabilirsiniz: Alstedder Straße 5, 44534 Lünen. Hemen mevcut — ön ödeme gerekmez.',
       },
       {
-        q: "Freiburg'da hangi bisikletler kiralanabilir?",
+        q: "Lünen'da hangi bisikletler kiralanabilir?",
         a: 'Şehir bisikletleri, trekking bisikletleri ve e-bisikletler kiralıyoruz. Tüm bisikletler kontrol edilmiş ve sürüşe hazır.',
       },
     ];
@@ -3952,11 +3952,11 @@ export class FahrradverleihComponent implements OnInit {
         {
           '@type': 'Service',
           '@id': `${pageUrl}#service`,
-          name: 'Fahrradverleih Freiburg',
+          name: 'Fahrradverleih Lünen',
           alternateName: [
-            'Bike Rental Freiburg',
-            'Location vélo Freiburg',
-            'Freiburg Bisiklet Kiralama',
+            'Bike Rental Lünen',
+            'Location vélo Lünen',
+            'Lünen Bisiklet Kiralama',
           ],
           description:
             'Fahrradverleih in Lünen — Cityräder, Trekkingräder und E-Bikes mit individuell gepflegten Tagespreisen je Fahrrad. Helm und Schloss inklusive.',
@@ -4416,3 +4416,4 @@ export class FahrradverleihComponent implements OnInit {
     return `${base}${p}`;
   }
 }
+

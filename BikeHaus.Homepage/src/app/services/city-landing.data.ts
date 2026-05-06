@@ -40,7 +40,7 @@ export const CITY_LANDINGS: CityLanding[] = [
           'Karaarslan Bike — Ihr Fahrradladen nur 16 km von Emmendingen entfernt.',
         introHeading: 'Fahrräder für Emmendingen bei Karaarslan Bike',
         introText:
-          'Sie suchen ein Fahrrad in Emmendingen? Karaarslan Bike in der Alstedder Straße 5, Freiburg, ist nur 20 Minuten mit dem Auto entfernt. Bei uns finden Sie über 100 neue und gebrauchte Fahrräder — Citybikes, Trekkingräder, Mountainbikes, E-Bikes und Kinderfahrräder. Jedes Gebrauchtrad ist technisch geprüft und wird mit 3 Monaten Garantie verkauft.',
+          'Sie suchen ein Fahrrad in Emmendingen? Karaarslan Bike in der Alstedder Straße 5, Lünen, ist nur 20 Minuten mit dem Auto entfernt. Bei uns finden Sie über 100 neue und gebrauchte Fahrräder — Citybikes, Trekkingräder, Mountainbikes, E-Bikes und Kinderfahrräder. Jedes Gebrauchtrad ist technisch geprüft und wird mit 3 Monaten Garantie verkauft.',
         whyHeading: 'Warum Karaarslan Bike für Emmendinger?',
         whyItems: [
           'Nur 16 km / 20 Minuten über die B3 oder L187',
@@ -64,7 +64,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ctaText:
           'Besuchen Sie uns in der Alstedder Straße 5, 44534 Lünen. Geöffnet Mo/Di/Do 11–18 Uhr, Fr 11–13 + 15–18 Uhr, Sa 11:30–17 Uhr. Oder schreiben Sie uns auf WhatsApp: +49 163 7390 301.',
         directions:
-          'Von Emmendingen über die B3 Richtung Freiburg. In Freiburg auf die Heckerstraße abbiegen. Kostenlose Parkplätze vorhanden.',
+          'Von Emmendingen über die B3 Richtung Lünen. In Lünen auf die Heckerstraße abbiegen. Kostenlose Parkplätze vorhanden.',
       },
       en: {
         metaTitle: 'Bicycle Emmendingen — Buy bikes at Karaarslan Bike',
@@ -75,7 +75,7 @@ export const CITY_LANDINGS: CityLanding[] = [
           'Karaarslan Bike — your bike shop only 16 km from Emmendingen.',
         introHeading: 'Bicycles for Emmendingen at Karaarslan Bike',
         introText:
-          "Looking for a bike in Emmendingen? Karaarslan Bike at Alstedder Straße 5, Freiburg, is only a 20-minute drive away. We have over 100 new and used bicycles — city bikes, trekking bikes, mountain bikes, e-bikes and children's bikes. Every used bike is technically inspected and comes with a 3-month warranty.",
+          "Looking for a bike in Emmendingen? Karaarslan Bike at Alstedder Straße 5, Lünen, is only a 20-minute drive away. We have over 100 new and used bicycles — city bikes, trekking bikes, mountain bikes, e-bikes and children's bikes. Every used bike is technically inspected and comes with a 3-month warranty.",
         whyHeading: 'Why Karaarslan Bike for Emmendingen residents?',
         whyItems: [
           'Only 16 km / 20 minutes via the B3 or L187',
@@ -99,7 +99,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ctaText:
           'Visit us at Alstedder Straße 5, 44534 Lünen. Open Mon/Tue/Thu 11–18, Fri 11–13 + 15–18, Sat 11:30–17. Or message us on WhatsApp: +49 163 7390 301.',
         directions:
-          'From Emmendingen via the B3 towards Freiburg. Turn onto Heckerstraße in Freiburg. Free parking available.',
+          'From Emmendingen via the B3 towards Lünen. Turn onto Heckerstraße in Lünen. Free parking available.',
       },
       fr: {
         metaTitle: 'Vélo Emmendingen — Acheter des vélos chez Karaarslan Bike',
@@ -110,7 +110,7 @@ export const CITY_LANDINGS: CityLanding[] = [
           "Karaarslan Bike — votre magasin de vélos à seulement 16 km d'Emmendingen.",
         introHeading: 'Vélos pour Emmendingen chez Karaarslan Bike',
         introText:
-          "Vous cherchez un vélo à Emmendingen? Karaarslan Bike, Alstedder Straße 5, Freiburg, n'est qu'à 20 minutes en voiture. Nous proposons plus de 100 vélos neufs et d'occasion — vélos de ville, VTC, VTT, vélos électriques et vélos pour enfants. Chaque vélo d'occasion est contrôlé techniquement et vendu avec 3 mois de garantie.",
+          "Vous cherchez un vélo à Emmendingen? Karaarslan Bike, Alstedder Straße 5, Lünen, n'est qu'à 20 minutes en voiture. Nous proposons plus de 100 vélos neufs et d'occasion — vélos de ville, VTC, VTT, vélos électriques et vélos pour enfants. Chaque vélo d'occasion est contrôlé techniquement et vendu avec 3 mois de garantie.",
         whyHeading:
           "Pourquoi Karaarslan Bike pour les habitants d'Emmendingen?",
         whyItems: [
@@ -135,7 +135,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ctaText:
           'Rendez-nous visite au Alstedder Straße 5, 44534 Lünen. Ouvert lun/mar/jeu 11h–18h, ven 11h–13h + 15h–18h, sam 11h30–17h. Ou écrivez-nous sur WhatsApp: +49 163 7390 301.',
         directions:
-          'Depuis Emmendingen via la B3 direction Freiburg. Tournez dans la Heckerstraße à Freiburg. Parking gratuit disponible.',
+          'Depuis Emmendingen via la B3 direction Lünen. Tournez dans la Heckerstraße à Lünen. Parking gratuit disponible.',
       },
       tr: {
         metaTitle: "Bisiklet Emmendingen — Karaarslan Bike'da bisiklet alın",
@@ -146,8 +146,8 @@ export const CITY_LANDINGS: CityLanding[] = [
           "Karaarslan Bike — Emmendingen'den sadece 16 km uzaklıkta bisiklet mağazanız.",
         introHeading: 'Emmendingen için bisikletler — Karaarslan Bike',
         introText:
-          "Emmendingen'de bisiklet mi arıyorsunuz? Karaarslan Bike, Alstedder Straße 5, Freiburg, arabayla sadece 20 dakika uzaklıkta. 100'den fazla yeni ve ikinci el bisiklet — şehir bisikletleri, trekking bisikletleri, dağ bisikletleri, e-bisikletler ve çocuk bisikletleri. Her ikinci el bisiklet teknik olarak kontrol edilmiş ve 3 ay garantili.",
-        whyHeading: "Emmendingen'liler neden Bike Haus'u tercih etmeli?",
+          "Emmendingen'de bisiklet mi arıyorsunuz? Karaarslan Bike, Alstedder Straße 5, Lünen, arabayla sadece 20 dakika uzaklıkta. 100'den fazla yeni ve ikinci el bisiklet — şehir bisikletleri, trekking bisikletleri, dağ bisikletleri, e-bisikletler ve çocuk bisikletleri. Her ikinci el bisiklet teknik olarak kontrol edilmiş ve 3 ay garantili.",
+        whyHeading: "Emmendingen'liler neden Karaarslan Bike'u tercih etmeli?",
         whyItems: [
           'Sadece 16 km / 20 dakika B3 veya L187 üzerinden',
           "Stokta 100'den fazla bisiklet — bekleme yok",
@@ -170,7 +170,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ctaText:
           "Alstedder Straße 5, 44534 Lünen adresine gelin. Açılış saatleri: Pzt/Sal/Per 11–18, Cum 11–13 + 15–18, Cmt 11:30–17. Ya da WhatsApp'tan yazın: +49 163 7390 301.",
         directions:
-          "Emmendingen'den B3 üzerinden Freiburg yönüne gidin. Freiburg'da Heckerstraße'ye dönün. Ücretsiz park yeri mevcut.",
+          "Emmendingen'den B3 üzerinden Lünen yönüne gidin. Lünen'da Heckerstraße'ye dönün. Ücretsiz park yeri mevcut.",
       },
     },
   },
@@ -212,7 +212,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ctaText:
           'Alstedder Straße 5, 44534 Lünen. Mo/Di/Do 11–18 Uhr, Fr 11–13 + 15–18 Uhr, Sa 11:30–17 Uhr. WhatsApp: +49 163 7390 301.',
         directions:
-          'Von Bad Krozingen über die B3 Richtung Freiburg-Süd. Dauer: ca. 22 Minuten. Kostenlose Parkplätze vor dem Geschäft.',
+          'Von Bad Krozingen über die B3 Richtung Lünen-Süd. Dauer: ca. 22 Minuten. Kostenlose Parkplätze vor dem Geschäft.',
       },
       en: {
         metaTitle: 'Bicycle Bad Krozingen — Buy bikes at Karaarslan Bike',
@@ -245,7 +245,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ctaText:
           'Alstedder Straße 5, 44534 Lünen. Open Mon/Tue/Thu 11–18, Fri 11–13 + 15–18, Sat 11:30–17. WhatsApp: +49 163 7390 301.',
         directions:
-          'From Bad Krozingen via the B3 towards Freiburg-Süd. Duration: approx. 22 minutes. Free parking in front of the shop.',
+          'From Bad Krozingen via the B3 towards Lünen-Süd. Duration: approx. 22 minutes. Free parking in front of the shop.',
       },
       fr: {
         metaTitle:
@@ -279,7 +279,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ctaText:
           'Alstedder Straße 5, 44534 Lünen. Ouvert lun/mar/jeu 11h–18h, ven 11h–13h + 15h–18h, sam 11h30–17h. WhatsApp: +49 163 7390 301.',
         directions:
-          'Depuis Bad Krozingen via la B3 direction Freiburg-Süd. Durée: env. 22 minutes. Parking gratuit devant le magasin.',
+          'Depuis Bad Krozingen via la B3 direction Lünen-Süd. Durée: env. 22 minutes. Parking gratuit devant le magasin.',
       },
       tr: {
         metaTitle: "Bisiklet Bad Krozingen — Karaarslan Bike'da bisiklet alın",
@@ -312,7 +312,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ctaText:
           'Alstedder Straße 5, 44534 Lünen. Pzt/Sal/Per 11–18, Cum 11–13 + 15–18, Cmt 11:30–17. WhatsApp: +49 163 7390 301.',
         directions:
-          "Bad Krozingen'den B3 üzerinden Freiburg-Süd yönüne. Süre: yaklaşık 22 dakika. Mağaza önünde ücretsiz park yeri.",
+          "Bad Krozingen'den B3 üzerinden Lünen-Süd yönüne. Süre: yaklaşık 22 dakika. Mağaza önünde ücretsiz park yeri.",
       },
     },
   },
@@ -345,7 +345,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         offerItems: [
           'Citybikes für den Alltag in Breisach und Umgebung',
           'Trekkingräder für den Rhein-Radweg',
-          'E-Bikes für die Fahrten zwischen Breisach und Freiburg',
+          'E-Bikes für die Fahrten zwischen Breisach und Lünen',
           'Mountainbikes für den Kaiserstuhl',
           'Kinderfahrräder für den Schulweg',
         ],
@@ -353,7 +353,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ctaText:
           'Alstedder Straße 5, 44534 Lünen. Mo/Di/Do 11–18 Uhr, Fr 11–13 + 15–18 Uhr, Sa 11:30–17 Uhr. WhatsApp: +49 163 7390 301.',
         directions:
-          'Von Breisach über die B31 Richtung Freiburg. In ca. 28 Minuten bei uns. Parkplätze vorhanden.',
+          'Von Breisach über die B31 Richtung Lünen. In ca. 28 Minuten bei uns. Parkplätze vorhanden.',
       },
       en: {
         metaTitle: 'Bicycle Breisach — Buy bikes at Karaarslan Bike',
@@ -378,7 +378,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         offerItems: [
           'City bikes for everyday use in Breisach and surroundings',
           'Trekking bikes for the Rhine cycle path',
-          'E-bikes for trips between Breisach and Freiburg',
+          'E-bikes for trips between Breisach and Lünen',
           'Mountain bikes for the Kaiserstuhl',
           "Children's bikes for the school commute",
         ],
@@ -386,7 +386,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ctaText:
           'Alstedder Straße 5, 44534 Lünen. Open Mon/Tue/Thu 11–18, Fri 11–13 + 15–18, Sat 11:30–17. WhatsApp: +49 163 7390 301.',
         directions:
-          'From Breisach via the B31 towards Freiburg. About 28 minutes to reach us. Parking available.',
+          'From Breisach via the B31 towards Lünen. About 28 minutes to reach us. Parking available.',
       },
       fr: {
         metaTitle: 'Vélo Breisach — Acheter des vélos chez Karaarslan Bike',
@@ -411,7 +411,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         offerItems: [
           'Vélos de ville pour le quotidien à Breisach et environs',
           'VTC pour la piste cyclable du Rhin',
-          'Vélos électriques pour les trajets entre Breisach et Freiburg',
+          'Vélos électriques pour les trajets entre Breisach et Lünen',
           'VTT pour le Kaiserstuhl',
           'Vélos pour enfants pour le trajet scolaire',
         ],
@@ -419,7 +419,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ctaText:
           'Alstedder Straße 5, 44534 Lünen. Ouvert lun/mar/jeu 11h–18h, ven 11h–13h + 15h–18h, sam 11h30–17h. WhatsApp: +49 163 7390 301.',
         directions:
-          'Depuis Breisach via la B31 direction Freiburg. En env. 28 minutes chez nous. Parking disponible.',
+          'Depuis Breisach via la B31 direction Lünen. En env. 28 minutes chez nous. Parking disponible.',
       },
       tr: {
         metaTitle: "Bisiklet Breisach — Karaarslan Bike'da bisiklet alın",
@@ -444,7 +444,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         offerItems: [
           'Breisach ve çevresinde günlük kullanım için şehir bisikletleri',
           'Ren bisiklet yolu için trekking bisikletleri',
-          'Breisach-Freiburg arası yolculuklar için e-bisikletler',
+          'Breisach-Lünen arası yolculuklar için e-bisikletler',
           'Kaiserstuhl için dağ bisikletleri',
           'Okul yolu için çocuk bisikletleri',
         ],
@@ -452,7 +452,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ctaText:
           'Alstedder Straße 5, 44534 Lünen. Pzt/Sal/Per 11–18, Cum 11–13 + 15–18, Cmt 11:30–17. WhatsApp: +49 163 7390 301.',
         directions:
-          "Breisach'dan B31 üzerinden Freiburg yönüne. Yaklaşık 28 dakikada bizde. Park yeri mevcut.",
+          "Breisach'dan B31 üzerinden Lünen yönüne. Yaklaşık 28 dakikada bizde. Park yeri mevcut.",
       },
     },
   },
@@ -472,8 +472,8 @@ export const CITY_LANDINGS: CityLanding[] = [
           'Karaarslan Bike — Ihr Nachbar-Fahrradladen, nur 8 km entfernt.',
         introHeading: 'Fahrräder für Gundelfingen bei Karaarslan Bike',
         introText:
-          'Gundelfingen liegt direkt nördlich von Freiburg — und Karaarslan Bike ist nur 12 Minuten mit dem Auto oder 25 Minuten mit dem Fahrrad entfernt. Perfekt für eine Probefahrt! Wir bieten über 100 neue und gebrauchte Fahrräder mit Garantie.',
-        whyHeading: 'Warum Bike Haus für Gundelfinger?',
+          'Gundelfingen liegt direkt nördlich von Lünen — und Karaarslan Bike ist nur 12 Minuten mit dem Auto oder 25 Minuten mit dem Fahrrad entfernt. Perfekt für eine Probefahrt! Wir bieten über 100 neue und gebrauchte Fahrräder mit Garantie.',
+        whyHeading: 'Warum Karaarslan Bike für Gundelfinger?',
         whyItems: [
           'Nur 8 km / 12 Minuten mit dem Auto',
           'Auch mit dem Fahrrad (25 min) oder Straßenbahn erreichbar',
@@ -483,7 +483,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         offerHeading: 'Unser Sortiment',
         offerItems: [
-          'Citybikes für den Pendelweg nach Freiburg',
+          'Citybikes für den Pendelweg nach Lünen',
           'E-Bikes für entspanntes Pendeln',
           'Trekkingräder für Freizeittouren im Dreisamtal',
           'Kinderfahrräder für alle Altersgruppen',
@@ -493,7 +493,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ctaText:
           'Alstedder Straße 5, 44534 Lünen. Mo/Di/Do 11–18 Uhr, Fr 11–13 + 15–18 Uhr, Sa 11:30–17 Uhr. WhatsApp: +49 163 7390 301.',
         directions:
-          'Von Gundelfingen über die Freiburger Landstraße Richtung Freiburg-Haslach. Nur 12 Minuten.',
+          'Von Gundelfingen über die Lünener Landstraße Richtung Lünen-Haslach. Nur 12 Minuten.',
       },
       en: {
         metaTitle: 'Bicycle Gundelfingen — Buy bikes at Karaarslan Bike',
@@ -504,8 +504,8 @@ export const CITY_LANDINGS: CityLanding[] = [
           'Karaarslan Bike — your neighbourhood bike shop, only 8 km away.',
         introHeading: 'Bicycles for Gundelfingen at Karaarslan Bike',
         introText:
-          'Gundelfingen is located just north of Freiburg — and Karaarslan Bike is only a 12-minute drive or 25-minute bike ride away. Perfect for a test ride! We offer over 100 new and used bicycles with warranty.',
-        whyHeading: 'Why Bike Haus for Gundelfingen residents?',
+          'Gundelfingen is located just north of Lünen — and Karaarslan Bike is only a 12-minute drive or 25-minute bike ride away. Perfect for a test ride! We offer over 100 new and used bicycles with warranty.',
+        whyHeading: 'Why Karaarslan Bike for Gundelfingen residents?',
         whyItems: [
           'Only 8 km / 12 minutes by car',
           'Also reachable by bike (25 min) or tram',
@@ -515,7 +515,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         offerHeading: 'Our Selection',
         offerItems: [
-          'City bikes for commuting to Freiburg',
+          'City bikes for commuting to Lünen',
           'E-bikes for relaxed commuting',
           'Trekking bikes for leisure tours in the Dreisamtal',
           "Children's bikes for all age groups",
@@ -525,7 +525,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ctaText:
           'Alstedder Straße 5, 44534 Lünen. Open Mon/Tue/Thu 11–18, Fri 11–13 + 15–18, Sat 11:30–17. WhatsApp: +49 163 7390 301.',
         directions:
-          'From Gundelfingen via Freiburger Landstraße towards Freiburg-Haslach. Only 12 minutes.',
+          'From Gundelfingen via Lünener Landstraße towards Lünen-Haslach. Only 12 minutes.',
       },
       fr: {
         metaTitle: 'Vélo Gundelfingen — Acheter des vélos chez Karaarslan Bike',
@@ -536,8 +536,8 @@ export const CITY_LANDINGS: CityLanding[] = [
           'Karaarslan Bike — votre magasin de vélos voisin, à seulement 8 km.',
         introHeading: 'Vélos pour Gundelfingen chez Karaarslan Bike',
         introText:
-          "Gundelfingen est situé juste au nord de Freiburg — et Karaarslan Bike n'est qu'à 12 minutes en voiture ou 25 minutes à vélo. Parfait pour un essai! Nous proposons plus de 100 vélos neufs et d'occasion avec garantie.",
-        whyHeading: 'Pourquoi Bike Haus pour les habitants de Gundelfingen?',
+          "Gundelfingen est situé juste au nord de Lünen — et Karaarslan Bike n'est qu'à 12 minutes en voiture ou 25 minutes à vélo. Parfait pour un essai! Nous proposons plus de 100 vélos neufs et d'occasion avec garantie.",
+        whyHeading: 'Pourquoi Karaarslan Bike pour les habitants de Gundelfingen?',
         whyItems: [
           'Seulement 8 km / 12 minutes en voiture',
           'Aussi accessible en vélo (25 min) ou en tramway',
@@ -547,7 +547,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         offerHeading: 'Notre sélection',
         offerItems: [
-          'Vélos de ville pour les trajets vers Freiburg',
+          'Vélos de ville pour les trajets vers Lünen',
           'Vélos électriques pour un trajet détendu',
           'VTC pour les randonnées dans le Dreisamtal',
           'Vélos pour enfants pour tous les âges',
@@ -557,7 +557,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ctaText:
           'Alstedder Straße 5, 44534 Lünen. Ouvert lun/mar/jeu 11h–18h, ven 11h–13h + 15h–18h, sam 11h30–17h. WhatsApp: +49 163 7390 301.',
         directions:
-          'Depuis Gundelfingen via Freiburger Landstraße direction Freiburg-Haslach. Seulement 12 minutes.',
+          'Depuis Gundelfingen via Lünener Landstraße direction Lünen-Haslach. Seulement 12 minutes.',
       },
       tr: {
         metaTitle: "Bisiklet Gundelfingen — Karaarslan Bike'da bisiklet alın",
@@ -568,8 +568,8 @@ export const CITY_LANDINGS: CityLanding[] = [
           'Karaarslan Bike — komşu bisiklet mağazanız, sadece 8 km uzaklıkta.',
         introHeading: 'Gundelfingen için bisikletler — Karaarslan Bike',
         introText:
-          "Gundelfingen, Freiburg'un hemen kuzeyinde yer alıyor — ve Karaarslan Bike arabayla sadece 12 dakika veya bisikletle 25 dakika uzaklıkta. Test sürüşü için mükemmel! Garantili 100'den fazla yeni ve ikinci el bisiklet sunuyoruz.",
-        whyHeading: "Gundelfingen'liler neden Bike Haus'u tercih etmeli?",
+          "Gundelfingen, Lünen'un hemen kuzeyinde yer alıyor — ve Karaarslan Bike arabayla sadece 12 dakika veya bisikletle 25 dakika uzaklıkta. Test sürüşü için mükemmel! Garantili 100'den fazla yeni ve ikinci el bisiklet sunuyoruz.",
+        whyHeading: "Gundelfingen'liler neden Karaarslan Bike'u tercih etmeli?",
         whyItems: [
           'Sadece 8 km / 12 dakika arabayla',
           'Bisikletle (25 dk) veya tramvayla da ulaşılabilir',
@@ -579,7 +579,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         offerHeading: 'Ürün Seçimimiz',
         offerItems: [
-          "Freiburg'a gidiş-geliş için şehir bisikletleri",
+          "Lünen'a gidiş-geliş için şehir bisikletleri",
           'Rahat ulaşım için e-bisikletler',
           "Dreisamtal'da boş zaman turları için trekking bisikletleri",
           'Tüm yaş grupları için çocuk bisikletleri',
@@ -589,7 +589,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ctaText:
           'Alstedder Straße 5, 44534 Lünen. Pzt/Sal/Per 11–18, Cum 11–13 + 15–18, Cmt 11:30–17. WhatsApp: +49 163 7390 301.',
         directions:
-          "Gundelfingen'den Freiburger Landstraße üzerinden Freiburg-Haslach yönüne. Sadece 12 dakika.",
+          "Gundelfingen'den Lünener Landstraße üzerinden Lünen-Haslach yönüne. Sadece 12 dakika.",
       },
     },
   },
@@ -608,7 +608,7 @@ export const CITY_LANDINGS: CityLanding[] = [
           'Karaarslan Bike — nur 10 km von March entfernt. Große Auswahl, faire Preise.',
         introHeading: 'Fahrräder für March bei Karaarslan Bike',
         introText:
-          'March (Hugstetten, Neuershausen, Holzhausen) liegt westlich von Freiburg. Karaarslan Bike ist in nur 15 Minuten erreichbar und bietet Ihnen die größte Fahrradauswahl der Region — über 100 neue und gebrauchte Fahrräder mit Garantie.',
+          'March (Hugstetten, Neuershausen, Holzhausen) liegt westlich von Lünen. Karaarslan Bike ist in nur 15 Minuten erreichbar und bietet Ihnen die größte Fahrradauswahl der Region — über 100 neue und gebrauchte Fahrräder mit Garantie.',
         whyHeading: 'Warum zu uns kommen?',
         whyItems: [
           'Nur 10 km / 15 Minuten mit dem Auto',
@@ -620,7 +620,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         offerHeading: 'Unser Angebot',
         offerItems: [
           'Citybikes für den Alltag',
-          'E-Bikes für die Strecke March – Freiburg',
+          'E-Bikes für die Strecke March – Lünen',
           'Trekkingräder für Touren im Breisgau',
           'Kinderfahrräder',
           'Gebrauchte Fahrräder ab ca. 80 €',
@@ -629,7 +629,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ctaText:
           'Alstedder Straße 5, 44534 Lünen. Mo/Di/Do 11–18 Uhr, Fr 11–13 + 15–18 Uhr, Sa 11:30–17 Uhr. WhatsApp: +49 163 7390 301.',
         directions:
-          'Von March über Hugstetten/Umkirch direkt nach Freiburg-Haslach. Nur 15 Minuten.',
+          'Von March über Hugstetten/Umkirch direkt nach Lünen-Haslach. Nur 15 Minuten.',
       },
       en: {
         metaTitle: 'Bicycle March — Buy bikes at Karaarslan Bike',
@@ -640,7 +640,7 @@ export const CITY_LANDINGS: CityLanding[] = [
           'Karaarslan Bike — only 10 km from March. Large selection, fair prices.',
         introHeading: 'Bicycles for March at Karaarslan Bike',
         introText:
-          'March (Hugstetten, Neuershausen, Holzhausen) is located west of Freiburg. Karaarslan Bike is reachable in just 15 minutes and offers you the largest bicycle selection in the region — over 100 new and used bicycles with warranty.',
+          'March (Hugstetten, Neuershausen, Holzhausen) is located west of Lünen. Karaarslan Bike is reachable in just 15 minutes and offers you the largest bicycle selection in the region — over 100 new and used bicycles with warranty.',
         whyHeading: 'Why come to us?',
         whyItems: [
           'Only 10 km / 15 minutes by car',
@@ -652,7 +652,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         offerHeading: 'Our Range',
         offerItems: [
           'City bikes for everyday use',
-          'E-bikes for the March – Freiburg route',
+          'E-bikes for the March – Lünen route',
           'Trekking bikes for tours in the Breisgau',
           "Children's bikes",
           'Used bicycles from approx. €80',
@@ -661,7 +661,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ctaText:
           'Alstedder Straße 5, 44534 Lünen. Open Mon/Tue/Thu 11–18, Fri 11–13 + 15–18, Sat 11:30–17. WhatsApp: +49 163 7390 301.',
         directions:
-          'From March via Hugstetten/Umkirch directly to Freiburg-Haslach. Only 15 minutes.',
+          'From March via Hugstetten/Umkirch directly to Lünen-Haslach. Only 15 minutes.',
       },
       fr: {
         metaTitle: 'Vélo March — Acheter des vélos chez Karaarslan Bike',
@@ -672,7 +672,7 @@ export const CITY_LANDINGS: CityLanding[] = [
           'Karaarslan Bike — à seulement 10 km de March. Grand choix, prix justes.',
         introHeading: 'Vélos pour March chez Karaarslan Bike',
         introText:
-          "March (Hugstetten, Neuershausen, Holzhausen) est situé à l'ouest de Freiburg. Karaarslan Bike est accessible en seulement 15 minutes et vous offre le plus grand choix de vélos de la région — plus de 100 vélos neufs et d'occasion avec garantie.",
+          "March (Hugstetten, Neuershausen, Holzhausen) est situé à l'ouest de Lünen. Karaarslan Bike est accessible en seulement 15 minutes et vous offre le plus grand choix de vélos de la région — plus de 100 vélos neufs et d'occasion avec garantie.",
         whyHeading: 'Pourquoi venir chez nous?',
         whyItems: [
           'Seulement 10 km / 15 minutes en voiture',
@@ -684,7 +684,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         offerHeading: 'Notre offre',
         offerItems: [
           'Vélos de ville pour le quotidien',
-          'Vélos électriques pour le trajet March – Freiburg',
+          'Vélos électriques pour le trajet March – Lünen',
           'VTC pour les randonnées dans le Breisgau',
           'Vélos pour enfants',
           "Vélos d'occasion à partir d'env. 80 €",
@@ -693,7 +693,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ctaText:
           'Alstedder Straße 5, 44534 Lünen. Ouvert lun/mar/jeu 11h–18h, ven 11h–13h + 15h–18h, sam 11h30–17h. WhatsApp: +49 163 7390 301.',
         directions:
-          'Depuis March via Hugstetten/Umkirch directement vers Freiburg-Haslach. Seulement 15 minutes.',
+          'Depuis March via Hugstetten/Umkirch directement vers Lünen-Haslach. Seulement 15 minutes.',
       },
       tr: {
         metaTitle: "Bisiklet March — Karaarslan Bike'da bisiklet alın",
@@ -704,7 +704,7 @@ export const CITY_LANDINGS: CityLanding[] = [
           "Karaarslan Bike — March'dan sadece 10 km. Geniş seçenek, uygun fiyatlar.",
         introHeading: 'March için bisikletler — Karaarslan Bike',
         introText:
-          "March (Hugstetten, Neuershausen, Holzhausen) Freiburg'un batısında yer alıyor. Karaarslan Bike sadece 15 dakikada ulaşılabilir ve bölgenin en büyük bisiklet seçimini sunuyor — garantili 100'den fazla yeni ve ikinci el bisiklet.",
+          "March (Hugstetten, Neuershausen, Holzhausen) Lünen'un batısında yer alıyor. Karaarslan Bike sadece 15 dakikada ulaşılabilir ve bölgenin en büyük bisiklet seçimini sunuyor — garantili 100'den fazla yeni ve ikinci el bisiklet.",
         whyHeading: 'Neden bize gelmelisiniz?',
         whyItems: [
           'Sadece 10 km / 15 dakika arabayla',
@@ -716,7 +716,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         offerHeading: 'Ürün Yelpazemiz',
         offerItems: [
           'Günlük kullanım için şehir bisikletleri',
-          'March – Freiburg güzergahı için e-bisikletler',
+          'March – Lünen güzergahı için e-bisikletler',
           "Breisgau'da turlar için trekking bisikletleri",
           'Çocuk bisikletleri',
           "İkinci el bisikletler yaklaşık 80 €'dan",
@@ -725,8 +725,9 @@ export const CITY_LANDINGS: CityLanding[] = [
         ctaText:
           'Alstedder Straße 5, 44534 Lünen. Pzt/Sal/Per 11–18, Cum 11–13 + 15–18, Cmt 11:30–17. WhatsApp: +49 163 7390 301.',
         directions:
-          "March'dan Hugstetten/Umkirch üzerinden doğrudan Freiburg-Haslach'a. Sadece 15 dakika.",
+          "March'dan Hugstetten/Umkirch üzerinden doğrudan Lünen-Haslach'a. Sadece 15 dakika.",
       },
     },
   },
 ];
+

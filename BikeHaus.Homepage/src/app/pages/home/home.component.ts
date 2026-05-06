@@ -3090,21 +3090,21 @@ export class HomeComponent implements OnInit, OnDestroy {
     {
       name: 'Sandra K.',
       initials: 'SK',
-      text: 'Endlich ein Fahrradladen in Freiburg, der ehrlich berät und keine überteuerten Preise hat. Mein Sohn liebt sein neues Kinderfahrrad!',
+      text: 'Endlich ein Fahrradladen in Lünen, der ehrlich berät und keine überteuerten Preise hat. Mein Sohn liebt sein neues Kinderfahrrad!',
       detail: 'Kinderfahrrad gekauft',
       rating: 5,
     },
     {
       name: 'Michael W.',
       initials: 'MW',
-      text: 'Als Student war ich auf der Suche nach einem günstigen, zuverlässigen Fahrrad. Bei Bike Haus wurde ich fündig. Top Qualität zum fairen Preis!',
+      text: 'Als Student war ich auf der Suche nach einem günstigen, zuverlässigen Fahrrad. Bei Karaarslan Bike wurde ich fündig. Top Qualität zum fairen Preis!',
       detail: 'Cityrad gekauft',
       rating: 5,
     },
     {
       name: 'Elena B.',
       initials: 'EB',
-      text: 'Ich habe mein altes Fahrrad hier verkauft und gleich ein E-Bike mitgenommen. Unkompliziert und fair. Beste Fahrradhandlung in Freiburg!',
+      text: 'Ich habe mein altes Fahrrad hier verkauft und gleich ein E-Bike mitgenommen. Unkompliziert und fair. Beste Fahrradhandlung in Lünen!',
       detail: 'E-Bike gekauft',
       rating: 5,
     },
@@ -3391,3 +3391,4 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.shopPhotos.length;
   }
 }
+

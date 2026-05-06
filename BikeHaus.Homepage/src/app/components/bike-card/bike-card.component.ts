@@ -353,7 +353,7 @@ export class BikeCardComponent {
 
   private static readonly NEW_PATTERN =
     /\b(neue?[smrn]?|nagelneu|brandneu|unbenutzt|originalverpackt|\bovp\b)\b/i;
-  private static readonly HIDDEN_CAT = /kleinanzeigen|freiburg/i;
+  private static readonly HIDDEN_CAT = /kleinanzeigen|luenen/i;
 
   get isNew(): boolean {
     return BikeCardComponent.NEW_PATTERN.test(this.listing.title || '');
@@ -388,10 +388,11 @@ export class BikeCardComponent {
   }
 
   simplifyLocation(location: string): string {
-    // Always show just "Freiburg" for consistency
-    if (location.toLowerCase().includes('freiburg')) {
+    // Always show just "Lünen" for consistency
+    if (location.toLowerCase().includes('luenen')) {
       return 'Lünen';
     }
     return location;
   }
 }
+

@@ -1,7 +1,7 @@
 {
   "name": "Karaarslan Bike",
   "short_name": "BikeHaus",
-  "description": "Ihr Fahrradhändler in Freiburg - Neue und gebrauchte Fahrräder",
+  "description": "Ihr Fahrradhändler in Lünen - Neue und gebrauchte Fahrräder",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0A0A0A",
@@ -35,3 +35,4 @@
     }
   ]
 }
+
