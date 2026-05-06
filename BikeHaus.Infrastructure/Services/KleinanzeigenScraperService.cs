@@ -276,8 +276,8 @@ public class KleinanzeigenScraperService : IKleinanzeigenScraperService
                     {
                         var catText = (await categoryEl.InnerTextAsync()).Trim();
                         // Only use if it's a real bicycle category, not a location
-                        if (!catText.Contains("Kleinanzeigen") && !catText.Contains("Freiburg") &&
-                            !catText.Contains("Baden") && !catText.Contains("Breisgau"))
+                        if (!catText.Contains("Kleinanzeigen") && !catText.Contains("Lünen") && !catText.Contains("Freiburg"))
+
                         {
                             card.Category = catText;
                         }
