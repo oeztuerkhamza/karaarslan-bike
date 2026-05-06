@@ -42,14 +42,14 @@ import { DialogComponent } from './components/dialog/dialog.component';
           <div class="brand-icon-wrap">
             <img
               [src]="logoSrc()"
-              alt="Bike Haus Logo"
+              alt="Karaarslan Bike Logo"
               class="brand-logo"
               [class.no-filter]="hasCustomLogo()"
             />
           </div>
           <div class="brand-info">
-            <span class="brand-name">BikeHaus</span>
-            <span class="brand-sub">Freiburg</span>
+            <span class="brand-name">Karaarslan Bike</span>
+            <span class="brand-sub">Lünen</span>
           </div>
         </div>
 
@@ -354,7 +354,9 @@ import { DialogComponent } from './components/dialog/dialog.component';
                 stroke-linecap="round"
                 stroke-linejoin="round"
               >
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                <path
+                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                />
               </svg>
             </span>
             <span class="nav-label">{{ t.rentalReviews }}</span>
@@ -589,7 +591,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
           </button>
           <img
             [src]="logoSrc()"
-            alt="Bike Haus"
+            alt="Karaarslan Bike"
             class="topbar-logo"
             [class.no-filter]="hasCustomLogo()"
           />

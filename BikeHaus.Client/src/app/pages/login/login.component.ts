@@ -24,13 +24,13 @@ import { SettingsService } from '../../services/settings.service';
           <div class="logo-wrap" [class.custom-logo]="hasCustomLogo()">
             <img
               [src]="logoSrc()"
-              alt="Bike Haus"
+              alt="Karaaslan Bike Logo"
               class="login-logo"
               [class.no-filter]="hasCustomLogo()"
             />
           </div>
-          <h1>BikeHaus</h1>
-          <span class="subtitle">Freiburg</span>
+          <h1>Karaaslan Bike</h1>
+          <span class="subtitle">Lünen</span>
           <p>{{ t.welcomeBack }}</p>
         </div>
 

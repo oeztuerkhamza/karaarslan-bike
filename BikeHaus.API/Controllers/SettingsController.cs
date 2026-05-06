@@ -135,7 +135,7 @@ public class SettingsController : ControllerBase
                 TotalPrice: null,
                 Deposit: null,
                 AccessoriesText: "-",
-                PickupLocation: "Karaarslan Bike, Freiburg",
+                PickupLocation: "Karaarslan Bike, Lünen",
                 ShopPhone: "",
                 ShopEmail: "no-reply@karaarslan-bike.de",
                 Language: "de",

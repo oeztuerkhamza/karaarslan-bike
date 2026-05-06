@@ -1250,7 +1250,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     saveChangesError: 'Fehler beim Speichern der Änderungen',
     invalidSaleId: 'Ungültige Verkauf-ID',
     saleNotFound: 'Verkauf nicht gefunden',
-    addressPlaceholder: 'z.B. Bissierstraße 16, Freiburg',
+    addressPlaceholder: 'z.B. Alstedder Straße 5, Lünen',
 
     // Bicycle List
     allStatus: 'Alle Status',
@@ -2031,7 +2031,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     saveChangesError: 'Değişiklikler kaydedilemedi',
     invalidSaleId: 'Geçersiz satış kimliği',
     saleNotFound: 'Satış bulunamadı',
-    addressPlaceholder: 'örn. Bissierstraße 16, Freiburg',
+    addressPlaceholder: 'örn. Alstedder Straße 5, Lünen',
 
     // Bicycle List
     allStatus: 'Tüm Durumlar',
