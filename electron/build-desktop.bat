@@ -1,6 +1,6 @@
 @echo off
 echo ============================================
-echo   Karaaslan Bisiklet - Desktop App Build
+echo   Karaarslan Bike - Desktop App Build
 echo ============================================
 echo.
 
@@ -51,7 +51,7 @@ echo.
 echo [5/5] Building Electron desktop app...
 cd electron
 call npm install
-call .\node_modules\.bin\electron-packager.cmd . "Karaaslan Bisiklet" --platform=win32 --arch=x64 --out=../dist-electron --overwrite --extra-resource="../publish" --no-prune
+call .\node_modules\.bin\electron-packager.cmd . "Karaarslan Bike" --platform=win32 --arch=x64 --out=../dist-electron --overwrite --extra-resource="../publish" --no-prune
 if %ERRORLEVEL% NEQ 0 (
     echo WARNING: Electron packager returned non-zero (may be just warnings)
 )
@@ -63,4 +63,3 @@ echo   Build complete!
 echo   Output: dist-electron/
 echo ============================================
 pause
-

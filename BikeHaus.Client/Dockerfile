@@ -9,7 +9,7 @@ ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
 
 COPY package*.json ./
-RUN npm ci --prefer-offline
+RUN --mount=type=cache,target=/root/.npm npm ci
 
 COPY . .
 RUN npm run build -- --configuration production

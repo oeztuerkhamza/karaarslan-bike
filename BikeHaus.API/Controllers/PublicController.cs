@@ -86,7 +86,7 @@ public class PublicController : ControllerBase
         var info = await _kleinanzeigenService.GetPublicShopInfoAsync();
         if (info == null)
         {
-            return Ok(new { shopName = "Karaaslan Bisiklet" });
+            return Ok(new { shopName = "Karaarslan Bike" });
         }
         return Ok(info);
     }
@@ -284,7 +284,7 @@ public class PublicController : ControllerBase
     [Produces("application/xml")]
     public async Task<IActionResult> GetProductSitemap()
     {
-        var baseUrl = "https://[DOMAIN]";
+        var baseUrl = "https://karaarslan-bike.de";
         var now = DateTime.UtcNow.ToString("yyyy-MM-dd");
         var langs = new[] { "de", "fr", "tr" };
 
@@ -381,7 +381,7 @@ public class PublicController : ControllerBase
     [HttpPost("notify-indexnow")]
     public async Task<IActionResult> NotifyIndexNow([FromServices] IIndexNowService indexNowService)
     {
-        var baseUrl = "https://[DOMAIN]";
+        var baseUrl = "https://karaarslan-bike.de";
         var langs = new[] { "de", "fr", "tr" };
         var urls = new List<string>();
 
@@ -419,4 +419,3 @@ public class PublicController : ControllerBase
         return Ok(new { submitted = urls.Count, message = "IndexNow notification sent" });
     }
 }
-

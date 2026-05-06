@@ -117,8 +117,8 @@ public class AuthService : IAuthService
         };
 
         var token = new JwtSecurityToken(
-            issuer: _configuration["Jwt:Issuer"] ?? "[DOMAIN]",
-            audience: _configuration["Jwt:Audience"] ?? "KaraaslanApp",
+            issuer: _configuration["Jwt:Issuer"] ?? "BikeHausFreiburg",
+            audience: _configuration["Jwt:Audience"] ?? "BikeHausApp",
             claims: claims,
             expires: DateTime.UtcNow.AddDays(30), // 30 days
             signingCredentials: creds
@@ -127,4 +127,3 @@ public class AuthService : IAuthService
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
 }
-

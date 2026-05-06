@@ -20,7 +20,7 @@ builder.Services.AddControllers()
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new() { Title = "Karaaslan Bisiklet API", Version = "v1" });
+    c.SwaggerDoc("v1", new() { Title = "Karaarslan Bike API", Version = "v1" });
 });
 
 // CORS for Angular
@@ -54,8 +54,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateAudience = true,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["Jwt:Issuer"] ?? "[DOMAIN]",
-            ValidAudience = builder.Configuration["Jwt:Audience"] ?? "KaraaslanApp",
+            ValidIssuer = builder.Configuration["Jwt:Issuer"] ?? "BikeHausFreiburg",
+            ValidAudience = builder.Configuration["Jwt:Audience"] ?? "BikeHausApp",
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
         };
     });
@@ -87,7 +87,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Karaaslan Bisiklet API v1"));
+    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Karaarslan Bike API v1"));
 }
 
 app.UseCors("AllowAngular");
@@ -136,4 +136,3 @@ if (!app.Environment.IsDevelopment())
 }
 
 await app.RunAsync();
-

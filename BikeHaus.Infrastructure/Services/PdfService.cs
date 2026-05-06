@@ -28,20 +28,20 @@ public class PdfService : IPdfService
     private static readonly string TableAltBg = "#f7fafc";         // Very light gray for rows
 
     // Default Shop Information (fallback if no settings in DB)
-    private const string DefaultShopName = "Karaaslan Bisiklet";
+    private const string DefaultShopName = "KARAARSLAN BIKE";
     private const string DefaultOwnerName = "CEVDET AKARSU";
     private const string DefaultShopType = "FAHRRADLADEN";
     private const string DefaultSteuernummer = "06002/40667";
     private const string DefaultUStIdNr = "DE437595861";
     private const string DefaultShopStreet = "An der Wethmarheide 45, Garagennummer 255";
     private const string DefaultShopCity = "44534 Lünen";
-    private const string DefaultShopEmail = "[DOMAIN]@gmail.com";
-    private const string DefaultShopTelefon = "0163 7390301";
+    private const string DefaultShopEmail = "info@karaarslan-bike.de";
+    private const string DefaultShopTelefon = "0 15566300011";
     private const string DefaultBankName = "Sparkasse";
     private const string DefaultBankAccountHolder = "Cevdet Akarsu";
     private const string DefaultIBAN = "DE28 6805 0101 00 14 5475 04";
     private const string GoogleReviewUrl = "https://g.page/r/CQTjOCyqlXbGEBM/review";
-    private const string WebsiteUrl = "www.[DOMAIN]";
+    private const string WebsiteUrl = "www.karaarslan-bike.de";
 
     // Warranty Texts
     private const string NeuWarrantyText =
@@ -57,7 +57,7 @@ public class PdfService : IPdfService
         "Rückgaberecht: innerhalb von 3 Arbeitstagen.";
 
     private const string RepairNote =
-        "*Reparaturen im Garantiefall dürfen ausschließlich durch Karaaslan Bisiklet durchgeführt werden.*";
+        "*Reparaturen im Garantiefall dürfen ausschließlich durch Karaarslan Bike durchgeführt werden.*";
 
     public PdfService(
         IPurchaseRepository purchaseRepository,
@@ -1915,4 +1915,3 @@ public class PdfService : IPdfService
         return document.GeneratePdf();
     }
 }
-

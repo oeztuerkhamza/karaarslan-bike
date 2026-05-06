@@ -1,14 +1,14 @@
 services:
-  karaaslan:
+  bikehaus:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: karaaslan-app
+    container_name: bikehaus-app
     restart: unless-stopped
     ports:
       - '5000:5000'
     volumes:
-      - karaaslan-data:/app/data
+      - bikehaus-data:/app/data
     env_file: .env
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
@@ -17,7 +17,7 @@ services:
       - GooglePlaces__ApiKey=${GOOGLE_PLACES_API_KEY}
       - GooglePlaces__PlaceId=${GOOGLE_PLACES_PLACE_ID}
       - PLAYWRIGHT_BROWSERS_PATH=/app/.playwright
-      - Smtp__Host=${SMTP_HOST:-[SMTP_HOST]}
+      - Smtp__Host=${SMTP_HOST:-mail.karaarslan-bike.de}
       - Smtp__Port=${SMTP_PORT:-587}
       - Smtp__Username=${SMTP_USERNAME:-no-reply@karaarslan-bike.de}
       - Smtp__Password=${SMTP_PASSWORD}
@@ -27,24 +27,24 @@ services:
     extra_hosts:
       - 'mail.karaarslan-bike.de:host-gateway'
     networks:
-      - karaaslan-network
+      - bikehaus-network
 
   client:
     build:
       context: ./BikeHaus.Client
       dockerfile: Dockerfile
-    container_name: karaaslan-client
+    container_name: bikehaus-client
     restart: unless-stopped
     expose:
       - '80'
     networks:
-      - karaaslan-network
+      - bikehaus-network
 
   homepage:
     build:
       context: ./BikeHaus.Homepage
       dockerfile: Dockerfile
-    container_name: karaaslan-homepage
+    container_name: bikehaus-homepage
     restart: unless-stopped
     ports:
       - '4000:4000'
@@ -52,11 +52,11 @@ services:
       - NODE_ENV=production
       - PORT=4000
     networks:
-      - karaaslan-network
+      - bikehaus-network
 
   nginx:
     image: nginx:alpine
-    container_name: karaaslan-nginx
+    container_name: bikehaus-nginx
     restart: unless-stopped
     extra_hosts:
       - 'host.docker.internal:host-gateway'
@@ -70,16 +70,16 @@ services:
       - certbot-var:/var/lib/letsencrypt
       - ./homepage-dist:/usr/share/nginx/html/homepage:ro
     depends_on:
-      - karaaslan
+      - bikehaus
       - client
       - homepage
     networks:
-      - karaaslan-network
+      - bikehaus-network
 
   # Certbot for Let's Encrypt SSL
   certbot:
     image: certbot/certbot
-    container_name: karaaslan-certbot
+    container_name: bikehaus-certbot
     volumes:
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
@@ -88,7 +88,7 @@ services:
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
 
 volumes:
-  karaaslan-data:
+  bikehaus-data:
     driver: local
   certbot-etc:
     driver: local
@@ -96,5 +96,5 @@ volumes:
     driver: local
 
 networks:
-  karaaslan-network:
+  bikehaus-network:
     driver: bridge

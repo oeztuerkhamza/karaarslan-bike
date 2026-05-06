@@ -2,7 +2,7 @@
 // BikeHaus Bulk Editor - Popup Script
 // ============================================
 
-const STANDARD_TEMPLATE = `Bike Haus Freiburg – Ihr gebrauchte Fahrradladen in Freiburg
+const STANDARD_TEMPLATE = `Karaarslan Bike – Ihr gebrauchte Fahrradladen in Freiburg
 
 ✅ Neue Fahrrad 24 Monate Garantie
 ✅ Gebrauchte Fahrrad 3 Monate Garantie
@@ -11,7 +11,7 @@ const STANDARD_TEMPLATE = `Bike Haus Freiburg – Ihr gebrauchte Fahrradladen in
 ✅ Fahrradreservierungen sind leider nicht möglich
 
 Adresse & Öffnungszeiten:
-An der Wethmarheide 45, Garagennummer 255, 44534 Lünen
+An der Wethmarheide 45, Garagennummer 255, Freiburg
 Mo 11:00–17:30
 Di 11:00–17:30
 Mi 14:00–17:30
@@ -21,7 +21,7 @@ Sa 11:30–17:00
 
 Ankauf:
 Wir kaufen nur qualitativ hochwertige Fahrräder (Cube, Bulls, KTM, Ghost, Frog, Woom, Pyro, Bergamont, Stevens, Giant, Kalkhoff, Steppenwolf).
-Bilder und Preis bitte per Kleinanzeigen oder WhatsApp (+49 163 7390301) senden.
+Bilder und Preis bitte per Kleinanzeigen oder WhatsApp (+49 15566 300011) senden.
 
 Ausstattung & Hinweis:
 Fahrrad ist komplett überprüft und fahrbereit

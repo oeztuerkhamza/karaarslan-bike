@@ -1,8 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
-DOMAIN="bikehausfreiburg.com"
-EMAIL="${1:-info@bikehausfreiburg.com}"
+DOMAIN="karaarslan-bike.de"
+EMAIL="${1:-info@karaarslan-bike.de}"
 
 echo "=== SSL Setup: $DOMAIN ==="
 cd /opt/bikehaus

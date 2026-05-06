@@ -749,7 +749,7 @@ interface EmailAccountForm {
                   <input
                     type="email"
                     [(ngModel)]="eaf.fromEmail"
-                    placeholder="karaarslan-bike.de@gmail.com"
+                    placeholder="info@karaarslan-bike.de"
                   />
                 </div>
                 <div class="form-group">
@@ -2427,4 +2427,3 @@ export class SettingsComponent implements OnInit, OnDestroy {
       });
   }
 }
-

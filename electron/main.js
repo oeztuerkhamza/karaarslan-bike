@@ -59,7 +59,7 @@ function startApi() {
         ...process.env,
         ASPNETCORE_ENVIRONMENT: 'Production',
         ASPNETCORE_URLS: API_URL,
-        ConnectionStrings__DefaultConnection: `Data Source=${path.join(apiDir, 'Karaaslan.db')}`,
+        ConnectionStrings__DefaultConnection: `Data Source=${path.join(apiDir, 'BikeHausFreiburg.db')}`,
         FileStorage__BasePath: path.join(apiDir, 'uploads')
       },
       stdio: ['pipe', 'pipe', 'pipe']
@@ -130,7 +130,7 @@ function createWindow() {
     height: 900,
     minWidth: 1024,
     minHeight: 700,
-    title: 'Karaaslan Bisiklet',
+    title: 'Karaarslan Bike',
     icon: path.join(__dirname, 'icon.ico'),
     autoHideMenuBar: true,
     webPreferences: {
@@ -190,5 +190,3 @@ app.on('activate', () => {
     createWindow();
   }
 });
-
-

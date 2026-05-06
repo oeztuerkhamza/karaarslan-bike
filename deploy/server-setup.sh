@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-echo "=== BikeHaus Freiburg Server Setup ==="
+echo "=== Karaarslan Bike Server Setup ==="
 
 # Update system
 echo ">> Updating system..."

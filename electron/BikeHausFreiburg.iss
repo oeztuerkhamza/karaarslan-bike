@@ -1,10 +1,10 @@
-; Karaaslan Bisiklet - Inno Setup Installer Script
+; Karaarslan Bike - Inno Setup Installer Script
 ; Bu dosya ile tek tikla kurulabilir setup dosyasi olusturulur
 
-#define MyAppName "Karaaslan Bisiklet"
+#define MyAppName "Karaarslan Bike"
 #define MyAppVersion "1.0.0"
-#define MyAppPublisher "Karaaslan Bisiklet"
-#define MyAppExeName "Karaaslan Bisiklet.exe"
+#define MyAppPublisher "Karaarslan Bike"
+#define MyAppExeName "Karaarslan Bike.exe"
 
 [Setup]
 AppId={{B1E8A8F2-7C4D-4A6B-9E5F-3D2C1A0B9E8F}
@@ -15,7 +15,7 @@ DefaultDirName={autopf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
 OutputDir=..\installer-output
-OutputBaseFilename=Karaaslan_Setup_v{#MyAppVersion}
+OutputBaseFilename=BikeHausFreiburg_Setup_v{#MyAppVersion}
 SetupIconFile=icon.ico
 Compression=lzma2/ultra64
 SolidCompression=yes
@@ -56,8 +56,7 @@ begin
   // Uygulama calisiyorsa kapat
   if FileExists(ExpandConstant('{app}\{#MyAppExeName}')) then
   begin
-    Exec('taskkill', '/F /IM "Karaaslan Bisiklet.exe"', '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
+    Exec('taskkill', '/F /IM "Karaarslan Bike.exe"', '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
     Sleep(500);
   end;
 end;
-

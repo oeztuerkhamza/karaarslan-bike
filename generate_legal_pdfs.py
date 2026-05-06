@@ -12,14 +12,14 @@ import os
 OUTPUT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Business Details
-FIRMA = "Bike Haus Freiburg"
+FIRMA = "Karaarslan Bike"
 INHABER = "Cevdet Akarsu"
 STRASSE = "An der Wethmarheide 45, Garagennummer 255"
-PLZ_ORT = "44534 Lünen"
+PLZ_ORT = "79114 Lünen"
 LAND = "Deutschland"
-TELEFON = "+49 163 7390301"
-EMAIL = "bikehausfreiburg@gmail.com"
-WEBSITE = "https://bikehausfreiburg.com"
+TELEFON = "+49 155 6630 0011"
+EMAIL = "info@karaarslan-bike.de"
+WEBSITE = "https://karaarslan-bike.de"
 STEUERNUMMER = "06002/40667"
 UST_ID = "DE437595861"
 
@@ -355,7 +355,7 @@ def create_agb():
     )
     pdf.body_text(
         "10.3 Gerichtsstand fuer alle Streitigkeiten ist, soweit gesetzlich zulaessig, "
-        "Freiburg im Breisgau."
+        "Lünen."
     )
 
     filepath = os.path.join(OUTPUT_DIR, "Allgemeine_Geschaeftsbedingungen.pdf")

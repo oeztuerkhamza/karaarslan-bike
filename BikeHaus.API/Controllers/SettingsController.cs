@@ -28,7 +28,7 @@ public class SettingsController : ControllerBase
             // Return default settings if none exist
             return Ok(new ShopSettingsDto
             {
-                ShopName = "Karaaslan Bisiklet"
+                ShopName = "Karaarslan Bike"
             });
         }
         return Ok(settings);
@@ -135,9 +135,9 @@ public class SettingsController : ControllerBase
                 TotalPrice: null,
                 Deposit: null,
                 AccessoriesText: "-",
-                PickupLocation: "Karaaslan Bisiklet, An der Wethmarheide 45, 44534 Lünen",
+                PickupLocation: "Karaarslan Bike, Freiburg",
                 ShopPhone: "",
-                ShopEmail: "no-reply@[DOMAIN]",
+                ShopEmail: "no-reply@karaarslan-bike.de",
                 Language: "de",
                 SelfCancelUrl: null
             ));
@@ -156,4 +156,3 @@ public class TestEmailDto
     [EmailAddress]
     public string ToEmail { get; set; } = "";
 }
-

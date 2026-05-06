@@ -276,7 +276,7 @@ public class KleinanzeigenScraperService : IKleinanzeigenScraperService
                     {
                         var catText = (await categoryEl.InnerTextAsync()).Trim();
                         // Only use if it's a real bicycle category, not a location
-                        if (!catText.Contains("Kleinanzeigen") && !catText.Contains("[SEHIR]") &&
+                        if (!catText.Contains("Kleinanzeigen") && !catText.Contains("Freiburg") &&
                             !catText.Contains("Baden") && !catText.Contains("Breisgau"))
                         {
                             card.Category = catText;
@@ -403,7 +403,7 @@ public class KleinanzeigenScraperService : IKleinanzeigenScraperService
         // No title-based detection - only use Art attribute from Kleinanzeigen
         // Final fallback: use card category if still empty and valid
         if (string.IsNullOrEmpty(data.Category) && !string.IsNullOrEmpty(card.Category) &&
-            !card.Category.Contains("Kleinanzeigen") && !card.Category.Contains("LÜNEN"))
+            !card.Category.Contains("Kleinanzeigen") && !card.Category.Contains("Freiburg"))
         {
             data.Category = card.Category;
         }
@@ -543,4 +543,3 @@ public class KleinanzeigenScraperService : IKleinanzeigenScraperService
         public string? Category { get; set; }
     }
 }
-

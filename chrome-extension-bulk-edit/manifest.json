@@ -13,7 +13,7 @@
   ],
   "host_permissions": [
     "https://www.kleinanzeigen.de/*",
-    "https://api.[DOMAIN]/*",
+    "https://api.karaarslan-bike.de/*",
     "http://localhost:*/*"
   ],
   "background": {
@@ -30,4 +30,3 @@
     "default_popup": "popup.html"
   }
 }
-

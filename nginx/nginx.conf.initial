@@ -39,10 +39,10 @@ http {
     # After SSL is obtained, replace with nginx.conf (HTTPS version)
     # ═══════════════════════════════════════════════════════════════
 
-    # PUBLIC HOMEPAGE ([DOMAIN])
+    # PUBLIC HOMEPAGE (karaarslan-bike.de)
     server {
         listen 80;
-        server_name [DOMAIN] www.[DOMAIN];
+        server_name karaarslan-bike.de www.karaarslan-bike.de;
 
         # Let's Encrypt challenge
         location /.well-known/acme-challenge/ {
@@ -62,10 +62,10 @@ http {
         add_header X-Content-Type-Options "nosniff" always;
     }
 
-    # ADMIN PANEL (admin.[DOMAIN])
+    # ADMIN PANEL (admin.karaarslan-bike.de)
     server {
         listen 80;
-        server_name admin.[DOMAIN];
+        server_name admin.karaarslan-bike.de;
 
         # Let's Encrypt challenge
         location /.well-known/acme-challenge/ {
@@ -98,10 +98,10 @@ http {
         }
     }
 
-    # API (api.[DOMAIN])
+    # API (api.karaarslan-bike.de)
     server {
         listen 80;
-        server_name api.[DOMAIN];
+        server_name api.karaarslan-bike.de;
 
         # Let's Encrypt challenge
         location /.well-known/acme-challenge/ {
@@ -139,8 +139,7 @@ http {
         }
 
         location / {
-            return 301 http://[DOMAIN]$request_uri;
+            return 301 http://karaarslan-bike.de$request_uri;
         }
     }
 }
-

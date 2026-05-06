@@ -1,6 +1,6 @@
 # Karaarslan Bike Projesi — İlerleme Takibi
 
-Bu dosya, BikeHaus Freiburg projesinin Karaarslan Bike firması için uyarlanma sürecini adım adım kaydeder.
+Bu dosya, Karaarslan Bike projesinin Karaarslan Bike firması için uyarlanma sürecini adım adım kaydeder.
 Kaldığın yerden devam etmek için bu dosyayı oku.
 
 ---
@@ -44,7 +44,7 @@ Kaldığın yerden devam etmek için bu dosyayı oku.
 ### Adım 4 — Çeviri Servisi (Homepage)
 
 - `BikeHaus.Homepage/src/app/services/translation.service.ts` güncellendi
-  - Tüm "Bike Haus Freiburg" → "Karaaslan Bisiklet" → "Karaarslan Bike" olarak değiştirildi
+  - Tüm "Karaarslan Bike" → "Karaaslan Bisiklet" → "Karaarslan Bike" olarak değiştirildi
   - WhatsApp, Instagram, Facebook linkleri → [PLACEHOLDER] yapıldı
   - Adres, şehir bilgileri → [PLACEHOLDER] yapıldı
 
@@ -114,7 +114,7 @@ Aşağıdaki bilgiler hâlâ placeholder:
 
 | Bilgi            | Placeholder          | Doldurulacak Dosyalar                                 |
 | ---------------- | -------------------- | ----------------------------------------------------- |
-| Adres            | `[ADRES]`            | translation.service.ts, home.component.ts, index.html |
+| Adres            | `An der Wethmarheide 45, Garagennummer 255`            | translation.service.ts, home.component.ts, index.html |
 | Telefon/WhatsApp | `[TELEFON]`          | translation.service.ts                                |
 | Instagram URL    | `[INSTAGRAM_URL]`    | translation.service.ts                                |
 | Facebook URL     | `[FACEBOOK_URL]`     | translation.service.ts                                |
@@ -137,9 +137,9 @@ Aşağıdaki placeholder'lar kodun içine yazıldı, tek tek arama-değiştirme 
 ```
 [DOMAIN]          → Firma domaini (örn. karaaslanbisiklet.com)
 [FIRMA_ADI]       → Kısa firma adı (örn. Karaaslan Bisiklet)
-[ADRES]           → Tam sokak adresi
-[SEHIR]           → Şehir adı
-[PLZ]             → Posta kodu
+An der Wethmarheide 45, Garagennummer 255           → Tam sokak adresi
+Lünen           → Şehir adı
+44534             → Posta kodu
 [TELEFON]         → Telefon numarası
 [EMAIL]           → İletişim e-postası
 [INSTAGRAM_URL]   → Instagram profil linki

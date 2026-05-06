@@ -43,7 +43,7 @@ public class BackupService : IBackupService
         using var archive = new ZipArchive(zipStream, ZipArchiveMode.Read);
 
         // Validate the backup contains a database file
-        var dbEntry = archive.GetEntry("database/[DOMAIN].db");
+        var dbEntry = archive.GetEntry("database/BikeHausFreiburg.db");
         if (dbEntry == null)
         {
             throw new InvalidOperationException("Invalid backup file: database not found in archive.");
@@ -95,7 +95,7 @@ public class BackupService : IBackupService
             await Task.Delay(100);
 
             // Add the backup database to the archive
-            var entry = archive.CreateEntry("database/[DOMAIN].db", CompressionLevel.Optimal);
+            var entry = archive.CreateEntry("database/BikeHausFreiburg.db", CompressionLevel.Optimal);
             using (var entryStream = entry.Open())
             using (var fileStream = new FileStream(tempDbPath, FileMode.Open, FileAccess.Read, FileShare.Read))
             {
@@ -146,7 +146,7 @@ public class BackupService : IBackupService
 
     private async Task RestoreDatabaseFromArchive(ZipArchive archive)
     {
-        var dbEntry = archive.GetEntry("database/[DOMAIN].db")!;
+        var dbEntry = archive.GetEntry("database/BikeHausFreiburg.db")!;
 
         // Write to a temp file first, then replace
         var tempDbPath = Path.Combine(Path.GetTempPath(), $"bikehaus_restore_{Guid.NewGuid()}.db");
@@ -243,4 +243,3 @@ public class BackupService : IBackupService
         }
     }
 }
-

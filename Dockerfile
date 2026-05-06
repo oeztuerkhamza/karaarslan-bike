@@ -85,4 +85,3 @@ HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
   CMD curl -f http://localhost:5000/api/settings || exit 1
 
 ENTRYPOINT ["dotnet", "BikeHaus.API.dll"]
-

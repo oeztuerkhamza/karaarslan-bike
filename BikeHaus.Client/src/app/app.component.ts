@@ -42,14 +42,14 @@ import { DialogComponent } from './components/dialog/dialog.component';
           <div class="brand-icon-wrap">
             <img
               [src]="logoSrc()"
-              alt="Karaarslan Bike Logo"
+              alt="Bike Haus Logo"
               class="brand-logo"
               [class.no-filter]="hasCustomLogo()"
             />
           </div>
           <div class="brand-info">
             <span class="brand-name">BikeHaus</span>
-            <span class="brand-sub">Lünen</span>
+            <span class="brand-sub">Freiburg</span>
           </div>
         </div>
 
@@ -338,6 +338,27 @@ import { DialogComponent } from './components/dialog/dialog.component';
             </span>
             <span class="nav-label">{{ t.rentalAccessories }}</span>
           </a>
+          <a
+            routerLink="/rental-reviews"
+            routerLinkActive="active"
+            (click)="closeSidebar()"
+          >
+            <span class="nav-icon">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </span>
+            <span class="nav-label">{{ t.rentalReviews }}</span>
+          </a>
 
           <div class="nav-divider"></div>
           <div class="nav-section-label">Extras</div>
@@ -568,7 +589,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
           </button>
           <img
             [src]="logoSrc()"
-            alt="Karaarslan Bike"
+            alt="Bike Haus"
             class="topbar-logo"
             [class.no-filter]="hasCustomLogo()"
           />
@@ -1201,4 +1222,3 @@ export class AppComponent implements OnInit {
     this.logout();
   }
 }
-

@@ -1,4 +1,4 @@
-# BikeHaus Freiburg - Deployment Guide
+# Karaarslan Bike - Deployment Guide
 
 ## Architecture
 
@@ -12,7 +12,7 @@
 │  └──────────┬──────────────────┬──────────────────┬────┘   │
 │             │                  │                  │         │
 │             ▼                  ▼                  ▼         │
-│   bikehausfreiburg.com   admin.xxx.com     api.xxx.com     │
+│   karaarslan-bike.de   admin.xxx.com     api.xxx.com     │
 │   (Static Homepage)      (Admin Panel)     (Public API)    │
 │         │                      │                  │         │
 │         ▼                      └──────┬──────────┘         │
@@ -64,10 +64,10 @@ cd /opt/bikehaus
 
 Add these A records pointing to your server IP:
 
-- `bikehausfreiburg.com` → 152.53.138.135
-- `www.bikehausfreiburg.com` → 152.53.138.135
-- `admin.bikehausfreiburg.com` → 152.53.138.135
-- `api.bikehausfreiburg.com` → 152.53.138.135
+- `karaarslan-bike.de` → 152.53.138.135
+- `www.karaarslan-bike.de` → 152.53.138.135
+- `admin.karaarslan-bike.de` → 152.53.138.135
+- `api.karaarslan-bike.de` → 152.53.138.135
 
 ### 4. Initialize Secrets & Start Services
 
@@ -80,8 +80,8 @@ GOOGLE_PLACES_API_KEY=your-google-places-key
 GOOGLE_PLACES_PLACE_ID=your-place-id
 SMTP_PASSWORD=your-smtp-password
 SMTP_USE_SSL=false
-SMTP_FROM_EMAIL=no-reply@bikehausfreiburg.com
-SMTP_FROM_NAME=Bike Haus Freiburg
+SMTP_FROM_EMAIL=no-reply@karaarslan-bike.de
+SMTP_FROM_NAME=Karaarslan Bike
 EOF
 chmod 600 .env
 

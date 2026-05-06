@@ -1,7 +1,7 @@
 @echo off
 chcp 65001 >nul
 echo ============================================
-echo   Bike Haus Freiburg - Installer Builder
+echo   Karaarslan Bike - Installer Builder
 echo   Tek tikla kurulabilir setup dosyasi
 echo ============================================
 echo.
@@ -79,7 +79,7 @@ echo ============================================
 echo   Installer olusturuldu!
 echo.
 echo   Konum: dist-electron\
-echo   Dosya: Bike Haus Freiburg Setup x.x.x.exe
+echo   Dosya: Karaarslan Bike Setup x.x.x.exe
 echo ============================================
 echo.
 echo Setup dosyasini paylasabilir veya

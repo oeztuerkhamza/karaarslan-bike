@@ -1,13 +1,13 @@
 {
-  "name": "bikehaus-[SEHIR]",
+  "name": "bikehaus-freiburg",
   "version": "1.0.0",
-  "description": "Karaaslan Bisiklet - Fahrradladen Verwaltung",
+  "description": "Karaarslan Bike - Fahrradladen Verwaltung",
   "main": "main.js",
-  "author": "Karaaslan Bisiklet",
+  "author": "Karaarslan Bike",
   "license": "UNLICENSED",
   "scripts": {
     "start": "electron .",
-    "pack": "electron-packager . \"Karaaslan Bisiklet\" --platform=win32 --arch=x64 --out=../dist-electron --overwrite --extra-resource=../publish:api --icon=icon.ico --asar=false",
+    "pack": "electron-packager . \"Karaarslan Bike\" --platform=win32 --arch=x64 --out=../dist-electron --overwrite --extra-resource=../publish:api --icon=icon.ico --asar=false",
     "build-installer": "electron-builder --win --x64",
     "build": "electron-builder --win --x64"
   },
@@ -17,9 +17,9 @@
     "electron-packager": "^17.1.2"
   },
   "build": {
-    "appId": "com.bikehaus.[SEHIR]",
-    "productName": "Karaaslan Bisiklet",
-    "copyright": "Copyright © 2026 Karaaslan Bisiklet",
+    "appId": "com.bikehaus.freiburg",
+    "productName": "Karaarslan Bike",
+    "copyright": "Copyright © 2026 Karaarslan Bike",
     "directories": {
       "output": "../dist-electron"
     },
@@ -44,7 +44,7 @@
       "allowToChangeInstallationDirectory": false,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "Karaaslan Bisiklet"
+      "shortcutName": "Karaarslan Bike"
     },
     "files": [
       "main.js",
@@ -62,4 +62,3 @@
     "asar": false
   }
 }
-

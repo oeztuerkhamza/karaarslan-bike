@@ -159,13 +159,19 @@ jobs:
             docker pull mcr.microsoft.com/dotnet/aspnet:9.0
 
             echo "==> Building API image"
-            docker compose build karaaslan
+            docker compose build bikehaus
 
             echo "==> Recreating API container"
-            docker compose up -d --force-recreate karaaslan
+            docker compose up -d --force-recreate bikehaus
+
+            echo "==> Ensuring rental pricing columns exist in SQLite"
+            docker run --rm --volumes-from bikehaus-app python:3.12-alpine python -c 'import sqlite3; db="/app/data/BikeHausFreiburg.db"; cols=["RentalPriceDay2","RentalPriceDay4","RentalPriceDay5","RentalPriceDay6","RentalPriceAdditionalDayAfter7"]; conn=sqlite3.connect(db); cur=conn.cursor(); cur.execute("PRAGMA table_info(Bicycles)"); existing={r[1] for r in cur.fetchall()}; [cur.execute(f"ALTER TABLE Bicycles ADD COLUMN {c} REAL NULL") for c in cols if c not in existing]; conn.commit(); conn.close(); print("Schema ensure complete")'
+
+            echo "==> Restarting API after schema ensure"
+            docker compose restart bikehaus
 
             echo "==> API status"
-            docker compose ps karaaslan
+            docker compose ps bikehaus
 
   # ───────────────────────────────────────────────────────────────
   # Deploy Client (Angular admin SPA) — runs after API

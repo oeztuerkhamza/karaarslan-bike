@@ -20,7 +20,7 @@ public class IndexNowService : IIndexNowService
         _httpClientFactory = httpClientFactory;
         _logger = logger;
         _apiKey = configuration["IndexNow:ApiKey"] ?? throw new InvalidOperationException("IndexNow:ApiKey is not configured.");
-        _host = configuration["IndexNow:Host"] ?? "[DOMAIN]";
+        _host = configuration["IndexNow:Host"] ?? "karaarslan-bike.de";
     }
 
     public async Task SubmitUrlAsync(string url)
@@ -64,4 +64,3 @@ public class IndexNowService : IIndexNowService
         }
     }
 }
-

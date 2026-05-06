@@ -7,7 +7,6 @@ public class SmtpOptions
     public string Username { get; set; } = string.Empty;
     public string Password { get; set; } = string.Empty;
     public bool UseSsl { get; set; } = true;
-    public string FromEmail { get; set; } = "[DOMAIN]@gmail.com";
-    public string FromName { get; set; } = "Karaaslan Bisiklet";
+    public string FromEmail { get; set; } = "info@karaarslan-bike.de";
+    public string FromName { get; set; } = "Karaarslan Bike";
 }
-

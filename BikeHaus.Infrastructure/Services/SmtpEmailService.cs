@@ -31,28 +31,28 @@ public class SmtpEmailService : IEmailService
 
     public Task SendRentalBookingApprovedAsync(RentalBookingEmailModel model)
     {
-        var subject = $"Anfrage bestaetigt - {model.BuchungsNummer} | Karaaslan Bisiklet";
+        var subject = $"Anfrage bestaetigt - {model.BuchungsNummer} | Karaarslan Bike";
         var body = BuildApprovedBodyDe(model);
         return SendAsync(model.ToEmail, model.ToName, subject, body, "MietvertragBestaetigt");
     }
 
     public Task SendRentalBookingCancelledAsync(RentalBookingEmailModel model)
     {
-        var subject = $"Anfrage storniert - {model.BuchungsNummer} | Karaaslan Bisiklet";
+        var subject = $"Anfrage storniert - {model.BuchungsNummer} | Karaarslan Bike";
         var body = BuildCancelledBodyDe(model);
         return SendAsync(model.ToEmail, model.ToName, subject, body, "MietvertragStorniert");
     }
 
     public Task SendRentalBookingReceivedAsync(RentalBookingEmailModel model)
     {
-        var subject = $"Mietanfrage eingegangen - {model.BuchungsNummer} | Karaaslan Bisiklet";
+        var subject = $"Mietanfrage eingegangen - {model.BuchungsNummer} | Karaarslan Bike";
         var body = BuildReceivedBodyDe(model);
         return SendAsync(model.ToEmail, model.ToName, subject, body, "MietanfrageEingegangen");
     }
 
     public Task SendSaleReceiptAsync(string toEmail, string toName, string belegNummer, byte[] pdfBytes)
     {
-        var subject = $"Rechnung - {belegNummer} | Karaaslan Bisiklet";
+        var subject = $"Rechnung - {belegNummer} | Karaarslan Bike";
         var body = $@"Hallo {toName},
 
 vielen Dank fuer deinen Einkauf bei uns.
@@ -64,7 +64,7 @@ Belegnummer: {belegNummer}
 Wenn du noch Fragen hast, antworte einfach auf diese E-Mail oder ruf kurz durch.
 
 Viele Gruesse
-Dein Team vom Karaaslan Bisiklet";
+Dein Team vom Karaarslan Bike";
 
         return SendAsync(
             toEmail,
@@ -85,7 +85,7 @@ Dein Team vom Karaaslan Bisiklet";
         byte[] mietvertragPdfBytes,
         byte[] kautionsquittungPdfBytes)
     {
-        var subject = $"Ihre Mietunterlagen - {mietvertragNummer} | Karaaslan Bisiklet";
+        var subject = $"Ihre Mietunterlagen - {mietvertragNummer} | Karaarslan Bike";
         var body = $@"Hallo {toName},
 
     deine Mietunterlagen sind da.
@@ -103,7 +103,7 @@ Im Anhang finden Sie:
     Wir wuenschen dir viel Spass und gute Fahrt.
 
 Viele Gruesse
-    Dein Team vom Karaaslan Bisiklet";
+    Dein Team vom Karaarslan Bike";
 
         return SendAsync(
             toEmail,
@@ -339,7 +339,7 @@ Mietpreis: {totalPriceText}
 Abholung und Rueckgabe:
 Dein Bike steht puenktlich an unserem Standort fuer dich bereit:
 
-Karaaslan Bisiklet
+Karaarslan Bike
 {m.PickupLocation}
 
 Wichtiger Hinweis:
@@ -353,10 +353,10 @@ Wir wuenschen dir jetzt schon eine richtig coole Tour.
 Wenn du noch Fragen hast, antworte einfach auf diese E-Mail oder ruf kurz durch.
 
 Viele Gruesse
-Dein Team vom Karaaslan Bisiklet
+Dein Team vom Karaarslan Bike
 
 {m.ShopPhone}
-[DOMAIN]
+karaarslan-bike.de
 {m.ShopEmail}
 ";
     }
@@ -379,14 +379,14 @@ Zeitraum: {m.StartDate:dd.MM.yyyy} - {m.EndDate:dd.MM.yyyy}
 Zubehoer: {accessoriesText}
 
 Abholung und Rueckgabe:
-Karaaslan Bisiklet
+Karaarslan Bike
 {m.PickupLocation}
 
 Wenn du einen neuen Termin moechtest, antworte einfach auf diese E-Mail.
 Wir schauen gerne direkt nach einer passenden Alternative fuer dich.
 
 Viele Gruesse
-Dein Team vom Karaaslan Bisiklet
+Dein Team vom Karaarslan Bike
 {m.ShopPhone}
 {m.ShopEmail}
 ";
@@ -416,7 +416,7 @@ Wir geben dir schnellstmoeglich Rueckmeldung, in der Regel innerhalb von 24 Stun
 Sobald alles geprueft ist, bekommst du eine zweite E-Mail mit der finalen Bestaetigung.
 
 Abholung und Rueckgabe:
-Karaaslan Bisiklet
+Karaarslan Bike
 {m.PickupLocation}
 
 Falls sich deine Plaene aendern:
@@ -426,10 +426,9 @@ Du kannst deine Anfrage jederzeit selbst stornieren:
 Wenn du Fragen hast, antworte einfach auf diese E-Mail oder ruf kurz durch.
 
 Viele Gruesse
-Dein Team vom Karaaslan Bisiklet
+Dein Team vom Karaarslan Bike
 {m.ShopPhone}
 {m.ShopEmail}
 ";
     }
 }
-
