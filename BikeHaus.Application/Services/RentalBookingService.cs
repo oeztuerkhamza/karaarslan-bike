@@ -14,7 +14,7 @@ public class RentalBookingService : IRentalBookingService
     private const string DefaultShopName = "Karaarslan Bike";
     private const string DefaultShopStreet = "Heckerstrasse 27";
     private const string DefaultShopCity = "44534 Lünen";
-    private const string DefaultShopPhone = "+49 155 6630 0011";
+    private const string DefaultShopPhone = "+49 163 7390 301";
     private const string DefaultShopEmail = "info@karaarslan-bike.de";
     private const string DefaultPublicApiBaseUrl = "https://api.karaarslan-bike.de/api/public";
 

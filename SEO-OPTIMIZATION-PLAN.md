@@ -220,7 +220,7 @@ Wir verkaufen neue und gebrauchte Fahrräder mit Garantie.
 
 ## Kontakt
 - Adresse: Alstedder Straße 5, 44534 Lünen
-- WhatsApp: +49 155 6630 0011
+- WhatsApp: +49 163 7390 301
 - E-Mail: info@karaarslan-bike.de
 - Website: https://karaarslan-bike.de
 
@@ -342,7 +342,7 @@ Aşağıdaki dizinlere kayıt ol:
 Karaarslan Bike
 Alstedder Straße 5
 44534 Lünen
-+49 155 6630 0011
++49 163 7390 301
 info@karaarslan-bike.de
 https://karaarslan-bike.de
 ```

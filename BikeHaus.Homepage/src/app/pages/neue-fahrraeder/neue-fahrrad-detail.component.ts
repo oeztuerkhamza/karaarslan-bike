@@ -125,7 +125,11 @@ import { environment } from '../../../environments/environment';
                 [class.active]="selectedImage() === i"
                 (click)="selectedImage.set(i)"
               >
-                <img [src]="getImageUrl(img.filePath)" [alt]="bike()!.titel + ' — Bild ' + (i + 1)" loading="lazy" />
+                <img
+                  [src]="getImageUrl(img.filePath)"
+                  [alt]="bike()!.titel + ' — Bild ' + (i + 1)"
+                  loading="lazy"
+                />
               </button>
             </div>
           </div>
@@ -151,14 +155,29 @@ import { environment } from '../../../environments/environment';
                 class="price-card"
                 *ngIf="bike()!.preisText || bike()!.preis"
               >
-                <ng-container *ngIf="bike()!.angebot && bike()!.angebot! > 0; else normalDetailPrice">
-                  <span class="price-old">{{ bike()!.preis | number: '1.0-0' }} €</span>
-                  <span class="price-value price-sale">{{ bike()!.preis - bike()!.angebot! | number: '1.0-0' }} €</span>
-                  <span class="price-save">Sie sparen {{ bike()!.angebot | number: '1.0-0' }} €</span>
+                <ng-container
+                  *ngIf="
+                    bike()!.angebot && bike()!.angebot! > 0;
+                    else normalDetailPrice
+                  "
+                >
+                  <span class="price-old"
+                    >{{ bike()!.preis | number: '1.0-0' }} €</span
+                  >
+                  <span class="price-value price-sale"
+                    >{{
+                      bike()!.preis - bike()!.angebot! | number: '1.0-0'
+                    }}
+                    €</span
+                  >
+                  <span class="price-save"
+                    >Sie sparen {{ bike()!.angebot | number: '1.0-0' }} €</span
+                  >
                 </ng-container>
                 <ng-template #normalDetailPrice>
                   <span class="price-value">{{
-                    bike()!.preisText || (bike()!.preis | number: '1.0-0') + ' €'
+                    bike()!.preisText ||
+                      (bike()!.preis | number: '1.0-0') + ' €'
                   }}</span>
                 </ng-template>
               </div>
@@ -730,7 +749,11 @@ import { environment } from '../../../environments/environment';
 
       .detail-page {
         background:
-          radial-gradient(circle at top, rgba(255, 87, 34, 0.08), transparent 32%),
+          radial-gradient(
+            circle at top,
+            rgba(255, 87, 34, 0.08),
+            transparent 32%
+          ),
           linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 24%),
           var(--color-bg);
       }
@@ -774,7 +797,11 @@ import { environment } from '../../../environments/environment';
         padding: 2rem;
         border-radius: 28px;
         background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.015)
+          ),
           var(--color-surface);
         border: 1px solid rgba(255, 255, 255, 0.08);
         box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
@@ -783,7 +810,11 @@ import { environment } from '../../../environments/environment';
       .price-card {
         border-radius: 20px;
         background:
-          linear-gradient(135deg, rgba(255, 87, 34, 0.16), rgba(255, 87, 34, 0.05)),
+          linear-gradient(
+            135deg,
+            rgba(255, 87, 34, 0.16),
+            rgba(255, 87, 34, 0.05)
+          ),
           rgba(255, 87, 34, 0.08);
         border-color: rgba(255, 87, 34, 0.2);
       }
@@ -823,7 +854,7 @@ export class NeueFahrradDetailComponent implements OnInit {
   whatsappUrl = computed(() => {
     const b = this.bike();
     if (!b) return '';
-    const tel = this.shopInfo()?.telefon || '+49 155 6630 0011';
+    const tel = this.shopInfo()?.telefon || '+49 163 7390 301';
     const phone = tel.replace(/[^0-9]/g, '');
     const text = `Hallo, ich interessiere mich für das Fahrrad: ${b.titel}${b.preis ? ' (' + b.preis + '€)' : ''}. Ist es noch verfügbar?`;
     return `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;

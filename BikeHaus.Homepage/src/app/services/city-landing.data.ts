@@ -62,7 +62,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         ctaHeading: 'Jetzt vorbeikommen!',
         ctaText:
-          'Besuchen Sie uns in der Alstedder Straße 5, 44534 Lünen. Geöffnet Mo/Di/Do 11–18 Uhr, Fr 11–13 + 15–18 Uhr, Sa 11:30–17 Uhr. Oder schreiben Sie uns auf WhatsApp: +49 155 6630 0011.',
+          'Besuchen Sie uns in der Alstedder Straße 5, 44534 Lünen. Geöffnet Mo/Di/Do 11–18 Uhr, Fr 11–13 + 15–18 Uhr, Sa 11:30–17 Uhr. Oder schreiben Sie uns auf WhatsApp: +49 163 7390 301.',
         directions:
           'Von Emmendingen über die B3 Richtung Freiburg. In Freiburg auf die Heckerstraße abbiegen. Kostenlose Parkplätze vorhanden.',
       },
@@ -97,7 +97,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         ctaHeading: 'Visit us now!',
         ctaText:
-          'Visit us at Alstedder Straße 5, 44534 Lünen. Open Mon/Tue/Thu 11–18, Fri 11–13 + 15–18, Sat 11:30–17. Or message us on WhatsApp: +49 155 6630 0011.',
+          'Visit us at Alstedder Straße 5, 44534 Lünen. Open Mon/Tue/Thu 11–18, Fri 11–13 + 15–18, Sat 11:30–17. Or message us on WhatsApp: +49 163 7390 301.',
         directions:
           'From Emmendingen via the B3 towards Freiburg. Turn onto Heckerstraße in Freiburg. Free parking available.',
       },
@@ -133,7 +133,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         ctaHeading: 'Venez nous voir!',
         ctaText:
-          'Rendez-nous visite au Alstedder Straße 5, 44534 Lünen. Ouvert lun/mar/jeu 11h–18h, ven 11h–13h + 15h–18h, sam 11h30–17h. Ou écrivez-nous sur WhatsApp: +49 155 6630 0011.',
+          'Rendez-nous visite au Alstedder Straße 5, 44534 Lünen. Ouvert lun/mar/jeu 11h–18h, ven 11h–13h + 15h–18h, sam 11h30–17h. Ou écrivez-nous sur WhatsApp: +49 163 7390 301.',
         directions:
           'Depuis Emmendingen via la B3 direction Freiburg. Tournez dans la Heckerstraße à Freiburg. Parking gratuit disponible.',
       },
@@ -168,7 +168,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         ctaHeading: 'Hemen gelin!',
         ctaText:
-          "Alstedder Straße 5, 44534 Lünen adresine gelin. Açılış saatleri: Pzt/Sal/Per 11–18, Cum 11–13 + 15–18, Cmt 11:30–17. Ya da WhatsApp'tan yazın: +49 155 6630 0011.",
+          "Alstedder Straße 5, 44534 Lünen adresine gelin. Açılış saatleri: Pzt/Sal/Per 11–18, Cum 11–13 + 15–18, Cmt 11:30–17. Ya da WhatsApp'tan yazın: +49 163 7390 301.",
         directions:
           "Emmendingen'den B3 üzerinden Freiburg yönüne gidin. Freiburg'da Heckerstraße'ye dönün. Ücretsiz park yeri mevcut.",
       },
@@ -210,7 +210,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         ctaHeading: 'Besuchen Sie uns!',
         ctaText:
-          'Alstedder Straße 5, 44534 Lünen. Mo/Di/Do 11–18 Uhr, Fr 11–13 + 15–18 Uhr, Sa 11:30–17 Uhr. WhatsApp: +49 155 6630 0011.',
+          'Alstedder Straße 5, 44534 Lünen. Mo/Di/Do 11–18 Uhr, Fr 11–13 + 15–18 Uhr, Sa 11:30–17 Uhr. WhatsApp: +49 163 7390 301.',
         directions:
           'Von Bad Krozingen über die B3 Richtung Freiburg-Süd. Dauer: ca. 22 Minuten. Kostenlose Parkplätze vor dem Geschäft.',
       },
@@ -243,7 +243,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         ctaHeading: 'Visit us!',
         ctaText:
-          'Alstedder Straße 5, 44534 Lünen. Open Mon/Tue/Thu 11–18, Fri 11–13 + 15–18, Sat 11:30–17. WhatsApp: +49 155 6630 0011.',
+          'Alstedder Straße 5, 44534 Lünen. Open Mon/Tue/Thu 11–18, Fri 11–13 + 15–18, Sat 11:30–17. WhatsApp: +49 163 7390 301.',
         directions:
           'From Bad Krozingen via the B3 towards Freiburg-Süd. Duration: approx. 22 minutes. Free parking in front of the shop.',
       },
@@ -277,7 +277,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         ctaHeading: 'Venez nous voir!',
         ctaText:
-          'Alstedder Straße 5, 44534 Lünen. Ouvert lun/mar/jeu 11h–18h, ven 11h–13h + 15h–18h, sam 11h30–17h. WhatsApp: +49 155 6630 0011.',
+          'Alstedder Straße 5, 44534 Lünen. Ouvert lun/mar/jeu 11h–18h, ven 11h–13h + 15h–18h, sam 11h30–17h. WhatsApp: +49 163 7390 301.',
         directions:
           'Depuis Bad Krozingen via la B3 direction Freiburg-Süd. Durée: env. 22 minutes. Parking gratuit devant le magasin.',
       },
@@ -310,7 +310,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         ctaHeading: 'Bizi ziyaret edin!',
         ctaText:
-          'Alstedder Straße 5, 44534 Lünen. Pzt/Sal/Per 11–18, Cum 11–13 + 15–18, Cmt 11:30–17. WhatsApp: +49 155 6630 0011.',
+          'Alstedder Straße 5, 44534 Lünen. Pzt/Sal/Per 11–18, Cum 11–13 + 15–18, Cmt 11:30–17. WhatsApp: +49 163 7390 301.',
         directions:
           "Bad Krozingen'den B3 üzerinden Freiburg-Süd yönüne. Süre: yaklaşık 22 dakika. Mağaza önünde ücretsiz park yeri.",
       },
@@ -351,7 +351,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         ctaHeading: 'Kommen Sie vorbei!',
         ctaText:
-          'Alstedder Straße 5, 44534 Lünen. Mo/Di/Do 11–18 Uhr, Fr 11–13 + 15–18 Uhr, Sa 11:30–17 Uhr. WhatsApp: +49 155 6630 0011.',
+          'Alstedder Straße 5, 44534 Lünen. Mo/Di/Do 11–18 Uhr, Fr 11–13 + 15–18 Uhr, Sa 11:30–17 Uhr. WhatsApp: +49 163 7390 301.',
         directions:
           'Von Breisach über die B31 Richtung Freiburg. In ca. 28 Minuten bei uns. Parkplätze vorhanden.',
       },
@@ -384,7 +384,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         ctaHeading: 'Come visit us!',
         ctaText:
-          'Alstedder Straße 5, 44534 Lünen. Open Mon/Tue/Thu 11–18, Fri 11–13 + 15–18, Sat 11:30–17. WhatsApp: +49 155 6630 0011.',
+          'Alstedder Straße 5, 44534 Lünen. Open Mon/Tue/Thu 11–18, Fri 11–13 + 15–18, Sat 11:30–17. WhatsApp: +49 163 7390 301.',
         directions:
           'From Breisach via the B31 towards Freiburg. About 28 minutes to reach us. Parking available.',
       },
@@ -417,7 +417,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         ctaHeading: 'Venez nous voir!',
         ctaText:
-          'Alstedder Straße 5, 44534 Lünen. Ouvert lun/mar/jeu 11h–18h, ven 11h–13h + 15h–18h, sam 11h30–17h. WhatsApp: +49 155 6630 0011.',
+          'Alstedder Straße 5, 44534 Lünen. Ouvert lun/mar/jeu 11h–18h, ven 11h–13h + 15h–18h, sam 11h30–17h. WhatsApp: +49 163 7390 301.',
         directions:
           'Depuis Breisach via la B31 direction Freiburg. En env. 28 minutes chez nous. Parking disponible.',
       },
@@ -450,7 +450,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         ctaHeading: 'Bize uğrayın!',
         ctaText:
-          'Alstedder Straße 5, 44534 Lünen. Pzt/Sal/Per 11–18, Cum 11–13 + 15–18, Cmt 11:30–17. WhatsApp: +49 155 6630 0011.',
+          'Alstedder Straße 5, 44534 Lünen. Pzt/Sal/Per 11–18, Cum 11–13 + 15–18, Cmt 11:30–17. WhatsApp: +49 163 7390 301.',
         directions:
           "Breisach'dan B31 üzerinden Freiburg yönüne. Yaklaşık 28 dakikada bizde. Park yeri mevcut.",
       },
@@ -491,7 +491,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         ctaHeading: 'Jetzt vorbeikommen!',
         ctaText:
-          'Alstedder Straße 5, 44534 Lünen. Mo/Di/Do 11–18 Uhr, Fr 11–13 + 15–18 Uhr, Sa 11:30–17 Uhr. WhatsApp: +49 155 6630 0011.',
+          'Alstedder Straße 5, 44534 Lünen. Mo/Di/Do 11–18 Uhr, Fr 11–13 + 15–18 Uhr, Sa 11:30–17 Uhr. WhatsApp: +49 163 7390 301.',
         directions:
           'Von Gundelfingen über die Freiburger Landstraße Richtung Freiburg-Haslach. Nur 12 Minuten.',
       },
@@ -523,7 +523,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         ctaHeading: 'Visit us now!',
         ctaText:
-          'Alstedder Straße 5, 44534 Lünen. Open Mon/Tue/Thu 11–18, Fri 11–13 + 15–18, Sat 11:30–17. WhatsApp: +49 155 6630 0011.',
+          'Alstedder Straße 5, 44534 Lünen. Open Mon/Tue/Thu 11–18, Fri 11–13 + 15–18, Sat 11:30–17. WhatsApp: +49 163 7390 301.',
         directions:
           'From Gundelfingen via Freiburger Landstraße towards Freiburg-Haslach. Only 12 minutes.',
       },
@@ -555,7 +555,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         ctaHeading: 'Venez nous voir!',
         ctaText:
-          'Alstedder Straße 5, 44534 Lünen. Ouvert lun/mar/jeu 11h–18h, ven 11h–13h + 15h–18h, sam 11h30–17h. WhatsApp: +49 155 6630 0011.',
+          'Alstedder Straße 5, 44534 Lünen. Ouvert lun/mar/jeu 11h–18h, ven 11h–13h + 15h–18h, sam 11h30–17h. WhatsApp: +49 163 7390 301.',
         directions:
           'Depuis Gundelfingen via Freiburger Landstraße direction Freiburg-Haslach. Seulement 12 minutes.',
       },
@@ -587,7 +587,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         ctaHeading: 'Hemen gelin!',
         ctaText:
-          'Alstedder Straße 5, 44534 Lünen. Pzt/Sal/Per 11–18, Cum 11–13 + 15–18, Cmt 11:30–17. WhatsApp: +49 155 6630 0011.',
+          'Alstedder Straße 5, 44534 Lünen. Pzt/Sal/Per 11–18, Cum 11–13 + 15–18, Cmt 11:30–17. WhatsApp: +49 163 7390 301.',
         directions:
           "Gundelfingen'den Freiburger Landstraße üzerinden Freiburg-Haslach yönüne. Sadece 12 dakika.",
       },
@@ -627,7 +627,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         ctaHeading: 'Besuchen Sie uns!',
         ctaText:
-          'Alstedder Straße 5, 44534 Lünen. Mo/Di/Do 11–18 Uhr, Fr 11–13 + 15–18 Uhr, Sa 11:30–17 Uhr. WhatsApp: +49 155 6630 0011.',
+          'Alstedder Straße 5, 44534 Lünen. Mo/Di/Do 11–18 Uhr, Fr 11–13 + 15–18 Uhr, Sa 11:30–17 Uhr. WhatsApp: +49 163 7390 301.',
         directions:
           'Von March über Hugstetten/Umkirch direkt nach Freiburg-Haslach. Nur 15 Minuten.',
       },
@@ -659,7 +659,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         ctaHeading: 'Visit us!',
         ctaText:
-          'Alstedder Straße 5, 44534 Lünen. Open Mon/Tue/Thu 11–18, Fri 11–13 + 15–18, Sat 11:30–17. WhatsApp: +49 155 6630 0011.',
+          'Alstedder Straße 5, 44534 Lünen. Open Mon/Tue/Thu 11–18, Fri 11–13 + 15–18, Sat 11:30–17. WhatsApp: +49 163 7390 301.',
         directions:
           'From March via Hugstetten/Umkirch directly to Freiburg-Haslach. Only 15 minutes.',
       },
@@ -691,7 +691,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         ctaHeading: 'Venez nous voir!',
         ctaText:
-          'Alstedder Straße 5, 44534 Lünen. Ouvert lun/mar/jeu 11h–18h, ven 11h–13h + 15h–18h, sam 11h30–17h. WhatsApp: +49 155 6630 0011.',
+          'Alstedder Straße 5, 44534 Lünen. Ouvert lun/mar/jeu 11h–18h, ven 11h–13h + 15h–18h, sam 11h30–17h. WhatsApp: +49 163 7390 301.',
         directions:
           'Depuis March via Hugstetten/Umkirch directement vers Freiburg-Haslach. Seulement 15 minutes.',
       },
@@ -723,7 +723,7 @@ export const CITY_LANDINGS: CityLanding[] = [
         ],
         ctaHeading: 'Bizi ziyaret edin!',
         ctaText:
-          'Alstedder Straße 5, 44534 Lünen. Pzt/Sal/Per 11–18, Cum 11–13 + 15–18, Cmt 11:30–17. WhatsApp: +49 155 6630 0011.',
+          'Alstedder Straße 5, 44534 Lünen. Pzt/Sal/Per 11–18, Cum 11–13 + 15–18, Cmt 11:30–17. WhatsApp: +49 163 7390 301.',
         directions:
           "March'dan Hugstetten/Umkirch üzerinden doğrudan Freiburg-Haslach'a. Sadece 15 dakika.",
       },

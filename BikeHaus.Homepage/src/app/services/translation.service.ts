@@ -948,7 +948,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     contactMetaTitle:
       'Fahrradladen Freiburg — Kontakt, Adresse & Öffnungszeiten | Bike Haus',
     contactMetaDescription:
-      'Karaarslan Bike Haid — Alstedder Straße 5, 44534 Lünen ✓ Öffnungszeiten: Mo/Di/Do 11–17:30, Mi 14–17:30, Fr 11–13 & 15–18, Sa 11:30–17 ✓ WhatsApp: +49 155 6630 0011.',
+      'Karaarslan Bike Haid — Alstedder Straße 5, 44534 Lünen ✓ Öffnungszeiten: Mo/Di/Do 11–17:30, Mi 14–17:30, Fr 11–13 & 15–18, Sa 11:30–17 ✓ WhatsApp: +49 163 7390 301.',
 
     // Home trust badges
     trustBadgeSince: 'Seit 2020 in Freiburg',
@@ -1515,7 +1515,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     contactWhatsappHint: 'Write directly',
     contactMetaTitle: 'Contact — Karaarslan Bike | Address & Hours',
     contactMetaDescription:
-      'Karaarslan Bike ✓ Alstedder Straße 5, 44534 Lünen ✓ Mon–Sat 11am–5:30pm ✓ WhatsApp: +49 155 6630 0011 ✓ No appointment needed — just drop by!',
+      'Karaarslan Bike ✓ Alstedder Straße 5, 44534 Lünen ✓ Mon–Sat 11am–5:30pm ✓ WhatsApp: +49 163 7390 301 ✓ No appointment needed — just drop by!',
 
     trustBadgeSince: 'In Freiburg since 2020',
     trustBadgeCustomers: '500+ satisfied customers',
@@ -2093,7 +2093,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     contactWhatsappHint: 'Écrire directement',
     contactMetaTitle: 'Contact — Karaarslan Bike | Adresse & Horaires',
     contactMetaDescription:
-      'Karaarslan Bike ✓ Alstedder Straße 5, Fribourg ✓ Lun–Sam 11h–17h30 ✓ WhatsApp: +49 155 6630 0011 ✓ Sans rendez-vous — venez nous rendre visite !',
+      'Karaarslan Bike ✓ Alstedder Straße 5, Fribourg ✓ Lun–Sam 11h–17h30 ✓ WhatsApp: +49 163 7390 301 ✓ Sans rendez-vous — venez nous rendre visite !',
 
     // Home trust badges
     trustBadgeSince: 'Depuis 2020 à Fribourg',
@@ -2673,7 +2673,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     contactWhatsappHint: 'Doğrudan yaz',
     contactMetaTitle: 'İletişim — Karaarslan Bike | Adres & Çalışma Saatleri',
     contactMetaDescription:
-      'Karaarslan Bike ✓ Alstedder Straße 5, 44534 Lünen ✓ Pzt–Cmt 11:00–17:30 ✓ WhatsApp: +49 155 6630 0011 ✓ Randevu gerekmez — bizi ziyaret edin!',
+      'Karaarslan Bike ✓ Alstedder Straße 5, 44534 Lünen ✓ Pzt–Cmt 11:00–17:30 ✓ WhatsApp: +49 163 7390 301 ✓ Randevu gerekmez — bizi ziyaret edin!',
 
     // Home trust badges
     trustBadgeSince: "2020'den beri Freiburg'da",

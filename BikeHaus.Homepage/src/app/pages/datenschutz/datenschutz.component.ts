@@ -100,7 +100,7 @@ import { TranslationService } from '../../services/translation.service';
               Alstedder Straße 5<br />
               44534 Lünen<br />
               E-Mail: info&#64;karaarslan-bike.de<br />
-              WhatsApp: +49 155 6630 0011
+              WhatsApp: +49 163 7390 301
             </p>
             <p>
               Verantwortliche Stelle ist die natürliche oder juristische Person,

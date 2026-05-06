@@ -761,7 +761,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           'Fahrradladen in Freiburg gesucht? Karaarslan Bike: Über 100 neue & gebrauchte Fahrräder, E-Bikes, Garantie, Probefahrt. Alstedder Straße 5.',
         excerpt:
           'Ihr Fahrradladen in Freiburg: Karaarslan Bike bietet über 100 neue und gebrauchte Fahrräder mit Garantie.',
-        tldr: 'Karaarslan Bike: Alstedder Straße 5, 44534 Lünen. Über 100 neue & gebrauchte Fahrräder, E-Bikes, Garantie. Mo–Fr 10–18, Sa 10–14 Uhr. WhatsApp: +49 155 6630 0011.',
+        tldr: 'Karaarslan Bike: Alstedder Straße 5, 44534 Lünen. Über 100 neue & gebrauchte Fahrräder, E-Bikes, Garantie. Mo–Fr 10–18, Sa 10–14 Uhr. WhatsApp: +49 163 7390 301.',
         sections: [
           {
             type: 'heading',
@@ -800,7 +800,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
               'Freitag: 11:00 – 13:00 & 15:00 – 18:00 Uhr',
               'Samstag: 11:30 – 17:00 Uhr',
               'Sonn- und feiertags geschlossen',
-              'WhatsApp: +49 155 6630 0011',
+              'WhatsApp: +49 163 7390 301',
               'E-Mail: info@karaarslan-bike.de',
             ],
           },
@@ -811,7 +811,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike befindet sich in der Alstedder Straße 5, im Stadtteil Haslach. Gut erreichbar mit dem Auto (Parkplätze vorhanden) oder mit der Straßenbahn. Aus Emmendingen, Bad Krozingen, Breisach, March und Gundelfingen sind wir in 15–25 Minuten erreichbar.',
+              'Karaarslan Bike befindet sich in der Alstedder Straße 5. Gut erreichbar mit dem Auto (Parkplätze vorhanden) oder mit der Straßenbahn.',
           },
           {
             type: 'cta',
@@ -828,7 +828,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           'Looking for a bike shop in Freiburg? Karaarslan Bike: 100+ new & used bikes, e-bikes, warranty, test rides.',
         excerpt:
           'Your bike shop in Freiburg: Over 100 new and used bikes with warranty.',
-        tldr: 'Karaarslan Bike: Alstedder Straße 5, 44534 Lünen. 100+ new & used bikes, e-bikes, warranty. Mon–Fri 10–18, Sat 10–14. WhatsApp: +49 155 6630 0011.',
+        tldr: 'Karaarslan Bike: Alstedder Straße 5, 44534 Lünen. 100+ new & used bikes, e-bikes, warranty. Mon–Fri 10–18, Sat 10–14. WhatsApp: +49 163 7390 301.',
         sections: [
           {
             type: 'heading',
@@ -880,7 +880,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           "Freiburg'da bisiklet dükkanı arıyorsunuz? Karaarslan Bike: 100+ yeni ve ikinci el bisiklet, garanti, deneme sürüşü.",
         excerpt:
           "Freiburg'daki bisiklet dükkanınız: Garantili 100+ yeni ve ikinci el bisiklet.",
-        tldr: 'Karaarslan Bike: Alstedder Straße 5, 44534 Lünen. 100+ yeni ve ikinci el bisiklet, e-bisiklet, garanti. Pzt–Cum 10–18, Cmt 10–14. WhatsApp: +49 155 6630 0011.',
+        tldr: 'Karaarslan Bike: Alstedder Straße 5, 44534 Lünen. 100+ yeni ve ikinci el bisiklet, e-bisiklet, garanti. Pzt–Cum 10–18, Cmt 10–14. WhatsApp: +49 163 7390 301.',
         sections: [
           {
             type: 'heading',

@@ -65,18 +65,20 @@ import { ShopInfoService } from '../../services/shop-info.service';
           <h4>{{ t().footerLocations }}</h4>
           <nav [attr.aria-label]="t().footerLocations">
             <a [routerLink]="['/' + lang(), 'fahrrad-emmendingen']"
-              >Fahrrad Emmendingen</a
+              >Fahrrad Lünen</a
             >
             <a [routerLink]="['/' + lang(), 'fahrrad-bad-krozingen']"
-              >Fahrrad Bad Krozingen</a
+              >Fahrrad Brambauer</a
             >
             <a [routerLink]="['/' + lang(), 'fahrrad-breisach']"
-              >Fahrrad Breisach</a
+              >Fahrrad Alstedde</a
             >
             <a [routerLink]="['/' + lang(), 'fahrrad-gundelfingen']"
-              >Fahrrad Gundelfingen</a
+              >Fahrrad Wethmar</a
             >
-            <a [routerLink]="['/' + lang(), 'fahrrad-march']">Fahrrad March</a>
+            <a [routerLink]="['/' + lang(), 'fahrrad-march']"
+              >Fahrrad Nordlünen</a
+            >
           </nav>
         </div>
 
@@ -252,7 +254,11 @@ import { ShopInfoService } from '../../services/shop-info.service';
       .footer {
         position: relative;
         background:
-          radial-gradient(circle at top, rgba(255, 87, 34, 0.08), transparent 34%),
+          radial-gradient(
+            circle at top,
+            rgba(255, 87, 34, 0.08),
+            transparent 34%
+          ),
           linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 18%),
           var(--color-bg-secondary);
         border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -262,7 +268,11 @@ import { ShopInfoService } from '../../services/shop-info.service';
         content: '';
         position: absolute;
         inset: 0;
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 42%);
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.04),
+          transparent 42%
+        );
         pointer-events: none;
       }
 

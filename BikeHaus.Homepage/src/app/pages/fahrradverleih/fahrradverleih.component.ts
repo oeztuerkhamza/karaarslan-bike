@@ -1122,7 +1122,7 @@ import {
             </div>
             <div class="wa-content">
               <h3>WhatsApp</h3>
-              <p>+49 155 6630 0011</p>
+              <p>+49 163 7390 301</p>
               <span class="wa-hint">{{ t().contactWhatsappHint }}</span>
             </div>
             <svg

@@ -44,7 +44,7 @@ import { PublicShopInfo } from '../../models/models';
             </div>
             <div class="card-content">
               <h3>WhatsApp</h3>
-              <p>+49 155 6630 0011</p>
+              <p>+49 163 7390 301</p>
               <span class="card-hint">{{ t().contactWhatsappHint }}</span>
             </div>
             <svg
@@ -97,7 +97,7 @@ import { PublicShopInfo } from '../../models/models';
 
           <!-- Address -->
           <a
-            href="https://maps.google.com/?q=An+der+Wethmarheide+45,+Garagennummer+255+L%C3%BCnen"
+            href="https://maps.google.com/?q=Alstedder+Stra%C3%9Fe+5,+44534+L%C3%BCnen"
             target="_blank"
             rel="noopener"
             class="contact-card"
@@ -120,7 +120,7 @@ import { PublicShopInfo } from '../../models/models';
               <p>Alstedder Straße 5</p>
               <p class="sub">
                 44534 Lünen
-                <span class="district">· Haslach</span>
+                <span class="district">· Alstedde</span>
               </p>
             </div>
             <svg
@@ -778,7 +778,7 @@ export class ContactComponent implements OnInit {
   }
 
   private getWhatsappPhone(): string {
-    const tel = this.shopInfo()?.telefon || '+49 155 6630 0011';
+    const tel = this.shopInfo()?.telefon || '+49 163 7390 301';
     return tel.replace(/[^0-9]/g, '');
   }
 
