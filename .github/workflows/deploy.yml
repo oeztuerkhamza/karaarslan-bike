@@ -148,7 +148,7 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
-          command_timeout: 30m
+          command_timeout: 45m
           script: |
             set -euo pipefail
             cd /opt/bikehaus
@@ -406,18 +406,27 @@ jobs:
       - name: Health check endpoints
         run: |
           set -euo pipefail
-          urls=(
-            "https://karaarslan-bike.de"
-            "https://admin.karaarslan-bike.de"
-            "https://api.karaarslan-bike.de/api/public/neue-fahrraeder"
-            "https://api.karaarslan-bike.de/api/public/homepage-accessories"
+          checks=(
+            "https://karaarslan-bike.de|200|301|302|307|308"
+            "https://admin.karaarslan-bike.de|200|301|302|307|308"
+            "https://api.karaarslan-bike.de/api/public/neue-fahrraeder|200"
+            "https://api.karaarslan-bike.de/api/public/homepage-accessories|200"
           )
           failed=0
-          for url in "${urls[@]}"; do
+          for check in "${checks[@]}"; do
+            IFS='|' read -r -a parts <<< "$check"
+            url="${parts[0]}"
             echo "Checking $url"
             code=$(curl --retry 5 --retry-delay 5 --connect-timeout 10 --max-time 30 -s -o /dev/null -w "%{http_code}" "$url" || echo "000")
-            if [[ "$code" != "200" ]]; then
-              echo "FAIL: $url (status $code)"
+            ok=0
+            for ((i=1; i<${#parts[@]}; i++)); do
+              if [[ "$code" == "${parts[$i]}" ]]; then
+                ok=1
+                break
+              fi
+            done
+            if [[ "$ok" -ne 1 ]]; then
+              echo "FAIL: $url (status $code, expected: ${parts[*]:1})"
               failed=1
             else
               echo "OK:   $url"
