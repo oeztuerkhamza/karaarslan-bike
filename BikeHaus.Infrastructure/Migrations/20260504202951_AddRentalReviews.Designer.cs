@@ -3,6 +3,7 @@ using System;
 using BikeHaus.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BikeHaus.Infrastructure.Migrations
 {
     [DbContext(typeof(BikeHausDbContext))]
-    partial class BikeHausDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260504202951_AddRentalReviews")]
+    partial class AddRentalReviews
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.11");
@@ -107,31 +110,16 @@ namespace BikeHaus.Infrastructure.Migrations
                     b.Property<decimal?>("RentalPriceDay1")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal?>("RentalPriceDay2")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<decimal?>("RentalPriceDay14")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal?>("RentalPriceDay3")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal?>("RentalPriceDay4")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal?>("RentalPriceDay5")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal?>("RentalPriceDay6")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<decimal?>("RentalPriceDay30")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal?>("RentalPriceDay7")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal?>("RentalPriceAdditionalDayAfter7")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal?>("RentalPricePerDayFrom10")

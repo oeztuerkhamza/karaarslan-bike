@@ -39,6 +39,7 @@ public class BikeHausDbContext : DbContext
     public DbSet<RenovationCost> RenovationCosts => Set<RenovationCost>();
     public DbSet<EmailAccount> EmailAccounts => Set<EmailAccount>();
     public DbSet<EmailLog> EmailLogs => Set<EmailLog>();
+    public DbSet<RentalReview> RentalReviews => Set<RentalReview>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -56,11 +57,13 @@ public class BikeHausDbContext : DbContext
             entity.Property(e => e.Beschreibung).HasMaxLength(500);
             entity.Property(e => e.VerkaufspreisVorschlag).HasColumnType("decimal(18,2)");
             entity.Property(e => e.RentalPriceDay1).HasColumnType("decimal(18,2)");
+            entity.Property(e => e.RentalPriceDay2).HasColumnType("decimal(18,2)");
             entity.Property(e => e.RentalPriceDay3).HasColumnType("decimal(18,2)");
+            entity.Property(e => e.RentalPriceDay4).HasColumnType("decimal(18,2)");
+            entity.Property(e => e.RentalPriceDay5).HasColumnType("decimal(18,2)");
+            entity.Property(e => e.RentalPriceDay6).HasColumnType("decimal(18,2)");
             entity.Property(e => e.RentalPriceDay7).HasColumnType("decimal(18,2)");
-            entity.Property(e => e.RentalPriceDay14).HasColumnType("decimal(18,2)");
-            entity.Property(e => e.RentalPriceDay30).HasColumnType("decimal(18,2)");
-            entity.Property(e => e.RentalPricePerDayFrom10).HasColumnType("decimal(18,2)");
+            entity.Property(e => e.RentalPriceAdditionalDayAfter7).HasColumnType("decimal(18,2)");
             entity.HasIndex(e => e.Rahmennummer);
             entity.HasMany(e => e.Images).WithOne(i => i.Bicycle)
                 .HasForeignKey(i => i.BicycleId).OnDelete(DeleteBehavior.Cascade);
@@ -545,6 +548,17 @@ public class BikeHausDbContext : DbContext
             entity.Property(e => e.Status).IsRequired().HasMaxLength(20);
             entity.Property(e => e.ErrorMessage).HasMaxLength(2000);
             entity.Property(e => e.EmailType).HasMaxLength(100);
+        });
+
+        // ── RentalReview Configuration ──
+        modelBuilder.Entity<RentalReview>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Ad).IsRequired().HasMaxLength(100);
+            entity.Property(e => e.Email).HasMaxLength(200);
+            entity.Property(e => e.Yorum).IsRequired().HasMaxLength(2000);
+            entity.Property(e => e.AdminNotiz).HasMaxLength(500);
+            entity.HasIndex(e => e.Onaylandi);
         });
 
         // ── RentalAccessoryItem Configuration ──

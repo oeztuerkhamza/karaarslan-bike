@@ -56,8 +56,13 @@ export interface Bicycle {
   zustand: BikeCondition;
   isRentable: boolean;
   rentalPriceDay1?: number;
+  rentalPriceDay2?: number;
   rentalPriceDay3?: number;
+  rentalPriceDay4?: number;
+  rentalPriceDay5?: number;
+  rentalPriceDay6?: number;
   rentalPriceDay7?: number;
+  rentalPriceAdditionalDayAfter7?: number;
   rentalPriceDay14?: number;
   rentalPriceDay30?: number;
   rentalPricePerDayFrom10?: number;
@@ -89,8 +94,13 @@ export interface BicycleCreate {
   zustand: BikeCondition;
   isRentable: boolean;
   rentalPriceDay1?: number;
+  rentalPriceDay2?: number;
   rentalPriceDay3?: number;
+  rentalPriceDay4?: number;
+  rentalPriceDay5?: number;
+  rentalPriceDay6?: number;
   rentalPriceDay7?: number;
+  rentalPriceAdditionalDayAfter7?: number;
   rentalPriceDay14?: number;
   rentalPriceDay30?: number;
   rentalPricePerDayFrom10?: number;
@@ -111,8 +121,13 @@ export interface BicycleUpdate {
   verkaufspreisVorschlag?: number;
   isRentable: boolean;
   rentalPriceDay1?: number;
+  rentalPriceDay2?: number;
   rentalPriceDay3?: number;
+  rentalPriceDay4?: number;
+  rentalPriceDay5?: number;
+  rentalPriceDay6?: number;
   rentalPriceDay7?: number;
+  rentalPriceAdditionalDayAfter7?: number;
   rentalPriceDay14?: number;
   rentalPriceDay30?: number;
   rentalPricePerDayFrom10?: number;
@@ -821,6 +836,38 @@ export enum RentalBookingStatus {
   Pending = 'Pending',
   Approved = 'Approved',
   Cancelled = 'Cancelled',
+}
+
+// ── Rental Reviews ──
+export interface RentalReview {
+  id: number;
+  ad: string;
+  email?: string;
+  sterne: number;
+  yorum: string;
+  onaylandi: boolean;
+  adminNotiz?: string;
+  createdAt: string;
+}
+
+export interface RentalReviewPublic {
+  id: number;
+  ad: string;
+  sterne: number;
+  yorum: string;
+  createdAt: string;
+}
+
+export interface RentalReviewCreate {
+  ad: string;
+  email?: string;
+  sterne: number;
+  yorum: string;
+}
+
+export interface RentalReviewApprove {
+  onaylandi: boolean;
+  adminNotiz?: string;
 }
 
 export interface RentalAccessory {

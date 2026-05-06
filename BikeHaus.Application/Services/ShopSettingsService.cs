@@ -131,7 +131,7 @@ public class ShopSettingsService : IShopSettingsService
         {
             settings = new ShopSettings
             {
-                ShopName = "Karaaslan Bisiklet",
+                ShopName = "Karaarslan Bike",
                 LogoBase64 = dto.LogoBase64,
                 LogoFileName = dto.FileName
             };
@@ -168,7 +168,7 @@ public class ShopSettingsService : IShopSettingsService
         {
             settings = new ShopSettings
             {
-                ShopName = "Karaaslan Bisiklet",
+                ShopName = "Karaarslan Bike",
                 InhaberSignatureBase64 = dto.SignatureBase64,
                 InhaberSignatureFileName = dto.FileName
             };
@@ -238,7 +238,7 @@ public class ShopSettingsService : IShopSettingsService
 
         settings = new ShopSettings
         {
-            ShopName = "Karaaslan Bisiklet",
+            ShopName = "Karaarslan Bike",
             FahrradNummerStart = 1
         };
 
@@ -261,4 +261,3 @@ public class ShopSettingsService : IShopSettingsService
         }
     }
 }
-

@@ -11,12 +11,12 @@ namespace BikeHaus.Application.Services;
 
 public class RentalBookingService : IRentalBookingService
 {
-    private const string DefaultShopName = "Karaaslan Bisiklet";
+    private const string DefaultShopName = "Karaarslan Bike";
     private const string DefaultShopStreet = "Heckerstrasse 27";
-    private const string DefaultShopCity = "79114 [SEHIR]";
-    private const string DefaultShopPhone = "+49 163 7390301";
-    private const string DefaultShopEmail = "[DOMAIN]@gmail.com";
-    private const string DefaultPublicApiBaseUrl = "https://api.[DOMAIN]/api/public";
+    private const string DefaultShopCity = "44534 Lünen";
+    private const string DefaultShopPhone = "+49 155 6630 0011";
+    private const string DefaultShopEmail = "info@karaarslan-bike.de";
+    private const string DefaultPublicApiBaseUrl = "https://api.karaarslan-bike.de/api/public";
 
     private readonly IRentalBookingRepository _bookingRepository;
     private readonly IBicycleRepository _bicycleRepository;
@@ -349,32 +349,10 @@ public class RentalBookingService : IRentalBookingService
         return Math.Max(1, days);
     }
 
-    private static decimal? CalculateBikePrice(Bicycle bicycle, int days)
-    {
-        if (days <= 1 && bicycle.RentalPriceDay1.HasValue)
-            return bicycle.RentalPriceDay1.Value;
-        if (days <= 3 && bicycle.RentalPriceDay3.HasValue)
-            return bicycle.RentalPriceDay3.Value;
-        if (days <= 7 && bicycle.RentalPriceDay7.HasValue)
-            return bicycle.RentalPriceDay7.Value;
-        if (days <= 14 && bicycle.RentalPriceDay14.HasValue)
-            return bicycle.RentalPriceDay14.Value;
-        if (days <= 30 && bicycle.RentalPriceDay30.HasValue)
-            return bicycle.RentalPriceDay30.Value;
-
-        if (days > 10 && bicycle.RentalPricePerDayFrom10.HasValue)
-            return bicycle.RentalPricePerDayFrom10.Value * days;
-
-        if (bicycle.RentalPriceDay1.HasValue)
-            return bicycle.RentalPriceDay1.Value * days;
-
-        return null;
-    }
-
     private static decimal? CalculateTotalPrice(Bicycle bicycle, RentalBooking booking)
     {
         var days = CalculateDaysInclusive(booking.StartDatum, booking.EndDatum);
-        var bikeTotal = CalculateBikePrice(bicycle, days);
+        var bikeTotal = RentalPricingCalculator.CalculateBikePrice(bicycle, days);
         var accessoryTotal = booking.Accessories.Sum(a => a.Tagespreis * a.Menge) * days;
 
         if (!bikeTotal.HasValue && accessoryTotal <= 0)
@@ -455,4 +433,3 @@ public class RentalBookingService : IRentalBookingService
         );
     }
 }
-
