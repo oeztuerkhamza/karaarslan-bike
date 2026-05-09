@@ -49,8 +49,8 @@ Barzahlung, EC-Karte, Kreditkarte, PayPal, Überweisung
 - Dienstag: 09:00 - 17:00 Uhr
 - Mittwoch: 09:00 – 17:00 Uhr
 - Donnerstag: 09:00 - 17:00 Uhr
-- Freitag: 11:00 – 13:00 Uhr / 15:00 – 18:00 Uhr
-- Samstag: 13:30 – 17:00 Uhr
+- Freitag: 09:00 – 13:00 Uhr / 15:00 – 17:00 Uhr
+- Samstag: 10:00 – 17:00 Uhr
 - Sonntag: geschlossen
 - Feiertage: geschlossen
 

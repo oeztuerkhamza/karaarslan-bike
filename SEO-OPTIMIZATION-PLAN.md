@@ -207,7 +207,7 @@ Mevcut FAQ şemasını genişlet + ayrı bir `/de/faq` sayfası oluştur:
 ## Über uns
 Karaarslan Bike ist ein Fahrradgeschäft in der Alstedder Straße 5, 44534 Lünen.
 Wir verkaufen neue und gebrauchte Fahrräder mit Garantie.
-Öffnungszeiten: Mo, Di, Do 11:00–17:30 | Mi 14:00–17:30 | Fr 11:00–13:00 & 15:00–18:00 | Sa 11:30–17:00 Uhr.
+Öffnungszeiten: Mo, Di, Do 11:00–17:30 | Mi 14:00–17:30 | Fr 11:00–13:00 & 15:00–17:00 | Sa 11:30–17:00 Uhr.
 
 ## Angebot
 - Neue Fahrräder (Citybikes, Trekkingräder, Mountainbikes, E-Bikes)

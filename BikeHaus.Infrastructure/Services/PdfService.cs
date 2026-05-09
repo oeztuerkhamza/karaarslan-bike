@@ -1658,7 +1658,7 @@ public class PdfService : IPdfService
                             wRow.RelativeItem().Text(text =>
                             {
                                 text.Span("ÜBERGABE & RÜCKGABE: ").Bold().FontSize(9);
-                                text.Span("Die Fahrradübergabe ist täglich ab 10:00 Uhr möglich. Die Rückgabe muss bis spätestens 18:00 Uhr erfolgen.").FontSize(9).FontColor(Colors.Grey.Darken3);
+                                text.Span("Die Fahrradübergabe ist täglich ab 10:00 Uhr möglich. Die Rückgabe muss bis spätestens 17:00 Uhr erfolgen.").FontSize(9).FontColor(Colors.Grey.Darken3);
                             });
                         });
                         wCol.Item().Row(wRow =>
