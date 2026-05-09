@@ -1263,24 +1263,42 @@ export class ShowroomComponent implements OnInit, OnDestroy {
     'Sonstige Fahrräder',
   ]);
 
+  private static readonly ACCESSORIES_CATEGORIES = new Set(['Zubehör']);
+
+  private resolveCategory(listing: KleinanzeigenListing): string {
+    const cat = listing.category;
+    if (cat && ShowroomComponent.BIKE_CATEGORIES.has(cat)) return cat;
+    if (cat && ShowroomComponent.ACCESSORIES_CATEGORIES.has(cat)) return cat;
+    // Try to infer from title
+    const lower = (listing.title || '').toLowerCase();
+    if (lower.includes('kinder') || lower.includes('kind')) return 'Kinder-Fahrräder';
+    if (lower.includes('damen') || lower.includes('frau')) return 'Damen-Fahrräder';
+    if (lower.includes('herren') || lower.includes('mann')) return 'Herren-Fahrräder';
+    if (lower.includes('e-bike') || lower.includes('ebike') || lower.includes('pedelec')) return 'E-Bikes';
+    if (lower.includes('trekking')) return 'Trekkingräder';
+    if (lower.includes('mountain') || lower.includes('mtb')) return 'Mountainbikes';
+    if (lower.includes('rennrad') || lower.includes('renn')) return 'Rennräder';
+    if (lower.includes('zubehör') || lower.includes('helm') || lower.includes('schloss')) return 'Zubehör';
+    return 'Sonstige Fahrräder';
+  }
+
   // Computed: parsed values from all listings (filtered by mode)
   parsedListings = computed(() => {
     const accessoriesMode = this.isAccessoriesMode();
     return this.allListings()
-      .filter((listing) => {
-        const isBike =
-          !!listing.category &&
-          ShowroomComponent.BIKE_CATEGORIES.has(listing.category);
-        return accessoriesMode ? !isBike : isBike;
-      })
       .map((listing) => ({
         ...listing,
+        category: this.resolveCategory(listing),
         parsedZoll: this.parseZoll(listing.title),
         parsedGears: this.parseGears(listing.title),
         parsedSize: this.parseSize(listing.title),
         parsedTyp: this.parseTyp(listing.title),
         isNew: this.isNew(listing.title),
-      }));
+      }))
+      .filter((listing) => {
+        const isBike = ShowroomComponent.BIKE_CATEGORIES.has(listing.category);
+        return accessoriesMode ? !isBike : isBike;
+      });
   });
 
   // Available filter options (dynamically computed from data)
