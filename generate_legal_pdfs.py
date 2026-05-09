@@ -13,15 +13,15 @@ OUTPUT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Business Details
 FIRMA = "Karaarslan Bike"
-INHABER = "Cevdet Akarsu"
+INHABER = "Esat Karaarslan"
 STRASSE = "Alstedder Straße 5"
 PLZ_ORT = "44534 Lünen"
 LAND = "Deutschland"
 TELEFON = "+49 163 7390 301"
 EMAIL = "info@karaarslan-bike.de"
 WEBSITE = "https://karaarslan-bike.de"
-STEUERNUMMER = "06002/40667"
-UST_ID = "DE437595861"
+STEUERNUMMER = "316/5141/9892"
+UST_ID = "DE456947509"
 
 
 class LegalPDF(FPDF):
