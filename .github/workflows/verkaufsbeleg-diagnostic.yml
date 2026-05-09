@@ -20,93 +20,73 @@ jobs:
             git rev-parse --short HEAD
             echo ""
 
-            echo "=== 2. Locate sqlite db file ==="
-            DB_HOST=""
-            for p in /opt/bikehaus/data/BikeHausFreiburg.db /opt/bikehaus/BikeHausFreiburg.db; do
-              if [ -f "$p" ]; then DB_HOST="$p"; echo "found: $p"; break; fi
-            done
-            [ -z "$DB_HOST" ] && find /opt/bikehaus -maxdepth 4 -name '*.db' 2>/dev/null | head
-            echo ""
-
-            echo "=== 3. Install sqlite3 if missing ==="
-            command -v sqlite3 >/dev/null || (apt-get update -qq && apt-get install -y -qq sqlite3 >/dev/null 2>&1)
-            sqlite3 --version
-            echo ""
-
-            echo "=== 4. Field lengths for Sale 1 (no PII, only LENGTHS) ==="
-            if [ -n "$DB_HOST" ]; then
-              cp "$DB_HOST" /tmp/diag.db && sqlite3 -header -column /tmp/diag.db "
-                SELECT
-                  s.Id AS sale_id,
-                  s.BicycleId AS bike_id,
-                  s.BuyerId AS buyer_id,
-                  s.PurchaseId AS purchase_id,
-                  LENGTH(COALESCE(s.BelegNummer,'')) AS beleg_len,
-                  LENGTH(COALESCE(s.Notizen,'')) AS notes_len,
-                  LENGTH(COALESCE(b.Marke,'')) AS marke_len,
-                  LENGTH(COALESCE(b.Modell,'')) AS modell_len,
-                  LENGTH(COALESCE(b.Rahmennummer,'')) AS rahmennr_len,
-                  LENGTH(COALESCE(b.Farbe,'')) AS farbe_len,
-                  LENGTH(COALESCE(b.Rahmengroesse,'')) AS rgroesse_len,
-                  LENGTH(COALESCE(b.Reifengroesse,'')) AS reifen_len,
-                  LENGTH(COALESCE(b.Fahrradtyp,'')) AS typ_len,
-                  LENGTH(COALESCE(c.Vorname,'')) AS vorname_len,
-                  LENGTH(COALESCE(c.Nachname,'')) AS nachname_len,
-                  LENGTH(COALESCE(c.Strasse,'')) AS strasse_len,
-                  LENGTH(COALESCE(c.Hausnummer,'')) AS hnr_len,
-                  LENGTH(COALESCE(c.PLZ,'')) AS plz_len,
-                  LENGTH(COALESCE(c.Stadt,'')) AS stadt_len,
-                  LENGTH(COALESCE(c.Email,'')) AS email_len,
-                  LENGTH(COALESCE(c.Telefon,'')) AS tel_len
-                FROM Sales s
-                LEFT JOIN Bicycles b ON b.Id=s.BicycleId
-                LEFT JOIN Customers c ON c.Id=s.BuyerId
-                WHERE s.Id=1;
-              " 2>&1
-              echo ""
-              echo "--- counts ---"
-              sqlite3 /tmp/diag.db "
-                SELECT 'sales_total' AS k, COUNT(*) AS v FROM Sales;
-                SELECT 'sale1_accessories' AS k, COUNT(*) AS v FROM SaleAccessories WHERE SaleId=1;
-                SELECT 'sale1_zahlungen' AS k, COUNT(*) AS v FROM SalePayments WHERE SaleId=1;
-              " 2>&1
-              echo ""
-              echo "--- ShopSettings field lengths (no PII) ---"
-              sqlite3 -header -column /tmp/diag.db "
-                SELECT
-                  LENGTH(COALESCE(ShopName,'')) AS shop_len,
-                  LENGTH(COALESCE(InhaberVorname,'')) AS ivor_len,
-                  LENGTH(COALESCE(InhaberNachname,'')) AS inach_len,
-                  LENGTH(COALESCE(Strasse,'')) AS s_str_len,
-                  LENGTH(COALESCE(Hausnummer,'')) AS s_hnr_len,
-                  LENGTH(COALESCE(PLZ,'')) AS s_plz_len,
-                  LENGTH(COALESCE(Stadt,'')) AS s_stadt_len,
-                  LENGTH(COALESCE(Telefon,'')) AS s_tel_len,
-                  LENGTH(COALESCE(Email,'')) AS s_email_len,
-                  LENGTH(COALESCE(Bankname,'')) AS s_bank_len,
-                  LENGTH(COALESCE(IBAN,'')) AS s_iban_len,
-                  LENGTH(COALESCE(LogoBase64,'')) AS s_logo_b64_len,
-                  LENGTH(COALESCE(InhaberSignatureBase64,'')) AS s_sig_b64_len
-                FROM ShopSettings LIMIT 1;
-              " 2>&1
-              rm -f /tmp/diag.db
-            else
-              echo "no db found"
+            echo "=== 2. DB inside container (volume bikehaus-data) ==="
+            docker exec bikehaus-app sh -c "ls -la /app/data/" 2>&1 | head -10
+            DBQ() { docker exec bikehaus-app sh -c "sqlite3 -header -column /app/data/BikeHausFreiburg.db \"$1\"" 2>&1; }
+            # ensure sqlite3 inside container; if not, fall back to copying out
+            if ! docker exec bikehaus-app sh -c "command -v sqlite3 >/dev/null"; then
+              echo "sqlite3 not in container — copying db out to host"
+              docker cp bikehaus-app:/app/data/BikeHausFreiburg.db /tmp/diag.db
+              command -v sqlite3 >/dev/null || (apt-get update -qq && apt-get install -y -qq sqlite3 >/dev/null 2>&1)
+              DBQ() { sqlite3 -header -column /tmp/diag.db "$1" 2>&1; }
             fi
+            sqlite3 --version 2>/dev/null || echo "host sqlite missing"
             echo ""
 
-            echo "=== 5. Last QuestPDF DocumentLayoutException context (purchase/sale id if any) ==="
-            docker logs --tail 3000 bikehaus-app 2>&1 | grep -B2 -A2 -E 'DocumentLayoutException|GenerateKaufbeleg|GenerateVerkaufsbeleg' | tail -60
+            echo "=== 3. ShopSettings (full values; this is public business info) ==="
+            DBQ "SELECT ShopName, InhaberVorname, InhaberNachname, Strasse, Hausnummer, PLZ, Stadt, Telefon, Email, Bankname, IBAN, Steuernummer, UstIdNr, GoogleReviewUrl FROM ShopSettings LIMIT 1;"
+            echo ""
+            echo "--- LogoBase64 / SignatureBase64 lengths only ---"
+            DBQ "SELECT LENGTH(COALESCE(LogoBase64,'')) AS logo_len, LENGTH(COALESCE(InhaberSignatureBase64,'')) AS sig_len FROM ShopSettings LIMIT 1;"
             echo ""
 
-            echo "=== 6. Recent kaufbeleg/verkaufsbeleg request URLs (sanitized) ==="
-            docker logs --tail 3000 bikehaus-app 2>&1 | grep -iE 'kaufbeleg|verkaufsbeleg' | grep -iE 'GET|POST|/api/' | tail -20
+            echo "=== 4. Field LENGTHS for Sale 1 ==="
+            DBQ "
+              SELECT
+                s.Id, s.BicycleId, s.BuyerId, s.PurchaseId,
+                LENGTH(COALESCE(s.BelegNummer,'')) AS beleg_len,
+                LENGTH(COALESCE(s.Notizen,'')) AS notes_len,
+                LENGTH(COALESCE(b.Marke,'')) AS marke_len,
+                LENGTH(COALESCE(b.Modell,'')) AS modell_len,
+                LENGTH(COALESCE(b.Rahmennummer,'')) AS rahmennr_len,
+                LENGTH(COALESCE(b.Farbe,'')) AS farbe_len,
+                LENGTH(COALESCE(b.Rahmengroesse,'')) AS rgroesse_len,
+                LENGTH(COALESCE(b.Reifengroesse,'')) AS reifen_len,
+                LENGTH(COALESCE(b.Fahrradtyp,'')) AS typ_len,
+                LENGTH(COALESCE(c.Vorname,'')||' '||COALESCE(c.Nachname,'')) AS fullname_len,
+                LENGTH(COALESCE(c.Strasse,'')||' '||COALESCE(c.Hausnummer,'')) AS street_len,
+                LENGTH(COALESCE(c.PLZ,'')||' '||COALESCE(c.Stadt,'')) AS city_len,
+                LENGTH(COALESCE(c.Email,'')) AS email_len,
+                LENGTH(COALESCE(c.Telefon,'')) AS tel_len
+              FROM Sales s
+              LEFT JOIN Bicycles b ON b.Id=s.BicycleId
+              LEFT JOIN Customers c ON c.Id=s.BuyerId
+              WHERE s.Id=1;"
             echo ""
 
-            echo "=== 7. App listening + simple probes ==="
-            ss -tlnp 2>/dev/null | grep ':5000' | head -3
+            echo "=== 5. Sale 1 actual bicycle values (no buyer PII) ==="
+            DBQ "
+              SELECT b.Marke, b.Modell, b.Rahmennummer, b.Fahrradtyp, b.Farbe, b.Rahmengroesse, b.Reifengroesse, b.Zustand
+              FROM Sales s JOIN Bicycles b ON b.Id=s.BicycleId WHERE s.Id=1;"
+            echo ""
+            echo "--- Sale 1 BelegNummer + Notizen length ---"
+            DBQ "SELECT s.BelegNummer, LENGTH(s.Notizen) AS notizen_len FROM Sales s WHERE s.Id=1;"
+            echo ""
+
+            echo "=== 6. Top 10 longest Rahmennummer / Marke / Modell across DB ==="
+            DBQ "SELECT Id, Marke, LENGTH(Marke) AS l FROM Bicycles ORDER BY l DESC LIMIT 5;"
+            DBQ "SELECT Id, Modell, LENGTH(Modell) AS l FROM Bicycles ORDER BY l DESC LIMIT 5;"
+            DBQ "SELECT Id, Rahmennummer, LENGTH(Rahmennummer) AS l FROM Bicycles ORDER BY l DESC LIMIT 5;"
+            echo ""
+
+            echo "=== 7. Last QuestPDF DocumentLayoutException context ==="
+            docker logs --tail 5000 bikehaus-app 2>&1 | grep -B1 -A1 'DocumentLayoutException\|GenerateKaufbeleg\|GenerateVerkaufsbeleg' | tail -40
+            echo ""
+
+            echo "=== 8. Probe internal endpoints ==="
             curl -sS -o /dev/null -w "  /api/sales/1/verkaufsbeleg -> %{http_code}\n" --max-time 5 http://localhost:5000/api/sales/1/verkaufsbeleg
             curl -sS -o /dev/null -w "  /api/purchases/1/kaufbeleg -> %{http_code}\n" --max-time 5 http://localhost:5000/api/purchases/1/kaufbeleg
             echo ""
 
+            rm -f /tmp/diag.db
             echo "=== DONE ==="
