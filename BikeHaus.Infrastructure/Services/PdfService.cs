@@ -218,7 +218,7 @@ public class PdfService : IPdfService
                                     if (base64Data.Contains(","))
                                         base64Data = base64Data.Substring(base64Data.IndexOf(",") + 1);
                                     var logoBytes = Convert.FromBase64String(base64Data);
-                                    logoCol.Item().Height(84).Image(logoBytes);
+                                    logoCol.Item().MaxHeight(84).MaxWidth(90).AlignCenter().Image(logoBytes).FitArea();
                                 }
                                 catch { }
                             }
@@ -448,7 +448,7 @@ public class PdfService : IPdfService
                                     if (base64Data.Contains(","))
                                         base64Data = base64Data.Substring(base64Data.IndexOf(",") + 1);
                                     var logoBytes = Convert.FromBase64String(base64Data);
-                                    logoCol.Item().Height(84).Image(logoBytes);
+                                    logoCol.Item().MaxHeight(84).MaxWidth(90).AlignCenter().Image(logoBytes).FitArea();
                                 }
                                 catch { }
                             }
@@ -883,7 +883,7 @@ public class PdfService : IPdfService
                                     if (base64Data.Contains(","))
                                         base64Data = base64Data.Substring(base64Data.IndexOf(",") + 1);
                                     var logoBytes = Convert.FromBase64String(base64Data);
-                                    logoCol.Item().Height(84).Image(logoBytes);
+                                    logoCol.Item().MaxHeight(84).MaxWidth(90).AlignCenter().Image(logoBytes).FitArea();
                                 }
                                 catch { }
                             }
@@ -1450,7 +1450,7 @@ public class PdfService : IPdfService
                                     if (base64Data.Contains(","))
                                         base64Data = base64Data.Substring(base64Data.IndexOf(",") + 1);
                                     var logoBytes = Convert.FromBase64String(base64Data);
-                                    logoCol.Item().Height(84).Image(logoBytes);
+                                    logoCol.Item().MaxHeight(84).MaxWidth(90).AlignCenter().Image(logoBytes).FitArea();
                                 }
                                 catch { }
                             }
@@ -1792,7 +1792,7 @@ public class PdfService : IPdfService
                                     if (base64Data.Contains(","))
                                         base64Data = base64Data.Substring(base64Data.IndexOf(",") + 1);
                                     var logoBytes = Convert.FromBase64String(base64Data);
-                                    logoCol.Item().Height(84).Image(logoBytes);
+                                    logoCol.Item().MaxHeight(84).MaxWidth(90).AlignCenter().Image(logoBytes).FitArea();
                                 }
                                 catch { }
                             }
