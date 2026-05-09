@@ -88,7 +88,22 @@ public class ReturnsController : ControllerBase
     [HttpGet("{id}/rueckgabebeleg")]
     public async Task<IActionResult> DownloadRueckgabebeleg(int id)
     {
-        var pdfBytes = await _pdfService.GenerateRueckgabebelegAsync(id);
-        return File(pdfBytes, "application/pdf", $"Rueckgabebeleg_{id}.pdf");
+        try
+        {
+            var pdfBytes = await _pdfService.GenerateRueckgabebelegAsync(id);
+            return File(pdfBytes, "application/pdf", $"Rueckgabebeleg_{id}.pdf");
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(new { error = ex.Message });
+        }
+        catch (InvalidOperationException ex)
+        {
+            return UnprocessableEntity(new { error = ex.Message });
+        }
+        catch (Exception)
+        {
+            return StatusCode(500, new { error = "Rückgabebeleg konnte nicht erstellt werden." });
+        }
     }
 }

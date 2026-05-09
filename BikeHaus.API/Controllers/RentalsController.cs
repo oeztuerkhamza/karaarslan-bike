@@ -151,6 +151,14 @@ public class RentalsController : ControllerBase
         {
             return NotFound(new { error = ex.Message });
         }
+        catch (InvalidOperationException ex)
+        {
+            return UnprocessableEntity(new { error = ex.Message });
+        }
+        catch (Exception)
+        {
+            return StatusCode(500, new { error = "Mietvertrag konnte nicht erstellt werden." });
+        }
     }
 
     [HttpGet("{id}/kaution-pdf")]
@@ -164,6 +172,14 @@ public class RentalsController : ControllerBase
         catch (KeyNotFoundException ex)
         {
             return NotFound(new { error = ex.Message });
+        }
+        catch (InvalidOperationException ex)
+        {
+            return UnprocessableEntity(new { error = ex.Message });
+        }
+        catch (Exception)
+        {
+            return StatusCode(500, new { error = "Kautionsquittung konnte nicht erstellt werden." });
         }
     }
 }

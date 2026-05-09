@@ -114,21 +114,25 @@ public class SalesController : ControllerBase
         {
             return UnprocessableEntity(new { error = ex.Message });
         }
+        catch (Exception)
+        {
+            return StatusCode(500, new { error = "Verkaufsbeleg konnte nicht erstellt werden." });
+        }
     }
 
     [HttpPost("{id}/send-receipt")]
     public async Task<IActionResult> SendReceipt(int id, [FromQuery] string? overrideEmail = null)
     {
-        var sale = await _saleService.GetByIdAsync(id);
-        if (sale == null)
-            return NotFound(new { error = "Verkauf nicht gefunden." });
-
-        var toEmail = overrideEmail ?? sale.Buyer?.Email;
-        if (string.IsNullOrWhiteSpace(toEmail))
-            return BadRequest(new { error = "Keine E-Mail-Adresse für diesen Käufer hinterlegt." });
-
         try
         {
+            var sale = await _saleService.GetByIdAsync(id);
+            if (sale == null)
+                return NotFound(new { error = "Verkauf nicht gefunden." });
+
+            var toEmail = overrideEmail ?? sale.Buyer?.Email;
+            if (string.IsNullOrWhiteSpace(toEmail))
+                return BadRequest(new { error = "Keine E-Mail-Adresse für diesen Käufer hinterlegt." });
+
             var pdfBytes = await _pdfService.GenerateVerkaufsbelegAsync(id);
             await _emailService.SendSaleReceiptAsync(toEmail, sale.Buyer?.FullName ?? "-", sale.BelegNummer, pdfBytes);
             return Ok(new { message = $"Rechnung {sale.BelegNummer} wurde an {toEmail} gesendet." });
@@ -140,6 +144,10 @@ public class SalesController : ControllerBase
         catch (InvalidOperationException ex)
         {
             return UnprocessableEntity(new { error = ex.Message });
+        }
+        catch (Exception)
+        {
+            return StatusCode(500, new { error = "Verkaufsbeleg konnte nicht erstellt oder versendet werden." });
         }
     }
 

@@ -76,10 +76,25 @@ public class InvoicesController : ControllerBase
     [HttpGet("{id}/pdf")]
     public async Task<IActionResult> GetPdf(int id)
     {
-        var invoice = await _service.GetByIdAsync(id);
-        if (invoice == null) return NotFound();
+        try
+        {
+            var invoice = await _service.GetByIdAsync(id);
+            if (invoice == null) return NotFound();
 
-        var pdf = await _pdfService.GenerateRechnungAsync(id);
-        return File(pdf, "application/pdf", $"Rechnung-{invoice.RechnungsNummer}.pdf");
+            var pdf = await _pdfService.GenerateRechnungAsync(id);
+            return File(pdf, "application/pdf", $"Rechnung-{invoice.RechnungsNummer}.pdf");
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(new { error = ex.Message });
+        }
+        catch (InvalidOperationException ex)
+        {
+            return UnprocessableEntity(new { error = ex.Message });
+        }
+        catch (Exception)
+        {
+            return StatusCode(500, new { error = "Rechnung konnte nicht erstellt werden." });
+        }
     }
 }
