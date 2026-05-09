@@ -318,6 +318,7 @@ export interface Translations {
   ourShowroom: string;
   conditionNew: string;
   conditionUsed: string;
+  conditionLikeNew: string;
   contactEmailHint: string;
   contactKaHint: string;
 
@@ -836,6 +837,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     ourShowroom: 'Showroom',
     conditionNew: 'Neu',
     conditionUsed: 'Gebraucht',
+    conditionLikeNew: 'Erneuert',
     contactEmailHint: 'Wir antworten innerhalb von 24 Stunden',
     contactKaHint: 'Alle unsere Angebote auf Kleinanzeigen ansehen',
 
@@ -1412,6 +1414,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     ourShowroom: 'Showroom',
     conditionNew: 'New',
     conditionUsed: 'Used',
+    conditionLikeNew: 'Renewed',
     contactEmailHint: 'We respond within 24 hours',
     contactKaHint: 'View all our listings on Kleinanzeigen',
 
@@ -1980,6 +1983,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     ourShowroom: 'Showroom',
     conditionNew: 'Neuf',
     conditionUsed: 'Occasion',
+    conditionLikeNew: 'Rénové',
     contactEmailHint: 'Nous répondons sous 24 heures',
     contactKaHint: 'Voir toutes nos offres sur Kleinanzeigen',
 
@@ -2562,6 +2566,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     ourShowroom: 'Showroom',
     conditionNew: 'Yeni',
     conditionUsed: 'İkinci El',
+    conditionLikeNew: 'Yenilenmiş',
     contactEmailHint: '24 saat içinde yanıt veriyoruz',
     contactKaHint: "Tüm ilanlarımızı Kleinanzeigen'de görün",
 

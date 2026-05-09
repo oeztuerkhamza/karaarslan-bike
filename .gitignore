@@ -706,3 +706,4 @@ coverage/
 .claude/skills/wordpress-pro/references/performance-security.md
 .claude/skills/wordpress-pro/references/plugin-architecture.md
 .claude/skills/wordpress-pro/references/theme-development.md
+.claude/settings.local.json

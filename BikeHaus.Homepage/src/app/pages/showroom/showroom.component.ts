@@ -1337,7 +1337,7 @@ export class ShowroomComponent implements OnInit, OnDestroy {
   // Available categories (dynamically computed from data)
   availableCategories = computed(() => {
     const counts = new Map<string, number>();
-    const hiddenPattern = /kleinanzeigen|luenen/i;
+    const hiddenPattern = /kleinanzeigen|luenen|versand/i;
     this.allListings().forEach((l) => {
       if (l.category && !hiddenPattern.test(l.category)) {
         counts.set(l.category, (counts.get(l.category) || 0) + 1);

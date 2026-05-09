@@ -46,8 +46,8 @@ import { TranslationService } from '../../services/translation.service';
         }}</span>
 
         <!-- Condition Badge -->
-        <span class="card-condition" [class.is-new]="isNew">{{
-          isNew ? t().conditionNew : t().conditionUsed
+        <span class="card-condition" [class.is-new]="isNew" [class.is-like-new]="isLikeNew">{{
+          isLikeNew ? t().conditionLikeNew : isNew ? t().conditionNew : t().conditionUsed
         }}</span>
 
         <!-- Image Count -->
@@ -257,6 +257,10 @@ import { TranslationService } from '../../services/translation.service';
         background: rgba(76, 175, 80, 0.9);
       }
 
+      .card-condition.is-like-new {
+        background: rgba(33, 150, 243, 0.9);
+      }
+
       .card-count {
         position: absolute;
         bottom: 0.85rem;
@@ -351,12 +355,17 @@ export class BikeCardComponent {
   t = this.translationService.translations;
   lang = this.translationService.currentLanguage;
 
+  private static readonly LIKE_NEW_PATTERN = /\bwie\s+neu\b/i;
   private static readonly NEW_PATTERN =
     /\b(neue?[smrn]?|nagelneu|brandneu|unbenutzt|originalverpackt|\bovp\b)\b/i;
   private static readonly HIDDEN_CAT = /kleinanzeigen|luenen/i;
 
+  get isLikeNew(): boolean {
+    return BikeCardComponent.LIKE_NEW_PATTERN.test(this.listing.title || '');
+  }
+
   get isNew(): boolean {
-    return BikeCardComponent.NEW_PATTERN.test(this.listing.title || '');
+    return !this.isLikeNew && BikeCardComponent.NEW_PATTERN.test(this.listing.title || '');
   }
 
   get displayCategory(): string | null {
