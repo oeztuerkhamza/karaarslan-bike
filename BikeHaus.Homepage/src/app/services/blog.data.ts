@@ -755,8 +755,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     translations: {
       de: {
         title: 'Fahrradladen Lünen — Karaarslan Bike',
-        metaTitle:
-          'Fahrradladen Lünen — Ihr Fahrradgeschäft | Karaarslan Bike',
+        metaTitle: 'Fahrradladen Lünen — Ihr Fahrradgeschäft | Karaarslan Bike',
         metaDescription:
           'Fahrradladen in Lünen gesucht? Karaarslan Bike: Über 100 neue & gebrauchte Fahrräder, E-Bikes, Garantie, Probefahrt. Alstedder Straße 5.',
         excerpt:
@@ -1239,7 +1238,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       'fahrrad inspektion',
       'wartung',
       'kosten',
-      'reparatur',
+      'service',
       'fahrrad check',
     ],
     relatedSlugs: ['gebrauchtes-fahrrad-kaufen-tipps', 'fahrradladen-luenen'],
@@ -1961,8 +1960,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     ],
     translations: {
       de: {
-        title:
-          'Gebrauchtes Fahrrad kaufen in Lünen — Expat & Studenten Guide',
+        title: 'Gebrauchtes Fahrrad kaufen in Lünen — Expat & Studenten Guide',
         metaTitle:
           'Gebrauchtes Fahrrad Lünen kaufen — Expat Guide | Karaarslan Bike',
         metaDescription:
@@ -2069,8 +2067,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       fr: {
         title: 'Acheter un vélo à Lünen — Guide pour francophones 2026',
-        metaTitle:
-          'Acheter vélo Lünen — Guide complet 2026 | Karaarslan Bike',
+        metaTitle: 'Acheter vélo Lünen — Guide complet 2026 | Karaarslan Bike',
         metaDescription:
           "Acheter un vélo neuf ou d'occasion à Lünen ✓ 100+ vélos en stock ✓ Dès 80 € ✓ 3 mois de garantie ✓ Conseils en français. Karaarslan Bike.",
         excerpt:
@@ -2164,10 +2161,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       'Rhin à Vélo',
       'schwarzwald radfahren',
     ],
-    relatedSlugs: [
-      'bike-rental-luenen-guide',
-      'buy-used-bike-luenen-expat',
-    ],
+    relatedSlugs: ['bike-rental-luenen-guide', 'buy-used-bike-luenen-expat'],
     translations: {
       de: {
         title: 'Radfahren in Lünen — Die besten Routen & Tipps 2026',
@@ -2277,8 +2271,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         ],
       },
       fr: {
-        title:
-          'Faire du vélo à Lünen — Itinéraires, Location & Conseils 2026',
+        title: 'Faire du vélo à Lünen — Itinéraires, Location & Conseils 2026',
         metaTitle:
           'Vélo à Lünen 2026 — Itinéraires, Location & Conseils | Karaarslan Bike',
         metaDescription:
@@ -2372,6 +2365,3 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     },
   },
 ];
-
-
-

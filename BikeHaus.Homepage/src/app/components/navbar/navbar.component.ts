@@ -33,7 +33,9 @@ import { ShopInfoService } from '../../services/shop-info.service';
             height="40"
           />
           <span class="brand-name"
-            >Karaarslan Bike<span class="brand-city">Lünen</span></span
+            >Karaarslan Bike<span class="brand-city"
+              >Über 24 Jahre Erfahrung</span
+            ></span
           >
         </a>
 
@@ -436,4 +438,3 @@ export class NavbarComponent {
     this.menuOpen = false;
   }
 }
-

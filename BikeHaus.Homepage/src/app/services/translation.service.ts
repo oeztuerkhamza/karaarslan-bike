@@ -549,8 +549,7 @@ export interface Translations {
 
 const TRANSLATIONS: Record<Language, Translations> = {
   de: {
-    metaTitle:
-      'Fahrradladen Lünen — Fahrrad kaufen & mieten | Karaarslan Bike',
+    metaTitle: 'Fahrradladen Lünen — Fahrrad kaufen & mieten | Karaarslan Bike',
     metaDescription:
       'Ihr Fahrradladen in Lünen Haid ✓ Neue & gebrauchte Räder kaufen ✓ E-Bike, City, Trekking, Kinderfahrrad ✓ Fahrradverleih mit tagesgenauen Preisen pro Fahrrad ✓ 3 Monate Garantie. Kein Termin — Alstedder Straße 5!',
 
@@ -667,7 +666,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     bikeCheckReflectorCheck: 'Reflektoren & Sichtbarkeit',
     bikeCheckBellCheck: 'Klingel & Hupe prüfen',
     bikeCheckSafetyCheck: 'Allgemeine Sicherheitsprüfung',
-    bikeCheckRepairTitle: 'Reparatur auf Wunsch',
+    bikeCheckRepairTitle: 'Service auf Wunsch',
     bikeCheckBrakeAdjust: 'Bremsen einstellen',
     bikeCheckChainCassette: 'Kette & Kassette tauschen',
     bikeCheckGearAdjust: 'Schaltung justieren',
@@ -898,8 +897,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     aboutQuote:
       'Jedes Fahrrad, das wir verkaufen, bringt Freude — und das ist der schönste Lohn.',
     aboutQuoteAuthor: '— Die Familie hinter Karaarslan Bike',
-    aboutMetaTitle:
-      'Über uns — Karaarslan Bike | Fahrradladen in Lünen Haid',
+    aboutMetaTitle: 'Über uns — Karaarslan Bike | Fahrradladen in Lünen Haid',
     aboutMetaDescription:
       'Karaarslan Bike in Haid — Ihr persönlicher Fahrradladen seit 2020. Über 500 zufriedene Kunden ✓ 3 Monate Garantie ✓ Neue & gebrauchte Räder. Lernen Sie uns kennen!',
 
@@ -1091,7 +1089,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     svcRepairBadge: 'Service',
     svcRepairTitle: 'Fahrrad Reparatur',
     svcRepairSub:
-      'Professionelle Wartung & Reparatur – schnell, zuverlässig, fair.',
+      'Professionelle Wartung & Service – schnell, zuverlässig, fair.',
     svcRepairItem1: 'Bremsen, Schaltung, Reifen',
     svcRepairItem2: 'Komplette Inspektion',
     svcRepairItem3: 'Fahrrad Diagnose & Wartung',
@@ -1247,7 +1245,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     bikeCheckReflectorCheck: 'Reflectors & visibility',
     bikeCheckBellCheck: 'Bell & horn check',
     bikeCheckSafetyCheck: 'General safety inspection',
-    bikeCheckRepairTitle: 'Repairs on Request',
+    bikeCheckRepairTitle: 'Service on Request',
     bikeCheckBrakeAdjust: 'Brake adjustment',
     bikeCheckChainCassette: 'Chain & cassette replacement',
     bikeCheckGearAdjust: 'Gear adjustment',
@@ -1527,8 +1525,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     filterGears: 'Gears',
     gearsUnit: 'gears',
     filterFrameSize: 'Frame Size',
-    showroomMetaTitle:
-      'Buy Used Bikes in Lünen | Showroom | Karaarslan Bike',
+    showroomMetaTitle: 'Buy Used Bikes in Lünen | Showroom | Karaarslan Bike',
     showroomMetaDescription:
       'Buy used & new bikes in Lünen ✓ 100+ inspected bikes ✓ City, Trekking, Mountain, E-Bike ✓ 3-month warranty ✓ Ready to ride. Karaarslan Bike.',
 
@@ -1811,7 +1808,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     bikeCheckReflectorCheck: 'Réflecteurs & visibilité',
     bikeCheckBellCheck: 'Vérification sonnette & klaxon',
     bikeCheckSafetyCheck: 'Contrôle de sécurité général',
-    bikeCheckRepairTitle: 'Réparation sur demande',
+    bikeCheckRepairTitle: 'Service sur demande',
     bikeCheckBrakeAdjust: 'Réglage des freins',
     bikeCheckChainCassette: 'Remplacement chaîne & cassette',
     bikeCheckGearAdjust: 'Ajustement des vitesses',
@@ -2395,7 +2392,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     bikeCheckReflectorCheck: 'Reflektör & görünürlük',
     bikeCheckBellCheck: 'Zil & korna kontrolü',
     bikeCheckSafetyCheck: 'Genel güvenlik kontrolü',
-    bikeCheckRepairTitle: 'İsteğe Bağlı Tamir',
+    bikeCheckRepairTitle: 'İsteğe Bağlı Servis',
     bikeCheckBrakeAdjust: 'Fren ayarı',
     bikeCheckChainCassette: 'Zincir & kaset değişimi',
     bikeCheckGearAdjust: 'Vites ayarı',
@@ -2892,4 +2889,3 @@ export class TranslationService {
     return 'de';
   }
 }
-

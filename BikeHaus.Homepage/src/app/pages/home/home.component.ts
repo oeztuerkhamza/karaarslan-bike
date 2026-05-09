@@ -93,7 +93,7 @@ interface Testimonial {
     <section class="svc-cards-section" aria-label="Services">
       <div class="container">
         <div class="svc-cards-grid">
-          <!-- Reparatur -->
+          <!-- Service Cards -->
           <div class="svc-card svc-card-repair">
             <div class="svc-card-icon">
               <svg
