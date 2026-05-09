@@ -210,7 +210,13 @@ public class RentalBookingService : IRentalBookingService
         booking.UpdatedAt = DateTime.UtcNow;
         await _bookingRepository.UpdateAsync(booking);
 
-        if (!string.IsNullOrWhiteSpace(booking.Email))
+        if (string.IsNullOrWhiteSpace(booking.Email))
+        {
+            _logger.LogWarning(
+                "Booking {BookingNumber} has no email address, so the approved email cannot be sent.",
+                booking.BuchungsNummer);
+        }
+        else
         {
             try
             {
@@ -246,7 +252,13 @@ public class RentalBookingService : IRentalBookingService
         booking.UpdatedAt = DateTime.UtcNow;
         await _bookingRepository.UpdateAsync(booking);
 
-        if (!string.IsNullOrWhiteSpace(booking.Email))
+        if (string.IsNullOrWhiteSpace(booking.Email))
+        {
+            _logger.LogWarning(
+                "Booking {BookingNumber} has no email address, so the cancelled email cannot be sent.",
+                booking.BuchungsNummer);
+        }
+        else
         {
             var bicycle = await _bicycleRepository.GetByIdAsync(booking.BicycleId);
             if (bicycle != null)
@@ -294,7 +306,13 @@ public class RentalBookingService : IRentalBookingService
             await _bookingRepository.UpdateAsync(booking);
         }
 
-        if (!string.IsNullOrWhiteSpace(booking.Email))
+        if (string.IsNullOrWhiteSpace(booking.Email))
+        {
+            _logger.LogWarning(
+                "Booking {BookingNumber} has no email address, so the customer-cancelled email cannot be sent.",
+                booking.BuchungsNummer);
+        }
+        else
         {
             var bicycle = await _bicycleRepository.GetByIdAsync(booking.BicycleId);
             if (bicycle != null)

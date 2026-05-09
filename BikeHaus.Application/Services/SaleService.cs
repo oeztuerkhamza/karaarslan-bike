@@ -110,6 +110,8 @@ public class SaleService : ISaleService
 
         // Create or find Buyer
         var buyer = dto.Buyer.ToEntity();
+        if (string.IsNullOrWhiteSpace(buyer.Email))
+            throw new InvalidOperationException("Fuer den automatischen Versand des Kaufbelegs ist eine E-Mail-Adresse erforderlich.");
         buyer = await _customerRepository.AddAsync(buyer);
 
         // Create Sale
@@ -188,7 +190,13 @@ public class SaleService : ISaleService
     private async Task TrySendSaleReceiptAsync(Sale sale)
     {
         if (string.IsNullOrWhiteSpace(sale.Buyer.Email))
+        {
+            _logger.LogWarning(
+                "Sale {SaleId} ({BelegNummer}) has no buyer email, so the automatic receipt cannot be sent.",
+                sale.Id,
+                sale.BelegNummer);
             return;
+        }
 
         try
         {

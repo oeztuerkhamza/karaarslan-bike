@@ -126,6 +126,9 @@ Viele Gruesse
         string emailType = "",
         IEnumerable<(byte[] Bytes, string FileName)>? attachments = null)
     {
+        if (string.IsNullOrWhiteSpace(toEmail))
+            throw new InvalidOperationException("Recipient email address is required.");
+
         var dbAccount = await _db.EmailAccounts
             .Where(a => a.IsDefault && a.IsActive)
             .FirstOrDefaultAsync();
@@ -147,6 +150,13 @@ Viele Gruesse
         var fromName = dbAccount is not null
             ? FirstConfigured(dbAccount.FromName, _options.FromName)
             : FirstConfigured(_options.FromName);
+
+        if (string.IsNullOrWhiteSpace(fromEmail))
+        {
+            _logger.LogError("SMTP from address is not configured. Email to {To} cannot be sent.", toEmail);
+            await LogEmailAsync(toEmail, toName, subject, emailType, "Fehler", "SMTP Absender fehlt.", dbAccount?.Id);
+            throw new InvalidOperationException("SMTP from address is not configured.");
+        }
 
         if (string.IsNullOrWhiteSpace(host))
         {

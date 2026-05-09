@@ -110,6 +110,8 @@ public class RentalService : IRentalService
 
         // Create customer
         var customer = dto.Customer.ToEntity();
+        if (string.IsNullOrWhiteSpace(customer.Email))
+            throw new InvalidOperationException("Fuer den automatischen Versand der Mietunterlagen ist eine E-Mail-Adresse erforderlich.");
         customer = await _customerRepository.AddAsync(customer);
 
         var rental = new Rental
@@ -164,7 +166,13 @@ public class RentalService : IRentalService
     private async Task TrySendRentalDocumentsAsync(Rental rental)
     {
         if (string.IsNullOrWhiteSpace(rental.Customer?.Email))
+        {
+            _logger.LogWarning(
+                "Rental {RentalId} ({MietvertragNummer}) has no customer email, so the automatic rental documents cannot be sent.",
+                rental.Id,
+                rental.MietvertragNummer);
             return;
+        }
 
         try
         {
