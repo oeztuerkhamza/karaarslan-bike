@@ -314,7 +314,7 @@ import { PublicShopInfo } from '../../models/models';
               <h3>{{ t().findUs }}</h3>
               <p class="address-line">Alstedder Straße 5</p>
               <p class="address-line">44534 Lünen</p>
-              <p class="address-line">Stadtteil Haslach</p>
+
               <p class="address-line muted">Deutschland</p>
               <a
                 href="https://maps.google.com/?q=An+der+Wethmarheide+45,+Garagennummer+255+L%C3%BCnen"

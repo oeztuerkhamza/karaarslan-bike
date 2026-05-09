@@ -148,8 +148,19 @@ public class PurchasesController : ControllerBase
     [HttpGet("{id}/kaufbeleg")]
     public async Task<IActionResult> DownloadKaufbeleg(int id)
     {
-        var pdfBytes = await _pdfService.GenerateKaufbelegAsync(id);
-        return File(pdfBytes, "application/pdf", $"Kaufbeleg_{id}.pdf");
+        try
+        {
+            var pdfBytes = await _pdfService.GenerateKaufbelegAsync(id);
+            return File(pdfBytes, "application/pdf", $"Kaufbeleg_{id}.pdf");
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(new { error = ex.Message });
+        }
+        catch (InvalidOperationException ex)
+        {
+            return UnprocessableEntity(new { error = ex.Message });
+        }
     }
 
     [HttpDelete("{id}")]

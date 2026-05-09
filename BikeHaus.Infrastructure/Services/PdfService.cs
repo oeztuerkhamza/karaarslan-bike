@@ -184,6 +184,13 @@ public class PdfService : IPdfService
         var purchase = await _purchaseRepository.GetWithDetailsAsync(purchaseId)
             ?? throw new KeyNotFoundException($"Purchase with ID {purchaseId} not found.");
 
+        var bicycle = purchase.Bicycle
+            ?? throw new InvalidOperationException($"Purchase with ID {purchaseId} has no bicycle data.");
+        var seller = purchase.Seller;
+        var receiptNumber = string.IsNullOrWhiteSpace(purchase.BelegNummer)
+            ? purchase.Id.ToString("D3")
+            : purchase.BelegNummer;
+
         var shop = await GetShopInfoAsync();
 
         QuestPDF.Settings.License = LicenseType.Community;
@@ -234,7 +241,7 @@ public class PdfService : IPdfService
                         row.ConstantItem(150).AlignMiddle().Border(1).BorderColor(PrimaryColor).Padding(6).Column(box =>
                         {
                             box.Item().Text("RECHNUNGSNUMMER").FontSize(11).Bold().FontColor(PrimaryColor).AlignCenter();
-                            box.Item().Text(purchase.BelegNummer).FontSize(14).Bold().FontColor(PrimaryColor).AlignCenter();
+                            box.Item().Text(receiptNumber).FontSize(14).Bold().FontColor(PrimaryColor).AlignCenter();
                             box.Item().Text("RECHNUNGSDATUM").FontSize(8).FontColor(Colors.Grey.Darken1).AlignCenter();
                             box.Item().Text($"{purchase.Kaufdatum:dd.MM.yyyy}").FontSize(10).FontColor(Colors.Grey.Darken1).AlignCenter();
                         });
@@ -278,13 +285,13 @@ public class PdfService : IPdfService
                         row.RelativeItem().Border(1).BorderColor(Colors.Grey.Lighten1).Padding(8).Column(c =>
                         {
                             c.Item().Text("VERKÄUFER (VORBESITZER)").FontSize(9).Bold().FontColor(PrimaryColor);
-                            c.Item().PaddingTop(4).Text(purchase.Seller.FullName ?? "-").FontSize(10).Bold();
-                            if (!string.IsNullOrEmpty(purchase.Seller.FullAddress))
-                                c.Item().Text(purchase.Seller.FullAddress).FontSize(9);
-                            if (!string.IsNullOrEmpty(purchase.Seller.Telefon))
-                                c.Item().Text($"Tel: {purchase.Seller.Telefon}").FontSize(9);
-                            if (!string.IsNullOrEmpty(purchase.Seller.Email))
-                                c.Item().Text(purchase.Seller.Email).FontSize(9);
+                            c.Item().PaddingTop(4).Text(seller?.FullName ?? "-").FontSize(10).Bold();
+                            if (!string.IsNullOrEmpty(seller?.FullAddress))
+                                c.Item().Text(seller!.FullAddress).FontSize(9);
+                            if (!string.IsNullOrEmpty(seller?.Telefon))
+                                c.Item().Text($"Tel: {seller!.Telefon}").FontSize(9);
+                            if (!string.IsNullOrEmpty(seller?.Email))
+                                c.Item().Text(seller!.Email).FontSize(9);
                         });
                     });
 
@@ -314,24 +321,24 @@ public class PdfService : IPdfService
                         });
 
                         table.Cell().Border(1).BorderColor(PrimaryColor).Padding(3).Text("Marke").FontSize(9).Bold().FontColor(PrimaryColor);
-                        table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text(purchase.Bicycle.Marke ?? "-").FontSize(10).Bold();
+                        table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text(bicycle.Marke ?? "-").FontSize(10).Bold();
                         table.Cell().Border(1).BorderColor(PrimaryColor).Padding(3).Text("Modell").FontSize(9).Bold().FontColor(PrimaryColor);
-                        table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text(purchase.Bicycle.Modell ?? "-").FontSize(10).Bold();
+                        table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text(bicycle.Modell ?? "-").FontSize(10).Bold();
 
                         table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text("Rahmennummer").FontSize(9).FontColor(Colors.Grey.Darken2);
-                        table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text(purchase.Bicycle.Rahmennummer ?? "-").FontSize(10);
+                        table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text(bicycle.Rahmennummer ?? "-").FontSize(10);
                         table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text("Farbe").FontSize(9).FontColor(Colors.Grey.Darken2);
-                        table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text(purchase.Bicycle.Farbe ?? "-").FontSize(10);
+                        table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text(bicycle.Farbe ?? "-").FontSize(10);
 
                         table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text("Rahmengröße").FontSize(9).FontColor(Colors.Grey.Darken2);
-                        table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text(purchase.Bicycle.Rahmengroesse ?? "-").FontSize(10);
+                        table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text(bicycle.Rahmengroesse ?? "-").FontSize(10);
                         table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text("Reifengröße").FontSize(9).FontColor(Colors.Grey.Darken2);
-                        table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text(purchase.Bicycle.Reifengroesse ?? "-").FontSize(10);
+                        table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text(bicycle.Reifengroesse ?? "-").FontSize(10);
 
                         table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text("Fahrradtyp").FontSize(9).FontColor(Colors.Grey.Darken2);
-                        table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text(purchase.Bicycle.Fahrradtyp ?? "-").FontSize(10);
+                        table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text(bicycle.Fahrradtyp ?? "-").FontSize(10);
                         table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text("Zustand").FontSize(9).FontColor(Colors.Grey.Darken2);
-                        if (purchase.Bicycle.Zustand == BikeCondition.Neu)
+                        if (bicycle.Zustand == BikeCondition.Neu)
                             table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text("NEU").FontSize(10).Bold().FontColor("#155724");
                         else
                             table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text("GEBRAUCHT").FontSize(10).Bold().FontColor("#856404");
@@ -397,6 +404,13 @@ public class PdfService : IPdfService
         var sale = await _saleRepository.GetWithDetailsAsync(saleId)
             ?? throw new KeyNotFoundException($"Sale with ID {saleId} not found.");
 
+        var bicycle = sale.Bicycle
+            ?? throw new InvalidOperationException($"Sale with ID {saleId} has no bicycle data.");
+        var buyer = sale.Buyer;
+        var receiptNumber = string.IsNullOrWhiteSpace(sale.BelegNummer)
+            ? sale.Id.ToString("D3")
+            : sale.BelegNummer;
+
         var matchedPurchase = await ResolvePurchaseForSaleAsync(sale);
 
         var shop = await GetShopInfoAsync();
@@ -404,12 +418,12 @@ public class PdfService : IPdfService
         QuestPDF.Settings.License = LicenseType.Community;
 
         // Determine warranty text based on bike condition
-        var isNeu = sale.Bicycle.Zustand == BikeCondition.Neu;
+        var isNeu = bicycle.Zustand == BikeCondition.Neu;
         var warrantyText = isNeu ? NeuWarrantyText : GebrauchtWarrantyText;
         var isAccessoryOnlySale =
-            string.Equals(sale.Bicycle.Marke, "Zubehör", StringComparison.OrdinalIgnoreCase) &&
-            string.Equals(sale.Bicycle.Modell, "Direktverkauf", StringComparison.OrdinalIgnoreCase) &&
-            (sale.Bicycle.Rahmennummer?.StartsWith("ACC-", StringComparison.OrdinalIgnoreCase) ?? false);
+            string.Equals(bicycle.Marke, "Zubehör", StringComparison.OrdinalIgnoreCase) &&
+            string.Equals(bicycle.Modell, "Direktverkauf", StringComparison.OrdinalIgnoreCase) &&
+            (bicycle.Rahmennummer?.StartsWith("ACC-", StringComparison.OrdinalIgnoreCase) ?? false);
 
         var document = QuestPDF.Fluent.Document.Create(container =>
         {
@@ -457,7 +471,7 @@ public class PdfService : IPdfService
                         row.ConstantItem(150).AlignMiddle().Border(1).BorderColor(PrimaryColor).Padding(6).Column(box =>
                         {
                             box.Item().Text("RECHNUNGSNUMMER").FontSize(11).Bold().FontColor(PrimaryColor).AlignCenter();
-                            box.Item().Text(sale.BelegNummer).FontSize(14).Bold().FontColor(PrimaryColor).AlignCenter();
+                            box.Item().Text(receiptNumber).FontSize(14).Bold().FontColor(PrimaryColor).AlignCenter();
                             box.Item().Text("RECHNUNGSDATUM").FontSize(8).FontColor(Colors.Grey.Darken1).AlignCenter();
                             box.Item().Text($"{sale.Verkaufsdatum:dd.MM.yyyy}").FontSize(10).FontColor(Colors.Grey.Darken1).AlignCenter();
                         });
@@ -474,7 +488,8 @@ public class PdfService : IPdfService
                 // Content
                 page.Content().PaddingTop(4).Column(col =>
                 {
-                    var hasBuyerName = !string.IsNullOrWhiteSpace(sale.Buyer.Vorname) || !string.IsNullOrWhiteSpace(sale.Buyer.Nachname);
+                    var hasBuyerName = buyer != null &&
+                        (!string.IsNullOrWhiteSpace(buyer.Vorname) || !string.IsNullOrWhiteSpace(buyer.Nachname));
 
                     // Bicycle Info Section - hidden for accessory-only receipts
                     if (!isAccessoryOnlySale)
@@ -492,17 +507,17 @@ public class PdfService : IPdfService
 
                             // Header row - border style instead of filled
                             table.Cell().Border(1).BorderColor(PrimaryColor).Padding(3).Text("Marke").FontSize(9).Bold().FontColor(PrimaryColor);
-                            table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text(sale.Bicycle.Marke).FontSize(10).Bold();
+                            table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text(bicycle.Marke ?? "-").FontSize(10).Bold();
                             table.Cell().Border(1).BorderColor(PrimaryColor).Padding(3).Text("Rahmennummer").FontSize(9).Bold().FontColor(PrimaryColor);
-                            table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text(sale.Bicycle.Rahmennummer).FontSize(10).Bold();
+                            table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text(bicycle.Rahmennummer ?? "-").FontSize(10).Bold();
 
                             table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text("Modell").FontSize(9).FontColor(Colors.Grey.Darken2);
-                            table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text(sale.Bicycle.Modell).FontSize(10);
+                            table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text(bicycle.Modell ?? "-").FontSize(10);
                             table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text("Farbe").FontSize(9).FontColor(Colors.Grey.Darken2);
-                            table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text(sale.Bicycle.Farbe).FontSize(10);
+                            table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text(bicycle.Farbe ?? "-").FontSize(10);
 
                             table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text("Reifengröße").FontSize(9).FontColor(Colors.Grey.Darken2);
-                            table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text(sale.Bicycle.Reifengroesse).FontSize(10);
+                            table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text(bicycle.Reifengroesse ?? "-").FontSize(10);
                             table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text("Kauf Beleg Nr.").FontSize(9).FontColor(Colors.Grey.Darken2);
                             table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Column(c =>
                             {
@@ -512,7 +527,7 @@ public class PdfService : IPdfService
                             });
 
                             table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text("Fahrradtyp").FontSize(9).FontColor(Colors.Grey.Darken2);
-                            table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text(sale.Bicycle.Fahrradtyp ?? "-").FontSize(10);
+                            table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text(bicycle.Fahrradtyp ?? "-").FontSize(10);
                             table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text("Zustand").FontSize(9).FontColor(Colors.Grey.Darken2);
                             if (isNeu)
                                 table.Cell().Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text("NEU").FontSize(10).Bold().FontColor("#155724");
@@ -713,13 +728,13 @@ public class PdfService : IPdfService
                                 row.RelativeItem().Border(1).BorderColor(Colors.Grey.Lighten1).Padding(6).Column(buyerCol =>
                                 {
                                     buyerCol.Item().Border(1).BorderColor(AccentColor).Padding(3).Text("KÄUFER").FontSize(10).Bold().FontColor(AccentColor).AlignCenter();
-                                    buyerCol.Item().PaddingTop(3).Text(sale.Buyer.FullName).FontSize(11).Bold();
-                                    buyerCol.Item().Text($"{sale.Buyer.Strasse} {sale.Buyer.Hausnummer}").FontSize(10);
-                                    buyerCol.Item().Text($"{sale.Buyer.PLZ} {sale.Buyer.Stadt}").FontSize(10);
-                                    if (!string.IsNullOrEmpty(sale.Buyer.Telefon))
-                                        buyerCol.Item().PaddingTop(2).Text($"Tel: {sale.Buyer.Telefon}").FontSize(9);
-                                    if (!string.IsNullOrEmpty(sale.Buyer.Email))
-                                        buyerCol.Item().Text($"E-Mail: {sale.Buyer.Email}").FontSize(9);
+                                    buyerCol.Item().PaddingTop(3).Text(buyer!.FullName).FontSize(11).Bold();
+                                    buyerCol.Item().Text($"{buyer.Strasse} {buyer.Hausnummer}").FontSize(10);
+                                    buyerCol.Item().Text($"{buyer.PLZ} {buyer.Stadt}").FontSize(10);
+                                    if (!string.IsNullOrEmpty(buyer.Telefon))
+                                        buyerCol.Item().PaddingTop(2).Text($"Tel: {buyer.Telefon}").FontSize(9);
+                                    if (!string.IsNullOrEmpty(buyer.Email))
+                                        buyerCol.Item().Text($"E-Mail: {buyer.Email}").FontSize(9);
                                 });
                             }
                             else

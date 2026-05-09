@@ -101,8 +101,19 @@ public class SalesController : ControllerBase
     [HttpGet("{id}/verkaufsbeleg")]
     public async Task<IActionResult> DownloadVerkaufsbeleg(int id)
     {
-        var pdfBytes = await _pdfService.GenerateVerkaufsbelegAsync(id);
-        return File(pdfBytes, "application/pdf", $"Verkaufsbeleg_{id}.pdf");
+        try
+        {
+            var pdfBytes = await _pdfService.GenerateVerkaufsbelegAsync(id);
+            return File(pdfBytes, "application/pdf", $"Verkaufsbeleg_{id}.pdf");
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(new { error = ex.Message });
+        }
+        catch (InvalidOperationException ex)
+        {
+            return UnprocessableEntity(new { error = ex.Message });
+        }
     }
 
     [HttpPost("{id}/send-receipt")]
@@ -112,13 +123,24 @@ public class SalesController : ControllerBase
         if (sale == null)
             return NotFound(new { error = "Verkauf nicht gefunden." });
 
-        var toEmail = overrideEmail ?? sale.Buyer.Email;
+        var toEmail = overrideEmail ?? sale.Buyer?.Email;
         if (string.IsNullOrWhiteSpace(toEmail))
             return BadRequest(new { error = "Keine E-Mail-Adresse für diesen Käufer hinterlegt." });
 
-        var pdfBytes = await _pdfService.GenerateVerkaufsbelegAsync(id);
-        await _emailService.SendSaleReceiptAsync(toEmail, sale.Buyer.FullName, sale.BelegNummer, pdfBytes);
-        return Ok(new { message = $"Rechnung {sale.BelegNummer} wurde an {toEmail} gesendet." });
+        try
+        {
+            var pdfBytes = await _pdfService.GenerateVerkaufsbelegAsync(id);
+            await _emailService.SendSaleReceiptAsync(toEmail, sale.Buyer?.FullName ?? "-", sale.BelegNummer, pdfBytes);
+            return Ok(new { message = $"Rechnung {sale.BelegNummer} wurde an {toEmail} gesendet." });
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(new { error = ex.Message });
+        }
+        catch (InvalidOperationException ex)
+        {
+            return UnprocessableEntity(new { error = ex.Message });
+        }
     }
 
     [HttpDelete("{id}")]
