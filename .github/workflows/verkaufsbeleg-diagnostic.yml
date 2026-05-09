@@ -16,76 +16,65 @@ jobs:
             set +e
             cd /opt/bikehaus
 
-            echo "=== 1. Deployed commit ==="
-            git rev-parse --short HEAD
+            command -v sqlite3 >/dev/null || (apt-get update -qq && apt-get install -y -qq sqlite3 >/dev/null 2>&1)
+            docker cp bikehaus-app:/app/data/BikeHausFreiburg.db /tmp/diag.db
+            DBQ() { sqlite3 -header -column /tmp/diag.db "$1"; }
+
+            echo "=== A. Sales rows summary ==="
+            DBQ "SELECT COUNT(*) AS sales_count FROM Sales;"
+            DBQ "SELECT Id, BicycleId, BuyerId, PurchaseId, BelegNummer FROM Sales ORDER BY Id LIMIT 10;"
             echo ""
 
-            echo "=== 2. DB inside container (volume bikehaus-data) ==="
-            docker exec bikehaus-app sh -c "ls -la /app/data/" 2>&1 | head -10
-            DBQ() { docker exec bikehaus-app sh -c "sqlite3 -header -column /app/data/BikeHausFreiburg.db \"$1\"" 2>&1; }
-            # ensure sqlite3 inside container; if not, fall back to copying out
-            if ! docker exec bikehaus-app sh -c "command -v sqlite3 >/dev/null"; then
-              echo "sqlite3 not in container — copying db out to host"
-              docker cp bikehaus-app:/app/data/BikeHausFreiburg.db /tmp/diag.db
-              command -v sqlite3 >/dev/null || (apt-get update -qq && apt-get install -y -qq sqlite3 >/dev/null 2>&1)
-              DBQ() { sqlite3 -header -column /tmp/diag.db "$1" 2>&1; }
-            fi
-            sqlite3 --version 2>/dev/null || echo "host sqlite missing"
-            echo ""
-
-            echo "=== 3. ShopSettings (full values; this is public business info) ==="
-            DBQ "SELECT ShopName, InhaberVorname, InhaberNachname, Strasse, Hausnummer, PLZ, Stadt, Telefon, Email, Bankname, IBAN, Steuernummer, UstIdNr, GoogleReviewUrl FROM ShopSettings LIMIT 1;"
-            echo ""
-            echo "--- LogoBase64 / SignatureBase64 lengths only ---"
-            DBQ "SELECT LENGTH(COALESCE(LogoBase64,'')) AS logo_len, LENGTH(COALESCE(InhaberSignatureBase64,'')) AS sig_len FROM ShopSettings LIMIT 1;"
-            echo ""
-
-            echo "=== 4. Field LENGTHS for Sale 1 ==="
+            echo "=== B. Purchases rows summary ==="
+            DBQ "SELECT COUNT(*) AS purchases_count FROM Purchases;"
             DBQ "
-              SELECT
-                s.Id, s.BicycleId, s.BuyerId, s.PurchaseId,
-                LENGTH(COALESCE(s.BelegNummer,'')) AS beleg_len,
-                LENGTH(COALESCE(s.Notizen,'')) AS notes_len,
-                LENGTH(COALESCE(b.Marke,'')) AS marke_len,
-                LENGTH(COALESCE(b.Modell,'')) AS modell_len,
-                LENGTH(COALESCE(b.Rahmennummer,'')) AS rahmennr_len,
-                LENGTH(COALESCE(b.Farbe,'')) AS farbe_len,
-                LENGTH(COALESCE(b.Rahmengroesse,'')) AS rgroesse_len,
-                LENGTH(COALESCE(b.Reifengroesse,'')) AS reifen_len,
-                LENGTH(COALESCE(b.Fahrradtyp,'')) AS typ_len,
-                LENGTH(COALESCE(c.Vorname,'')||' '||COALESCE(c.Nachname,'')) AS fullname_len,
-                LENGTH(COALESCE(c.Strasse,'')||' '||COALESCE(c.Hausnummer,'')) AS street_len,
-                LENGTH(COALESCE(c.PLZ,'')||' '||COALESCE(c.Stadt,'')) AS city_len,
-                LENGTH(COALESCE(c.Email,'')) AS email_len,
-                LENGTH(COALESCE(c.Telefon,'')) AS tel_len
-              FROM Sales s
-              LEFT JOIN Bicycles b ON b.Id=s.BicycleId
-              LEFT JOIN Customers c ON c.Id=s.BuyerId
-              WHERE s.Id=1;"
+              SELECT Id, BicycleId, SellerId, BelegNummer,
+                     LENGTH(COALESCE(BelegNummer,'')) AS beleg_len,
+                     LENGTH(COALESCE(AnzeigeNr,'')) AS anzeige_len,
+                     LENGTH(COALESCE(Notizen,'')) AS notizen_len,
+                     VerkaufspreisVorschlag IS NOT NULL AS has_vorschlag
+              FROM Purchases ORDER BY Id;"
             echo ""
 
-            echo "=== 5. Sale 1 actual bicycle values (no buyer PII) ==="
+            echo "=== C. Purchase 1/2/3 bicycle + seller field LENGTHS ==="
             DBQ "
-              SELECT b.Marke, b.Modell, b.Rahmennummer, b.Fahrradtyp, b.Farbe, b.Rahmengroesse, b.Reifengroesse, b.Zustand
-              FROM Sales s JOIN Bicycles b ON b.Id=s.BicycleId WHERE s.Id=1;"
-            echo ""
-            echo "--- Sale 1 BelegNummer + Notizen length ---"
-            DBQ "SELECT s.BelegNummer, LENGTH(s.Notizen) AS notizen_len FROM Sales s WHERE s.Id=1;"
+              SELECT p.Id AS pid,
+                     LENGTH(COALESCE(b.Marke,'')) AS marke_len,
+                     LENGTH(COALESCE(b.Modell,'')) AS modell_len,
+                     LENGTH(COALESCE(b.Rahmennummer,'')) AS rahmennr_len,
+                     LENGTH(COALESCE(b.Farbe,'')) AS farbe_len,
+                     LENGTH(COALESCE(b.Rahmengroesse,'')) AS rgr_len,
+                     LENGTH(COALESCE(b.Reifengroesse,'')) AS reifen_len,
+                     LENGTH(COALESCE(b.Fahrradtyp,'')) AS typ_len,
+                     LENGTH(COALESCE(c.Vorname,'')||' '||COALESCE(c.Nachname,'')) AS sellname_len,
+                     LENGTH(COALESCE(c.Strasse,'')||' '||COALESCE(c.Hausnummer,'')||', '||COALESCE(c.PLZ,'')||' '||COALESCE(c.Stadt,'')) AS selladdr_len,
+                     LENGTH(COALESCE(c.Email,'')) AS email_len,
+                     LENGTH(COALESCE(c.Telefon,'')) AS tel_len
+              FROM Purchases p
+              LEFT JOIN Bicycles b ON b.Id=p.BicycleId
+              LEFT JOIN Customers c ON c.Id=p.SellerId
+              ORDER BY p.Id;"
             echo ""
 
-            echo "=== 6. Top 10 longest Rahmennummer / Marke / Modell across DB ==="
-            DBQ "SELECT Id, Marke, LENGTH(Marke) AS l FROM Bicycles ORDER BY l DESC LIMIT 5;"
-            DBQ "SELECT Id, Modell, LENGTH(Modell) AS l FROM Bicycles ORDER BY l DESC LIMIT 5;"
-            DBQ "SELECT Id, Rahmennummer, LENGTH(Rahmennummer) AS l FROM Bicycles ORDER BY l DESC LIMIT 5;"
+            echo "=== D. Purchase 1 actual non-PII values ==="
+            DBQ "SELECT Id, BelegNummer, AnzeigeNr, Notizen, VerkaufspreisVorschlag, Preis FROM Purchases WHERE Id=1;"
+            DBQ "SELECT b.Marke, b.Modell, b.Rahmennummer, b.Farbe, b.Rahmengroesse, b.Reifengroesse, b.Fahrradtyp, b.Zustand FROM Purchases p JOIN Bicycles b ON b.Id=p.BicycleId WHERE p.Id=1;"
             echo ""
 
-            echo "=== 7. Last QuestPDF DocumentLayoutException context ==="
-            docker logs --tail 5000 bikehaus-app 2>&1 | grep -B1 -A1 'DocumentLayoutException\|GenerateKaufbeleg\|GenerateVerkaufsbeleg' | tail -40
+            echo "=== E. ShopSettings logo size and any super-long fields (lengths only) ==="
+            DBQ "SELECT LENGTH(LogoBase64) AS logo_b64, LENGTH(InhaberSignatureBase64) AS sig_b64, LENGTH(ShopName) AS shop_n, LENGTH(Strasse||' '||Hausnummer) AS addr_l, LENGTH(PLZ||' '||Stadt) AS city_l, LENGTH(Telefon) AS tel_l, LENGTH(Email) AS email_l, LENGTH(Bankname) AS bank_l, LENGTH(IBAN) AS iban_l FROM ShopSettings LIMIT 1;"
             echo ""
 
-            echo "=== 8. Probe internal endpoints ==="
-            curl -sS -o /dev/null -w "  /api/sales/1/verkaufsbeleg -> %{http_code}\n" --max-time 5 http://localhost:5000/api/sales/1/verkaufsbeleg
-            curl -sS -o /dev/null -w "  /api/purchases/1/kaufbeleg -> %{http_code}\n" --max-time 5 http://localhost:5000/api/purchases/1/kaufbeleg
+            echo "=== F. Recent log timestamps near DocumentLayoutException ==="
+            docker logs --tail 5000 --timestamps bikehaus-app 2>&1 | grep -E 'DocumentLayoutException' | tail -5
+            echo ""
+
+            echo "=== G. Probe Kaufbeleg with each existing Purchase id ==="
+            # 401 means auth required; we just check that no 5xx leaks
+            for pid in $(sqlite3 /tmp/diag.db "SELECT Id FROM Purchases ORDER BY Id LIMIT 5;"); do
+              code=$(curl -sS -o /dev/null -w "%{http_code}" --max-time 8 "http://localhost:5000/api/purchases/${pid}/kaufbeleg")
+              echo "  /api/purchases/${pid}/kaufbeleg -> ${code}"
+            done
             echo ""
 
             rm -f /tmp/diag.db
