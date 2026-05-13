@@ -116,6 +116,7 @@ import { forkJoin } from 'rxjs';
                   <option value="Rennrad">Rennrad</option>
                   <option value="Kinderfahrrad">Kinderfahrrad</option>
                   <option value="Lastenrad">Lastenrad</option>
+                  <option value="Klapprad">Klapprad</option>
                   <option value="Sonstige">Sonstige</option>
                 </select>
               </div>
@@ -126,6 +127,7 @@ import { forkJoin } from 'rxjs';
                   <option value="Herren">Herren</option>
                   <option value="Damen">Damen</option>
                   <option value="Kinder">Kinder</option>
+                  <option value="Unisex">Unisex</option>
                 </select>
               </div>
               <div class="field">

@@ -238,6 +238,7 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
                     <option value="Rennrad">Rennrad</option>
                     <option value="Kinderfahrrad">Kinderfahrrad</option>
                     <option value="Lastenrad">Lastenrad</option>
+                    <option value="Klapprad">Klapprad</option>
                     <option value="Sonstige">Sonstige</option>
                   </select>
                 </div>
