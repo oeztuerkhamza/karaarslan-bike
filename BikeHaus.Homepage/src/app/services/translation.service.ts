@@ -764,7 +764,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Die Mietgebühr wird im Voraus bezahlt. Zusätzlich ist pro Fahrrad eine Kaution in Höhe von 300 € in bar zu hinterlegen. Bei ordnungsgemäßer Rückgabe ohne Schäden oder Verluste wird die Kaution vollständig erstattet.',
     bikeRentalNoteTitle: 'Hinweis',
     bikeRentalNoteText:
-      'Die Übergabe ist täglich ab 10:00 Uhr möglich, die Rückgabe spätestens bis 17:00 Uhr. Bei verspäteter Rückgabe berechnen wir 12 € pro angefangenem Tag.',
+      'Die Übergabe ist täglich ab 10:00 Uhr möglich, die Rückgabe spätestens bis 18:00 Uhr. Bei verspäteter Rückgabe berechnen wir 12 € pro angefangenem Tag.',
     bikeRentalIncludedTitle: 'Inklusive',
     bikeRentalIncluded1: 'Faltschloss',
     bikeRentalIncluded2: 'Fahrradkorb',
@@ -1083,7 +1083,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Citybikes, Trekkingräder, Mountainbikes, E-Bikes, Kinderfahrräder, Hollandräder und Rennräder — sowohl neu als auch gebraucht.',
     faqQ9: 'Was sind Ihre Öffnungszeiten?',
     faqA9:
-      'Mo, Di, Do: 09:00–17:00 Uhr. Mittwoch: 09:00–17:00 Uhr. Freitag: 09:00–13:00 & 15:00–17:00 Uhr. Samstag: 10:00–17:00 Uhr. Sonn- und feiertags geschlossen.',
+      'Mo, Di, Do: 09:00–18:00 Uhr. Mittwoch: 09:00–18:00 Uhr. Freitag: 09:00–13:00 & 15:00–18:00 Uhr. Samstag: 10:00–18:00 Uhr. Sonn- und feiertags geschlossen.',
     faqQ10: 'Kann ich mein altes Fahrrad in Zahlung geben?',
     faqA10:
       'Ja, in Einzelfällen ist eine Inzahlungnahme möglich. Sprechen Sie uns einfach an — wir finden eine Lösung.',
@@ -1343,7 +1343,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'The rental fee is paid in advance. In addition, a cash deposit of 300 € is required per bicycle. If the bicycle is returned properly without damage or loss, the deposit is fully refunded.',
     bikeRentalNoteTitle: 'Note',
     bikeRentalNoteText:
-      'Handover is possible daily from 10:00, and return must be completed by 17:00 at the latest. A late return fee of 12 € per started day will be charged.',
+      'Handover is possible daily from 10:00, and return must be completed by 18:00 at the latest. A late return fee of 12 € per started day will be charged.',
     bikeRentalIncludedTitle: 'Included',
     bikeRentalIncluded1: 'Folding lock',
     bikeRentalIncluded2: 'Bicycle basket',
@@ -1643,7 +1643,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       "City bikes, trekking bikes, mountain bikes, e-bikes, children's bikes, Dutch bikes and road bikes — both new and used.",
     faqQ9: 'What are your opening hours?',
     faqA9:
-      'Monday, Tuesday, Thursday: 11:00–17:30. Wednesday: 14:00–17:30. Friday: 11:00–13:00 & 15:00–17:00. Saturday: 11:30–17:00. Sunday and holidays: closed.',
+      'Monday, Tuesday, Thursday: 11:00–17:30. Wednesday: 14:00–17:30. Friday: 11:00–13:00 & 15:00–18:00. Saturday: 11:30–18:00. Sunday and holidays: closed.',
     faqQ10: 'Can I rent a bike in Lünen?',
     faqA10:
       'Yes. Karaarslan Bike rents city bikes, trekking bikes and e-bikes with prices configured per bike for days 1 to 7. From day 8 onward, a fixed extra-day surcharge is added to the 7-day price. No reservation needed — just come by Alstedder Straße 5.',
@@ -1909,7 +1909,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       "Le prix de location est payé à l'avance. En plus, une caution en espèces de 300 € est exigée par vélo. Si le vélo est retourné correctement, sans dommage ni perte, la caution est remboursée intégralement.",
     bikeRentalNoteTitle: 'Remarque',
     bikeRentalNoteText:
-      'La remise du vélo est possible tous les jours à partir de 10:00 et le retour doit être effectué au plus tard à 17:00. En cas de retour tardif, des frais de 12 € par jour entamé sont facturés.',
+      'La remise du vélo est possible tous les jours à partir de 10:00 et le retour doit être effectué au plus tard à 18:00. En cas de retour tardif, des frais de 12 € par jour entamé sont facturés.',
     bikeRentalIncludedTitle: 'Inclus',
     bikeRentalIncluded1: 'Antivol pliable',
     bikeRentalIncluded2: 'Panier de vélo',
@@ -2229,7 +2229,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Vélos de ville, trekking, VTT, VAE, vélos enfants, hollandais et vélos de route — neufs et occasion.',
     faqQ9: 'Quels sont vos horaires ?',
     faqA9:
-      'Lundi, mardi, jeudi : 11:00–17:30. Mercredi : 14:00–17:30. Vendredi : 11:00–13:00 & 15:00–17:00. Samedi : 11:30–17:00. Dimanche et jours fériés : fermé.',
+      'Lundi, mardi, jeudi : 11:00–17:30. Mercredi : 14:00–17:30. Vendredi : 11:00–13:00 & 15:00–18:00. Samedi : 11:30–18:00. Dimanche et jours fériés : fermé.',
     faqQ10: 'Louez-vous des vélos à Lünen ?',
     faqA10:
       'Oui. Karaarslan Bike loue des vélos city, trekking et VAE avec des tarifs configurés par vélo pour 1 à 7 jours. À partir du 8e jour, un supplément fixe est ajouté au prix 7 jours. Sans réservation — venez directement Alstedder Straße 5.',
@@ -2494,7 +2494,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Kiralama ücreti peşin ödenir. Buna ek olarak her bisiklet için 300 € nakit depozito alınır. Bisiklet hasar veya kayıp olmadan düzgün şekilde iade edilirse depozito tamamen geri ödenir.',
     bikeRentalNoteTitle: 'Not',
     bikeRentalNoteText:
-      "Teslimat her gün 10:00'dan itibaren mümkündür, iade ise en geç 17:00'e kadar yapılmalıdır. Geç iade için başlayan her gün başına 12 € ücret alınır.",
+      "Teslimat her gün 10:00'dan itibaren mümkündür, iade ise en geç 18:00'e kadar yapılmalıdır. Geç iade için başlayan her gün başına 12 € ücret alınır.",
     bikeRentalIncludedTitle: 'Dahil',
     bikeRentalIncluded1: 'Katlanabilir kilit',
     bikeRentalIncluded2: 'Bisiklet sepeti',
@@ -2810,7 +2810,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Şehir, trekking, dağ, e-bisiklet, çocuk, Hollanda ve yol bisikletleri — yeni ve ikinci el.',
     faqQ9: 'Çalışma saatleriniz nedir?',
     faqA9:
-      'Pazartesi, Salı, Perşembe: 11:00–17:30. Çarşamba: 14:00–17:30. Cuma: 11:00–13:00 & 15:00–17:00. Cumartesi: 11:30–17:00. Pazar ve tatil günleri: kapalı.',
+      'Pazartesi, Salı, Perşembe: 11:00–17:30. Çarşamba: 14:00–17:30. Cuma: 11:00–13:00 & 15:00–18:00. Cumartesi: 11:30–18:00. Pazar ve tatil günleri: kapalı.',
     faqQ10: 'Eski bisikletimi takas edebilir miyim?',
     faqA10:
       'Evet, bireysel durumlarda takas mümkündür. Bize danışın — bir çözüm buluruz.',

@@ -268,23 +268,23 @@ import { PublicShopInfo } from '../../models/models';
               <div class="hours-table">
                 <div class="hour-row">
                   <span>{{ t().monday }}</span
-                  ><span>09:00 - 17:00</span>
+                  ><span>09:00 - 18:00</span>
                 </div>
                 <div class="hour-row">
                   <span>{{ t().tuesday }}</span
-                  ><span>09:00 - 17:00</span>
+                  ><span>09:00 - 18:00</span>
                 </div>
                 <div class="hour-row">
                   <span>{{ t().wednesday }}</span
-                  ><span>09:00 – 17:00</span>
+                  ><span>09:00 – 18:00</span>
                 </div>
                 <div class="hour-row">
                   <span>{{ t().thursday }}</span
-                  ><span>09:00 - 17:00</span>
+                  ><span>09:00 - 18:00</span>
                 </div>
                 <div class="hour-row">
                   <span>{{ t().friday }}</span
-                  ><span>09:00 – 13:00 Uhr & 15:00 – 17:00</span>
+                  ><span>09:00 – 13:00 Uhr & 15:00 – 18:00</span>
                 </div>
                 <div class="hour-row">
                   <span>{{ t().saturday }}</span

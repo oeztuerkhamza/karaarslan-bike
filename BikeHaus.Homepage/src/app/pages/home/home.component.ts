@@ -3253,13 +3253,13 @@ export class HomeComponent implements OnInit, OnDestroy {
           '@type': 'OpeningHoursSpecification',
           dayOfWeek: 'Friday',
           opens: '15:00',
-          closes: '17:00',
+          closes: '18:00',
         },
         {
           '@type': 'OpeningHoursSpecification',
           dayOfWeek: 'Saturday',
           opens: '11:30',
-          closes: '17:00',
+          closes: '18:00',
         },
       ],
     };

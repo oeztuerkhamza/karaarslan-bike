@@ -794,9 +794,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'list',
             items: [
-              'Mo, Di, Do: 09:00 - 17:00 Uhr',
-              'Mittwoch: 09:00 – 17:00 Uhr',
-              'Freitag: 09:00 – 13:00 Uhr & 15:00 – 17:00 Uhr',
+              'Mo, Di, Do: 09:00 - 18:00 Uhr',
+              'Mittwoch: 09:00 – 18:00 Uhr',
+              'Freitag: 09:00 – 13:00 Uhr & 15:00 – 18:00 Uhr',
               'Samstag: 10:00 – 13:30 Uhr',
               'Sonn- und feiertags geschlossen',
               'WhatsApp: +49 163 7390 301',
@@ -1750,8 +1750,8 @@ export const BLOG_ARTICLES: BlogArticle[] = [
             items: [
               'Mo, Di, Do: 11:00–17:30',
               'Mittwoch: 14:00–17:30',
-              'Freitag: 11:00–13:00 & 15:00–17:00',
-              'Samstag: 11:30–17:00',
+              'Freitag: 11:00–13:00 & 15:00–18:00',
+              'Samstag: 11:30–18:00',
             ],
           },
           {
@@ -1811,7 +1811,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike is located at Alstedder Straße 5, 44534 Lünen — in the Haslach district. Easily reachable by tram or car (free parking available). Opening hours: Mon, Tue, Thu 11:00–17:30 | Wed 14:00–17:30 | Fri 11:00–13:00 & 15:00–17:00 | Sat 11:30–17:00.',
+              'Karaarslan Bike is located at Alstedder Straße 5, 44534 Lünen — in the Haslach district. Easily reachable by tram or car (free parking available). Opening hours: Mon, Tue, Thu 11:00–17:30 | Wed 14:00–17:30 | Fri 11:00–13:00 & 15:00–18:00 | Sat 11:30–18:00.',
           },
           {
             type: 'heading',
