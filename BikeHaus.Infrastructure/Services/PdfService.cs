@@ -249,7 +249,7 @@ public class PdfService : IPdfService
                     col.Item().Border(0.5f).BorderColor(Colors.Grey.Lighten2).PaddingVertical(2).PaddingHorizontal(6).Row(row =>
                     {
                         row.RelativeItem().Text($"Steuernr.: {shop.Steuernummer} | USt-IdNr.: {shop.UStIdNr}").FontSize(7).FontColor(Colors.Grey.Darken2);
-                        row.RelativeItem().AlignRight().Text("Rechnung nach §25a UStG – Kein gesonderter Ausweis der Umsatzsteuer").FontSize(7).FontColor(Colors.Grey.Darken2);
+                        row.RelativeItem().AlignRight().Text("Gemäß §19 UStG wird keine Umsatzsteuer berechnet").FontSize(7).FontColor(Colors.Grey.Darken2);
                     });
                 });
 
@@ -357,7 +357,6 @@ public class PdfService : IPdfService
                         row.ConstantItem(160).Border(2).BorderColor(PrimaryColor).Padding(12).Column(c =>
                         {
                             c.Item().Text("BRUTTOBETRAG").FontSize(10).FontColor(PrimaryColor).AlignCenter();
-                            c.Item().Text("(inkl. MwSt.)").FontSize(8).FontColor(Colors.Grey.Darken2).AlignCenter();
                             c.Item().PaddingTop(3).Text($"{purchase.Preis:N2} €").FontSize(25).Bold().FontColor(PrimaryColor).AlignCenter();
                         });
                     });
@@ -479,7 +478,7 @@ public class PdfService : IPdfService
                     col.Item().Border(0.5f).BorderColor(Colors.Grey.Lighten2).PaddingVertical(2).PaddingHorizontal(6).Row(row =>
                     {
                         row.RelativeItem().Text($"Steuernr.: {shop.Steuernummer} | USt-IdNr.: {shop.UStIdNr}").FontSize(7).FontColor(Colors.Grey.Darken2);
-                        row.RelativeItem().AlignRight().Text("Rechnung nach §25a UStG – Kein gesonderter Ausweis der Umsatzsteuer").FontSize(7).FontColor(Colors.Grey.Darken2);
+                        row.RelativeItem().AlignRight().Text("Gemäß §19 UStG wird keine Umsatzsteuer berechnet").FontSize(7).FontColor(Colors.Grey.Darken2);
                     });
                 });
 
@@ -611,7 +610,6 @@ public class PdfService : IPdfService
                         row.ConstantItem(170).AlignMiddle().Border(2).BorderColor(PrimaryColor).Padding(8).Column(c =>
                         {
                             c.Item().Text("GESAMTBETRAG").FontSize(10).FontColor(PrimaryColor).AlignCenter();
-                            c.Item().Text("(inkl. MwSt.)").FontSize(8).FontColor(Colors.Grey.Darken2).AlignCenter();
                             c.Item().PaddingTop(3).Text($"{sale.Gesamtbetrag:N2} €").FontSize(25).Bold().FontColor(PrimaryColor).AlignCenter();
                         });
                     });
@@ -911,7 +909,7 @@ public class PdfService : IPdfService
                     col.Item().Border(0.5f).BorderColor(Colors.Grey.Lighten2).PaddingVertical(2).PaddingHorizontal(6).Row(row =>
                     {
                         row.RelativeItem().Text($"Steuernr.: {shop.Steuernummer} | USt-IdNr.: {shop.UStIdNr}").FontSize(7).FontColor(Colors.Grey.Darken2);
-                        row.RelativeItem().AlignRight().Text("Rechnung nach §25a UStG – Kein gesonderter Ausweis der Umsatzsteuer").FontSize(7).FontColor(Colors.Grey.Darken2);
+                        row.RelativeItem().AlignRight().Text("Gemäß §19 UStG wird keine Umsatzsteuer berechnet").FontSize(7).FontColor(Colors.Grey.Darken2);
                     });
                 });
 
@@ -1571,7 +1569,7 @@ public class PdfService : IPdfService
 
                         table.Cell().Border(1).BorderColor(AccentColor).Padding(3).Text("Gesamtmiete").FontSize(9).Bold().FontColor(AccentColor);
                         table.Cell().Border(1).BorderColor(AccentColor).Padding(3).Text($"{rental.Gesamtmiete:N2} €").FontSize(10).Bold().FontColor(AccentColor);
-                        table.Cell().ColumnSpan(2).Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text("inkl. MwSt.").FontSize(9).FontColor(Colors.Grey.Darken2);
+                        table.Cell().ColumnSpan(2).Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(3).Text("").FontSize(9);
                     });
 
                     // ZUBEHÖR Section (only if accessories present)
@@ -1625,7 +1623,6 @@ public class PdfService : IPdfService
                         row.ConstantItem(170).AlignMiddle().Border(2).BorderColor(PrimaryColor).Padding(8).Column(c =>
                         {
                             c.Item().Text("GESAMTMIETE").FontSize(10).FontColor(PrimaryColor).AlignCenter();
-                            c.Item().Text("(inkl. MwSt.)").FontSize(8).FontColor(Colors.Grey.Darken2).AlignCenter();
                             c.Item().PaddingTop(3).Text($"{rental.Gesamtmiete:N2} €").FontSize(25).Bold().FontColor(PrimaryColor).AlignCenter();
                         });
                     });
