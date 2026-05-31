@@ -47,6 +47,8 @@ public record SaleDto(
     List<SaleAccessoryDto> Accessories,
     List<SalePaymentDto> Zahlungen,
     decimal Rabatt,
+    bool Versand,
+    decimal VersandGebuehr,
     decimal Gesamtbetrag,
     DateTime CreatedAt
 );
@@ -67,6 +69,8 @@ public record SaleCreateDto(
     List<SaleAccessoryCreateDto>? Accessories,
     List<SalePaymentCreateDto>? Zahlungen = null,
     decimal Rabatt = 0,
+    bool Versand = false,
+    decimal VersandGebuehr = 0,
     string? BelegNummer = null
 );
 
@@ -81,6 +85,8 @@ public record SaleListDto(
     decimal Preis,
     decimal Gesamtbetrag,
     decimal Rabatt,
+    bool Versand,
+    decimal VersandGebuehr,
     PaymentMethod Zahlungsart,
     List<SalePaymentDto> Zahlungen,
     DateTime Verkaufsdatum,
@@ -100,5 +106,7 @@ public record SaleUpdateDto(
     List<SaleAccessoryCreateDto>? Accessories,
     List<SalePaymentCreateDto>? Zahlungen = null,
     decimal Rabatt = 0,
+    bool Versand = false,
+    decimal VersandGebuehr = 0,
     string? BelegNummer = null
 );

@@ -181,6 +181,8 @@ public static class MappingExtensions
         entity.Accessories.Select(a => a.ToDto()).ToList(),
         entity.Zahlungen.Select(z => z.ToDto()).ToList(),
         entity.Rabatt,
+        entity.Versand,
+        entity.VersandGebuehr,
         entity.Gesamtbetrag,
         entity.CreatedAt
     );
@@ -196,6 +198,8 @@ public static class MappingExtensions
         entity.Preis,
         entity.Gesamtbetrag,
         entity.Rabatt,
+        entity.Versand,
+        entity.VersandGebuehr,
         entity.Zahlungsart,
         entity.Zahlungen.Select(z => z.ToDto()).ToList(),
         entity.Verkaufsdatum,

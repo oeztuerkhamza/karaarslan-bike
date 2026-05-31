@@ -15,6 +15,8 @@ public class Sale : BaseEntity
     public string? Notizen { get; set; }                        // Notes
     public string BelegNummer { get; set; } = string.Empty;     // Receipt Number
     public decimal Rabatt { get; set; }                          // Discount amount
+    public bool Versand { get; set; }                            // Shipping included
+    public decimal VersandGebuehr { get; set; }                  // Shipping fee
 
     // Signature FK
     public int? BuyerSignatureId { get; set; }
@@ -30,6 +32,6 @@ public class Sale : BaseEntity
     public ICollection<SaleAccessory> Accessories { get; set; } = new List<SaleAccessory>();
     public ICollection<SalePayment> Zahlungen { get; set; } = new List<SalePayment>();
 
-    // Computed: Total including accessories minus discount
-    public decimal Gesamtbetrag => Preis + Accessories.Sum(a => a.Gesamtpreis) - Rabatt;
+    // Computed: Total including accessories and shipping, minus discount
+    public decimal Gesamtbetrag => Preis + Accessories.Sum(a => a.Gesamtpreis) - Rabatt + (Versand ? VersandGebuehr : 0);
 }

@@ -129,7 +129,9 @@ public class SaleService : ISaleService
             BelegNummer = !string.IsNullOrWhiteSpace(dto.BelegNummer)
                 ? dto.BelegNummer
                 : await _saleRepository.GenerateBelegNummerAsync(),
-            Rabatt = dto.Rabatt
+            Rabatt = dto.Rabatt,
+            Versand = dto.Versand,
+            VersandGebuehr = dto.Versand ? dto.VersandGebuehr : 0
         };
 
         // Add signatures if provided
@@ -274,6 +276,8 @@ public class SaleService : ISaleService
         sale.GarantieBedingungen = dto.GarantieBedingungen;
         sale.Notizen = dto.Notizen;
         sale.Rabatt = dto.Rabatt;
+        sale.Versand = dto.Versand;
+        sale.VersandGebuehr = dto.Versand ? dto.VersandGebuehr : 0;
         if (!string.IsNullOrWhiteSpace(dto.BelegNummer))
             sale.BelegNummer = dto.BelegNummer;
         sale.UpdatedAt = DateTime.UtcNow;

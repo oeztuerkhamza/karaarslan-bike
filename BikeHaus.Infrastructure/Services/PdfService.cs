@@ -595,14 +595,18 @@ public class PdfService : IPdfService
                                 c.Item().Border(1).BorderColor(Colors.Grey.Lighten1).Padding(5).Text(sale.Zahlungsart.ToString()).FontSize(13).Bold();
                             }
 
-                            if (!isAccessoryOnlySale && ((sale.Accessories?.Any() == true) || sale.Rabatt > 0))
+                            var hasVersand = sale.Versand && sale.VersandGebuehr > 0;
+                            if ((sale.Accessories?.Any() == true) || sale.Rabatt > 0 || hasVersand)
                             {
                                 c.Item().PaddingTop(4).Text("Preisübersicht:").FontSize(9).FontColor(Colors.Grey.Darken1);
-                                c.Item().Text($"Fahrrad: {sale.Preis:N2} €").FontSize(10);
+                                if (!isAccessoryOnlySale)
+                                    c.Item().Text($"Fahrrad: {sale.Preis:N2} €").FontSize(10);
                                 if (sale.Accessories?.Any() == true)
                                     c.Item().Text($"Zubehör: {sale.Accessories.Sum(a => a.Gesamtpreis):N2} €").FontSize(10);
                                 if (sale.Rabatt > 0)
                                     c.Item().Text($"Rabatt: -{sale.Rabatt:N2} €").FontSize(10).FontColor(Colors.Red.Darken1);
+                                if (hasVersand)
+                                    c.Item().Text($"Versandgebühr: {sale.VersandGebuehr:N2} €").FontSize(10);
                             }
                         });
 

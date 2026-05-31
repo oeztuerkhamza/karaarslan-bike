@@ -123,6 +123,7 @@ public class BikeHausDbContext : DbContext
         {
             entity.HasKey(e => e.Id);
             entity.Property(e => e.Preis).HasColumnType("decimal(18,2)");
+            entity.Property(e => e.VersandGebuehr).HasColumnType("decimal(18,2)");
             entity.Property(e => e.BelegNummer).IsRequired().HasMaxLength(20);
             entity.Property(e => e.GarantieBedingungen).HasMaxLength(2000);
             entity.Property(e => e.Notizen).HasMaxLength(1000);

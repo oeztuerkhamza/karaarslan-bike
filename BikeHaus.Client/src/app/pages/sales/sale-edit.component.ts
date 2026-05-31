@@ -303,6 +303,30 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
               </div>
             </div>
 
+            <!-- Versand -->
+            <div class="discount-section versand-row">
+              <label class="checkbox-label">
+                <input
+                  type="checkbox"
+                  [(ngModel)]="versand"
+                  name="versand"
+                  (ngModelChange)="onVersandChange()"
+                />
+                <span>Versand</span>
+              </label>
+              <div class="field" *ngIf="versand">
+                <label>Versandgebühr (€)</label>
+                <input
+                  type="number"
+                  step="0.01"
+                  min="0"
+                  [(ngModel)]="versandGebuehr"
+                  name="versandGebuehr"
+                  placeholder="0.00"
+                />
+              </div>
+            </div>
+
             <div class="grand-total" *ngIf="effectiveGrandTotal > 0">
               <div class="total-row" *ngIf="!isAccessoryOnlySale && preis > 0">
                 <span>{{ t.bicyclePrice }}:</span>
@@ -317,6 +341,10 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
                 <span class="discount-value"
                   >- {{ rabatt | number: '1.2-2' }} €</span
                 >
+              </div>
+              <div class="total-row" *ngIf="versand && versandGebuehr > 0">
+                <span>Versandgebühr:</span>
+                <span>{{ versandGebuehr | number: '1.2-2' }} €</span>
               </div>
               <div class="total-row grand">
                 <span>{{ t.grandTotal }}:</span>
@@ -585,6 +613,32 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
         padding-top: 8px;
         border-top: 1px dashed var(--border-light, #e2e8f0);
       }
+      .versand-row {
+        margin-top: 8px;
+        display: flex;
+        align-items: flex-end;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .versand-row .field {
+        flex: 1;
+        min-width: 160px;
+      }
+      .checkbox-label {
+        display: flex !important;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        text-transform: none;
+        letter-spacing: normal;
+        padding-bottom: 9px;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+      .checkbox-label input {
+        width: auto;
+        accent-color: var(--accent-primary, #6366f1);
+      }
       .zahlungen-list {
         display: flex;
         flex-direction: column;
@@ -649,6 +703,8 @@ export class SaleEditComponent implements OnInit {
   garantieBedingungen = '';
   accessories: SaleAccessoryCreate[] = [];
   rabatt = 0;
+  versand = false;
+  versandGebuehr = 0;
 
   get t() {
     return this.translationService.translations();
@@ -676,11 +732,24 @@ export class SaleEditComponent implements OnInit {
     return this.isAccessoryOnlySale ? 0 : this.preis;
   }
 
+  get effectiveVersandGebuehr(): number {
+    return this.versand ? this.versandGebuehr || 0 : 0;
+  }
+
   get effectiveGrandTotal(): number {
     return Math.max(
       0,
-      this.effectiveSalePrice + this.accessoriesTotal - this.rabatt,
+      this.effectiveSalePrice +
+        this.accessoriesTotal -
+        this.rabatt +
+        this.effectiveVersandGebuehr,
     );
+  }
+
+  onVersandChange() {
+    if (!this.versand) {
+      this.versandGebuehr = 0;
+    }
   }
 
   constructor(
@@ -765,6 +834,10 @@ export class SaleEditComponent implements OnInit {
     // Load rabatt
     this.rabatt = sale.rabatt || 0;
 
+    // Load versand
+    this.versand = sale.versand || false;
+    this.versandGebuehr = sale.versandGebuehr || 0;
+
     // Load belegNummer
     this.belegNummer = sale.belegNummer || '';
   }
@@ -836,6 +909,8 @@ export class SaleEditComponent implements OnInit {
           ? this.zahlungen.filter((z) => z.betrag > 0)
           : undefined,
       rabatt: this.rabatt > 0 ? this.rabatt : undefined,
+      versand: this.versand,
+      versandGebuehr: this.versand ? this.versandGebuehr : undefined,
       belegNummer: this.belegNummer || undefined,
     };
 

@@ -306,6 +306,8 @@ export interface Sale {
   accessories: SaleAccessory[];
   zahlungen: SalePayment[];
   rabatt: number;
+  versand: boolean;
+  versandGebuehr: number;
   gesamtbetrag: number;
   createdAt: string;
 }
@@ -321,6 +323,8 @@ export interface SaleList {
   preis: number;
   gesamtbetrag: number;
   rabatt: number;
+  versand: boolean;
+  versandGebuehr: number;
   zahlungsart: PaymentMethod;
   zahlungen: SalePayment[];
   verkaufsdatum: string;
@@ -344,6 +348,8 @@ export interface SaleCreate {
   accessories?: SaleAccessoryCreate[];
   zahlungen?: SalePaymentCreate[];
   rabatt?: number;
+  versand?: boolean;
+  versandGebuehr?: number;
   belegNummer?: string;
 }
 
@@ -358,6 +364,8 @@ export interface SaleUpdate {
   accessories?: SaleAccessoryCreate[];
   zahlungen?: SalePaymentCreate[];
   rabatt?: number;
+  versand?: boolean;
+  versandGebuehr?: number;
   belegNummer?: string;
 }
 

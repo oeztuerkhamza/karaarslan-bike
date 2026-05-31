@@ -435,6 +435,30 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
                 />
               </div>
             </div>
+
+            <!-- Versand -->
+            <div class="discount-section versand-row">
+              <label class="checkbox-label">
+                <input
+                  type="checkbox"
+                  [(ngModel)]="versand"
+                  name="versand"
+                  (ngModelChange)="onVersandChange()"
+                />
+                <span>Versand</span>
+              </label>
+              <div class="field" *ngIf="versand">
+                <label>Versandgebühr (€)</label>
+                <input
+                  type="number"
+                  step="0.01"
+                  min="0"
+                  [(ngModel)]="versandGebuehr"
+                  name="versandGebuehr"
+                  placeholder="0.00"
+                />
+              </div>
+            </div>
           </div>
 
           <!-- Buyer info -->
@@ -495,6 +519,10 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
               <tr>
                 <th>Rabatt</th>
                 <td>- {{ rabatt | number: '1.2-2' }} €</td>
+              </tr>
+              <tr *ngIf="versand">
+                <th>Versandgebühr</th>
+                <td>{{ versandGebuehr | number: '1.2-2' }} €</td>
               </tr>
               <tr class="table-total-row">
                 <th>Gesamt</th>
@@ -998,6 +1026,22 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
         padding-top: 8px;
         border-top: 1px dashed var(--border-light, #e2e8f0);
       }
+      .versand-row {
+        margin-top: 8px;
+        display: flex;
+        align-items: flex-end;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .versand-row .field {
+        flex: 1;
+        min-width: 160px;
+      }
+      .versand-row .checkbox-label {
+        padding-bottom: 9px;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
       .price-summary-table {
         width: 100%;
         border-collapse: collapse;
@@ -1218,6 +1262,8 @@ export class SaleFormComponent implements OnInit {
   showBuyerFields = true;
   accessories: SaleAccessoryCreate[] = [];
   rabatt = 0;
+  versand = false;
+  versandGebuehr = 0;
   purchaseId: number | undefined = undefined;
 
   // Bicycle edit
@@ -1261,10 +1307,17 @@ export class SaleFormComponent implements OnInit {
     return this.isAccessoryOnly ? 0 : this.preis;
   }
 
+  get effectiveVersandGebuehr(): number {
+    return this.versand ? this.versandGebuehr || 0 : 0;
+  }
+
   get effectiveGrandTotal(): number {
     return Math.max(
       0,
-      this.effectiveSalePrice + this.accessoriesTotal - this.rabatt,
+      this.effectiveSalePrice +
+        this.accessoriesTotal -
+        this.rabatt +
+        this.effectiveVersandGebuehr,
     );
   }
 
@@ -1543,6 +1596,12 @@ export class SaleFormComponent implements OnInit {
     return Object.keys(this.bikeErrors).length === 0;
   }
 
+  onVersandChange() {
+    if (!this.versand) {
+      this.versandGebuehr = 0;
+    }
+  }
+
   onAccessoryOnlyChange() {
     this.showBuyerFields = !this.isAccessoryOnly;
 
@@ -1771,6 +1830,8 @@ export class SaleFormComponent implements OnInit {
           ? this.zahlungen.filter((z) => z.betrag > 0)
           : undefined,
       rabatt: this.rabatt > 0 ? this.rabatt : undefined,
+      versand: this.versand,
+      versandGebuehr: this.versand ? this.versandGebuehr : undefined,
       belegNummer: this.belegNummer || undefined,
     };
 
