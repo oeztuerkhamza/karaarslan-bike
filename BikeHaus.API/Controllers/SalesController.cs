@@ -73,8 +73,19 @@ public class SalesController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<SaleDto>> Create([FromBody] SaleCreateDto dto)
     {
-        var sale = await _saleService.CreateAsync(dto);
-        return CreatedAtAction(nameof(GetById), new { id = sale.Id }, sale);
+        try
+        {
+            var sale = await _saleService.CreateAsync(dto);
+            return CreatedAtAction(nameof(GetById), new { id = sale.Id }, sale);
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(new { error = ex.Message });
+        }
+        catch (InvalidOperationException ex)
+        {
+            return UnprocessableEntity(new { error = ex.Message });
+        }
     }
 
     [HttpGet("next-belegnummer")]

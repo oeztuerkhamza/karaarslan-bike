@@ -1837,9 +1837,9 @@ export class SaleFormComponent implements OnInit {
 
     this.saleService.create(sale).subscribe({
       next: () => this.router.navigate(['/sales']),
-      error: () => {
+      error: (err) => {
         this.submitting = false;
-        alert(this.t.saleError);
+        alert(err?.error?.error || this.t.saleError);
       },
     });
   }

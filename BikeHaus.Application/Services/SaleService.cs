@@ -110,8 +110,6 @@ public class SaleService : ISaleService
 
         // Create or find Buyer
         var buyer = dto.Buyer.ToEntity();
-        if (string.IsNullOrWhiteSpace(buyer.Email))
-            throw new InvalidOperationException("Fuer den automatischen Versand des Kaufbelegs ist eine E-Mail-Adresse erforderlich.");
         buyer = await _customerRepository.AddAsync(buyer);
 
         // Create Sale
