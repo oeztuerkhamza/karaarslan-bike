@@ -288,7 +288,7 @@ import { PublicShopInfo } from '../../models/models';
                 </div>
                 <div class="hour-row">
                   <span>{{ t().saturday }}</span
-                  ><span>10:00 – 13:00</span>
+                  ><span>09:00 – 18:00</span>
                 </div>
                 <div class="hour-row closed">
                   <span>{{ t().sunday }}</span

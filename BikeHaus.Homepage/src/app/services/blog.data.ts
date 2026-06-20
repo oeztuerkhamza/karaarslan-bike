@@ -293,7 +293,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Breite Reifen, Federung und robuster Rahmen — Mountainbikes sind für Waldwege, Trails und sportliches Fahren gemacht. Im Schwarzwald rund um Lünen gibt es unzählige Trails.',
+              'Breite Reifen, Federung und robuster Rahmen — Mountainbikes sind für Waldwege, Trails und sportliches Fahren gemacht. In den Wäldern rund um Lünen und im Ruhrgebiet gibt es zahlreiche Strecken.',
           },
           {
             type: 'heading',
@@ -302,7 +302,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Ein E-Bike (Pedelec) unterstützt Sie mit einem Elektromotor bis 25 km/h. Ideal für Pendler mit langen Strecken, Berge oder wenn Sie einfach entspannter ankommen möchten. In Lünen mit seinen Steigungen besonders beliebt.',
+              'Ein E-Bike (Pedelec) unterstützt Sie mit einem Elektromotor bis 25 km/h. Ideal für Pendler mit langen Strecken, Gegenwind oder wenn Sie einfach entspannter ankommen möchten. Im flachen Ruhrgebiet rund um Lünen besonders beliebt für längere Alltagswege.',
           },
           {
             type: 'heading',
@@ -784,7 +784,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
               'Probefahrt vor Ort — kein Termin nötig',
               'Faire, transparente Preise',
               'Beratung auf Deutsch, Englisch und Türkisch',
-              'Zentral gelegen — auch erreichbar aus Emmendingen, Bad Krozingen, Breisach',
+              'Zentral gelegen — auch erreichbar aus Dortmund, Kamen, Bergkamen, Werne, Selm',
             ],
           },
           {
@@ -794,10 +794,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'list',
             items: [
-              'Mo, Di, Do: 09:00 - 18:00 Uhr',
-              'Mittwoch: 09:00 – 18:00 Uhr',
+              'Mo, Di, Mi, Do: 09:00 – 18:00 Uhr',
               'Freitag: 09:00 – 13:00 Uhr & 15:00 – 18:00 Uhr',
-              'Samstag: 10:00 – 13:30 Uhr',
+              'Samstag: 09:00 – 18:00 Uhr',
               'Sonn- und feiertags geschlossen',
               'WhatsApp: +49 163 7390 301',
               'E-Mail: info@karaarslan-bike.de',
@@ -929,7 +928,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Kinderfahrrad Größe: Tabelle 2026 — Welche Größe für welches Alter? | Karaarslan Bike',
         metaDescription:
-          'Kinderfahrrad Größe 2026: Tabelle nach Alter & Körpergröße ✓ 12–26 Zoll ✓ Woom, Cube, Trek ✓ Innenbeinlänge messen ✓ Probefahrt vor Ort — Karaarslan Bike Haid.',
+          'Kinderfahrrad Größe 2026: Tabelle nach Alter & Körpergröße ✓ 12–26 Zoll ✓ Woom, Cube, Trek ✓ Innenbeinlänge messen ✓ Probefahrt vor Ort — Karaarslan Bike Alstedde.',
         excerpt:
           'Die richtige Fahrradgröße ist entscheidend für Sicherheit und Spaß. Unsere Tabelle zeigt, welches Rad zu welchem Alter passt.',
         tldr: 'Kinderfahrräder gibt es von 12 bis 26 Zoll. Entscheidend ist die Körpergröße, nicht nur das Alter. Ab 95 cm → 12 Zoll, ab 105 cm → 16 Zoll, ab 120 cm → 20 Zoll, ab 135 cm → 24 Zoll, ab 140 cm → 26 Zoll. Bei Karaarslan Bike können Kinder Probe fahren.',
@@ -1550,7 +1549,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'tip',
             content:
-              'Tipp für Lünen: Die Stadt hat über 420 km Radwege. Mit einem guten Pendlerrad sind die meisten Arbeitswege unter 20 Minuten. Nutzen Sie auch den Fahrradparkplatz am Hauptbahnhof für Bahn+Rad-Kombis.',
+              'Tipp für Lünen: Die Stadt liegt im Ruhrgebiet mit einem gut ausgebauten Radwegenetz (RadrevierRuhr). Mit einem guten Pendlerrad sind die meisten Arbeitswege unter 20 Minuten. Nutzen Sie auch den Fahrradparkplatz am Hauptbahnhof für Bahn+Rad-Kombis.',
           },
           {
             type: 'heading',
@@ -1748,10 +1747,10 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'list',
             items: [
-              'Mo, Di, Do: 11:00–17:30',
-              'Mittwoch: 14:00–17:30',
-              'Freitag: 11:00–13:00 & 15:00–18:00',
-              'Samstag: 11:30–18:00',
+              'Mo, Di, Mi, Do: 09:00–18:00',
+              'Freitag: 09:00–13:00 & 15:00–18:00',
+              'Samstag: 09:00–18:00',
+              'Sonn- und feiertags geschlossen',
             ],
           },
           {
@@ -1811,7 +1810,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike is located at Alstedder Straße 5, 44534 Lünen — in the Haslach district. Easily reachable by tram or car (free parking available). Opening hours: Mon, Tue, Thu 11:00–17:30 | Wed 14:00–17:30 | Fri 11:00–13:00 & 15:00–18:00 | Sat 11:30–18:00.',
+              'Karaarslan Bike is located at Alstedder Straße 5, 44534 Lünen — in the Alstedde district. Easily reachable by tram or car (free parking available). Opening hours: Mon–Thu 09:00–18:00 | Fri 09:00–13:00 & 15:00–18:00 | Sat 09:00–18:00 | Sun: closed.',
           },
           {
             type: 'heading',
@@ -1876,7 +1875,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'tip',
             content:
-              'Conseil pour les visiteurs alsaciens : Lünen est à seulement 25 km de la frontière française. Louez un vélo chez nous et découvrez les pistes cyclables le long du Rhin, la Forêt-Noire ou le centre historique de Lünen.',
+              'Conseil pour les visiteurs : louez un vélo chez nous et découvrez les pistes cyclables de la région, comme la Römer-Lippe-Route le long de la Lippe, le Seseke-Weg ou le centre historique de Lünen.',
           },
           {
             type: 'heading',
@@ -1885,7 +1884,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Karaarslan Bike se trouve au Alstedder Straße 5, 79114 Lünen, dans le quartier Haslach. Facilement accessible en tramway ou en voiture (parking gratuit). Horaires : lun, mar, jeu 11h00–17h30 | mer 14h00–17h30 | ven 11h00–13h00 & 15h00–18h00 | sam 11h30–17h00.',
+              'Karaarslan Bike se trouve au Alstedder Straße 5, 44534 Lünen, dans le quartier Alstedde. Facilement accessible en tramway ou en voiture (parking gratuit). Horaires : lun–jeu 09h00–18h00 | ven 09h00–13h00 & 15h00–18h00 | sam 09h00–18h00 | dim : fermé.',
           },
           { type: 'heading', content: 'FAQ — Location vélo Lünen' },
           {
@@ -1976,7 +1975,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Lünen hat über 420 km Radwege — eines der besten Fahrradnetze Deutschlands. Als Expat oder Student ist ein Fahrrad das günstigste und schnellste Fortbewegungsmittel.',
+              'Lünen liegt im Ruhrgebiet mit einem gut ausgebauten Radwegenetz (RadrevierRuhr). Als Expat oder Studierende ist ein Fahrrad das günstigste und schnellste Fortbewegungsmittel.',
           },
           {
             type: 'cta',
@@ -2003,7 +2002,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              "Lünen has over 420 km of cycling paths — one of Germany's best cycling networks. As an expat or student, a bike is the fastest and cheapest way to get around the city, reach the university, or explore the Black Forest on weekends.",
+              'Lünen is part of the Ruhr region with a well-developed cycling network (RadrevierRuhr). As an expat or student, a bike is the fastest and cheapest way to get around the city, commute to the nearby TU Dortmund, or explore the Lippe river trails on weekends.',
           },
           { type: 'heading', content: 'Where to Buy a Used Bike in Lünen' },
           {
@@ -2042,7 +2041,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'tip',
             content:
-              'Tip: Lünen is very flat in the city center but has hills heading toward the Black Forest. A trekking bike or e-bike is ideal if you live in districts like Günterstal, Kappel or Gundelfingen.',
+              'Tip: Lünen and the surrounding Ruhr region are largely flat, so a standard city bike handles most everyday trips with ease. A trekking bike or e-bike is ideal for longer commutes if you live in districts like Brambauer, Alstedde, Wethmar or Nordlünen.',
           },
           {
             type: 'heading',
@@ -2072,13 +2071,13 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           "Acheter un vélo neuf ou d'occasion à Lünen ✓ 100+ vélos en stock ✓ Dès 80 € ✓ 3 mois de garantie ✓ Conseils en français. Karaarslan Bike.",
         excerpt:
           'Vous habitez ou visitez Lünen ? Ce guide vous explique tout ce que les francophones doivent savoir pour acheter un vélo à Lünen, sans complication.',
-        tldr: "Karaarslan Bike propose 100+ vélos inspectés dès 80 €. Garantie 3 mois sur les vélos d'occasion, 24 mois sur les neufs. Essais gratuits. Alstedder Straße 5, Lünen. À 25 km de l'Alsace.",
+        tldr: "Karaarslan Bike propose 100+ vélos inspectés dès 80 €. Garantie 3 mois sur les vélos d'occasion, 24 mois sur les neufs. Essais gratuits. Alstedder Straße 5, Lünen, dans la région de la Ruhr.",
         sections: [
           { type: 'heading', content: 'Pourquoi acheter un vélo à Lünen ?' },
           {
             type: 'paragraph',
             content:
-              "Lünen est l'une des villes les plus cyclables d'Allemagne, avec plus de 420 km de pistes cyclables. Que vous soyez alsacien, étudiant Erasmus ou résident francophone, un vélo est le moyen le plus pratique et économique pour vous déplacer.",
+              "Lünen se situe dans la région de la Ruhr, dotée d'un réseau cyclable bien développé (RadrevierRuhr). Que vous soyez étudiant Erasmus ou résident francophone, un vélo est le moyen le plus pratique et économique pour vous déplacer.",
           },
           { type: 'heading', content: 'Où acheter un vélo à Lünen ?' },
           {
@@ -2105,7 +2104,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'tip',
             content:
-              "Bon à savoir pour les Alsaciens : Lünen n'est qu'à 25 km de la frontière française. Vous pouvez venir acheter votre vélo le matin et repartir à vélo l'après-midi !",
+              "Bon à savoir : venez acheter votre vélo le matin et repartez à vélo l'après-midi pour explorer les pistes cyclables le long de la Lippe !",
           },
           {
             type: 'cta',
@@ -2129,7 +2128,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              "Lünen'in 420 km'den fazla bisiklet yolu var. Expat veya öğrenci olarak bisiklet en ucuz ve hızlı ulaşım aracıdır.",
+              "Lünen, iyi gelişmiş bir bisiklet yolu ağına sahip Ruhr bölgesinde yer alır (RadrevierRuhr). Expat veya öğrenci olarak bisiklet en ucuz ve hızlı ulaşım aracıdır.",
           },
           {
             type: 'cta',
@@ -2158,8 +2157,8 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       'cycling luenen',
       'bike routes luenen',
       'vélo Lünen tourisme',
-      'Rhin à Vélo',
-      'schwarzwald radfahren',
+      'Römer-Lippe-Route',
+      'radfahren ruhrgebiet',
     ],
     relatedSlugs: ['bike-rental-luenen-guide', 'buy-used-bike-luenen-expat'],
     translations: {
@@ -2168,10 +2167,10 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Radfahren in Lünen — Routen, Verleih & Tipps 2026 | Karaarslan Bike',
         metaDescription:
-          'Die besten Fahrradrouten in Lünen ✓ Schwarzwald, Rhein, Innenstadt ✓ Fahrradverleih mit individuellen Tagespreisen pro Fahrrad ✓ Tipps für Touristen & Einwohner. Karaarslan Bike.',
+          'Die besten Fahrradrouten in Lünen ✓ Römer-Lippe-Route, Seseke-Weg, Innenstadt ✓ Fahrradverleih mit individuellen Tagespreisen pro Fahrrad ✓ Tipps für Touristen & Einwohner. Karaarslan Bike.',
         excerpt:
-          'Lünen ist eines der fahrradfreundlichsten Städte Deutschlands. Die besten Routen, Sehenswürdigkeiten und Verleih-Tipps.',
-        tldr: 'Lünen hat 420+ km Radwege. Top-Routen: Schlossberg (2 km), Dreisam-Radweg (12 km), Rhein-Radweg EV15. Fahrrad mieten bei Karaarslan Bike mit individuellen Tagespreisen pro Fahrrad.',
+          'Lünen liegt im Ruhrgebiet mit einem gut ausgebauten Radwegenetz. Die besten Routen, Sehenswürdigkeiten und Verleih-Tipps.',
+        tldr: 'Lünen liegt im Ruhrgebiet mit einem gut ausgebauten Radwegenetz (RadrevierRuhr). Top-Routen: Lippeauenweg (Lippe-Auen), Seseke-Weg (ca. 25 km, flach), Römer-Lippe-Route. Fahrrad mieten bei Karaarslan Bike mit individuellen Tagespreisen pro Fahrrad.',
         sections: [
           {
             type: 'heading',
@@ -2180,7 +2179,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'paragraph',
             content:
-              'Lünen wurde mehrfach als fahrradfreundlichste Großstadt Deutschlands ausgezeichnet. Über 420 km Radwege, eine flache Innenstadt und hervorragende Anbindung an Schwarzwald und Rhein machen die Stadt zum Paradies für Radfahrer.',
+              'Lünen liegt im Ruhrgebiet mit einem gut ausgebauten Radwegenetz (RadrevierRuhr). Eine flache Innenstadt und die hervorragende Anbindung an die Lippe-Auen und den Seseke-Weg machen die Stadt zu einem idealen Ausgangspunkt für Radfahrer.',
           },
           {
             type: 'heading',
@@ -2189,11 +2188,11 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'list',
             items: [
-              'Schlossberg-Rundtour (2 km): Einfache Tour mit herrlichem Blick über Lünen.',
-              'Dreisam-Radweg (12 km): Entspannt entlang des Flusses nach Kirchzarten.',
-              'Rhein-Radweg EV15 (beliebig): Flaches Fahren entlang des Rheins Richtung Basel oder Breisach.',
-              'Kaiserstuhl-Runde (50 km): Wein, Natur und Aussicht — für Konditionierte.',
-              'Schwarzwald-Einstieg: Von Lünen nach Staufen oder ins Münstertal.',
+              'Lippeauenweg (kurz): Einfache Tour durch die Lippe-Auen mit schönem Blick über die Flusslandschaft.',
+              'Seseke-Weg (ca. 25 km): Entspannt und flach entlang der renaturierten Seseke.',
+              'Römer-Lippe-Route (beliebig): Flaches Fahren entlang der Lippe Richtung Dortmund oder Werne.',
+              'Datteln-Hamm-Kanal-Radweg: Ruhige Strecke am Kanal — ideal für gemütliche Touren.',
+              'RadrevierRuhr: Gut ausgeschildertes Wegenetz quer durchs Ruhrgebiet.',
             ],
           },
           {
@@ -2209,19 +2208,19 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Cycling in Lünen 2026 — Routes, Bike Rental & Tips | Karaarslan Bike',
         metaDescription:
-          'Best cycling routes in Lünen ✓ Black Forest, Rhine, City ✓ Bike rental with daily pricing per bike ✓ Tips for tourists & residents. Your guide to cycling in Lünen.',
+          'Best cycling routes in Lünen ✓ Römer-Lippe-Route, Seseke-Weg, City ✓ Bike rental with daily pricing per bike ✓ Tips for tourists & residents. Your guide to cycling in Lünen.',
         excerpt:
-          "Lünen is one of Germany's most bike-friendly cities. Discover the best cycling routes, how to rent a bike, and everything you need to explore the city on two wheels.",
-        tldr: 'Lünen has 420+ km of cycling paths. Top routes: Schlossberg viewpoint (2 km), Dreisam river path (12 km), Rhine Cycle Route EV15. Rent a bike from Karaarslan Bike with daily pricing configured per bike.',
+          'Lünen is part of the Ruhr region with a well-developed cycling network. Discover the best cycling routes, how to rent a bike, and everything you need to explore the city on two wheels.',
+        tldr: 'Lünen is part of the Ruhr region with a well-developed cycling network (RadrevierRuhr). Top routes: Lippeauenweg (Lippe meadows), Seseke-Weg (~25 km, flat), Römer-Lippe-Route. Rent a bike from Karaarslan Bike with daily pricing configured per bike.',
         sections: [
           {
             type: 'heading',
-            content: "Why Lünen is Germany's Best Cycling City",
+            content: 'Why Lünen is Great for Cycling',
           },
           {
             type: 'paragraph',
             content:
-              "Lünen has won the title of Germany's most bike-friendly city multiple times. With 420+ km of cycle paths, a flat city center, and stunning access to the Black Forest and Rhine, it's a paradise for cyclists of all levels.",
+              "Lünen is part of the Ruhr region with a well-developed cycling network (RadrevierRuhr). With a flat city center and great access to the Lippe meadows and the Seseke trail, it's an ideal base for cyclists of all levels.",
           },
           {
             type: 'heading',
@@ -2230,11 +2229,11 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'list',
             items: [
-              "Schlossberg Loop (2 km): Easy ride with a spectacular view over Lünen's old town.",
-              'Dreisam River Path (12 km): Relaxed cycling along the river toward Kirchzarten.',
-              'Rhine Cycle Route EV15 (unlimited): Flat cycling along the Rhine toward Basel or Breisach.',
-              'Kaiserstuhl Circuit (50 km): Wine country, nature and views — for experienced cyclists.',
-              'Black Forest entry routes: From Lünen toward Staufen or the Münstertal valley.',
+              'Lippeauenweg (short): Easy ride through the Lippe meadows with lovely views over the river landscape.',
+              'Seseke-Weg (~25 km): Relaxed, flat cycling along the renatured Seseke river.',
+              'Römer-Lippe-Route (unlimited): Flat cycling along the Lippe toward Dortmund or Werne.',
+              'Datteln-Hamm-Kanal cycle path: Quiet route along the canal — perfect for leisurely tours.',
+              'RadrevierRuhr: A well-signposted network of routes across the whole Ruhr region.',
             ],
           },
           {
@@ -2251,16 +2250,16 @@ export const BLOG_ARTICLES: BlogArticle[] = [
             type: 'list',
             items: [
               'Helmets are not legally required but strongly recommended.',
-              'Most city routes are flat — a standard city bike is sufficient.',
-              'For Black Forest trails, consider a trekking bike or e-bike.',
-              'The Rhine Cycle Route (EV15) passes just 20 minutes from Lünen.',
+              'Most routes are flat — a standard city bike is sufficient.',
+              'For longer day trips, consider a trekking bike or e-bike.',
+              'The Römer-Lippe-Route runs right along the Lippe near Lünen.',
               'Lünen has excellent bike parking at the main train station (Fahrradstation).',
             ],
           },
           {
             type: 'tip',
             content:
-              "Pro tip: The EuroVelo 15 (Rhine Cycle Route) is one of Europe's most scenic cycling routes. Pick up your bike at Karaarslan Bike and join the route at Breisach or Neuenburg — just 20–30 minutes away.",
+              'Pro tip: The Römer-Lippe-Route is one of the most scenic long-distance routes in the region. Pick up your bike at Karaarslan Bike and join the route right along the Lippe — just a few minutes from the shop.',
           },
           {
             type: 'cta',
@@ -2275,19 +2274,19 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Vélo à Lünen 2026 — Itinéraires, Location & Conseils | Karaarslan Bike',
         metaDescription:
-          "Les meilleurs itinéraires vélo à Lünen ✓ Forêt-Noire, Rhin, Centre-ville ✓ Location avec tarifs journaliers par vélo ✓ Rhin à Vélo ✓ À 25 km de l'Alsace. Karaarslan Bike.",
+          'Les meilleurs itinéraires vélo à Lünen ✓ Römer-Lippe-Route, Seseke-Weg, Centre-ville ✓ Location avec tarifs journaliers par vélo ✓ Région de la Ruhr. Karaarslan Bike.',
         excerpt:
-          "Lünen est l'une des villes les plus cyclables d'Allemagne. Découvrez les meilleurs itinéraires, comment louer un vélo et tout ce qu'il faut savoir pour explorer la région à deux roues.",
-        tldr: 'Lünen compte 420+ km de pistes cyclables. Itinéraires phares : tour du Schlossberg (2 km), piste cyclable de la Dreisam (12 km), Rhin à Vélo EV15. Location vélo chez Karaarslan Bike avec tarifs journaliers définis par vélo.',
+          "Lünen se situe dans la région de la Ruhr, dotée d'un réseau cyclable bien développé. Découvrez les meilleurs itinéraires, comment louer un vélo et tout ce qu'il faut savoir pour explorer la région à deux roues.",
+        tldr: 'Lünen se situe dans la région de la Ruhr, dotée d\'un réseau cyclable bien développé (RadrevierRuhr). Itinéraires phares : Lippeauenweg (prairies de la Lippe), Seseke-Weg (env. 25 km, plat), Römer-Lippe-Route. Location vélo chez Karaarslan Bike avec tarifs journaliers définis par vélo.',
         sections: [
           {
             type: 'heading',
-            content: 'Pourquoi Lünen est la capitale allemande du vélo',
+            content: 'Pourquoi Lünen est idéale pour le vélo',
           },
           {
             type: 'paragraph',
             content:
-              "Lünen est régulièrement élue ville la plus cyclable d'Allemagne. Avec plus de 420 km de pistes cyclables, un centre-ville plat et un accès exceptionnel à la Forêt-Noire et au Rhin, c'est un paradis pour les cyclistes.",
+              "Lünen se situe dans la région de la Ruhr, dotée d'un réseau cyclable bien développé (RadrevierRuhr). Avec un centre-ville plat et un accès direct aux prairies de la Lippe et au Seseke-Weg, c'est un point de départ idéal pour les cyclistes.",
           },
           {
             type: 'heading',
@@ -2296,11 +2295,11 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'list',
             items: [
-              'Tour du Schlossberg (2 km) : Balade facile avec une vue spectaculaire sur la vieille ville.',
-              'Piste cyclable de la Dreisam (12 km) : Balade tranquille le long de la rivière vers Kirchzarten.',
-              'Rhin à Vélo EV15 : Cyclisme à plat le long du Rhin vers Bâle ou Breisach.',
-              'Circuit du Kaiserstuhl (50 km) : Vignobles, nature et panoramas.',
-              'Accès à la Forêt-Noire : De Lünen vers Staufen ou la vallée de Münster.',
+              'Lippeauenweg (court) : Balade facile à travers les prairies de la Lippe, avec une belle vue sur le paysage fluvial.',
+              'Seseke-Weg (env. 25 km) : Balade tranquille et plate le long de la Seseke renaturée.',
+              'Römer-Lippe-Route : Cyclisme à plat le long de la Lippe vers Dortmund ou Werne.',
+              'Piste du Datteln-Hamm-Kanal : Itinéraire calme le long du canal — parfait pour les balades tranquilles.',
+              'RadrevierRuhr : Réseau d\'itinéraires bien balisé à travers toute la région de la Ruhr.',
             ],
           },
           {
@@ -2315,17 +2314,17 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'heading',
             content:
-              'Le Rhin à Vélo depuis Lünen — Conseils pour les Alsaciens',
+              'La Römer-Lippe-Route depuis Lünen — Conseils',
           },
           {
             type: 'paragraph',
             content:
-              "La piste cyclable EuroVelo 15 (Rhin à Vélo) est l'un des itinéraires les plus beaux d'Europe. Lünen se trouve à 20 minutes à vélo du Rhin. Partez de chez nous, rejoignez Breisach ou Neuenburg et découvrez l'itinéraire rhénan franco-allemand.",
+              "La Römer-Lippe-Route est l'un des plus beaux itinéraires longue distance de la région. Elle longe la Lippe à quelques minutes de notre magasin. Partez de chez nous, rejoignez la piste et découvrez les paysages fluviaux de la Ruhr en direction de Dortmund ou de Werne.",
           },
           {
             type: 'tip',
             content:
-              "Idéal pour les Alsaciens : Louez votre vélo à Lünen le matin, faites le Rhin à Vélo jusqu'à Breisach et rentrez en train avec votre vélo (vélos acceptés dans les trains régionaux). Une journée inoubliable !",
+              "Astuce : louez votre vélo à Lünen le matin, suivez la Römer-Lippe-Route jusqu'à Werne et rentrez en train avec votre vélo (vélos acceptés dans les trains régionaux). Une journée inoubliable !",
           },
           {
             type: 'cta',
@@ -2340,19 +2339,19 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         metaTitle:
           'Lünen Bisiklet Rotaları 2026 — Kiralama & Rehber | Karaarslan Bike',
         metaDescription:
-          "Lünen'de en iyi bisiklet rotaları ✓ Schwarzwald, Ren, Şehir Merkezi ✓ bisiklet bazlı günlük kiralama fiyatları ✓ Turist ve sakinler için ipuçları.",
+          "Lünen'de en iyi bisiklet rotaları ✓ Römer-Lippe-Route, Seseke-Weg, Şehir Merkezi ✓ bisiklet bazlı günlük kiralama fiyatları ✓ Turist ve sakinler için ipuçları.",
         excerpt:
-          "Lünen, Almanya'nın en bisiklet dostu şehirlerinden biri. En iyi rotalar, bisiklet kiralama ve iki tekerlekle keşif rehberi.",
-        tldr: "Lünen 420+ km bisiklet yoluna sahip. En iyi rotalar: Schlossberg (2 km), Dreisam nehir yolu (12 km), Ren Bisiklet Rotası EV15. Karaarslan Bike'da bisiklet bazlı günlük fiyatlarla kiralama yapılır.",
+          "Lünen, iyi gelişmiş bir bisiklet yolu ağına sahip Ruhr bölgesinde yer alır. En iyi rotalar, bisiklet kiralama ve iki tekerlekle keşif rehberi.",
+        tldr: "Lünen, iyi gelişmiş bir bisiklet yolu ağına sahip Ruhr bölgesinde yer alır (RadrevierRuhr). En iyi rotalar: Lippeauenweg (Lippe çayırları), Seseke-Weg (yaklaşık 25 km, düz), Römer-Lippe-Route. Karaarslan Bike'da bisiklet bazlı günlük fiyatlarla kiralama yapılır.",
         sections: [
           {
             type: 'heading',
-            content: "Lünen Neden Almanya'nın En İyi Bisiklet Şehri?",
+            content: 'Lünen Neden Bisiklet İçin İdeal?',
           },
           {
             type: 'paragraph',
             content:
-              "Lünen 420+ km bisiklet yoluyla Almanya'nın en bisiklet dostu şehri unvanını defalarca kazanmıştır.",
+              "Lünen, iyi gelişmiş bir bisiklet yolu ağına sahip Ruhr bölgesinde yer alır (RadrevierRuhr). Düz şehir merkezi ve Lippe çayırları ile Seseke-Weg'e doğrudan erişim, onu bisikletçiler için ideal bir başlangıç noktası yapar.",
           },
           {
             type: 'cta',

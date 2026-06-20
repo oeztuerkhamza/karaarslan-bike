@@ -552,7 +552,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
   de: {
     metaTitle: 'Fahrradladen Lünen — Fahrrad kaufen & mieten | Karaarslan Bike',
     metaDescription:
-      'Ihr Fahrradladen in Lünen Haid ✓ Neue & gebrauchte Räder kaufen ✓ E-Bike, City, Trekking, Kinderfahrrad ✓ Fahrradverleih mit tagesgenauen Preisen pro Fahrrad ✓ 3 Monate Garantie. Kein Termin — Alstedder Straße 5!',
+      'Ihr Fahrradladen in Lünen-Alstedde ✓ Neue & gebrauchte Räder kaufen ✓ E-Bike, City, Trekking, Kinderfahrrad ✓ Fahrradverleih mit tagesgenauen Preisen pro Fahrrad ✓ 3 Monate Garantie. Kein Termin — Alstedder Straße 5!',
 
     home: 'Start',
     showroom: 'Showroom',
@@ -899,9 +899,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     aboutQuote:
       'Jedes Fahrrad, das wir verkaufen, bringt Freude — und das ist der schönste Lohn.',
     aboutQuoteAuthor: '— Die Familie hinter Karaarslan Bike',
-    aboutMetaTitle: 'Über uns — Karaarslan Bike | Fahrradladen in Lünen Haid',
+    aboutMetaTitle: 'Über uns — Karaarslan Bike | Fahrradladen in Lünen-Alstedde',
     aboutMetaDescription:
-      'Karaarslan Bike in Haid — Ihr persönlicher Fahrradladen seit 2020. Über 500 zufriedene Kunden ✓ 3 Monate Garantie ✓ Neue & gebrauchte Räder. Lernen Sie uns kennen!',
+      'Karaarslan Bike in Alstedde — Ihr persönlicher Fahrradladen seit 2020. Über 500 zufriedene Kunden ✓ 3 Monate Garantie ✓ Neue & gebrauchte Räder. Lernen Sie uns kennen!',
 
     // Brands
     brandsLabel: 'MARKEN',
@@ -931,7 +931,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     saturday: 'Samstag',
     sunday: 'Sonntag',
     closed: 'Geschlossen',
-    restDay: 'Ruhetag',
+    restDay: 'Geschlossen',
     openGoogleMaps: 'Google Maps öffnen',
 
     // Days (short)
@@ -948,7 +948,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     contactMetaTitle:
       'Fahrradladen Lünen — Kontakt, Adresse & Öffnungszeiten | Karaarslan Bike',
     contactMetaDescription:
-      'Karaarslan Bike Haid — Alstedder Straße 5, 44534 Lünen ✓ Öffnungszeiten: Mo/Di/Do 11–17:30, Mi 14–17:30, Fr 11–13 & 15–18, Sa 11:30–17 ✓ WhatsApp: +49 163 7390 301.',
+      'Karaarslan Bike Alstedde — Alstedder Straße 5, 44534 Lünen ✓ Öffnungszeiten: Mo–Do 09–18, Fr 09–13 & 15–18, Sa 09–18 ✓ WhatsApp: +49 163 7390 301.',
 
     // Home trust badges
     trustBadgeSince: 'Seit 2020 in Lünen',
@@ -1083,7 +1083,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Citybikes, Trekkingräder, Mountainbikes, E-Bikes, Kinderfahrräder, Hollandräder und Rennräder — sowohl neu als auch gebraucht.',
     faqQ9: 'Was sind Ihre Öffnungszeiten?',
     faqA9:
-      'Mo, Di, Do: 09:00–18:00 Uhr. Mittwoch: 09:00–18:00 Uhr. Freitag: 09:00–13:00 & 15:00–18:00 Uhr. Samstag: 10:00–18:00 Uhr. Sonn- und feiertags geschlossen.',
+      'Montag bis Donnerstag: 09:00–18:00 Uhr. Freitag: 09:00–13:00 & 15:00–18:00 Uhr. Samstag: 09:00–18:00 Uhr. Sonn- und feiertags geschlossen.',
     faqQ10: 'Kann ich mein altes Fahrrad in Zahlung geben?',
     faqA10:
       'Ja, in Einzelfällen ist eine Inzahlungnahme möglich. Sprechen Sie uns einfach an — wir finden eine Lösung.',
@@ -1136,7 +1136,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
   en: {
     metaTitle: 'Buy & Rent a Bike in Lünen | Karaarslan Bike',
     metaDescription:
-      'Bike shop in Lünen Haid ✓ Buy or rent a bike ✓ 100+ inspected bikes ✓ City, Trekking, E-Bike ✓ Daily bike rental pricing per bike ✓ 3-month warranty. No appointment needed — Alstedder Straße 5!',
+      'Bike shop in Lünen-Alstedde ✓ Buy or rent a bike ✓ 100+ inspected bikes ✓ City, Trekking, E-Bike ✓ Daily bike rental pricing per bike ✓ 3-month warranty. No appointment needed — Alstedder Straße 5!',
 
     home: 'Home',
     showroom: 'Showroom',
@@ -1502,7 +1502,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     saturday: 'Saturday',
     sunday: 'Sunday',
     closed: 'Closed',
-    restDay: 'Rest Day',
+    restDay: 'Closed',
     openGoogleMaps: 'Open Google Maps',
 
     monShort: 'Mon',
@@ -1516,7 +1516,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     contactWhatsappHint: 'Write directly',
     contactMetaTitle: 'Contact — Karaarslan Bike | Address & Hours',
     contactMetaDescription:
-      'Karaarslan Bike ✓ Alstedder Straße 5, 44534 Lünen ✓ Mon–Sat 11am–5:30pm ✓ WhatsApp: +49 163 7390 301 ✓ No appointment needed — just drop by!',
+      'Karaarslan Bike ✓ Alstedder Straße 5, 44534 Lünen ✓ Mon–Sat 9am–6pm ✓ WhatsApp: +49 163 7390 301 ✓ No appointment needed — just drop by!',
 
     trustBadgeSince: 'In Lünen since 2020',
     trustBadgeCustomers: '500+ satisfied customers',
@@ -1643,7 +1643,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       "City bikes, trekking bikes, mountain bikes, e-bikes, children's bikes, Dutch bikes and road bikes — both new and used.",
     faqQ9: 'What are your opening hours?',
     faqA9:
-      'Monday, Tuesday, Thursday: 11:00–17:30. Wednesday: 14:00–17:30. Friday: 11:00–13:00 & 15:00–18:00. Saturday: 11:30–18:00. Sunday and holidays: closed.',
+      'Monday to Thursday: 09:00–18:00. Friday: 09:00–13:00 & 15:00–18:00. Saturday: 09:00–18:00. Sunday and holidays: closed.',
     faqQ10: 'Can I rent a bike in Lünen?',
     faqA10:
       'Yes. Karaarslan Bike rents city bikes, trekking bikes and e-bikes with prices configured per bike for days 1 to 7. From day 8 onward, a fixed extra-day surcharge is added to the 7-day price. No reservation needed — just come by Alstedder Straße 5.',
@@ -1695,7 +1695,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
   fr: {
     metaTitle: 'Acheter & louer un vélo à Lünen | Karaarslan Bike',
     metaDescription:
-      'Votre magasin de vélos à Lünen Haid ✓ Achat & location ✓ 100+ vélos contrôlés ✓ Ville, Trekking, VAE ✓ Location avec tarifs journaliers par vélo ✓ 3 mois de garantie. Sans rendez-vous — Alstedder Straße 5!',
+      'Votre magasin de vélos à Lünen-Alstedde ✓ Achat & location ✓ 100+ vélos contrôlés ✓ Ville, Trekking, VAE ✓ Location avec tarifs journaliers par vélo ✓ 3 mois de garantie. Sans rendez-vous — Alstedder Straße 5!',
 
     home: 'Accueil',
     showroom: 'Showroom',
@@ -1705,7 +1705,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     heroH1: 'Vélos à Lünen — neufs & occasion.',
     heroSub:
-      "Achetez ou louez votre vélo à Lünen-en-Brisgau ✓ Vélos inspectés dès 80 € ✓ Location avec tarifs journaliers définis par vélo ✓ Retrait immédiat ✓ À 25 km de l'Alsace.",
+      "Achetez ou louez votre vélo à Lünen ✓ Vélos inspectés dès 80 € ✓ Location avec tarifs journaliers définis par vélo ✓ Retrait immédiat.",
     ctaPrimary: 'Découvrir les nouveaux vélos',
     ctaSecondary: 'Voir le showroom',
 
@@ -1834,7 +1834,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     aboutLabel: 'À PROPOS',
     aboutTitle: 'Qui nous sommes.',
     aboutText:
-      "Nous sommes un marchand de vélos indépendant à Lünen-en-Brisgau. Notre sélection comprend des vélos d'occasion certifiés et des vélos neufs — pour chaque usage et chaque budget.",
+      "Nous sommes un marchand de vélos indépendant à Lünen. Notre sélection comprend des vélos d'occasion certifiés et des vélos neufs — pour chaque usage et chaque budget.",
     aboutMission:
       'Notre mission : rendre la mobilité de qualité accessible — de manière durable, honnête et personnelle.',
     openingHours: "Heures d'ouverture",
@@ -2012,7 +2012,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       "Nous nous spécialisons dans la vente. Pour les réparations, contactez-nous à l'avance par téléphone ou e-mail.",
     faq5Q: 'Où vous trouver ?',
     faq5A:
-      "Alstedder Straße 5, 79114 Lünen. Passez simplement pendant les heures d'ouverture — pas de rendez-vous nécessaire.",
+      "Alstedder Straße 5, 44534 Lünen. Passez simplement pendant les heures d'ouverture — pas de rendez-vous nécessaire.",
 
     // WhatsApp Contact
     whatsappTitle: 'Contacter le vendeur',
@@ -2078,7 +2078,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     saturday: 'Samedi',
     sunday: 'Dimanche',
     closed: 'Fermé',
-    restDay: 'Jour de repos',
+    restDay: 'Fermé',
     openGoogleMaps: 'Ouvrir Google Maps',
 
     // Days (short)
@@ -2110,11 +2110,11 @@ const TRANSLATIONS: Record<Language, Translations> = {
     filterFrameSize: 'Taille de cadre',
     showroomMetaTitle: 'Acheter vélo Lünen | Showroom | Karaarslan Bike',
     showroomMetaDescription:
-      "Achetez des vélos neufs et d'occasion à Lünen-en-Brisgau ✓ 100+ vélos certifiés ✓ Ville, Trekking, VTT, VAE ✓ 3 mois de garantie ✓ Disponibles immédiatement.",
+      "Achetez des vélos neufs et d'occasion à Lünen ✓ 100+ vélos certifiés ✓ Ville, Trekking, VTT, VAE ✓ 3 mois de garantie ✓ Disponibles immédiatement.",
 
     // Showroom detail
     detailMetaDescSuffix:
-      'Voir maintenant chez Karaarslan Bike à 79114 Lünen-en-Brisgau.',
+      'Voir maintenant chez Karaarslan Bike à 44534 Lünen.',
     bikeFallbackCategory: 'Vélo',
 
     // Footer
@@ -2140,7 +2140,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     accessoriesMetaTitle:
       'Accessoires vélo Lünen | Casques, Sacoches & Antivols | Karaarslan Bike',
     accessoriesMetaDescription:
-      'Achetez des accessoires vélo à Lünen-en-Brisgau ✓ Casques, sacoches, antivols, éclairage & plus ✓ En magasin — Alstedder Straße 5, 44534 Lünen.',
+      'Achetez des accessoires vélo à Lünen ✓ Casques, sacoches, antivols, éclairage & plus ✓ En magasin — Alstedder Straße 5, 44534 Lünen.',
     accessoriesTitle: 'Accessoires',
     accessoriesSub: 'Sacoches, casques, antivols et plus pour votre vélo.',
     accessoriesNoItems: 'Aucun accessoire disponible pour le moment.',
@@ -2154,7 +2154,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     neueFahrraederMetaTitle:
       'Acheter vélos neufs à Lünen | City, Trekking, VAE | Karaarslan Bike',
     neueFahrraederMetaDescription:
-      'Achetez des vélos neufs à Lünen-en-Brisgau ✓ Vélos de ville, trekking, VTT & VAE ✓ 2 ans de garantie ✓ En stock immédiatement ✓ Prix honnêtes. Karaarslan Bike.',
+      'Achetez des vélos neufs à Lünen ✓ Vélos de ville, trekking, VTT & VAE ✓ 2 ans de garantie ✓ En stock immédiatement ✓ Prix honnêtes. Karaarslan Bike.',
     neueFahrraederTitle: 'Vélos neufs',
     neueFahrraederSub: 'Vélos neufs avec 2 ans de garantie magasin.',
     neueFahrraederBrand: 'Marque',
@@ -2229,7 +2229,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Vélos de ville, trekking, VTT, VAE, vélos enfants, hollandais et vélos de route — neufs et occasion.',
     faqQ9: 'Quels sont vos horaires ?',
     faqA9:
-      'Lundi, mardi, jeudi : 11:00–17:30. Mercredi : 14:00–17:30. Vendredi : 11:00–13:00 & 15:00–18:00. Samedi : 11:30–18:00. Dimanche et jours fériés : fermé.',
+      'Du lundi au jeudi : 09:00–18:00. Vendredi : 09:00–13:00 & 15:00–18:00. Samedi : 09:00–18:00. Dimanche et jours fériés : fermé.',
     faqQ10: 'Louez-vous des vélos à Lünen ?',
     faqA10:
       'Oui. Karaarslan Bike loue des vélos city, trekking et VAE avec des tarifs configurés par vélo pour 1 à 7 jours. À partir du 8e jour, un supplément fixe est ajouté au prix 7 jours. Sans réservation — venez directement Alstedder Straße 5.',
@@ -2282,7 +2282,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
   tr: {
     metaTitle: "Lünen'da Bisiklet Al & Kirala | Karaarslan Bike",
     metaDescription:
-      "Lünen Haid'de bisiklet mağazanız ✓ Yeni & ikinci el bisiklet ✓ Bisiklet bazlı günlük kiralama fiyatları ✓ 3 ay garanti ✓ Randevu gerekmez — Alstedder Straße 5, Lünen!",
+      "Lünen-Alstedde'de bisiklet mağazanız ✓ Yeni & ikinci el bisiklet ✓ Bisiklet bazlı günlük kiralama fiyatları ✓ 3 ay garanti ✓ Randevu gerekmez — Alstedder Straße 5, Lünen!",
 
     home: 'Ana Sayfa',
     showroom: 'Showroom',
@@ -2659,7 +2659,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     saturday: 'Cumartesi',
     sunday: 'Pazar',
     closed: 'Kapalı',
-    restDay: 'Tatil günü',
+    restDay: 'Kapalı',
     openGoogleMaps: "Google Maps'i aç",
 
     // Days (short)
@@ -2675,7 +2675,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     contactWhatsappHint: 'Doğrudan yaz',
     contactMetaTitle: 'İletişim — Karaarslan Bike | Adres & Çalışma Saatleri',
     contactMetaDescription:
-      'Karaarslan Bike ✓ Alstedder Straße 5, 44534 Lünen ✓ Pzt–Cmt 11:00–17:30 ✓ WhatsApp: +49 163 7390 301 ✓ Randevu gerekmez — bizi ziyaret edin!',
+      'Karaarslan Bike ✓ Alstedder Straße 5, 44534 Lünen ✓ Pzt–Cmt 09:00–18:00 ✓ WhatsApp: +49 163 7390 301 ✓ Randevu gerekmez — bizi ziyaret edin!',
 
     // Home trust badges
     trustBadgeSince: "2020'den beri Lünen'da",
@@ -2810,7 +2810,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Şehir, trekking, dağ, e-bisiklet, çocuk, Hollanda ve yol bisikletleri — yeni ve ikinci el.',
     faqQ9: 'Çalışma saatleriniz nedir?',
     faqA9:
-      'Pazartesi, Salı, Perşembe: 11:00–17:30. Çarşamba: 14:00–17:30. Cuma: 11:00–13:00 & 15:00–18:00. Cumartesi: 11:30–18:00. Pazar ve tatil günleri: kapalı.',
+      'Pazartesi–Perşembe: 09:00–18:00. Cuma: 09:00–13:00 & 15:00–18:00. Cumartesi: 09:00–18:00. Pazar ve tatil günleri: kapalı.',
     faqQ10: 'Eski bisikletimi takas edebilir miyim?',
     faqA10:
       'Evet, bireysel durumlarda takas mümkündür. Bize danışın — bir çözüm buluruz.',

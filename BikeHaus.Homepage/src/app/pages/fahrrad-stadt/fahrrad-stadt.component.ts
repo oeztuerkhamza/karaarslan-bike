@@ -455,8 +455,8 @@ export class FahrradStadtComponent implements OnInit, OnDestroy {
       },
       geo: {
         '@type': 'GeoCoordinates',
-        latitude: 47.9877,
-        longitude: 7.8194,
+        latitude: 51.6236,
+        longitude: 7.5130,
       },
       areaServed: {
         '@type': 'City',
@@ -465,20 +465,14 @@ export class FahrradStadtComponent implements OnInit, OnDestroy {
       openingHoursSpecification: [
         {
           '@type': 'OpeningHoursSpecification',
-          dayOfWeek: ['Monday', 'Tuesday', 'Thursday'],
-          opens: '11:00',
-          closes: '17:30',
-        },
-        {
-          '@type': 'OpeningHoursSpecification',
-          dayOfWeek: 'Wednesday',
-          opens: '14:00',
-          closes: '17:30',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+          opens: '09:00',
+          closes: '18:00',
         },
         {
           '@type': 'OpeningHoursSpecification',
           dayOfWeek: 'Friday',
-          opens: '11:00',
+          opens: '09:00',
           closes: '13:00',
         },
         {
@@ -490,7 +484,7 @@ export class FahrradStadtComponent implements OnInit, OnDestroy {
         {
           '@type': 'OpeningHoursSpecification',
           dayOfWeek: 'Saturday',
-          opens: '11:30',
+          opens: '09:00',
           closes: '18:00',
         },
       ],

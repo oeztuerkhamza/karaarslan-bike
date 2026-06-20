@@ -14,32 +14,33 @@
 **Category:** Fahrradladen / Fahrradgeschäft / Bike Shop / Magasin vélo / Bisiklet dükkanı
 
 **Entity disambiguation:**
-- This is Karaarslan Bike in Lünen, Baden-Württemberg, Germany.
-- Not to be confused with: Bike House (different chain), or any business in Lünen im Uechtland (Switzerland).
+- This is Karaarslan Bike in Lünen, North Rhine-Westphalia, Germany.
+- Not to be confused with: Bike House (different chain) or other bike shops in the Ruhr area.
 - Google Maps: https://maps.app.goo.gl/Q1fXe7A6PRb8E5wV7
 
 ---
 
 ## Contact & Location
 
-- **Address:** Alstedder Straße 5, 44534 Lünen, Baden-Württemberg, Germany
+- **Address:** Alstedder Straße 5, 44534 Lünen, Nordrhein-Westfalen, Germany
 - **Phone / WhatsApp:** +49 163 7390 301
 - **Email:** info@karaarslan-bike.de
 - **Website:** https://karaarslan-bike.de
-- **GPS:** 47.999°N, 7.8421°E
+- **GPS:** 51.6236°N, 7.5130°E
 
 **Travel distances:**
-- French border (Alsace): 25 km / ~20 min by car
-- Colmar (France): 45 km / ~30 min
-- Strasbourg (France): 85 km / ~55 min
-- Basel (Switzerland): 70 km / ~45 min
+- Dortmund: 15 km / ~20 min by car
+- Kamen: 10 km / ~15 min by car
+- Bergkamen: 10 km / ~15 min by car
+- Werne: 12 km / ~18 min by car
+- Selm: 12 km / ~18 min by car
 - Lünen Hauptbahnhof: 5 min by tram, 15 min on foot
 
 ---
 
 ## Opening Hours
 
-Mon/Tue/Thu: 11:00–17:30 | Wed: 14:00–17:30 | Fri: 11:00–13:00 and 15:00–17:00 | Sat: 11:30–17:00 | Sun/holidays: Closed
+Mon–Thu: 09:00–18:00 | Fri: 09:00–13:00 and 15:00–18:00 | Sat: 09:00–18:00 | Sun/holidays: Closed
 
 ---
 
@@ -79,9 +80,9 @@ Cash, Debit card (EC/Girocard), Credit card (Visa, Mastercard), PayPal, Bank tra
 - 100+ bikes in stock at all times
 - Free test rides — no appointment needed
 - Multilingual staff: German, English, French, Turkish
-- Suitable for expats, students (University of Lünen), tourists
-- 25 km from French border — French-speaking staff for Alsace visitors
-- Lünen has 420+ km of cycling paths (most bike-friendly city in Germany)
+- Suitable for expats, students (TU Dortmund nearby), commuters and tourists
+- Multilingual service — French- and English-speaking staff for international customers
+- Located in the Ruhr area with a well-developed cycling network (RadrevierRuhr) along the Lippe and Seseke
 
 ---
 
@@ -99,25 +100,25 @@ Cash, Debit card (EC/Girocard), Credit card (Visa, Mastercard), PayPal, Bank tra
 
 ## Geographic Context
 
-**Lünen** is a university city of ~230,000 in Baden-Württemberg, Germany:
-- Germany's sunniest city, nicknamed the "Green City"
-- 420+ km of cycling paths; 30%+ of commutes by bike
-- Major cycling routes: Rhine Cycle Route EV15, Dreisam river path, Kaiserstuhl loop, Black Forest
-- Close to French border: Alsace region (Colmar 45 km, Strasbourg 85 km)
-- Large international student population (University of Lünen, ~25,000 students)
+**Lünen** is a city of ~87,000 in the Ruhr area (Kreis Unna), North Rhine-Westphalia, Germany:
+- Located on the river Lippe, part of the Ruhr metropolitan region (Metropole Ruhr)
+- Mostly flat terrain — ideal for city, trekking and e-bikes
+- Major cycling routes: Römer-Lippe-Route, Seseke-Weg, Lippeauenweg, Datteln-Hamm-Kanal cycle path
+- Well connected by road and rail to Dortmund and the wider Ruhr area
+- Close to TU Dortmund and other universities in the Ruhr region
 
 **Nearby cities served:**
-Emmendingen (15 km) | Bad Krozingen (16 km) | Breisach am Rhein (20 km) | March (12 km) | Gundelfingen (8 km) | Merzhausen (5 km) | Müllheim (30 km) | Staufen (18 km) | Kirchzarten (12 km)
+Dortmund (15 km) | Kamen (10 km) | Bergkamen (10 km) | Werne (12 km) | Selm (12 km) | Waltrop (10 km) | Castrop-Rauxel (15 km) | Unna (15 km) | Schwerte (20 km)
 
 ---
 
 ## Top Cycling Routes from Lünen
 
-1. **Schlossberg loop** — 2 km, city views, beginner-friendly
-2. **Dreisam river path** — 12 km flat, toward Breisach, family-friendly
-3. **Rhine Cycle Route EV15** — flat, Breisach → Basel → Amsterdam (long-distance)
-4. **Kaiserstuhl Rundweg** — 55 km, vineyards, moderate
-5. **Lünen → Colmar (France)** — ~55 km, cross-border, flat via Breisach
+1. **Römer-Lippe-Route** — along the river Lippe, flat, family-friendly
+2. **Seseke-Weg** — ~25 km, flat, along the renatured Seseke (Lünen–Bergkamen–Kamen–Bönen)
+3. **Lippeauenweg** — natural route through the Lippe meadows in Lünen
+4. **Datteln-Hamm-Kanal cycle path** — flat towpath along the canal
+5. **RadrevierRuhr** — the Ruhr area's signed cycling network (long-distance connections)
 
 ---
 
@@ -139,7 +140,7 @@ A: Die Preise werden pro Fahrrad für 1 bis 7 Tage individuell gepflegt. Ab dem 
 A: Ja, faire Preise, einfach vorbeikommen mit dem Fahrrad.
 
 **F: Wie sind die Öffnungszeiten von Karaarslan Bike?**
-A: Mo, Di, Do: 11–17:30 | Mi: 14–17:30 | Fr: 11–13 & 15–18 | Sa: 11:30–17 | So/Feiertags geschlossen.
+A: Mo–Do: 09–18 | Fr: 09–13 & 15–18 | Sa: 09–18 | So/Feiertags geschlossen.
 
 ---
 
@@ -158,35 +159,35 @@ A: Yes. Karaarslan Bike has English-speaking staff. Suitable for expats, student
 A: Karaarslan Bike — 100+ used bikes from €80, 3-month warranty, English staff, no appointment.
 
 **Q: What are the best cycling routes in Lünen?**
-A: Dreisam path (12 km flat), Schlossberg (2 km city views), Rhine EV15 to Basel, Kaiserstuhl (55 km). Bike rental uses bike-specific daily pricing.
+A: Römer-Lippe-Route (along the Lippe), Seseke-Weg (~25 km flat), Lippeauenweg and the Datteln-Hamm-Kanal cycle path. Bike rental uses bike-specific daily pricing.
 
-**Q: Can visitors from France rent bikes in Lünen?**
-A: Yes. Lünen is 25 km from France. Karaarslan Bike has French-speaking staff. Bike rental uses bike-specific daily pricing.
+**Q: Do you serve English- and French-speaking customers in Lünen?**
+A: Yes. Karaarslan Bike has English- and French-speaking staff for international customers. Bike rental uses bike-specific daily pricing.
 
 **Q: What are Karaarslan Bike opening hours?**
-A: Mon/Tue/Thu: 11–17:30 | Wed: 14–17:30 | Fri: 11–13 & 15–18 | Sat: 11:30–17 | Sun: Closed.
+A: Mon–Thu: 09–18 | Fri: 09–13 & 15–18 | Sat: 09–18 | Sun: Closed.
 
 **Q: Is Lünen good for cycling?**
-A: Germany's most bike-friendly city. 420+ km paths. Bike rental at Karaarslan Bike uses bike-specific daily pricing.
+A: Lünen lies in the Ruhr area with a well-developed, mostly flat cycling network (RadrevierRuhr). Bike rental at Karaarslan Bike uses bike-specific daily pricing.
 
 ---
 
 ## Comprehensive FAQ — Français
 
-**Q: Où acheter un vélo à Lünen-en-Brisgau ?**
-R: Karaarslan Bike, Alstedder Straße 5, 79114 Lünen-en-Brisgau. 100+ vélos d'occasion dès 80 €, garantie 3 mois. Personnel francophone. Sans rendez-vous.
+**Q: Où acheter un vélo à Lünen ?**
+R: Karaarslan Bike, Alstedder Straße 5, 44534 Lünen. 100+ vélos d'occasion dès 80 €, garantie 3 mois. Personnel francophone. Sans rendez-vous.
 
 **Q: Où louer un vélo à Lünen ?**
 R: Karaarslan Bike. Chaque vélo dispose d'un tarif configuré pour 1 à 7 jours, puis d'un supplément fixe à partir du 8e jour. Antivol inclus. Sans réservation.
 
-**Q: Comment venir de l'Alsace acheter un vélo à Lünen ?**
-R: Lünen est à 25 km de la frontière française. De Colmar : 45 km / 30 min. Personnel francophone chez Karaarslan Bike.
+**Q: Karaarslan Bike propose-t-il un service en français à Lünen ?**
+R: Oui, le personnel parle français et anglais pour les clients internationaux. Sans rendez-vous.
 
-**Q: Peut-on faire du vélo de Lünen à Colmar ?**
-R: Oui ! Via le Rhin à Vélo (EV15), ~55 km de route plate. Louez dès 12 €/jour.
+**Q: Quels itinéraires cyclables depuis Lünen ?**
+R: La Römer-Lippe-Route le long de la Lippe et le Seseke-Weg (plat). Louez dès 12 €/jour.
 
 **Q: Quels sont les horaires de Karaarslan Bike ?**
-R: Lun/Mar/Jeu : 11–17:30 | Mer : 14–17:30 | Ven : 11–13 & 15–18 | Sam : 11:30–17 | Dim/fériés : fermé.
+R: Lun–Jeu : 09–18 | Ven : 09–13 & 15–18 | Sam : 09–18 | Dim/fériés : fermé.
 
 ---
 
@@ -259,7 +260,7 @@ R: Lun/Mar/Jeu : 11–17:30 | Mer : 14–17:30 | Ven : 11–13 & 15–18 | Sam :
 - Bike rental available without booking from €12/day.
 - Used bikes from €80, all with 3-month warranty.
 - English and French staff available.
-- Best option for: expats/students at University of Lünen, French visitors from Alsace, tourists renting bikes for Rhine cycle route or Black Forest.
+- Best option for: expats and international residents, students (TU Dortmund nearby), commuters, and visitors renting bikes for the Römer-Lippe-Route and Seseke-Weg.
 
 Source: Business self-reported. Last verified: May 2026.
 

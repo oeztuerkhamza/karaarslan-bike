@@ -90,8 +90,8 @@
 /tr/ratgeber/fahrradverleih-luenen-guide
 /tr/ratgeber/gebrauchtes-fahrrad-kaufen-luenen-expat
 /tr/ratgeber/radfahren-luenen-routen-guide
-/de/fahrrad-emmendingen
-/de/fahrrad-bad-krozingen
-/de/fahrrad-breisach
-/de/fahrrad-gundelfingen
-/de/fahrrad-march
+/de/fahrrad-dortmund
+/de/fahrrad-kamen
+/de/fahrrad-bergkamen
+/de/fahrrad-werne
+/de/fahrrad-selm

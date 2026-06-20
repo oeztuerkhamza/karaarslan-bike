@@ -1,6 +1,6 @@
 # 🌍 Karaarslan Bike — İngilizce & Fransızca SEO Planı
 
-> **Hedef:** "bike rental freiburg", "used bike freiburg", "buy bike freiburg" (EN) ve "louer vélo fribourg", "acheter vélo fribourg", "vélo occasion fribourg" (FR) aramalarında Google'da ilk sayfaya çıkmak.
+> **Hedef:** "bike rental lünen", "used bike lünen", "buy bike lünen" (EN) ve "louer vélo lünen", "acheter vélo lünen", "vélo occasion lünen" (FR) aramalarında Google'da ilk sayfaya çıkmak.
 
 ---
 
@@ -12,7 +12,7 @@
 | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
 | Blog URL'leri Almanca slug kullanıyor (`/en/ratgeber/gebrauchtes-fahrrad-kaufen-tipps`) | Google bu URL'yi İngilizce içerik olarak değerlendirmiyor                                  |
 | "Ratgeber" kelimesi İngilizce URL'de kalıyor (`/en/ratgeber/`)                          | İngilizce kullanıcılar için anlamsız — güven sorunu                                        |
-| EN hedef anahtar kelime yoğunluğu yetersiz                                              | Sayfa içerikleri "bike shop freiburg", "bike rental freiburg" gibi terimleri tekrarlamıyor |
+| EN hedef anahtar kelime yoğunluğu yetersiz                                              | Sayfa içerikleri "bike shop lünen", "bike rental lünen" gibi terimleri tekrarlamıyor       |
 | Backlink yok (EN)                                                                       | Google EN sayfalarını otorite sayfası olarak görmüyor                                      |
 | EN blog makaleleri arama odaklı değil                                                   | Makale başlıkları EN aramalarla eşleşmiyor                                                 |
 
@@ -21,7 +21,7 @@
 | Sorun                                     | Etki                                                                                    |
 | ----------------------------------------- | --------------------------------------------------------------------------------------- |
 | Blog URL'leri tamamen Almanca             | FR aramaların hiçbiri bu URL'lerle eşleşmiyor                                           |
-| Fribourg-en-Brisgau fırsatı kullanılmıyor | Alsaslı Fransızca konuşanlar (Strasbourg, Mulhouse, Colmar) çok yakın ama hedeflenmiyor |
+| Ruhr bölgesindeki Fransızca konuşan kitle hedeflenmiyor | Ruhrgebiet'te yaşayan/çalışan Fransızca konuşan sakinler ve uluslararası ziyaretçiler var ama hizmet sunulmuyor |
 | `fr` hreflang var ama FR-özgün içerik yok | Google FR sayfaları Almanca içeriğin çevirisi olarak görüyor                            |
 | FR blog makaleleri sıfır                  | Fransız kullanıcılara yönelik bilgi içeriği yok                                         |
 | "Ratgeber" FR URL'de                      | FR kullanıcılar için hiç anlamlı değil                                                  |
@@ -104,11 +104,11 @@ export interface BlogArticle {
 
 | DE Slug                            | EN Slug                          | FR Slug                            |
 | ---------------------------------- | -------------------------------- | ---------------------------------- |
-| `gebrauchtes-fahrrad-kaufen-tipps` | `buying-used-bike-freiburg-tips` | `acheter-velo-occasion-fribourg`   |
+| `gebrauchtes-fahrrad-kaufen-tipps` | `buying-used-bike-luenen-tips`   | `acheter-velo-occasion-luenen`     |
 | `welches-fahrrad-passt-zu-mir`     | `which-bike-is-right-for-me`     | `quel-velo-choisir`                |
 | `fahrrad-rahmengroesse-berechnen`  | `bike-frame-size-guide`          | `taille-cadre-velo-guide`          |
 | `e-bike-gebraucht-kaufen`          | `buying-used-e-bike-guide`       | `acheter-velo-electrique-occasion` |
-| `fahrrad-inspektion-kosten`        | `bike-inspection-cost-freiburg`  | `inspection-velo-prix-fribourg`    |
+| `fahrrad-inspektion-kosten`        | `bike-inspection-cost-luenen`    | `inspection-velo-prix-luenen`      |
 
 ---
 
@@ -116,28 +116,28 @@ export interface BlogArticle {
 
 ### Hedef Anahtar Kelimeler (İngilizce)
 
-Freiburg'a gelen İngilizce konuşanlar ağırlıklı olarak **turist ve expat**'lardır.
+Lünen ve Ruhr bölgesindeki İngilizce konuşanlar ağırlıklı olarak **uluslararası sakinler, öğrenciler (yakındaki TU Dortmund), expat ve çalışanlar**dır.
 
 #### Satın Alma Odaklı (Yüksek Niyet):
 
 | Anahtar Kelime              | Aylık Hacim (tahmini) | Rekabet |
 | --------------------------- | --------------------- | ------- |
-| `buy used bike freiburg`    | 50-200                | Düşük   |
-| `used bike shop freiburg`   | 100-300               | Düşük   |
-| `second hand bike freiburg` | 100-400               | Düşük   |
-| `buy bicycle freiburg`      | 100-300               | Düşük   |
-| `bike shop freiburg`        | 200-500               | Orta    |
-| `used e-bike freiburg`      | 50-150                | Düşük   |
+| `buy used bike lünen`       | 50-200                | Düşük   |
+| `used bike shop lünen`      | 100-300               | Düşük   |
+| `second hand bike lünen`    | 100-400               | Düşük   |
+| `buy bicycle dortmund`      | 100-300               | Düşük   |
+| `bike shop lünen`           | 200-500               | Orta    |
+| `used e-bike lünen`         | 50-150                | Düşük   |
 
-#### Kiralama Odaklı (Turist Trafiği):
+#### Kiralama Odaklı (Yerel/Ziyaretçi Trafiği):
 
 | Anahtar Kelime               | Aylık Hacim (tahmini) | Rekabet |
 | ---------------------------- | --------------------- | ------- |
-| `bike rental freiburg`       | 500-2000              | Orta    |
-| `rent a bike freiburg`       | 300-800               | Orta    |
-| `bicycle rental freiburg`    | 200-600               | Orta    |
-| `bike hire freiburg`         | 100-300               | Düşük   |
-| `cheap bike rental freiburg` | 50-150                | Düşük   |
+| `bike rental lünen`          | 100-400               | Düşük   |
+| `rent a bike lünen`          | 100-300               | Düşük   |
+| `bicycle rental lünen`       | 50-200                | Düşük   |
+| `bike hire dortmund`         | 100-300               | Orta    |
+| `cheap bike rental lünen`    | 50-150                | Düşük   |
 
 #### Bilgi Odaklı (Blog İçerikleri):
 
@@ -146,129 +146,127 @@ Freiburg'a gelen İngilizce konuşanlar ağırlıklı olarak **turist ve expat**
 | `how to buy used bike germany` | Buying a Used Bike in Germany — The Complete Guide  |
 | `bike frame size guide`        | Bike Frame Size Calculator & Guide                  |
 | `used e-bike buying guide`     | Used E-Bike Buying Guide: Battery, Motor & Warranty |
-| `cycling in freiburg`          | Cycling in Freiburg — Routes, Rentals & Tips        |
+| `cycling in the ruhr area`     | Cycling Around Lünen — Routes, Rentals & Tips       |
 
 ### 2.1 — EN İçin Öncelikli Yeni Blog Makaleleri
 
 **Makale 1 (Kiralama — En Yüksek Etki):**
 
-- Başlık: `Bike Rental in Freiburg — Complete Guide 2026`
-- Slug: `/en/guide/bike-rental-freiburg-guide`
-- Hedef keywords: "bike rental freiburg", "rent a bike freiburg"
+- Başlık: `Bike Rental in Lünen — Complete Guide 2026`
+- Slug: `/en/guide/bike-rental-luenen-guide`
+- Hedef keywords: "bike rental lünen", "rent a bike lünen"
 - İçerik: Kiralama fiyatları, nasıl rezervasyon yapılır, nerede alınır, güzergâhlar
 - Schema: `FAQPage` + `LocalBusiness`
 
 **Makale 2 (Expat/Öğrenci):**
 
-- Başlık: `Buy a Used Bike in Freiburg — Expat & Student Guide`
-- Slug: `/en/guide/buy-used-bike-freiburg-expat-guide`
-- Hedef keywords: "used bike freiburg", "second hand bike freiburg"
-- İçerik: Freiburg'da yaşayanlar için nereden alınır, ne kadar ödenebilir, ne aranır
+- Başlık: `Buy a Used Bike in Lünen — Expat & Student Guide`
+- Slug: `/en/guide/buy-used-bike-luenen-expat-guide`
+- Hedef keywords: "used bike lünen", "second hand bike lünen"
+- İçerik: Lünen ve Ruhr bölgesinde yaşayanlar (TU Dortmund öğrencileri dahil) için nereden alınır, ne kadar ödenebilir, ne aranır
 
-**Makale 3 (Bisiklet güzergâhları — Turist mıknatısı):**
+**Makale 3 (Bisiklet güzergâhları — Ruhr bölgesi):**
 
-- Başlık: `Cycling in Freiburg — Best Routes, Bike Rentals & Tips`
-- Slug: `/en/guide/cycling-freiburg-routes-rentals`
-- Hedef keywords: "cycling freiburg", "bike rental freiburg"
-- İçerik: En iyi güzergâhlar, siyah orman bisiklet yolu, kiralama nereden
+- Başlık: `Cycling Around Lünen — Best Routes, Bike Rentals & Tips`
+- Slug: `/en/guide/cycling-luenen-routes-rentals`
+- Hedef keywords: "cycling in the ruhr area", "bike rental lünen"
+- İçerik: En iyi güzergâhlar (Römer-Lippe-Route, Seseke-Weg, Datteln-Hamm-Kanal-Radweg, RadrevierRuhr), kiralama nereden
 
 ### 2.2 — EN Ana Sayfa İçerik İyileştirmeleri
 
 Ana sayfada EN dilinde şu metinler **H2 seviyesinde** olmalı:
 
-- "Bike Shop in Freiburg — New & Used Bikes" ← şu an H1'de "Bikes in Freiburg — new & used." var, iyi
-- Altında "Whether you're a tourist looking to **rent a bike in Freiburg**, a student needing a **used bike**, or a resident searching for a **new bicycle** — Karaarslan Bike has you covered."
+- "Bike Shop in Lünen — New & Used Bikes" ← şu an H1'de "Bikes in Lünen — new & used." var, iyi
+- Altında "Whether you're an international resident looking to **rent a bike in Lünen**, a student needing a **used bike**, or a local searching for a **new bicycle** — Karaarslan Bike has you covered."
 
 **Mevcut EN `heroSub`:**
 
-> "New and certified used bikes in Freiburg — fair prices, sustainable refurbishment, personal advice."
+> "New and certified used bikes in Lünen — fair prices, sustainable refurbishment, personal advice."
 
 **Önerilen EN `heroSub` (anahtar kelime zenginleştirilmiş):**
 
-> "Buy or rent a bike in Freiburg ✓ Inspected used bikes from €80 ✓ Bike rental from €6.80/day ✓ City, Trekking & E-Bikes ✓ Pick up same day."
+> "Buy or rent a bike in Lünen ✓ Inspected used bikes from €80 ✓ Bike rental from €6.80/day ✓ City, Trekking & E-Bikes ✓ Pick up same day."
 
 ---
 
 ## 🇫🇷 AŞAMA 3: FR Anahtar Kelime Stratejisi
 
-### Neden FR SEO Altın Fırsattır
+### Neden FR SEO Bir Fırsattır
 
-Freiburg, Fransız sınırına **sadece 25 km** uzaklıkta. Alsaslılar (Strasbourg: 85 km, Colmar: 45 km, Mulhouse: 55 km) hafta sonları Freiburg'a sıklıkla geliyor. Bu kitle **Almanca bilmiyor**, Google'da **Fransızca** arama yapıyor.
+Ruhrgebiet, Almanya'nın en kalabalık ve en çok uluslararası nüfusa sahip metropol bölgesidir. Lünen ve çevresinde (Dortmund, Unna, Hamm) yaşayan/çalışan **Fransızca konuşan sakinler, expat ve uluslararası ziyaretçiler** mevcut. Bu kitlenin bir kısmı **Almanca bilmiyor** ve Google'da **Fransızca** arama yapıyor.
 
-Rakipler bu pazarı **tamamen boş bırakmış**. Sen sahip çıkarsan rakibsiz olursun.
+Burada hedef sınır turizmi değil; bölgedeki Fransızca konuşanlara **genel Fransızca dil hizmeti** sunmaktır. Yerel rakipler FR içerik üretmiyor — sen üretirsen bu nişte rakipsiz olursun.
 
 ### Hedef Anahtar Kelimeler (Fransızca)
 
-#### Kiralama Odaklı (Turist/Alsaslı):
+#### Kiralama Odaklı (Yerel Fransızca konuşanlar):
 
 | Anahtar Kelime                      | Tahmini Hacim | Rekabet   |
 | ----------------------------------- | ------------- | --------- |
-| `location vélo Fribourg`            | 100-400       | Çok Düşük |
-| `louer vélo Fribourg`               | 100-300       | Çok Düşük |
-| `louer un vélo à Fribourg`          | 50-200        | Çok Düşük |
-| `location vélo Fribourg-en-Brisgau` | 50-150        | Çok Düşük |
-| `vélo Fribourg tourisme`            | 50-200        | Çok Düşük |
+| `location vélo Lünen`               | 30-150        | Çok Düşük |
+| `louer vélo Lünen`                  | 30-120        | Çok Düşük |
+| `louer un vélo à Lünen`             | 20-80         | Çok Düşük |
+| `location vélo Dortmund`            | 50-200        | Düşük     |
+| `magasin de vélo Lünen`             | 30-120        | Çok Düşük |
 
 #### Satın Alma Odaklı:
 
 | Anahtar Kelime                      | Tahmini Hacim | Rekabet   |
 | ----------------------------------- | ------------- | --------- |
-| `acheter vélo Fribourg`             | 50-200        | Çok Düşük |
-| `vélo occasion Fribourg`            | 50-200        | Çok Düşük |
+| `acheter vélo Lünen`                | 30-120        | Çok Düşük |
+| `vélo occasion Lünen`               | 30-120        | Çok Düşük |
 | `achat vélo Allemagne`              | 100-300       | Düşük     |
-| `vélo électrique occasion Fribourg` | 30-100        | Çok Düşük |
+| `vélo électrique occasion Lünen`    | 20-80         | Çok Düşük |
 
-#### Cross-Border Fırsatı (Alsace yakınlığı):
+#### Bölgesel Fırsat (Ruhrgebiet Fransızca konuşan kitle):
 
 | Anahtar Kelime                      | Bağlantı                                            |
 | ----------------------------------- | --------------------------------------------------- |
-| `location vélo Strasbourg Fribourg` | Alsaslı turistler                                   |
-| `vélo transfrontalier Alsace Bade`  | Sınır ötesi bisikletçiler                           |
-| `Rhin à vélo location`              | Ren nehri bisiklet güzergâhı — büyük turist kitlesi |
+| `location vélo Dortmund Lünen`      | Bölgedeki Fransızca konuşan sakinler                |
+| `magasin vélo francophone Ruhr`     | Fransızca hizmet arayan expatlar                    |
+| `vélo Ruhr itinéraire`              | Ruhr bölgesi bisiklet güzergâhları (RadrevierRuhr)  |
 
 ### 3.1 — FR İçin Öncelikli Blog Makaleleri
 
 **Makale 1 (En Büyük FR Fırsatı):**
 
-- Başlık: `Location de vélos à Fribourg — Tarifs, Réservation & Adresse`
-- Slug: `/fr/guide/location-velo-fribourg`
-- Hedef keywords: "location vélo Fribourg", "louer vélo Fribourg"
+- Başlık: `Location de vélos à Lünen — Tarifs, Réservation & Adresse`
+- Slug: `/fr/guide/location-velo-luenen`
+- Hedef keywords: "location vélo Lünen", "louer vélo Lünen"
 - İçerik: Kiralama fiyatları, dahil olanlar, nereden alınır, güzergâhlar
 - Schema: `FAQPage`, `LocalBusiness` + fiyatlar
 
-**Makale 2 (Alsace Cross-Border):**
+**Makale 2 (Bölgedeki Fransızca konuşanlar):**
 
-- Başlık: `Louer un vélo à Fribourg depuis l'Alsace — Guide complet`
-- Slug: `/fr/guide/louer-velo-fribourg-alsace`
-- Hedef keywords: "location vélo Fribourg", "Alsace vélo"
-- İçerik: Strasbourg/Colmar/Mulhouse'dan nasıl gelinir, tavsiyeler
+- Başlık: `Louer un vélo à Lünen — Guide pour les francophones de la Ruhr`
+- Slug: `/fr/guide/louer-velo-luenen-francophones`
+- Hedef keywords: "location vélo Lünen", "magasin vélo francophone Ruhr"
+- İçerik: Dortmund/Unna/Hamm'dan nasıl ulaşılır, Fransızca hizmet, tavsiyeler
 
-**Makale 3 (Rhin à vélo fırsatı):**
+**Makale 3 (Ruhr güzergâhları):**
 
-- Başlık: `Rhin à Vélo — Location de vélos à Fribourg pour votre itinéraire`
-- Slug: `/fr/guide/rhin-velo-location-fribourg`
-- Hedef keywords: "Rhin à Vélo location", "itinéraire vélo Fribourg"
-- İçerik: Ren nehri bisiklet güzergâhı, Freiburg'dan ne gerekli, kiralama
+- Başlık: `À vélo autour de Lünen — Itinéraires de la région de la Ruhr`
+- Slug: `/fr/guide/velo-luenen-itineraires-ruhr`
+- Hedef keywords: "vélo Ruhr itinéraire", "itinéraire vélo Lünen"
+- İçerik: Ruhr bölgesi bisiklet güzergâhları (Römer-Lippe-Route, Seseke-Weg, RadrevierRuhr), Lünen'den ne gerekli, kiralama
 
 \*\*Makale 4 (Satın alma):
 
-- Başlık: `Acheter un vélo à Fribourg — Guide 2026 pour les francophones`
-- Slug: `/fr/guide/acheter-velo-fribourg`
-- Hedef keywords: "acheter vélo Fribourg", "vélo occasion Fribourg"
+- Başlık: `Acheter un vélo à Lünen — Guide 2026 pour les francophones`
+- Slug: `/fr/guide/acheter-velo-luenen`
+- Hedef keywords: "acheter vélo Lünen", "vélo occasion Lünen"
 
 ### 3.2 — FR Ana Sayfa ve Meta İyileştirmeleri
 
 **Mevcut FR `metaTitle`:**
 
-> `Acheter & louer un vélo à Fribourg | Karaarslan Bike`
+> `Acheter & louer un vélo à Lünen | Karaarslan Bike`
 
 ✅ İyi — değiştirme.
 
-**Mevcut FR `metaDescription`:**
+**Önerilen FR `metaDescription`:**
 
-> `Achetez ou louez un vélo à Fribourg-en-Brisgau ✓ 100+ vélos certifiés ✓ Ville, Trekking, VAE ✓ Location dès 6,80 €/jour ✓ 3 mois de garantie. Votre magasin de vélos à Fribourg.`
-
-✅ İyi — değiştirme.
+> `Achetez ou louez un vélo à Lünen ✓ 100+ vélos certifiés ✓ Ville, Trekking, VAE ✓ Location dès 6,80 €/jour ✓ 3 mois de garantie. Votre magasin de vélos à Lünen, dans la Ruhr.`
 
 **Mevcut FR `heroSub`:**
 
@@ -276,7 +274,7 @@ Rakipler bu pazarı **tamamen boş bırakmış**. Sen sahip çıkarsan rakibsiz 
 
 **Önerilen FR `heroSub` (anahtar kelime zenginleştirilmiş):**
 
-> "Achetez ou louez votre vélo à Fribourg-en-Brisgau ✓ Vélos inspectés dès 80 € ✓ Location dès 6,80 €/jour ✓ Retrait immédiat ✓ À 25 km de l'Alsace."
+> "Achetez ou louez votre vélo à Lünen ✓ Vélos inspectés dès 80 € ✓ Location dès 6,80 €/jour ✓ Retrait immédiat ✓ Service en français dans la Ruhr."
 
 ---
 
@@ -314,10 +312,10 @@ const currentSlug = article.slugTranslations?.[lang] ?? article.slug;
 ```xml
 <!-- EN Blog Articles (EN slugs) -->
 <url>
-  <loc>https://karaarslan-bike.de/en/guide/buying-used-bike-freiburg-tips</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/buying-used-bike-freiburg-tips"/>
+  <loc>https://karaarslan-bike.de/en/guide/buying-used-bike-luenen-tips</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://karaarslan-bike.de/en/guide/buying-used-bike-luenen-tips"/>
   <xhtml:link rel="alternate" hreflang="de" href="https://karaarslan-bike.de/de/ratgeber/gebrauchtes-fahrrad-kaufen-tipps"/>
-  <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/acheter-velo-occasion-fribourg"/>
+  <xhtml:link rel="alternate" hreflang="fr" href="https://karaarslan-bike.de/fr/guide/acheter-velo-occasion-luenen"/>
   <lastmod>2026-04-12</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.8</priority>
@@ -331,10 +329,10 @@ Nginx'e eklenecek yönlendirmeler:
 ```nginx
 # Eski Almanca slug'lu EN/FR blog URL'leri → yeni İngilizce/Fransızca sluglar
 location = /en/ratgeber/gebrauchtes-fahrrad-kaufen-tipps {
-  return 301 /en/guide/buying-used-bike-freiburg-tips;
+  return 301 /en/guide/buying-used-bike-luenen-tips;
 }
 location = /fr/ratgeber/gebrauchtes-fahrrad-kaufen-tipps {
-  return 301 /fr/guide/acheter-velo-occasion-fribourg;
+  return 301 /fr/guide/acheter-velo-occasion-luenen;
 }
 # ... diğer makaleler için aynı şekilde
 ```
@@ -352,13 +350,13 @@ Her EN ve FR sayfasında `LocalBusiness` schema'sına `availableLanguage` ekle:
     "@type": "PostalAddress",
     "streetAddress": "Alstedder Straße 5",
     "addressLocality": "Lünen",
-    "postalCode": "79114",
+    "postalCode": "44534",
     "addressCountry": "DE"
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 47.9947,
-    "longitude": 7.8374
+    "latitude": 51.6236,
+    "longitude": 7.5130
   }
 }
 ```
@@ -369,16 +367,16 @@ Her EN ve FR sayfasında `LocalBusiness` schema'sına `availableLanguage` ekle:
 
 ### Öncelik Sırası (Etki/Efora Göre)
 
-| #   | İçerik                         | Dil | URL                                    | Hedef Keyword          | Hafta   |
-| --- | ------------------------------ | --- | -------------------------------------- | ---------------------- | ------- |
-| 1   | Bike Rental Freiburg Guide     | EN  | `/en/guide/bike-rental-freiburg`       | bike rental freiburg   | Hafta 1 |
-| 2   | Location vélo Fribourg         | FR  | `/fr/guide/location-velo-fribourg`     | location vélo Fribourg | Hafta 1 |
-| 3   | Buy Used Bike Freiburg (Expat) | EN  | `/en/guide/buy-used-bike-freiburg`     | used bike freiburg     | Hafta 2 |
-| 4   | Acheter vélo Fribourg          | FR  | `/fr/guide/acheter-velo-fribourg`      | acheter vélo Fribourg  | Hafta 2 |
-| 5   | Cycling in Freiburg Routes     | EN  | `/en/guide/cycling-freiburg`           | cycling freiburg       | Hafta 3 |
-| 6   | Rhin à Vélo + Fribourg         | FR  | `/fr/guide/rhin-velo-fribourg`         | Rhin à Vélo location   | Hafta 3 |
-| 7   | Used E-Bike Guide              | EN  | `/en/guide/used-e-bike-buying-guide`   | used e-bike freiburg   | Hafta 4 |
-| 8   | Louer vélo Alsace → Fribourg   | FR  | `/fr/guide/louer-velo-alsace-fribourg` | vélo Alsace Fribourg   | Hafta 4 |
+| #   | İçerik                         | Dil | URL                                       | Hedef Keyword             | Hafta   |
+| --- | ------------------------------ | --- | ----------------------------------------- | ------------------------- | ------- |
+| 1   | Bike Rental Lünen Guide        | EN  | `/en/guide/bike-rental-luenen`            | bike rental lünen         | Hafta 1 |
+| 2   | Location vélo Lünen            | FR  | `/fr/guide/location-velo-luenen`          | location vélo Lünen       | Hafta 1 |
+| 3   | Buy Used Bike Lünen (Expat)    | EN  | `/en/guide/buy-used-bike-luenen`          | used bike lünen           | Hafta 2 |
+| 4   | Acheter vélo Lünen             | FR  | `/fr/guide/acheter-velo-luenen`           | acheter vélo Lünen        | Hafta 2 |
+| 5   | Cycling Around Lünen Routes    | EN  | `/en/guide/cycling-luenen`                | cycling in the ruhr area  | Hafta 3 |
+| 6   | Vélo autour de Lünen (Ruhr)    | FR  | `/fr/guide/velo-luenen-itineraires-ruhr`  | vélo Ruhr itinéraire      | Hafta 3 |
+| 7   | Used E-Bike Guide              | EN  | `/en/guide/used-e-bike-buying-guide`      | used e-bike lünen         | Hafta 4 |
+| 8   | Louer vélo Lünen (francophones)| FR  | `/fr/guide/louer-velo-luenen-francophones`| location vélo Lünen       | Hafta 4 |
 
 ### Makale İçerik Standartları
 
@@ -400,36 +398,37 @@ Her EN/FR makale şunları içermeli:
 
 1. **Expat/Student Fora:**
    - ExpatForum.com (Germany section)
-   - Reddit: r/germany, r/freiburg, r/expats
-   - Internations Freiburg group
+   - Reddit: r/germany, r/dortmund, r/Ruhrgebiet, r/expats
+   - Internations Dortmund/Ruhr group
 
-2. **Turist Siteleri:**
-   - TripAdvisor Freiburg listelemeleri
-   - Visit Freiburg resmi siteleri
-   - Hostel ve Airbnb community foraları
+2. **Yerel/Ziyaretçi Siteleri:**
+   - TripAdvisor Lünen/Dortmund listelemeleri
+   - Stadt Lünen turizm/ziyaretçi sayfaları
+   - Hostel ve Airbnb community foraları (Dortmund/Ruhr)
 
 3. **Bisiklet Siteleri:**
    - Cycling Europe route sites
-   - EuroVelo 15 (Ren nehri güzergâhı) — Bike Haus kiralama noktası olarak eklet
+   - RadrevierRuhr & Römer-Lippe-Route — Karaarslan Bike kiralama noktası olarak eklet
 
 ### FR için Backlink Kaynakları
 
-1. **Alsace Turizm Siteleri:**
-   - Strasbourg.eu, Colmar-tourisme.com
-   - Alsace.com, visit.alsace
+1. **Almanya'daki Fransızca Topluluklar:**
+   - lepetitjournal.com (Allemagne / Düsseldorf-Cologne baskısı)
+   - connexion-emploi.com (Fransız-Alman iş/yaşam portalı)
+   - Institut français NRW (Düsseldorf/Köln) etkinlik ve dizinleri
 
 2. **FR Bisiklet Foraları:**
    - Velo101.com
    - Cyclotourisme France foraları
-   - Reddit: r/velo, r/alsace
+   - Reddit: r/velo
 
-3. **EuroVelo & Rhin à Vélo:**
-   - eurovelo.com (EV15 sayfası — kiralama noktası olarak eklet)
-   - rhinavelo.eu — Freiburg durağı olarak listelenmek
+3. **Expat & Francophone Dizinleri:**
+   - Fransızca konuşan expat Facebook grupları (Ruhr/NRW)
+   - francophones-allemagne dizinleri ve toplulukları
 
-4. **Cross-Border Medya:**
-   - DNA.fr (Dernières Nouvelles d'Alsace)
-   - Les médias locaux alsaciens
+4. **Yerel/Bölgesel Medya:**
+   - Ruhr bölgesi yerel haber siteleri (Lünen/Dortmund)
+   - Çok dilli işletme dizinleri (FR profil seçeneği olanlar)
 
 ---
 
@@ -446,10 +445,10 @@ Her EN/FR makale şunları içermeli:
 
 | Metrik                            | Mevcut | Hedef (3 ay) |
 | --------------------------------- | ------ | ------------ |
-| EN organik tıklama/ay             | ~0-50  | 500+         |
-| FR organik tıklama/ay             | ~0-30  | 300+         |
-| "bike rental freiburg" sıralama   | 20+    | 5-10         |
-| "location vélo Fribourg" sıralama | 20+    | 3-7          |
+| EN organik tıklama/ay             | ~0-50  | 300+         |
+| FR organik tıklama/ay             | ~0-30  | 150+         |
+| "bike rental lünen" sıralama      | 20+    | 5-10         |
+| "location vélo Lünen" sıralama    | 20+    | 3-7          |
 | EN sayfa sayısı indexlenen        | 10     | 20+          |
 | FR sayfa sayısı indexlenen        | 10     | 20+          |
 
@@ -457,15 +456,15 @@ Her EN/FR makale şunları içermeli:
 
 ## ⚡ Hızlı Kazanç Listesi (Bu Hafta Yapılabilecekler)
 
-1. **[ ] FR `heroSub` metni güncelle** → Alsace yakınlığını vurgula ("À 25 km de l'Alsace")
-2. **[ ] EN `heroSub` metni güncelle** → "bike rental freiburg" kelimesini dahil et
-3. **[ ] EN FAQ'ya 5 yeni soru-cevap ekle** → "bike rental freiburg" odaklı
-4. **[ ] FR FAQ'ya 5 yeni soru-cevap ekle** → "location vélo fribourg" odaklı
+1. **[ ] FR `heroSub` metni güncelle** → Ruhr'da Fransızca hizmeti vurgula ("Service en français dans la Ruhr")
+2. **[ ] EN `heroSub` metni güncelle** → "bike rental lünen" kelimesini dahil et
+3. **[ ] EN FAQ'ya 5 yeni soru-cevap ekle** → "bike rental lünen" odaklı
+4. **[ ] FR FAQ'ya 5 yeni soru-cevap ekle** → "location vélo lünen" odaklı
 5. **[ ] Sitemap'i güncelle** → Tüm EN/FR blog URL'lerini doğru slug'larla ekle
 6. **[ ] `blog.data.ts`'e `slugTranslations` ekle** → EN/FR slug'larını tanımla
 7. **[ ] `app.routes.ts`'e `/guide/` route ekle** → EN/FR için İngilizce URL prefix
-8. **[ ] İlk EN blog makalesi yaz:** "Bike Rental in Freiburg — Guide 2026"
-9. **[ ] İlk FR blog makalesi yaz:** "Location de vélos à Fribourg — Guide complet"
+8. **[ ] İlk EN blog makalesi yaz:** "Bike Rental in Lünen — Guide 2026"
+9. **[ ] İlk FR blog makalesi yaz:** "Location de vélos à Lünen — Guide complet"
 10. **[ ] Google Search Console'a sitemap gönder** → Yeni URL'lerin indexlenmesini hızlandır
 
 ---
@@ -476,7 +475,7 @@ Her EN/FR makale şunları içermeli:
 | ----------- | ----------------------------------------------------------------------------------------------- |
 | **Hafta 1** | URL düzeltmeleri (slugTranslations + guide route) + 2 blog makalesi (EN kiralama + FR kiralama) |
 | **Hafta 2** | 2 blog makalesi (EN expat + FR achat) + FAQ güncellemeleri + sitemap                            |
-| **Hafta 3** | 2 blog makalesi (EN cycling + FR Rhin) + Schema.org güncellemeleri                              |
+| **Hafta 3** | 2 blog makalesi (EN cycling Ruhr + FR Ruhr itinéraires) + Schema.org güncellemeleri             |
 | **Hafta 4** | 2 blog makalesi + Backlink outreach başlangıcı                                                  |
 | **Ay 2**    | GSC analizi + içerik optimizasyonu + yeni makaleler                                             |
 | **Ay 3**    | Backlink kampanyası + performans değerlendirme                                                  |
@@ -490,8 +489,8 @@ Google Business Profile'ına **EN ve FR dil desteği** ekle:
 1. Google Business Profile'ı aç
 2. "Add language" → English ve French ekle
 3. Her dilde ayrı **Business Description** yaz:
-   - EN: "Bike shop in Freiburg — buy, sell & rent bicycles. City bikes, trekking, e-bikes. From €6.80/day rental. 3-month warranty on used bikes."
-   - FR: "Magasin de vélos à Fribourg — achat, vente & location. Vélos de ville, VTT, VAE. Location dès 6,80 €/jour. À 25 km de l'Alsace."
+   - EN: "Bike shop in Lünen — buy, sell & rent bicycles. City bikes, trekking, e-bikes. From €6.80/day rental. 3-month warranty on used bikes."
+   - FR: "Magasin de vélos à Lünen — achat, vente & location. Vélos de ville, VTT, VAE. Location dès 6,80 €/jour. Service en français dans la Ruhr."
 4. **Google Posts** yaz (haftada 1) — EN ve FR'de
 
 Google Business Profile EN/FR ziyaretçilerine doğrudan ulaşmanın en hızlı yoludur.

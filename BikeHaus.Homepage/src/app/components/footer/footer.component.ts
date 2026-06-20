@@ -64,20 +64,20 @@ import { ShopInfoService } from '../../services/shop-info.service';
         <div class="footer-col">
           <h4>{{ t().footerLocations }}</h4>
           <nav [attr.aria-label]="t().footerLocations">
-            <a [routerLink]="['/' + lang(), 'fahrrad-emmendingen']"
-              >Fahrrad Lünen</a
+            <a [routerLink]="['/' + lang(), 'fahrrad-dortmund']"
+              >Fahrrad Dortmund</a
             >
-            <a [routerLink]="['/' + lang(), 'fahrrad-bad-krozingen']"
-              >Fahrrad Brambauer</a
+            <a [routerLink]="['/' + lang(), 'fahrrad-kamen']"
+              >Fahrrad Kamen</a
             >
-            <a [routerLink]="['/' + lang(), 'fahrrad-breisach']"
-              >Fahrrad Alstedde</a
+            <a [routerLink]="['/' + lang(), 'fahrrad-bergkamen']"
+              >Fahrrad Bergkamen</a
             >
-            <a [routerLink]="['/' + lang(), 'fahrrad-gundelfingen']"
-              >Fahrrad Wethmar</a
+            <a [routerLink]="['/' + lang(), 'fahrrad-werne']"
+              >Fahrrad Werne</a
             >
-            <a [routerLink]="['/' + lang(), 'fahrrad-march']"
-              >Fahrrad Nordlünen</a
+            <a [routerLink]="['/' + lang(), 'fahrrad-selm']"
+              >Fahrrad Selm</a
             >
           </nav>
         </div>

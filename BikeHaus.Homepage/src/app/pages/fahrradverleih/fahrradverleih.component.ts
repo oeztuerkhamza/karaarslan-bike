@@ -409,8 +409,8 @@ import {
               <div>
                 <strong>Öffnungszeiten</strong>
                 <span
-                  >Mo, Di, Do 11–17:30 · Mi 14–17:30 · Fr 11–13 &amp; 15–18 · Sa
-                  11:30–17</span
+                  >Mo–Do 09–18 · Fr 09–13 &amp; 15–18 · Sa 09–18 · So
+                  geschlossen</span
                 >
               </div>
             </div>
@@ -3902,7 +3902,7 @@ export class FahrradverleihComponent implements OnInit {
 
     const faqFr = [
       {
-        q: 'Combien coûte la location de vélo à Lünen-en-Brisgau ?',
+        q: 'Combien coûte la location de vélo à Lünen ?',
         a: 'Chez Karaarslan Bike, chaque vélo dispose de tarifs configurés individuellement pour 1 à 7 jours. À partir du 8e jour, le calcul utilise le prix 7 jours plus un supplément fixe par jour ajouté.',
       },
       {
@@ -3968,8 +3968,8 @@ export class FahrradverleihComponent implements OnInit {
               '@type': 'PostalAddress',
               streetAddress: 'Alstedder Straße 5',
               addressLocality: 'Lünen',
-              postalCode: '79114',
-              addressRegion: 'Baden-Württemberg',
+              postalCode: '44534',
+              addressRegion: 'Nordrhein-Westfalen',
               addressCountry: 'DE',
             },
             telephone: '+49-155-66300011',

@@ -2,7 +2,7 @@
 // BikeHaus Bulk Editor - Popup Script
 // ============================================
 
-const STANDARD_TEMPLATE = `Karaarslan Bike – Ihr gebrauchte Fahrradladen in Freiburg
+const STANDARD_TEMPLATE = `Karaarslan Bike – Ihr gebrauchter Fahrradladen in Lünen
 
 ✅ Neue Fahrrad 24 Monate Garantie
 ✅ Gebrauchte Fahrrad 3 Monate Garantie
@@ -11,13 +11,13 @@ const STANDARD_TEMPLATE = `Karaarslan Bike – Ihr gebrauchte Fahrradladen in Fr
 ✅ Fahrradreservierungen sind leider nicht möglich
 
 Adresse & Öffnungszeiten:
-Alstedder Straße 5, Freiburg
-Mo 11:00–17:30
-Di 11:00–17:30
-Mi 14:00–17:30
-Do 11:00–17:30
-Fr 11:00–13:00 & 15:00–17:00
-Sa 11:30–17:00
+Alstedder Straße 5, 44534 Lünen
+Mo 09:00–18:00
+Di 09:00–18:00
+Mi 09:00–18:00
+Do 09:00–18:00
+Fr 09:00–13:00 & 15:00–18:00
+Sa 09:00–18:00
 
 Ankauf:
 Wir kaufen nur qualitativ hochwertige Fahrräder (Cube, Bulls, KTM, Ghost, Frog, Woom, Pyro, Bergamont, Stevens, Giant, Kalkhoff, Steppenwolf).

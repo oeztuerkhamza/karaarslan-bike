@@ -3206,13 +3206,13 @@ export class HomeComponent implements OnInit, OnDestroy {
         '@type': 'PostalAddress',
         streetAddress: 'Alstedder Straße 5',
         addressLocality: 'Lünen',
-        postalCode: '79114',
+        postalCode: '44534',
         addressCountry: 'DE',
       },
       geo: {
         '@type': 'GeoCoordinates',
-        latitude: 47.999,
-        longitude: 7.8421,
+        latitude: 51.6236,
+        longitude: 7.5130,
       },
       aggregateRating: {
         '@type': 'AggregateRating',
@@ -3233,20 +3233,14 @@ export class HomeComponent implements OnInit, OnDestroy {
       openingHoursSpecification: [
         {
           '@type': 'OpeningHoursSpecification',
-          dayOfWeek: ['Monday', 'Tuesday', 'Thursday'],
-          opens: '11:00',
-          closes: '17:30',
-        },
-        {
-          '@type': 'OpeningHoursSpecification',
-          dayOfWeek: 'Wednesday',
-          opens: '14:00',
-          closes: '17:30',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+          opens: '09:00',
+          closes: '18:00',
         },
         {
           '@type': 'OpeningHoursSpecification',
           dayOfWeek: 'Friday',
-          opens: '11:00',
+          opens: '09:00',
           closes: '13:00',
         },
         {
@@ -3258,7 +3252,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         {
           '@type': 'OpeningHoursSpecification',
           dayOfWeek: 'Saturday',
-          opens: '11:30',
+          opens: '09:00',
           closes: '18:00',
         },
       ],

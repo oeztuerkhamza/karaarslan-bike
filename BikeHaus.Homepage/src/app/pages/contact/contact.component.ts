@@ -176,7 +176,7 @@ import { PublicShopInfo } from '../../models/models';
                 </div>
                 <div class="hour-row">
                   <span>{{ t().satShort }}</span
-                  ><span>10:00 – 13:30</span>
+                  ><span>09:00 – 18:00</span>
                 </div>
                 <div class="hour-row closed">
                   <span>{{ t().sunShort }}</span

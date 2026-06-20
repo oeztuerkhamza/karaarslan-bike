@@ -1,6 +1,6 @@
 # 🚴 Karaarslan Bike — 5 Aşamalı SEO Optimizasyon Planı
 
-> **Hedef:** "fahrradladen freiburg", "fahrrad kaufen freiburg", "bike freiburg" gibi aramalarda Google'da 1. sırada yer almak + AI aramalarında (ChatGPT, Gemini, Perplexity, Bing Copilot) öne çıkmak.
+> **Hedef:** "fahrradladen lünen", "fahrrad kaufen lünen", "fahrrad lünen" gibi aramalarda Google'da 1. sırada yer almak + AI aramalarında (ChatGPT, Gemini, Perplexity, Bing Copilot) öne çıkmak.
 
 ---
 
@@ -123,7 +123,7 @@ homepage:
 
 ```json
 "sameAs": [
-  "https://www.google.com/maps/place/Bike+Haus+Freiburg/...",
+  "https://www.google.com/maps/place/Karaarslan+Bike+Lünen/...",
   "https://www.instagram.com/karaarslanbike/",
   "https://www.facebook.com/karaarslanbike/",
   "https://wa.me/4915566300011"
@@ -152,7 +152,7 @@ homepage:
 | 2   | Welches Fahrrad passt zu mir? Der große Ratgeber       | welches fahrrad passt zu mir     | Çok Yüksek    |
 | 3   | Fahrrad Rahmengröße berechnen — Tabelle & Rechner      | fahrrad rahmengröße berechnen    | Çok Yüksek    |
 | 4   | E-Bike gebraucht kaufen — Akku, Motor, Garantie        | e-bike gebraucht kaufen          | Yüksek        |
-| 5   | Fahrradladen Freiburg — Die besten Fahrradgeschäfte    | fahrradladen freiburg            | Hedef Keyword |
+| 5   | Fahrradladen Lünen — Die besten Fahrradgeschäfte       | fahrradladen lünen               | Hedef Keyword |
 | 6   | Fahrrad Inspektion — Was wird gemacht & was kostet es? | fahrrad inspektion               | Orta          |
 | 7   | Fahrrad für Pendler — Die besten Stadträder 2026       | fahrrad pendler                  | Orta          |
 | 8   | Kinderfahrrad Größe — Welche Größe für welches Alter?  | kinderfahrrad größe              | Yüksek        |
@@ -207,7 +207,7 @@ Mevcut FAQ şemasını genişlet + ayrı bir `/de/faq` sayfası oluştur:
 ## Über uns
 Karaarslan Bike ist ein Fahrradgeschäft in der Alstedder Straße 5, 44534 Lünen.
 Wir verkaufen neue und gebrauchte Fahrräder mit Garantie.
-Öffnungszeiten: Mo, Di, Do 11:00–17:30 | Mi 14:00–17:30 | Fr 11:00–13:00 & 15:00–17:00 | Sa 11:30–17:00 Uhr.
+Öffnungszeiten: Mo–Do 09:00–18:00 | Fr 09:00–13:00 & 15:00–18:00 | Sa 09:00–18:00 Uhr.
 
 ## Angebot
 - Neue Fahrräder (Citybikes, Trekkingräder, Mountainbikes, E-Bikes)
@@ -225,8 +225,8 @@ Wir verkaufen neue und gebrauchte Fahrräder mit Garantie.
 - Website: https://karaarslan-bike.de
 
 ## Einzugsgebiet
-Freiburg, Emmendingen, Bad Krozingen, Breisach, March, Gundelfingen,
-Merzhausen, Denzlingen, Waldkirch, Staufen, Kirchzarten, Breisgau-Hochschwarzwald
+Lünen, Dortmund, Kamen, Bergkamen, Werne, Selm, Waltrop,
+Castrop-Rauxel, Unna, Schwerte, Hamm, Herne, Kreis Unna, Ruhrgebiet
 
 ## Sprachen
 Deutsch, Französisch, Türkisch
@@ -328,8 +328,8 @@ Aşağıdaki dizinlere kayıt ol:
 | Das Örtliche | dasoertliche.de | ⭐⭐⭐⭐ |
 | Gelbe Seiten | gelbeseiten.de | ⭐⭐⭐⭐ |
 | GoLocal | golocal.de | ⭐⭐⭐ |
-| Freiburg.de | freiburg.de/auskunft | ⭐⭐⭐ |
-| meinestadt.de | meinestadt.de | ⭐⭐⭐ |
+| Luenen.de | luenen.de | ⭐⭐⭐ |
+| meinestadt.de | meinestadt.de/luenen | ⭐⭐⭐ |
 | KennstDuEinen | kennstdueinen.de | ⭐⭐⭐ |
 | Cylex | cylex.de | ⭐⭐ |
 | Branchenbuch | branchenbuch.de | ⭐⭐ |
@@ -351,13 +351,13 @@ https://karaarslan-bike.de
 
 Her çevre şehir için landing page:
 
-- `/de/fahrrad-emmendingen`
-- `/de/fahrrad-bad-krozingen`
-- `/de/fahrrad-breisach`
-- `/de/fahrrad-gundelfingen`
-- `/de/fahrrad-march`
+- `/de/fahrrad-dortmund`
+- `/de/fahrrad-kamen`
+- `/de/fahrrad-bergkamen`
+- `/de/fahrrad-werne`
+- `/de/fahrrad-selm`
 
-İçerik: "Fahrrad kaufen in Emmendingen? Karaarslan Bike ist nur X km entfernt..."
+İçerik: "Fahrrad kaufen in Dortmund? Karaarslan Bike ist nur X km entfernt..."
 
 **Süre:** 3-4 hafta  
 **Etki:** ⭐⭐⭐⭐⭐ (Lokal SEO, fiziksel mağaza için EN önemli faktör)
@@ -371,7 +371,7 @@ Her çevre şehir için landing page:
 Her ürün eklendiğinde otomatik:
 
 - Unique title: `"{Marka} {Model} {Tip} kaufen | Karaarslan Bike"`
-- Unique description: `"{Marka} {Model} — {Durum}, {Fiyat}€. {Tip} in Freiburg kaufen..."`
+- Unique description: `"{Marka} {Model} — {Durum}, {Fiyat}€. {Tip} in Lünen kaufen..."`
 - Product Schema.org (✅ zaten var, genişlet)
 - Open Graph image (ürün fotoğrafı)
 - Canonical URL
@@ -426,15 +426,15 @@ Mevcut şemalara ek:
 - **Google Search Console** — haftalık takip
 - **Core Web Vitals** — aylık kontrol
 - **Keyword Ranking Tracking** — ahrefs/semrush/sistrix
-- **AI Search Monitoring** — Perplexity, ChatGPT'de "fahrradladen freiburg" aramalarını test et
-- **Competitor Analysis** — Rack Attack, Radstation, Lucky Bike takip
+- **AI Search Monitoring** — Perplexity, ChatGPT'de "fahrradladen lünen" aramalarını test et
+- **Competitor Analysis** — Lünen ve çevresindeki yerel fahrradlar + Lucky Bike, Stadler (Dortmund) takip
 - **Sitemap auto-update** — Her ürün ekleme/silme sonrası
 
 ### 5.6 — Social Signals & Brand Building
 
 - Instagram'da düzenli paylaşım (yeni ürünler, before/after)
 - Google Posts haftada 1
-- Freiburg lokal gruplarda varlık (Facebook, Reddit r/freiburg)
+- Lünen/Ruhrgebiet lokal gruplarda varlık (Facebook, Reddit r/Ruhrgebiet, r/dortmund)
 - YouTube kısa videolar (30sn ürün tanıtım)
 
 **Süre:** Sürekli (aylık)  
@@ -458,22 +458,22 @@ Mevcut şemalara ek:
 
 ### Birincil (Must #1)
 
-- `fahrradladen freiburg`
-- `fahrrad kaufen freiburg`
-- `gebrauchte fahrräder freiburg`
+- `fahrradladen lünen`
+- `fahrrad kaufen lünen`
+- `gebrauchte fahrräder lünen`
 - `karaarslan bike lünen`
-- `fahrradgeschäft freiburg`
-- `fahrradhändler freiburg`
+- `fahrradgeschäft lünen`
+- `fahrradhändler lünen`
 
 ### İkincil (Top 3)
 
-- `e-bike freiburg`
-- `e-bike gebraucht freiburg`
-- `kinderfahrrad freiburg`
-- `citybike freiburg`
-- `mountainbike freiburg`
-- `fahrrad emmendingen`
-- `fahrrad bad krozingen`
+- `e-bike lünen`
+- `e-bike gebraucht lünen`
+- `kinderfahrrad lünen`
+- `citybike lünen`
+- `mountainbike lünen`
+- `fahrrad dortmund`
+- `fahrrad kamen`
 
 ### Uzun Kuyruk (Blog ile hedefle)
 
