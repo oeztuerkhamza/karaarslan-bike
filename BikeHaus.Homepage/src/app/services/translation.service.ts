@@ -78,21 +78,6 @@ export interface Translations {
   svcRepairItem4: string;
   svcRepairCta: string;
   svcRepairWaCta: string;
-  svcRentalBadge: string;
-  svcRentalTitle: string;
-  svcRentalSub: string;
-  svcRentalItem1: string;
-  svcRentalItem2: string;
-  svcRentalItem3: string;
-  svcRentalItem4: string;
-  svcRentalCta: string;
-  homeRentalCardTitle: string;
-  homeRentalBestBadge: string;
-  homeRentalPopularBadge: string;
-  homeRentalLock: string;
-  homeRentalHelmet: string;
-  homeRentalAvail: string;
-  homeRentalBookCta: string;
   svcAngeboteBadge: string;
   svcAngeboteTitle: string;
   svcAngeboteSub: string;
@@ -217,98 +202,6 @@ export interface Translations {
   warrantyExcludedItems: string;
   warrantyReturnTitle: string;
   warrantyReturnText: string;
-
-  // Bike Rental Page
-  bikeRental: string;
-  bikeRentalPageLabel: string;
-  bikeRentalPageTitle: string;
-  bikeRentalIntro: string;
-  bikeRentalPricesTitle: string;
-  bikeRentalHeroPrice: string;
-  bikeRentalTierShort: string;
-  bikeRentalTierPopular: string;
-  bikeRentalTierTop: string;
-  bikeRentalTierLong: string;
-  bikeRentalTierBest: string;
-  bikeRentalTierAddon: string;
-  bikeRentalDurationDay1: string;
-  bikeRentalDurationDay3: string;
-  bikeRentalDurationDay7: string;
-  bikeRentalDurationDay14: string;
-  bikeRentalDurationDay30: string;
-  bikeRentalDurationFromDay10: string;
-  bikeRentalPriceDay1: string;
-  bikeRentalPriceDay3: string;
-  bikeRentalPriceDay7: string;
-  bikeRentalPriceDay14: string;
-  bikeRentalPriceDay30: string;
-  bikeRentalPriceAddon: string;
-  bikeRentalDay1: string;
-  bikeRentalDay7: string;
-  bikeRentalDay8Plus: string;
-  bikeRentalMonth: string;
-  bikeRentalDepositTitle: string;
-  bikeRentalDepositText: string;
-  bikeRentalNoteTitle: string;
-  bikeRentalNoteText: string;
-  bikeRentalIncludedTitle: string;
-  bikeRentalIncluded1: string;
-  bikeRentalIncluded2: string;
-  bikeRentalIncludedNote: string;
-  bikeRentalAvailableLabel: string;
-  bikeRentalAvailableTitle: string;
-  bikeRentalNoBikes: string;
-  bikeRentalBookBtn: string;
-  bikeRentalDay: string;
-  bikeRentalDays: string;
-
-  // Rental page booking form
-  rentalHeroTitle: string;
-  rentalHeroSub: string;
-  rentalHeroWaCta: string;
-  rentalHeroScrollCta: string;
-  rentalPricingTitle: string;
-  rentalPricingSub: string;
-  rentalBikesSub: string;
-  rentalFormPeriod: string;
-  rentalFormYourData: string;
-  rentalFormFirstName: string;
-  rentalFormLastName: string;
-  rentalFormPhone: string;
-  rentalFormLang: string;
-  rentalFormNotes: string;
-  rentalFormSubmit: string;
-  rentalFormSending: string;
-  rentalFormConfirmNote: string;
-  rentalSuccessTitle: string;
-  rentalSuccessText: string;
-  rentalSuccessBookingNr: string;
-  rentalSuccessNewRequest: string;
-  rentalBikeDetails: string;
-  rentalChangeBike: string;
-  rentalLoadingAvail: string;
-  rentalSelectEndDate: string;
-  rentalEstPrice: string;
-  rentalStatusBooked: string;
-  rentalStatusPending: string;
-  rentalStatusClosed: string;
-  rentalStatusSelected: string;
-  rentalSundayLabel: string;
-
-  // Rental Reviews
-  rentalReviewsTitle: string;
-  rentalReviewsSubtitle: string;
-  rentalReviewsNoReviews: string;
-  rentalReviewsFormTitle: string;
-  rentalReviewsFormName: string;
-  rentalReviewsFormEmail: string;
-  rentalReviewsFormStars: string;
-  rentalReviewsFormComment: string;
-  rentalReviewsFormSubmit: string;
-  rentalReviewsFormSending: string;
-  rentalReviewsFormSuccess: string;
-  rentalReviewsFormError: string;
-  rentalReviewsFormValidation: string;
 
   // General
   loading: string;
@@ -502,8 +395,6 @@ export interface Translations {
   ratgeberBackToList: string;
   faqMetaTitle: string;
   faqMetaDescription: string;
-  bikeRentalMetaTitle: string;
-  bikeRentalMetaDescription: string;
   garantieMetaTitle: string;
   garantieMetaDescription: string;
   impressumMetaTitle: string;
@@ -550,9 +441,9 @@ export interface Translations {
 
 const TRANSLATIONS: Record<Language, Translations> = {
   de: {
-    metaTitle: 'Fahrradladen Lünen — Fahrrad kaufen & mieten | Karaarslan Bike',
+    metaTitle: 'Fahrradladen Lünen — Fahrrad kaufen | Karaarslan Bike',
     metaDescription:
-      'Ihr Fahrradladen in Lünen-Alstedde ✓ Neue & gebrauchte Räder kaufen ✓ E-Bike, City, Trekking, Kinderfahrrad ✓ Fahrradverleih mit tagesgenauen Preisen pro Fahrrad ✓ 3 Monate Garantie. Kein Termin — Alstedder Straße 5!',
+      'Ihr Fahrradladen in Lünen-Alstedde ✓ Neue & gebrauchte Räder kaufen ✓ E-Bike, City, Trekking, Kinderfahrrad ✓ 3 Monate Garantie. Kein Termin — Alstedder Straße 5!',
 
     home: 'Start',
     showroom: 'Showroom',
@@ -562,7 +453,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     heroH1: 'Fahrräder in Lünen — neu & gebraucht.',
     heroSub:
-      'Über 100 geprüfte Fahrräder ✓ E-Bike, City & Trekking ✓ Fahrradverleih mit individuellen Tagespreisen je Fahrrad ✓ 3 Monate Garantie ✓ Sofort fahrbereit — Alstedder Straße 5, Lünen.',
+      'Über 100 geprüfte Fahrräder ✓ E-Bike, City & Trekking ✓ 3 Monate Garantie ✓ Sofort fahrbereit — Alstedder Straße 5, Lünen.',
     ctaPrimary: 'Neue Fahrräder entdecken',
     ctaSecondary: 'Showroom ansehen',
 
@@ -728,107 +619,6 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Reifen, Schläuche, Bremsbeläge, Lampen. Ebenfalls ausgeschlossen: Schäden durch Unfälle oder unsachgemäße Nutzung.',
     warrantyReturnTitle: 'Rückgaberecht',
     warrantyReturnText: 'Innerhalb von 3 Arbeitstagen.',
-
-    // Bike Rental Page
-    bikeRental: 'Fahrradverleih',
-    bikeRentalPageLabel: 'SERVICE',
-    bikeRentalPageTitle: 'Fahrradverleih – Einfach und flexibel',
-    bikeRentalIntro:
-      'Entdecken Sie Lünen bequem mit dem Fahrrad. Mieten Sie bei uns Fahrräder zu günstigen Preisen und ohne Aufwand.',
-    bikeRentalPricesTitle: 'Fahrradmiete Preise',
-    bikeRentalHeroPrice: '1-7 Tage individuell',
-    bikeRentalTierShort: 'Kurzzeit',
-    bikeRentalTierPopular: 'Beliebt',
-    bikeRentalTierTop: 'Am beliebtesten',
-    bikeRentalTierLong: 'Langzeit',
-    bikeRentalTierBest: 'Bestes Angebot',
-    bikeRentalTierAddon: 'Zusatz',
-    bikeRentalDurationDay1: '1 Tag',
-    bikeRentalDurationDay3: '3 Tage',
-    bikeRentalDurationDay7: '7 Tage',
-    bikeRentalDurationDay14: 'Ab Tag 8',
-    bikeRentalDurationDay30: 'Langzeit',
-    bikeRentalDurationFromDay10: 'Zusatztag',
-    bikeRentalPriceDay1: 'manuell',
-    bikeRentalPriceDay3: 'je Fahrrad',
-    bikeRentalPriceDay7: '1-7 Tage',
-    bikeRentalPriceDay14: '7-Tage-Basis',
-    bikeRentalPriceDay30: '+ Zusatz',
-    bikeRentalPriceAddon: 'pro weiterem Tag',
-    bikeRentalDay1: '1-7 Tage: individuell',
-    bikeRentalDay7: '7 Tage: Basispreis',
-    bikeRentalDay8Plus: 'Ab Tag 8: fixer Zusatz pro Tag',
-    bikeRentalMonth: 'Langzeit: automatisch berechnet',
-    bikeRentalDepositTitle: 'Kaution',
-    bikeRentalDepositText:
-      'Die Mietgebühr wird im Voraus bezahlt. Zusätzlich ist pro Fahrrad eine Kaution in Höhe von 300 € in bar zu hinterlegen. Bei ordnungsgemäßer Rückgabe ohne Schäden oder Verluste wird die Kaution vollständig erstattet.',
-    bikeRentalNoteTitle: 'Hinweis',
-    bikeRentalNoteText:
-      'Die Übergabe ist täglich ab 10:00 Uhr möglich, die Rückgabe spätestens bis 18:00 Uhr. Bei verspäteter Rückgabe berechnen wir 12 € pro angefangenem Tag.',
-    bikeRentalIncludedTitle: 'Inklusive',
-    bikeRentalIncluded1: 'Faltschloss',
-    bikeRentalIncluded2: 'Fahrradkorb',
-    bikeRentalIncludedNote:
-      'Verlorenes oder beschädigtes Zubehör (Schloss, Helm oder Korb) wird mit jeweils 30 € berechnet.',
-    bikeRentalAvailableLabel: 'VERFÜGBARE FAHRRÄDER',
-    bikeRentalAvailableTitle: 'Unsere Mietfahrräder',
-    bikeRentalNoBikes:
-      'Derzeit keine Fahrräder verfügbar. Bitte kontaktieren Sie uns.',
-    bikeRentalBookBtn: 'Fahrrad reservieren',
-    bikeRentalDay: 'Tag',
-    bikeRentalDays: 'Tage',
-
-    rentalHeroTitle: 'Fahrrad mieten',
-    rentalHeroSub:
-      'Sofort verfügbar – fair, flexibel, ohne versteckte Kosten. Direkt bei uns in Lünen abholen.',
-    rentalHeroWaCta: 'Fragen? WhatsApp',
-    rentalHeroScrollCta: 'Fahrrad auswählen & jetzt reservieren',
-    rentalPricingTitle: 'Fair. Transparent. Ohne Extras.',
-    rentalPricingSub:
-      'Je länger, desto günstiger – Schloss und Helm immer inklusive.',
-    rentalBikesSub: 'Fahrrad auswählen und direkt Ihren Wunschzeitraum buchen.',
-    rentalFormPeriod: 'Zeitraum wählen',
-    rentalFormYourData: 'Ihre Daten',
-    rentalFormFirstName: 'Vorname',
-    rentalFormLastName: 'Nachname',
-    rentalFormPhone: 'Telefon',
-    rentalFormLang: 'Kommunikationssprache',
-    rentalFormNotes: 'Anmerkungen (optional)',
-    rentalFormSubmit: 'Anfrage senden',
-    rentalFormSending: 'Wird gesendet...',
-    rentalFormConfirmNote:
-      'Nach Eingang Ihrer Anfrage erhalten Sie eine Bestätigungs-E-Mail. Die endgültige Buchung erfolgt nach Bestätigung durch unser Team.',
-    rentalSuccessTitle: 'Buchungsanfrage gesendet!',
-    rentalSuccessText:
-      'Wir haben Ihre Anfrage erhalten und melden uns so schnell wie möglich.',
-    rentalSuccessBookingNr: 'Buchungsnummer',
-    rentalSuccessNewRequest: 'Neue Anfrage stellen',
-    rentalBikeDetails: 'Fahrrad Details',
-    rentalChangeBike: 'Ändern',
-    rentalLoadingAvail: 'Verfügbarkeit wird geladen...',
-    rentalSelectEndDate: 'Enddatum wählen',
-    rentalEstPrice: 'geschätzter Preis',
-    rentalStatusBooked: 'Belegt',
-    rentalStatusPending: 'In Prüfung',
-    rentalStatusClosed: 'Geschlossen',
-    rentalStatusSelected: 'Ausgewählt',
-    rentalSundayLabel: 'Sonntag',
-
-    rentalReviewsTitle: 'Kundenbewertungen',
-    rentalReviewsSubtitle: 'Was unsere Kunden sagen',
-    rentalReviewsNoReviews: 'Noch keine Bewertungen vorhanden.',
-    rentalReviewsFormTitle: 'Bewertung hinterlassen',
-    rentalReviewsFormName: 'Ihr Name',
-    rentalReviewsFormEmail: 'E-Mail (optional)',
-    rentalReviewsFormStars: 'Bewertung',
-    rentalReviewsFormComment: 'Ihr Kommentar',
-    rentalReviewsFormSubmit: 'Bewertung absenden',
-    rentalReviewsFormSending: 'Wird gesendet...',
-    rentalReviewsFormSuccess:
-      'Danke! Ihre Bewertung wird nach Prüfung veröffentlicht.',
-    rentalReviewsFormError:
-      'Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.',
-    rentalReviewsFormValidation: 'Bitte füllen Sie Name und Kommentar aus.',
 
     loading: 'Wird geladen...',
     error: 'Ein Fehler ist aufgetreten.',
@@ -1041,11 +831,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     ratgeberBackToList: 'Alle Ratgeber anzeigen',
     faqMetaTitle: 'FAQ Fahrrad Lünen — Häufige Fragen | Karaarslan Bike',
     faqMetaDescription:
-      'Häufige Fragen zu Fahrrad kaufen & mieten in Lünen: Garantie, E-Bikes, Probefahrt, Öffnungszeiten, Preise. Alle Antworten von Karaarslan Bike.',
-    bikeRentalMetaTitle:
-      'Fahrrad mieten Lünen | Tagespreise pro Fahrrad | Karaarslan Bike',
-    bikeRentalMetaDescription:
-      'Fahrradverleih Lünen — 1 bis 7 Tage pro Fahrrad individuell bepreist, ab Tag 8 mit festem Zusatzpreis. Helm & Schloss inklusive. Sofort abholen. ✓ Karaarslan Bike.',
+      'Häufige Fragen zu Fahrrad kaufen in Lünen: Garantie, E-Bikes, Probefahrt, Öffnungszeiten, Preise. Alle Antworten von Karaarslan Bike.',
     garantieMetaTitle: 'Garantiebedingungen — Karaarslan Bike',
     garantieMetaDescription:
       'Garantiebedingungen für neue und gebrauchte Fahrräder bei Karaarslan Bike. 2 Jahre für Neuräder, 3 Monate für Gebrauchträder.',
@@ -1098,22 +884,6 @@ const TRANSLATIONS: Record<Language, Translations> = {
     svcRepairItem4: 'Ersatzteile auf Lager',
     svcRepairCta: 'Termin anfragen',
     svcRepairWaCta: 'Termin via WhatsApp',
-    svcRentalBadge: 'Verleih',
-    svcRentalTitle: 'Fahrradverleih',
-    svcRentalSub:
-      'Stadtrad, Trekking oder Mountainbike – flexibel mieten ab einem Tag.',
-    svcRentalItem1: 'City- & Trekkingräder',
-    svcRentalItem2: 'Mountainbikes verfügbar',
-    svcRentalItem3: 'Tages- & Wochenmiete',
-    svcRentalItem4: 'Schloss & Helm inklusive',
-    svcRentalCta: 'Fahrrad mieten',
-    homeRentalCardTitle: 'Fahrrad mieten',
-    homeRentalBestBadge: 'Bestes Angebot · Spare 30%',
-    homeRentalPopularBadge: 'Beliebt',
-    homeRentalLock: 'Schloss inklusive',
-    homeRentalHelmet: 'Helm kostenlos',
-    homeRentalAvail: 'Sofort verfügbar',
-    homeRentalBookCta: 'Fahrrad auswählen & jetzt reservieren',
     svcAngeboteBadge: 'Neue Fahrräder',
     svcAngeboteTitle: 'Neue Fahrräder',
     svcAngeboteSub:
@@ -1134,9 +904,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
   },
 
   en: {
-    metaTitle: 'Buy & Rent a Bike in Lünen | Karaarslan Bike',
+    metaTitle: 'Buy a Bike in Lünen | Karaarslan Bike',
     metaDescription:
-      'Bike shop in Lünen-Alstedde ✓ Buy or rent a bike ✓ 100+ inspected bikes ✓ City, Trekking, E-Bike ✓ Daily bike rental pricing per bike ✓ 3-month warranty. No appointment needed — Alstedder Straße 5!',
+      'Bike shop in Lünen-Alstedde ✓ Buy a bike ✓ 100+ inspected bikes ✓ City, Trekking, E-Bike ✓ 3-month warranty. No appointment needed — Alstedder Straße 5!',
 
     home: 'Home',
     showroom: 'Showroom',
@@ -1146,7 +916,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     heroH1: 'Bikes in Lünen — new & used.',
     heroSub:
-      'Buy or rent a bike in Lünen ✓ Inspected used bikes from €80 ✓ Bike rental with per-bike daily pricing ✓ City, Trekking & E-Bikes ✓ Pick up same day.',
+      'Buy a bike in Lünen ✓ Inspected used bikes from €80 ✓ City, Trekking & E-Bikes ✓ Pick up same day.',
     ctaPrimary: 'Discover New Bikes',
     ctaSecondary: 'View Showroom',
 
@@ -1307,105 +1077,6 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Tires, tubes, brake pads, lights. Also excluded: damage from accidents or improper use.',
     warrantyReturnTitle: 'Return Policy',
     warrantyReturnText: 'Within 3 business days.',
-
-    // Bike Rental Page
-    bikeRental: 'Bike Rental',
-    bikeRentalPageLabel: 'SERVICE',
-    bikeRentalPageTitle: 'Bike Rental – Simple and Flexible',
-    bikeRentalIntro:
-      'Discover Lünen comfortably by bike. Rent bicycles from us at affordable prices with no hassle.',
-    bikeRentalPricesTitle: 'Bike Rental Prices',
-    bikeRentalHeroPrice: '1 day -> 12 €',
-    bikeRentalTierShort: 'Short-term',
-    bikeRentalTierPopular: 'Popular',
-    bikeRentalTierTop: 'Most popular',
-    bikeRentalTierLong: 'Long-term',
-    bikeRentalTierBest: 'Best deal',
-    bikeRentalTierAddon: 'Add-on',
-    bikeRentalDurationDay1: '1 day',
-    bikeRentalDurationDay3: '3 days',
-    bikeRentalDurationDay7: '7 days',
-    bikeRentalDurationDay14: 'From day 8',
-    bikeRentalDurationDay30: 'Long rental',
-    bikeRentalDurationFromDay10: 'Extra day',
-    bikeRentalPriceDay1: 'manual',
-    bikeRentalPriceDay3: 'per bike',
-    bikeRentalPriceDay7: 'days 1-7',
-    bikeRentalPriceDay14: '7-day base',
-    bikeRentalPriceDay30: '+ surcharge',
-    bikeRentalPriceAddon: 'per added day',
-    bikeRentalDay1: '1-7 days: individual',
-    bikeRentalDay7: '7 days: base price',
-    bikeRentalDay8Plus: 'From day 8: fixed surcharge per day',
-    bikeRentalMonth: 'Long rental: automatic calculation',
-    bikeRentalDepositTitle: 'Deposit',
-    bikeRentalDepositText:
-      'The rental fee is paid in advance. In addition, a cash deposit of 300 € is required per bicycle. If the bicycle is returned properly without damage or loss, the deposit is fully refunded.',
-    bikeRentalNoteTitle: 'Note',
-    bikeRentalNoteText:
-      'Handover is possible daily from 10:00, and return must be completed by 18:00 at the latest. A late return fee of 12 € per started day will be charged.',
-    bikeRentalIncludedTitle: 'Included',
-    bikeRentalIncluded1: 'Folding lock',
-    bikeRentalIncluded2: 'Bicycle basket',
-    bikeRentalIncludedNote:
-      'Lost or damaged accessories (lock, helmet or basket) are charged at 30 € each.',
-    bikeRentalAvailableLabel: 'AVAILABLE BICYCLES',
-    bikeRentalAvailableTitle: 'Our Rental Bikes',
-    bikeRentalNoBikes: 'No bicycles currently available. Please contact us.',
-    bikeRentalBookBtn: 'Reserve bike',
-    bikeRentalDay: 'Day',
-    bikeRentalDays: 'Days',
-
-    rentalHeroTitle: 'Rent a bike',
-    rentalHeroSub:
-      'Available immediately – fair, flexible, no hidden costs. Pick up directly from us in Lünen.',
-    rentalHeroWaCta: 'Questions? WhatsApp',
-    rentalHeroScrollCta: 'Choose a bike & reserve now',
-    rentalPricingTitle: 'Fair. Transparent. No extras.',
-    rentalPricingSub:
-      'The longer, the cheaper – lock and helmet always included.',
-    rentalBikesSub: 'Choose a bike and book your desired period directly.',
-    rentalFormPeriod: 'Select period',
-    rentalFormYourData: 'Your details',
-    rentalFormFirstName: 'First name',
-    rentalFormLastName: 'Last name',
-    rentalFormPhone: 'Phone',
-    rentalFormLang: 'Communication language',
-    rentalFormNotes: 'Notes (optional)',
-    rentalFormSubmit: 'Send request',
-    rentalFormSending: 'Sending...',
-    rentalFormConfirmNote:
-      'After receiving your request, you will get a confirmation email. The final booking is confirmed by our team.',
-    rentalSuccessTitle: 'Booking request sent!',
-    rentalSuccessText:
-      'We have received your request and will get back to you as soon as possible.',
-    rentalSuccessBookingNr: 'Booking number',
-    rentalSuccessNewRequest: 'New request',
-    rentalBikeDetails: 'Bike details',
-    rentalChangeBike: 'Change',
-    rentalLoadingAvail: 'Loading availability...',
-    rentalSelectEndDate: 'Select end date',
-    rentalEstPrice: 'estimated price',
-    rentalStatusBooked: 'Booked',
-    rentalStatusPending: 'Pending',
-    rentalStatusClosed: 'Closed',
-    rentalStatusSelected: 'Selected',
-    rentalSundayLabel: 'Sunday',
-
-    rentalReviewsTitle: 'Customer Reviews',
-    rentalReviewsSubtitle: 'What our customers say',
-    rentalReviewsNoReviews: 'No reviews yet.',
-    rentalReviewsFormTitle: 'Leave a Review',
-    rentalReviewsFormName: 'Your name',
-    rentalReviewsFormEmail: 'Email (optional)',
-    rentalReviewsFormStars: 'Rating',
-    rentalReviewsFormComment: 'Your comment',
-    rentalReviewsFormSubmit: 'Submit review',
-    rentalReviewsFormSending: 'Sending...',
-    rentalReviewsFormSuccess:
-      'Thank you! Your review will be published after review.',
-    rentalReviewsFormError: 'An error occurred. Please try again.',
-    rentalReviewsFormValidation: 'Please fill in your name and comment.',
 
     loading: 'Loading...',
     error: 'An error occurred.',
@@ -1592,7 +1263,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     ratgeberMetaTitle:
       'Bike Guide Lünen — Tips, Checklists & Advice | Karaarslan Bike',
     ratgeberMetaDescription:
-      'Bike buying guides, rental tips, and cycling routes in Lünen. Expert advice from your local bike shop — Karaarslan Bike.',
+      'Bike buying guides and cycling routes in Lünen. Expert advice from your local bike shop — Karaarslan Bike.',
     ratgeberReadMore: 'Read more',
     ratgeberReadTime: 'read',
     ratgeberTip: 'Tip from Karaarslan Bike',
@@ -1602,11 +1273,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     faqMetaTitle:
       'FAQ — Bike Shop Lünen | Frequently Asked Questions | Karaarslan Bike',
     faqMetaDescription:
-      'Frequently asked questions about buying & renting bikes in Lünen: warranty, e-bikes, test rides, opening hours, prices. Answered by Karaarslan Bike.',
-    bikeRentalMetaTitle:
-      'Bike Rental Lünen | Daily Pricing Per Bike | Karaarslan Bike',
-    bikeRentalMetaDescription:
-      'Bike rental in Lünen with daily pricing configured per bike for days 1 to 7, plus a fixed extra-day surcharge from day 8. Helmet & lock included. ✓ Karaarslan Bike.',
+      'Frequently asked questions about buying bikes in Lünen: warranty, e-bikes, test rides, opening hours, prices. Answered by Karaarslan Bike.',
     garantieMetaTitle: 'Warranty Terms — Karaarslan Bike',
     garantieMetaDescription:
       'Warranty terms for new and used bicycles at Karaarslan Bike. 2 years for new bikes, 3 months for used bikes.',
@@ -1644,9 +1311,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     faqQ9: 'What are your opening hours?',
     faqA9:
       'Monday to Thursday: 09:00–18:00. Friday: 09:00–13:00 & 15:00–18:00. Saturday: 09:00–18:00. Sunday and holidays: closed.',
-    faqQ10: 'Can I rent a bike in Lünen?',
+    faqQ10: 'Can I trade in my old bike?',
     faqA10:
-      'Yes. Karaarslan Bike rents city bikes, trekking bikes and e-bikes with prices configured per bike for days 1 to 7. From day 8 onward, a fixed extra-day surcharge is added to the 7-day price. No reservation needed — just come by Alstedder Straße 5.',
+      'Yes, a trade-in is possible in individual cases. Just talk to us — we will find a solution.',
 
     svcRepairBadge: 'Service',
     svcRepairTitle: 'Bicycle Repair',
@@ -1657,22 +1324,6 @@ const TRANSLATIONS: Record<Language, Translations> = {
     svcRepairItem4: 'Spare Parts in Stock',
     svcRepairCta: 'Request Appointment',
     svcRepairWaCta: 'Book via WhatsApp',
-    svcRentalBadge: 'Rental',
-    svcRentalTitle: 'Bike Rental',
-    svcRentalSub:
-      'City bike, trekking or mountain bike – rent flexibly from one day.',
-    svcRentalItem1: 'City & Trekking Bikes',
-    svcRentalItem2: 'Mountain Bikes available',
-    svcRentalItem3: 'Daily & Weekly Rental',
-    svcRentalItem4: 'Lock & Helmet included',
-    svcRentalCta: 'Rent a Bike',
-    homeRentalCardTitle: 'Rent a Bike',
-    homeRentalBestBadge: 'Best Deal · Save 30%',
-    homeRentalPopularBadge: 'Popular',
-    homeRentalLock: 'Lock included',
-    homeRentalHelmet: 'Helmet free',
-    homeRentalAvail: 'Available immediately',
-    homeRentalBookCta: 'Choose a bike & reserve now',
     svcAngeboteBadge: 'New Bikes',
     svcAngeboteTitle: 'New Bikes',
     svcAngeboteSub:
@@ -1693,7 +1344,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
   },
 
   fr: {
-    metaTitle: 'Acheter & louer un vélo à Lünen | Karaarslan Bike',
+    metaTitle: 'Acheter un vélo à Lünen | Karaarslan Bike',
     metaDescription:
       'Votre magasin de vélos à Lünen-Alstedde ✓ Achat & location ✓ 100+ vélos contrôlés ✓ Ville, Trekking, VAE ✓ Location avec tarifs journaliers par vélo ✓ 3 mois de garantie. Sans rendez-vous — Alstedder Straße 5!',
 
@@ -1873,108 +1524,6 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Pneus, chambres à air, plaquettes de frein, lampes. Également exclus : dommages causés par des accidents ou une utilisation inappropriée.',
     warrantyReturnTitle: 'Droit de retour',
     warrantyReturnText: 'Dans les 3 jours ouvrables.',
-
-    // Bike Rental Page
-    bikeRental: 'Location de vélos',
-    bikeRentalPageLabel: 'SERVICE',
-    bikeRentalPageTitle: 'Location de vélos – Simple et flexible',
-    bikeRentalIntro:
-      'Découvrez Lünen confortablement à vélo. Louez des vélos chez nous à des prix abordables et sans complications.',
-    bikeRentalPricesTitle: 'Tarifs location de vélos',
-    bikeRentalHeroPrice: '1 jour -> 12 €',
-    bikeRentalTierShort: 'Court terme',
-    bikeRentalTierPopular: 'Populaire',
-    bikeRentalTierTop: 'Le plus populaire',
-    bikeRentalTierLong: 'Long terme',
-    bikeRentalTierBest: 'Meilleure offre',
-    bikeRentalTierAddon: 'Supplément',
-    bikeRentalDurationDay1: '1 jour',
-    bikeRentalDurationDay3: '3 jours',
-    bikeRentalDurationDay7: '7 jours',
-    bikeRentalDurationDay14: 'À partir du 8e jour',
-    bikeRentalDurationDay30: 'Longue durée',
-    bikeRentalDurationFromDay10: 'Jour supplémentaire',
-    bikeRentalPriceDay1: 'manuel',
-    bikeRentalPriceDay3: 'par vélo',
-    bikeRentalPriceDay7: 'jours 1-7',
-    bikeRentalPriceDay14: 'base 7 jours',
-    bikeRentalPriceDay30: '+ supplément',
-    bikeRentalPriceAddon: 'par jour ajouté',
-    bikeRentalDay1: '1 à 7 jours : individuel',
-    bikeRentalDay7: '7 jours : prix de base',
-    bikeRentalDay8Plus: 'À partir du 8e jour : supplément fixe par jour',
-    bikeRentalMonth: 'Longue durée : calcul automatique',
-    bikeRentalDepositTitle: 'Caution',
-    bikeRentalDepositText:
-      "Le prix de location est payé à l'avance. En plus, une caution en espèces de 300 € est exigée par vélo. Si le vélo est retourné correctement, sans dommage ni perte, la caution est remboursée intégralement.",
-    bikeRentalNoteTitle: 'Remarque',
-    bikeRentalNoteText:
-      'La remise du vélo est possible tous les jours à partir de 10:00 et le retour doit être effectué au plus tard à 18:00. En cas de retour tardif, des frais de 12 € par jour entamé sont facturés.',
-    bikeRentalIncludedTitle: 'Inclus',
-    bikeRentalIncluded1: 'Antivol pliable',
-    bikeRentalIncluded2: 'Panier de vélo',
-    bikeRentalIncludedNote:
-      'Les accessoires perdus ou endommagés (antivol, casque ou panier) sont facturés 30 € chacun.',
-    bikeRentalAvailableLabel: 'VÉLOS DISPONIBLES',
-    bikeRentalAvailableTitle: 'Nos vélos de location',
-    bikeRentalNoBikes:
-      'Aucun vélo disponible pour le moment. Veuillez nous contacter.',
-    bikeRentalBookBtn: 'Demander maintenant',
-    bikeRentalDay: 'Jour',
-    bikeRentalDays: 'Jours',
-
-    rentalHeroTitle: 'Louer un vélo',
-    rentalHeroSub:
-      'Disponible immédiatement – juste, flexible, sans frais cachés. Récupérez directement chez nous à Lünen.',
-    rentalHeroWaCta: 'Questions ? WhatsApp',
-    rentalHeroScrollCta: 'Choisir un vélo & réserver',
-    rentalPricingTitle: 'Juste. Transparent. Sans suppléments.',
-    rentalPricingSub:
-      "Plus c'est long, moins c'est cher – antivol et casque toujours inclus.",
-    rentalBikesSub:
-      'Choisissez un vélo et réservez directement votre période souhaitée.',
-    rentalFormPeriod: 'Choisir la période',
-    rentalFormYourData: 'Vos coordonnées',
-    rentalFormFirstName: 'Prénom',
-    rentalFormLastName: 'Nom de famille',
-    rentalFormPhone: 'Téléphone',
-    rentalFormLang: 'Langue de communication',
-    rentalFormNotes: 'Remarques (optionnel)',
-    rentalFormSubmit: 'Envoyer la demande',
-    rentalFormSending: 'Envoi en cours...',
-    rentalFormConfirmNote:
-      'Après réception de votre demande, vous recevrez un e-mail de confirmation. La réservation définitive est confirmée par notre équipe.',
-    rentalSuccessTitle: 'Demande de réservation envoyée !',
-    rentalSuccessText:
-      'Nous avons bien reçu votre demande et vous recontacterons dès que possible.',
-    rentalSuccessBookingNr: 'Numéro de réservation',
-    rentalSuccessNewRequest: 'Nouvelle demande',
-    rentalBikeDetails: 'Détails du vélo',
-    rentalChangeBike: 'Modifier',
-    rentalLoadingAvail: 'Chargement des disponibilités...',
-    rentalSelectEndDate: 'Sélectionner la date de fin',
-    rentalEstPrice: 'prix estimé',
-    rentalStatusBooked: 'Réservé',
-    rentalStatusPending: 'En attente',
-    rentalStatusClosed: 'Fermé',
-    rentalStatusSelected: 'Sélectionné',
-    rentalSundayLabel: 'Dimanche',
-
-    rentalReviewsTitle: 'Avis clients',
-    rentalReviewsSubtitle: 'Ce que disent nos clients',
-    rentalReviewsNoReviews: 'Aucun avis pour le moment.',
-    rentalReviewsFormTitle: 'Laisser un avis',
-    rentalReviewsFormName: 'Votre nom',
-    rentalReviewsFormEmail: 'E-mail (optionnel)',
-    rentalReviewsFormStars: 'Note',
-    rentalReviewsFormComment: 'Votre commentaire',
-    rentalReviewsFormSubmit: "Envoyer l'avis",
-    rentalReviewsFormSending: 'Envoi en cours...',
-    rentalReviewsFormSuccess:
-      'Merci ! Votre avis sera publié après vérification.',
-    rentalReviewsFormError: 'Une erreur est survenue. Veuillez réessayer.',
-    rentalReviewsFormValidation:
-      'Veuillez remplir votre nom et votre commentaire.',
 
     loading: 'Chargement...',
     error: 'Une erreur est survenue.',
@@ -2189,11 +1738,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     faqMetaTitle:
       'FAQ — Magasin vélo Lünen | Questions fréquentes | Karaarslan Bike',
     faqMetaDescription:
-      "Questions fréquentes sur l'achat et la location de vélos à Lünen : garantie, VAE, essais, horaires, tarifs. Répondu par Karaarslan Bike.",
-    bikeRentalMetaTitle:
-      'Location vélo Lünen | Tarifs journaliers par vélo | Karaarslan Bike',
-    bikeRentalMetaDescription:
-      'Location vélo à Lünen avec tarifs journaliers définis vélo par vélo pour 1 à 7 jours, puis supplément fixe à partir du 8e jour. Casque & antivol inclus. ✓ Karaarslan Bike.',
+      "Questions fréquentes sur l'achat de vélos à Lünen : garantie, VAE, essais, horaires, tarifs. Répondu par Karaarslan Bike.",
     garantieMetaTitle: 'Conditions de garantie — Karaarslan Bike',
     garantieMetaDescription:
       "Conditions de garantie pour les vélos neufs et d'occasion chez Karaarslan Bike. 2 ans pour les neufs, 3 mois pour les occasions.",
@@ -2230,9 +1775,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     faqQ9: 'Quels sont vos horaires ?',
     faqA9:
       'Du lundi au jeudi : 09:00–18:00. Vendredi : 09:00–13:00 & 15:00–18:00. Samedi : 09:00–18:00. Dimanche et jours fériés : fermé.',
-    faqQ10: 'Louez-vous des vélos à Lünen ?',
+    faqQ10: 'Puis-je faire reprendre mon ancien vélo ?',
     faqA10:
-      'Oui. Karaarslan Bike loue des vélos city, trekking et VAE avec des tarifs configurés par vélo pour 1 à 7 jours. À partir du 8e jour, un supplément fixe est ajouté au prix 7 jours. Sans réservation — venez directement Alstedder Straße 5.',
+      'Oui, une reprise est possible au cas par cas. Contactez-nous — nous trouverons une solution.',
 
     svcRepairBadge: 'Service',
     svcRepairTitle: 'Réparation de vélos',
@@ -2244,22 +1789,6 @@ const TRANSLATIONS: Record<Language, Translations> = {
     svcRepairItem4: 'Pièces détachées en stock',
     svcRepairCta: 'Prendre rendez-vous',
     svcRepairWaCta: 'Réserver via WhatsApp',
-    svcRentalBadge: 'Location',
-    svcRentalTitle: 'Location de vélos',
-    svcRentalSub:
-      'Vélo de ville, trekking ou VTT – location flexible dès un jour.',
-    svcRentalItem1: 'Vélos ville & trekking',
-    svcRentalItem2: 'VTT disponibles',
-    svcRentalItem3: 'Location jour & semaine',
-    svcRentalItem4: 'Antivol & casque inclus',
-    svcRentalCta: 'Louer un vélo',
-    homeRentalCardTitle: 'Louer un vélo',
-    homeRentalBestBadge: 'Meilleure offre · Économisez 30%',
-    homeRentalPopularBadge: 'Populaire',
-    homeRentalLock: 'Antivol inclus',
-    homeRentalHelmet: 'Casque gratuit',
-    homeRentalAvail: 'Disponible immédiatement',
-    homeRentalBookCta: 'Choisir un vélo & réserver',
     svcAngeboteBadge: 'Vélos neufs',
     svcAngeboteTitle: 'Vélos neufs',
     svcAngeboteSub:
@@ -2280,9 +1809,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
   },
 
   tr: {
-    metaTitle: "Lünen'da Bisiklet Al & Kirala | Karaarslan Bike",
+    metaTitle: "Lünen'da Bisiklet Al | Karaarslan Bike",
     metaDescription:
-      "Lünen-Alstedde'de bisiklet mağazanız ✓ Yeni & ikinci el bisiklet ✓ Bisiklet bazlı günlük kiralama fiyatları ✓ 3 ay garanti ✓ Randevu gerekmez — Alstedder Straße 5, Lünen!",
+      "Lünen-Alstedde'de bisiklet mağazanız ✓ Yeni & ikinci el bisiklet ✓ 3 ay garanti ✓ Randevu gerekmez — Alstedder Straße 5, Lünen!",
 
     home: 'Ana Sayfa',
     showroom: 'Showroom',
@@ -2458,106 +1987,6 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Lastikler, iç lastikler, fren balataları, lambalar. Ayrıca kapsam dışı: kaza veya uygunsuz kullanımdan kaynaklanan hasarlar.',
     warrantyReturnTitle: 'İade Hakkı',
     warrantyReturnText: '3 iş günü içinde.',
-
-    // Bike Rental Page
-    bikeRental: 'Bisiklet Kiralama',
-    bikeRentalPageLabel: 'HİZMET',
-    bikeRentalPageTitle: 'Bisiklet Kiralama – Kolay ve Esnek',
-    bikeRentalIntro:
-      "Lünen'u bisikletle keşfedin. Bizden uygun fiyatlı ve kolay bir şekilde bisiklet kiralayabilirsiniz.",
-    bikeRentalPricesTitle: 'Bisiklet Kiralama Fiyatları',
-    bikeRentalHeroPrice: '1 Gün -> 12 €',
-    bikeRentalTierShort: 'Kısa süre',
-    bikeRentalTierPopular: 'Popüler',
-    bikeRentalTierTop: 'En popüler',
-    bikeRentalTierLong: 'Uzun süre',
-    bikeRentalTierBest: 'En iyi teklif',
-    bikeRentalTierAddon: 'Ek ücret',
-    bikeRentalDurationDay1: '1 gün',
-    bikeRentalDurationDay3: '3 gün',
-    bikeRentalDurationDay7: '7 gün',
-    bikeRentalDurationDay14: '8. günden itibaren',
-    bikeRentalDurationDay30: 'Uzun kiralama',
-    bikeRentalDurationFromDay10: 'Ek gün',
-    bikeRentalPriceDay1: 'manuel',
-    bikeRentalPriceDay3: 'bisiklet bazlı',
-    bikeRentalPriceDay7: '1-7 gün',
-    bikeRentalPriceDay14: '7 günlük baz',
-    bikeRentalPriceDay30: '+ ek ücret',
-    bikeRentalPriceAddon: 'her ek gün için',
-    bikeRentalDay1: '1-7 gün: ayrı fiyat',
-    bikeRentalDay7: '7 gün: baz fiyat',
-    bikeRentalDay8Plus: '8. günden sonra: sabit ek gün fiyatı',
-    bikeRentalMonth: 'Uzun kiralama: otomatik hesaplanır',
-    bikeRentalDepositTitle: 'Depozito',
-    bikeRentalDepositText:
-      'Kiralama ücreti peşin ödenir. Buna ek olarak her bisiklet için 300 € nakit depozito alınır. Bisiklet hasar veya kayıp olmadan düzgün şekilde iade edilirse depozito tamamen geri ödenir.',
-    bikeRentalNoteTitle: 'Not',
-    bikeRentalNoteText:
-      "Teslimat her gün 10:00'dan itibaren mümkündür, iade ise en geç 18:00'e kadar yapılmalıdır. Geç iade için başlayan her gün başına 12 € ücret alınır.",
-    bikeRentalIncludedTitle: 'Dahil',
-    bikeRentalIncluded1: 'Katlanabilir kilit',
-    bikeRentalIncluded2: 'Bisiklet sepeti',
-    bikeRentalIncludedNote:
-      'Kaybolan veya hasar gören aksesuarlar (kilit, kask veya sepet) için ayrı ayrı 30 € ücret alınır.',
-    bikeRentalAvailableLabel: 'MEVCUT BİSİKLETLER',
-    bikeRentalAvailableTitle: 'Kiralık Bisikletlerimiz',
-    bikeRentalNoBikes:
-      'Şu anda mevcut bisiklet yok. Lütfen bizimle iletişime geçin.',
-    bikeRentalBookBtn: 'Bisikletini rezerve edin',
-    bikeRentalDay: 'Gün',
-    bikeRentalDays: 'Gün',
-
-    rentalHeroTitle: 'Bisiklet Kirala',
-    rentalHeroSub:
-      "Hemen mevcut – adil, esnek, gizli maliyet yok. Doğrudan Lünen'daki dükkânımızdan teslim alın.",
-    rentalHeroWaCta: 'Sorularınız? WhatsApp',
-    rentalHeroScrollCta: 'Bisiklet seç & hemen rezerve et',
-    rentalPricingTitle: 'Adil. Şeffaf. Ekstra yok.',
-    rentalPricingSub:
-      'Ne kadar uzun, o kadar ucuz – kilit ve kask her zaman dahil.',
-    rentalBikesSub:
-      'Bir bisiklet seçin ve doğrudan istediğiniz dönemi rezerve edin.',
-    rentalFormPeriod: 'Dönem seç',
-    rentalFormYourData: 'Bilgileriniz',
-    rentalFormFirstName: 'Ad',
-    rentalFormLastName: 'Soyad',
-    rentalFormPhone: 'Telefon',
-    rentalFormLang: 'İletişim dili',
-    rentalFormNotes: 'Notlar (isteğe bağlı)',
-    rentalFormSubmit: 'Talep gönder',
-    rentalFormSending: 'Gönderiliyor...',
-    rentalFormConfirmNote:
-      'Talebiniz alındıktan sonra bir onay e-postası alacaksınız. Kesin rezervasyon ekibimizin onayıyla gerçekleşir.',
-    rentalSuccessTitle: 'Rezervasyon talebi gönderildi!',
-    rentalSuccessText: 'Talebinizi aldık, en kısa sürede size geri döneceğiz.',
-    rentalSuccessBookingNr: 'Rezervasyon numarası',
-    rentalSuccessNewRequest: 'Yeni talep oluştur',
-    rentalBikeDetails: 'Bisiklet Detayları',
-    rentalChangeBike: 'Değiştir',
-    rentalLoadingAvail: 'Müsaitlik yükleniyor...',
-    rentalSelectEndDate: 'Bitiş tarihi seç',
-    rentalEstPrice: 'tahmini fiyat',
-    rentalStatusBooked: 'Dolu',
-    rentalStatusPending: 'Beklemede',
-    rentalStatusClosed: 'Kapalı',
-    rentalStatusSelected: 'Seçildi',
-    rentalSundayLabel: 'Pazar',
-
-    rentalReviewsTitle: 'Müşteri Yorumları',
-    rentalReviewsSubtitle: 'Müşterilerimiz ne diyor',
-    rentalReviewsNoReviews: 'Henüz yorum yok.',
-    rentalReviewsFormTitle: 'Yorum Yaz',
-    rentalReviewsFormName: 'Adınız',
-    rentalReviewsFormEmail: 'E-posta (isteğe bağlı)',
-    rentalReviewsFormStars: 'Puan',
-    rentalReviewsFormComment: 'Yorumunuz',
-    rentalReviewsFormSubmit: 'Yorum gönder',
-    rentalReviewsFormSending: 'Gönderiliyor...',
-    rentalReviewsFormSuccess:
-      'Teşekkürler! Yorumunuz incelendikten sonra yayınlanacak.',
-    rentalReviewsFormError: 'Bir hata oluştu. Lütfen tekrar deneyin.',
-    rentalReviewsFormValidation: 'Lütfen adınızı ve yorumunuzu doldurun.',
 
     loading: 'Yükleniyor...',
     error: 'Bir hata oluştu.',
@@ -2769,11 +2198,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     faqMetaTitle:
       'SSS — Lünen Bisiklet Mağazası | Sık Sorulan Sorular | Karaarslan Bike',
     faqMetaDescription:
-      "Lünen'da bisiklet alma ve kiralama hakkında sık sorulan sorular: garanti, e-bisiklet, deneme sürüşü, çalışma saatleri, fiyatlar. Karaarslan Bike.",
-    bikeRentalMetaTitle:
-      'Lünen Bisiklet Kiralama | Bisiklet Bazlı Günlük Fiyat | Karaarslan Bike',
-    bikeRentalMetaDescription:
-      "Lünen'da bisiklet kiralama: 1-7 gün için bisiklet bazlı günlük fiyatlar, 8. günden sonra sabit ek gün ücreti. Kask ve kilit dahil. ✓ Karaarslan Bike.",
+      "Lünen'da bisiklet alma hakkında sık sorulan sorular: garanti, e-bisiklet, deneme sürüşü, çalışma saatleri, fiyatlar. Karaarslan Bike.",
     garantieMetaTitle: 'Garanti Koşulları — Karaarslan Bike',
     garantieMetaDescription:
       "Karaarslan Bike'da yeni ve ikinci el bisikletler için garanti koşulları. Yeni bisikletlerde 2 yıl, ikinci elde 3 ay garanti.",
@@ -2824,21 +2249,6 @@ const TRANSLATIONS: Record<Language, Translations> = {
     svcRepairItem4: 'Yedek Parça Stokta',
     svcRepairCta: 'Randevu Talep Et',
     svcRepairWaCta: 'WhatsApp ile Randevu',
-    svcRentalBadge: 'Kiralama',
-    svcRentalTitle: 'Bisiklet Kiralama',
-    svcRentalSub: 'Şehir, Trekking veya Dağ Bisikleti – günlük esnek kiralama.',
-    svcRentalItem1: 'Şehir & Trekking Bisikletleri',
-    svcRentalItem2: 'Dağ Bisikletleri mevcut',
-    svcRentalItem3: 'Günlük & Haftalık Kiralama',
-    svcRentalItem4: 'Kilit & Kask dahil',
-    svcRentalCta: 'Bisikletini rezerve edin',
-    homeRentalCardTitle: 'Bisiklet Kirala',
-    homeRentalBestBadge: 'En İyi Teklif · %30 Tasarruf',
-    homeRentalPopularBadge: 'Popüler',
-    homeRentalLock: 'Kilit dahil',
-    homeRentalHelmet: 'Kask ücretsiz',
-    homeRentalAvail: 'Hemen müsait',
-    homeRentalBookCta: 'Bisiklet seç & hemen rezerve et',
     svcAngeboteBadge: 'Yeni Bisikletler',
     svcAngeboteTitle: 'Yeni Bisikletler',
     svcAngeboteSub:

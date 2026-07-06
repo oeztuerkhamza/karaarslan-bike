@@ -10,11 +10,6 @@ public record DashboardDto(
     decimal TotalPurchaseAmount,
     decimal TotalSaleAmount,
     decimal Profit,
-    int ActiveRentals,
-    int OverdueRentals,
-    int PendingBookings,
     IEnumerable<PurchaseListDto> RecentPurchases,
-    IEnumerable<SaleListDto> RecentSales,
-    IEnumerable<RentalListDto> RecentRentals,
-    IEnumerable<RentalBookingListDto> RecentPendingBookings
+    IEnumerable<SaleListDto> RecentSales
 );

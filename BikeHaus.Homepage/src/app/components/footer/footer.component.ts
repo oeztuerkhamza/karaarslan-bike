@@ -32,9 +32,6 @@ import { ShopInfoService } from '../../services/shop-info.service';
             <a [routerLink]="['/' + lang(), 'zubehoer']">{{
               t().accessories
             }}</a>
-            <a [routerLink]="['/' + lang(), 'fahrradverleih']">{{
-              t().bikeRental
-            }}</a>
             <a [routerLink]="['/' + lang(), 'ratgeber']">{{
               t().ratgeberNav
             }}</a>

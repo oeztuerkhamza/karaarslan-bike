@@ -19,36 +19,24 @@ public class SmtpEmailService : IEmailService
 {
     private const int MaxSendAttempts = 3;
     private readonly SmtpOptions _options;
+    private readonly CampaignSmtpOptions _campaignOptions;
     private readonly ILogger<SmtpEmailService> _logger;
     private readonly BikeHausDbContext _db;
 
-    public SmtpEmailService(IOptions<SmtpOptions> options, ILogger<SmtpEmailService> logger, BikeHausDbContext db)
+    public SmtpEmailService(
+        IOptions<SmtpOptions> options,
+        IOptions<CampaignSmtpOptions> campaignOptions,
+        ILogger<SmtpEmailService> logger,
+        BikeHausDbContext db)
     {
         _options = options.Value;
+        _campaignOptions = campaignOptions.Value;
         _logger = logger;
         _db = db;
     }
 
-    public Task SendRentalBookingApprovedAsync(RentalBookingEmailModel model)
-    {
-        var subject = $"Anfrage bestaetigt - {model.BuchungsNummer} | Karaarslan Bike";
-        var body = BuildApprovedBodyDe(model);
-        return SendAsync(model.ToEmail, model.ToName, subject, body, "MietvertragBestaetigt");
-    }
-
-    public Task SendRentalBookingCancelledAsync(RentalBookingEmailModel model)
-    {
-        var subject = $"Anfrage storniert - {model.BuchungsNummer} | Karaarslan Bike";
-        var body = BuildCancelledBodyDe(model);
-        return SendAsync(model.ToEmail, model.ToName, subject, body, "MietvertragStorniert");
-    }
-
-    public Task SendRentalBookingReceivedAsync(RentalBookingEmailModel model)
-    {
-        var subject = $"Mietanfrage eingegangen - {model.BuchungsNummer} | Karaarslan Bike";
-        var body = BuildReceivedBodyDe(model);
-        return SendAsync(model.ToEmail, model.ToName, subject, body, "MietanfrageEingegangen");
-    }
+    /// <summary>Optional per-send identity override (used by the campaign mailbox).</summary>
+    private sealed record SenderIdentity(string Username, string Password, string FromEmail, string FromName);
 
     public Task SendSaleReceiptAsync(string toEmail, string toName, string belegNummer, byte[] pdfBytes)
     {
@@ -78,44 +66,39 @@ Dein Team vom Karaarslan Bike";
             });
     }
 
-    public Task SendRentalDocumentsAsync(
-        string toEmail,
-        string toName,
-        string mietvertragNummer,
-        byte[] mietvertragPdfBytes,
-        byte[] kautionsquittungPdfBytes)
+    public Task SendNewsletterAsync(string toEmail, string toName, string subject, string textBody)
     {
-        var subject = $"Ihre Mietunterlagen - {mietvertragNummer} | Karaarslan Bike";
-        var body = $@"Hallo {toName},
-
-    deine Mietunterlagen sind da.
-
-    anbei findest du alle Dokumente zu deiner Buchung.
-
-Mietvertragsnummer: {mietvertragNummer}
-
-Im Anhang finden Sie:
-- Mietvertrag
-- Kautionsquittung
-
-    Wenn du noch Fragen hast, melde dich jederzeit.
-
-    Wir wuenschen dir viel Spass und gute Fahrt.
-
-Viele Gruesse
-    Dein Team vom Karaarslan Bike";
-
+        // Plain text, no List-Unsubscribe headers, no HTML — deliberately
+        // looks like a one-to-one personal mail so Gmail does not file it
+        // under "Promotions". Sent from the dedicated campaign mailbox
+        // (falls back to the default sender when not configured).
         return SendAsync(
             toEmail,
             toName,
             subject,
-            body,
-            "Mietunterlagen",
-            new[]
-            {
-                (Bytes: mietvertragPdfBytes, FileName: $"Mietvertrag-{mietvertragNummer}.pdf"),
-                (Bytes: kautionsquittungPdfBytes, FileName: $"Kautionsquittung-{mietvertragNummer}.pdf")
-            });
+            textBody,
+            "Newsletter",
+            attachments: null,
+            sender: ResolveCampaignSender());
+    }
+
+    /// <summary>
+    /// The campaign is sent from a dedicated mailbox so the review newsletter
+    /// goes out under a real person's name, while ALL transactional mail keeps
+    /// using the default sender. Returns null — and thus falls back to the
+    /// default sender — when the campaign account is not configured.
+    /// </summary>
+    private SenderIdentity? ResolveCampaignSender()
+    {
+        var c = _campaignOptions;
+        if (string.IsNullOrWhiteSpace(c.Username) || string.IsNullOrWhiteSpace(c.Password))
+            return null;
+
+        return new SenderIdentity(
+            c.Username.Trim(),
+            c.Password,
+            FirstConfigured(c.FromEmail, c.Username),
+            FirstConfigured(c.FromName, _options.FromName));
     }
 
     private async Task SendAsync(
@@ -124,7 +107,8 @@ Viele Gruesse
         string subject,
         string body,
         string emailType = "",
-        IEnumerable<(byte[] Bytes, string FileName)>? attachments = null)
+        IEnumerable<(byte[] Bytes, string FileName)>? attachments = null,
+        SenderIdentity? sender = null)
     {
         if (string.IsNullOrWhiteSpace(toEmail))
             throw new InvalidOperationException("Recipient email address is required.");
@@ -133,23 +117,38 @@ Viele Gruesse
             .Where(a => a.IsDefault && a.IsActive)
             .FirstOrDefaultAsync();
 
+        // Host/Port/TLS always come from the server config (same SMTP server).
         var host = dbAccount is not null
             ? FirstConfigured(dbAccount.Host, _options.Host)
             : FirstConfigured(_options.Host);
         var port = dbAccount?.Port > 0 ? dbAccount.Port : _options.Port;
-        var username = dbAccount is not null
-            ? (dbAccount.Username ?? string.Empty).Trim()
-            : FirstConfigured(_options.Username);
-        var password = dbAccount is not null
-            ? dbAccount.Password ?? string.Empty
-            : FirstConfigured(_options.Password);
         var useSsl = dbAccount?.UseSsl ?? _options.UseSsl;
-        var fromEmail = dbAccount is not null
-            ? FirstConfigured(dbAccount.FromEmail, _options.FromEmail)
-            : FirstConfigured(_options.FromEmail);
-        var fromName = dbAccount is not null
-            ? FirstConfigured(dbAccount.FromName, _options.FromName)
-            : FirstConfigured(_options.FromName);
+
+        // Identity (login + From) resolution order:
+        //   1. explicit per-send override (campaign mailbox), else
+        //   2. the active default DB account, else
+        //   3. the config sender. The override never affects the path 2/3
+        //      used by all transactional mail.
+        var username = sender is not null
+            ? sender.Username
+            : dbAccount is not null
+                ? (dbAccount.Username ?? string.Empty).Trim()
+                : FirstConfigured(_options.Username);
+        var password = sender is not null
+            ? sender.Password
+            : dbAccount is not null
+                ? dbAccount.Password ?? string.Empty
+                : FirstConfigured(_options.Password);
+        var fromEmail = sender is not null
+            ? sender.FromEmail
+            : dbAccount is not null
+                ? FirstConfigured(dbAccount.FromEmail, _options.FromEmail)
+                : FirstConfigured(_options.FromEmail);
+        var fromName = sender is not null
+            ? sender.FromName
+            : dbAccount is not null
+                ? FirstConfigured(dbAccount.FromName, _options.FromName)
+                : FirstConfigured(_options.FromName);
 
         if (string.IsNullOrWhiteSpace(fromEmail))
         {
@@ -323,122 +322,5 @@ Viele Gruesse
         {
             _logger.LogWarning(logEx, "Failed to log email to database.");
         }
-    }
-
-    private static string BuildApprovedBodyDe(RentalBookingEmailModel m)
-    {
-        var totalPriceText = m.TotalPrice.HasValue ? $"{m.TotalPrice.Value:0.00} EUR" : "wird im Laden bestaetigt";
-        var depositAmount = m.Deposit ?? 300m;
-        var accessoriesText = string.IsNullOrWhiteSpace(m.AccessoriesText) || m.AccessoriesText.Trim().Equals("Keine", StringComparison.OrdinalIgnoreCase)
-            ? "Keine"
-            : m.AccessoriesText.Replace("\n", ", ").Replace("- ", string.Empty).Trim();
-
-        return $@"Hallo {m.ToName},
-
-gute Nachrichten: Deine Mietanfrage ist offiziell bestaetigt.
-Dein Bike ist fuer deinen Wunschzeitraum fest fuer dich reserviert.
-
-Deine Buchungsdetails:
-
-Buchungsnummer: {m.BuchungsNummer}
-Fahrrad: {m.BikeBrand} {m.BikeModel}
-Zeitraum: {m.StartDate:dd.MM.yyyy} - {m.EndDate:dd.MM.yyyy} ({m.Days} Tage)
-Zubehoer (inklusive): {accessoriesText}
-Mietpreis: {totalPriceText}
-
-Abholung und Rueckgabe:
-Dein Bike steht puenktlich an unserem Standort fuer dich bereit:
-
-Karaarslan Bike
-{m.PickupLocation}
-
-Wichtiger Hinweis:
-Bitte bring zur Abholung einen gueltigen Lichtbildausweis und {depositAmount:0.00} EUR in bar als Kaution mit.
-
-Falls du doch nicht fahren kannst:
-Du kannst deine Buchung selbst stornieren ueber diesen Link:
-{m.SelfCancelUrl ?? "Bitte antworte auf diese E-Mail fuer eine Stornierung."}
-
-Wir wuenschen dir jetzt schon eine richtig coole Tour.
-Wenn du noch Fragen hast, antworte einfach auf diese E-Mail oder ruf kurz durch.
-
-Viele Gruesse
-Dein Team vom Karaarslan Bike
-
-{m.ShopPhone}
-karaarslan-bike.de
-{m.ShopEmail}
-";
-    }
-
-    private static string BuildCancelledBodyDe(RentalBookingEmailModel m)
-    {
-        var accessoriesText = string.IsNullOrWhiteSpace(m.AccessoriesText) || m.AccessoriesText.Trim().Equals("Keine", StringComparison.OrdinalIgnoreCase)
-            ? "Keine"
-            : m.AccessoriesText.Replace("\n", ", ").Replace("- ", string.Empty).Trim();
-
-        return $@"Hallo {m.ToName},
-
-vielen Dank fuer deine Anfrage.
-
-leider muessen wir dir mitteilen, dass wir deine Mietanfrage aktuell nicht bestaetigen koennen.
-
-Buchungsnummer: {m.BuchungsNummer}
-Fahrrad: {m.BikeBrand} {m.BikeModel}
-Zeitraum: {m.StartDate:dd.MM.yyyy} - {m.EndDate:dd.MM.yyyy}
-Zubehoer: {accessoriesText}
-
-Abholung und Rueckgabe:
-Karaarslan Bike
-{m.PickupLocation}
-
-Wenn du einen neuen Termin moechtest, antworte einfach auf diese E-Mail.
-Wir schauen gerne direkt nach einer passenden Alternative fuer dich.
-
-Viele Gruesse
-Dein Team vom Karaarslan Bike
-{m.ShopPhone}
-{m.ShopEmail}
-";
-    }
-
-    private static string BuildReceivedBodyDe(RentalBookingEmailModel m)
-    {
-        var totalPriceText = m.TotalPrice.HasValue ? $"{m.TotalPrice.Value:0.00} EUR" : "wird nach Pruefung bestaetigt";
-        var accessoriesText = string.IsNullOrWhiteSpace(m.AccessoriesText) || m.AccessoriesText.Trim().Equals("Keine", StringComparison.OrdinalIgnoreCase)
-            ? "Keine"
-            : m.AccessoriesText.Replace("\n", ", ").Replace("- ", string.Empty).Trim();
-
-        return $@"Hallo {m.ToName},
-
-vielen Dank fuer deine Mietanfrage.
-
-deine Anfrage ist erfolgreich bei uns eingegangen und wird gerade geprueft.
-
-Buchungsnummer: {m.BuchungsNummer}
-Fahrrad: {m.BikeBrand} {m.BikeModel}
-Zeitraum: {m.StartDate:dd.MM.yyyy} - {m.EndDate:dd.MM.yyyy} ({m.Days} Tage)
-Geschaetzter Mietpreis: {totalPriceText}
-Zubehoer: {accessoriesText}
-
-Wie geht es jetzt weiter?
-Wir geben dir schnellstmoeglich Rueckmeldung, in der Regel innerhalb von 24 Stunden.
-Sobald alles geprueft ist, bekommst du eine zweite E-Mail mit der finalen Bestaetigung.
-
-Abholung und Rueckgabe:
-Karaarslan Bike
-{m.PickupLocation}
-
-Falls sich deine Plaene aendern:
-Du kannst deine Anfrage jederzeit selbst stornieren:
-{m.SelfCancelUrl ?? "Bitte antworte auf diese E-Mail fuer eine Stornierung."}
-
-Wenn du Fragen hast, antworte einfach auf diese E-Mail oder ruf kurz durch.
-
-Viele Gruesse
-Dein Team vom Karaarslan Bike
-{m.ShopPhone}
-{m.ShopEmail}
-";
     }
 }

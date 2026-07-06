@@ -13,21 +13,15 @@ public class BicycleService : IBicycleService
     private readonly IBicycleRepository _repository;
     private readonly IPurchaseRepository _purchaseRepository;
     private readonly IShopSettingsRepository _settingsRepository;
-    private readonly IRentalRepository _rentalRepository;
-    private readonly IRentalBookingRepository _bookingRepository;
 
     public BicycleService(
         IBicycleRepository repository,
         IPurchaseRepository purchaseRepository,
-        IShopSettingsRepository settingsRepository,
-        IRentalRepository rentalRepository,
-        IRentalBookingRepository bookingRepository)
+        IShopSettingsRepository settingsRepository)
     {
         _repository = repository;
         _purchaseRepository = purchaseRepository;
         _settingsRepository = settingsRepository;
-        _rentalRepository = rentalRepository;
-        _bookingRepository = bookingRepository;
     }
 
     private static bool IsAccessoryOnlySystemBike(Domain.Entities.Bicycle bike)
@@ -89,13 +83,6 @@ public class BicycleService : IBicycleService
         {
             var marke = paginationParams.Marke.ToLower();
             predicate = CombineAnd(predicate, b => b.Marke.ToLower() == marke);
-        }
-
-        // IsRentable filter
-        if (paginationParams.IsRentable.HasValue)
-        {
-            var rentable = paginationParams.IsRentable.Value;
-            predicate = CombineAnd(predicate, b => b.IsRentable == rentable);
         }
 
         // Search filter
@@ -178,15 +165,6 @@ public class BicycleService : IBicycleService
         entity.Status = dto.Status;
         entity.Zustand = dto.Zustand;
         entity.VerkaufspreisVorschlag = dto.VerkaufspreisVorschlag;
-        entity.IsRentable = dto.IsRentable;
-        entity.RentalPriceDay1 = dto.RentalPriceDay1;
-        entity.RentalPriceDay2 = dto.RentalPriceDay2;
-        entity.RentalPriceDay3 = dto.RentalPriceDay3;
-        entity.RentalPriceDay4 = dto.RentalPriceDay4;
-        entity.RentalPriceDay5 = dto.RentalPriceDay5;
-        entity.RentalPriceDay6 = dto.RentalPriceDay6;
-        entity.RentalPriceDay7 = dto.RentalPriceDay7;
-        entity.RentalPriceAdditionalDayAfter7 = dto.RentalPriceAdditionalDayAfter7;
         entity.UpdatedAt = DateTime.UtcNow;
 
         await _repository.UpdateAsync(entity);
@@ -284,18 +262,6 @@ public class BicycleService : IBicycleService
         return bicycle.ToPublicDto();
     }
 
-    public async Task<IEnumerable<PublicRentalBicycleDto>> GetRentableBicyclesAsync()
-    {
-        var bicycles = await _repository.GetRentableBicyclesAsync();
-        return bicycles.Select(b => b.ToPublicRentalDto());
-    }
-
-    public async Task<PublicRentalBicycleDto?> GetRentableBicycleByIdAsync(int id)
-    {
-        var bicycle = await _repository.GetRentableBicycleByIdAsync(id);
-        return bicycle?.ToPublicRentalDto();
-    }
-
     public async Task<BicycleImageDto> AddImageAsync(int bicycleId, string filePath, int sortOrder)
     {
         var bicycle = await _repository.GetByIdAsync(bicycleId)
@@ -334,29 +300,5 @@ public class BicycleService : IBicycleService
 
         return bicycle.Images?.OrderBy(i => i.SortOrder).Select(i => i.ToDto())
             ?? Enumerable.Empty<BicycleImageDto>();
-    }
-
-    public async Task<IEnumerable<BusyPeriodDto>> GetBusyPeriodsAsync(int bicycleId)
-    {
-        var result = new List<BusyPeriodDto>();
-
-        // Active rentals (Mietvertrag)
-        var allRentals = await _rentalRepository.GetAllAsync();
-        var activeRentals = allRentals
-            .Where(r => r.BicycleId == bicycleId && r.Status == RentalStatus.Active);
-        result.AddRange(activeRentals.Select(r =>
-            new BusyPeriodDto(r.StartDatum.Date, r.EndDatum.Date, "rental")));
-
-        // Approved bookings (Mietanfragen)
-        var approvedBookings = await _bookingRepository.GetApprovedByBicycleIdAsync(bicycleId);
-        result.AddRange(approvedBookings.Select(b =>
-            new BusyPeriodDto(b.StartDatum.Date, b.EndDatum.Date, "booking")));
-
-        // Pending booking requests (not processed yet)
-        var pendingBookings = await _bookingRepository.GetPendingByBicycleIdAsync(bicycleId);
-        result.AddRange(pendingBookings.Select(b =>
-            new BusyPeriodDto(b.StartDatum.Date, b.EndDatum.Date, "pending")));
-
-        return result;
     }
 }

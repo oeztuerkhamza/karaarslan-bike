@@ -1678,262 +1678,6 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     },
   },
 
-  // ─── Article 9: Bike Rental Lünen (EN-first) ───
-  {
-    slug: 'bike-rental-luenen-guide',
-    slugTranslations: {
-      en: 'bike-rental-luenen-guide',
-      fr: 'location-velo-luenen-guide',
-      de: 'fahrradverleih-luenen-guide',
-    },
-    coverImage: 'assets/blog/fahrradverleih.webp',
-    date: '2026-05-01',
-    readingTime: 7,
-    category: 'rental',
-    tags: [
-      'bike rental luenen',
-      'rent a bike luenen',
-      'bicycle hire luenen',
-      'location vélo Lünen',
-    ],
-    relatedSlugs: ['fahrradladen-luenen', 'welches-fahrrad-passt-zu-mir'],
-    translations: {
-      de: {
-        title: 'Fahrrad mieten in Lünen — Preise, Tipps & Buchung 2026',
-        metaTitle:
-          'Fahrrad mieten Lünen 2026 — Tagespreise pro Fahrrad | Karaarslan Bike',
-        metaDescription:
-          'Fahrrad mieten in Lünen ✓ 1 bis 7 Tage individuell pro Fahrrad ✓ ab Tag 8 mit Zusatzpreis ✓ Schloss & Helm inklusive ✓ Kein Vorausbezahlen. Karaarslan Bike.',
-        excerpt:
-          'Fahrrad mieten in Lünen: faire Preise, sofort verfügbar, ohne versteckte Kosten. Alles was Sie wissen müssen.',
-        tldr: 'Karaarslan Bike vermietet Fahrräder mit individuell gepflegten Tagespreisen pro Fahrrad. Für 1 bis 7 Tage gilt der jeweilige Fahrradpreis, danach der 7-Tage-Preis plus Zusatz pro weiterem Tag. Schloss & Helm inklusive. Kaution: 300 € bar.',
-        sections: [
-          {
-            type: 'heading',
-            content: "Fahrrad mieten in Lünen — So einfach geht's",
-          },
-          {
-            type: 'paragraph',
-            content:
-              'Karaarslan Bike bietet Fahrradverleih zu fairen Preisen ohne versteckte Kosten. Kommen Sie einfach in der Alstedder Straße 5 vorbei, wählen Sie Ihr Fahrrad und fahren Sie los.',
-          },
-          {
-            type: 'heading',
-            content: 'Preisübersicht Fahrradverleih Lünen',
-          },
-          {
-            type: 'list',
-            items: [
-              '1 bis 7 Tage: je Fahrrad individuell konfiguriert',
-              'Ab Tag 8: 7-Tage-Preis plus Zusatz pro weiterem Tag',
-              'Preisübersicht direkt am jeweiligen Fahrrad sichtbar',
-            ],
-          },
-          { type: 'heading', content: 'Was ist inklusive?' },
-          {
-            type: 'list',
-            items: [
-              'Faltschloss',
-              'Fahrradkorb',
-              'Haftpflichtversicherung nicht inbegriffen (empfohlen)',
-            ],
-          },
-          {
-            type: 'tip',
-            content:
-              'Tipp: Vergleichen Sie die Preise direkt am gewünschten Fahrrad. Für längere Mieten sehen Sie dort sofort, wie sich der 7-Tage-Preis und der Zusatz pro Tag zusammensetzen.',
-          },
-          { type: 'heading', content: 'Öffnungszeiten für Fahrradverleih' },
-          {
-            type: 'list',
-            items: [
-              'Mo, Di, Mi, Do: 09:00–18:00',
-              'Freitag: 09:00–13:00 & 15:00–18:00',
-              'Samstag: 09:00–18:00',
-              'Sonn- und feiertags geschlossen',
-            ],
-          },
-          {
-            type: 'cta',
-            content: 'Jetzt Fahrrad reservieren',
-            link: '/fahrradverleih',
-            linkText: 'Zur Reservierung',
-          },
-        ],
-      },
-      en: {
-        title: 'Bike Rental Lünen — Prices, Tips & Booking 2026',
-        metaTitle:
-          'Bike Rental Lünen 2026 — Daily Pricing Per Bike | Karaarslan Bike',
-        metaDescription:
-          'Rent a bike in Lünen ✓ days 1 to 7 priced individually per bike ✓ fixed extra-day surcharge from day 8 ✓ lock & helmet included. Karaarslan Bike.',
-        excerpt:
-          'Everything you need to know about bike rental in Lünen: prices, pickup, included equipment and tips for exploring the city.',
-        tldr: 'Karaarslan Bike rents bikes with individually configured daily prices per bike. Days 1 to 7 use the bike-specific rate, and from day 8 onward the 7-day price is extended by a fixed extra-day surcharge. Lock & helmet included. Deposit: €300 cash.',
-        sections: [
-          {
-            type: 'heading',
-            content: 'Bike Rental in Lünen — How It Works',
-          },
-          {
-            type: 'paragraph',
-            content:
-              'Karaarslan Bike offers bike rental at fair prices with no hidden costs. Just come to Alstedder Straße 5, choose your bike and ride off. No reservation required for walk-ins — we have city bikes, trekking bikes and e-bikes ready to go.',
-          },
-          { type: 'heading', content: 'Bike Rental Prices in Lünen' },
-          {
-            type: 'list',
-            items: [
-              'Days 1 to 7: individually configured per bike',
-              'From day 8: 7-day price plus fixed surcharge per extra day',
-              'Exact price list is shown next to each bike',
-            ],
-          },
-          { type: 'heading', content: "What's included?" },
-          {
-            type: 'list',
-            items: [
-              'Folding lock',
-              'Bicycle basket',
-              'Deposit: €300 cash (fully refunded on return)',
-            ],
-          },
-          {
-            type: 'tip',
-            content:
-              'Tourist tip: check the exact day-by-day list on the bike you want. For longer rentals you will also see the fixed surcharge that applies after day 7.',
-          },
-          {
-            type: 'heading',
-            content: 'Where to pick up your rental bike in Lünen',
-          },
-          {
-            type: 'paragraph',
-            content:
-              'Karaarslan Bike is located at Alstedder Straße 5, 44534 Lünen — in the Alstedde district. Easily reachable by tram or car (free parking available). Opening hours: Mon–Thu 09:00–18:00 | Fri 09:00–13:00 & 15:00–18:00 | Sat 09:00–18:00 | Sun: closed.',
-          },
-          {
-            type: 'heading',
-            content: 'Frequently Asked Questions — Bike Rental Lünen',
-          },
-          {
-            type: 'list',
-            items: [
-              'Do I need to book in advance? No reservation needed — just walk in during opening hours.',
-              'Can I rent an e-bike? Yes, subject to availability. Contact us via WhatsApp to check.',
-              'Is there a helmet included? Yes, helmets are available free of charge.',
-              'What if I return the bike late? A late fee of €12 per started day is charged.',
-              'Can I rent for just a few hours? Minimum rental period is 1 day.',
-            ],
-          },
-          {
-            type: 'cta',
-            content: 'Book your rental bike now',
-            link: '/fahrradverleih',
-            linkText: 'Reserve a Bike',
-          },
-        ],
-      },
-      fr: {
-        title:
-          'Location de vélos à Lünen — Tarifs, Conseils & Réservation 2026',
-        metaTitle:
-          'Location vélo Lünen 2026 — Tarifs journaliers par vélo | Karaarslan Bike',
-        metaDescription:
-          'Louer un vélo à Lünen ✓ tarifs 1 à 7 jours définis par vélo ✓ supplément fixe à partir du 8e jour ✓ cadenas & casque inclus. Karaarslan Bike.',
-        excerpt:
-          'Tout ce que vous devez savoir sur la location de vélos à Lünen : tarifs, retrait, équipement inclus et conseils pour explorer la ville.',
-        tldr: 'Karaarslan Bike loue des vélos avec des tarifs journaliers définis individuellement pour chaque vélo. De 1 à 7 jours, le prix dépend du vélo choisi, puis le tarif 7 jours est prolongé par un supplément fixe par jour ajouté. Cadenas & casque inclus. Caution : 300 € en espèces.',
-        sections: [
-          {
-            type: 'heading',
-            content: 'Location de vélos à Lünen — Comment ça marche',
-          },
-          {
-            type: 'paragraph',
-            content:
-              'Karaarslan Bike propose la location de vélos à des prix transparents, sans frais cachés. Venez simplement au Alstedder Straße 5, choisissez votre vélo et partez. Pas de réservation obligatoire — vélos de ville, VTC et VAE disponibles immédiatement.',
-          },
-          { type: 'heading', content: 'Tarifs location vélo Lünen' },
-          {
-            type: 'list',
-            items: [
-              '1 à 7 jours : tarif configuré individuellement par vélo',
-              'À partir du 8e jour : prix 7 jours + supplément fixe par jour ajouté',
-              'La liste exacte des prix apparaît à côté de chaque vélo',
-            ],
-          },
-          { type: 'heading', content: "Qu'est-ce qui est inclus ?" },
-          {
-            type: 'list',
-            items: [
-              'Cadenas pliable',
-              'Panier vélo',
-              'Caution : 300 € en espèces (intégralement remboursée au retour)',
-            ],
-          },
-          {
-            type: 'tip',
-            content:
-              'Conseil pour les visiteurs : louez un vélo chez nous et découvrez les pistes cyclables de la région, comme la Römer-Lippe-Route le long de la Lippe, le Seseke-Weg ou le centre historique de Lünen.',
-          },
-          {
-            type: 'heading',
-            content: 'Où récupérer votre vélo de location à Lünen',
-          },
-          {
-            type: 'paragraph',
-            content:
-              'Karaarslan Bike se trouve au Alstedder Straße 5, 44534 Lünen, dans le quartier Alstedde. Facilement accessible en tramway ou en voiture (parking gratuit). Horaires : lun–jeu 09h00–18h00 | ven 09h00–13h00 & 15h00–18h00 | sam 09h00–18h00 | dim : fermé.',
-          },
-          { type: 'heading', content: 'FAQ — Location vélo Lünen' },
-          {
-            type: 'list',
-            items: [
-              "Faut-il réserver à l'avance ? Non, venez simplement pendant les heures d'ouverture.",
-              'Peut-on louer un VAE (vélo électrique) ? Oui, sous réserve de disponibilité. Contactez-nous via WhatsApp.',
-              'Le casque est-il inclus ? Oui, casques disponibles gratuitement.',
-              "Que se passe-t-il si je rends le vélo en retard ? Des frais de 12 € par jour entamé s'appliquent.",
-            ],
-          },
-          {
-            type: 'cta',
-            content: 'Réserver votre vélo maintenant',
-            link: '/fahrradverleih',
-            linkText: 'Réserver un vélo',
-          },
-        ],
-      },
-      tr: {
-        title: "Lünen'de Bisiklet Kiralama — Fiyatlar & Rezervasyon 2026",
-        metaTitle:
-          'Lünen Bisiklet Kiralama 2026 — Bisiklet Bazlı Günlük Fiyat | Karaarslan Bike',
-        metaDescription:
-          "Lünen'de bisiklet kiralayın ✓ 1-7 gün için bisiklet bazlı fiyat ✓ 8. günden sonra sabit ek gün ücreti ✓ kilit & kask dahil ✓ Karaarslan Bike.",
-        excerpt:
-          "Lünen'de bisiklet kiralama hakkında bilmeniz gereken her şey: fiyatlar, teslim, dahil ekipman ve ipuçları.",
-        tldr: 'Karaarslan Bike her bisiklet için günlük fiyatları ayrı tanımlar. 1-7 gün arasında seçilen bisikletin fiyatı geçerlidir, 8. günden sonra ise 7 günlük fiyatın üstüne sabit ek gün ücreti eklenir. Kilit & kask dahil. Depozito: 300 € nakit.',
-        sections: [
-          {
-            type: 'heading',
-            content: "Lünen'de Bisiklet Kiralama — Nasıl Çalışır",
-          },
-          {
-            type: 'paragraph',
-            content:
-              "Karaarslan Bike gizli masraf olmadan uygun fiyatlarla bisiklet kiralar. Alstedder Straße 5'ye gelin, bisikletinizi seçin ve yola çıkın.",
-          },
-          {
-            type: 'cta',
-            content: 'Şimdi bisiklet rezervasyonu yapın',
-            link: '/fahrradverleih',
-            linkText: 'Rezervasyon',
-          },
-        ],
-      },
-    },
-  },
-
   // ─── Article 10: Buy Used Bike Lünen Expat Guide (EN-first) ───
   {
     slug: 'buy-used-bike-luenen-expat',
@@ -1953,10 +1697,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       'expat luenen bike',
       'acheter vélo Lünen',
     ],
-    relatedSlugs: [
-      'gebrauchtes-fahrrad-kaufen-tipps',
-      'bike-rental-luenen-guide',
-    ],
+    relatedSlugs: ['gebrauchtes-fahrrad-kaufen-tipps'],
     translations: {
       de: {
         title: 'Gebrauchtes Fahrrad kaufen in Lünen — Expat & Studenten Guide',
@@ -2160,17 +1901,17 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       'Römer-Lippe-Route',
       'radfahren ruhrgebiet',
     ],
-    relatedSlugs: ['bike-rental-luenen-guide', 'buy-used-bike-luenen-expat'],
+    relatedSlugs: ['buy-used-bike-luenen-expat'],
     translations: {
       de: {
         title: 'Radfahren in Lünen — Die besten Routen & Tipps 2026',
         metaTitle:
-          'Radfahren in Lünen — Routen, Verleih & Tipps 2026 | Karaarslan Bike',
+          'Radfahren in Lünen — Die besten Routen & Tipps 2026 | Karaarslan Bike',
         metaDescription:
-          'Die besten Fahrradrouten in Lünen ✓ Römer-Lippe-Route, Seseke-Weg, Innenstadt ✓ Fahrradverleih mit individuellen Tagespreisen pro Fahrrad ✓ Tipps für Touristen & Einwohner. Karaarslan Bike.',
+          'Die besten Fahrradrouten in Lünen ✓ Römer-Lippe-Route, Seseke-Weg, Innenstadt ✓ Tipps für Touristen & Einwohner. Karaarslan Bike.',
         excerpt:
-          'Lünen liegt im Ruhrgebiet mit einem gut ausgebauten Radwegenetz. Die besten Routen, Sehenswürdigkeiten und Verleih-Tipps.',
-        tldr: 'Lünen liegt im Ruhrgebiet mit einem gut ausgebauten Radwegenetz (RadrevierRuhr). Top-Routen: Lippeauenweg (Lippe-Auen), Seseke-Weg (ca. 25 km, flach), Römer-Lippe-Route. Fahrrad mieten bei Karaarslan Bike mit individuellen Tagespreisen pro Fahrrad.',
+          'Lünen liegt im Ruhrgebiet mit einem gut ausgebauten Radwegenetz. Die besten Routen und Sehenswürdigkeiten.',
+        tldr: 'Lünen liegt im Ruhrgebiet mit einem gut ausgebauten Radwegenetz (RadrevierRuhr). Top-Routen: Lippeauenweg (Lippe-Auen), Seseke-Weg (ca. 25 km, flach), Römer-Lippe-Route.',
         sections: [
           {
             type: 'heading',
@@ -2197,21 +1938,21 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           },
           {
             type: 'cta',
-            content: 'Fahrrad für Ihre Tour mieten',
-            link: '/fahrradverleih',
-            linkText: 'Zum Verleih',
+            content: 'Passendes Fahrrad für Ihre Tour finden',
+            link: '/showroom',
+            linkText: 'Zum Showroom',
           },
         ],
       },
       en: {
-        title: 'Cycling in Lünen — Best Routes, Rentals & Tips 2026',
+        title: 'Cycling in Lünen — Best Routes & Tips 2026',
         metaTitle:
-          'Cycling in Lünen 2026 — Routes, Bike Rental & Tips | Karaarslan Bike',
+          'Cycling in Lünen 2026 — Best Routes & Tips | Karaarslan Bike',
         metaDescription:
-          'Best cycling routes in Lünen ✓ Römer-Lippe-Route, Seseke-Weg, City ✓ Bike rental with daily pricing per bike ✓ Tips for tourists & residents. Your guide to cycling in Lünen.',
+          'Best cycling routes in Lünen ✓ Römer-Lippe-Route, Seseke-Weg, City ✓ Tips for tourists & residents. Your guide to cycling in Lünen.',
         excerpt:
-          'Lünen is part of the Ruhr region with a well-developed cycling network. Discover the best cycling routes, how to rent a bike, and everything you need to explore the city on two wheels.',
-        tldr: 'Lünen is part of the Ruhr region with a well-developed cycling network (RadrevierRuhr). Top routes: Lippeauenweg (Lippe meadows), Seseke-Weg (~25 km, flat), Römer-Lippe-Route. Rent a bike from Karaarslan Bike with daily pricing configured per bike.',
+          'Lünen is part of the Ruhr region with a well-developed cycling network. Discover the best cycling routes and everything you need to explore the city on two wheels.',
+        tldr: 'Lünen is part of the Ruhr region with a well-developed cycling network (RadrevierRuhr). Top routes: Lippeauenweg (Lippe meadows), Seseke-Weg (~25 km, flat), Römer-Lippe-Route.',
         sections: [
           {
             type: 'heading',
@@ -2236,15 +1977,6 @@ export const BLOG_ARTICLES: BlogArticle[] = [
               'RadrevierRuhr: A well-signposted network of routes across the whole Ruhr region.',
             ],
           },
-          {
-            type: 'heading',
-            content: 'How to Rent a Bike in Lünen for Your Route',
-          },
-          {
-            type: 'paragraph',
-            content:
-              'Karaarslan Bike at Alstedder Straße 5 is the ideal starting point for your cycling adventure. We offer city bikes, trekking bikes and e-bikes with daily prices configured per bike. Lock and basket included. No reservation required.',
-          },
           { type: 'heading', content: 'Cycling Tips for Tourists in Lünen' },
           {
             type: 'list',
@@ -2259,25 +1991,25 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'tip',
             content:
-              'Pro tip: The Römer-Lippe-Route is one of the most scenic long-distance routes in the region. Pick up your bike at Karaarslan Bike and join the route right along the Lippe — just a few minutes from the shop.',
+              'Pro tip: The Römer-Lippe-Route is one of the most scenic long-distance routes in the region. Join it right along the Lippe — just a few minutes from our shop.',
           },
           {
             type: 'cta',
-            content: 'Rent a bike for your Lünen adventure',
-            link: '/fahrradverleih',
-            linkText: 'Rent a Bike',
+            content: 'Find the right bike for your Lünen adventure',
+            link: '/showroom',
+            linkText: 'Browse Bikes',
           },
         ],
       },
       fr: {
-        title: 'Faire du vélo à Lünen — Itinéraires, Location & Conseils 2026',
+        title: 'Faire du vélo à Lünen — Itinéraires & Conseils 2026',
         metaTitle:
-          'Vélo à Lünen 2026 — Itinéraires, Location & Conseils | Karaarslan Bike',
+          'Vélo à Lünen 2026 — Itinéraires & Conseils | Karaarslan Bike',
         metaDescription:
-          'Les meilleurs itinéraires vélo à Lünen ✓ Römer-Lippe-Route, Seseke-Weg, Centre-ville ✓ Location avec tarifs journaliers par vélo ✓ Région de la Ruhr. Karaarslan Bike.',
+          'Les meilleurs itinéraires vélo à Lünen ✓ Römer-Lippe-Route, Seseke-Weg, Centre-ville ✓ Région de la Ruhr. Karaarslan Bike.',
         excerpt:
-          "Lünen se situe dans la région de la Ruhr, dotée d'un réseau cyclable bien développé. Découvrez les meilleurs itinéraires, comment louer un vélo et tout ce qu'il faut savoir pour explorer la région à deux roues.",
-        tldr: 'Lünen se situe dans la région de la Ruhr, dotée d\'un réseau cyclable bien développé (RadrevierRuhr). Itinéraires phares : Lippeauenweg (prairies de la Lippe), Seseke-Weg (env. 25 km, plat), Römer-Lippe-Route. Location vélo chez Karaarslan Bike avec tarifs journaliers définis par vélo.',
+          "Lünen se situe dans la région de la Ruhr, dotée d'un réseau cyclable bien développé. Découvrez les meilleurs itinéraires et tout ce qu'il faut savoir pour explorer la région à deux roues.",
+        tldr: 'Lünen se situe dans la région de la Ruhr, dotée d\'un réseau cyclable bien développé (RadrevierRuhr). Itinéraires phares : Lippeauenweg (prairies de la Lippe), Seseke-Weg (env. 25 km, plat), Römer-Lippe-Route.',
         sections: [
           {
             type: 'heading',
@@ -2304,15 +2036,6 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           },
           {
             type: 'heading',
-            content: 'Comment louer un vélo à Lünen pour votre itinéraire',
-          },
-          {
-            type: 'paragraph',
-            content:
-              'Karaarslan Bike au Alstedder Straße 5 est le point de départ idéal pour votre aventure cycliste. Nous proposons des vélos de ville, VTC et VAE avec des tarifs journaliers définis par vélo. Cadenas et panier inclus. Pas de réservation obligatoire.',
-          },
-          {
-            type: 'heading',
             content:
               'La Römer-Lippe-Route depuis Lünen — Conseils',
           },
@@ -2324,25 +2047,25 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             type: 'tip',
             content:
-              "Astuce : louez votre vélo à Lünen le matin, suivez la Römer-Lippe-Route jusqu'à Werne et rentrez en train avec votre vélo (vélos acceptés dans les trains régionaux). Une journée inoubliable !",
+              "Astuce : partez tôt le matin, suivez la Römer-Lippe-Route jusqu'à Werne et rentrez en train avec votre vélo (vélos acceptés dans les trains régionaux). Une journée inoubliable !",
           },
           {
             type: 'cta',
-            content: 'Louer un vélo pour votre aventure à Lünen',
-            link: '/fahrradverleih',
-            linkText: 'Louer un vélo',
+            content: 'Trouvez le vélo idéal pour votre aventure à Lünen',
+            link: '/showroom',
+            linkText: 'Voir les vélos',
           },
         ],
       },
       tr: {
-        title: "Lünen'de Bisiklet Rotaları — Kiralama & İpuçları 2026",
+        title: "Lünen'de Bisiklet Rotaları & İpuçları 2026",
         metaTitle:
-          'Lünen Bisiklet Rotaları 2026 — Kiralama & Rehber | Karaarslan Bike',
+          'Lünen Bisiklet Rotaları 2026 — Rehber | Karaarslan Bike',
         metaDescription:
-          "Lünen'de en iyi bisiklet rotaları ✓ Römer-Lippe-Route, Seseke-Weg, Şehir Merkezi ✓ bisiklet bazlı günlük kiralama fiyatları ✓ Turist ve sakinler için ipuçları.",
+          "Lünen'de en iyi bisiklet rotaları ✓ Römer-Lippe-Route, Seseke-Weg, Şehir Merkezi ✓ Turist ve sakinler için ipuçları.",
         excerpt:
-          "Lünen, iyi gelişmiş bir bisiklet yolu ağına sahip Ruhr bölgesinde yer alır. En iyi rotalar, bisiklet kiralama ve iki tekerlekle keşif rehberi.",
-        tldr: "Lünen, iyi gelişmiş bir bisiklet yolu ağına sahip Ruhr bölgesinde yer alır (RadrevierRuhr). En iyi rotalar: Lippeauenweg (Lippe çayırları), Seseke-Weg (yaklaşık 25 km, düz), Römer-Lippe-Route. Karaarslan Bike'da bisiklet bazlı günlük fiyatlarla kiralama yapılır.",
+          "Lünen, iyi gelişmiş bir bisiklet yolu ağına sahip Ruhr bölgesinde yer alır. En iyi rotalar ve iki tekerlekle keşif rehberi.",
+        tldr: "Lünen, iyi gelişmiş bir bisiklet yolu ağına sahip Ruhr bölgesinde yer alır (RadrevierRuhr). En iyi rotalar: Lippeauenweg (Lippe çayırları), Seseke-Weg (yaklaşık 25 km, düz), Römer-Lippe-Route.",
         sections: [
           {
             type: 'heading',

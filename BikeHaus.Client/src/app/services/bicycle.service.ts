@@ -7,7 +7,6 @@ import {
   BicycleCreate,
   BicycleImage,
   BicycleUpdate,
-  BusyPeriod,
   PaginatedResult,
 } from '../models/models';
 
@@ -30,7 +29,6 @@ export class BicycleService {
     fahrradtyp?: string,
     reifengroesse?: string,
     marke?: string,
-    isRentable?: boolean,
   ): Observable<PaginatedResult<Bicycle>> {
     let params = new HttpParams()
       .set('page', page.toString())
@@ -42,7 +40,6 @@ export class BicycleService {
     if (fahrradtyp) params = params.set('fahrradtyp', fahrradtyp);
     if (reifengroesse) params = params.set('reifengroesse', reifengroesse);
     if (marke) params = params.set('marke', marke);
-    if (isRentable !== undefined) params = params.set('isRentable', isRentable.toString());
 
     return this.http.get<PaginatedResult<Bicycle>>(`${this.url}/paginated`, {
       params,
@@ -72,10 +69,6 @@ export class BicycleService {
 
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.url}/${id}`);
-  }
-
-  getBusyPeriods(id: number): Observable<BusyPeriod[]> {
-    return this.http.get<BusyPeriod[]>(`${this.url}/${id}/busy-periods`);
   }
 
   getBrands(): Observable<string[]> {

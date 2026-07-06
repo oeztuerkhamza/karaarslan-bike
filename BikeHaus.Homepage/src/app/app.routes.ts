@@ -101,13 +101,6 @@ export const routes: Routes = [
           ),
       },
       {
-        path: 'fahrradverleih',
-        loadComponent: () =>
-          import('./pages/fahrradverleih/fahrradverleih.component').then(
-            (m) => m.FahrradverleihComponent,
-          ),
-      },
-      {
         path: 'ratgeber',
         loadComponent: () =>
           import('./pages/ratgeber/ratgeber.component').then(

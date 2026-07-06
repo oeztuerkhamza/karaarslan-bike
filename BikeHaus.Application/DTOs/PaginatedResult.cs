@@ -33,5 +33,4 @@ public class PaginationParams
     public string? Reifengroesse { get; set; }
     public string? Marke { get; set; }
     public string? Farbe { get; set; }
-    public bool? IsRentable { get; set; }
 }

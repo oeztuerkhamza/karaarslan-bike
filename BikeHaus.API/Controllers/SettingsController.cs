@@ -11,12 +11,10 @@ namespace BikeHaus.API.Controllers;
 public class SettingsController : ControllerBase
 {
     private readonly IShopSettingsService _settingsService;
-    private readonly IEmailService _emailService;
 
-    public SettingsController(IShopSettingsService settingsService, IEmailService emailService)
+    public SettingsController(IShopSettingsService settingsService)
     {
         _settingsService = settingsService;
-        _emailService = emailService;
     }
 
     [HttpGet]
@@ -114,45 +112,4 @@ public class SettingsController : ControllerBase
         return NoContent();
     }
 
-    [Authorize]
-    [HttpPost("test-email")]
-    public async Task<IActionResult> TestEmail([FromBody] TestEmailDto dto)
-    {
-        try
-        {
-            await _emailService.SendRentalBookingReceivedAsync(new RentalBookingEmailModel(
-                ToEmail: dto.ToEmail,
-                ToName: "Test (SMTP-Verbindungstest)",
-                BuchungsNummer: "TEST-001",
-                BikeBrand: "Test",
-                BikeModel: "Fahrrad",
-                FrameNumber: null,
-                FrameSize: null,
-                Color: null,
-                StartDate: DateTime.Today,
-                EndDate: DateTime.Today.AddDays(3),
-                Days: 3,
-                TotalPrice: null,
-                Deposit: null,
-                AccessoriesText: "-",
-                PickupLocation: "Karaarslan Bike, Lünen",
-                ShopPhone: "",
-                ShopEmail: "no-reply@karaarslan-bike.de",
-                Language: "de",
-                SelfCancelUrl: null
-            ));
-            return Ok(new { message = $"Test-E-Mail wurde an {dto.ToEmail} gesendet." });
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(new { error = ex.Message });
-        }
-    }
-}
-
-public class TestEmailDto
-{
-    [Required]
-    [EmailAddress]
-    public string ToEmail { get; set; } = "";
 }

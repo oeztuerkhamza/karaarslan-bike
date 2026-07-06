@@ -16,15 +16,6 @@ public record BicycleDto(
     string? Beschreibung,
     BikeStatus Status,
     BikeCondition Zustand,
-    bool IsRentable,
-    decimal? RentalPriceDay1,
-    decimal? RentalPriceDay2,
-    decimal? RentalPriceDay3,
-    decimal? RentalPriceDay4,
-    decimal? RentalPriceDay5,
-    decimal? RentalPriceDay6,
-    decimal? RentalPriceDay7,
-    decimal? RentalPriceAdditionalDayAfter7,
     bool IsPublishedOnWebsite,
     bool IsPublishedOnKleinanzeigen,
     decimal? VerkaufspreisVorschlag,
@@ -43,16 +34,7 @@ public record BicycleCreateDto(
     string? Fahrradtyp,
     string? Art,
     string? Beschreibung,
-    BikeCondition Zustand = BikeCondition.Gebraucht,
-    bool IsRentable = false,
-    decimal? RentalPriceDay1 = null,
-    decimal? RentalPriceDay2 = null,
-    decimal? RentalPriceDay3 = null,
-    decimal? RentalPriceDay4 = null,
-    decimal? RentalPriceDay5 = null,
-    decimal? RentalPriceDay6 = null,
-    decimal? RentalPriceDay7 = null,
-    decimal? RentalPriceAdditionalDayAfter7 = null
+    BikeCondition Zustand = BikeCondition.Gebraucht
 );
 
 public record BicycleUpdateDto(
@@ -67,16 +49,7 @@ public record BicycleUpdateDto(
     string? Beschreibung,
     BikeStatus Status,
     BikeCondition Zustand,
-    decimal? VerkaufspreisVorschlag = null,
-    bool IsRentable = false,
-    decimal? RentalPriceDay1 = null,
-    decimal? RentalPriceDay2 = null,
-    decimal? RentalPriceDay3 = null,
-    decimal? RentalPriceDay4 = null,
-    decimal? RentalPriceDay5 = null,
-    decimal? RentalPriceDay6 = null,
-    decimal? RentalPriceDay7 = null,
-    decimal? RentalPriceAdditionalDayAfter7 = null
+    decimal? VerkaufspreisVorschlag = null
 );
 
 public record BicycleImageDto(

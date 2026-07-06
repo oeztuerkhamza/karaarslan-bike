@@ -11,7 +11,6 @@ public class ExportService : IExportService
     private readonly IReturnRepository _returnRepository;
     private readonly IExpenseRepository _expenseRepository;
     private readonly IInvoiceRepository _invoiceRepository;
-    private readonly IRentalRepository _rentalRepository;
     private readonly IPdfService _pdfService;
     private readonly string _uploadsPath;
 
@@ -21,7 +20,6 @@ public class ExportService : IExportService
         IReturnRepository returnRepository,
         IExpenseRepository expenseRepository,
         IInvoiceRepository invoiceRepository,
-        IRentalRepository rentalRepository,
         IPdfService pdfService,
         string uploadsPath)
     {
@@ -30,7 +28,6 @@ public class ExportService : IExportService
         _returnRepository = returnRepository;
         _expenseRepository = expenseRepository;
         _invoiceRepository = invoiceRepository;
-        _rentalRepository = rentalRepository;
         _pdfService = pdfService;
         _uploadsPath = uploadsPath;
     }
@@ -110,26 +107,6 @@ public class ExportService : IExportService
                 var entry = archive.CreateEntry(SanitizeFileName(fileName));
                 using var entryStream = entry.Open();
                 await entryStream.WriteAsync(pdf);
-            }
-
-            // 6. Mietverträge (Rental contracts + deposit receipts)
-            var rentals = await _rentalRepository.FindAsync(r =>
-                r.StartDatum >= startDate && r.StartDatum <= endDate);
-            foreach (var rental in rentals)
-            {
-                // Mietvertrag PDF
-                var mietvertragPdf = await _pdfService.GenerateMietvertragAsync(rental.Id);
-                var mvFileName = $"Mietvertraege/Mietvertrag_{rental.MietvertragNummer}_{rental.StartDatum:yyyy-MM-dd}.pdf";
-                var mvEntry = archive.CreateEntry(SanitizeFileName(mvFileName));
-                using (var mvStream = mvEntry.Open())
-                    await mvStream.WriteAsync(mietvertragPdf);
-
-                // Kautionsquittung PDF
-                var kautionPdf = await _pdfService.GenerateKautionsquittungAsync(rental.Id);
-                var kqFileName = $"Mietvertraege/Kautionsquittung_{rental.MietvertragNummer}_{rental.StartDatum:yyyy-MM-dd}.pdf";
-                var kqEntry = archive.CreateEntry(SanitizeFileName(kqFileName));
-                using (var kqStream = kqEntry.Open())
-                    await kqStream.WriteAsync(kautionPdf);
             }
         }
 

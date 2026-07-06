@@ -713,7 +713,7 @@ interface EmailAccountForm {
                   <input
                     type="text"
                     [(ngModel)]="eaf.name"
-                    placeholder="z.B. Buchungsversand"
+                    placeholder="z.B. Rechnungsversand"
                   />
                 </div>
                 <div class="form-group">

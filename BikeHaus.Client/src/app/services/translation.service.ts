@@ -10,10 +10,6 @@ export interface Translations {
   purchases: string;
   sales: string;
   returns: string;
-  rentals: string;
-  rentalBookings: string;
-  rentalAccessories: string;
-  mietfahrraeder: string;
   statistics: string;
   settings: string;
   skipToMain: string;
@@ -177,16 +173,6 @@ export interface Translations {
   totalBicycles: string;
   bicycleReadonly: string;
   brandModel: string;
-  rentalSettings: string;
-  isRentable: string;
-  rentalPriceDay1: string;
-  rentalPriceDay2: string;
-  rentalPriceDay3: string;
-  rentalPriceDay4: string;
-  rentalPriceDay5: string;
-  rentalPriceDay6: string;
-  rentalPriceDay7: string;
-  rentalPriceAdditionalDayAfter7: string;
 
   // Customer
   firstName: string;
@@ -299,12 +285,6 @@ export interface Translations {
   accessoriesTotal: string;
   editAccessory: string;
   newAccessory: string;
-  rentalAccessoryDayPrice: string;
-  rentalAccessoryDescription: string;
-  rentalAccessoryActive: string;
-  rentalAccessoryNew: string;
-  rentalAccessoryEdit: string;
-  rentalAccessoryNoItems: string;
 
   // Returns
   newReturn: string;
@@ -357,26 +337,6 @@ export interface Translations {
   cancelled: string;
   converted: string;
 
-  // Rental Booking (Homepage)
-  rentalBookingNumber: string;
-  rentalBookingPending: string;
-  rentalBookingApproved: string;
-  rentalBookingCancelled: string;
-  rentalBookingNoItems: string;
-  rentalBookingDetails: string;
-  rentalBookingApprove: string;
-  rentalBookingCancel: string;
-  rentalBookingAdminNotes: string;
-  rentalBookingNotes: string;
-  rentalBookingDates: string;
-  rentalBookingCreatedAt: string;
-  rentalBookingApprovedAt: string;
-  rentalBookingCancelledAt: string;
-  rentalBookingAccessories: string;
-  rentalBookingSearchPlaceholder: string;
-  rentalBookingApproveConfirm: string;
-  rentalBookingCancelConfirm: string;
-
   // Statistics
   loadingStatistics: string;
   averagePerSale: string;
@@ -415,7 +375,6 @@ export interface Translations {
   customerAddress: string;
   searchInvoicePlaceholder: string;
   deleteConfirmInvoice: string;
-  deleteConfirmRentalBooking: string;
   invoiceCount: string;
   invoiceTotal: string;
 
@@ -721,56 +680,6 @@ export interface Translations {
   homepageAccessoryDeleteConfirm: string;
   homepageAccessoryUploadPhotos: string;
   homepageAccessorySelectCategory: string;
-
-  // Mietfahrräder
-  mietfahrradList: string;
-  mietfahrradNew: string;
-  mietfahrradEdit: string;
-  mietfahrradBrand: string;
-  mietfahrradModel: string;
-  mietfahrradType: string;
-  mietfahrradSize: string;
-  mietfahrradColor: string;
-  mietfahrradActive: string;
-  mietfahrradNoItems: string;
-  mietfahrradDeleteConfirm: string;
-  mietfahrradPhotos: string;
-  mietfahrradUploadPhotos: string;
-  mietfahrradRentalPrices: string;
-  mietfahrradPriceDay1: string;
-  mietfahrradPriceDay2: string;
-  mietfahrradPriceDay3: string;
-  mietfahrradPriceDay4: string;
-  mietfahrradPriceDay5: string;
-  mietfahrradPriceDay6: string;
-  mietfahrradPriceDay7: string;
-  mietfahrradPriceAdditionalDayAfter7: string;
-  mietfahrradDescription: string;
-  mietfahrradFrameSize: string;
-  mietfahrradIsRentable: string;
-  mietfahrradToggleRentable: string;
-  mietfahrradBasicInfo: string;
-  mietfahrradSaveSuccess: string;
-
-  // Rental Reviews
-  rentalReviews: string;
-  rentalReviewTitle: string;
-  rentalReviewAll: string;
-  rentalReviewPending: string;
-  rentalReviewApproved: string;
-  rentalReviewName: string;
-  rentalReviewStars: string;
-  rentalReviewComment: string;
-  rentalReviewDate: string;
-  rentalReviewStatus: string;
-  rentalReviewApprove: string;
-  rentalReviewReject: string;
-  rentalReviewDelete: string;
-  rentalReviewDeleteConfirm: string;
-  rentalReviewNoItems: string;
-  rentalReviewAdminNote: string;
-  rentalReviewSaved: string;
-  rentalReviewDeleted: string;
 }
 
 const TRANSLATIONS: Record<Language, Translations> = {
@@ -782,10 +691,6 @@ const TRANSLATIONS: Record<Language, Translations> = {
     purchases: 'Ankäufe',
     sales: 'Verkäufe',
     returns: 'Rückgaben',
-    rentals: 'Mietverträge',
-    rentalBookings: 'Mietanfragen',
-    rentalAccessories: 'Mietzubehör',
-    mietfahrraeder: 'Mietfahrräder',
     statistics: 'Statistiken',
     settings: 'Einstellungen',
     skipToMain: 'Zum Hauptinhalt springen',
@@ -955,16 +860,6 @@ const TRANSLATIONS: Record<Language, Translations> = {
     totalBicycles: 'Fahrräder gesamt',
     bicycleReadonly: 'Das Fahrrad kann nicht geändert werden.',
     brandModel: 'Marke/Modell',
-    rentalSettings: 'Mieteinstellungen',
-    isRentable: 'Für Vermietung aktiv',
-    rentalPriceDay1: 'Preis 1 Tag (€)',
-    rentalPriceDay2: 'Preis 2 Tage (€)',
-    rentalPriceDay3: 'Preis 3 Tage (€)',
-    rentalPriceDay4: 'Preis 4 Tage (€)',
-    rentalPriceDay5: 'Preis 5 Tage (€)',
-    rentalPriceDay6: 'Preis 6 Tage (€)',
-    rentalPriceDay7: 'Preis 7 Tage (€)',
-    rentalPriceAdditionalDayAfter7: 'Zusatz pro weiterem Tag ab Tag 8 (€)',
 
     // Customer
     firstName: 'Vorname',
@@ -1076,12 +971,6 @@ const TRANSLATIONS: Record<Language, Translations> = {
     accessoriesTotal: 'Zubehör Summe',
     editAccessory: 'Zubehör bearbeiten',
     newAccessory: 'Neues Zubehör',
-    rentalAccessoryDayPrice: 'Tagespreis (€)',
-    rentalAccessoryDescription: 'Beschreibung',
-    rentalAccessoryActive: 'Aktiv',
-    rentalAccessoryNew: 'Neues Mietzubehör',
-    rentalAccessoryEdit: 'Mietzubehör bearbeiten',
-    rentalAccessoryNoItems: 'Kein Mietzubehör vorhanden.',
     discount: 'Rabatt',
     discountOptional: 'Rabatt (optional)',
 
@@ -1136,27 +1025,6 @@ const TRANSLATIONS: Record<Language, Translations> = {
     cancelled: 'Storniert',
     converted: 'Umgewandelt',
 
-    // Rental Booking (Homepage)
-    rentalBookingNumber: 'Buchungs-Nr.',
-    rentalBookingPending: 'Ausstehend',
-    rentalBookingApproved: 'Bestätigt',
-    rentalBookingCancelled: 'Storniert',
-    rentalBookingNoItems: 'Keine Mietanfragen vorhanden.',
-    rentalBookingDetails: 'Mietanfrage',
-    rentalBookingApprove: 'Bestätigen',
-    rentalBookingCancel: 'Stornieren',
-    rentalBookingAdminNotes: 'Admin-Notizen',
-    rentalBookingNotes: 'Notizen',
-    rentalBookingDates: 'Zeitraum',
-    rentalBookingCreatedAt: 'Angelegt',
-    rentalBookingApprovedAt: 'Bestätigt am',
-    rentalBookingCancelledAt: 'Storniert am',
-    rentalBookingAccessories: 'Zubehör',
-    rentalBookingSearchPlaceholder:
-      'Suche nach Buchungs-Nr., Kunde, Fahrrad...',
-    rentalBookingApproveConfirm: 'Mietanfrage bestätigen?',
-    rentalBookingCancelConfirm: 'Mietanfrage stornieren?',
-
     // Statistics
     loadingStatistics: 'Lade Statistiken...',
     averagePerSale: 'Ø pro Verkauf',
@@ -1195,7 +1063,6 @@ const TRANSLATIONS: Record<Language, Translations> = {
     customerAddress: 'Kundenadresse',
     searchInvoicePlaceholder: 'Suche nach Rechnungsnr., Bezeichnung, Kunde...',
     deleteConfirmInvoice: 'Rechnung wirklich löschen?',
-    deleteConfirmRentalBooking: 'Mietanfrage wirklich löschen?',
     invoiceCount: 'Anzahl',
     invoiceTotal: 'Gesamtbetrag',
 
@@ -1505,56 +1372,6 @@ const TRANSLATIONS: Record<Language, Translations> = {
     homepageAccessoryDeleteConfirm: 'Zubehör wirklich löschen?',
     homepageAccessoryUploadPhotos: 'Fotos hochladen',
     homepageAccessorySelectCategory: 'Kategorie wählen',
-
-    // Mietfahrräder
-    mietfahrradList: 'Mietfahrräder',
-    mietfahrradNew: 'Neues Mietfahrrad',
-    mietfahrradEdit: 'Mietfahrrad bearbeiten',
-    mietfahrradBrand: 'Marke',
-    mietfahrradModel: 'Modell',
-    mietfahrradType: 'Fahrradtyp',
-    mietfahrradSize: 'Reifengröße',
-    mietfahrradColor: 'Farbe',
-    mietfahrradActive: 'Aktiv für Verleih',
-    mietfahrradNoItems: 'Keine Mietfahrräder vorhanden.',
-    mietfahrradDeleteConfirm: 'Fahrrad aus dem Verleih entfernen?',
-    mietfahrradPhotos: 'Fotos',
-    mietfahrradUploadPhotos: 'Fotos hochladen',
-    mietfahrradRentalPrices: 'Mietpreise',
-    mietfahrradPriceDay1: '1 Tag',
-    mietfahrradPriceDay2: '2 Tage',
-    mietfahrradPriceDay3: '3 Tage',
-    mietfahrradPriceDay4: '4 Tage',
-    mietfahrradPriceDay5: '5 Tage',
-    mietfahrradPriceDay6: '6 Tage',
-    mietfahrradPriceDay7: '7 Tage',
-    mietfahrradPriceAdditionalDayAfter7: 'Zusatz pro weiterem Tag ab Tag 8',
-    mietfahrradDescription: 'Beschreibung',
-    mietfahrradFrameSize: 'Rahmengröße',
-    mietfahrradIsRentable: 'Für Verleih aktiv',
-    mietfahrradToggleRentable: 'Verleih aktivieren/deaktivieren',
-    mietfahrradBasicInfo: 'Grundinformationen',
-    mietfahrradSaveSuccess: 'Mietfahrrad gespeichert',
-
-    // Rental Reviews
-    rentalReviews: 'Kundenbewertungen',
-    rentalReviewTitle: 'Bewertungen verwalten',
-    rentalReviewAll: 'Alle',
-    rentalReviewPending: 'Ausstehend',
-    rentalReviewApproved: 'Genehmigt',
-    rentalReviewName: 'Name',
-    rentalReviewStars: 'Sterne',
-    rentalReviewComment: 'Kommentar',
-    rentalReviewDate: 'Datum',
-    rentalReviewStatus: 'Status',
-    rentalReviewApprove: 'Genehmigen',
-    rentalReviewReject: 'Ablehnen',
-    rentalReviewDelete: 'Löschen',
-    rentalReviewDeleteConfirm: 'Bewertung wirklich löschen?',
-    rentalReviewNoItems: 'Keine Bewertungen vorhanden.',
-    rentalReviewAdminNote: 'Admin-Notiz',
-    rentalReviewSaved: 'Bewertung gespeichert',
-    rentalReviewDeleted: 'Bewertung gelöscht',
   },
   tr: {
     // Navigation
@@ -1564,10 +1381,6 @@ const TRANSLATIONS: Record<Language, Translations> = {
     purchases: 'Alımlar',
     sales: 'Satışlar',
     returns: 'İadeler',
-    rentals: 'Kira Sözleşmeleri',
-    rentalBookings: 'Kiralama Talepleri',
-    rentalAccessories: 'Kiralama Aksesuarları',
-    mietfahrraeder: 'Kiralık Bisikletler',
     statistics: 'İstatistikler',
     settings: 'Ayarlar',
     skipToMain: 'Ana içeriğe atla',
@@ -1735,16 +1548,6 @@ const TRANSLATIONS: Record<Language, Translations> = {
     totalBicycles: 'Toplam bisiklet',
     bicycleReadonly: 'Bisiklet değiştirilemez.',
     brandModel: 'Marka/Model',
-    rentalSettings: 'Kiralama Ayarları',
-    isRentable: 'Kiralama için aktif',
-    rentalPriceDay1: '1 Gün Ücret (€)',
-    rentalPriceDay2: '2 Gün Ücret (€)',
-    rentalPriceDay3: '3 Gün Ücret (€)',
-    rentalPriceDay4: '4 Gün Ücret (€)',
-    rentalPriceDay5: '5 Gün Ücret (€)',
-    rentalPriceDay6: '6 Gün Ücret (€)',
-    rentalPriceDay7: '7 Gün Ücret (€)',
-    rentalPriceAdditionalDayAfter7: '8. Günden Sonra Ek Gün Ücreti (€)',
 
     // Customer
     firstName: 'Ad',
@@ -1856,12 +1659,6 @@ const TRANSLATIONS: Record<Language, Translations> = {
     accessoriesTotal: 'Aksesuar toplamı',
     editAccessory: 'Aksesuar düzenle',
     newAccessory: 'Yeni aksesuar',
-    rentalAccessoryDayPrice: 'Günlük Ücret (€)',
-    rentalAccessoryDescription: 'Açıklama',
-    rentalAccessoryActive: 'Aktif',
-    rentalAccessoryNew: 'Yeni Kiralama Aksesuarı',
-    rentalAccessoryEdit: 'Kiralama Aksesuarı Düzenle',
-    rentalAccessoryNoItems: 'Kiralama aksesuarı yok.',
     discount: 'İndirim',
     discountOptional: 'İndirim (opsiyonel)',
 
@@ -1917,26 +1714,6 @@ const TRANSLATIONS: Record<Language, Translations> = {
     cancelled: 'İptal Edildi',
     converted: 'Dönüştürüldü',
 
-    // Rental Booking (Homepage)
-    rentalBookingNumber: 'Kiralama No.',
-    rentalBookingPending: 'Beklemede',
-    rentalBookingApproved: 'Onaylandı',
-    rentalBookingCancelled: 'İptal',
-    rentalBookingNoItems: 'Kiralama talebi yok.',
-    rentalBookingDetails: 'Kiralama Talebi',
-    rentalBookingApprove: 'Onayla',
-    rentalBookingCancel: 'İptal Et',
-    rentalBookingAdminNotes: 'Yönetici Notları',
-    rentalBookingNotes: 'Notlar',
-    rentalBookingDates: 'Tarih Aralığı',
-    rentalBookingCreatedAt: 'Oluşturma',
-    rentalBookingApprovedAt: 'Onaylandı',
-    rentalBookingCancelledAt: 'İptal edildi',
-    rentalBookingAccessories: 'Aksesuarlar',
-    rentalBookingSearchPlaceholder: 'No, müşteri, bisiklet ara...',
-    rentalBookingApproveConfirm: 'Kiralama talebi onaylansın mı?',
-    rentalBookingCancelConfirm: 'Kiralama talebi iptal edilsin mi?',
-
     // Statistics
     loadingStatistics: 'İstatistikler yükleniyor...',
     averagePerSale: 'Satış başına ort.',
@@ -1975,8 +1752,6 @@ const TRANSLATIONS: Record<Language, Translations> = {
     customerAddress: 'Müşteri adresi',
     searchInvoicePlaceholder: 'Fatura no, açıklama, müşteri ara...',
     deleteConfirmInvoice: 'Bu faturayı silmek istediğinize emin misiniz?',
-    deleteConfirmRentalBooking:
-      "Bu mietanfrage'yi silmek istediğinize emin misiniz?",
     invoiceCount: 'Adet',
     invoiceTotal: 'Toplam tutar',
 
@@ -2287,56 +2062,6 @@ const TRANSLATIONS: Record<Language, Translations> = {
       'Bu aksesuarı silmek istediğinize emin misiniz?',
     homepageAccessoryUploadPhotos: 'Fotoğraf yükle',
     homepageAccessorySelectCategory: 'Kategori seçin',
-
-    // Mietfahrräder
-    mietfahrradList: 'Kiralık Bisikletler',
-    mietfahrradNew: 'Yeni Kiralık Bisiklet',
-    mietfahrradEdit: 'Kiralık Bisikleti Düzenle',
-    mietfahrradBrand: 'Marka',
-    mietfahrradModel: 'Model',
-    mietfahrradType: 'Bisiklet Tipi',
-    mietfahrradSize: 'Lastik Boyutu',
-    mietfahrradColor: 'Renk',
-    mietfahrradActive: 'Kiralama için aktif',
-    mietfahrradNoItems: 'Kiralık bisiklet bulunamadı.',
-    mietfahrradDeleteConfirm: 'Bisiklet kiralama listesinden çıkarılsın mı?',
-    mietfahrradPhotos: 'Fotoğraflar',
-    mietfahrradUploadPhotos: 'Fotoğraf yükle',
-    mietfahrradRentalPrices: 'Kiralama Fiyatları',
-    mietfahrradPriceDay1: '1 Gün',
-    mietfahrradPriceDay2: '2 Gün',
-    mietfahrradPriceDay3: '3 Gün',
-    mietfahrradPriceDay4: '4 Gün',
-    mietfahrradPriceDay5: '5 Gün',
-    mietfahrradPriceDay6: '6 Gün',
-    mietfahrradPriceDay7: '7 Gün',
-    mietfahrradPriceAdditionalDayAfter7: '8. günden sonra her ek gün için',
-    mietfahrradDescription: 'Açıklama',
-    mietfahrradFrameSize: 'Çerçeve Boyutu',
-    mietfahrradIsRentable: 'Kiralama aktif',
-    mietfahrradToggleRentable: 'Kiralamayı aç/kapat',
-    mietfahrradBasicInfo: 'Temel Bilgiler',
-    mietfahrradSaveSuccess: 'Kiralık bisiklet kaydedildi',
-
-    // Rental Reviews
-    rentalReviews: 'Müşteri Yorumları',
-    rentalReviewTitle: 'Yorumları Yönet',
-    rentalReviewAll: 'Tümü',
-    rentalReviewPending: 'Beklemede',
-    rentalReviewApproved: 'Onaylı',
-    rentalReviewName: 'İsim',
-    rentalReviewStars: 'Yıldız',
-    rentalReviewComment: 'Yorum',
-    rentalReviewDate: 'Tarih',
-    rentalReviewStatus: 'Durum',
-    rentalReviewApprove: 'Onayla',
-    rentalReviewReject: 'Reddet',
-    rentalReviewDelete: 'Sil',
-    rentalReviewDeleteConfirm: 'Bu yorum silinsin mi?',
-    rentalReviewNoItems: 'Henüz yorum bulunmuyor.',
-    rentalReviewAdminNote: 'Admin Notu',
-    rentalReviewSaved: 'Yorum kaydedildi',
-    rentalReviewDeleted: 'Yorum silindi',
   },
 };
 

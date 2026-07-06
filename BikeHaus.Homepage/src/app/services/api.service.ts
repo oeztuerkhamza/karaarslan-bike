@@ -13,12 +13,6 @@ import {
   HomepageAccessory,
   HomepageAccessoryCategory,
   GoogleReviewsResponse,
-  PublicRentalBicycle,
-  RentalAccessoryPublic,
-  RentalBookingCreate,
-  RentalBookingResponse,
-  RentalReviewPublic,
-  RentalReviewCreate,
 } from '../models/models';
 
 @Injectable({
@@ -132,60 +126,6 @@ export class ApiService {
   getGoogleReviews(): Observable<GoogleReviewsResponse> {
     return this.http.get<GoogleReviewsResponse>(
       `${this.baseUrl}/google-reviews`,
-    );
-  }
-
-  // ── Rental Bikes ──
-
-  getRentableBikes(): Observable<PublicRentalBicycle[]> {
-    return this.http.get<PublicRentalBicycle[]>(
-      `${this.baseUrl}/rentals/bikes`,
-    );
-  }
-
-  getRentalAccessories(): Observable<RentalAccessoryPublic[]> {
-    return this.http.get<RentalAccessoryPublic[]>(
-      `${this.baseUrl}/rentals/accessories`,
-    );
-  }
-
-  createRentalBooking(
-    dto: RentalBookingCreate,
-  ): Observable<RentalBookingResponse> {
-    return this.http.post<RentalBookingResponse>(
-      `${this.baseUrl}/rentals/bookings`,
-      dto,
-    );
-  }
-
-  getRentalBikeBookings(
-    bikeId: number,
-  ): Observable<{ startDatum: string; endDatum: string }[]> {
-    return this.http.get<{ startDatum: string; endDatum: string }[]>(
-      `${this.baseUrl}/rentals/bikes/${bikeId}/bookings`,
-    );
-  }
-
-  getBusyPeriods(
-    bikeId: number,
-  ): Observable<{ start: string; end: string; type: string }[]> {
-    return this.http.get<{ start: string; end: string; type: string }[]>(
-      `${this.baseUrl}/rentals/bikes/${bikeId}/busy-periods`,
-    );
-  }
-
-  // ── Rental Reviews ──
-
-  getRentalReviews(): Observable<RentalReviewPublic[]> {
-    return this.http
-      .get<RentalReviewPublic[]>(`${this.baseUrl}/rentals/reviews`)
-      .pipe(catchError(() => of([])));
-  }
-
-  createRentalReview(dto: RentalReviewCreate): Observable<RentalReviewPublic> {
-    return this.http.post<RentalReviewPublic>(
-      `${this.baseUrl}/rentals/reviews`,
-      dto,
     );
   }
 }

@@ -912,15 +912,6 @@ export class PurchaseFormComponent implements OnInit {
     art: '',
     beschreibung: '',
     zustand: BikeCondition.Gebraucht,
-    isRentable: false,
-    rentalPriceDay1: undefined as number | undefined,
-    rentalPriceDay2: undefined as number | undefined,
-    rentalPriceDay3: undefined as number | undefined,
-    rentalPriceDay4: undefined as number | undefined,
-    rentalPriceDay5: undefined as number | undefined,
-    rentalPriceDay6: undefined as number | undefined,
-    rentalPriceDay7: undefined as number | undefined,
-    rentalPriceAdditionalDayAfter7: undefined as number | undefined,
   };
   preis = 0;
   verkaufspreisVorschlag: number | null = null;
@@ -1137,16 +1128,6 @@ export class PurchaseFormComponent implements OnInit {
         fahrradtyp: this.bicycle.fahrradtyp || undefined,
         beschreibung: this.bicycle.beschreibung || undefined,
         zustand: this.bicycle.zustand as BikeCondition,
-        isRentable: this.bicycle.isRentable,
-        rentalPriceDay1: this.bicycle.rentalPriceDay1,
-        rentalPriceDay2: this.bicycle.rentalPriceDay2,
-        rentalPriceDay3: this.bicycle.rentalPriceDay3,
-        rentalPriceDay4: this.bicycle.rentalPriceDay4,
-        rentalPriceDay5: this.bicycle.rentalPriceDay5,
-        rentalPriceDay6: this.bicycle.rentalPriceDay6,
-        rentalPriceDay7: this.bicycle.rentalPriceDay7,
-        rentalPriceAdditionalDayAfter7:
-          this.bicycle.rentalPriceAdditionalDayAfter7,
       },
       seller: {
         vorname: this.seller.vorname || this.seller.nachname,

@@ -166,6 +166,14 @@ export const routes: Routes = [
     canActivate: [authGuard],
   },
   {
+    path: 'email-kampagne',
+    loadComponent: () =>
+      import('./pages/email-campaign/email-campaign.component').then(
+        (m) => m.EmailCampaignComponent,
+      ),
+    canActivate: [authGuard],
+  },
+  {
     path: 'settings',
     loadComponent: () =>
       import('./pages/settings/settings.component').then(
@@ -230,98 +238,10 @@ export const routes: Routes = [
     canActivate: [authGuard],
   },
   {
-    path: 'mietfahrraeder',
-    loadComponent: () =>
-      import('./pages/mietfahrraeder/mietfahrrad-list.component').then(
-        (m) => m.MietfahrradListComponent,
-      ),
-    canActivate: [authGuard],
-  },
-  {
-    path: 'mietfahrraeder/new',
-    loadComponent: () =>
-      import('./pages/mietfahrraeder/mietfahrrad-form.component').then(
-        (m) => m.MietfahrradFormComponent,
-      ),
-    canActivate: [authGuard],
-  },
-  {
-    path: 'mietfahrraeder/edit/:id',
-    loadComponent: () =>
-      import('./pages/mietfahrraeder/mietfahrrad-form.component').then(
-        (m) => m.MietfahrradFormComponent,
-      ),
-    canActivate: [authGuard],
-  },
-  {
-    path: 'rentals',
-    loadComponent: () =>
-      import('./pages/rentals/rental-list.component').then(
-        (m) => m.RentalListComponent,
-      ),
-    canActivate: [authGuard],
-  },
-  {
-    path: 'rentals/new',
-    loadComponent: () =>
-      import('./pages/rentals/rental-form.component').then(
-        (m) => m.RentalFormComponent,
-      ),
-    canActivate: [authGuard],
-  },
-  {
-    path: 'rentals/edit/:id',
-    loadComponent: () =>
-      import('./pages/rentals/rental-edit.component').then(
-        (m) => m.RentalEditComponent,
-      ),
-    canActivate: [authGuard],
-  },
-  {
-    path: 'rentals/:id',
-    loadComponent: () =>
-      import('./pages/rentals/rental-detail.component').then(
-        (m) => m.RentalDetailComponent,
-      ),
-    canActivate: [authGuard],
-  },
-  {
-    path: 'rental-bookings',
-    loadComponent: () =>
-      import('./pages/rental-bookings/rental-booking-list.component').then(
-        (m) => m.RentalBookingListComponent,
-      ),
-    canActivate: [authGuard],
-  },
-  {
-    path: 'rental-bookings/:id',
-    loadComponent: () =>
-      import('./pages/rental-bookings/rental-booking-detail.component').then(
-        (m) => m.RentalBookingDetailComponent,
-      ),
-    canActivate: [authGuard],
-  },
-  {
-    path: 'rental-accessories',
-    loadComponent: () =>
-      import('./pages/rental-accessories/rental-accessory-list.component').then(
-        (m) => m.RentalAccessoryListComponent,
-      ),
-    canActivate: [authGuard],
-  },
-  {
     path: 'renovation-costs',
     loadComponent: () =>
       import('./pages/renovation-costs/renovation-cost-list.component').then(
         (m) => m.RenovationCostListComponent,
-      ),
-    canActivate: [authGuard],
-  },
-  {
-    path: 'rental-reviews',
-    loadComponent: () =>
-      import('./pages/rental-reviews/rental-review-list.component').then(
-        (m) => m.RentalReviewListComponent,
       ),
     canActivate: [authGuard],
   },

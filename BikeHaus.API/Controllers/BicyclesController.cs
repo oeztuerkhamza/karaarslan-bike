@@ -36,8 +36,7 @@ public class BicyclesController : ControllerBase
         [FromQuery] string? zustand = null,
         [FromQuery] string? fahrradtyp = null,
         [FromQuery] string? reifengroesse = null,
-        [FromQuery] string? marke = null,
-        [FromQuery] bool? isRentable = null)
+        [FromQuery] string? marke = null)
     {
         var paginationParams = new PaginationParams
         {
@@ -48,8 +47,7 @@ public class BicyclesController : ControllerBase
             Zustand = zustand,
             Fahrradtyp = fahrradtyp,
             Reifengroesse = reifengroesse,
-            Marke = marke,
-            IsRentable = isRentable
+            Marke = marke
         };
         var result = await _bicycleService.GetPaginatedAsync(paginationParams);
         return Ok(result);
@@ -69,14 +67,6 @@ public class BicyclesController : ControllerBase
     {
         var bicycles = await _bicycleService.GetAvailableAsync();
         return Ok(bicycles);
-    }
-
-    [Authorize]
-    [HttpGet("{id}/busy-periods")]
-    public async Task<ActionResult<IEnumerable<BusyPeriodDto>>> GetBusyPeriods(int id)
-    {
-        var periods = await _bicycleService.GetBusyPeriodsAsync(id);
-        return Ok(periods);
     }
 
     [HttpGet("search")]

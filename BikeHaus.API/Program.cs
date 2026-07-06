@@ -81,6 +81,9 @@ builder.Services.Configure<BrotliCompressionProviderOptions>(options =>
 // Kleinanzeigen background sync service (runs every 4 hours)
 builder.Services.AddHostedService<BikeHaus.Infrastructure.Services.KleinanzeigenSyncBackgroundService>();
 
+// Automatic Google-review request after a sale (disabled unless configured)
+builder.Services.AddHostedService<BikeHaus.Infrastructure.Services.ReviewAutomationBackgroundService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

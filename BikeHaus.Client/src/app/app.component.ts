@@ -6,7 +6,6 @@ import { AuthService } from './services/auth.service';
 import { SettingsService, ShopSettings } from './services/settings.service';
 import { ThemeService } from './services/theme.service';
 import { PurchaseService } from './services/purchase.service';
-import { RentalBookingService } from './services/rental-booking.service';
 import { NotificationComponent } from './components/notification/notification.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 
@@ -231,138 +230,6 @@ import { DialogComponent } from './components/dialog/dialog.component';
           </a>
 
           <div class="nav-divider"></div>
-          <div class="nav-section-label">Mietverwaltung</div>
-
-          <a
-            routerLink="/mietfahrraeder"
-            routerLinkActive="active"
-            (click)="closeSidebar()"
-          >
-            <span class="nav-icon">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="5.5" cy="17.5" r="3.5" />
-                <circle cx="18.5" cy="17.5" r="3.5" />
-                <path
-                  d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5V14l-3-3 4-3 2 3h2"
-                />
-                <line x1="12" y1="2" x2="12" y2="6" />
-                <line x1="10" y1="4" x2="14" y2="4" />
-              </svg>
-            </span>
-            <span class="nav-label">{{ t.mietfahrraeder }}</span>
-          </a>
-          <a
-            routerLink="/rental-bookings"
-            routerLinkActive="active"
-            (click)="closeSidebar()"
-          >
-            <span class="nav-icon">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                <line x1="16" y1="2" x2="16" y2="6" />
-                <line x1="8" y1="2" x2="8" y2="6" />
-                <line x1="3" y1="10" x2="21" y2="10" />
-              </svg>
-            </span>
-            <span class="nav-label">{{ t.rentalBookings }}</span>
-            <span class="nav-badge" *ngIf="pendingBookingsCount() > 0">{{
-              pendingBookingsCount()
-            }}</span>
-          </a>
-          <a
-            routerLink="/rentals"
-            routerLinkActive="active"
-            (click)="closeSidebar()"
-          >
-            <span class="nav-icon">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-                />
-                <polyline points="14 2 14 8 20 8" />
-                <line x1="16" y1="13" x2="8" y2="13" />
-                <line x1="16" y1="17" x2="8" y2="17" />
-              </svg>
-            </span>
-            <span class="nav-label">{{ t.rentals }}</span>
-          </a>
-          <a
-            routerLink="/rental-accessories"
-            routerLinkActive="active"
-            (click)="closeSidebar()"
-          >
-            <span class="nav-icon">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
-                />
-                <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
-                <line x1="12" y1="22.08" x2="12" y2="12" />
-              </svg>
-            </span>
-            <span class="nav-label">{{ t.rentalAccessories }}</span>
-          </a>
-          <a
-            routerLink="/rental-reviews"
-            routerLinkActive="active"
-            (click)="closeSidebar()"
-          >
-            <span class="nav-icon">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-                />
-              </svg>
-            </span>
-            <span class="nav-label">{{ t.rentalReviews }}</span>
-          </a>
-
-          <div class="nav-divider"></div>
           <div class="nav-section-label">Extras</div>
 
           <a
@@ -529,6 +396,28 @@ import { DialogComponent } from './components/dialog/dialog.component';
               </svg>
             </span>
             <span class="nav-label">{{ t.archive }}</span>
+          </a>
+          <a
+            routerLink="/email-kampagne"
+            routerLinkActive="active"
+            (click)="closeSidebar()"
+          >
+            <span class="nav-icon">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+            </span>
+            <span class="nav-label">E-Mail Kampagne</span>
           </a>
           <a
             routerLink="/settings"
@@ -1122,7 +1011,6 @@ export class AppComponent implements OnInit {
   private translationService = inject(TranslationService);
   private settingsService = inject(SettingsService);
   private purchaseService = inject(PurchaseService);
-  private rentalBookingService = inject(RentalBookingService);
   authService = inject(AuthService);
   themeService = inject(ThemeService);
 
@@ -1132,26 +1020,17 @@ export class AppComponent implements OnInit {
   hasCustomLogo = signal(false);
   ownerDisplayName = signal('');
   missingPurchasesCount = signal(0);
-  pendingBookingsCount = signal(0);
 
   ngOnInit(): void {
     if (this.authService.isLoggedIn()) {
       this.loadSettings();
       this.loadMissingPurchasesCount();
-      this.loadPendingBookingsCount();
     }
   }
 
   private loadMissingPurchasesCount(): void {
     this.purchaseService.getMissingSalesCount().subscribe({
       next: (res) => this.missingPurchasesCount.set(res.count),
-      error: () => {},
-    });
-  }
-
-  private loadPendingBookingsCount(): void {
-    this.rentalBookingService.getPendingCount().subscribe({
-      next: (res) => this.pendingBookingsCount.set(res.count),
       error: () => {},
     });
   }

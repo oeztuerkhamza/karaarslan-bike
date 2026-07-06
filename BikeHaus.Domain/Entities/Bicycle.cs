@@ -23,17 +23,6 @@ public class Bicycle : BaseEntity
     public BikeStatus Status { get; set; } = BikeStatus.Available;
     public BikeCondition Zustand { get; set; } = BikeCondition.Gebraucht; // Neu or Gebraucht
 
-    // Rental settings
-    public bool IsRentable { get; set; } = false;
-    public decimal? RentalPriceDay1 { get; set; }
-    public decimal? RentalPriceDay2 { get; set; }
-    public decimal? RentalPriceDay3 { get; set; }
-    public decimal? RentalPriceDay4 { get; set; }
-    public decimal? RentalPriceDay5 { get; set; }
-    public decimal? RentalPriceDay6 { get; set; }
-    public decimal? RentalPriceDay7 { get; set; }
-    public decimal? RentalPriceAdditionalDayAfter7 { get; set; }
-
     // Publishing flags
     public bool IsPublishedOnWebsite { get; set; } = false;
     public bool IsPublishedOnKleinanzeigen { get; set; } = false;
@@ -44,7 +33,6 @@ public class Bicycle : BaseEntity
     public Purchase? Purchase { get; set; }
     public ICollection<Sale> Sales { get; set; } = new List<Sale>();
     public Reservation? Reservation { get; set; }
-    public ICollection<Rental> Rentals { get; set; } = new List<Rental>();
     public ICollection<Document> Documents { get; set; } = new List<Document>();
     public ICollection<BicycleImage> Images { get; set; } = new List<BicycleImage>();
 }

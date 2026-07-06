@@ -104,73 +104,6 @@ export interface PublicBicycle {
   images: PublicBicycleImage[];
 }
 
-// ── Rental Bikes (Public) ──
-export interface RentalBikeImage {
-  id: number;
-  bicycleId: number;
-  filePath: string;
-  sortOrder: number;
-}
-
-export interface RentalPrice {
-  day1?: number;
-  day2?: number;
-  day3?: number;
-  day4?: number;
-  day5?: number;
-  day6?: number;
-  day7?: number;
-  additionalDayAfter7?: number;
-}
-
-export interface PublicRentalBicycle {
-  id: number;
-  marke: string;
-  modell: string;
-  farbe?: string;
-  reifengroesse?: string;
-  fahrradtyp?: string;
-  art?: string;
-  beschreibung?: string;
-  rahmengroesse?: string;
-  images: RentalBikeImage[];
-  preise: RentalPrice;
-}
-
-export interface RentalAccessoryPublic {
-  id: number;
-  bezeichnung: string;
-  tagespreis: number;
-  aktiv: boolean;
-}
-
-export interface RentalBookingAccessoryCreate {
-  rentalAccessoryId: number;
-  menge: number;
-}
-
-export interface RentalBookingCreate {
-  bicycleId: number;
-  startDatum: string;
-  endDatum: string;
-  vorname: string;
-  nachname: string;
-  email: string;
-  telefon?: string;
-  sprache: string;
-  notizen?: string;
-  accessories?: RentalBookingAccessoryCreate[];
-}
-
-export interface RentalBookingResponse {
-  id: number;
-  buchungsNummer: string;
-  status: string;
-  gesamtpreis?: number;
-  startDatum: string;
-  endDatum: string;
-}
-
 // ── Repair Showcases ──
 export interface RepairShowcaseImage {
   id: number;
@@ -226,20 +159,4 @@ export interface GoogleReviewsResponse {
   totalReviews: number;
   reviews: GoogleReview[];
   placeUrl: string;
-}
-
-// ── Rental Reviews ──
-export interface RentalReviewPublic {
-  id: number;
-  ad: string;
-  sterne: number;
-  yorum: string;
-  createdAt: string;
-}
-
-export interface RentalReviewCreate {
-  ad: string;
-  email?: string;
-  sterne: number;
-  yorum: string;
 }
