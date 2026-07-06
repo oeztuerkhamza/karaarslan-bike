@@ -20,11 +20,4 @@ public class ReviewAutomationOptions
 
     /// <summary>How often the background service scans for matured transactions.</summary>
     public int ScanIntervalMinutes { get; set; } = 30;
-
-    /// <summary>
-    /// Hard cutoff: transactions created before this instant are NEVER contacted.
-    /// Set to the go-live moment so existing/historical customers are not emailed.
-    /// Required when <see cref="Enabled"/> is true — the service refuses to run without it.
-    /// </summary>
-    public DateTime? NotBeforeUtc { get; set; }
 }

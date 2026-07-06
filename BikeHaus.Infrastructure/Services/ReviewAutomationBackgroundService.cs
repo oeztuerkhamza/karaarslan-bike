@@ -14,8 +14,7 @@ namespace BikeHaus.Infrastructure.Services;
 /// Sends a Google-review request ~<c>DelayHours</c> after a Sale.
 ///
 /// Guards:
-///  • never contacts addresses for sales created before
-///    <see cref="ReviewAutomationOptions.NotBeforeUtc"/> (no historical blast);
+///  • only scans sales created within the last <c>MaxAgeDays</c> (no historical blast);
 ///  • at most one mail per address per <c>MinIntervalDays</c> (enforced in
 ///    <see cref="ICampaignService.SendReviewRequestAsync"/>, shared with the manual campaign);
 ///  • respects the unsubscribe list;
@@ -51,18 +50,10 @@ public class ReviewAutomationBackgroundService : BackgroundService
             return;
         }
 
-        if (_options.NotBeforeUtc is null)
-        {
-            _logger.LogWarning(
-                "Review automation is enabled but ReviewAutomation:NotBeforeUtc is not set. " +
-                "Refusing to run to avoid contacting historical customers.");
-            return;
-        }
-
         var interval = TimeSpan.FromMinutes(Math.Max(5, _options.ScanIntervalMinutes));
         _logger.LogInformation(
-            "Review automation started. Delay {Delay}h, scan every {Interval}min, not before {NotBefore:u}.",
-            _options.DelayHours, interval.TotalMinutes, _options.NotBeforeUtc);
+            "Review automation started. Delay {Delay}h, scan every {Interval}min, window {MaxAge} days.",
+            _options.DelayHours, interval.TotalMinutes, _options.MaxAgeDays);
 
         await Task.Delay(_initialDelay, stoppingToken);
         await RunOnceSafelyAsync(stoppingToken);
@@ -99,11 +90,9 @@ public class ReviewAutomationBackgroundService : BackgroundService
     {
         var now = DateTime.UtcNow;
         var matureBefore = now.AddHours(-Math.Max(0, _options.DelayHours));
-        var oldest = now.AddDays(-Math.Max(1, _options.MaxAgeDays));
-        var notBefore = _options.NotBeforeUtc!.Value;
-        var from = notBefore > oldest ? notBefore : oldest;
+        var from = now.AddDays(-Math.Max(1, _options.MaxAgeDays));
 
-        // Nothing can be in the window yet (cutoff is in the future).
+        // Nothing has matured yet within the window.
         if (from > matureBefore) return;
 
         using var scope = _serviceProvider.CreateScope();
