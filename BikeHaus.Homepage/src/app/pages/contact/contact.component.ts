@@ -5,11 +5,12 @@ import { Meta, Title } from '@angular/platform-browser';
 import { TranslationService } from '../../services/translation.service';
 import { ApiService } from '../../services/api.service';
 import { PublicShopInfo } from '../../models/models';
+import { HolidayNoticeComponent } from '../../components/holiday-notice/holiday-notice.component';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, HolidayNoticeComponent],
   template: `
     <div class="contact-page">
       <!-- Header -->
@@ -183,6 +184,7 @@ import { PublicShopInfo } from '../../models/models';
                   ><span>{{ t().restDay }}</span>
                 </div>
               </div>
+              <app-holiday-notice></app-holiday-notice>
             </div>
           </div>
         </section>

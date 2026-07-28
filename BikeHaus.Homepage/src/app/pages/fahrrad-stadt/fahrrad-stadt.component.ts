@@ -12,6 +12,7 @@ import { RouterModule, ActivatedRoute, Router } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { TranslationService } from '../../services/translation.service';
 import { CITY_LANDINGS, CityLanding } from '../../services/city-landing.data';
+import { HOLIDAY_SCHEMA_SPEC } from '../../services/holiday.service';
 
 @Component({
   selector: 'app-fahrrad-stadt',
@@ -488,6 +489,7 @@ export class FahrradStadtComponent implements OnInit, OnDestroy {
           closes: '18:00',
         },
       ],
+      specialOpeningHoursSpecification: [HOLIDAY_SCHEMA_SPEC],
       priceRange: '€–€€',
       description: t.metaDescription,
     };

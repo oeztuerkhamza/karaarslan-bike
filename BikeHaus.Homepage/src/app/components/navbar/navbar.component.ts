@@ -12,13 +12,19 @@ import {
   Language,
 } from '../../services/translation.service';
 import { ShopInfoService } from '../../services/shop-info.service';
+import { HolidayService } from '../../services/holiday.service';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
   imports: [CommonModule, RouterModule],
   template: `
-    <header class="navbar" [class.scrolled]="scrolled()" role="banner">
+    <header
+      class="navbar"
+      [class.scrolled]="scrolled()"
+      [class.with-holiday-banner]="holidayActive()"
+      role="banner"
+    >
       <nav class="container nav-inner" aria-label="Main navigation">
         <a
           [routerLink]="['/' + currentLang()]"
@@ -345,9 +351,19 @@ import { ShopInfoService } from '../../services/shop-info.service';
         border-color: rgba(255, 255, 255, 0.12);
       }
 
+      /* Push the fixed navbar below the holiday banner.
+         The banner reports its real height as --holiday-banner-height. */
+      .navbar.with-holiday-banner {
+        top: var(--holiday-banner-height, 44px);
+      }
+
       @media (max-width: 768px) {
         .navbar {
           padding: 0.85rem 0;
+        }
+
+        .navbar.with-holiday-banner .nav-menu {
+          padding-top: calc(5rem + var(--holiday-banner-height, 58px));
         }
 
         .nav-inner {
@@ -372,9 +388,11 @@ export class NavbarComponent {
   private translationService = inject(TranslationService);
   private router = inject(Router);
   private shopInfoService = inject(ShopInfoService);
+  private holidayService = inject(HolidayService);
   private platformId = inject(PLATFORM_ID);
   private isBrowser = isPlatformBrowser(this.platformId);
 
+  holidayActive = this.holidayService.isActive;
   t = this.translationService.translations;
   currentLang = this.translationService.currentLanguage;
   logoUrl = this.shopInfoService.logoUrl;

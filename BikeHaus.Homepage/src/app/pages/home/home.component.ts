@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { TranslationService } from '../../services/translation.service';
 import { ApiService } from '../../services/api.service';
+import { HOLIDAY_SCHEMA_SPEC } from '../../services/holiday.service';
 import { BikeCardComponent } from '../../components/bike-card/bike-card.component';
 import { NeueBikeCardComponent } from '../../components/neue-bike-card/neue-bike-card.component';
 import { environment } from '../../../environments/environment';
@@ -3057,6 +3058,7 @@ export class HomeComponent implements OnInit, OnDestroy {
           closes: '18:00',
         },
       ],
+      specialOpeningHoursSpecification: [HOLIDAY_SCHEMA_SPEC],
     };
 
     // Remove old schema element if exists (e.g. after Google reviews load)
