@@ -101,6 +101,29 @@ Dein Team vom Karaarslan Bike";
             FirstConfigured(c.FromName, _options.FromName));
     }
 
+    /// <summary>
+    /// Resolves the SMTP login. Username and password are resolved as a PAIR,
+    /// never field by field: pairing a DB username with the configured
+    /// password would authenticate as neither account. A default DB account
+    /// whose login is incomplete therefore falls back to the configured login
+    /// as a whole, instead of shadowing it with a half-filled one.
+    /// </summary>
+    private (string Username, string Password) ResolveLogin(EmailAccount? dbAccount)
+    {
+        if (dbAccount is null)
+            return (FirstConfigured(_options.Username), FirstConfigured(_options.Password));
+
+        if (!string.IsNullOrWhiteSpace(dbAccount.Username) && !string.IsNullOrWhiteSpace(dbAccount.Password))
+            return (dbAccount.Username.Trim(), dbAccount.Password);
+
+        _logger.LogWarning(
+            "Default email account {AccountId} ({Name}) has an incomplete login; falling back to the configured SMTP credentials.",
+            dbAccount.Id,
+            dbAccount.Name);
+
+        return (FirstConfigured(_options.Username), FirstConfigured(_options.Password));
+    }
+
     private async Task SendAsync(
         string toEmail,
         string toName,
@@ -129,16 +152,9 @@ Dein Team vom Karaarslan Bike";
         //   2. the active default DB account, else
         //   3. the config sender. The override never affects the path 2/3
         //      used by all transactional mail.
-        var username = sender is not null
-            ? sender.Username
-            : dbAccount is not null
-                ? (dbAccount.Username ?? string.Empty).Trim()
-                : FirstConfigured(_options.Username);
-        var password = sender is not null
-            ? sender.Password
-            : dbAccount is not null
-                ? dbAccount.Password ?? string.Empty
-                : FirstConfigured(_options.Password);
+        var (username, password) = sender is not null
+            ? (sender.Username, sender.Password)
+            : ResolveLogin(dbAccount);
         var fromEmail = sender is not null
             ? sender.FromEmail
             : dbAccount is not null

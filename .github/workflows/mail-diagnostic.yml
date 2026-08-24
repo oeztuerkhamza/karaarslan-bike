@@ -1,0 +1,147 @@
+name: Mail System Diagnostic
+
+permissions:
+  contents: read
+
+# Von Hand zu starten, wenn am Mailsystem etwas unklar ist. Die laufende
+# Ueberwachung macht mail-cert-monitor.yml.
+on:
+  workflow_dispatch:
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Diagnose mail delivery, certificates and DNS
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          command_timeout: 10m
+          script: |
+            set +e
+
+            PFCT=$(docker ps --format '{{.Names}}' | grep -i postfix | grep -vi tlspol | head -1)
+            MAILCOW_DIR=""
+            for d in /opt/mailcow-dockerized /opt/mailcow /root/mailcow-dockerized /root/mailcow; do
+              [ -f "$d/mailcow.conf" ] && MAILCOW_DIR="$d" && break
+            done
+            echo "Postfix-Container: ${PFCT:-(nicht gefunden)}"
+            echo "Mailcow-Dir:       ${MAILCOW_DIR:-(nicht gefunden)}"
+            echo "Serverzeit:        $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+            echo ""
+
+            echo "=========================================="
+            echo "A. ZUSTELLUNG — verlaesst die Post den Server?"
+            echo "=========================================="
+            if [ -n "$PFCT" ]; then
+              echo "--- Queue-Groesse ---"
+              echo "  aktiv:      $(docker exec "$PFCT" find /var/spool/postfix/active   -type f 2>/dev/null | wc -l)"
+              echo "  deferred:   $(docker exec "$PFCT" find /var/spool/postfix/deferred -type f 2>/dev/null | wc -l)"
+              echo "  incoming:   $(docker exec "$PFCT" find /var/spool/postfix/incoming -type f 2>/dev/null | wc -l)"
+              echo ""
+              echo "--- postqueue -p (max 25 Zeilen) ---"
+              docker exec "$PFCT" postqueue -p 2>&1 | head -25
+              echo ""
+              echo "--- Statistik aller Zustell-Stati (letzte 8000 Logzeilen) ---"
+              docker logs --tail 8000 "$PFCT" 2>&1 | grep -oE 'status=[a-z]+' | sort | uniq -c | sort -rn
+              echo ""
+              echo "--- Letzte 25 AUSGEHENDE Zustellungen (Absender = eigene Domain) ---"
+              docker logs --tail 8000 "$PFCT" 2>&1 \
+                | grep -E 'postfix/(smtp|error|bounce)\[[0-9]+\]: [0-9A-F]{8,}:' \
+                | grep -E 'status=' \
+                | grep -E 'to=<[^>]*>' \
+                | grep -vE 'orig_to=<[a-z0-9._-]*@karaarslan-bike\.de>' \
+                | tail -25 | cut -c1-260
+              echo ""
+              echo "--- Letzte Mails der Anwendung (no-reply@ / esat@) ---"
+              docker logs --tail 8000 "$PFCT" 2>&1 \
+                | grep -E 'sasl_username=(no-reply|esat)@karaarslan-bike\.de' \
+                | tail -10 | cut -c1-220
+            fi
+            echo ""
+
+            echo "=========================================="
+            echo "B. Ausgehender Port 25 (Provider-Sperre?)"
+            echo "=========================================="
+            for target in gmail-smtp-in.l.google.com mx00.emig.gmx.net mx.web.de; do
+              timeout 8 bash -c "exec 3<>/dev/tcp/$target/25" 2>/dev/null \
+                && echo "  Host   -> $target:25  OFFEN" \
+                || echo "  Host   -> $target:25  BLOCKIERT/TIMEOUT"
+            done
+            if [ -n "$PFCT" ]; then
+              docker exec "$PFCT" timeout 8 bash -c 'exec 3<>/dev/tcp/gmail-smtp-in.l.google.com/25' 2>/dev/null \
+                && echo "  Postfix-> gmail:25            OFFEN" \
+                || echo "  Postfix-> gmail:25            BLOCKIERT/TIMEOUT"
+            fi
+            echo "  (Blockiert = keine einzige Mail verlaesst den Server.)"
+            echo ""
+
+            echo "=========================================="
+            echo "C. TLS-Zertifikate — Ablaufdatum"
+            echo "=========================================="
+            echo "--- Submission 587 (STARTTLS) ---"
+            echo | timeout 12 openssl s_client -starttls smtp -connect mail.karaarslan-bike.de:587 \
+              -servername mail.karaarslan-bike.de 2>/dev/null \
+              | openssl x509 -noout -subject -issuer -dates 2>/dev/null || echo "  (nicht lesbar)"
+            echo ""
+            echo "--- HTTPS 443 karaarslan-bike.de (nginx) ---"
+            echo | timeout 12 openssl s_client -connect karaarslan-bike.de:443 \
+              -servername karaarslan-bike.de 2>/dev/null \
+              | openssl x509 -noout -dates 2>/dev/null || echo "  (nicht lesbar)"
+            echo ""
+            echo "--- Zertifikatsdateien auf der Platte ---"
+            # certbot laeuft als Container und schreibt in ein Volume;
+            # auf dem Host gibt es kein /etc/letsencrypt.
+            LE_DIR=$(docker volume inspect -f '{{.Mountpoint}}' bikehaus_certbot-etc 2>/dev/null)
+            for f in "$LE_DIR"/live/*/fullchain.pem "$MAILCOW_DIR/data/assets/ssl/cert.pem"; do
+              if [ -f "$f" ]; then
+                echo "$f"
+                openssl x509 -in "$f" -noout -dates -subject 2>/dev/null | sed 's/^/    /'
+              else
+                echo "$f -> (fehlt)"
+              fi
+            done
+            echo ""
+            echo "--- Erneuerung ---"
+            ls /etc/cron.d/ 2>/dev/null | grep -iE 'cert|mailcow|renew' || echo "  (kein Cron-Eintrag gefunden)"
+            [ -x /opt/renew-certs.sh ] && echo "  /opt/renew-certs.sh vorhanden" || echo "  /opt/renew-certs.sh FEHLT"
+            echo "  --- letzte 10 Zeilen certbot-renew.log ---"
+            tail -10 /var/log/certbot-renew.log 2>/dev/null | sed 's/^/    /' || echo "    (noch kein Log)"
+            echo ""
+
+            echo "=========================================="
+            echo "D. DNS: rDNS / MX / SPF / DKIM / DMARC"
+            echo "=========================================="
+            command -v dig >/dev/null || (apt-get update -qq && apt-get install -y -qq dnsutils >/dev/null 2>&1)
+            PUB4=$(curl -s4 --max-time 8 https://api.ipify.org)
+            echo "  IPv4:   $PUB4"
+            echo "  rDNS:   $(dig -x "$PUB4" +short 2>/dev/null)"
+            echo "  (rDNS muss mail.karaarslan-bike.de sein, sonst stuft Gmail ab.)"
+            echo "  MX:     $(dig MX karaarslan-bike.de +short 2>/dev/null | tr '\n' ' ')"
+            echo "  SPF:    $(dig TXT karaarslan-bike.de +short 2>/dev/null | grep -i spf | cut -c1-140)"
+            echo "  DMARC:  $(dig TXT _dmarc.karaarslan-bike.de +short 2>/dev/null | head -1 | cut -c1-140)"
+            DKIMREC=$(dig TXT dkim._domainkey.karaarslan-bike.de +short 2>/dev/null | head -1)
+            if [ -n "$DKIMREC" ]; then
+              echo "  DKIM:   vorhanden (${#DKIMREC} Zeichen)"
+            else
+              echo "  DKIM:   FEHLT im DNS!"
+            fi
+            echo ""
+
+            echo "=========================================="
+            echo "E. Rspamd — nur AUSGEHENDE Mail"
+            echo "=========================================="
+            RSCT=$(docker ps --format '{{.Names}}' | grep -i rspamd | head -1)
+            if [ -n "$RSCT" ]; then
+              docker logs --tail 4000 "$RSCT" 2>&1 \
+                | grep 'LOCAL_OUTBOUND' \
+                | grep -oE '\((default|add header|reject|greylist|soft reject)[^)]*\)?: \[[-0-9.]+/[0-9.]+\]|from: <[^>]*>|rcpts: <[^>]*>' \
+                | tail -20
+              echo "(leer = seit den letzten 4000 Zeilen keine ausgehende Mail durch rspamd)"
+            fi
+
+            echo ""
+            echo "=== DIAGNOSE ENDE ==="
+            exit 0

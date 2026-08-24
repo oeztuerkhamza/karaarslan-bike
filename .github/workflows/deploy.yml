@@ -79,11 +79,12 @@ jobs:
           JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY }}
           INDEXNOW_API_KEY: ${{ secrets.INDEXNOW_API_KEY }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          CAMPAIGN_SMTP_PASSWORD: ${{ secrets.CAMPAIGN_SMTP_PASSWORD }}
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
-          envs: FORCE_LOGOUT,JWT_SECRET_KEY,INDEXNOW_API_KEY,SMTP_PASSWORD
+          envs: FORCE_LOGOUT,JWT_SECRET_KEY,INDEXNOW_API_KEY,SMTP_PASSWORD,CAMPAIGN_SMTP_PASSWORD
           command_timeout: 10m
           script: |
             set -euo pipefail
@@ -114,6 +115,23 @@ jobs:
             GOOGLE_PLACES_PLACE_ID="$(_read_env GOOGLE_PLACES_PLACE_ID)"
             [ -z "${SMTP_PASSWORD:-}" ] && SMTP_PASSWORD="$(_read_env SMTP_PASSWORD)"
 
+            # Kampagnen-Postfach. Ohne Passwort verschickt die
+            # Bewertungskampagne ueber no-reply@ statt esat@.
+            [ -z "${CAMPAIGN_SMTP_PASSWORD:-}" ] && CAMPAIGN_SMTP_PASSWORD="$(_read_env CAMPAIGN_SMTP_PASSWORD)"
+
+            # Automatische Bewertungsmail: der auf dem Server gesetzte Wert
+            # gewinnt, damit ein Deployment sie weder ein- noch ausschaltet.
+            REVIEW_AUTOMATION_ENABLED="$(_read_env REVIEW_AUTOMATION_ENABLED)"
+            [ -z "${REVIEW_AUTOMATION_ENABLED:-}" ] && REVIEW_AUTOMATION_ENABLED=false
+
+            # Signiert die Abmeldelinks. Einmal erzeugen und dann behalten:
+            # ein neuer Wert entwertet jeden bereits verschickten Link.
+            UNSUBSCRIBE_SECRET="$(_read_env UNSUBSCRIBE_SECRET)"
+            if [ -z "${UNSUBSCRIBE_SECRET:-}" ]; then
+              UNSUBSCRIBE_SECRET=$(openssl rand -base64 48 | tr -d '\n')
+              echo "UNSUBSCRIBE_SECRET: neu erzeugt"
+            fi
+
             echo "==> Updating source"
             echo "Current server commit: $(git rev-parse --short HEAD || echo unknown)"
             git fetch --prune origin master
@@ -123,8 +141,9 @@ jobs:
 
             echo "==> Writing .env"
             umask 077
-            printf 'JWT_SECRET_KEY=%s\nINDEXNOW_API_KEY=%s\nGOOGLE_PLACES_API_KEY=%s\nGOOGLE_PLACES_PLACE_ID=%s\nSMTP_HOST=mail.karaarslan-bike.de\nSMTP_PORT=587\nSMTP_USERNAME=no-reply@karaarslan-bike.de\nSMTP_PASSWORD=%s\nSMTP_USESSL=false\nSMTP_FROMEMAIL=no-reply@karaarslan-bike.de\nSMTP_FROMNAME=Karaarslan Bike\n' \
-              "${JWT_SECRET_KEY}" "${INDEXNOW_API_KEY}" "${GOOGLE_PLACES_API_KEY}" "${GOOGLE_PLACES_PLACE_ID}" "${SMTP_PASSWORD}" > .env
+            printf 'JWT_SECRET_KEY=%s\nINDEXNOW_API_KEY=%s\nGOOGLE_PLACES_API_KEY=%s\nGOOGLE_PLACES_PLACE_ID=%s\nSMTP_HOST=mail.karaarslan-bike.de\nSMTP_PORT=587\nSMTP_USERNAME=no-reply@karaarslan-bike.de\nSMTP_PASSWORD=%s\nSMTP_USESSL=false\nSMTP_FROMEMAIL=no-reply@karaarslan-bike.de\nSMTP_FROMNAME=Karaarslan Bike\nCAMPAIGN_SMTP_USERNAME=esat@karaarslan-bike.de\nCAMPAIGN_SMTP_PASSWORD=%s\nCAMPAIGN_SMTP_FROMEMAIL=esat@karaarslan-bike.de\nCAMPAIGN_SMTP_FROMNAME=Esat Karaarslan\nREVIEW_AUTOMATION_ENABLED=%s\nUNSUBSCRIBE_SECRET=%s\n' \
+              "${JWT_SECRET_KEY}" "${INDEXNOW_API_KEY}" "${GOOGLE_PLACES_API_KEY}" "${GOOGLE_PLACES_PLACE_ID}" "${SMTP_PASSWORD}" \
+              "${CAMPAIGN_SMTP_PASSWORD}" "${REVIEW_AUTOMATION_ENABLED}" "${UNSUBSCRIBE_SECRET}" > .env
             chmod 600 .env
 
   # ───────────────────────────────────────────────────────────────

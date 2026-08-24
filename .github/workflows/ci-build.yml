@@ -1,0 +1,83 @@
+name: Build
+
+permissions:
+  contents: read
+
+# Bis hierher wurde ausschliesslich beim Deployment nach master gebaut.
+# Ein Kompilierfehler fiel damit erst auf, wenn er bereits auf dem Weg in
+# die Produktion war. Dieser Lauf zieht die Pruefung auf den Pull Request
+# vor.
+on:
+  pull_request:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  backend:
+    name: .NET Backend
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Restore
+        run: dotnet restore BikeHaus.API/BikeHaus.API.csproj
+
+      - name: Build
+        run: dotnet build BikeHaus.API/BikeHaus.API.csproj -c Release --no-restore
+
+  scripts:
+    name: Shell scripts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Syntax check
+        run: |
+          status=0
+          while IFS= read -r f; do
+            if bash -n "$f"; then
+              echo "OK      $f"
+            else
+              echo "BROKEN  $f"
+              status=1
+            fi
+          done < <(find deploy -name '*.sh' -type f)
+          exit $status
+
+      - name: shellcheck
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq shellcheck
+          shellcheck --severity=warning deploy/*.sh
+
+  workflows:
+    name: Workflow YAML
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # mailcow-db-inspect.yml ist seit jeher defekt und wird hier bewusst
+      # nur gemeldet, nicht repariert — das gehoert nicht zu dieser Aenderung.
+      - name: Parse every workflow
+        run: |
+          python3 - <<'PY'
+          import os, sys, yaml
+          bad = []
+          for name in sorted(os.listdir('.github/workflows')):
+              if not name.endswith(('.yml', '.yaml')):
+                  continue
+              path = os.path.join('.github/workflows', name)
+              try:
+                  yaml.safe_load(open(path))
+                  print('OK      %s' % name)
+              except Exception as exc:
+                  print('BROKEN  %s: %s' % (name, str(exc).splitlines()[0]))
+                  bad.append(name)
+          if bad:
+              print('\nDefekt: %s' % ', '.join(bad))
+          PY
