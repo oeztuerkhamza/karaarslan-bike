@@ -21,7 +21,7 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
-          command_timeout: 8m
+          command_timeout: 10m
           script: |
             set +e
 
@@ -44,172 +44,165 @@ jobs:
 
             APP_CT=$(docker ps --format '{{.Names}}' | grep -E '(bikehaus|karaaslan|karaarslan)-app$' | head -1)
             [ -z "$APP_CT" ] && APP_CT=$(docker ps --format '{{.Names}}' | grep -E -- '-app$' | head -1)
-            echo "App-Verzeichnis: $APP_DIR"
-            echo "App-Container:   ${APP_CT:-(LAEUFT NICHT!)}"
+            PFCT=$(docker ps --format '{{.Names}}' | grep -i postfix | grep -vi tlspol | head -1)
+            MAILCOW_DIR=""
+            for d in /opt/mailcow-dockerized /opt/mailcow /root/mailcow-dockerized /root/mailcow; do
+              [ -f "$d/mailcow.conf" ] && MAILCOW_DIR="$d" && break
+            done
+
+            echo "App-Verzeichnis:   $APP_DIR"
+            echo "App-Container:     ${APP_CT:-(LAEUFT NICHT!)}"
+            echo "Postfix-Container: ${PFCT:-(nicht gefunden)}"
+            echo "Mailcow-Dir:       ${MAILCOW_DIR:-(nicht gefunden)}"
             echo ""
 
             echo "=========================================="
-            echo "1. .env auf dem Server (maskiert)"
+            echo "A. ZUSTELLUNG — steckt Post in der Queue?"
+            echo "=========================================="
+            if [ -n "$PFCT" ]; then
+              echo "--- postqueue -p ---"
+              docker exec "$PFCT" postqueue -p 2>&1 | tail -40
+              echo ""
+              echo "--- Queue-Groesse ---"
+              echo "aktiv:    $(docker exec "$PFCT" find /var/spool/postfix/active -type f 2>/dev/null | wc -l)"
+              echo "deferred: $(docker exec "$PFCT" find /var/spool/postfix/deferred -type f 2>/dev/null | wc -l)"
+              echo ""
+              echo "--- Letzte 40 Zustell-Ergebnisse (status=) ---"
+              docker logs --tail 8000 "$PFCT" 2>&1 | grep -oE 'status=(sent|deferred|bounced|expired).*' | tail -40
+              echo ""
+              echo "--- Zustell-Status nur fuer eigene Absender ---"
+              docker logs --tail 8000 "$PFCT" 2>&1 \
+                | grep -E 'postfix/(smtp|error|bounce)\[' \
+                | grep -iE 'status=' | grep -viE 'kleinanzeigen|google.com>|tiscali' | tail -25
+              echo ""
+              echo "--- Statistik der Zustell-Stati ---"
+              docker logs --tail 8000 "$PFCT" 2>&1 | grep -oE 'status=[a-z]+' | sort | uniq -c | sort -rn
+            fi
+            echo ""
+
+            echo "=========================================="
+            echo "B. Ausgehender Port 25 (Provider-Sperre?)"
+            echo "=========================================="
+            for target in gmail-smtp-in.l.google.com mx00.emig.gmx.net mx.web.de; do
+              timeout 8 bash -c "exec 3<>/dev/tcp/$target/25" 2>/dev/null \
+                && echo "  $target:25 -> OFFEN" \
+                || echo "  $target:25 -> BLOCKIERT/TIMEOUT  (dann geht KEINE Mail raus!)"
+            done
+            echo ""
+            echo "--- Aus dem Postfix-Container heraus ---"
+            if [ -n "$PFCT" ]; then
+              docker exec "$PFCT" timeout 8 bash -c 'exec 3<>/dev/tcp/gmail-smtp-in.l.google.com/25' 2>/dev/null \
+                && echo "  Postfix -> gmail:25 OFFEN" \
+                || echo "  Postfix -> gmail:25 BLOCKIERT/TIMEOUT"
+            fi
+            echo ""
+
+            echo "=========================================="
+            echo "C. TLS-Zertifikate (Ablauf)"
+            echo "=========================================="
+            command -v openssl >/dev/null || (apt-get update -qq && apt-get install -y -qq openssl >/dev/null 2>&1)
+            echo "--- Submission 587 (STARTTLS) ---"
+            echo | timeout 12 openssl s_client -starttls smtp -connect mail.karaarslan-bike.de:587 \
+              -servername mail.karaarslan-bike.de 2>/dev/null \
+              | openssl x509 -noout -subject -issuer -dates 2>/dev/null || echo "  (nicht lesbar)"
+            echo ""
+            echo "--- SMTPS 465 ---"
+            echo | timeout 12 openssl s_client -connect mail.karaarslan-bike.de:465 \
+              -servername mail.karaarslan-bike.de 2>/dev/null \
+              | openssl x509 -noout -dates 2>/dev/null || echo "  (nicht lesbar)"
+            echo ""
+            echo "--- HTTPS 443 (nginx) ---"
+            echo | timeout 12 openssl s_client -connect karaarslan-bike.de:443 \
+              -servername karaarslan-bike.de 2>/dev/null \
+              | openssl x509 -noout -dates 2>/dev/null || echo "  (nicht lesbar)"
+            echo ""
+            echo "--- Zertifikatsdateien auf der Platte ---"
+            for f in /etc/letsencrypt/live/karaarslan-bike.de/fullchain.pem \
+                     "$MAILCOW_DIR/data/assets/ssl/cert.pem"; do
+              if [ -f "$f" ]; then
+                echo "$f"
+                openssl x509 -in "$f" -noout -dates -subject 2>/dev/null | sed 's/^/    /'
+              else
+                echo "$f -> (fehlt)"
+              fi
+            done
+            echo ""
+            echo "--- Erneuerungs-Cron / Skript ---"
+            ls -la /etc/cron.d/ 2>/dev/null | grep -iE 'cert|mailcow|renew'
+            [ -f /opt/renew-certs.sh ] && echo "/opt/renew-certs.sh vorhanden" || echo "/opt/renew-certs.sh FEHLT"
+            docker exec "$PFCT" date 2>/dev/null | sed 's/^/Postfix-Containerzeit: /'
+            echo ""
+
+            echo "=========================================="
+            echo "D. DKIM / SPF / DMARC / rDNS"
+            echo "=========================================="
+            command -v dig >/dev/null || (apt-get update -qq && apt-get install -y -qq dnsutils >/dev/null 2>&1)
+            PUB4=$(curl -s4 --max-time 8 https://api.ipify.org)
+            echo "Server-IPv4: $PUB4   rDNS: $(dig -x "$PUB4" +short 2>/dev/null)"
+            echo "MX:     $(dig MX karaarslan-bike.de +short 2>/dev/null | tr '\n' ' ')"
+            echo "SPF:    $(dig TXT karaarslan-bike.de +short 2>/dev/null | grep -i spf)"
+            echo "DMARC:  $(dig TXT _dmarc.karaarslan-bike.de +short 2>/dev/null | head -1 | cut -c1-120)"
+            echo "DKIM:   $(dig TXT dkim._domainkey.karaarslan-bike.de +short 2>/dev/null | head -1 | cut -c1-80)..."
+            echo ""
+
+            echo "=========================================="
+            echo "E. App-Konfiguration (.env + Container)"
             echo "=========================================="
             if [ -f .env ]; then
               grep -E '^SMTP_' .env | sed -E 's/^(SMTP_PASSWORD=).*/\1<hidden>/'
               ENV_PW=$(grep '^SMTP_PASSWORD=' .env | head -n1 | cut -d'=' -f2-)
               ENV_USER=$(grep '^SMTP_USERNAME=' .env | head -n1 | cut -d'=' -f2-)
-              ENV_HOST=$(grep '^SMTP_HOST=' .env | head -n1 | cut -d'=' -f2-)
-              ENV_PORT=$(grep '^SMTP_PORT=' .env | head -n1 | cut -d'=' -f2-)
               echo "SMTP_PASSWORD -> $(fp "$ENV_PW")"
-              case "$ENV_PW" in
-                *'$'*) echo "WARNUNG: Passwort enthaelt ein Dollarzeichen -> docker compose Interpolation zerstoert es!" ;;
-              esac
-            else
-              echo "FEHLER: .env fehlt in $APP_DIR"
             fi
+            echo ""
+            echo "--- Kampagne / Auto-Review im Container gesetzt? ---"
+            CAMP_N=$(docker exec "$APP_CT" env 2>/dev/null | grep -cE '^(CampaignSmtp__|ReviewAutomation__)')
+            echo "Anzahl CampaignSmtp__ / ReviewAutomation__ Variablen: ${CAMP_N:-0}"
+            echo "(0 bedeutet: Kampagne sendet ueber no-reply@ statt esat@,"
+            echo " und die automatische Review-Mail ist dauerhaft deaktiviert.)"
+            echo ""
+            echo "--- Log-Level (verdeckt es die SMTP-Meldungen?) ---"
+            docker exec "$APP_CT" sh -c 'grep -A4 "\"LogLevel\"" appsettings.Production.json' 2>/dev/null
             echo ""
 
             echo "=========================================="
-            echo "2. Effektive Env-Variablen IM Container"
-            echo "=========================================="
-            if [ -n "$APP_CT" ]; then
-              docker exec "$APP_CT" env 2>/dev/null \
-                | grep -E '^(Smtp__|CampaignSmtp__|ReviewAutomation__|MailboxProvisioning__|ASPNETCORE_ENVIRONMENT)' \
-                | sed -E 's/^(Smtp__Password=|CampaignSmtp__Password=).*/\1<hidden>/'
-              CT_PW=$(docker exec "$APP_CT" printenv Smtp__Password 2>/dev/null)
-              echo "Smtp__Password im Container -> $(fp "$CT_PW")"
-              echo "-> sha256 muss mit dem aus Schritt 1 uebereinstimmen."
-              echo "-> Fehlen CampaignSmtp__* / ReviewAutomation__* komplett, sind Kampagne"
-              echo "   und Auto-Review-Mail unkonfiguriert bzw. deaktiviert."
-            fi
-            echo ""
-
-            echo "=========================================="
-            echo "3. DB: EmailAccounts (Hypothese 1)"
+            echo "F. EmailLogs (inkl. WAL — sonst fehlen neue Zeilen)"
             echo "=========================================="
             command -v sqlite3 >/dev/null || (apt-get update -qq && apt-get install -y -qq sqlite3 >/dev/null 2>&1)
-            docker cp "$APP_CT":/app/data/BikeHausFreiburg.db /tmp/maildiag.db 2>/dev/null
-            if [ ! -f /tmp/maildiag.db ]; then
-              echo "FEHLER: DB konnte nicht kopiert werden"
-            else
-              echo "Anzahl Konten: $(sqlite3 /tmp/maildiag.db 'SELECT COUNT(*) FROM EmailAccounts;' 2>/dev/null)"
-              sqlite3 -header -column /tmp/maildiag.db \
-                "SELECT Id, Name, Host, Port, Username, LENGTH(Password) AS pw_len, UseSsl, IsDefault, IsActive FROM EmailAccounts ORDER BY Id;"
-              echo ""
-              echo "--- Aktives Standardkonto (ueberschreibt die .env-Zugangsdaten) ---"
-              DB_USER=$(sqlite3 /tmp/maildiag.db "SELECT Username FROM EmailAccounts WHERE IsDefault=1 AND IsActive=1 LIMIT 1;" 2>/dev/null)
-              DB_PW=$(sqlite3 /tmp/maildiag.db "SELECT Password FROM EmailAccounts WHERE IsDefault=1 AND IsActive=1 LIMIT 1;" 2>/dev/null)
-              DB_HOST=$(sqlite3 /tmp/maildiag.db "SELECT Host FROM EmailAccounts WHERE IsDefault=1 AND IsActive=1 LIMIT 1;" 2>/dev/null)
-              DB_PORT=$(sqlite3 /tmp/maildiag.db "SELECT Port FROM EmailAccounts WHERE IsDefault=1 AND IsActive=1 LIMIT 1;" 2>/dev/null)
-              if [ -n "$DB_USER" ] || [ -n "$DB_PW" ]; then
-                echo "Username: $DB_USER"
-                echo "Host/Port: ${DB_HOST}:${DB_PORT}"
-                echo "Passwort -> $(fp "$DB_PW")"
-                echo ">>> Ein aktives Standardkonto existiert. SmtpEmailService nutzt DESSEN"
-                echo ">>> Username/Passwort und ignoriert die .env-Werte vollstaendig"
-                echo ">>> (fuer diese beiden Felder gibt es keinen Config-Fallback)."
-              else
-                echo "(kein aktives Standardkonto -> App nutzt die .env/Config-Zugangsdaten)"
-              fi
-            fi
-            echo ""
-
-            echo "=========================================="
-            echo "4. DB: EmailLogs — die echten Fehlermeldungen"
-            echo "=========================================="
+            rm -f /tmp/maildiag.db /tmp/maildiag.db-wal /tmp/maildiag.db-shm
+            docker cp "$APP_CT":/app/data/BikeHausFreiburg.db     /tmp/maildiag.db     2>/dev/null
+            docker cp "$APP_CT":/app/data/BikeHausFreiburg.db-wal /tmp/maildiag.db-wal 2>/dev/null
+            docker cp "$APP_CT":/app/data/BikeHausFreiburg.db-shm /tmp/maildiag.db-shm 2>/dev/null
+            ls -la /tmp/maildiag.db* 2>/dev/null | awk '{print "  " $5 " bytes  " $9}'
             if [ -f /tmp/maildiag.db ]; then
+              echo ""
+              echo "--- Status-Verteilung ---"
               sqlite3 -header -column /tmp/maildiag.db \
-                "SELECT Status, COUNT(*) AS anzahl FROM EmailLogs GROUP BY Status;"
+                "SELECT Status, COUNT(*) AS anzahl, MAX(CreatedAt) AS letzte FROM EmailLogs GROUP BY Status;"
               echo ""
-              echo "--- Letzte 15 Eintraege ---"
+              echo "--- Letzte 10 Eintraege ---"
+              sqlite3 -header -column /tmp/maildiag.db \
+                "SELECT Id, CreatedAt, EmailType, Status, SUBSTR(COALESCE(ErrorMessage,''),1,120) AS Fehler FROM EmailLogs ORDER BY Id DESC LIMIT 10;"
+              echo ""
+              echo "--- Alle Fehler-Eintraege ---"
               sqlite3 -header -line /tmp/maildiag.db \
-                "SELECT Id, CreatedAt, EmailType, Status, SUBSTR(COALESCE(ErrorMessage,''),1,300) AS Fehler FROM EmailLogs ORDER BY Id DESC LIMIT 15;"
-            fi
-            echo ""
-
-            echo "=========================================="
-            echo "5. Erreichbarkeit AUS dem App-Container"
-            echo "=========================================="
-            TARGET_HOST="${ENV_HOST:-mail.karaarslan-bike.de}"
-            TARGET_PORT="${ENV_PORT:-587}"
-            if [ -n "$APP_CT" ]; then
-              echo "--- DNS im Container fuer $TARGET_HOST ---"
-              docker exec "$APP_CT" getent hosts "$TARGET_HOST" || echo "(keine Aufloesung!)"
-              echo "-> extra_hosts mappt den Namen auf das Docker-Gateway, nicht auf die public IP."
+                "SELECT Id, CreatedAt, EmailType, SUBSTR(COALESCE(ErrorMessage,''),1,300) AS Fehler FROM EmailLogs WHERE Status<>'Gesendet' ORDER BY Id DESC LIMIT 10;"
               echo ""
-              echo "--- TCP $TARGET_HOST:$TARGET_PORT aus dem Container ---"
-              docker exec "$APP_CT" curl -sv --max-time 10 "telnet://$TARGET_HOST:$TARGET_PORT" 2>&1 \
-                | grep -E 'Connected|Trying|refused|timed out|Failed|220 ' | head -5
+              echo "--- Verkaeufe mit Kaeufer-Mail vs. gesendete Rechnungen ---"
+              sqlite3 -header -column /tmp/maildiag.db \
+                "SELECT (SELECT COUNT(*) FROM Sales) AS verkaeufe, (SELECT COUNT(*) FROM EmailLogs WHERE EmailType='Verkaufsrechnung') AS rechnungsmails;"
+              echo "EmailAccounts: $(sqlite3 /tmp/maildiag.db 'SELECT COUNT(*) FROM EmailAccounts;' 2>/dev/null)"
             fi
+            rm -f /tmp/maildiag.db /tmp/maildiag.db-wal /tmp/maildiag.db-shm
             echo ""
 
             echo "=========================================="
-            echo "6. Mailcow / offene Ports auf dem Host"
+            echo "G. Rspamd — wird ausgehende Post geblockt?"
             echo "=========================================="
-            docker ps --format '{{.Names}}\t{{.Status}}' | grep -iE 'postfix|dovecot|mailcow' | head -20
-            echo ""
-            echo "--- Listener auf 25/465/587 ---"
-            (ss -lntp 2>/dev/null || netstat -lntp 2>/dev/null) | grep -E ':(25|465|587) ' || echo "(keine)"
-            echo ""
-            echo "--- Gateway des App-Netzwerks ---"
-            APP_NET=$(docker inspect -f '{{range $k,$v := .NetworkSettings.Networks}}{{$k}} {{end}}' "$APP_CT" 2>/dev/null | awk '{print $1}')
-            docker network inspect "$APP_NET" -f '{{range .IPAM.Config}}{{.Gateway}}{{end}}' 2>/dev/null
-            echo "(Auf diese IP zeigt mail.karaarslan-bike.de im Container.)"
-            echo ""
-
-            echo "=========================================="
-            echo "7. Echter SMTP-AUTH-Test"
-            echo "=========================================="
-            command -v python3 >/dev/null || (apt-get update -qq && apt-get install -y -qq python3 >/dev/null 2>&1)
-
-            printf '%s\n' \
-              'import os, smtplib, ssl, sys' \
-              'host = os.environ.get("T_HOST", "")' \
-              'port = int(os.environ.get("T_PORT") or 587)' \
-              'user = os.environ.get("T_USER", "")' \
-              'pw = os.environ.get("T_PW", "")' \
-              'label = os.environ.get("T_LABEL", "?")' \
-              'if not user or not pw:' \
-              '    print("[%s] UEBERSPRUNGEN: user oder passwort leer -> die App wirft hier SMTP password is empty" % label)' \
-              '    sys.exit(0)' \
-              'try:' \
-              '    s = smtplib.SMTP(host, port, timeout=15)' \
-              '    s.ehlo()' \
-              '    if port != 465:' \
-              '        s.starttls(context=ssl.create_default_context())' \
-              '        s.ehlo()' \
-              '    s.login(user, pw)' \
-              '    print("[%s] AUTH OK (%s@%s:%s)" % (label, user, host, port))' \
-              '    s.quit()' \
-              'except Exception as e:' \
-              '    print("[%s] FEHLGESCHLAGEN (%s@%s:%s) -> %s: %s" % (label, user, host, port, type(e).__name__, str(e)[:250]))' \
-              > /tmp/smtptest.py
-
-            echo "--- 7a. Mit den .env-Zugangsdaten ---"
-            T_LABEL=".env" T_HOST="$TARGET_HOST" T_PORT="$TARGET_PORT" T_USER="$ENV_USER" T_PW="$ENV_PW" python3 /tmp/smtptest.py
-
-            echo "--- 7b. Mit den Zugangsdaten des DB-Standardkontos (was die App wirklich nutzt) ---"
-            if [ -n "$DB_USER" ] || [ -n "$DB_PW" ]; then
-              T_LABEL="DB" T_HOST="${DB_HOST:-$TARGET_HOST}" T_PORT="${DB_PORT:-$TARGET_PORT}" T_USER="$DB_USER" T_PW="$DB_PW" python3 /tmp/smtptest.py
-            else
-              echo "(kein DB-Standardkonto vorhanden — 7a ist der massgebliche Test)"
-            fi
-            rm -f /tmp/smtptest.py /tmp/maildiag.db
-            echo ""
-
-            echo "=========================================="
-            echo "8. SMTP-Zeilen im Container-Log"
-            echo "=========================================="
-            docker logs --tail 4000 "$APP_CT" 2>&1 \
-              | grep -iE 'smtp|mailkit|authenticat|Failed to send|Review automation' | tail -40
-            echo ""
-
-            echo "=========================================="
-            echo "9. Postfix: wurde ueberhaupt etwas angenommen?"
-            echo "=========================================="
-            PFCT=$(docker ps --format '{{.Names}}' | grep -i postfix | head -1)
-            if [ -n "$PFCT" ]; then
-              docker logs --tail 3000 "$PFCT" 2>&1 \
-                | grep -iE 'no-reply|esat@|sasl|authentication|reject|bounce' | tail -30
-            else
-              echo "(kein Postfix-Container gefunden)"
+            RSCT=$(docker ps --format '{{.Names}}' | grep -i rspamd | head -1)
+            if [ -n "$RSCT" ]; then
+              docker logs --tail 3000 "$RSCT" 2>&1 \
+                | grep -iE 'no-reply|reject|greylist|soft reject' | tail -20
             fi
 
             echo ""
