@@ -14,12 +14,6 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0 6 * * *'
-  # Nur damit sich Aenderungen an dieser Datei vor dem Merge testen
-  # lassen — weder workflow_dispatch noch schedule stehen auf einem
-  # Feature-Branch zur Verfuegung.
-  push:
-    branches: [claude/mail-system-issue-hv24jy]
-    paths: ['.github/workflows/mail-cert-monitor.yml']
 
 jobs:
   check:

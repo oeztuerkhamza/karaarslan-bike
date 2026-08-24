@@ -10,7 +10,7 @@ permissions:
 on:
   pull_request:
   push:
-    branches: [master, claude/mail-system-issue-hv24jy]
+    branches: [master]
   workflow_dispatch:
 
 jobs:

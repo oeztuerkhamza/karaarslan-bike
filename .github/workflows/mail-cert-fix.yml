@@ -3,15 +3,11 @@ name: Mail Certificate Fix
 permissions:
   contents: read
 
-# workflow_dispatch ist erst verfuegbar, wenn die Datei auf master liegt.
-# Auf dem Feature-Branch laeuft sie deshalb per push.
+# Von Hand zu starten. Der regulaere Weg ist der taegliche Cron auf dem
+# Server; dieser Workflow ist fuer den Fall, dass das Skript oder der
+# Cron-Eintrag neu ausgerollt werden muss.
 on:
   workflow_dispatch:
-  push:
-    branches: [claude/mail-system-issue-hv24jy]
-    paths:
-      - 'deploy/renew-certs.sh'
-      - '.github/workflows/mail-cert-fix.yml'
 
 jobs:
   install:
