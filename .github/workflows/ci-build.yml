@@ -30,6 +30,30 @@ jobs:
       - name: Build
         run: dotnet build BikeHaus.API/BikeHaus.API.csproj -c Release --no-restore
 
+  homepage:
+    name: Homepage
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: BikeHaus.Homepage
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: BikeHaus.Homepage/package-lock.json
+
+      - name: Install
+        run: npm ci
+
+      # Derselbe Build wie im Deployment, inklusive Prerendering. Bisher lief
+      # er erst beim Push nach master — ein Fehler in der Homepage fiel damit
+      # erst auf dem Weg in die Produktion auf.
+      - name: Build
+        run: npm run build
+
   scripts:
     name: Shell scripts
     runs-on: ubuntu-latest

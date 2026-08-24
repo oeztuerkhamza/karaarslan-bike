@@ -54,11 +54,6 @@ Barzahlung, EC-Karte, Kreditkarte, PayPal, Überweisung
 - Sonntag: geschlossen
 - Feiertage: geschlossen
 
-### Betriebsurlaub 2026
-
-- 28.07.2026 – 08.08.2026: wegen Betriebsurlaub geschlossen
-- Ab Montag, 10.08.2026: wieder wie gewohnt geöffnet
-
 ## Einzugsgebiet
 
 Lünen, Dortmund, Kamen, Bergkamen, Werne, Selm, Waltrop, Castrop-Rauxel, Unna, Schwerte, Hamm, Herne, Kreis Unna
