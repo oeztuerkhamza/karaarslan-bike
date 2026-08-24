@@ -15,131 +15,113 @@ jobs:
   diagnose:
     runs-on: ubuntu-latest
     steps:
-      - name: Diagnose mail delivery, certificates and DNS
+      - name: Inventory the certificate setup
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
-          command_timeout: 10m
+          command_timeout: 8m
           script: |
             set +e
-
-            PFCT=$(docker ps --format '{{.Names}}' | grep -i postfix | grep -vi tlspol | head -1)
-            MAILCOW_DIR=""
-            for d in /opt/mailcow-dockerized /opt/mailcow /root/mailcow-dockerized /root/mailcow; do
-              [ -f "$d/mailcow.conf" ] && MAILCOW_DIR="$d" && break
-            done
-            echo "Postfix-Container: ${PFCT:-(nicht gefunden)}"
-            echo "Mailcow-Dir:       ${MAILCOW_DIR:-(nicht gefunden)}"
-            echo "Serverzeit:        $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
-            echo ""
+            MAILCOW_DIR=/opt/mailcow
 
             echo "=========================================="
-            echo "A. ZUSTELLUNG — verlaesst die Post den Server?"
+            echo "1. Das vorhandene Erneuerungs-Skript"
             echo "=========================================="
-            if [ -n "$PFCT" ]; then
-              echo "--- Queue-Groesse ---"
-              echo "  aktiv:      $(docker exec "$PFCT" find /var/spool/postfix/active   -type f 2>/dev/null | wc -l)"
-              echo "  deferred:   $(docker exec "$PFCT" find /var/spool/postfix/deferred -type f 2>/dev/null | wc -l)"
-              echo "  incoming:   $(docker exec "$PFCT" find /var/spool/postfix/incoming -type f 2>/dev/null | wc -l)"
-              echo ""
-              echo "--- postqueue -p (max 25 Zeilen) ---"
-              docker exec "$PFCT" postqueue -p 2>&1 | head -25
-              echo ""
-              echo "--- Statistik aller Zustell-Stati (letzte 8000 Logzeilen) ---"
-              docker logs --tail 8000 "$PFCT" 2>&1 | grep -oE 'status=[a-z]+' | sort | uniq -c | sort -rn
-              echo ""
-              echo "--- Letzte 25 AUSGEHENDE Zustellungen (Absender = eigene Domain) ---"
-              docker logs --tail 8000 "$PFCT" 2>&1 \
-                | grep -E 'postfix/(smtp|error|bounce)\[[0-9]+\]: [0-9A-F]{8,}:' \
-                | grep -E 'status=' \
-                | grep -E 'to=<[^>]*>' \
-                | grep -vE 'orig_to=<[a-z0-9._-]*@karaarslan-bike\.de>' \
-                | tail -25 | cut -c1-260
-              echo ""
-              echo "--- Konkret: die App-Mail 7564B1A5012 von heute ---"
-              docker logs --tail 20000 "$PFCT" 2>&1 | grep '7564B1A5012' | cut -c1-300
-            fi
-            echo ""
-
-            echo "=========================================="
-            echo "B. Ausgehender Port 25 (Provider-Sperre?)"
-            echo "=========================================="
-            for target in gmail-smtp-in.l.google.com mx00.emig.gmx.net mx.web.de; do
-              timeout 8 bash -c "exec 3<>/dev/tcp/$target/25" 2>/dev/null \
-                && echo "  Host   -> $target:25  OFFEN" \
-                || echo "  Host   -> $target:25  BLOCKIERT/TIMEOUT"
-            done
-            if [ -n "$PFCT" ]; then
-              docker exec "$PFCT" timeout 8 bash -c 'exec 3<>/dev/tcp/gmail-smtp-in.l.google.com/25' 2>/dev/null \
-                && echo "  Postfix-> gmail:25            OFFEN" \
-                || echo "  Postfix-> gmail:25            BLOCKIERT/TIMEOUT"
-            fi
-            echo "  (Blockiert = keine einzige Mail verlaesst den Server.)"
-            echo ""
-
-            echo "=========================================="
-            echo "C. TLS-Zertifikate — Ablaufdatum"
-            echo "=========================================="
-            echo "--- Submission 587 (STARTTLS) ---"
-            echo | timeout 12 openssl s_client -starttls smtp -connect mail.karaarslan-bike.de:587 \
-              -servername mail.karaarslan-bike.de 2>/dev/null \
-              | openssl x509 -noout -subject -issuer -dates 2>/dev/null || echo "  (nicht lesbar)"
-            echo ""
-            echo "--- HTTPS 443 karaarslan-bike.de (nginx) ---"
-            echo | timeout 12 openssl s_client -connect karaarslan-bike.de:443 \
-              -servername karaarslan-bike.de 2>/dev/null \
-              | openssl x509 -noout -dates 2>/dev/null || echo "  (nicht lesbar)"
-            echo ""
-            echo "--- Zertifikatsdateien auf der Platte ---"
-            for f in /etc/letsencrypt/live/karaarslan-bike.de/fullchain.pem \
-                     "$MAILCOW_DIR/data/assets/ssl/cert.pem"; do
-              if [ -f "$f" ]; then
-                echo "$f"
-                openssl x509 -in "$f" -noout -dates -subject 2>/dev/null | sed 's/^/    /'
-              else
-                echo "$f -> (fehlt)"
-              fi
-            done
-            echo ""
-            echo "--- Erneuerung ---"
-            ls /etc/cron.d/ 2>/dev/null | grep -iE 'cert|mailcow|renew' || echo "  (kein Cron-Eintrag gefunden)"
-            [ -f /opt/renew-certs.sh ] && echo "  /opt/renew-certs.sh vorhanden" || echo "  /opt/renew-certs.sh FEHLT"
-            certbot certificates 2>/dev/null | grep -E 'Certificate Name|Expiry|Domains' | head -12
-            echo ""
-
-            echo "=========================================="
-            echo "D. DNS: rDNS / MX / SPF / DKIM / DMARC"
-            echo "=========================================="
-            command -v dig >/dev/null || (apt-get update -qq && apt-get install -y -qq dnsutils >/dev/null 2>&1)
-            PUB4=$(curl -s4 --max-time 8 https://api.ipify.org)
-            echo "  IPv4:   $PUB4"
-            echo "  rDNS:   $(dig -x "$PUB4" +short 2>/dev/null)"
-            echo "  (rDNS muss mail.karaarslan-bike.de sein, sonst stuft Gmail ab.)"
-            echo "  MX:     $(dig MX karaarslan-bike.de +short 2>/dev/null | tr '\n' ' ')"
-            echo "  SPF:    $(dig TXT karaarslan-bike.de +short 2>/dev/null | grep -i spf | cut -c1-140)"
-            echo "  DMARC:  $(dig TXT _dmarc.karaarslan-bike.de +short 2>/dev/null | head -1 | cut -c1-140)"
-            DKIMREC=$(dig TXT dkim._domainkey.karaarslan-bike.de +short 2>/dev/null | head -1)
-            if [ -n "$DKIMREC" ]; then
-              echo "  DKIM:   vorhanden (${#DKIMREC} Zeichen)"
+            if [ -f /opt/renew-certs.sh ]; then
+              echo "--- /opt/renew-certs.sh ---"
+              cat /opt/renew-certs.sh
             else
-              echo "  DKIM:   FEHLT im DNS!"
+              echo "(fehlt)"
             fi
+            echo ""
+            echo "--- Cron-Eintraege ---"
+            for c in /etc/cron.d/certbot-mailcow /etc/cron.d/certbot-mailcow-renew; do
+              echo "### $c"
+              cat "$c" 2>/dev/null || echo "(fehlt)"
+            done
+            echo ""
+            echo "--- Letzte Cron-Ausfuehrungen ---"
+            grep -hiE 'renew-certs|certbot' /var/log/syslog /var/log/cron.log 2>/dev/null | tail -15
             echo ""
 
             echo "=========================================="
-            echo "E. Rspamd — nur AUSGEHENDE Mail"
+            echo "2. Wo liegt das FRISCHE Zertifikat wirklich?"
             echo "=========================================="
-            RSCT=$(docker ps --format '{{.Names}}' | grep -i rspamd | head -1)
-            if [ -n "$RSCT" ]; then
-              docker logs --tail 4000 "$RSCT" 2>&1 \
-                | grep 'LOCAL_OUTBOUND' \
-                | grep -oE '\((default|add header|reject|greylist|soft reject)[^)]*\)?: \[[-0-9.]+/[0-9.]+\]|from: <[^>]*>|rcpts: <[^>]*>' \
-                | tail -20
-              echo "(leer = seit den letzten 4000 Zeilen keine ausgehende Mail durch rspamd)"
-            fi
-
+            echo "--- Host: /etc/letsencrypt ---"
+            ls -la /etc/letsencrypt/live/ 2>/dev/null || echo "  (existiert auf dem Host nicht)"
             echo ""
-            echo "=== DIAGNOSE ENDE ==="
+            echo "--- Docker-Volumes mit certbot/letsencrypt ---"
+            docker volume ls --format '{{.Name}}' | grep -iE 'certbot|letsencrypt'
+            for v in $(docker volume ls --format '{{.Name}}' | grep -iE 'certbot|letsencrypt'); do
+              MP=$(docker volume inspect -f '{{.Mountpoint}}' "$v" 2>/dev/null)
+              echo ""
+              echo "### Volume $v -> $MP"
+              ls -la "$MP/live/" 2>/dev/null || echo "  (kein live/ Verzeichnis)"
+            done
+            echo ""
+            echo "--- Certbot-Container ---"
+            docker ps -a --format '{{.Names}}\t{{.Status}}\t{{.Image}}' | grep -i certbot
+            CBCT=$(docker ps -a --format '{{.Names}}' | grep -i certbot | head -1)
+            [ -n "$CBCT" ] && docker logs --tail 25 "$CBCT" 2>&1 | cut -c1-200
+            echo ""
+
+            echo "=========================================="
+            echo "3. Deckt das frische Zertifikat mail.* ab?"
+            echo "=========================================="
+            for v in $(docker volume ls --format '{{.Name}}' | grep -iE 'certbot|letsencrypt'); do
+              MP=$(docker volume inspect -f '{{.Mountpoint}}' "$v" 2>/dev/null)
+              for d in "$MP"/live/*/; do
+                [ -f "$d/fullchain.pem" ] || continue
+                echo "### $d"
+                openssl x509 -in "$d/fullchain.pem" -noout -subject -dates 2>/dev/null | sed 's/^/    /'
+                echo -n "    SANs: "
+                openssl x509 -in "$d/fullchain.pem" -noout -ext subjectAltName 2>/dev/null \
+                  | grep -v 'X509v3' | tr -d ' ' | head -1
+                echo -n "    Fingerprint: "
+                openssl x509 -in "$d/fullchain.pem" -noout -fingerprint -sha256 2>/dev/null | cut -d= -f2
+              done
+            done
+            echo ""
+            echo "--- Was nginx auf 443 tatsaechlich ausliefert ---"
+            echo | timeout 12 openssl s_client -connect karaarslan-bike.de:443 -servername mail.karaarslan-bike.de 2>/dev/null \
+              | openssl x509 -noout -subject -dates -ext subjectAltName 2>/dev/null | grep -v 'X509v3' | sed 's/^/    /'
+            echo ""
+
+            echo "=========================================="
+            echo "4. Mailcows aktuelle SSL-Dateien"
+            echo "=========================================="
+            ls -la "$MAILCOW_DIR/data/assets/ssl/" 2>/dev/null
+            echo ""
+            echo "--- cert.pem ---"
+            openssl x509 -in "$MAILCOW_DIR/data/assets/ssl/cert.pem" -noout -subject -dates -fingerprint -sha256 2>/dev/null | sed 's/^/    /'
+            echo -n "    SANs: "
+            openssl x509 -in "$MAILCOW_DIR/data/assets/ssl/cert.pem" -noout -ext subjectAltName 2>/dev/null | grep -v 'X509v3' | tr -d ' ' | head -1
+            echo ""
+            echo "--- Passen key.pem und cert.pem zusammen? ---"
+            CM=$(openssl x509 -in "$MAILCOW_DIR/data/assets/ssl/cert.pem" -noout -pubkey 2>/dev/null | openssl sha256 | cut -d= -f2)
+            KM=$(openssl pkey -in "$MAILCOW_DIR/data/assets/ssl/key.pem" -pubout 2>/dev/null | openssl sha256 | cut -d= -f2)
+            echo "    cert-pubkey: $CM"
+            echo "    key-pubkey:  $KM"
+            [ "$CM" = "$KM" ] && echo "    -> passen zusammen" || echo "    -> PASSEN NICHT ZUSAMMEN"
+            echo ""
+
+            echo "=========================================="
+            echo "5. mailcow.conf — verwaltet mailcow selbst ACME?"
+            echo "=========================================="
+            grep -E '^(SKIP_LETS_ENCRYPT|MAILCOW_HOSTNAME|ADDITIONAL_SAN|HTTP_PORT|HTTPS_PORT|HTTP_BIND|HTTPS_BIND|ADDITIONAL_SERVER_NAMES)=' \
+              "$MAILCOW_DIR/mailcow.conf" 2>/dev/null
+            echo ""
+            echo "--- acme-mailcow Logs ---"
+            docker logs --tail 20 mailcow-acme-mailcow-1 2>&1 | cut -c1-200
+            echo ""
+
+            echo "=========================================="
+            echo "6. Wie startet mailcow neu? (fuer den Reload)"
+            echo "=========================================="
+            echo "docker compose Version: $(docker compose version --short 2>/dev/null)"
+            echo "Mailcow compose-Datei:  $(ls "$MAILCOW_DIR"/docker-compose.yml 2>/dev/null)"
+            echo ""
+            echo "=== INVENTAR ENDE ==="
             exit 0
