@@ -298,14 +298,6 @@ export interface Translations {
   restDay: string;
   openGoogleMaps: string;
 
-  // Holiday closure (Betriebsurlaub)
-  holidayLabel: string;
-  holidayClosedNow: string;
-  holidayClosedSoon: string;
-  holidayClosedRange: string;
-  holidayReopen: string;
-  holidayContactHint: string;
-
   // Days (short) for contact
   monShort: string;
   tueShort: string;
@@ -731,15 +723,6 @@ const TRANSLATIONS: Record<Language, Translations> = {
     closed: 'Geschlossen',
     restDay: 'Geschlossen',
     openGoogleMaps: 'Google Maps öffnen',
-
-    // Holiday closure (Betriebsurlaub)
-    holidayLabel: 'Betriebsurlaub',
-    holidayClosedNow: 'Wir sind vom {from} bis {to} im Urlaub — der Laden bleibt geschlossen.',
-    holidayClosedSoon: 'Vom {from} bis {to} bleibt unser Laden wegen Betriebsurlaub geschlossen.',
-    holidayClosedRange: '{from} – {to} geschlossen',
-    holidayReopen: 'Ab {weekday}, {reopen} sind wir wieder wie gewohnt für Sie da.',
-    holidayContactHint:
-      'Anfragen per WhatsApp und E-Mail beantworten wir nach unserer Rückkehr.',
 
     // Days (short)
     monShort: 'Mo',
@@ -1192,15 +1175,6 @@ const TRANSLATIONS: Record<Language, Translations> = {
     closed: 'Closed',
     restDay: 'Closed',
     openGoogleMaps: 'Open Google Maps',
-
-    // Holiday closure
-    holidayLabel: 'Holiday closure',
-    holidayClosedNow: 'We are on holiday from {from} to {to} — the shop stays closed.',
-    holidayClosedSoon: 'Our shop will be closed for holidays from {from} to {to}.',
-    holidayClosedRange: 'Closed {from} – {to}',
-    holidayReopen: 'We are back for you on {weekday}, {reopen}.',
-    holidayContactHint:
-      'We will answer WhatsApp messages and emails once we are back.',
 
     monShort: 'Mon',
     tueShort: 'Tue',
@@ -1655,15 +1629,6 @@ const TRANSLATIONS: Record<Language, Translations> = {
     closed: 'Fermé',
     restDay: 'Fermé',
     openGoogleMaps: 'Ouvrir Google Maps',
-
-    // Fermeture annuelle
-    holidayLabel: 'Congés annuels',
-    holidayClosedNow: 'Nous sommes en congés du {from} au {to} — le magasin reste fermé.',
-    holidayClosedSoon: 'Notre magasin sera fermé pour congés annuels du {from} au {to}.',
-    holidayClosedRange: 'Fermé du {from} au {to}',
-    holidayReopen: 'Nous vous accueillons à nouveau {weekday} {reopen}.',
-    holidayContactHint:
-      'Nous répondrons aux messages WhatsApp et aux e-mails dès notre retour.',
 
     // Days (short)
     monShort: 'Lu',
@@ -2125,15 +2090,6 @@ const TRANSLATIONS: Record<Language, Translations> = {
     closed: 'Kapalı',
     restDay: 'Kapalı',
     openGoogleMaps: "Google Maps'i aç",
-
-    // Yıllık izin
-    holidayLabel: 'Yıllık İzin',
-    holidayClosedNow: '{from} - {to} tarihleri arasında tatildeyiz — dükkânımız kapalıdır.',
-    holidayClosedSoon: '{from} - {to} tarihleri arasında yıllık izin nedeniyle kapalıyız.',
-    holidayClosedRange: '{from} - {to} kapalı',
-    holidayReopen: '{reopen} {weekday} gününden itibaren yeniden hizmetinizdeyiz.',
-    holidayContactHint:
-      'WhatsApp ve e-posta mesajlarınızı dönüşümüzde yanıtlayacağız.',
 
     // Days (short)
     monShort: 'Pzt',
