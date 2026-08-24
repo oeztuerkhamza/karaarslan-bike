@@ -1,0 +1,129 @@
+name: Mail Certificate Fix
+
+permissions:
+  contents: read
+
+# workflow_dispatch ist erst verfuegbar, wenn die Datei auf master liegt.
+# Auf dem Feature-Branch laeuft sie deshalb per push.
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/mail-system-issue-hv24jy]
+    paths:
+      - 'deploy/renew-certs.sh'
+      - '.github/workflows/mail-cert-fix.yml'
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Upload renewal script
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          source: deploy/renew-certs.sh
+          target: /opt/mail-cert
+          strip_components: 1
+          overwrite: true
+
+      - name: Install cron, run renewal, verify
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          command_timeout: 10m
+          script: |
+            set -euo pipefail
+
+            echo "=========================================="
+            echo "1. Skript installieren"
+            echo "=========================================="
+            install -m 0755 /opt/mail-cert/renew-certs.sh /opt/renew-certs.sh
+            rm -rf /opt/mail-cert
+            echo "  /opt/renew-certs.sh  $(stat -c '%s Bytes, Modus %a' /opt/renew-certs.sh)"
+            bash -n /opt/renew-certs.sh && echo "  Syntaxpruefung OK"
+
+            echo ""
+            echo "=========================================="
+            echo "2. Kaputte Cron-Eintraege ersetzen"
+            echo "=========================================="
+            # certbot-mailcow rief das zerschossene Skript auf,
+            # certbot-mailcow-renew enthielt ein verirrtes "EOF" und ein
+            # "echo", wodurch cron die Datei als fehlerhaft verwarf.
+            for old in /etc/cron.d/certbot-mailcow /etc/cron.d/certbot-mailcow-renew; do
+              if [ -f "$old" ]; then
+                mv "$old" "${old}.disabled-$(date -u +%Y%m%d)"
+                echo "  deaktiviert: $old"
+              fi
+            done
+
+            # Dateien in /etc/cron.d duerfen keinen Punkt im Namen haben,
+            # sonst ignoriert cron sie stillschweigend.
+            cat > /etc/cron.d/mailcow-cert-renew <<'CRON'
+            # Taeglich das Let's-Encrypt-Zertifikat erneuern und in mailcow
+            # installieren. Das Skript ist idempotent und beendet sich sofort,
+            # wenn mailcow das richtige Zertifikat bereits hat.
+            SHELL=/bin/bash
+            PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+            17 3 * * * root /opt/renew-certs.sh >> /var/log/certbot-renew.log 2>&1
+            CRON
+            chmod 0644 /etc/cron.d/mailcow-cert-renew
+            echo "  installiert: /etc/cron.d/mailcow-cert-renew"
+            cat /etc/cron.d/mailcow-cert-renew | sed 's/^/    /'
+
+            # Logdatei begrenzen, damit sie nicht unbemerkt die Platte fuellt.
+            cat > /etc/logrotate.d/certbot-renew <<'ROT'
+            /var/log/certbot-renew.log {
+              monthly
+              rotate 6
+              compress
+              missingok
+              notifempty
+              copytruncate
+            }
+            ROT
+            echo "  installiert: /etc/logrotate.d/certbot-renew"
+
+            echo ""
+            echo "=========================================="
+            echo "3. Zustand VOR dem Lauf"
+            echo "=========================================="
+            echo -n "  mailcow cert.pem: "
+            openssl x509 -in /opt/mailcow/data/assets/ssl/cert.pem -noout -enddate 2>/dev/null || echo "(nicht lesbar)"
+            echo -n "  Port 587 liefert: "
+            echo | timeout 15 openssl s_client -starttls smtp -connect mail.karaarslan-bike.de:587 \
+              -servername mail.karaarslan-bike.de 2>/dev/null \
+              | openssl x509 -noout -enddate 2>/dev/null || echo "(nicht lesbar)"
+
+            echo ""
+            echo "=========================================="
+            echo "4. Erneuerung ausfuehren"
+            echo "=========================================="
+            /opt/renew-certs.sh
+
+            echo ""
+            echo "=========================================="
+            echo "5. Zustand NACH dem Lauf"
+            echo "=========================================="
+            for probe in "587 -starttls smtp" "993 " "465 "; do
+              set -- $probe
+              port=$1; shift
+              echo -n "  Port $port: "
+              echo | timeout 15 openssl s_client "$@" -connect "mail.karaarslan-bike.de:$port" \
+                -servername mail.karaarslan-bike.de 2>/dev/null \
+                | openssl x509 -noout -enddate 2>/dev/null || echo "(nicht lesbar)"
+            done
+
+            echo ""
+            echo "=========================================="
+            echo "6. Zweiter Lauf — muss ein No-op sein"
+            echo "=========================================="
+            /opt/renew-certs.sh
+
+            echo ""
+            echo "=== FERTIG ==="

@@ -1,0 +1,166 @@
+name: Mail Certificate Monitor
+
+permissions:
+  contents: read
+
+# Der eigentliche Zweck: das abgelaufene Zertifikat blieb 21 Tage
+# unbemerkt, weil niemand hingesehen hat. Dieser Lauf schlaegt fehl,
+# sobald etwas nicht stimmt — GitHub schickt bei fehlgeschlagenen
+# geplanten Laeufen automatisch eine Mail an den Repo-Besitzer.
+#
+# Achtung: geplante Laeufe starten nur vom Default-Branch. Die
+# Ueberwachung greift also erst nach dem Merge nach master.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * *'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check certificate health
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          command_timeout: 6m
+          script: |
+            set -uo pipefail
+
+            MAIL_HOST=mail.karaarslan-bike.de
+            WEB_HOST=karaarslan-bike.de
+            WARN_DAYS=21
+            problems=0
+            now=$(date +%s)
+
+            note()    { echo "  $*"; }
+            problem() { echo "  PROBLEM: $*"; problems=$((problems + 1)); }
+
+            # Ablaufdatum dessen, was der Port wirklich ausliefert.
+            enddate_on() { # host port [starttls-protokoll]
+              local host="$1" port="$2" starttls="${3:-}" args=()
+              [ -n "$starttls" ] && args=(-starttls "$starttls")
+              echo | timeout 20 openssl s_client "${args[@]}" \
+                  -connect "$host:$port" -servername "$host" 2>/dev/null \
+                | openssl x509 -noout -enddate 2>/dev/null | cut -d= -f2 || true
+            }
+
+            fp_on() { # host port [starttls-protokoll]
+              local host="$1" port="$2" starttls="${3:-}" args=()
+              [ -n "$starttls" ] && args=(-starttls "$starttls")
+              echo | timeout 20 openssl s_client "${args[@]}" \
+                  -connect "$host:$port" -servername "$host" 2>/dev/null \
+                | openssl x509 -noout -fingerprint -sha256 2>/dev/null | cut -d= -f2 || true
+            }
+
+            echo "=========================================="
+            echo "1. Restlaufzeit der ausgelieferten Zertifikate"
+            echo "=========================================="
+            # 587 submission, 993 imaps, 465 smtps -> die Ports der
+            # Mailprogramme. 443 -> Web.
+            for probe in "$MAIL_HOST 587 smtp" "$MAIL_HOST 993 " "$MAIL_HOST 465 " "$WEB_HOST 443 "; do
+              set -- $probe
+              host=$1; port=$2; proto=${3:-}
+              end=$(enddate_on "$host" "$port" "$proto")
+              if [ -z "$end" ]; then
+                problem "$host:$port liefert kein lesbares Zertifikat"
+                continue
+              fi
+              end_ts=$(date -d "$end" +%s 2>/dev/null || echo 0)
+              days=$(( (end_ts - now) / 86400 ))
+              if [ "$end_ts" -eq 0 ]; then
+                problem "$host:$port — Ablaufdatum '$end' nicht lesbar"
+              elif [ "$days" -lt 0 ]; then
+                problem "$host:$port ABGELAUFEN seit $(( -days )) Tagen ($end)"
+              elif [ "$days" -lt "$WARN_DAYS" ]; then
+                problem "$host:$port laeuft in $days Tagen ab ($end)"
+              else
+                note "OK  $host:$port — noch $days Tage ($end)"
+              fi
+            done
+
+            echo ""
+            echo "=========================================="
+            echo "2. Hat mailcow das Zertifikat von certbot?"
+            echo "=========================================="
+            # Genau diese Luecke war die Ursache: certbot erneuerte, aber
+            # die Kopie nach mailcow schlug fehl.
+            LE_DIR=$(docker volume inspect -f '{{.Mountpoint}}' bikehaus_certbot-etc 2>/dev/null || true)
+            if [ -z "$LE_DIR" ]; then
+              problem "certbot-Volume nicht gefunden"
+            else
+              newest=""; newest_end=0
+              for d in "$LE_DIR"/live/*/; do
+                [ -f "$d/fullchain.pem" ] || continue
+                sans=$(openssl x509 -in "$d/fullchain.pem" -noout -ext subjectAltName 2>/dev/null | tr ',' '\n' | tr -d ' ')
+                printf '%s\n' "$sans" | grep -Fqx "DNS:$MAIL_HOST" || continue
+                e=$(date -d "$(openssl x509 -in "$d/fullchain.pem" -noout -enddate 2>/dev/null | cut -d= -f2)" +%s 2>/dev/null || echo 0)
+                [ "$e" -gt "$newest_end" ] && { newest="$d"; newest_end="$e"; }
+              done
+              if [ -z "$newest" ]; then
+                problem "kein certbot-Zertifikat deckt $MAIL_HOST ab"
+              else
+                le_fp=$(openssl x509 -in "$newest/fullchain.pem" -noout -fingerprint -sha256 2>/dev/null | cut -d= -f2)
+                mc_fp=$(openssl x509 -in /opt/mailcow/data/assets/ssl/cert.pem -noout -fingerprint -sha256 2>/dev/null | cut -d= -f2 || true)
+                wire_fp=$(fp_on "$MAIL_HOST" 587 smtp)
+                note "certbot:  ${le_fp:0:20}..."
+                note "mailcow:  ${mc_fp:0:20}..."
+                note "Port 587: ${wire_fp:0:20}..."
+                [ "$le_fp" = "$mc_fp" ]   || problem "mailcow-Datei weicht vom certbot-Zertifikat ab — Kopie schlaegt fehl"
+                [ "$le_fp" = "$wire_fp" ] || problem "Port 587 weicht vom certbot-Zertifikat ab — Reload schlaegt fehl"
+              fi
+            fi
+
+            echo ""
+            echo "=========================================="
+            echo "3. Laeuft die Erneuerung ueberhaupt?"
+            echo "=========================================="
+            if [ -x /opt/renew-certs.sh ]; then
+              note "OK  /opt/renew-certs.sh vorhanden und ausfuehrbar"
+            else
+              problem "/opt/renew-certs.sh fehlt oder ist nicht ausfuehrbar"
+            fi
+            if [ -f /etc/cron.d/mailcow-cert-renew ]; then
+              note "OK  Cron-Eintrag vorhanden"
+            else
+              problem "/etc/cron.d/mailcow-cert-renew fehlt"
+            fi
+            if [ -f /var/log/certbot-renew.log ]; then
+              age_days=$(( (now - $(stat -c %Y /var/log/certbot-renew.log)) / 86400 ))
+              if [ "$age_days" -gt 2 ]; then
+                problem "certbot-renew.log seit $age_days Tagen unveraendert — Cron laeuft nicht"
+              else
+                note "OK  Log vor $age_days Tag(en) geschrieben"
+              fi
+              echo "  --- letzte 8 Logzeilen ---"
+              tail -8 /var/log/certbot-renew.log | sed 's/^/    /'
+            else
+              note "Hinweis: /var/log/certbot-renew.log noch nicht angelegt (erster Cron-Lauf steht aus)"
+            fi
+
+            echo ""
+            echo "=========================================="
+            echo "4. Mail-Zustellung"
+            echo "=========================================="
+            PFCT=$(docker ps --format '{{.Names}}' | grep -i postfix | grep -vi tlspol | head -1)
+            if [ -z "$PFCT" ]; then
+              problem "Postfix-Container laeuft nicht"
+            else
+              deferred=$(docker exec "$PFCT" find /var/spool/postfix/deferred -type f 2>/dev/null | wc -l)
+              if [ "$deferred" -gt 20 ]; then
+                problem "$deferred Mails in der deferred-Queue"
+              else
+                note "OK  deferred-Queue: $deferred"
+              fi
+            fi
+
+            echo ""
+            echo "=========================================="
+            if [ "$problems" -eq 0 ]; then
+              echo "ALLES IN ORDNUNG"
+              exit 0
+            fi
+            echo "$problems PROBLEM(E) GEFUNDEN — siehe oben"
+            exit 1

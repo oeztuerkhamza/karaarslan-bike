@@ -24,6 +24,20 @@ services:
       - Smtp__UseSsl=${SMTP_USESSL:-false}
       - Smtp__FromEmail=${SMTP_FROMEMAIL:-no-reply@karaarslan-bike.de}
       - Smtp__FromName=${SMTP_FROMNAME:-Karaarslan Bike}
+      # Absender der Google-Bewertungskampagne. Ohne Passwort faellt die
+      # Kampagne auf no-reply@ zurueck — sie schlaegt also nicht fehl,
+      # verschickt aber unter dem falschen Namen.
+      - CampaignSmtp__Username=${CAMPAIGN_SMTP_USERNAME:-esat@karaarslan-bike.de}
+      - CampaignSmtp__Password=${CAMPAIGN_SMTP_PASSWORD:-}
+      - CampaignSmtp__FromEmail=${CAMPAIGN_SMTP_FROMEMAIL:-esat@karaarslan-bike.de}
+      - CampaignSmtp__FromName=${CAMPAIGN_SMTP_FROMNAME:-Esat Karaarslan}
+      # Automatische Bewertungsmail nach einem Verkauf. Standard aus —
+      # das Anschreiben von Kundinnen und Kunden ist eine bewusste
+      # Entscheidung, kein Nebeneffekt eines Deployments.
+      - ReviewAutomation__Enabled=${REVIEW_AUTOMATION_ENABLED:-false}
+      # Ohne eigenen Wert signiert der Abmeldelink mit dem JWT-Schluessel.
+      # Da dieser rotiert werden kann, entwertet das alle offenen Links.
+      - Unsubscribe__Secret=${UNSUBSCRIBE_SECRET:-}
     extra_hosts:
       - 'mail.karaarslan-bike.de:host-gateway'
     networks:
