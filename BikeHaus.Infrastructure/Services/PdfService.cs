@@ -30,7 +30,7 @@ public class PdfService : IPdfService
     private const string DefaultShopType = "FAHRRADLADEN";
     private const string DefaultSteuernummer = "06002/40667";
     private const string DefaultUStIdNr = "DE437595861";
-    private const string DefaultShopStreet = "Alstedder Straße 5";
+    private const string DefaultShopStreet = "Alstedder Straße 5-B";
     private const string DefaultShopCity = "44534 Lünen";
     private const string DefaultShopEmail = "info@karaarslan-bike.de";
     private const string DefaultShopTelefon = "0 15566300011";
@@ -195,7 +195,7 @@ public class PdfService : IPdfService
             container.Page(page =>
             {
                 page.Size(PageSizes.A4);
-                page.Margin(0.6f, Unit.Centimetre);
+                page.Margin(2f, Unit.Centimetre);
                 page.DefaultTextStyle(x => x.FontSize(10).FontColor(Colors.Grey.Darken4));
 
                 // Header aligned with Verkaufsbeleg template
@@ -358,6 +358,16 @@ public class PdfService : IPdfService
                         });
                     });
 
+                    // Distance travelled for the purchase
+                    if (purchase.EntfernungKm.HasValue && purchase.EntfernungKm.Value > 0)
+                    {
+                        col.Item().PaddingTop(6).Border(0.5f).BorderColor(Colors.Grey.Lighten2).Padding(6).Row(row =>
+                        {
+                            row.RelativeItem().Text("Zurückgelegte Entfernung (Anfahrt):").FontSize(9);
+                            row.ConstantItem(100).Text($"{purchase.EntfernungKm.Value:N1} km").FontSize(11).Bold().FontColor(PrimaryColor).AlignRight();
+                        });
+                    }
+
                     // Notes if present
                     if (!string.IsNullOrEmpty(purchase.Notizen))
                     {
@@ -424,7 +434,7 @@ public class PdfService : IPdfService
             container.Page(page =>
             {
                 page.Size(PageSizes.A4);
-                page.Margin(0.6f, Unit.Centimetre);
+                page.Margin(2f, Unit.Centimetre);
                 page.DefaultTextStyle(x => x.FontSize(10).FontColor(Colors.Grey.Darken4));
 
                 // Header with professional branding (print-friendly)
@@ -639,7 +649,7 @@ public class PdfService : IPdfService
                                 });
                             });
 
-                            wCol.Item().PaddingTop(3).Text(RepairNote).FontSize(8).Italic().FontColor(Colors.Grey.Darken2);
+                            wCol.Item().PaddingTop(3).PaddingLeft(18).Text(RepairNote).FontSize(8).Italic().FontColor(Colors.Grey.Darken2);
                         });
                     }
 
@@ -1149,7 +1159,7 @@ public class PdfService : IPdfService
             container.Page(page =>
             {
                 page.Size(PageSizes.A4);
-                page.Margin(1.5f, Unit.Centimetre);
+                page.Margin(2f, Unit.Centimetre);
                 page.DefaultTextStyle(x => x.FontSize(9).FontColor(Colors.Grey.Darken4));
 
                 // Header

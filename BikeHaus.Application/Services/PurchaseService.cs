@@ -113,7 +113,8 @@ public class PurchaseService : IPurchaseService
             BelegNummer = !string.IsNullOrWhiteSpace(dto.BelegNummer)
                 ? dto.BelegNummer
                 : null,
-            AnzeigeNr = dto.AnzeigeNr
+            AnzeigeNr = dto.AnzeigeNr,
+            EntfernungKm = dto.EntfernungKm
         };
 
         // Add signature if provided
@@ -157,7 +158,8 @@ public class PurchaseService : IPurchaseService
                 BelegNummer = !string.IsNullOrWhiteSpace(dto.BelegNummer)
                     ? dto.BelegNummer
                     : null,
-                AnzeigeNr = dto.AnzeigeNr
+                AnzeigeNr = dto.AnzeigeNr,
+                EntfernungKm = dto.EntfernungKm
             };
 
             var created = await _purchaseRepository.AddAsync(purchase);
@@ -211,6 +213,7 @@ public class PurchaseService : IPurchaseService
         purchase.Kaufdatum = dto.Kaufdatum;
         purchase.Notizen = dto.Notizen;
         purchase.AnzeigeNr = dto.AnzeigeNr;
+        purchase.EntfernungKm = dto.EntfernungKm;
         if (!string.IsNullOrWhiteSpace(dto.BelegNummer))
             purchase.BelegNummer = dto.BelegNummer;
         purchase.UpdatedAt = DateTime.UtcNow;
@@ -318,7 +321,8 @@ public class PurchaseService : IPurchaseService
             BelegNummer = !string.IsNullOrWhiteSpace(dto.BelegNummer)
                 ? dto.BelegNummer
                 : null,
-            AnzeigeNr = dto.AnzeigeNr
+            AnzeigeNr = dto.AnzeigeNr,
+            EntfernungKm = dto.EntfernungKm
         };
 
         if (dto.Signature != null)

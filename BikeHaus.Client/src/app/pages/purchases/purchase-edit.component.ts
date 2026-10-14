@@ -208,6 +208,18 @@ import { forkJoin } from 'rxjs';
                   placeholder="optional"
                 />
               </div>
+              <div class="field">
+                <label>{{ t.distanceKm }}</label>
+                <input
+                  type="number"
+                  min="0"
+                  step="0.1"
+                  [(ngModel)]="entfernungKm"
+                  name="entfernungKm"
+                  placeholder="optional"
+                />
+                <small class="hint">{{ t.distanceKmHint }}</small>
+              </div>
               <div class="field full">
                 <label>{{ t.notes }}</label>
                 <textarea
@@ -725,6 +737,7 @@ export class PurchaseEditComponent implements OnInit, OnDestroy {
   kaufdatum = '';
   notizen = '';
   anzeigeNr = '';
+  entfernungKm: number | null = null;
   belegNummer = '';
 
   constructor(
@@ -953,6 +966,7 @@ export class PurchaseEditComponent implements OnInit, OnDestroy {
     }
     this.notizen = purchase.notizen || '';
     this.anzeigeNr = purchase.anzeigeNr || '';
+    this.entfernungKm = purchase.entfernungKm ?? null;
     this.belegNummer = purchase.belegNummer || '';
   }
 
@@ -969,6 +983,7 @@ export class PurchaseEditComponent implements OnInit, OnDestroy {
       kaufdatum: this.kaufdatum,
       notizen: this.notizen || undefined,
       anzeigeNr: this.anzeigeNr || undefined,
+      entfernungKm: this.entfernungKm ?? undefined,
       belegNummer: this.belegNummer || undefined,
     };
 

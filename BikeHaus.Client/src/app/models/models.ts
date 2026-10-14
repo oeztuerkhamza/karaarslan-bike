@@ -164,6 +164,7 @@ export interface Purchase {
   notizen?: string;
   belegNummer?: string;
   anzeigeNr?: string;
+  entfernungKm?: number;
   signature?: Signature;
   createdAt: string;
 }
@@ -192,6 +193,7 @@ export interface PurchaseCreate {
   signature?: SignatureCreate;
   belegNummer?: string;
   anzeigeNr?: string;
+  entfernungKm?: number;
 }
 
 export interface PurchaseUpdate {
@@ -204,6 +206,7 @@ export interface PurchaseUpdate {
   notizen?: string;
   belegNummer?: string;
   anzeigeNr?: string;
+  entfernungKm?: number;
 }
 
 export interface BulkPurchaseCreate {
@@ -217,6 +220,7 @@ export interface BulkPurchaseCreate {
   notizen?: string;
   belegNummer?: string;
   anzeigeNr?: string;
+  entfernungKm?: number;
 }
 
 export interface BulkPurchaseResult {

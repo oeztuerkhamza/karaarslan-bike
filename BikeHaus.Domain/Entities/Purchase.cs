@@ -13,6 +13,7 @@ public class Purchase : BaseEntity
     public string? BelegNummer { get; set; }                     // Receipt Number (optional)
     public decimal? VerkaufspreisVorschlag { get; set; }         // Planned Selling Price
     public string? AnzeigeNr { get; set; }                       // Advertisement Number
+    public decimal? EntfernungKm { get; set; }                   // Distance travelled for the purchase (km)
 
     // Navigation Properties
     public Bicycle Bicycle { get; set; } = null!;

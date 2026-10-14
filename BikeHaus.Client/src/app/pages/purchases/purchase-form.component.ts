@@ -281,6 +281,18 @@ import { forkJoin, Observable } from 'rxjs';
                 />
                 <small class="hint">{{ t.adNumberHint }}</small>
               </div>
+              <div class="field" *ngIf="!bulkMode">
+                <label>{{ t.distanceKm }}</label>
+                <input
+                  type="number"
+                  min="0"
+                  step="0.1"
+                  [(ngModel)]="entfernungKm"
+                  name="entfernungKm"
+                  placeholder="optional"
+                />
+                <small class="hint">{{ t.distanceKmHint }}</small>
+              </div>
               <div class="field full">
                 <label>{{ t.notes }}</label>
                 <textarea
@@ -919,6 +931,7 @@ export class PurchaseFormComponent implements OnInit {
   kaufdatum = '';
   notizen = '';
   anzeigeNr = '';
+  entfernungKm: number | null = null;
   belegNummer = '';
   signatureData = '';
   signerName = '';
@@ -1141,6 +1154,7 @@ export class PurchaseFormComponent implements OnInit {
       notizen: this.notizen || undefined,
       belegNummer: this.belegNummer || undefined,
       anzeigeNr: this.anzeigeNr || undefined,
+      entfernungKm: this.entfernungKm || undefined,
     };
 
     this.purchaseService.createBulk(bulkData).subscribe({
@@ -1165,6 +1179,7 @@ export class PurchaseFormComponent implements OnInit {
       notizen: this.notizen || undefined,
       belegNummer: this.belegNummer || undefined,
       anzeigeNr: this.anzeigeNr || undefined,
+      entfernungKm: this.entfernungKm || undefined,
     };
 
     this.purchaseService.create(purchase).subscribe({

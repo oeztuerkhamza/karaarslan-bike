@@ -883,6 +883,9 @@ namespace BikeHaus.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
 
+                    b.Property<decimal?>("EntfernungKm")
+                        .HasColumnType("decimal(18,1)");
+
                     b.Property<DateTime>("Kaufdatum")
                         .HasColumnType("TEXT");
 

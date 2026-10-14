@@ -88,6 +88,8 @@ public class BikeHausDbContext : DbContext
             entity.Property(e => e.BelegNummer).HasMaxLength(20);
             entity.Property(e => e.Notizen).HasMaxLength(1000);
 
+            entity.Property(e => e.EntfernungKm).HasColumnType("decimal(18,1)");
+
             entity.HasOne(e => e.Bicycle)
                 .WithOne(b => b.Purchase)
                 .HasForeignKey<Purchase>(e => e.BicycleId)

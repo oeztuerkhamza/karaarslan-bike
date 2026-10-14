@@ -220,6 +220,16 @@ import {
               <label>Anzeige-Nr.</label>
               <input [(ngModel)]="purchaseForm.anzeigeNr" name="anzeigeNr" />
             </div>
+            <div class="field">
+              <label>{{ t.distanceKm }}</label>
+              <input
+                type="number"
+                min="0"
+                step="0.1"
+                [(ngModel)]="purchaseForm.entfernungKm"
+                name="entfernungKm"
+              />
+            </div>
             <div class="field field-full">
               <label>{{ t.notes }}</label>
               <textarea
@@ -740,6 +750,7 @@ export class BicycleDetailComponent implements OnInit, OnDestroy {
     notizen: '',
     belegNummer: '',
     anzeigeNr: '',
+    entfernungKm: null as number | null,
   };
 
   sellerForm: CustomerUpdate = {
@@ -798,6 +809,7 @@ export class BicycleDetailComponent implements OnInit, OnDestroy {
           notizen: p.notizen || '',
           belegNummer: p.belegNummer || '',
           anzeigeNr: p.anzeigeNr || '',
+          entfernungKm: p.entfernungKm ?? null,
         };
         if (p.seller) {
           this.sellerForm = {
@@ -862,6 +874,7 @@ export class BicycleDetailComponent implements OnInit, OnDestroy {
             notizen: this.purchaseForm.notizen || undefined,
             belegNummer: this.purchaseForm.belegNummer || undefined,
             anzeigeNr: this.purchaseForm.anzeigeNr || undefined,
+            entfernungKm: this.purchaseForm.entfernungKm ?? undefined,
           };
           this.purchaseService
             .update(this.purchase.id, purchaseUpdate)

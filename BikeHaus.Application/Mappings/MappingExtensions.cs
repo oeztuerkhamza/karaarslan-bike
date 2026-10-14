@@ -106,7 +106,8 @@ public static class MappingExtensions
         entity.Kaufdatum,
         entity.Notizen,
         entity.Signature?.ToDto(),
-        entity.CreatedAt
+        entity.CreatedAt,
+        entity.EntfernungKm
     );
 
     public static PurchaseListDto ToListDto(this Purchase entity) => new(

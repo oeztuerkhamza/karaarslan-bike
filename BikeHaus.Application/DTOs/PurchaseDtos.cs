@@ -15,7 +15,8 @@ public record PurchaseDto(
     DateTime Kaufdatum,
     string? Notizen,
     SignatureDto? Signature,
-    DateTime CreatedAt
+    DateTime CreatedAt,
+    decimal? EntfernungKm = null
 );
 
 public record PurchaseCreateDto(
@@ -28,7 +29,8 @@ public record PurchaseCreateDto(
     string? Notizen,
     SignatureCreateDto? Signature,
     string? BelegNummer = null,
-    string? AnzeigeNr = null
+    string? AnzeigeNr = null,
+    decimal? EntfernungKm = null
 );
 
 public record PurchaseListDto(
@@ -54,7 +56,8 @@ public record PurchaseUpdateDto(
     DateTime Kaufdatum,
     string? Notizen,
     string? BelegNummer = null,
-    string? AnzeigeNr = null
+    string? AnzeigeNr = null,
+    decimal? EntfernungKm = null
 );
 
 // Bulk Purchase DTO - for buying multiple identical bicycles at once
@@ -68,7 +71,8 @@ public record BulkPurchaseCreateDto(
     DateTime? Kaufdatum,
     string? Notizen,
     string? BelegNummer = null,
-    string? AnzeigeNr = null
+    string? AnzeigeNr = null,
+    decimal? EntfernungKm = null
 );
 
 public record BulkPurchaseResultDto(
@@ -111,6 +115,7 @@ public record PurchaseCreateForExistingBikeDto(
     SignatureCreateDto? Signature,
     string? BelegNummer = null,
     string? AnzeigeNr = null,
+    decimal? EntfernungKm = null,
     // Optional bicycle field updates
     string? Marke = null,
     string? Modell = null,

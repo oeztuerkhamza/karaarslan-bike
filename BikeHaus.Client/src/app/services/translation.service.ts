@@ -98,6 +98,8 @@ export interface Translations {
   // Purchase fields
   adNumber: string;
   adNumberHint: string;
+  distanceKm: string;
+  distanceKmHint: string;
 
   // Photo Gallery
   photoGallery: string;
@@ -779,6 +781,8 @@ const TRANSLATIONS: Record<Language, Translations> = {
     // Purchase fields
     adNumber: 'Anzeige Nr.',
     adNumberHint: 'Kleinanzeigen o.ä.',
+    distanceKm: 'Entfernung (km)',
+    distanceKmHint: 'Zurückgelegte Strecke zum Verkäufer',
 
     // Photo Gallery
     photoGallery: 'Fotos',
@@ -1469,6 +1473,8 @@ const TRANSLATIONS: Record<Language, Translations> = {
     // Purchase fields
     adNumber: 'İlan No.',
     adNumberHint: 'Kleinanzeigen vb.',
+    distanceKm: 'Gidilen mesafe (km)',
+    distanceKmHint: 'Satıcıya gidilen yol',
 
     // Photo Gallery
     photoGallery: 'Fotoğraflar',
