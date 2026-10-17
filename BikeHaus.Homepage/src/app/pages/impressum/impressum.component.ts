@@ -37,7 +37,7 @@ import { PublicShopInfo } from '../../models/models';
             <p>
               E-Mail: {{ shopInfo()?.email || 'info@karaarslan-bike.de' }}<br />
               Telefon / WhatsApp:
-              {{ shopInfo()?.telefon || '+49 163 7390 301' }}
+              +49 163 7390 301
             </p>
           </section>
 

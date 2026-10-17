@@ -118,7 +118,7 @@ interface Testimonial {
               <li>{{ t().svcRepairItem4 }}</li>
             </ul>
             <a
-              href="https://wa.me/491556630011"
+              href="https://wa.me/491637390301"
               target="_blank"
               rel="noopener noreferrer"
               class="svc-card-cta svc-card-cta-whatsapp"
@@ -3001,7 +3001,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       name: 'Karaarslan Bike',
       image: 'https://karaarslan-bike.de/assets/logo.png',
       url: 'https://karaarslan-bike.de',
-      telephone: '+49-155-66300011',
+      telephone: '+49-163-7390301',
       email: 'info@karaarslan-bike.de',
       availableLanguage: ['German', 'English', 'French', 'Turkish'],
       address: {
@@ -3030,7 +3030,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       sameAs: [
         'https://maps.app.goo.gl/Q1fXe7A6PRb8E5wV7',
         'https://www.instagram.com/karaarslanbike',
-        'https://wa.me/4915566300011',
+        'https://wa.me/491637390301',
       ],
       openingHoursSpecification: [
         {

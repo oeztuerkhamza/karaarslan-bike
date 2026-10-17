@@ -1093,7 +1093,7 @@ export class ShowroomDetailComponent implements OnInit, OnDestroy {
   loading = signal(true);
   selectedImage = signal(0);
   userWhatsappMessage = '';
-  private whatsappPhone = '4915566300011';
+  private whatsappPhone = '491637390301';
 
   private static readonly NEW_PATTERN =
     /\b(neue?[smrn]?|nagelneu|brandneu|unbenutzt|originalverpackt|\bovp\b)\b/i;
@@ -1123,14 +1123,6 @@ export class ShowroomDetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.apiService.getShopInfo().subscribe({
-      next: (data) => {
-        if (data?.telefon) {
-          this.whatsappPhone = data.telefon.replace(/[^0-9]/g, '');
-        }
-      },
-    });
-
     this.route.params.subscribe((params) => {
       const id = +params['id'];
       if (id) {

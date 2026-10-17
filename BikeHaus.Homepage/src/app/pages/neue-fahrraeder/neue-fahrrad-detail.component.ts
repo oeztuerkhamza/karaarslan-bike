@@ -854,8 +854,7 @@ export class NeueFahrradDetailComponent implements OnInit {
   whatsappUrl = computed(() => {
     const b = this.bike();
     if (!b) return '';
-    const tel = this.shopInfo()?.telefon || '+49 163 7390 301';
-    const phone = tel.replace(/[^0-9]/g, '');
+    const phone = '491637390301';
     const text = `Hallo, ich interessiere mich für das Fahrrad: ${b.titel}${b.preis ? ' (' + b.preis + '€)' : ''}. Ist es noch verfügbar?`;
     return `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
   });

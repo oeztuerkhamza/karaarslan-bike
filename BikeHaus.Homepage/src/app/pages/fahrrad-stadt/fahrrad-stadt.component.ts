@@ -144,7 +144,7 @@ import { HOLIDAY_SCHEMA_SPEC } from '../../services/holiday.service';
                   >{{ tr().contact }}</a
                 >
                 <a
-                  href="https://wa.me/4915566300011"
+                  href="https://wa.me/491637390301"
                   target="_blank"
                   rel="noopener"
                   class="btn-whatsapp"
@@ -446,7 +446,7 @@ export class FahrradStadtComponent implements OnInit, OnDestroy {
       name: 'Karaarslan Bike',
       image: 'https://karaarslan-bike.de/assets/images/og-image.jpg',
       url: `https://karaarslan-bike.de/${this.lang()}/${c.slug}`,
-      telephone: '+4915566300011',
+      telephone: '+491637390301',
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Alstedder Straße 5',

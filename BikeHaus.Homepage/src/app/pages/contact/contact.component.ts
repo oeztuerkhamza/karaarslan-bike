@@ -780,8 +780,7 @@ export class ContactComponent implements OnInit {
   }
 
   private getWhatsappPhone(): string {
-    const tel = this.shopInfo()?.telefon || '+49 163 7390 301';
-    return tel.replace(/[^0-9]/g, '');
+    return '491637390301';
   }
 
   getWhatsappLink(): string {
