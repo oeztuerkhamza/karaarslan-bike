@@ -102,6 +102,23 @@ import { ShopInfoService } from '../../services/shop-info.service';
       <div class="footer-bottom">
         <div class="container footer-bottom-inner">
           <p>&copy; {{ year }} Karaarslan Bike. {{ t().allRights }}</p>
+          <!-- Urheberhinweis der Agentur — bewusst unübersetzt. -->
+          <a
+            class="footer-credit"
+            href="https://breisgau-digital.de"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>Webdesign &amp; Development</span>
+            <img
+              src="/assets/images/breisgau-digital.webp"
+              alt=""
+              width="20"
+              height="25"
+              loading="lazy"
+            />
+            <strong>Breisgau Digital</strong>
+          </a>
         </div>
       </div>
     </footer>
@@ -193,7 +210,44 @@ import { ShopInfoService } from '../../services/shop-info.service';
 
       .footer-bottom-inner {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .footer-credit {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+        padding: 0.55rem 1.1rem 0.55rem 1rem;
+        border: 1px solid var(--color-border);
+        border-radius: 999px;
+        background: var(--color-surface-alt);
+        color: var(--color-text-secondary);
+        font-size: 0.85rem;
+        text-decoration: none;
+        transition:
+          border-color 0.2s,
+          color 0.2s;
+      }
+
+      .footer-credit img {
+        width: 20px;
+        height: 25px;
+        box-sizing: content-box;
+        padding: 4px 6px;
+        border-radius: 6px;
+        background: #fff;
+      }
+
+      .footer-credit strong {
+        color: var(--color-text);
+        font-weight: 700;
+      }
+
+      .footer-credit:hover {
+        border-color: var(--color-accent);
+        color: #fff;
       }
 
       .footer-bottom p {
