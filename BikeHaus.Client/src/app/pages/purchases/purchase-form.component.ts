@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, inject } from '@angular/core';
+﻿import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink, ActivatedRoute } from '@angular/router';
@@ -7,7 +7,10 @@ import { DocumentService } from '../../services/document.service';
 import { BicycleService } from '../../services/bicycle.service';
 import { CustomerService } from '../../services/customer.service';
 import { TranslationService } from '../../services/translation.service';
+import { NotificationService } from '../../services/notification.service';
+import { CustomerPickerComponent } from '../../components/customer-picker/customer-picker.component';
 import {
+  Customer,
   PurchaseCreate,
   BulkPurchaseCreate,
   PaymentMethod,
@@ -19,7 +22,7 @@ import { forkJoin, Observable } from 'rxjs';
 @Component({
   selector: 'app-purchase-form',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink, CustomerPickerComponent],
   template: `
     <div class="page">
       <div class="page-header">
@@ -135,25 +138,26 @@ import { forkJoin, Observable } from 'rxjs';
                   </button>
                 </div>
               </div>
-              <div class="field">
+              <div class="field full">
                 <label>{{ t.wheelSize }} *</label>
-                <select
-                  [(ngModel)]="bicycle.reifengroesse"
-                  name="bikeReifen"
-                  required
+                <div
+                  class="chip-group"
+                  role="radiogroup"
+                  [attr.aria-label]="t.wheelSize"
+                  [class.invalid]="showErrors && !bicycle.reifengroesse"
                 >
-                  <option value="">-- {{ t.selectOption }} --</option>
-                  <option value="12">12"</option>
-                  <option value="14">14"</option>
-                  <option value="16">16"</option>
-                  <option value="18">18"</option>
-                  <option value="20">20"</option>
-                  <option value="24">24"</option>
-                  <option value="26">26"</option>
-                  <option value="27.5">27.5"</option>
-                  <option value="28">28"</option>
-                  <option value="29">29"</option>
-                </select>
+                  <button
+                    type="button"
+                    class="chip"
+                    *ngFor="let size of wheelSizes"
+                    role="radio"
+                    [attr.aria-checked]="bicycle.reifengroesse === size"
+                    [class.selected]="bicycle.reifengroesse === size"
+                    (click)="bicycle.reifengroesse = size"
+                  >
+                    {{ size }}"
+                  </button>
+                </div>
               </div>
               <div class="field">
                 <label>{{ t.bicycleType }}</label>
@@ -172,27 +176,45 @@ import { forkJoin, Observable } from 'rxjs';
                 </select>
               </div>
               <div class="field">
-                <label>{{ t.artLabel }} *</label>
-                <select [(ngModel)]="bicycle.art" name="bikeArt" required>
-                  <option value="">-- {{ t.selectOption }} --</option>
-                  <option value="Herren">Herren</option>
-                  <option value="Damen">Damen</option>
-                  <option value="Kinder">Kinder</option>
-                  <option value="Unisex">Unisex</option>
-                </select>
+                <label>{{ t.artLabel }}</label>
+                <div class="chip-group" role="radiogroup" [attr.aria-label]="t.artLabel">
+                  <button
+                    type="button"
+                    class="chip"
+                    *ngFor="let a of artOptions"
+                    role="radio"
+                    [attr.aria-checked]="bicycle.art === a"
+                    [class.selected]="bicycle.art === a"
+                    (click)="bicycle.art = bicycle.art === a ? '' : a"
+                  >
+                    {{ a }}
+                  </button>
+                </div>
               </div>
-              <div class="field" *ngIf="!bulkMode">
+              <div class="field full" *ngIf="!bulkMode">
                 <label>{{ t.condition }} *</label>
-                <select
-                  [(ngModel)]="bicycle.zustand"
-                  name="bikeZustand"
-                  required
-                >
-                  <option value="Gebraucht">
+                <div class="chip-group" role="radiogroup" [attr.aria-label]="t.condition">
+                  <button
+                    type="button"
+                    class="chip"
+                    role="radio"
+                    [attr.aria-checked]="bicycle.zustand === 'Gebraucht'"
+                    [class.selected]="bicycle.zustand === 'Gebraucht'"
+                    (click)="bicycle.zustand = conditions.Gebraucht"
+                  >
                     {{ t.usedCondition }}
-                  </option>
-                  <option value="Neu">{{ t.newCondition }}</option>
-                </select>
+                  </button>
+                  <button
+                    type="button"
+                    class="chip"
+                    role="radio"
+                    [attr.aria-checked]="bicycle.zustand === 'Neu'"
+                    [class.selected]="bicycle.zustand === 'Neu'"
+                    (click)="bicycle.zustand = conditions.Neu"
+                  >
+                    {{ t.newCondition }}
+                  </button>
+                </div>
               </div>
               <div class="field" *ngIf="bulkMode">
                 <label>{{ t.condition }}</label>
@@ -233,9 +255,12 @@ import { forkJoin, Observable } from 'rxjs';
                 <input
                   type="number"
                   step="0.01"
+                  min="0"
+                  inputmode="decimal"
                   [(ngModel)]="preis"
                   name="preis"
                   required
+                  [class.input-invalid]="showErrors && !(preis > 0)"
                 />
               </div>
               <div class="field" *ngIf="bulkMode">
@@ -249,19 +274,48 @@ import { forkJoin, Observable } from 'rxjs';
                 <input
                   type="number"
                   step="0.01"
+                  min="0"
+                  inputmode="decimal"
                   [(ngModel)]="verkaufspreisVorschlag"
                   name="verkaufspreisVorschlag"
                   placeholder="optional"
                 />
+                <small
+                  class="margin-hint"
+                  *ngIf="verkaufspreisVorschlag && preis > 0"
+                  [class.negative]="verkaufspreisVorschlag < preis"
+                >
+                  Erwarteter Gewinn:
+                  <strong
+                    >{{ verkaufspreisVorschlag - preis | number: '1.2-2' }}
+                    €</strong
+                  >
+                  ({{
+                    ((verkaufspreisVorschlag - preis) / preis) * 100
+                      | number: '1.0-0'
+                  }}
+                  %)
+                </small>
               </div>
-              <div class="field">
+              <div class="field full">
                 <label>{{ t.paymentMethodRequired }}</label>
-                <select [(ngModel)]="zahlungsart" name="zahlungsart" required>
-                  <option value="Bar">{{ t.cash }}</option>
-                  <option value="PayPal">{{ t.paypal }}</option>
-                  <option value="Karte">{{ t.bankTransfer }}</option>
-                  <option value="Überweisung">{{ t.wireTransfer }}</option>
-                </select>
+                <div
+                  class="chip-group"
+                  role="radiogroup"
+                  [attr.aria-label]="t.paymentMethodRequired"
+                >
+                  <button
+                    type="button"
+                    class="chip"
+                    *ngFor="let p of paymentOptions"
+                    role="radio"
+                    [attr.aria-checked]="zahlungsart === p.value"
+                    [class.selected]="zahlungsart === p.value"
+                    (click)="zahlungsart = p.value"
+                  >
+                    {{ p.icon }} {{ t[p.labelKey] }}
+                  </button>
+                </div>
               </div>
               <div class="field">
                 <label>{{ t.purchaseDate }} *</label>
@@ -311,6 +365,12 @@ import { forkJoin, Observable } from 'rxjs';
                 bulkMode ? t.supplierStore : t.seller + ' (' + t.customer + ')'
               }}
             </h2>
+            <div class="customer-search" *ngIf="!bulkMode">
+              <label>Stammkunde? Schnell übernehmen</label>
+              <app-customer-picker
+                (customerSelected)="fillSeller($event)"
+              ></app-customer-picker>
+            </div>
             <div class="form-grid">
               <div class="field" *ngIf="!bulkMode">
                 <label>{{ t.firstNameRequired }}</label>
@@ -383,26 +443,28 @@ import { forkJoin, Observable } from 'rxjs';
             <p class="hint-text">
               {{ t.salesPhotosHint }}
             </p>
-            <div class="upload-area">
-              <input
-                type="file"
-                #galleryInput
-                (change)="onGalleryFilesSelected($event)"
-                accept="image/*"
-                multiple
-                style="display: none"
-              />
-              <button
-                type="button"
-                class="btn btn-outline"
-                (click)="galleryInput.click()"
+            <input
+              type="file"
+              #galleryInput
+              (change)="onGalleryFilesSelected($event)"
+              accept="image/*"
+              multiple
+              style="display: none"
+            />
+            <button
+              type="button"
+              class="dropzone"
+              [class.dragover]="dragTarget === 'gallery'"
+              (click)="galleryInput.click()"
+              (dragover)="onDragOver($event, 'gallery')"
+              (dragleave)="dragTarget = null"
+              (drop)="onDrop($event, 'gallery')"
+            >
+              <span>📷 <strong>{{ t.selectPhotos }}</strong> oder hierher ziehen</span>
+              <small *ngIf="galleryFiles.length > 0"
+                >{{ galleryFiles.length }} {{ t.photosSelected }}</small
               >
-                📷 {{ t.selectPhotos }}
-              </button>
-              <span class="file-count" *ngIf="galleryFiles.length > 0">
-                {{ galleryFiles.length }} {{ t.photosSelected }}
-              </span>
-            </div>
+            </button>
             <div class="preview-grid" *ngIf="galleryPreviewUrls.length > 0">
               <div
                 class="preview-item"
@@ -426,26 +488,28 @@ import { forkJoin, Observable } from 'rxjs';
             <p class="hint-text">
               {{ t.purchasePhotosHint }}
             </p>
-            <div class="upload-area">
-              <input
-                type="file"
-                #fileInput
-                (change)="onFilesSelected($event)"
-                accept="image/*"
-                multiple
-                style="display: none"
-              />
-              <button
-                type="button"
-                class="btn btn-outline"
-                (click)="fileInput.click()"
+            <input
+              type="file"
+              #fileInput
+              (change)="onFilesSelected($event)"
+              accept="image/*"
+              multiple
+              style="display: none"
+            />
+            <button
+              type="button"
+              class="dropzone"
+              [class.dragover]="dragTarget === 'documents'"
+              (click)="fileInput.click()"
+              (dragover)="onDragOver($event, 'documents')"
+              (dragleave)="dragTarget = null"
+              (drop)="onDrop($event, 'documents')"
+            >
+              <span>📄 <strong>{{ t.selectPhotos }}</strong> oder hierher ziehen</span>
+              <small *ngIf="selectedFiles.length > 0"
+                >{{ selectedFiles.length }} {{ t.photosSelected }}</small
               >
-                📷 {{ t.selectPhotos }}
-              </button>
-              <span class="file-count" *ngIf="selectedFiles.length > 0">
-                {{ selectedFiles.length }} {{ t.photosSelected }}
-              </span>
-            </div>
+            </button>
             <div class="preview-grid" *ngIf="previewUrls.length > 0">
               <div
                 class="preview-item"
@@ -464,43 +528,33 @@ import { forkJoin, Observable } from 'rxjs';
           </div>
         </div>
 
-        <!-- Validation messages -->
-        <div class="validation-errors" *ngIf="!canSubmit() && !submitting">
-          <p *ngIf="bulkMode && !seller.nachname.trim()" class="error-msg">
-            ⚠️ {{ t.storeNameRequired }}
-          </p>
-          <p *ngIf="!bicycle.marke.trim()" class="error-msg">
-            ⚠️ {{ t.brandIsRequired }}
-          </p>
-          <p *ngIf="!bicycle.reifengroesse.trim()" class="error-msg">
-            ⚠️ {{ t.wheelSizeIsRequired }}
-          </p>
-          <p *ngIf="!preis || preis <= 0" class="error-msg">
-            ⚠️ {{ t.priceMustBeGreaterThanZero }}
-          </p>
-          <p *ngIf="!kaufdatum" class="error-msg">
-            ⚠️ {{ t.purchaseDateIsRequired }}
-          </p>
-        </div>
-
-        <!-- Bulk summary -->
-        <div class="bulk-summary" *ngIf="bulkMode && canSubmit()">
-          <p>
-            📦 <strong>{{ bulkQuantity }}x</strong> {{ bicycle.marke }}
-            {{ bicycle.modell }}
-            <span *ngIf="bicycle.reifengroesse"
-              >({{ bicycle.reifengroesse }}")</span
+        <!-- Sticky save bar -->
+        <div class="form-action-bar">
+          <div class="bar-summary">
+            <span class="bar-title">{{
+              bulkMode ? t.totalPrice : t.price
+            }}</span>
+            <span class="bar-value"
+              >{{
+                (bulkMode ? preis * bulkQuantity : preis) || 0
+                  | number: '1.2-2'
+              }}
+              €</span
             >
-            — {{ t.pricePerBike }}: {{ preis | number: '1.2-2' }} € —
-            {{ t.totalPrice }}: {{ preis * bulkQuantity | number: '1.2-2' }} €
-          </p>
-        </div>
-
-        <div class="form-actions">
+            <span class="bar-hint warn" *ngIf="missingFields().length > 0">
+              Noch offen: {{ missingFields().join(', ') }}
+            </span>
+            <span class="bar-hint ok" *ngIf="missingFields().length === 0">
+              ✓ {{ bulkMode ? bulkQuantity + 'x ' : ''
+              }}{{ bicycle.marke }} {{ bicycle.modell }}
+              <span class="kbd-hint">· <span class="kbd">Strg</span> +
+                <span class="kbd">S</span></span>
+            </span>
+          </div>
           <button
             type="submit"
             class="btn btn-primary btn-lg"
-            [disabled]="!canSubmit() || submitting"
+            [disabled]="submitting"
           >
             {{
               submitting
@@ -752,19 +806,6 @@ import { forkJoin, Observable } from 'rxjs';
         color: var(--text-secondary, #64748b);
         background: var(--bg-tertiary, #f1f5f9);
       }
-      .bulk-summary {
-        margin-top: 16px;
-        padding: 14px 18px;
-        background: var(--accent-primary-light, rgba(230, 74, 25, 0.06));
-        border: 1.5px solid var(--accent-primary, #e64a19);
-        border-radius: var(--radius-md, 10px);
-        font-size: 0.92rem;
-        color: var(--text-primary);
-      }
-      .form-actions {
-        margin-top: 24px;
-        text-align: right;
-      }
       .btn {
         padding: 8px 16px;
         border-radius: var(--radius-md, 10px);
@@ -808,16 +849,6 @@ import { forkJoin, Observable } from 'rxjs';
         color: var(--text-secondary, #64748b);
         margin-bottom: 12px;
       }
-      .upload-area {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 16px;
-      }
-      .file-count {
-        font-size: 0.9rem;
-        color: var(--text-secondary, #64748b);
-      }
       .preview-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -853,23 +884,60 @@ import { forkJoin, Observable } from 'rxjs';
       .remove-btn:hover {
         background: var(--accent-danger, #ef4444);
       }
-      .validation-errors {
-        margin-top: 12px;
+      .margin-hint {
+        display: block;
+        margin-top: 6px;
+        font-size: 0.8rem;
+        color: var(--accent-success);
       }
-      .error-msg {
-        font-size: 0.85rem;
-        color: var(--accent-danger, #ef4444);
-        margin: 4px 0;
+      .margin-hint.negative {
+        color: var(--accent-danger);
+      }
+      .input-invalid {
+        border-color: var(--accent-danger) !important;
       }
     `,
   ],
 })
 export class PurchaseFormComponent implements OnInit {
   private translationService = inject(TranslationService);
+  private notificationService = inject(NotificationService);
   get t() {
     return this.translationService.translations();
   }
 
+  readonly conditions = BikeCondition;
+  readonly wheelSizes = [
+    '12',
+    '14',
+    '16',
+    '18',
+    '20',
+    '24',
+    '26',
+    '27.5',
+    '28',
+    '29',
+  ];
+  readonly artOptions = ['Herren', 'Damen', 'Kinder', 'Unisex'];
+  readonly paymentOptions = [
+    { value: PaymentMethod.Bar, icon: '💶', labelKey: 'cash' as const },
+    { value: PaymentMethod.PayPal, icon: '🅿️', labelKey: 'paypal' as const },
+    {
+      value: PaymentMethod.Karte,
+      icon: '💳',
+      labelKey: 'bankTransfer' as const,
+    },
+    {
+      value: PaymentMethod.Ueberweisung,
+      icon: '🏦',
+      labelKey: 'wireTransfer' as const,
+    },
+  ];
+
+  /** Highlight missing required fields once the user tried to save. */
+  showErrors = false;
+  dragTarget: 'gallery' | 'documents' | null = null;
   colorOptions = [
     { value: 'Schwarz', label: 'Schwarz', hex: '#1a1a1a' },
     { value: 'Weiß', label: 'Weiß', hex: '#f5f5f5' },
@@ -1071,6 +1139,72 @@ export class PurchaseFormComponent implements OnInit {
     return baseValid;
   }
 
+  missingFields(): string[] {
+    const missing: string[] = [];
+    if (this.bulkMode && !this.seller.nachname?.trim())
+      missing.push(this.t.storeName);
+    if (!this.bicycle.marke?.trim()) missing.push(this.t.brand);
+    if (!this.bicycle.reifengroesse?.trim()) missing.push(this.t.wheelSize);
+    if (!(this.preis > 0)) missing.push(this.t.price);
+    if (!this.kaufdatum) missing.push(this.t.purchaseDate);
+    return missing;
+  }
+
+  fillSeller(customer: Customer) {
+    this.seller = {
+      ...this.seller,
+      vorname: customer.vorname || '',
+      nachname: customer.nachname || '',
+      strasse: customer.strasse || '',
+      hausnummer: customer.hausnummer || '',
+      plz: customer.plz || '',
+      stadt: customer.stadt || '',
+      telefon: customer.telefon || '',
+      email: customer.email || '',
+      steuernummer: customer.steuernummer || '',
+    };
+    this.updateSignerName();
+    this.notificationService.info(
+      `${customer.vorname} ${customer.nachname} übernommen`,
+      2500,
+    );
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  onShortcut(event: KeyboardEvent) {
+    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 's') {
+      event.preventDefault();
+      if (!this.submitting) this.submit();
+    }
+  }
+
+  onDragOver(event: DragEvent, target: 'gallery' | 'documents') {
+    event.preventDefault();
+    this.dragTarget = target;
+  }
+
+  onDrop(event: DragEvent, target: 'gallery' | 'documents') {
+    event.preventDefault();
+    this.dragTarget = null;
+    const files = Array.from(event.dataTransfer?.files || []).filter((f) =>
+      f.type.startsWith('image/'),
+    );
+    if (target === 'gallery') {
+      this.addFiles(files, this.galleryFiles, this.galleryPreviewUrls);
+    } else {
+      this.addFiles(files, this.selectedFiles, this.previewUrls);
+    }
+  }
+
+  private addFiles(files: File[], list: File[], previews: string[]) {
+    for (const file of files) {
+      list.push(file);
+      const reader = new FileReader();
+      reader.onload = (e) => previews.push(e.target?.result as string);
+      reader.readAsDataURL(file);
+    }
+  }
+
   updateSignerName() {
     const name = [this.seller.vorname, this.seller.nachname]
       .filter(Boolean)
@@ -1083,16 +1217,11 @@ export class PurchaseFormComponent implements OnInit {
 
   onFilesSelected(event: Event) {
     const input = event.target as HTMLInputElement;
-    if (input.files) {
-      for (const file of Array.from(input.files)) {
-        this.selectedFiles.push(file);
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          this.previewUrls.push(e.target?.result as string);
-        };
-        reader.readAsDataURL(file);
-      }
-    }
+    this.addFiles(
+      Array.from(input.files || []),
+      this.selectedFiles,
+      this.previewUrls,
+    );
     input.value = '';
   }
 
@@ -1103,16 +1232,11 @@ export class PurchaseFormComponent implements OnInit {
 
   onGalleryFilesSelected(event: Event) {
     const input = event.target as HTMLInputElement;
-    if (input.files) {
-      for (const file of Array.from(input.files)) {
-        this.galleryFiles.push(file);
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          this.galleryPreviewUrls.push(e.target?.result as string);
-        };
-        reader.readAsDataURL(file);
-      }
-    }
+    this.addFiles(
+      Array.from(input.files || []),
+      this.galleryFiles,
+      this.galleryPreviewUrls,
+    );
     input.value = '';
   }
 
@@ -1122,6 +1246,13 @@ export class PurchaseFormComponent implements OnInit {
   }
 
   submit() {
+    if (!this.canSubmit()) {
+      this.showErrors = true;
+      this.notificationService.warning(
+        'Bitte noch ausfüllen: ' + this.missingFields().join(', '),
+      );
+      return;
+    }
     this.submitting = true;
     if (this.bulkMode) {
       this.submitBulk();
@@ -1159,11 +1290,14 @@ export class PurchaseFormComponent implements OnInit {
 
     this.purchaseService.createBulk(bulkData).subscribe({
       next: () => {
+        this.notificationService.success(
+          `${this.bulkQuantity} Fahrräder angekauft`,
+        );
         this.router.navigate(['/purchases']);
       },
       error: () => {
         this.submitting = false;
-        alert('Fehler beim Speichern des Toplu-Ankaufs');
+        this.notificationService.error('Fehler beim Speichern des Sammelankaufs');
       },
     });
   }
@@ -1184,6 +1318,9 @@ export class PurchaseFormComponent implements OnInit {
 
     this.purchaseService.create(purchase).subscribe({
       next: (result) => {
+        this.notificationService.success(
+          `Ankauf gespeichert: ${this.bicycle.marke} ${this.bicycle.modell}`.trim(),
+        );
         const allUploads: Observable<any>[] = [];
 
         // Upload document files (screenshots/invoices)
@@ -1217,7 +1354,9 @@ export class PurchaseFormComponent implements OnInit {
               this.router.navigate(['/purchases']);
             },
             error: () => {
-              console.error('Fehler beim Hochladen der Dateien');
+              this.notificationService.warning(
+                'Ankauf gespeichert, aber einige Fotos konnten nicht hochgeladen werden',
+              );
               this.router.navigate(['/purchases']);
             },
           });
@@ -1227,7 +1366,7 @@ export class PurchaseFormComponent implements OnInit {
       },
       error: () => {
         this.submitting = false;
-        alert('Fehler beim Speichern des Ankaufs');
+        this.notificationService.error('Fehler beim Speichern des Ankaufs');
       },
     });
   }

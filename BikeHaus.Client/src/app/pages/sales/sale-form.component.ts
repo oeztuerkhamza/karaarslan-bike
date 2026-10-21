@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, ActivatedRoute, RouterLink } from '@angular/router';
@@ -7,7 +7,9 @@ import { BicycleService } from '../../services/bicycle.service';
 import { PurchaseService } from '../../services/purchase.service';
 import { SettingsService } from '../../services/settings.service';
 import { TranslationService } from '../../services/translation.service';
+import { NotificationService } from '../../services/notification.service';
 import {
+  Customer,
   SaleCreate,
   Bicycle,
   BicycleUpdate,
@@ -20,6 +22,7 @@ import {
 } from '../../models/models';
 import { BikeSelectorComponent } from '../../components/bike-selector/bike-selector.component';
 import { AccessoryAutocompleteComponent } from '../../components/accessory-autocomplete/accessory-autocomplete.component';
+import { CustomerPickerComponent } from '../../components/customer-picker/customer-picker.component';
 
 @Component({
   selector: 'app-sale-form',
@@ -30,6 +33,7 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
     RouterLink,
     BikeSelectorComponent,
     AccessoryAutocompleteComponent,
+    CustomerPickerComponent,
   ],
   template: `
     <div class="page">
@@ -189,30 +193,34 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
                   }}</span>
                 </div>
                 <div
-                  class="field"
+                  class="field full"
                   [class.field-error]="bikeErrors['reifengroesse']"
                 >
                   <label>{{ t.wheelSize }} *</label>
                   <span class="error-msg" *ngIf="bikeErrors['reifengroesse']">{{
                     t.requiredField
                   }}</span>
-                  <select
-                    [(ngModel)]="bikeEdit.reifengroesse"
-                    name="bikeReifen"
-                    (ngModelChange)="bikeErrors['reifengroesse'] = false"
+                  <div
+                    class="chip-group"
+                    role="radiogroup"
+                    [attr.aria-label]="t.wheelSize"
+                    [class.invalid]="bikeErrors['reifengroesse']"
                   >
-                    <option value="">-- {{ t.selectOption }} --</option>
-                    <option value="12">12"</option>
-                    <option value="14">14"</option>
-                    <option value="16">16"</option>
-                    <option value="18">18"</option>
-                    <option value="20">20"</option>
-                    <option value="24">24"</option>
-                    <option value="26">26"</option>
-                    <option value="27.5">27.5"</option>
-                    <option value="28">28"</option>
-                    <option value="29">29"</option>
-                  </select>
+                    <button
+                      type="button"
+                      class="chip"
+                      *ngFor="let size of wheelSizes"
+                      role="radio"
+                      [attr.aria-checked]="bikeEdit.reifengroesse === size"
+                      [class.selected]="bikeEdit.reifengroesse === size"
+                      (click)="
+                        bikeEdit.reifengroesse = size;
+                        bikeErrors['reifengroesse'] = false
+                      "
+                    >
+                      {{ size }}"
+                    </button>
+                  </div>
                 </div>
                 <div
                   class="field"
@@ -244,14 +252,28 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
                 </div>
                 <div class="field">
                   <label>{{ t.condition }} *</label>
-                  <select
-                    [(ngModel)]="bikeEdit.zustand"
-                    name="bikeZustand"
-                    required
-                  >
-                    <option value="Gebraucht">{{ t.usedCondition }}</option>
-                    <option value="Neu">{{ t.newCondition }}</option>
-                  </select>
+                  <div class="chip-group" role="radiogroup" [attr.aria-label]="t.condition">
+                    <button
+                      type="button"
+                      class="chip"
+                      role="radio"
+                      [attr.aria-checked]="bikeEdit.zustand === 'Gebraucht'"
+                      [class.selected]="bikeEdit.zustand === 'Gebraucht'"
+                      (click)="bikeEdit.zustand = conditions.Gebraucht"
+                    >
+                      {{ t.usedCondition }}
+                    </button>
+                    <button
+                      type="button"
+                      class="chip"
+                      role="radio"
+                      [attr.aria-checked]="bikeEdit.zustand === 'Neu'"
+                      [class.selected]="bikeEdit.zustand === 'Neu'"
+                      (click)="bikeEdit.zustand = conditions.Neu"
+                    >
+                      {{ t.newCondition }}
+                    </button>
+                  </div>
                 </div>
                 <div class="field" [class.field-error]="bikeErrors['preis']">
                   <label>Preis (€) *</label>
@@ -262,6 +284,7 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
                     type="number"
                     step="0.01"
                     min="0.01"
+                    inputmode="decimal"
                     [(ngModel)]="preis"
                     name="preis"
                     required
@@ -429,10 +452,30 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
                   type="number"
                   step="0.01"
                   min="0"
+                  inputmode="decimal"
                   [(ngModel)]="rabatt"
                   name="rabatt"
                   placeholder="0.00"
                 />
+                <div class="chip-group discount-chips">
+                  <button
+                    type="button"
+                    class="chip"
+                    *ngFor="let pct of discountPercents"
+                    [class.selected]="isDiscountPercent(pct)"
+                    (click)="applyDiscountPercent(pct)"
+                  >
+                    {{ pct }} %
+                  </button>
+                  <button
+                    type="button"
+                    class="chip"
+                    *ngIf="rabatt > 0"
+                    (click)="rabatt = 0"
+                  >
+                    Kein Rabatt
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -464,6 +507,12 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
           <!-- Buyer info -->
           <div class="form-card" *ngIf="showBuyerFields">
             <h2>Kundendaten</h2>
+            <div class="customer-search">
+              <label>Stammkunde? Schnell übernehmen</label>
+              <app-customer-picker
+                (customerSelected)="fillBuyer($event)"
+              ></app-customer-picker>
+            </div>
             <div class="form-grid">
               <div class="field">
                 <label>Vorname</label>
@@ -532,71 +581,100 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
           </div>
 
           <div class="form-card">
-            <h2>Ödeme Bilgileri</h2>
+            <h2>Zahlung</h2>
             <div class="zahlungen-list">
               <div
                 class="zahlung-item"
                 *ngFor="let z of zahlungen; let i = index"
               >
-                <select [(ngModel)]="z.zahlungsart" [name]="'zArt' + i">
-                  <option value="">-- Zahlungsart wählen --</option>
-                  <option value="Bar">{{ t.cash }}</option>
-                  <option value="PayPal">{{ t.paypal }}</option>
-                  <option value="Karte">{{ t.bankTransfer }}</option>
-                  <option value="Überweisung">{{ t.wireTransfer }}</option>
-                </select>
-                <input
-                  type="number"
-                  step="0.01"
-                  [(ngModel)]="z.betrag"
-                  [name]="'zBetrag' + i"
-                  placeholder="Betrag"
-                />
-                <span class="zahlung-euro">€</span>
-                <button
-                  type="button"
-                  class="btn btn-outline btn-sm"
-                  (click)="fillRemaining(i)"
-                  *ngIf="remainingAmount > 0"
+                <div
+                  class="chip-group"
+                  role="radiogroup"
+                  aria-label="Zahlungsart"
                 >
-                  Kalanı Ekle
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-icon btn-danger"
-                  (click)="removeZahlung(i)"
-                  *ngIf="zahlungen.length > 1"
-                >
-                  🗑️
-                </button>
+                  <button
+                    type="button"
+                    class="chip"
+                    *ngFor="let p of paymentOptions"
+                    role="radio"
+                    [attr.aria-checked]="z.zahlungsart === p.value"
+                    [class.selected]="z.zahlungsart === p.value"
+                    (click)="z.zahlungsart = p.value"
+                  >
+                    {{ p.icon }} {{ t[p.labelKey] }}
+                  </button>
+                </div>
+                <div class="zahlung-amount" *ngIf="zahlungen.length > 1">
+                  <input
+                    type="number"
+                    step="0.01"
+                    inputmode="decimal"
+                    [(ngModel)]="z.betrag"
+                    [name]="'zBetrag' + i"
+                    placeholder="Betrag"
+                  />
+                  <span class="zahlung-euro">€</span>
+                  <button
+                    type="button"
+                    class="btn btn-outline btn-sm"
+                    (click)="fillRemaining(i)"
+                    *ngIf="remainingAmount > 0"
+                  >
+                    Rest übernehmen
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-icon btn-danger"
+                    (click)="removeZahlung(i)"
+                    [title]="t.remove"
+                  >
+                    🗑️
+                  </button>
+                </div>
               </div>
+              <p class="hint" *ngIf="zahlungen.length === 1">
+                Der Gesamtbetrag von
+                <strong>{{ effectiveGrandTotal | number: '1.2-2' }} €</strong>
+                wird vollständig mit dieser Zahlungsart bezahlt.
+              </p>
               <button
                 type="button"
                 class="btn btn-outline btn-sm"
                 (click)="addZahlung()"
               >
-                + Weitere Zahlungsart
+                + Betrag aufteilen (weitere Zahlungsart)
               </button>
             </div>
 
-            <div class="payment-status">
+            <div class="payment-status" *ngIf="zahlungen.length > 1">
               <div class="total-row">
-                <span>Ödenen</span>
+                <span>Bezahlt</span>
                 <span>{{ paidAmount | number: '1.2-2' }} €</span>
               </div>
-              <div class="total-row remaining" *ngIf="remainingAmount > 0">
-                <span>Kalan</span>
+              <div class="total-row" [class.remaining]="remainingAmount > 0">
+                <span>Offen</span>
                 <strong>{{ remainingAmount | number: '1.2-2' }} €</strong>
-              </div>
-              <div class="total-row" *ngIf="remainingAmount === 0">
-                <span>Kalan</span>
-                <strong>0.00 €</strong>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="form-actions">
+        <!-- Sticky save bar -->
+        <div class="form-action-bar">
+          <div class="bar-summary">
+            <span class="bar-title">Gesamt</span>
+            <span class="bar-value"
+              >{{ effectiveGrandTotal | number: '1.2-2' }} €</span
+            >
+            <span class="bar-hint warn" *ngIf="missingFields().length > 0">
+              Noch offen: {{ missingFields().join(', ') }}
+            </span>
+            <span class="bar-hint ok" *ngIf="missingFields().length === 0">
+              ✓ Bereit zum Speichern
+              <span class="kbd-hint">· <span class="kbd">Strg</span> +
+                <span class="kbd">S</span></span>
+            </span>
+          </div>
           <button
             type="submit"
             class="btn btn-primary btn-lg"
@@ -732,20 +810,6 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
       .card-header-row h2 {
         margin-bottom: 0;
       }
-      .bike-summary {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px 16px;
-        padding: 12px;
-        background: var(--accent-success-light, rgba(16, 185, 129, 0.08));
-        border: 1px solid var(--accent-success, #10b981);
-        border-radius: var(--radius-md, 10px);
-        font-size: 0.9rem;
-        color: #1e293b;
-      }
-      .bike-summary strong {
-        color: #047857;
-      }
       .form-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -842,31 +906,6 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
         width: auto;
         accent-color: var(--accent-primary, #e64a19);
       }
-      .search-row {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
-      .search-input {
-        width: 120px;
-      }
-      .error-text {
-        color: var(--accent-danger, #ef4444);
-        font-size: 0.82rem;
-        margin-top: 4px;
-        display: block;
-      }
-      .bike-preview {
-        margin-top: 12px;
-        padding: 14px;
-        background: var(--bg-secondary, #f8fafc);
-        border-radius: var(--radius-md, 10px);
-        border: 1.5px solid var(--border-light, #e2e8f0);
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        font-size: 0.9rem;
-      }
       .warranty-info {
         display: flex;
         flex-direction: column;
@@ -888,10 +927,6 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
       .warranty-info small {
         color: var(--text-secondary, #64748b);
         font-size: 0.8rem;
-      }
-      .form-actions {
-        margin-top: 24px;
-        text-align: right;
       }
       .btn-lg {
         padding: 12px 32px;
@@ -970,20 +1005,16 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
       }
       .zahlung-item {
         display: flex;
-        gap: 8px;
-        align-items: center;
+        flex-direction: column;
+        gap: 10px;
       }
-      .zahlung-item select {
-        flex: 1;
-        padding: 9px 12px;
-        border: 1.5px solid var(--border-light, #e2e8f0);
-        border-radius: var(--radius-md, 10px);
-        font-size: 0.92rem;
-        background: var(--bg-card, #fff);
-        color: var(--text-primary);
+      .zahlung-item + .zahlung-item {
+        padding-top: 12px;
+        border-top: 1px dashed var(--border-color);
       }
       .zahlung-item input {
-        width: 110px;
+        flex: 1;
+        min-width: 0;
         padding: 9px 12px;
         border: 1.5px solid var(--border-light, #e2e8f0);
         border-radius: var(--radius-md, 10px);
@@ -994,13 +1025,6 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
       .zahlung-euro {
         font-weight: 600;
         color: var(--text-secondary, #64748b);
-      }
-      .grand-total {
-        margin-top: 16px;
-        padding: 16px;
-        background: var(--accent-primary-light, rgba(230, 74, 25, 0.04));
-        border-radius: var(--radius-lg, 14px);
-        border: 2px solid var(--border-light, #e2e8f0);
       }
       .total-row {
         display: flex;
@@ -1017,10 +1041,6 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
       }
       .total-row.discount {
         color: var(--accent-danger, #ef4444);
-      }
-      .discount-value {
-        color: var(--accent-danger, #ef4444);
-        font-weight: 600;
       }
       .discount-section {
         padding-top: 8px;
@@ -1061,6 +1081,18 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
         font-weight: 800;
         font-size: 1.02rem;
       }
+      .discount-chips {
+        margin-top: 8px;
+      }
+      .zahlung-amount {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      .zahlung-amount input {
+        flex: 1;
+        min-width: 0;
+      }
       .payment-status {
         margin-top: 12px;
         padding: 12px;
@@ -1070,17 +1102,6 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
       }
       .payment-status .remaining {
         color: var(--accent-danger, #ef4444);
-      }
-      .seller-signature-section {
-        margin-top: 16px;
-        padding-top: 16px;
-        border-top: 1.5px solid var(--border-light, #e2e8f0);
-      }
-      .seller-signature-section > label {
-        display: block;
-        font-weight: 600;
-        margin-bottom: 8px;
-        color: var(--text-primary);
       }
       .field-error input,
       .field-error select,
@@ -1098,19 +1119,6 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
         margin-top: 4px;
         font-weight: 500;
       }
-      .bike-error-badge {
-        display: inline-block;
-        background: #ef4444;
-        color: #fff;
-        font-size: 0.65rem;
-        font-weight: 700;
-        padding: 2px 8px;
-        border-radius: 99px;
-        margin-left: 8px;
-        vertical-align: middle;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-      }
       .quick-add-badge {
         display: inline-block;
         background: linear-gradient(135deg, #10b981, #059669);
@@ -1120,27 +1128,6 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
         padding: 4px 12px;
         border-radius: 8px;
         vertical-align: middle;
-      }
-      .btn-error {
-        border-color: #ef4444 !important;
-        color: #ef4444 !important;
-      }
-      .rahmen-warning {
-        margin-top: 8px;
-        padding: 12px 14px;
-        background: rgba(245, 158, 11, 0.08);
-        border: 1.5px solid #f59e0b;
-        border-radius: var(--radius-md, 10px);
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        flex-wrap: wrap;
-        font-size: 0.88rem;
-        color: #92400e;
-      }
-      .warning-icon {
-        font-size: 1.2rem;
-        flex-shrink: 0;
       }
       .rahmen-autocomplete-wrapper {
         position: relative;
@@ -1202,6 +1189,36 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
 })
 export class SaleFormComponent implements OnInit {
   private translationService = inject(TranslationService);
+  private notificationService = inject(NotificationService);
+
+  readonly conditions = BikeCondition;
+  readonly wheelSizes = [
+    '12',
+    '14',
+    '16',
+    '18',
+    '20',
+    '24',
+    '26',
+    '27.5',
+    '28',
+    '29',
+  ];
+  readonly discountPercents = [5, 10, 15];
+  readonly paymentOptions = [
+    { value: PaymentMethod.Bar, icon: '💶', labelKey: 'cash' as const },
+    { value: PaymentMethod.PayPal, icon: '🅿️', labelKey: 'paypal' as const },
+    {
+      value: PaymentMethod.Karte,
+      icon: '💳',
+      labelKey: 'bankTransfer' as const,
+    },
+    {
+      value: PaymentMethod.Ueberweisung,
+      icon: '🏦',
+      labelKey: 'wireTransfer' as const,
+    },
+  ];
   private readonly defaultBuyer = {
     vorname: '',
     nachname: '',
@@ -1251,7 +1268,9 @@ export class SaleFormComponent implements OnInit {
   };
   preis = 0;
   zahlungsart: PaymentMethod = PaymentMethod.Bar;
-  zahlungen: SalePaymentCreate[] = [{ zahlungsart: null as any, betrag: 0 }];
+  zahlungen: SalePaymentCreate[] = [
+    { zahlungsart: PaymentMethod.Bar, betrag: 0 },
+  ];
   verkaufsdatum = '';
   notizen = '';
   belegNummer = '';
@@ -1562,13 +1581,89 @@ export class SaleFormComponent implements OnInit {
   }
 
   addZahlung() {
-    this.zahlungen.push({ zahlungsart: PaymentMethod.Bar, betrag: 0 });
+    // Switching from a single payment to a split: start the first row with
+    // the full amount so only the second part has to be entered.
+    if (this.zahlungen.length === 1 && !this.zahlungen[0].betrag) {
+      this.zahlungen[0].betrag = this.effectiveGrandTotal;
+    }
+    const used = new Set(this.zahlungen.map((z) => z.zahlungsart));
+    const next =
+      this.paymentOptions.find((p) => !used.has(p.value))?.value ??
+      PaymentMethod.Bar;
+    this.zahlungen.push({ zahlungsart: next, betrag: 0 });
+  }
+
+  get discountBase(): number {
+    return this.effectiveSalePrice + this.accessoriesTotal;
+  }
+
+  applyDiscountPercent(pct: number) {
+    this.rabatt = Math.round(this.discountBase * pct) / 100;
+  }
+
+  isDiscountPercent(pct: number): boolean {
+    return (
+      this.rabatt > 0 &&
+      Math.abs(this.rabatt - Math.round(this.discountBase * pct) / 100) < 0.005
+    );
+  }
+
+  fillBuyer(customer: Customer) {
+    this.buyer = {
+      vorname: customer.vorname || '',
+      nachname: customer.nachname || '',
+      strasse: customer.strasse || '',
+      hausnummer: customer.hausnummer || '',
+      plz: customer.plz || '',
+      stadt: customer.stadt || '',
+      telefon: customer.telefon || '',
+      email: customer.email || '',
+    };
+    this.notificationService.info(
+      `${customer.vorname} ${customer.nachname} übernommen`,
+      2500,
+    );
+  }
+
+  missingFields(): string[] {
+    const missing: string[] = [];
+    if (this.isAccessoryOnly) {
+      if (this.accessories.length === 0) missing.push('Zubehör');
+    } else {
+      if (!this.selectedBike) {
+        missing.push(this.t.bicycle);
+      } else {
+        if (!this.bikeEdit.rahmennummer?.trim())
+          missing.push(this.t.frameNumber);
+        if (!this.bikeEdit.marke?.trim()) missing.push(this.t.brand);
+        if (!this.bikeEdit.farbe) missing.push(this.t.color);
+        if (!this.bikeEdit.reifengroesse) missing.push(this.t.wheelSize);
+        if (!this.bikeEdit.fahrradtyp) missing.push(this.t.bicycleType);
+        if (!(this.preis > 0)) missing.push(this.t.price);
+      }
+    }
+    if (!this.verkaufsdatum) missing.push(this.t.date);
+    if (this.zahlungen.length > 1 && this.remainingAmount > 0.009)
+      missing.push(
+        `Restbetrag ${this.remainingAmount.toFixed(2).replace('.', ',')} €`,
+      );
+    return missing;
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  onShortcut(event: KeyboardEvent) {
+    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 's') {
+      event.preventDefault();
+      if (!this.submitting) this.submit();
+    }
   }
 
   fillRemaining(index: number) {
     if (this.remainingAmount <= 0) return;
     this.zahlungen[index].betrag =
-      (this.zahlungen[index].betrag || 0) + this.remainingAmount;
+      Math.round(
+        ((this.zahlungen[index].betrag || 0) + this.remainingAmount) * 100,
+      ) / 100;
   }
 
   removeZahlung(index: number) {
@@ -1601,22 +1696,20 @@ export class SaleFormComponent implements OnInit {
       this.isQuickAddMode = false;
       this.purchaseId = undefined;
       this.preis = 0;
-      this.zahlungen = [
-        {
-          zahlungsart: null as any,
-          betrag: 0,
-        },
-      ];
+      this.zahlungen = [{ zahlungsart: PaymentMethod.Bar, betrag: 0 }];
       return;
     }
 
     if (this.zahlungen.length === 0) {
-      this.zahlungen = [{ zahlungsart: null as any, betrag: 0 }];
+      this.zahlungen = [{ zahlungsart: PaymentMethod.Bar, betrag: 0 }];
     }
   }
 
   submit() {
-    if (!this.isAccessoryOnly && !this.selectedBike) return;
+    if (!this.isAccessoryOnly && !this.selectedBike) {
+      this.notificationService.warning('Bitte zuerst ein Fahrrad auswählen.');
+      return;
+    }
 
     if (this.isAccessoryOnly) {
       this.preis = 0;
@@ -1634,12 +1727,12 @@ export class SaleFormComponent implements OnInit {
     }
 
     if (!this.verkaufsdatum) {
-      alert('Bitte Verkaufsdatum ausfüllen.');
+      this.notificationService.warning('Bitte Verkaufsdatum ausfüllen.');
       return;
     }
 
     if (this.zahlungen.some((z) => !z.zahlungsart)) {
-      alert('Bitte Zahlungsart auswählen.');
+      this.notificationService.warning('Bitte Zahlungsart auswählen.');
       return;
     }
 
@@ -1647,24 +1740,27 @@ export class SaleFormComponent implements OnInit {
       this.effectiveGrandTotal > 0 &&
       this.zahlungen.every((z) => z.betrag <= 0)
     ) {
-      alert('Bitte mindestens eine Zahlung eintragen.');
+      this.notificationService.warning('Bitte mindestens eine Zahlung eintragen.');
       return;
     }
 
     if (this.remainingAmount > 0.009) {
-      alert(
+      this.notificationService.warning(
         `Es bleibt ein Restbetrag von ${this.remainingAmount.toFixed(2)} €. Bitte vollständig bezahlen.`,
       );
       return;
     }
 
     if (this.isAccessoryOnly && this.accessories.length === 0) {
-      alert('Bitte mindestens ein Zubehör hinzufügen.');
+      this.notificationService.warning('Bitte mindestens ein Zubehör hinzufügen.');
       return;
     }
 
     if (!this.isAccessoryOnly && !this.validateBike()) {
       this.bikeEditExpanded = true;
+      this.notificationService.warning(
+        'Bitte noch ausfüllen: ' + this.missingFields().join(', '),
+      );
       return;
     }
 
@@ -1704,13 +1800,13 @@ export class SaleFormComponent implements OnInit {
             },
             error: () => {
               this.submitting = false;
-              alert('Fehler beim Aktualisieren des Fahrrads');
+              this.notificationService.error('Fehler beim Aktualisieren des Fahrrads');
             },
           });
         },
         error: () => {
           this.submitting = false;
-          alert('Fehler beim Erstellen des Fahrrads');
+          this.notificationService.error('Fehler beim Erstellen des Fahrrads');
         },
       });
       return;
@@ -1736,7 +1832,7 @@ export class SaleFormComponent implements OnInit {
       },
       error: () => {
         this.submitting = false;
-        alert('Fehler beim Aktualisieren des Fahrrads');
+        this.notificationService.error('Fehler beim Aktualisieren des Fahrrads');
       },
     });
   }
@@ -1808,10 +1904,15 @@ export class SaleFormComponent implements OnInit {
     };
 
     this.saleService.create(sale).subscribe({
-      next: () => this.router.navigate(['/sales']),
+      next: () => {
+        this.notificationService.success(
+          `Verkauf gespeichert (${this.effectiveGrandTotal.toFixed(2).replace('.', ',')} €)`,
+        );
+        this.router.navigate(['/sales']);
+      },
       error: (err) => {
         this.submitting = false;
-        alert(err?.error?.error || this.t.saleError);
+        this.notificationService.error(err?.error?.error || this.t.saleError);
       },
     });
   }
