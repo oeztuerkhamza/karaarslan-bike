@@ -444,7 +444,7 @@ export class FahrradStadtComponent implements OnInit, OnDestroy {
       '@type': 'LocalBusiness',
       '@id': `https://karaarslan-bike.de/${this.lang()}/${c.slug}#localbusiness`,
       name: 'Karaarslan Bike',
-      image: 'https://karaarslan-bike.de/assets/images/og-image.jpg',
+      image: 'https://karaarslan-bike.de/assets/og-image.jpg',
       url: `https://karaarslan-bike.de/${this.lang()}/${c.slug}`,
       telephone: '+491637390301',
       address: {
