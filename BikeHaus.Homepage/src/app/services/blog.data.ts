@@ -9,7 +9,9 @@ export interface BlogArticle {
   category: string;
   tags: string[];
   relatedSlugs: string[];
-  translations: Record<Language, BlogArticleTranslation>;
+  /** nl (and future languages) fall back to English — see getBlogTranslation */
+  translations: Record<'de' | 'en' | 'fr' | 'tr', BlogArticleTranslation> &
+    Partial<Record<Language, BlogArticleTranslation>>;
 }
 
 /** Returns the URL slug for the given language */
@@ -28,7 +30,11 @@ export function findArticleBySlug(
   lang: Language,
 ): BlogArticle | undefined {
   return BLOG_ARTICLES.find(
-    (a) => a.slug === slug || a.slugTranslations?.[lang] === slug,
+    (a) =>
+      a.slug === slug ||
+      a.slugTranslations?.[lang] === slug ||
+      // Fallback languages (nl) may arrive via any language's slug
+      Object.values(a.slugTranslations ?? {}).includes(slug),
   );
 }
 

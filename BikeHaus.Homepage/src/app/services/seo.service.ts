@@ -2,10 +2,21 @@ import { Injectable, inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { TranslationService, Language } from './translation.service';
+import {
+  TranslationService,
+  Language,
+  SUPPORTED_LANGUAGES,
+  CONTENT_LANGUAGES,
+} from './translation.service';
 
 const BASE_URL = 'https://karaarslan-bike.de';
-const SUPPORTED_LANGS: Language[] = ['de', 'en', 'fr', 'tr'];
+const SUPPORTED_LANGS: Language[] = SUPPORTED_LANGUAGES;
+// Pages whose body text only exists in CONTENT_LANGUAGES (city landings).
+// In other languages they render the English text, so those URLs point their
+// canonical at the English page and are left out of hreflang.
+function hasFallbackContent(pathWithoutLang: string): boolean {
+  return pathWithoutLang.startsWith('fahrrad-');
+}
 // URL segments that indicate a blog route
 const BLOG_SEGMENTS = new Set(['guide', 'ratgeber']);
 // Inline helper – avoids pulling blog.data.ts into the initial bundle
@@ -38,13 +49,22 @@ export class SeoService {
     const currentLang = pathSegments[0] as Language;
     const pathWithoutLang = pathSegments.slice(1).join('/');
 
-    // Update canonical
-    const canonicalUrl = `${BASE_URL}${url}`;
+    const isBlogArticle =
+      pathSegments.length === 3 && BLOG_SEGMENTS.has(pathSegments[1]);
+
+    // Update canonical (fallback-content pages in e.g. nl → English original)
+    const usesFallback =
+      hasFallbackContent(pathWithoutLang) &&
+      !CONTENT_LANGUAGES.includes(currentLang);
+    const canonicalUrl = usesFallback
+      ? `${BASE_URL}/en/${pathWithoutLang}`
+      : `${BASE_URL}${url.split('?')[0].split('#')[0]}`;
     let canonical = this.document.querySelector(
       'link[rel="canonical"]',
     ) as HTMLLinkElement;
     if (canonical) {
-      canonical.href = canonicalUrl;
+      // Blog articles set their own canonical (they know the English slug)
+      if (!isBlogArticle) canonical.href = canonicalUrl;
     } else {
       canonical = this.document.createElement('link');
       canonical.rel = 'canonical';
@@ -85,7 +105,10 @@ export class SeoService {
     }
 
     // ── Default: simple language prefix swap ──
-    for (const lang of SUPPORTED_LANGS) {
+    const hreflangLangs = hasFallbackContent(pathWithoutLang)
+      ? CONTENT_LANGUAGES
+      : SUPPORTED_LANGS;
+    for (const lang of hreflangLangs) {
       const href = pathWithoutLang
         ? `${BASE_URL}/${lang}/${pathWithoutLang}`
         : `${BASE_URL}/${lang}`;

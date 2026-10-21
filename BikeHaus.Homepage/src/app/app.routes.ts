@@ -1,18 +1,36 @@
-import { Routes } from '@angular/router';
+import { Routes, UrlMatchResult, UrlSegment } from '@angular/router';
 import { inject } from '@angular/core';
 import { Router, CanActivateFn } from '@angular/router';
-import { TranslationService, Language } from './services/translation.service';
-
-const SUPPORTED_LANGS = ['de', 'en', 'fr', 'tr'];
+import {
+  TranslationService,
+  Language,
+  SUPPORTED_LANGUAGES,
+} from './services/translation.service';
 
 export const languageGuard: CanActivateFn = (route) => {
   const lang = route.paramMap.get('lang');
-  if (lang && SUPPORTED_LANGS.includes(lang)) {
+  if (lang && SUPPORTED_LANGUAGES.includes(lang as Language)) {
     inject(TranslationService).setLanguage(lang as Language);
     return true;
   }
   return inject(Router).createUrlTree(['/de']);
 };
+
+// Angular's router has no mid-segment params, so `path: 'fahrrad-:city'`
+// matches nothing — city URLs need this matcher to extract the :city param.
+export function cityLandingMatcher(
+  segments: UrlSegment[],
+): UrlMatchResult | null {
+  if (segments.length === 1 && segments[0].path.startsWith('fahrrad-')) {
+    return {
+      consumed: segments,
+      posParams: {
+        city: new UrlSegment(segments[0].path.slice('fahrrad-'.length), {}),
+      },
+    };
+  }
+  return null;
+}
 
 export const routes: Routes = [
   { path: '', redirectTo: 'de', pathMatch: 'full' },
@@ -134,8 +152,41 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./pages/faq/faq.component').then((m) => m.FaqComponent),
       },
+      // SEO landing pages — content in services/landing-pages.data.ts
       {
-        path: 'fahrrad-:city',
+        path: 'gebrauchte-fahrraeder',
+        data: { page: 'used' },
+        loadComponent: () =>
+          import('./pages/seo-landing/seo-landing.component').then(
+            (m) => m.SeoLandingComponent,
+          ),
+      },
+      {
+        path: 'weihnachtsgeschenk-fahrrad',
+        data: { page: 'xmas' },
+        loadComponent: () =>
+          import('./pages/seo-landing/seo-landing.component').then(
+            (m) => m.SeoLandingComponent,
+          ),
+      },
+      {
+        path: 'fahrradgroesse-berechnen',
+        data: { page: 'size' },
+        loadComponent: () =>
+          import('./pages/seo-landing/seo-landing.component').then(
+            (m) => m.SeoLandingComponent,
+          ),
+      },
+      {
+        path: 'kinderfahrrad-alter',
+        data: { page: 'kids' },
+        loadComponent: () =>
+          import('./pages/seo-landing/seo-landing.component').then(
+            (m) => m.SeoLandingComponent,
+          ),
+      },
+      {
+        matcher: cityLandingMatcher,
         loadComponent: () =>
           import('./pages/fahrrad-stadt/fahrrad-stadt.component').then(
             (m) => m.FahrradStadtComponent,

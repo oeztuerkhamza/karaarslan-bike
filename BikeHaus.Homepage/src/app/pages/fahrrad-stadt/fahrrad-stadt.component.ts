@@ -400,7 +400,7 @@ export class FahrradStadtComponent implements OnInit, OnDestroy {
   ct = computed(() => {
     const c = this.city();
     if (!c) return null;
-    return c.translations[this.lang()];
+    return c.translations[this.lang()] ?? c.translations.en;
   });
 
   mapUrl = computed(() => {
@@ -425,6 +425,11 @@ export class FahrradStadtComponent implements OnInit, OnDestroy {
       return;
     }
     this.city.set(found);
+    // Set directly as well: the app-wide language effect can run after
+    // metaEffect on first render and would otherwise leave the home title.
+    const t = found.translations[this.lang()] ?? found.translations.en;
+    this.title.setTitle(t.metaTitle);
+    this.meta.updateTag({ name: 'description', content: t.metaDescription });
     this.meta.updateTag({ name: 'robots', content: 'index, follow' });
     this.injectSchema(found);
   }
@@ -438,7 +443,7 @@ export class FahrradStadtComponent implements OnInit, OnDestroy {
   }
 
   private injectSchema(c: CityLanding): void {
-    const t = c.translations[this.lang()];
+    const t = c.translations[this.lang()] ?? c.translations.en;
     const schema = {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',

@@ -446,6 +446,7 @@ export class NavbarComponent {
     { code: 'en', label: 'English' },
     { code: 'fr', label: 'Français' },
     { code: 'tr', label: 'Türkçe' },
+    { code: 'nl', label: 'Nederlands' },
   ];
 
   @HostListener('window:scroll')

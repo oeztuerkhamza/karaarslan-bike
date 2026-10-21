@@ -205,7 +205,6 @@ R: Lun–Jeu : 09–18 | Ven : 09–13 & 15–18 | Sam : 09–18 | Dim/fériés 
 6. Kinderfahrrad Größe: /de/ratgeber/kinderfahrrad-groesse
 7. Fahrrad Inspektion Kosten: /de/ratgeber/fahrrad-inspektion-kosten
 8. Fahrrad Pendler Stadträder: /de/ratgeber/fahrrad-pendler-stadtraeder
-9. Fahrradverleih Lünen Guide: /de/ratgeber/fahrradverleih-luenen-guide
 10. Gebrauchtes Fahrrad Lünen Expat: /de/ratgeber/gebrauchtes-fahrrad-kaufen-luenen-expat
 11. Radfahren Lünen Routen: /de/ratgeber/radfahren-luenen-routen-guide
 
@@ -218,7 +217,6 @@ R: Lun–Jeu : 09–18 | Ven : 09–13 & 15–18 | Sam : 09–18 | Dim/fériés 
 6. Childrens Bike Size Guide: /en/guide/childrens-bike-size-guide
 7. Bike Inspection Cost Lünen: /en/guide/bike-inspection-cost-luenen
 8. Commuter Bike Lünen Guide: /en/guide/commuter-bike-luenen-guide
-9. Bike Rental Lünen Guide: /en/guide/bike-rental-luenen-guide
 10. Buy Used Bike Lünen Expat: /en/guide/buy-used-bike-luenen-expat
 11. Cycling Lünen Routes Guide: /en/guide/cycling-luenen-routes-guide
 
@@ -231,7 +229,6 @@ R: Lun–Jeu : 09–18 | Ven : 09–13 & 15–18 | Sam : 09–18 | Dim/fériés 
 6. Taille Vélo Enfant Guide: /fr/guide/taille-velo-enfant-guide
 7. Révision Vélo Coût Lünen: /fr/guide/revision-velo-cout-luenen
 8. Vélo Pendulaire Lünen: /fr/guide/velo-pendulaire-luenen-guide
-9. Location Vélo Lünen Guide: /fr/guide/location-velo-luenen-guide
 10. Acheter Vélo Lünen Francophones: /fr/guide/acheter-velo-occasion-luenen-guide
 11. Faire Vélo Lünen Itinéraires: /fr/guide/faire-velo-luenen-itineraires-guide
 

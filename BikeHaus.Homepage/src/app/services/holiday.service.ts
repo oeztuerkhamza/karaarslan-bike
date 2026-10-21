@@ -40,6 +40,7 @@ const LOCALES: Record<Language, string> = {
   en: 'en-GB',
   fr: 'fr-FR',
   tr: 'tr-TR',
+  nl: 'nl-NL',
 };
 
 @Injectable({
