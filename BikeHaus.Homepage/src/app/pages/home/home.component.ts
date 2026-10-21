@@ -158,7 +158,8 @@ interface Testimonial {
     </section>
 
     <!-- ═══ USP TICKER ═══ -->
-    <div class="ticker" aria-hidden="true">
+    <div class="ticker-wrap" aria-hidden="true">
+      <div class="ticker">
       <div class="ticker-track">
         @for (round of [0, 1]; track round) {
           @for (item of tickerItems(); track $index) {
@@ -166,6 +167,7 @@ interface Testimonial {
             <span class="ticker-sep">✦</span>
           }
         }
+      </div>
       </div>
     </div>
 
@@ -1478,12 +1480,18 @@ interface Testimonial {
       }
 
       /* ═══ TICKER ═══ */
+      /* Clips the rotated, over-wide band so it can't widen the page */
+      .ticker-wrap {
+        overflow: hidden;
+        padding: 1.5rem 0 0.75rem;
+      }
+
       .ticker {
         overflow: hidden;
         background: var(--color-accent);
         color: #fff;
         transform: rotate(-1.2deg);
-        margin: 1.5rem -1rem 0;
+        margin: 0 -1rem;
         box-shadow: 0 20px 50px rgba(255, 87, 34, 0.2);
       }
 

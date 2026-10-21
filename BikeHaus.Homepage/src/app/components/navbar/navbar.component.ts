@@ -245,6 +245,9 @@ import { HolidayService } from '../../services/holiday.service';
       @media (max-width: 768px) {
         .menu-toggle {
           display: flex;
+          /* Above the open overlay so the X stays tappable */
+          position: relative;
+          z-index: 2002;
         }
 
         .nav-menu {
@@ -255,12 +258,15 @@ import { HolidayService } from '../../services/holiday.service';
           right: 0;
           bottom: 0;
           background: #000;
+          backdrop-filter: blur(18px) saturate(140%);
+          -webkit-backdrop-filter: blur(18px) saturate(140%);
           flex-direction: column;
           justify-content: flex-start;
           align-items: center;
           gap: 0;
           padding: 5rem 2rem 2rem;
-          z-index: 999;
+          overflow-y: auto;
+          z-index: 2001;
         }
 
         .nav-menu.open {
@@ -318,9 +324,14 @@ import { HolidayService } from '../../services/holiday.service';
         pointer-events: none;
       }
 
+      /* No backdrop-filter here: it would make .navbar the containing block of
+         the fixed mobile .nav-menu, shrinking the overlay to the bar's height
+         once the page is scrolled. The blur lives on .nav-inner::before. */
       .navbar.scrolled {
         background: transparent;
         border-bottom: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
       }
 
       .navbar.scrolled .nav-inner {
@@ -378,7 +389,7 @@ import { HolidayService } from '../../services/holiday.service';
               rgba(255, 87, 34, 0.12),
               transparent 28%
             ),
-            rgba(6, 8, 12, 0.98);
+            rgba(5, 8, 13, 0.985);
         }
       }
     `,
