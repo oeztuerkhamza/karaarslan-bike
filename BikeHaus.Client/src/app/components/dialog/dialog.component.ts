@@ -140,8 +140,8 @@ import { DialogService } from '../../services/dialog.service';
       }
 
       .icon-confirm {
-        background: rgba(99, 102, 241, 0.1);
-        color: #6366f1;
+        background: rgba(230, 74, 25, 0.1);
+        color: #e64a19;
         width: 100%;
         height: 100%;
         display: flex;

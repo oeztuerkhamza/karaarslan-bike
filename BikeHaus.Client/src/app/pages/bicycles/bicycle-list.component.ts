@@ -296,17 +296,17 @@ import { PaginationComponent } from '../../components/pagination/pagination.comp
       }
       .search-input:focus {
         outline: none;
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         box-shadow: 0 0 0 3px
-          var(--accent-primary-light, rgba(99, 102, 241, 0.1));
+          var(--accent-primary-light, rgba(230, 74, 25, 0.1));
       }
       .filter-toggle {
         position: relative;
       }
       .filter-toggle.active {
-        border-color: var(--accent-primary, #6366f1);
-        color: var(--accent-primary, #6366f1);
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.06));
+        border-color: var(--accent-primary, #e64a19);
+        color: var(--accent-primary, #e64a19);
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.06));
       }
       .filter-badge {
         display: inline-flex;
@@ -315,7 +315,7 @@ import { PaginationComponent } from '../../components/pagination/pagination.comp
         min-width: 18px;
         height: 18px;
         padding: 0 5px;
-        background: var(--accent-primary, #6366f1);
+        background: var(--accent-primary, #e64a19);
         color: white;
         border-radius: 50px;
         font-size: 0.7rem;
@@ -377,9 +377,9 @@ import { PaginationComponent } from '../../components/pagination/pagination.comp
       .filter-item select:focus,
       .filter-item input:focus {
         outline: none;
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         box-shadow: 0 0 0 3px
-          var(--accent-primary-light, rgba(99, 102, 241, 0.1));
+          var(--accent-primary-light, rgba(230, 74, 25, 0.1));
       }
       .table-container {
         background: var(--bg-card, #fff);
@@ -418,8 +418,8 @@ import { PaginationComponent } from '../../components/pagination/pagination.comp
       .mono {
         font-family: 'SF Mono', 'Consolas', monospace;
         font-size: 0.82rem;
-        color: var(--accent-primary, #6366f1);
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.08));
+        color: var(--accent-primary, #e64a19);
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.08));
         padding: 2px 8px;
         border-radius: 6px;
         font-weight: 600;
@@ -469,7 +469,7 @@ import { PaginationComponent } from '../../components/pagination/pagination.comp
       }
       .action-icon:hover {
         background: var(--table-hover, #f1f5f9);
-        color: var(--accent-primary, #6366f1);
+        color: var(--accent-primary, #e64a19);
       }
       .popup-menu {
         position: absolute;
@@ -560,11 +560,11 @@ import { PaginationComponent } from '../../components/pagination/pagination.comp
         text-decoration: none;
       }
       .btn-primary {
-        background: var(--accent-primary, #6366f1);
+        background: var(--accent-primary, #e64a19);
         color: white;
       }
       .btn-primary:hover {
-        background: var(--accent-primary-hover, #4f46e5);
+        background: var(--accent-primary-hover, #c43c0f);
         box-shadow: var(--shadow-sm);
       }
       .btn-outline {
@@ -573,9 +573,9 @@ import { PaginationComponent } from '../../components/pagination/pagination.comp
         border: 1.5px solid var(--border-light, #e2e8f0);
       }
       .btn-outline:hover {
-        border-color: var(--accent-primary, #6366f1);
-        color: var(--accent-primary, #6366f1);
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.06));
+        border-color: var(--accent-primary, #e64a19);
+        color: var(--accent-primary, #e64a19);
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.06));
       }
     `,
   ],

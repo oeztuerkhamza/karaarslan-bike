@@ -190,9 +190,9 @@ import { Customer, CustomerCreate, CustomerUpdate } from '../../models/models';
       }
       .field input:focus {
         outline: none;
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         box-shadow: 0 0 0 3px
-          var(--accent-primary-light, rgba(99, 102, 241, 0.1));
+          var(--accent-primary-light, rgba(230, 74, 25, 0.1));
       }
       .field.full {
         grid-column: 1 / -1;
@@ -222,9 +222,9 @@ import { Customer, CustomerCreate, CustomerUpdate } from '../../models/models';
       }
       .search-input:focus {
         outline: none;
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         box-shadow: 0 0 0 3px
-          var(--accent-primary-light, rgba(99, 102, 241, 0.1));
+          var(--accent-primary-light, rgba(230, 74, 25, 0.1));
       }
       .table-container {
         background: var(--bg-card, #fff);
@@ -259,8 +259,8 @@ import { Customer, CustomerCreate, CustomerUpdate } from '../../models/models';
       .mono {
         font-family: 'SF Mono', 'Consolas', monospace;
         font-size: 0.82rem;
-        color: var(--accent-primary, #6366f1);
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.08));
+        color: var(--accent-primary, #e64a19);
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.08));
         padding: 2px 8px;
         border-radius: 6px;
         font-weight: 600;
@@ -289,11 +289,11 @@ import { Customer, CustomerCreate, CustomerUpdate } from '../../models/models';
         text-decoration: none;
       }
       .btn-primary {
-        background: var(--accent-primary, #6366f1);
+        background: var(--accent-primary, #e64a19);
         color: white;
       }
       .btn-primary:hover {
-        background: var(--accent-primary-hover, #4f46e5);
+        background: var(--accent-primary-hover, #c43c0f);
         box-shadow: var(--shadow-sm);
       }
       .btn-outline {
@@ -302,9 +302,9 @@ import { Customer, CustomerCreate, CustomerUpdate } from '../../models/models';
         border: 1.5px solid var(--border-light, #e2e8f0);
       }
       .btn-outline:hover {
-        border-color: var(--accent-primary, #6366f1);
-        color: var(--accent-primary, #6366f1);
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.06));
+        border-color: var(--accent-primary, #e64a19);
+        color: var(--accent-primary, #e64a19);
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.06));
       }
       .btn-sm {
         padding: 5px 10px;

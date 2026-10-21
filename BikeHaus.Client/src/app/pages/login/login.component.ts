@@ -24,12 +24,12 @@ import { SettingsService } from '../../services/settings.service';
           <div class="logo-wrap" [class.custom-logo]="hasCustomLogo()">
             <img
               [src]="logoSrc()"
-              alt="Karaaslan Bike Logo"
+              alt="Karaarslan Bike Logo"
               class="login-logo"
               [class.no-filter]="hasCustomLogo()"
             />
           </div>
-          <h1>Karaaslan Bike</h1>
+          <h1>Karaarslan Bike</h1>
           <span class="subtitle">Lünen</span>
           <p>{{ t.welcomeBack }}</p>
         </div>
@@ -124,12 +124,18 @@ import { SettingsService } from '../../services/settings.service';
         align-items: center;
         justify-content: center;
         min-height: 100vh;
-        background: linear-gradient(
-          135deg,
-          #0f172a 0%,
-          #1e293b 40%,
-          #312e81 100%
-        );
+        background:
+          radial-gradient(
+            70% 55% at 85% 0%,
+            rgba(255, 87, 34, 0.22) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            60% 50% at 0% 100%,
+            rgba(255, 87, 34, 0.12) 0%,
+            transparent 60%
+          ),
+          linear-gradient(160deg, #111113 0%, #070708 100%);
         padding: 20px;
         position: relative;
         overflow: hidden;
@@ -141,17 +147,27 @@ import { SettingsService } from '../../services/settings.service';
         inset: 0;
         overflow: hidden;
         pointer-events: none;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+        background-size: 48px 48px;
+        mask-image: radial-gradient(ellipse at center, #000 20%, transparent 75%);
+        -webkit-mask-image: radial-gradient(
+          ellipse at center,
+          #000 20%,
+          transparent 75%
+        );
       }
       .shape {
         position: absolute;
         border-radius: 50%;
-        opacity: 0.08;
-        filter: blur(60px);
+        opacity: 0.14;
+        filter: blur(80px);
       }
       .shape-1 {
         width: 500px;
         height: 500px;
-        background: #6366f1;
+        background: #e64a19;
         top: -10%;
         right: -5%;
         animation: float1 20s ease-in-out infinite;
@@ -159,7 +175,7 @@ import { SettingsService } from '../../services/settings.service';
       .shape-2 {
         width: 400px;
         height: 400px;
-        background: #818cf8;
+        background: #ff7a45;
         bottom: -10%;
         left: -5%;
         animation: float2 25s ease-in-out infinite;
@@ -167,7 +183,7 @@ import { SettingsService } from '../../services/settings.service';
       .shape-3 {
         width: 300px;
         height: 300px;
-        background: #4f46e5;
+        background: #c43c0f;
         top: 40%;
         left: 30%;
         animation: float3 18s ease-in-out infinite;
@@ -202,15 +218,15 @@ import { SettingsService } from '../../services/settings.service';
       }
 
       .login-card {
-        background: rgba(255, 255, 255, 0.97);
-        backdrop-filter: blur(20px);
+        background: #ffffff;
         border-radius: 24px;
         padding: 48px 44px;
         width: 100%;
         max-width: 440px;
         box-shadow:
-          0 25px 50px rgba(0, 0, 0, 0.25),
-          0 0 0 1px rgba(255, 255, 255, 0.1);
+          0 30px 60px -12px rgba(0, 0, 0, 0.6),
+          0 0 0 1px rgba(255, 255, 255, 0.08),
+          0 0 80px -20px rgba(255, 87, 34, 0.35);
         position: relative;
         z-index: 1;
         animation: cardIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -236,11 +252,11 @@ import { SettingsService } from '../../services/settings.service';
         height: 72px;
         margin: 0 auto 18px;
         border-radius: 18px;
-        background: linear-gradient(135deg, #6366f1, #4f46e5);
+        background: linear-gradient(135deg, #ff7a45 0%, #ff5722 50%, #e64a19 100%);
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 8px 24px rgba(99, 102, 241, 0.35);
+        box-shadow: 0 8px 24px rgba(230, 74, 25, 0.35);
       }
       .login-logo {
         width: 42px;
@@ -261,7 +277,7 @@ import { SettingsService } from '../../services/settings.service';
       .login-header h1 {
         font-size: 1.65rem;
         font-weight: 800;
-        color: #0f172a;
+        color: #09090b;
         margin: 0;
         letter-spacing: -0.02em;
       }
@@ -271,7 +287,7 @@ import { SettingsService } from '../../services/settings.service';
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.2em;
-        color: #6366f1;
+        color: #e64a19;
         margin-top: 2px;
       }
       .login-header p {
@@ -311,7 +327,7 @@ import { SettingsService } from '../../services/settings.service';
         transition: color 0.2s;
       }
       .input-wrap:focus-within .input-icon {
-        color: #6366f1;
+        color: #e64a19;
       }
       .form-group input {
         width: 100%;
@@ -326,8 +342,8 @@ import { SettingsService } from '../../services/settings.service';
         color: #1e293b;
       }
       .form-group input:focus {
-        border-color: #6366f1;
-        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        border-color: #e64a19;
+        box-shadow: 0 0 0 3px rgba(230, 74, 25, 0.1);
         background: #fff;
       }
       .form-group input.error {
@@ -363,7 +379,7 @@ import { SettingsService } from '../../services/settings.service';
 
       .btn-login {
         padding: 14px;
-        background: linear-gradient(135deg, #6366f1, #4f46e5);
+        background: linear-gradient(135deg, #ff6a2b 0%, #e64a19 55%, #c43c0f 100%);
         color: #fff;
         border: none;
         border-radius: 12px;
@@ -389,7 +405,7 @@ import { SettingsService } from '../../services/settings.service';
       }
       .btn-login:hover:not(:disabled) {
         transform: translateY(-1px);
-        box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+        box-shadow: 0 8px 24px rgba(230, 74, 25, 0.4);
       }
       .btn-login:active:not(:disabled) {
         transform: translateY(0);

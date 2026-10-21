@@ -654,7 +654,7 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
         transition: all 0.18s ease;
       }
       .accessory-toggle:hover {
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         color: var(--text-primary);
       }
       .accessory-toggle input {
@@ -677,13 +677,13 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
         transition: all 0.18s ease;
       }
       .accessory-toggle.active {
-        border-color: var(--accent-primary, #6366f1);
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.1));
+        border-color: var(--accent-primary, #e64a19);
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.1));
         color: var(--text-primary);
       }
       .accessory-toggle.active .accessory-toggle-indicator {
-        border-color: var(--accent-primary, #6366f1);
-        background: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
+        background: var(--accent-primary, #e64a19);
         color: #fff;
       }
       .page-header h1 {
@@ -781,9 +781,9 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
       .field select:focus,
       .field textarea:focus {
         outline: none;
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         box-shadow: 0 0 0 3px
-          var(--accent-primary-light, rgba(99, 102, 241, 0.1));
+          var(--accent-primary-light, rgba(230, 74, 25, 0.1));
       }
       .field.full {
         grid-column: 1 / -1;
@@ -814,12 +814,12 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
         transition: all 0.15s ease;
       }
       .color-chip:hover {
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         background: var(--table-hover, #f1f5f9);
       }
       .color-chip.selected {
-        border-color: var(--accent-primary, #6366f1);
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.08));
+        border-color: var(--accent-primary, #e64a19);
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.08));
         font-weight: 600;
       }
       .chip-dot {
@@ -840,7 +840,7 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
       }
       .checkbox-label input {
         width: auto;
-        accent-color: var(--accent-primary, #6366f1);
+        accent-color: var(--accent-primary, #e64a19);
       }
       .search-row {
         display: flex;
@@ -998,7 +998,7 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
       .grand-total {
         margin-top: 16px;
         padding: 16px;
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.04));
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.04));
         border-radius: var(--radius-lg, 14px);
         border: 2px solid var(--border-light, #e2e8f0);
       }
@@ -1152,7 +1152,7 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
         right: 0;
         z-index: 100;
         background: var(--bg-card, #fff);
-        border: 1.5px solid var(--accent-primary, #6366f1);
+        border: 1.5px solid var(--accent-primary, #e64a19);
         border-radius: 0 0 var(--radius-md, 10px) var(--radius-md, 10px);
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
         max-height: 240px;
@@ -1171,14 +1171,14 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
         border-bottom: none;
       }
       .rahmen-dropdown-item:hover {
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.08));
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.08));
       }
       .rahmen-nr {
         font-weight: 700;
         font-family: monospace;
         font-size: 0.88rem;
         text-transform: uppercase;
-        color: var(--accent-primary, #6366f1);
+        color: var(--accent-primary, #e64a19);
       }
       .rahmen-info {
         font-size: 0.85rem;

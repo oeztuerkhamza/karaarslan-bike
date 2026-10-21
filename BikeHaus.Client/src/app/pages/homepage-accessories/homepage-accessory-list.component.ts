@@ -249,7 +249,7 @@ import { environment } from '../../../environments/environment';
         font-weight: 600;
       }
       .badge-category {
-        background: rgba(99, 102, 241, 0.9);
+        background: rgba(230, 74, 25, 0.9);
         color: #fff;
       }
       .badge-active {
@@ -294,7 +294,7 @@ import { environment } from '../../../environments/environment';
       .card-price {
         font-size: 1.15rem;
         font-weight: 800;
-        color: var(--accent-primary, #6366f1);
+        color: var(--accent-primary, #e64a19);
       }
       .card-actions {
         display: flex;
@@ -315,11 +315,11 @@ import { environment } from '../../../environments/environment';
         text-decoration: none;
       }
       .btn-primary {
-        background: var(--accent-primary, #6366f1);
+        background: var(--accent-primary, #e64a19);
         color: #fff;
       }
       .btn-primary:hover {
-        background: var(--accent-primary-hover, #4f46e5);
+        background: var(--accent-primary-hover, #c43c0f);
       }
       .btn-outline {
         background: transparent;

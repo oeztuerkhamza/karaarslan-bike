@@ -482,9 +482,9 @@ import { forkJoin } from 'rxjs';
       .field select:focus,
       .field textarea:focus {
         outline: none;
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         box-shadow: 0 0 0 3px
-          var(--accent-primary-light, rgba(99, 102, 241, 0.1));
+          var(--accent-primary-light, rgba(230, 74, 25, 0.1));
       }
       .field.full {
         grid-column: 1 / -1;
@@ -515,12 +515,12 @@ import { forkJoin } from 'rxjs';
         transition: all 0.15s ease;
       }
       .color-chip:hover {
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         background: var(--table-hover, #f1f5f9);
       }
       .color-chip.selected {
-        border-color: var(--accent-primary, #6366f1);
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.08));
+        border-color: var(--accent-primary, #e64a19);
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.08));
         font-weight: 600;
       }
       .chip-dot {
@@ -598,7 +598,7 @@ import { forkJoin } from 'rxjs';
         align-items: center;
         gap: 6px;
         padding: 10px 20px;
-        background: var(--accent-primary, #6366f1);
+        background: var(--accent-primary, #e64a19);
         color: #fff;
         border: none;
         border-radius: var(--radius-md, 10px);
@@ -611,7 +611,7 @@ import { forkJoin } from 'rxjs';
         cursor: not-allowed;
       }
       .upload-btn:hover:not(:disabled) {
-        background: var(--accent-primary-dark, #4f46e5);
+        background: var(--accent-primary-dark, #c43c0f);
       }
       .empty-gallery {
         color: var(--text-secondary, #64748b);

@@ -563,7 +563,7 @@ import { forkJoin, Observable } from 'rxjs';
         transition: var(--transition-fast);
       }
       .toggle-btn.active {
-        background: var(--accent-primary, #6366f1);
+        background: var(--accent-primary, #e64a19);
         color: white;
       }
       .toggle-btn:not(.active):hover {
@@ -622,9 +622,9 @@ import { forkJoin, Observable } from 'rxjs';
       .field select:focus,
       .field textarea:focus {
         outline: none;
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         box-shadow: 0 0 0 3px
-          var(--accent-primary-light, rgba(99, 102, 241, 0.1));
+          var(--accent-primary-light, rgba(230, 74, 25, 0.1));
       }
       .field.full {
         grid-column: 1 / -1;
@@ -655,12 +655,12 @@ import { forkJoin, Observable } from 'rxjs';
         transition: all 0.15s ease;
       }
       .color-chip:hover {
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         background: var(--table-hover, #f1f5f9);
       }
       .color-chip.selected {
-        border-color: var(--accent-primary, #6366f1);
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.08));
+        border-color: var(--accent-primary, #e64a19);
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.08));
         font-weight: 600;
       }
       .chip-dot {
@@ -709,9 +709,9 @@ import { forkJoin, Observable } from 'rxjs';
         border-radius: 0 var(--radius-md, 10px) var(--radius-md, 10px) 0;
       }
       .qty-btn:hover {
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.08));
-        border-color: var(--accent-primary, #6366f1);
-        color: var(--accent-primary, #6366f1);
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.08));
+        border-color: var(--accent-primary, #e64a19);
+        color: var(--accent-primary, #e64a19);
       }
       .qty-input {
         width: 60px;
@@ -740,8 +740,8 @@ import { forkJoin, Observable } from 'rxjs';
         border-radius: var(--radius-md, 10px);
         font-size: 1.05rem;
         font-weight: 700;
-        color: var(--accent-primary, #6366f1);
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.06));
+        color: var(--accent-primary, #e64a19);
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.06));
       }
       .fixed-value {
         padding: 9px 12px;
@@ -755,8 +755,8 @@ import { forkJoin, Observable } from 'rxjs';
       .bulk-summary {
         margin-top: 16px;
         padding: 14px 18px;
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.06));
-        border: 1.5px solid var(--accent-primary, #6366f1);
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.06));
+        border: 1.5px solid var(--accent-primary, #e64a19);
         border-radius: var(--radius-md, 10px);
         font-size: 0.92rem;
         color: var(--text-primary);
@@ -779,11 +779,11 @@ import { forkJoin, Observable } from 'rxjs';
         text-decoration: none;
       }
       .btn-primary {
-        background: var(--accent-primary, #6366f1);
+        background: var(--accent-primary, #e64a19);
         color: white;
       }
       .btn-primary:hover {
-        background: var(--accent-primary-hover, #4f46e5);
+        background: var(--accent-primary-hover, #c43c0f);
         box-shadow: var(--shadow-sm);
       }
       .btn-primary:disabled {
@@ -796,8 +796,8 @@ import { forkJoin, Observable } from 'rxjs';
         border: 1.5px solid var(--border-light, #e2e8f0);
       }
       .btn-outline:hover {
-        border-color: var(--accent-primary, #6366f1);
-        color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
+        color: var(--accent-primary, #e64a19);
       }
       .btn-lg {
         padding: 12px 32px;

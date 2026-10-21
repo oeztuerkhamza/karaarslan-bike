@@ -252,17 +252,17 @@ import { BikeSelectorComponent } from '../../components/bike-selector/bike-selec
       }
 
       .btn-outline:hover {
-        border-color: var(--accent-primary, #6366f1);
-        color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
+        color: var(--accent-primary, #e64a19);
       }
 
       .btn-primary {
-        background: var(--accent-primary, #6366f1);
+        background: var(--accent-primary, #e64a19);
         color: white;
       }
 
       .btn-primary:hover:not(:disabled) {
-        background: var(--accent-primary-hover, #4f46e5);
+        background: var(--accent-primary-hover, #c43c0f);
         box-shadow: var(--shadow-sm);
       }
 
@@ -364,9 +364,9 @@ import { BikeSelectorComponent } from '../../components/bike-selector/bike-selec
       select:focus,
       textarea:focus {
         outline: none;
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         box-shadow: 0 0 0 3px
-          var(--accent-primary-light, rgba(99, 102, 241, 0.1));
+          var(--accent-primary-light, rgba(230, 74, 25, 0.1));
       }
 
       textarea {

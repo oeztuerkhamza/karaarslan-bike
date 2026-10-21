@@ -207,7 +207,7 @@ interface LabelBike {
         transition: border-color 0.2s;
       }
       .search-box input:focus {
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
       }
       .selection-info {
         display: flex;
@@ -215,7 +215,7 @@ interface LabelBike {
         gap: 10px;
       }
       .count-badge {
-        background: var(--accent-primary, #6366f1);
+        background: var(--accent-primary, #e64a19);
         color: #fff;
         padding: 4px 12px;
         border-radius: 99px;
@@ -239,12 +239,12 @@ interface LabelBike {
         user-select: none;
       }
       .bike-card:hover {
-        border-color: var(--accent-primary, #6366f1);
-        box-shadow: 0 2px 8px rgba(99, 102, 241, 0.08);
+        border-color: var(--accent-primary, #e64a19);
+        box-shadow: 0 2px 8px rgba(230, 74, 25, 0.08);
       }
       .bike-card.selected {
-        border-color: var(--accent-primary, #6366f1);
-        background: rgba(99, 102, 241, 0.04);
+        border-color: var(--accent-primary, #e64a19);
+        background: rgba(230, 74, 25, 0.04);
       }
       .card-check {
         flex-shrink: 0;
@@ -261,8 +261,8 @@ interface LabelBike {
         transition: all 0.15s;
       }
       .checkbox.checked {
-        background: var(--accent-primary, #6366f1);
-        border-color: var(--accent-primary, #6366f1);
+        background: var(--accent-primary, #e64a19);
+        border-color: var(--accent-primary, #e64a19);
       }
       .checkbox svg {
         width: 14px;
@@ -303,7 +303,7 @@ interface LabelBike {
       .bike-price {
         font-weight: 700;
         font-size: 1rem;
-        color: var(--accent-primary, #6366f1);
+        color: var(--accent-primary, #e64a19);
       }
       .empty-state {
         text-align: center;
@@ -457,13 +457,13 @@ interface LabelBike {
         border-color: var(--border-light, #e2e8f0);
       }
       .btn-outline:hover {
-        border-color: var(--accent-primary, #6366f1);
-        color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
+        color: var(--accent-primary, #e64a19);
       }
       .btn-primary {
-        background: var(--accent-primary, #6366f1);
+        background: var(--accent-primary, #e64a19);
         color: #fff;
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
       }
       .btn-primary:hover {
         opacity: 0.9;

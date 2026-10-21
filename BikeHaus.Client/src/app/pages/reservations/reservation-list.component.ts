@@ -268,7 +268,7 @@ import { PaginationComponent } from '../../components/pagination/pagination.comp
         outline: none;
         border-color: var(--accent-primary);
         box-shadow: 0 0 0 3px
-          var(--accent-primary-light, rgba(99, 102, 241, 0.08));
+          var(--accent-primary-light, rgba(230, 74, 25, 0.08));
       }
 
       .search-input {
@@ -333,7 +333,7 @@ import { PaginationComponent } from '../../components/pagination/pagination.comp
         font-family: 'SF Mono', 'Consolas', monospace;
         font-size: 0.82rem;
         color: var(--accent-primary);
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.08));
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.08));
         padding: 2px 8px;
         border-radius: 6px;
         font-weight: 600;
@@ -411,12 +411,12 @@ import { PaginationComponent } from '../../components/pagination/pagination.comp
       }
 
       .btn-primary {
-        background: var(--accent-primary, #6366f1);
+        background: var(--accent-primary, #e64a19);
         color: white;
       }
 
       .btn-primary:hover {
-        background: var(--accent-primary-hover, #4f46e5);
+        background: var(--accent-primary-hover, #c43c0f);
         box-shadow: var(--shadow-sm);
       }
 

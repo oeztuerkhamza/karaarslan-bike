@@ -156,7 +156,7 @@ import {
     .summary-item { display: flex; align-items: center; gap: 8px; }
     .summary-item .label { color: var(--text-muted, #6b7280); font-size: 0.85rem; }
     .summary-item .value { font-weight: 700; font-size: 1rem; }
-    .summary-item .total { color: var(--accent-primary, #6366f1); }
+    .summary-item .total { color: var(--accent-primary, #e64a19); }
 
     .modal-overlay {
       position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 1000;
@@ -179,7 +179,7 @@ import {
       transition: border-color 0.15s; width: 100%; box-sizing: border-box;
       font-family: inherit;
     }
-    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent-primary, #6366f1); background: #fff; }
+    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent-primary, #e64a19); background: #fff; }
     .form-group textarea { resize: vertical; min-height: 72px; }
 
     .modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
@@ -199,7 +199,7 @@ import {
     .actions-cell { white-space: nowrap; text-align: right; }
 
     .btn { display: inline-flex; align-items: center; gap: 7px; padding: 10px 18px; border-radius: 10px; font-size: 0.88rem; font-weight: 600; border: none; cursor: pointer; transition: all 0.15s; }
-    .btn-primary { background: var(--accent-primary, #6366f1); color: #fff; }
+    .btn-primary { background: var(--accent-primary, #e64a19); color: #fff; }
     .btn-primary:hover { filter: brightness(1.08); }
     .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
     .btn-secondary { background: var(--bg, #f3f4f6); color: var(--text, #111827); border: 1px solid var(--border, #e5e7eb); }
@@ -212,7 +212,7 @@ import {
     .btn-icon-danger:hover { background: #fee2e2; color: #ef4444; }
 
     .loading-state { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 60px; color: var(--text-muted, #6b7280); }
-    .spinner { width: 24px; height: 24px; border: 3px solid var(--border, #e5e7eb); border-top-color: var(--accent-primary, #6366f1); border-radius: 50%; animation: spin 0.7s linear infinite; }
+    .spinner { width: 24px; height: 24px; border: 3px solid var(--border, #e5e7eb); border-top-color: var(--accent-primary, #e64a19); border-radius: 50%; animation: spin 0.7s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
 
     .empty-state { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 80px 24px; color: var(--text-muted, #6b7280); text-align: center; }

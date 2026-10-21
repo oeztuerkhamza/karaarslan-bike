@@ -42,6 +42,116 @@ import { TranslationService } from '../../services/translation.service';
         </div>
       </div>
 
+      <div class="kpi-grid">
+        <div class="kpi-card kpi-highlight">
+          <div class="kpi-top">
+            <span class="kpi-label">{{ t.available }}</span>
+            <span class="kpi-icon">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="5.5" cy="17.5" r="3.5" />
+                <circle cx="18.5" cy="17.5" r="3.5" />
+                <path
+                  d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5V14l-3-3 4-3 2 3h2"
+                />
+              </svg>
+            </span>
+          </div>
+          <div class="kpi-value">{{ data.availableBicycles }}</div>
+          <div class="kpi-meta">
+            {{ data.totalBicycles }} {{ t.totalBicycles }}
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-top">
+            <span class="kpi-label">{{ t.sold }}</span>
+            <span class="kpi-icon kpi-icon-success">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </span>
+          </div>
+          <div class="kpi-value">{{ data.soldBicycles }}</div>
+          <div class="kpi-meta">{{ data.totalSales }} {{ t.sales }}</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-top">
+            <span class="kpi-label">{{ t.totalSales }}</span>
+            <span class="kpi-icon kpi-icon-info">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                <polyline points="17 6 23 6 23 12" />
+              </svg>
+            </span>
+          </div>
+          <div class="kpi-value">
+            {{ data.totalSaleAmount | number: '1.0-0' }} <small>€</small>
+          </div>
+          <div class="kpi-meta">
+            {{ t.totalPurchases }}:
+            {{ data.totalPurchaseAmount | number: '1.0-0' }} €
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-top">
+            <span class="kpi-label">{{ t.profit }}</span>
+            <span
+              class="kpi-icon"
+              [class.kpi-icon-success]="data.profit >= 0"
+              [class.kpi-icon-danger]="data.profit < 0"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="1" x2="12" y2="23" />
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+              </svg>
+            </span>
+          </div>
+          <div
+            class="kpi-value"
+            [class.positive]="data.profit >= 0"
+            [class.negative]="data.profit < 0"
+          >
+            {{ data.profit | number: '1.0-0' }} <small>€</small>
+          </div>
+          <div class="kpi-meta">{{ t.totalSales }} − {{ t.totalPurchases }}</div>
+        </div>
+      </div>
+
       <div class="shortcuts-grid">
         <a routerLink="/purchases/new" class="shortcut-card card-accent">
           <div class="shortcut-icon-wrap accent-primary">
@@ -475,10 +585,10 @@ import { TranslationService } from '../../services/translation.service';
       }
 
       .page-header {
-        margin-bottom: 28px;
+        margin-bottom: 24px;
       }
       .page-header h1 {
-        font-size: 1.65rem;
+        font-size: 1.85rem;
         font-weight: 800;
         color: var(--text-heading);
         letter-spacing: -0.02em;
@@ -491,18 +601,147 @@ import { TranslationService } from '../../services/translation.service';
       }
 
       /* ── Shortcut Grid ── */
-      .shortcuts-grid {
+      /* ── KPI Cards ── */
+      .kpi-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-        gap: 14px;
-        margin-bottom: 36px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+        margin-bottom: 20px;
       }
-
-      .shortcut-card {
+      .kpi-card {
+        position: relative;
+        padding: 18px 20px;
+        background: var(--bg-card);
+        border: 1px solid var(--border-light);
+        border-radius: var(--radius-lg, 16px);
+        box-shadow: var(--shadow-xs);
+        overflow: hidden;
+      }
+      .kpi-highlight {
+        background:
+          radial-gradient(
+            120% 120% at 100% 0%,
+            rgba(255, 122, 69, 0.45) 0%,
+            transparent 60%
+          ),
+          linear-gradient(140deg, #18181b 0%, #0b0b0d 100%);
+        border-color: rgba(255, 87, 34, 0.35);
+        color: #fff;
+      }
+      .kpi-top {
         display: flex;
         align-items: center;
-        gap: 14px;
-        padding: 16px 18px;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .kpi-label {
+        font-size: 0.74rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-muted);
+      }
+      .kpi-highlight .kpi-label {
+        color: rgba(255, 255, 255, 0.65);
+      }
+      .kpi-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--accent-primary-light);
+        color: var(--accent-primary);
+        flex-shrink: 0;
+      }
+      .kpi-highlight .kpi-icon {
+        background: linear-gradient(135deg, #ff7a45, #e64a19);
+        color: #fff;
+        box-shadow: 0 6px 16px -4px rgba(255, 87, 34, 0.6);
+      }
+      .kpi-icon-success {
+        background: var(--accent-success-light);
+        color: var(--accent-success);
+      }
+      .kpi-icon-info {
+        background: rgba(6, 182, 212, 0.1);
+        color: var(--accent-info);
+      }
+      .kpi-icon-danger {
+        background: var(--accent-danger-light);
+        color: var(--accent-danger);
+      }
+      .kpi-value {
+        margin-top: 10px;
+        font-size: 1.9rem;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        color: var(--text-heading);
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+      }
+      .kpi-value small {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text-muted);
+      }
+      .kpi-highlight .kpi-value {
+        color: #fff;
+      }
+      .kpi-value.positive {
+        color: var(--accent-success);
+      }
+      .kpi-value.negative {
+        color: var(--accent-danger);
+      }
+      .kpi-meta {
+        margin-top: 6px;
+        font-size: 0.78rem;
+        color: var(--text-muted);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .kpi-highlight .kpi-meta {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      @media (max-width: 1100px) {
+        .kpi-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      @media (max-width: 480px) {
+        .kpi-grid {
+          gap: 10px;
+        }
+        .kpi-card {
+          padding: 14px 16px;
+        }
+        .kpi-value {
+          font-size: 1.45rem;
+        }
+      }
+
+      /* ── Shortcut Grid ── */
+      .shortcuts-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+      @media (max-width: 1280px) {
+        .shortcuts-grid {
+          grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        }
+      }
+      .shortcut-card {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px;
         background: var(--bg-card);
         border: 1px solid var(--border-light);
         border-radius: var(--radius-lg, 14px);
@@ -520,31 +759,27 @@ import { TranslationService } from '../../services/translation.service';
         background: linear-gradient(
           135deg,
           transparent 60%,
-          rgba(99, 102, 241, 0.03) 100%
+          rgba(230, 74, 25, 0.03) 100%
         );
         pointer-events: none;
       }
       .shortcut-card:hover {
         transform: translateY(-2px);
         box-shadow: var(--shadow-lg, 0 10px 15px rgba(0, 0, 0, 0.08));
-        border-color: var(--border-color);
+        border-color: rgba(230, 74, 25, 0.35);
         text-decoration: none;
         color: var(--text-primary);
       }
       .shortcut-card.card-accent {
-        border-color: rgba(99, 102, 241, 0.15);
+        border-color: var(--border-light);
       }
       .shortcut-card.card-accent::before {
-        background: linear-gradient(
-          135deg,
-          rgba(99, 102, 241, 0.02),
-          rgba(99, 102, 241, 0.06)
-        );
+        background: none;
       }
 
       .shortcut-icon-wrap {
-        width: 44px;
-        height: 44px;
+        width: 40px;
+        height: 40px;
         border-radius: 12px;
         display: flex;
         align-items: center;
@@ -552,8 +787,8 @@ import { TranslationService } from '../../services/translation.service';
         flex-shrink: 0;
       }
       .accent-primary {
-        background: rgba(99, 102, 241, 0.1);
-        color: #6366f1;
+        background: rgba(230, 74, 25, 0.1);
+        color: #e64a19;
       }
       .accent-success {
         background: rgba(16, 185, 129, 0.1);
@@ -597,17 +832,21 @@ import { TranslationService } from '../../services/translation.service';
         min-width: 0;
       }
       .shortcut-label {
-        font-size: 0.9rem;
+        font-size: 0.88rem;
         font-weight: 650;
-        color: var(--text-primary);
+        color: var(--text-heading);
       }
       .shortcut-desc {
-        font-size: 0.76rem;
+        font-size: 0.75rem;
         color: var(--text-muted);
-        margin-top: 1px;
+        margin-top: 2px;
+        line-height: 1.4;
       }
       .shortcut-arrow {
-        color: var(--text-muted);
+        position: absolute;
+        top: 18px;
+        right: 16px;
+        color: var(--accent-primary);
         opacity: 0;
         transform: translateX(-4px);
         transition: all 0.2s;
@@ -635,6 +874,7 @@ import { TranslationService } from '../../services/translation.service';
         background: var(--bg-card);
         border-radius: var(--radius-lg, 14px);
         border: 1px solid var(--border-light);
+        box-shadow: var(--shadow-xs);
         padding: 0;
         overflow: hidden;
       }
@@ -677,6 +917,7 @@ import { TranslationService } from '../../services/translation.service';
       }
       th {
         text-align: left;
+        white-space: nowrap;
         padding: 10px 18px;
         font-size: 0.75rem;
         font-weight: 600;
@@ -687,9 +928,12 @@ import { TranslationService } from '../../services/translation.service';
         border-bottom: 1px solid var(--border-light);
       }
       td {
-        padding: 11px 18px;
+        padding: 12px 18px;
         border-bottom: 1px solid var(--border-light);
         color: var(--text-secondary);
+      }
+      tbody tr:last-child td {
+        border-bottom: none;
       }
       .clickable-row {
         cursor: pointer;
@@ -701,21 +945,24 @@ import { TranslationService } from '../../services/translation.service';
       .badge-mono {
         display: inline-block;
         padding: 2px 8px;
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.08));
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.08));
         color: var(--accent-primary);
         border-radius: 6px;
         font-size: 0.78rem;
         font-weight: 600;
         font-family: 'SF Mono', 'Consolas', monospace;
+        white-space: nowrap;
       }
       .price {
-        font-weight: 600;
-        color: var(--text-primary);
+        font-weight: 650;
+        color: var(--text-heading);
         font-variant-numeric: tabular-nums;
+        white-space: nowrap;
       }
       .date {
         color: var(--text-muted);
         font-variant-numeric: tabular-nums;
+        white-space: nowrap;
       }
 
       .empty-state {
@@ -736,7 +983,11 @@ import { TranslationService } from '../../services/translation.service';
 
       @media (max-width: 600px) {
         .shortcuts-grid {
-          grid-template-columns: 1fr;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 10px;
+        }
+        .shortcut-card {
+          padding: 14px;
         }
       }
 
@@ -754,14 +1005,14 @@ import { TranslationService } from '../../services/translation.service';
         height: 32px;
         padding: 0;
         border: none;
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.08));
-        color: var(--accent-primary, #6366f1);
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.08));
+        color: var(--accent-primary, #e64a19);
         border-radius: 8px;
         cursor: pointer;
         transition: all 0.2s;
       }
       .btn-icon:hover {
-        background: var(--accent-primary, #6366f1);
+        background: var(--accent-primary, #e64a19);
         color: white;
         transform: scale(1.05);
       }
@@ -778,10 +1029,12 @@ import { TranslationService } from '../../services/translation.service';
       .context-menu {
         position: fixed;
         z-index: 1000;
-        background: white;
-        border-radius: 8px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        min-width: 180px;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        box-shadow: var(--shadow-xl);
+        min-width: 190px;
+        padding: 6px;
         overflow: hidden;
         animation: menuFadeIn 0.15s ease;
       }
@@ -802,21 +1055,25 @@ import { TranslationService } from '../../services/translation.service';
         align-items: center;
         gap: 10px;
         width: 100%;
-        padding: 12px 16px;
+        padding: 10px 12px;
         border: none;
+        border-radius: 8px;
         background: none;
-        font-size: 14px;
+        color: var(--text-primary);
+        font-family: inherit;
+        font-size: 0.86rem;
+        font-weight: 500;
         cursor: pointer;
         transition: background 0.2s;
         text-align: left;
       }
 
       .context-menu button:hover {
-        background: var(--bg-secondary, #f3f4f6);
+        background: var(--accent-primary-light);
       }
 
       .context-menu button svg {
-        color: var(--accent-primary, #6366f1);
+        color: var(--accent-primary, #e64a19);
       }
     `,
   ],

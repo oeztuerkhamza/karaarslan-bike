@@ -275,7 +275,7 @@ import { environment } from '../../../environments/environment';
         color: var(--text-primary);
       }
       .hint-card {
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.04));
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.04));
       }
       .hint {
         font-size: 0.9rem;
@@ -317,9 +317,9 @@ import { environment } from '../../../environments/environment';
       .field select:focus,
       .field textarea:focus {
         outline: none;
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         box-shadow: 0 0 0 3px
-          var(--accent-primary-light, rgba(99, 102, 241, 0.1));
+          var(--accent-primary-light, rgba(230, 74, 25, 0.1));
       }
       .field.full {
         grid-column: 1 / -1;
@@ -377,12 +377,12 @@ import { environment } from '../../../environments/environment';
         cursor: pointer;
       }
       .drop-zone:hover {
-        border-color: var(--accent-primary, #6366f1);
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.04));
+        border-color: var(--accent-primary, #e64a19);
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.04));
       }
       .drop-zone.drag-over {
-        border-color: var(--accent-primary, #6366f1);
-        background: rgba(99, 102, 241, 0.1);
+        border-color: var(--accent-primary, #e64a19);
+        background: rgba(230, 74, 25, 0.1);
         transform: scale(1.01);
       }
       .drop-zone-content {
@@ -415,8 +415,8 @@ import { environment } from '../../../environments/environment';
         transition: all 0.15s;
       }
       .upload-btn:hover {
-        border-color: var(--accent-primary, #6366f1);
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.04));
+        border-color: var(--accent-primary, #e64a19);
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.04));
       }
       .uploading {
         font-size: 0.85rem;
@@ -440,11 +440,11 @@ import { environment } from '../../../environments/environment';
         text-decoration: none;
       }
       .btn-primary {
-        background: var(--accent-primary, #6366f1);
+        background: var(--accent-primary, #e64a19);
         color: #fff;
       }
       .btn-primary:hover {
-        background: var(--accent-primary-hover, #4f46e5);
+        background: var(--accent-primary-hover, #c43c0f);
       }
       .btn-outline {
         background: transparent;
@@ -475,12 +475,12 @@ import { environment } from '../../../environments/environment';
         transition: all 0.15s ease;
       }
       .color-chip:hover {
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         background: var(--table-hover, #f1f5f9);
       }
       .color-chip.selected {
-        border-color: var(--accent-primary, #6366f1);
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.08));
+        border-color: var(--accent-primary, #e64a19);
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.08));
         font-weight: 600;
       }
       .chip-dot {

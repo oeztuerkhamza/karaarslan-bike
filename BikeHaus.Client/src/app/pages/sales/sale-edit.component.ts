@@ -493,16 +493,16 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
       .field select:focus,
       .field textarea:focus {
         outline: none;
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         box-shadow: 0 0 0 3px
-          var(--accent-primary-light, rgba(99, 102, 241, 0.1));
+          var(--accent-primary-light, rgba(230, 74, 25, 0.1));
       }
       .field.full {
         grid-column: 1 / -1;
       }
       .warranty-display {
         padding: 9px 12px;
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.04));
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.04));
         border-radius: var(--radius-md, 10px);
         font-size: 0.9rem;
         color: var(--text-primary);
@@ -585,7 +585,7 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
       .grand-total {
         margin-top: 16px;
         padding: 16px;
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.04));
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.04));
         border-radius: var(--radius-lg, 14px);
         border: 2px solid var(--border-light, #e2e8f0);
       }
@@ -637,7 +637,7 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
       }
       .checkbox-label input {
         width: auto;
-        accent-color: var(--accent-primary, #6366f1);
+        accent-color: var(--accent-primary, #e64a19);
       }
       .zahlungen-list {
         display: flex;
