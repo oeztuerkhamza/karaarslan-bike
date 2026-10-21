@@ -5,6 +5,7 @@ import {
   OnInit,
   OnDestroy,
   signal,
+  computed,
 } from '@angular/core';
 import { CommonModule, DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -43,75 +44,147 @@ interface Testimonial {
   ],
   template: `
     <!-- ═══ HERO ═══ -->
-    <section class="slide-hero" aria-labelledby="hero-heading">
-      <div class="hero-bg" aria-hidden="true">
-        <div class="hero-grain"></div>
-        <div class="hero-radial"></div>
-      </div>
-      <div class="container hero-inner">
-        <span class="hero-label">Karaarslan Bike</span>
-        <h1 id="hero-heading" class="hero-h1">
-          {{ t().heroH1 }}
-        </h1>
-        <p class="hero-sub">{{ t().heroSub }}</p>
-        <div class="hero-actions fade-in d3">
-          <a
-            [routerLink]="['/' + lang(), 'neue-fahrraeder']"
-            class="btn-primary"
-            >{{ t().ctaPrimary }}</a
-          >
-          <a [routerLink]="['/' + lang(), 'showroom']" class="btn-secondary">{{
-            t().ctaSecondary
-          }}</a>
-        </div>
-        <div
-          class="hero-stats fade-in d4"
-          [class.hero-stats-hidden]="!shopInfo()"
-        >
-          <div class="h-stat">
-            <span class="h-stat-n">{{
-              shopInfo()?.totalActiveListings ?? '—'
+    <section class="hero" aria-labelledby="hero-heading">
+      <img
+        class="hero-img"
+        src="/assets/stock/hero.webp"
+        alt=""
+        width="2200"
+        height="1467"
+        fetchpriority="high"
+        decoding="async"
+      />
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow fade-in">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            {{ t().heroEyebrow }}
+          </span>
+          <h1 id="hero-heading" class="hero-h1 fade-in d1">
+            {{ heroTitle()[0]
+            }}<span class="hero-h1-accent" *ngIf="heroTitle()[1]">{{
+              heroTitle()[1]
             }}</span>
-            <span class="h-stat-l">{{ t().bikesAvailable }}</span>
-          </div>
-        </div>
-      </div>
-      <div class="hero-scroll" aria-hidden="true">
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <path d="M12 5v14M5 12l7 7 7-7" />
-        </svg>
-      </div>
-    </section>
-
-    <!-- ═══ SERVICE CARDS ═══ -->
-    <section class="svc-cards-section" aria-label="Services">
-      <div class="container">
-        <div class="svc-cards-grid">
-          <!-- Service Cards -->
-          <div class="svc-card svc-card-repair">
-            <div class="svc-card-icon">
+          </h1>
+          <p class="hero-sub fade-in d2">{{ t().heroSub }}</p>
+          <div class="hero-actions fade-in d3">
+            <a
+              [routerLink]="['/' + lang(), 'neue-fahrraeder']"
+              class="btn-primary"
+              >{{ t().ctaPrimary }}
               <svg
+                width="18"
+                height="18"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="1.5"
+                stroke-width="2"
               >
-                <path
-                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
-                />
+                <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
+            </a>
+            <a
+              [routerLink]="['/' + lang(), 'showroom']"
+              class="btn-secondary btn-glass"
+              >{{ t().ctaSecondary }}</a
+            >
+          </div>
+        </div>
+
+        <aside class="hero-card fade-in d4" aria-label="Karaarslan Bike">
+          <div class="hero-card-stats">
+            <div class="hc-stat" *ngIf="shopInfo()?.totalActiveListings">
+              <span class="hc-stat-n">{{
+                shopInfo()?.totalActiveListings ?? '—'
+              }}</span>
+              <span class="hc-stat-l">{{ t().bikesAvailable }}</span>
             </div>
-            <span class="svc-card-badge">{{ t().svcRepairBadge }}</span>
-            <h2 class="svc-card-title">{{ t().svcRepairTitle }}</h2>
-            <p class="svc-card-sub">{{ t().svcRepairSub }}</p>
-            <ul class="svc-card-list">
+            <div class="hc-stat" *ngIf="googleRating() > 0">
+              <span class="hc-stat-n"
+                >{{ googleRating().toFixed(1) }}
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#f59e0b">
+                  <path
+                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                  /></svg
+              ></span>
+              <span class="hc-stat-l"
+                >{{ googleTotalReviews() }} Google
+                {{ t().reviewCountLabel }}</span
+              >
+            </div>
+          </div>
+          <a
+            class="hc-row"
+            href="https://maps.app.goo.gl/Q1fXe7A6PRb8E5wV7"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" />
+              <circle cx="12" cy="10" r="2.5" />
+            </svg>
+            <span>
+              <strong>Alstedder Straße 5</strong>
+              <small>44534 Lünen · {{ t().ctaRoute }}</small>
+            </span>
+          </a>
+          <a
+            class="hc-row"
+            href="https://wa.me/491637390301"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path [attr.d]="whatsappPath" />
+            </svg>
+            <span>
+              <strong>+49 163 7390 301</strong>
+              <small>{{ t().ctaWhatsapp }}</small>
+            </span>
+          </a>
+        </aside>
+      </div>
+      <div class="hero-scroll" aria-hidden="true">
+        <span></span>
+      </div>
+    </section>
+
+    <!-- ═══ USP TICKER ═══ -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        @for (round of [0, 1]; track round) {
+          @for (item of tickerItems(); track $index) {
+            <span class="ticker-item">{{ item }}</span>
+            <span class="ticker-sep">✦</span>
+          }
+        }
+      </div>
+    </div>
+
+    <!-- ═══ SERVICES ═══ -->
+    <section class="block" aria-label="Services">
+      <div class="container svc-grid">
+        <article class="svc-card reveal">
+          <img
+            src="/assets/stock/werkstatt.webp"
+            alt=""
+            loading="lazy"
+            width="1200"
+            height="800"
+          />
+          <div class="svc-body">
+            <span class="chip">{{ t().svcRepairBadge }}</span>
+            <h2>{{ t().svcRepairTitle }}</h2>
+            <p>{{ t().svcRepairSub }}</p>
+            <ul class="svc-tags">
               <li>{{ t().svcRepairItem1 }}</li>
               <li>{{ t().svcRepairItem2 }}</li>
               <li>{{ t().svcRepairItem3 }}</li>
@@ -121,48 +194,35 @@ interface Testimonial {
               href="https://wa.me/491637390301"
               target="_blank"
               rel="noopener noreferrer"
-              class="svc-card-cta svc-card-cta-whatsapp"
+              class="btn-primary btn-wa"
             >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                style="flex-shrink:0"
-              >
-                <path
-                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"
-                />
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path [attr.d]="whatsappPath" />
               </svg>
               {{ t().svcRepairWaCta }}
             </a>
           </div>
-          <!-- Neue Fahrräder -->
-          <div class="svc-card svc-card-angebote">
-            <div class="svc-card-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-              >
-                <circle cx="5.5" cy="17.5" r="3.5" />
-                <circle cx="18.5" cy="17.5" r="3.5" />
-                <path d="M15 6l-4 8h6l-2 3.5" />
-                <path d="M5.5 17.5L9 9h3" />
-              </svg>
-            </div>
-            <span class="svc-card-badge">{{ t().svcAngeboteBadge }}</span>
-            <h2 class="svc-card-title">{{ t().svcAngeboteTitle }}</h2>
-            <p class="svc-card-sub">{{ t().svcAngeboteSub }}</p>
+        </article>
+        <article class="svc-card reveal">
+          <img
+            src="/assets/stock/neurad.webp"
+            alt=""
+            loading="lazy"
+            width="1200"
+            height="665"
+          />
+          <div class="svc-body">
+            <span class="chip">{{ t().svcAngeboteBadge }}</span>
+            <h2>{{ t().svcAngeboteTitle }}</h2>
+            <p>{{ t().svcAngeboteSub }}</p>
             <a
               [routerLink]="['/' + lang(), 'neue-fahrraeder']"
-              class="svc-card-cta"
+              class="btn-secondary btn-glass"
             >
               {{ t().svcAngeboteCta }}
               <svg
-                width="14"
-                height="14"
+                width="16"
+                height="16"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -172,87 +232,86 @@ interface Testimonial {
               </svg>
             </a>
           </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ═══ CATEGORIES ═══ -->
+    <section class="block" aria-labelledby="cat-heading">
+      <div class="container">
+        <header class="block-head reveal">
+          <div>
+            <span class="section-label">{{ t().catLabel }}</span>
+            <h2 id="cat-heading" class="section-title">{{ t().catTitle }}</h2>
+          </div>
+          <p class="section-subtitle">{{ t().catSub }}</p>
+        </header>
+        <div class="cat-grid">
+          @for (cat of categoryTiles(); track cat.img; let i = $index) {
+            <a
+              class="cat-tile reveal"
+              [class.cat-tile-wide]="i === 0"
+              [routerLink]="['/' + lang(), 'showroom']"
+            >
+              <img
+                [src]="cat.img"
+                alt=""
+                loading="lazy"
+                width="900"
+                height="600"
+              />
+              <span class="cat-index">0{{ i + 1 }}</span>
+              <span class="cat-text">
+                <strong>{{ cat.label }}</strong>
+                <small>{{ t().catCta }}</small>
+              </span>
+              <span class="cat-arrow" aria-hidden="true">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M7 17L17 7M8 7h9v9" />
+                </svg>
+              </span>
+            </a>
+          }
         </div>
       </div>
     </section>
 
-    <!-- ═══ Section 2 — VALUE PROPOSITION ═══ -->
-    <section class="section" aria-labelledby="values-heading">
+    <!-- ═══ VALUES ═══ -->
+    <section class="block block-tint" aria-labelledby="values-heading">
       <div class="container">
-        <span class="section-label fade-in">{{ t().valueLabel }}</span>
-        <h2 id="values-heading" class="section-title fade-in d1">
-          {{ t().valueTitle }}
-        </h2>
+        <header class="block-head reveal">
+          <div>
+            <span class="section-label">{{ t().valueLabel }}</span>
+            <h2 id="values-heading" class="section-title">
+              {{ t().valueTitle }}
+            </h2>
+          </div>
+        </header>
         <div class="values-grid">
-          <article class="value-card fade-in d1">
-            <div class="value-icon" aria-hidden="true">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                width="32"
-                height="32"
-              >
-                <path
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                />
-              </svg>
-            </div>
+          <article class="value-card reveal">
+            <span class="value-num">01</span>
             <h3>{{ t().value1Title }}</h3>
             <p>{{ t().value1Desc }}</p>
           </article>
-          <article class="value-card fade-in d2">
-            <div class="value-icon" aria-hidden="true">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                width="32"
-                height="32"
-              >
-                <path
-                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </div>
+          <article class="value-card reveal">
+            <span class="value-num">02</span>
             <h3>{{ t().value2Title }}</h3>
             <p>{{ t().value2Desc }}</p>
           </article>
-          <article class="value-card fade-in d3">
-            <div class="value-icon" aria-hidden="true">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                width="32"
-                height="32"
-              >
-                <path
-                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                />
-              </svg>
-            </div>
+          <article class="value-card reveal">
+            <span class="value-num">03</span>
             <h3>{{ t().value3Title }}</h3>
             <p>{{ t().value3Desc }}</p>
           </article>
-          <article class="value-card fade-in d4">
-            <div class="value-icon" aria-hidden="true">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                width="32"
-                height="32"
-              >
-                <path
-                  d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </div>
+          <article class="value-card reveal">
+            <span class="value-num">04</span>
             <h3>{{ t().value4Title }}</h3>
             <p>{{ t().value4Desc }}</p>
           </article>
@@ -260,24 +319,22 @@ interface Testimonial {
       </div>
     </section>
 
-    <!-- ═══ Section 3 — SHOWROOM PREVIEW ═══ -->
+    <!-- ═══ SHOWROOM PREVIEW ═══ -->
     <section
-      class="section section-alt"
+      class="block"
       aria-labelledby="showroom-heading"
       *ngIf="listings().length"
     >
       <div class="container">
-        <div class="section-head-row">
+        <header class="block-head reveal">
           <div>
-            <span class="section-label fade-in">{{ t().showroomLabel }}</span>
-            <h2 id="showroom-heading" class="section-title fade-in d1">
+            <span class="section-label">{{ t().showroomLabel }}</span>
+            <h2 id="showroom-heading" class="section-title">
               {{ t().showroomTitle }}
             </h2>
-            <p class="section-subtitle fade-in d2">{{ t().showroomSub }}</p>
+            <p class="section-subtitle">{{ t().showroomSub }}</p>
           </div>
-          <a
-            [routerLink]="['/' + lang(), 'showroom']"
-            class="btn-secondary view-all-btn fade-in d2"
+          <a [routerLink]="['/' + lang(), 'showroom']" class="link-arrow"
             >{{ t().viewAll }}
             <svg
               width="16"
@@ -290,7 +347,7 @@ interface Testimonial {
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </a>
-        </div>
+        </header>
         <div class="bike-grid">
           <app-bike-card
             *ngFor="let bike of listings().slice(0, 6)"
@@ -300,24 +357,22 @@ interface Testimonial {
       </div>
     </section>
 
-    <!-- ═══ Section 3b — NEUE FAHRRÄDER PREVIEW ═══ -->
+    <!-- ═══ NEUE FAHRRÄDER PREVIEW ═══ -->
     <section
-      class="section"
+      class="block"
       aria-labelledby="neue-heading"
       *ngIf="neueFahrraeder().length"
     >
       <div class="container">
-        <div class="section-head-row">
+        <header class="block-head reveal">
           <div>
-            <span class="section-label fade-in">{{ t().newBikesLabel }}</span>
-            <h2 id="neue-heading" class="section-title fade-in d1">
+            <span class="section-label">{{ t().newBikesLabel }}</span>
+            <h2 id="neue-heading" class="section-title">
               {{ t().newBikesTitle }}
             </h2>
-            <p class="section-subtitle fade-in d2">{{ t().newBikesSub }}</p>
+            <p class="section-subtitle">{{ t().newBikesSub }}</p>
           </div>
-          <a
-            [routerLink]="['/' + lang(), 'neue-fahrraeder']"
-            class="btn-secondary view-all-btn fade-in d2"
+          <a [routerLink]="['/' + lang(), 'neue-fahrraeder']" class="link-arrow"
             >{{ t().browseNewBikes }}
             <svg
               width="16"
@@ -330,7 +385,7 @@ interface Testimonial {
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </a>
-        </div>
+        </header>
         <div class="bike-grid">
           <app-neue-bike-card
             *ngFor="let bike of neueFahrraeder().slice(0, 6)"
@@ -340,106 +395,50 @@ interface Testimonial {
       </div>
     </section>
 
-    <!-- ═══ Section 4 — TRUST ═══ -->
-    <section class="section" aria-labelledby="trust-heading">
-      <div class="container">
-        <span class="section-label fade-in">{{ t().trustLabel }}</span>
-        <h2 id="trust-heading" class="section-title fade-in d1">
-          {{ t().trustTitle }}
-        </h2>
-        <p class="section-subtitle fade-in d2">{{ t().trustSub }}</p>
-        <div class="trust-grid">
-          <div class="trust-item fade-in d1">
-            <div class="trust-check" aria-hidden="true">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="var(--color-accent)"
-                stroke-width="2.5"
-              >
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-            </div>
-            <p>{{ t().trust1 }}</p>
-          </div>
-          <div class="trust-item fade-in d2">
-            <div class="trust-check" aria-hidden="true">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="var(--color-accent)"
-                stroke-width="2.5"
-              >
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-            </div>
-            <p>{{ t().trust2 }}</p>
-          </div>
-          <div class="trust-item fade-in d3">
-            <div class="trust-check" aria-hidden="true">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="var(--color-accent)"
-                stroke-width="2.5"
-              >
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-            </div>
-            <p>{{ t().trust3 }}</p>
-          </div>
-          <div class="trust-item fade-in d4">
-            <div class="trust-check" aria-hidden="true">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="var(--color-accent)"
-                stroke-width="2.5"
-              >
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-            </div>
-            <p>{{ t().trust4 }}</p>
-          </div>
+    <!-- ═══ STORY & QUALITY ═══ -->
+    <section class="block" aria-labelledby="story-heading">
+      <div class="container story-grid">
+        <div class="story-media reveal">
+          <img
+            class="story-img-main"
+            src="/assets/stock/werkbank.webp"
+            alt=""
+            loading="lazy"
+            width="1200"
+            height="742"
+          />
+          <img
+            class="story-img-small"
+            [src]="shopPhotos[0]"
+            alt="Karaarslan Bike Lünen"
+            loading="lazy"
+            width="400"
+            height="300"
+          />
+          <span class="story-badge">{{ t().trustBadgeSince }}</span>
         </div>
-      </div>
-    </section>
-
-    <!-- ═══ Section 5 — BRAND STORY ═══ -->
-    <section class="section section-alt" aria-labelledby="story-heading">
-      <div class="container">
-        <div class="story-layout">
-          <div class="story-text">
-            <span class="section-label fade-in">{{ t().storyLabel }}</span>
-            <h2 id="story-heading" class="section-title fade-in d1">
-              {{ t().storyTitle }}
-            </h2>
-            <p class="story-body fade-in d2">{{ t().storyText }}</p>
-          </div>
+        <div class="story-text">
+          <span class="section-label reveal">{{ t().storyLabel }}</span>
+          <h2 id="story-heading" class="section-title reveal">
+            {{ t().storyTitle }}
+          </h2>
+          <p class="story-body reveal">{{ t().storyText }}</p>
           <div class="story-values">
-            <div class="story-value fade-in d1">
+            <div class="story-value reveal">
               <span class="sv-num">01</span>
               <div>
                 <h3>{{ t().storyValue1Title }}</h3>
                 <p>{{ t().storyValue1Desc }}</p>
               </div>
             </div>
-            <div class="story-value fade-in d2">
+            <div class="story-value reveal">
               <span class="sv-num">02</span>
               <div>
                 <h3>{{ t().storyValue2Title }}</h3>
                 <p>{{ t().storyValue2Desc }}</p>
               </div>
             </div>
-            <div class="story-value fade-in d3">
+            <div class="story-value reveal">
               <span class="sv-num">03</span>
               <div>
                 <h3>{{ t().storyValue3Title }}</h3>
@@ -449,21 +448,58 @@ interface Testimonial {
           </div>
         </div>
       </div>
+
+      <div class="container">
+        <div class="trust-panel reveal" aria-labelledby="trust-heading">
+          <div class="trust-head">
+            <span class="section-label">{{ t().trustLabel }}</span>
+            <h2 id="trust-heading" class="trust-title">
+              {{ t().trustTitle }}
+            </h2>
+            <p>{{ t().trustSub }}</p>
+          </div>
+          <ul class="trust-list">
+            @for (item of trustItems(); track $index) {
+              <li>
+                <span class="trust-check" aria-hidden="true">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </span>
+                {{ item }}
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <!-- ═══ Section 6 — SHOP GALLERY ═══ -->
-    <section class="section" aria-labelledby="gallery-heading">
+    <!-- ═══ SHOP GALLERY ═══ -->
+    <section class="block block-tint" aria-labelledby="gallery-heading">
       <div class="container">
-        <span class="section-label fade-in">{{ t().galleryLabel }}</span>
-        <h2 id="gallery-heading" class="section-title fade-in d1">
-          {{ t().galleryTitle }}
-        </h2>
-        <p class="section-subtitle fade-in d2">{{ t().gallerySub }}</p>
-        <div class="gallery-grid fade-in d3">
-          <div
-            class="gallery-item"
+        <header class="block-head reveal">
+          <div>
+            <span class="section-label">{{ t().galleryLabel }}</span>
+            <h2 id="gallery-heading" class="section-title">
+              {{ t().galleryTitle }}
+            </h2>
+          </div>
+          <p class="section-subtitle">{{ t().gallerySub }}</p>
+        </header>
+        <div class="gallery-grid">
+          <button
+            type="button"
+            class="gallery-item reveal"
             *ngFor="let photo of shopPhotos; let i = index"
             (click)="openLightbox(i)"
+            [attr.aria-label]="'Karaarslan Bike - Foto ' + (i + 1)"
           >
             <img
               [src]="photo"
@@ -472,21 +508,19 @@ interface Testimonial {
               width="400"
               height="300"
             />
-            <div class="gallery-overlay">
+            <span class="gallery-overlay" aria-hidden="true">
               <svg
-                width="28"
-                height="28"
+                width="26"
+                height="26"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
               >
-                <circle cx="11" cy="11" r="8" />
-                <path d="m21 21-4.35-4.35" />
-                <path d="M11 8v6M8 11h6" />
+                <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
               </svg>
-            </div>
-          </div>
+            </span>
+          </button>
         </div>
       </div>
     </section>
@@ -545,23 +579,40 @@ interface Testimonial {
       </div>
     </div>
 
-    <!-- ═══ Section 7 — BIKE CHECK SERVICE ═══ -->
-    <section class="section section-alt" aria-labelledby="bikecheck-heading">
+    <!-- ═══ BIKE CHECK SERVICE ═══ -->
+    <section class="block" aria-labelledby="bikecheck-heading">
       <div class="container">
-        <span class="section-label fade-in">{{ t().bikeCheckLabel }}</span>
-        <h2 id="bikecheck-heading" class="section-title fade-in d1">
-          {{ t().bikeCheckTitle }}
-        </h2>
-        <p class="section-subtitle fade-in d2">{{ t().bikeCheckSub }}</p>
+        <header class="block-head reveal">
+          <div>
+            <span class="section-label">{{ t().bikeCheckLabel }}</span>
+            <h2 id="bikecheck-heading" class="section-title">
+              {{ t().bikeCheckTitle }}
+            </h2>
+          </div>
+          <p class="section-subtitle">{{ t().bikeCheckSub }}</p>
+        </header>
 
-        <div class="bikecheck-grid fade-in d3">
-          <!-- Free Check -->
-          <div class="bikecheck-card bikecheck-free">
-            <div class="bikecheck-card-header">
-              <div class="bikecheck-icon free-icon">
+        <div class="bikecheck-grid">
+          <div class="bikecheck-photo reveal">
+            <img
+              src="/assets/stock/check.webp"
+              alt=""
+              loading="lazy"
+              width="1200"
+              height="800"
+            />
+            <span class="bikecheck-price">
+              <strong>0 €</strong>
+              <small>{{ t().bikeCheckFreeTitle }}</small>
+            </span>
+          </div>
+
+          <div class="bikecheck-card bikecheck-free reveal">
+            <h3>
+              <span class="bikecheck-icon" aria-hidden="true">
                 <svg
-                  width="28"
-                  height="28"
+                  width="22"
+                  height="22"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -570,111 +621,22 @@ interface Testimonial {
                   <path d="M9 12l2 2 4-4" />
                   <circle cx="12" cy="12" r="10" />
                 </svg>
-              </div>
-              <h3>{{ t().bikeCheckFreeTitle }}</h3>
-            </div>
+              </span>
+              {{ t().bikeCheckFreeTitle }}
+            </h3>
             <ul class="bikecheck-list">
-              <li>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                {{ t().bikeCheckBrakeCheck }}
-              </li>
-              <li>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                {{ t().bikeCheckGearTest }}
-              </li>
-              <li>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                {{ t().bikeCheckTireChain }}
-              </li>
-              <li>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                {{ t().bikeCheckLightCheck }}
-              </li>
-              <li>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                {{ t().bikeCheckReflectorCheck }}
-              </li>
-              <li>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                {{ t().bikeCheckBellCheck }}
-              </li>
-              <li>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                {{ t().bikeCheckSafetyCheck }}
-              </li>
+              @for (item of freeCheckItems(); track $index) {
+                <li>{{ item }}</li>
+              }
             </ul>
           </div>
 
-          <!-- Repair on Request -->
-          <div class="bikecheck-card bikecheck-repair">
-            <div class="bikecheck-card-header">
-              <div class="bikecheck-icon repair-icon">
+          <div class="bikecheck-card bikecheck-repair reveal">
+            <h3>
+              <span class="bikecheck-icon" aria-hidden="true">
                 <svg
-                  width="28"
-                  height="28"
+                  width="22"
+                  height="22"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -684,195 +646,52 @@ interface Testimonial {
                     d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
                   />
                 </svg>
-              </div>
-              <h3>{{ t().bikeCheckRepairTitle }}</h3>
-              <span class="bikecheck-badge liability-badge">{{
-                t().bikeCheckNoLiability
-              }}</span>
-            </div>
+              </span>
+              {{ t().bikeCheckRepairTitle }}
+            </h3>
             <ul class="bikecheck-list">
-              <li>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <circle cx="12" cy="12" r="3" />
-                  <path
-                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
-                  />
-                </svg>
-                {{ t().bikeCheckBrakeAdjust }}
-              </li>
-              <li>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <circle cx="12" cy="12" r="3" />
-                  <path
-                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
-                  />
-                </svg>
-                {{ t().bikeCheckChainCassette }}
-              </li>
-              <li>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <circle cx="12" cy="12" r="3" />
-                  <path
-                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
-                  />
-                </svg>
-                {{ t().bikeCheckGearAdjust }}
-              </li>
-              <li>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <circle cx="12" cy="12" r="3" />
-                  <path
-                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
-                  />
-                </svg>
-                {{ t().bikeCheckTireService }}
-              </li>
-              <li>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <circle cx="12" cy="12" r="3" />
-                  <path
-                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"
-                  />
-                </svg>
-                {{ t().bikeCheckCableReplace }}
-              </li>
-              <li>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <circle cx="12" cy="12" r="3" />
-                  <path
-                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"
-                  />
-                </svg>
-                {{ t().bikeCheckBottomBracket }}
-              </li>
-              <li>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <circle cx="12" cy="12" r="3" />
-                  <path
-                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"
-                  />
-                </svg>
-                {{ t().bikeCheckSpokeRepair }}
-              </li>
-              <li>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <circle cx="12" cy="12" r="3" />
-                  <path
-                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"
-                  />
-                </svg>
-                {{ t().bikeCheckLightInstall }}
-              </li>
-              <li>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <circle cx="12" cy="12" r="3" />
-                  <path
-                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"
-                  />
-                </svg>
-                {{ t().bikeCheckPedalReplace }}
-              </li>
+              @for (item of repairServiceItems(); track $index) {
+                <li>{{ item }}</li>
+              }
             </ul>
+            <span class="liability-badge">{{ t().bikeCheckNoLiability }}</span>
           </div>
         </div>
 
-        <!-- Note & exclusion -->
-        <div class="bikecheck-footer fade-in d4">
-          <div class="bikecheck-note">
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <circle cx="12" cy="12" r="10" />
-              <line x1="12" y1="16" x2="12" y2="12" />
-              <line x1="12" y1="8" x2="12.01" y2="8" />
-            </svg>
-            <span>{{ t().bikeCheckNote }} — {{ t().bikeCheckExclusion }}</span>
-          </div>
-          <p class="bikecheck-fair">{{ t().bikeCheckFairPrices }}</p>
+        <div class="bikecheck-footer reveal">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="16" x2="12" y2="12" />
+            <line x1="12" y1="8" x2="12.01" y2="8" />
+          </svg>
+          <span>{{ t().bikeCheckNote }} — {{ t().bikeCheckExclusion }}</span>
+          <strong>{{ t().bikeCheckFairPrices }}</strong>
         </div>
       </div>
     </section>
 
-    <!-- ═══ Section 7b — REPAIR SHOWCASES ═══ -->
+    <!-- ═══ REPAIR SHOWCASES ═══ -->
     @if (repairShowcases().length > 0) {
-      <section class="repair-section" aria-labelledby="repair-heading">
+      <section class="block block-tint" aria-labelledby="repair-heading">
         <div class="container">
-          <span class="section-label fade-in">{{ t().repairLabel }}</span>
-          <h2 id="repair-heading" class="section-title fade-in d1">
-            {{ t().repairTitle }}
-          </h2>
-          <p class="section-subtitle fade-in d2">{{ t().repairSub }}</p>
+          <header class="block-head reveal">
+            <div>
+              <span class="section-label">{{ t().repairLabel }}</span>
+              <h2 id="repair-heading" class="section-title">
+                {{ t().repairTitle }}
+              </h2>
+            </div>
+            <p class="section-subtitle">{{ t().repairSub }}</p>
+          </header>
 
-          <div class="repair-showcase fade-in d3">
-            <!-- Main image display -->
+          <div class="repair-showcase reveal">
             <div class="repair-main-image">
               @if (repairShowcases()[repairActiveIndex].images.length) {
                 <img
@@ -888,7 +707,6 @@ interface Testimonial {
                   width="800"
                   height="500"
                 />
-                <!-- Image counter -->
                 @if (repairShowcases()[repairActiveIndex].images.length > 1) {
                   <div class="repair-image-counter">
                     {{ repairImageIndex + 1 }} /
@@ -896,7 +714,6 @@ interface Testimonial {
                   </div>
                 }
               }
-              <!-- Overlay info -->
               <div class="repair-overlay">
                 <h3>{{ repairShowcases()[repairActiveIndex].titel }}</h3>
                 @if (repairShowcases()[repairActiveIndex].beschreibung) {
@@ -905,7 +722,6 @@ interface Testimonial {
               </div>
             </div>
 
-            <!-- Thumbnail strip -->
             @if (repairShowcases().length > 1) {
               <div class="repair-thumbs">
                 @for (
@@ -937,103 +753,107 @@ interface Testimonial {
       </section>
     }
 
-    <!-- ═══ Section 8 — GOOGLE REVIEWS ═══ -->
-    <section
-      class="testimonials-section"
-      aria-labelledby="testimonials-heading"
-    >
+    <!-- ═══ GOOGLE REVIEWS ═══ -->
+    <section class="block" aria-labelledby="testimonials-heading">
       <div class="container">
-        <span class="section-label fade-in">{{ t().testimonialsLabel }}</span>
-        <h2 id="testimonials-heading" class="section-title fade-in d1">
-          {{ t().testimonialsTitle }}
-        </h2>
-        <p class="section-sub fade-in d2">{{ t().testimonialsSub }}</p>
-
-        <!-- Google Rating Badge -->
-        @if (googleRating() > 0) {
-          <div class="google-rating-badge fade-in d2">
-            <svg class="google-icon" viewBox="0 0 24 24" width="28" height="28">
-              <path
-                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"
-                fill="#4285F4"
-              />
-              <path
-                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                fill="#34A853"
-              />
-              <path
-                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
-                fill="#FBBC05"
-              />
-              <path
-                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-                fill="#EA4335"
-              />
-            </svg>
-            <div class="google-rating-info">
-              <div class="google-rating-stars">
-                <span class="google-rating-value">{{
-                  googleRating().toFixed(1)
-                }}</span>
-                <div class="google-stars-row">
-                  @for (s of [1, 2, 3, 4, 5]; track s) {
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      [attr.fill]="s <= googleRating() ? '#f59e0b' : '#4b5563'"
-                    >
-                      <path
-                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-                      />
-                    </svg>
-                  }
-                </div>
-              </div>
-              <span class="google-review-count"
-                >{{ googleTotalReviews() }} Google
-                {{ t().reviewCountLabel }}</span
-              >
-            </div>
-            @if (googlePlaceUrl()) {
-              <a
-                [href]="googlePlaceUrl()"
-                target="_blank"
-                rel="noopener"
-                class="google-review-link"
-              >
-                {{ t().reviewCta }}
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
-                  />
-                </svg>
-              </a>
-            }
+        <header class="block-head reveal">
+          <div>
+            <span class="section-label">{{ t().testimonialsLabel }}</span>
+            <h2 id="testimonials-heading" class="section-title">
+              {{ t().testimonialsTitle }}
+            </h2>
+            <p class="section-subtitle">{{ t().testimonialsSub }}</p>
           </div>
-        }
+
+          @if (googleRating() > 0) {
+            <div class="google-rating-badge">
+              <svg
+                class="google-icon"
+                viewBox="0 0 24 24"
+                width="30"
+                height="30"
+              >
+                <path
+                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"
+                  fill="#4285F4"
+                />
+                <path
+                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                  fill="#34A853"
+                />
+                <path
+                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                  fill="#FBBC05"
+                />
+                <path
+                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                  fill="#EA4335"
+                />
+              </svg>
+              <div class="google-rating-info">
+                <div class="google-rating-stars">
+                  <span class="google-rating-value">{{
+                    googleRating().toFixed(1)
+                  }}</span>
+                  <div class="google-stars-row">
+                    @for (s of [1, 2, 3, 4, 5]; track s) {
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        [attr.fill]="s <= googleRating() ? '#f59e0b' : '#4b5563'"
+                      >
+                        <path
+                          d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        />
+                      </svg>
+                    }
+                  </div>
+                </div>
+                <span class="google-review-count"
+                  >{{ googleTotalReviews() }} Google
+                  {{ t().reviewCountLabel }}</span
+                >
+              </div>
+              @if (googlePlaceUrl()) {
+                <a
+                  [href]="googlePlaceUrl()"
+                  target="_blank"
+                  rel="noopener"
+                  class="google-review-link"
+                >
+                  {{ t().reviewCta }}
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
+                    />
+                  </svg>
+                </a>
+              }
+            </div>
+          }
+        </header>
 
         <div class="testimonials-grid">
-          <!-- Google Reviews (real) -->
           @if (googleReviews().length > 0) {
             @for (review of googleReviews(); track review.time) {
               @if (review.text) {
-                <article class="testimonial-card fade-in d1">
+                <article class="testimonial-card reveal">
                   <div
                     class="testimonial-stars"
                     [attr.aria-label]="review.rating + ' von 5 Sternen'"
                   >
                     @for (s of [1, 2, 3, 4, 5]; track s) {
                       <svg
-                        width="18"
-                        height="18"
+                        width="16"
+                        height="16"
                         viewBox="0 0 24 24"
                         [attr.fill]="s <= review.rating ? '#f59e0b' : '#4b5563'"
                       >
@@ -1044,7 +864,7 @@ interface Testimonial {
                     }
                   </div>
                   <blockquote class="testimonial-text">
-                    "{{ review.text }}"
+                    {{ review.text }}
                   </blockquote>
                   <footer class="testimonial-author">
                     @if (review.authorPhotoUrl) {
@@ -1073,10 +893,9 @@ interface Testimonial {
               }
             }
           } @else {
-            <!-- Fallback: hardcoded testimonials -->
             <article
-              class="testimonial-card fade-in d1"
-              *ngFor="let review of testimonials; let i = index"
+              class="testimonial-card reveal"
+              *ngFor="let review of testimonials"
             >
               <div
                 class="testimonial-stars"
@@ -1084,10 +903,10 @@ interface Testimonial {
               >
                 <svg
                   *ngFor="let s of [1, 2, 3, 4, 5]"
-                  width="18"
-                  height="18"
+                  width="16"
+                  height="16"
                   viewBox="0 0 24 24"
-                  fill="currentColor"
+                  fill="#f59e0b"
                 >
                   <path
                     d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
@@ -1095,7 +914,7 @@ interface Testimonial {
                 </svg>
               </div>
               <blockquote class="testimonial-text">
-                "{{ review.text }}"
+                {{ review.text }}
               </blockquote>
               <footer class="testimonial-author">
                 <div class="author-avatar">{{ review.initials }}</div>
@@ -1108,11 +927,11 @@ interface Testimonial {
           }
         </div>
 
-        <div class="trust-badges fade-in d3">
+        <div class="trust-badges reveal">
           <div class="trust-badge">
             <svg
-              width="24"
-              height="24"
+              width="22"
+              height="22"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -1125,8 +944,8 @@ interface Testimonial {
           </div>
           <div class="trust-badge">
             <svg
-              width="24"
-              height="24"
+              width="22"
+              height="22"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -1139,8 +958,8 @@ interface Testimonial {
           </div>
           <div class="trust-badge">
             <svg
-              width="24"
-              height="24"
+              width="22"
+              height="22"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -1156,136 +975,81 @@ interface Testimonial {
       </div>
     </section>
 
-    <!-- ═══ Section 7 — FAQ ═══ -->
-    <section class="faq-section" aria-labelledby="faq-heading">
-      <div class="container">
-        <span class="section-label fade-in">{{ t().faqLabel }}</span>
-        <h2 id="faq-heading" class="section-title fade-in d1">
-          {{ t().faqTitle }}
-        </h2>
-        <p class="section-sub fade-in d2">{{ t().faqSub }}</p>
+    <!-- ═══ FAQ ═══ -->
+    <section class="block block-tint" aria-labelledby="faq-heading">
+      <div class="container faq-layout">
+        <div class="faq-intro reveal">
+          <span class="section-label">{{ t().faqLabel }}</span>
+          <h2 id="faq-heading" class="section-title">{{ t().faqTitle }}</h2>
+          <p class="section-subtitle">{{ t().faqSub }}</p>
+          <a
+            href="https://wa.me/491637390301"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-secondary btn-glass"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path [attr.d]="whatsappPath" />
+            </svg>
+            {{ t().ctaWhatsapp }}
+          </a>
+        </div>
 
         <div class="faq-list">
-          <details class="faq-item fade-in d1">
-            <summary class="faq-question">
-              <span>{{ t().faq1Q }}</span>
-              <svg
-                class="faq-chevron"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </summary>
-            <p class="faq-answer">{{ t().faq1A }}</p>
-          </details>
-
-          <details class="faq-item fade-in d2">
-            <summary class="faq-question">
-              <span>{{ t().faq2Q }}</span>
-              <svg
-                class="faq-chevron"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </summary>
-            <p class="faq-answer">{{ t().faq2A }}</p>
-          </details>
-
-          <details class="faq-item fade-in d3">
-            <summary class="faq-question">
-              <span>{{ t().faq3Q }}</span>
-              <svg
-                class="faq-chevron"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </summary>
-            <p class="faq-answer">{{ t().faq3A }}</p>
-          </details>
-
-          <details class="faq-item fade-in d4">
-            <summary class="faq-question">
-              <span>{{ t().faq4Q }}</span>
-              <svg
-                class="faq-chevron"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </summary>
-            <p class="faq-answer">{{ t().faq4A }}</p>
-          </details>
-
-          <details class="faq-item fade-in d5">
-            <summary class="faq-question">
-              <span>{{ t().faq5Q }}</span>
-              <svg
-                class="faq-chevron"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </summary>
-            <p class="faq-answer">{{ t().faq5A }}</p>
-          </details>
+          @for (faq of faqItems(); track $index) {
+            <details class="faq-item reveal">
+              <summary class="faq-question">
+                <span>{{ faq.q }}</span>
+                <span class="faq-toggle" aria-hidden="true"></span>
+              </summary>
+              <p class="faq-answer">{{ faq.a }}</p>
+            </details>
+          }
         </div>
       </div>
     </section>
 
-    <!-- ═══ Section 8 — CTA ═══ -->
+    <!-- ═══ CTA ═══ -->
     <section class="cta-section" aria-labelledby="cta-heading">
-      <div class="container cta-inner">
-        <h2 id="cta-heading" class="cta-h2 fade-in">
-          {{ t().ctaSectionTitle }}
-        </h2>
-        <p class="cta-sub fade-in d1">{{ t().ctaSectionSub }}</p>
-        <a
-          [routerLink]="['/' + lang(), 'showroom']"
-          class="btn-primary cta-btn fade-in d2"
-          >{{ t().ctaSectionButton }}
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
+      <img
+        class="cta-img"
+        src="/assets/stock/ausfahrt.webp"
+        alt=""
+        loading="lazy"
+        width="1800"
+        height="1013"
+      />
+      <div class="cta-shade" aria-hidden="true"></div>
+      <div class="container cta-inner reveal">
+        <h2 id="cta-heading" class="cta-h2">{{ t().ctaSectionTitle }}</h2>
+        <p class="cta-sub">{{ t().ctaSectionSub }}</p>
+        <div class="cta-actions">
+          <a [routerLink]="['/' + lang(), 'showroom']" class="btn-primary"
+            >{{ t().ctaSectionButton }}
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+          <a
+            href="https://maps.app.goo.gl/Q1fXe7A6PRb8E5wV7"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-secondary btn-glass"
+            >{{ t().ctaRoute }}</a
           >
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </a>
+        </div>
       </div>
     </section>
 
-    <!-- ═══ Section 7 — LOADING (skeleton) ═══ -->
-    <section class="section" *ngIf="loading()" aria-label="Loading">
+    <!-- ═══ LOADING (skeleton) ═══ -->
+    <section class="block" *ngIf="loading()" aria-label="Loading">
       <div class="container">
         <div class="skeleton-row">
           <div class="skeleton-card" *ngFor="let i of [1, 2, 3]">
@@ -1304,441 +1068,881 @@ interface Testimonial {
     `
       :host {
         display: block;
+        --line: rgba(255, 255, 255, 0.08);
+        --line-strong: rgba(255, 255, 255, 0.14);
+        --ink-soft: rgba(255, 255, 255, 0.68);
+        --ink-faint: rgba(255, 255, 255, 0.46);
+        --card: rgba(255, 255, 255, 0.035);
+        --radius-xl: 28px;
+        --radius-lg: 20px;
+        --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      /* ═══ SHARED ═══ */
+      .block {
+        position: relative;
+        padding: clamp(4rem, 8vw, 7rem) 0;
+      }
+
+      .block-tint {
         background:
           radial-gradient(
-            circle at top,
-            rgba(255, 87, 34, 0.08),
-            transparent 30%
+            ellipse 60% 50% at 100% 0%,
+            rgba(255, 87, 34, 0.07),
+            transparent 70%
           ),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 22%),
-          var(--color-bg);
+          var(--color-bg-secondary);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
       }
 
-      .section,
-      .repair-section,
-      .testimonials-section,
-      .faq-section,
-      .cta-section {
-        position: relative;
+      .block-head {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 2rem;
+        margin-bottom: clamp(2rem, 4vw, 3.25rem);
       }
 
-      .section .container,
-      .repair-section .container,
-      .testimonials-section .container,
-      .faq-section .container,
-      .cta-inner {
-        position: relative;
-        z-index: 1;
-      }
-
-      .section {
-        padding: 1.4rem 0;
-      }
-
-      .section .container,
-      .repair-section .container,
-      .testimonials-section .container,
-      .faq-section .container {
-        padding: 2.2rem;
-        border-radius: 30px;
-        background:
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.045),
-            rgba(255, 255, 255, 0.015)
-          ),
-          rgba(17, 20, 27, 0.7);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: 0 28px 70px rgba(0, 0, 0, 0.14);
-        overflow: hidden;
-      }
-
-      .section .container::before,
-      .repair-section .container::before,
-      .testimonials-section .container::before,
-      .faq-section .container::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.05),
-          transparent 40%
-        );
-        pointer-events: none;
-      }
-
-      .section-alt .container,
-      .repair-section .container,
-      .testimonials-section .container,
-      .faq-section .container {
-        background:
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.05),
-            rgba(255, 255, 255, 0.02)
-          ),
-          rgba(12, 15, 21, 0.82);
+      .block-head > .section-subtitle {
+        max-width: 420px;
+        margin-bottom: 0.4rem;
       }
 
       .section-label {
         display: inline-flex;
         align-items: center;
-        gap: 0.45rem;
-        padding: 0.4rem 0.75rem;
-        border-radius: 999px;
-        background: rgba(255, 87, 34, 0.1);
-        border: 1px solid rgba(255, 87, 34, 0.18);
+        gap: 0.6rem;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        color: var(--color-accent);
+        margin-bottom: 1rem;
+      }
+
+      .section-label::before {
+        content: '';
+        width: 28px;
+        height: 2px;
+        border-radius: 2px;
+        background: var(--color-accent);
       }
 
       .section-title {
-        font-size: clamp(2rem, 4vw, 3.35rem);
-        line-height: 0.98;
+        font-size: clamp(2rem, 4.2vw, 3.4rem);
+        font-weight: 800;
+        line-height: 1.02;
         letter-spacing: -0.04em;
-        margin: 1rem 0 0.9rem;
+        margin: 0 0 0.9rem;
+        max-width: 760px;
+        text-wrap: balance;
       }
 
       .section-subtitle {
-        max-width: 720px;
-        font-size: 1rem;
-        line-height: 1.75;
-        color: rgba(255, 255, 255, 0.68);
+        font-size: 1.02rem;
+        line-height: 1.7;
+        color: var(--ink-soft);
+        max-width: 620px;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.35rem 0.8rem;
+        border-radius: 999px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #fff;
+        background: rgba(255, 87, 34, 0.9);
+      }
+
+      .btn-glass {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.22);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+
+      .btn-glass:hover {
+        background: rgba(255, 255, 255, 0.16);
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+
+      .link-arrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-shrink: 0;
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: var(--color-text);
+        padding-bottom: 0.3rem;
+        border-bottom: 2px solid var(--color-accent);
+        transition: gap 0.3s var(--ease), color 0.3s;
+      }
+
+      .link-arrow:hover {
+        gap: 0.85rem;
+        color: var(--color-accent);
+      }
+
+      /* Load-in animation (hero) */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(24px);
+        animation: fadeInUp 0.9s var(--ease) forwards;
+      }
+      .d1 {
+        animation-delay: 0.08s;
+      }
+      .d2 {
+        animation-delay: 0.16s;
+      }
+      .d3 {
+        animation-delay: 0.24s;
+      }
+      .d4 {
+        animation-delay: 0.36s;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Scroll reveal — progressive enhancement, content stays visible without support */
+      @supports (animation-timeline: view()) {
+        .reveal {
+          animation: reveal linear both;
+          animation-timeline: view();
+          animation-range: entry 0% entry 40%;
+        }
+      }
+
+      @keyframes reveal {
+        from {
+          opacity: 0;
+          transform: translateY(36px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
       }
 
       /* ═══ HERO ═══ */
       .hero {
         position: relative;
         min-height: 100vh;
-        min-height: 100dvh;
+        min-height: 100svh;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        align-items: flex-end;
         overflow: hidden;
-        background: var(--color-bg);
+        isolation: isolate;
       }
 
-      .hero-bg {
+      .hero-img {
         position: absolute;
         inset: 0;
-        z-index: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 60% 50%;
+        z-index: -2;
+        animation: heroZoom 18s ease-out forwards;
       }
 
-      .hero-grain {
+      @keyframes heroZoom {
+        from {
+          transform: scale(1.12);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+
+      .hero-shade {
         position: absolute;
         inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-        opacity: 0.5;
+        z-index: -1;
+        background:
+          linear-gradient(
+            90deg,
+            rgba(10, 10, 10, 0.92) 0%,
+            rgba(10, 10, 10, 0.7) 38%,
+            rgba(10, 10, 10, 0.15) 75%
+          ),
+          linear-gradient(0deg, var(--color-bg) 0%, transparent 35%),
+          linear-gradient(180deg, rgba(10, 10, 10, 0.6) 0%, transparent 25%);
       }
 
-      .hero-radial {
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(
-          ellipse 80% 60% at 50% 40%,
-          rgba(255, 87, 34, 0.08) 0%,
-          transparent 70%
-        );
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.75fr);
+        align-items: end;
+        gap: 3rem;
+        padding-top: 9rem;
+        padding-bottom: clamp(4rem, 9vh, 6.5rem);
       }
 
-      .hero-inner {
-        position: relative;
-        z-index: 1;
-        text-align: center;
-        padding: 8rem 1rem 6rem;
-        max-width: 980px;
-      }
-
-      .hero-label {
-        display: inline-block;
-        font-size: 0.8rem;
-        font-weight: 700;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--color-accent);
-        margin-bottom: 1.5rem;
-        padding: 0.5rem 0.8rem;
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.5rem 1rem 0.5rem 0.75rem;
         border-radius: 999px;
-        background: rgba(255, 87, 34, 0.1);
-        border: 1px solid rgba(255, 87, 34, 0.16);
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: #fff;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        margin-bottom: 1.6rem;
+      }
+
+      .eyebrow-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--color-accent);
+        box-shadow: 0 0 0 0 rgba(255, 87, 34, 0.6);
+        animation: pulse 2.2s infinite;
+      }
+
+      @keyframes pulse {
+        70% {
+          box-shadow: 0 0 0 10px rgba(255, 87, 34, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(255, 87, 34, 0);
+        }
       }
 
       .hero-h1 {
-        font-size: clamp(3.2rem, 8vw, 6rem);
+        font-size: clamp(2.8rem, 7.2vw, 6.2rem);
         font-weight: 800;
-        line-height: 0.94;
+        line-height: 0.95;
         letter-spacing: -0.055em;
-        color: var(--color-text);
-        margin: 0 auto 1.35rem;
-        max-width: 980px;
+        margin: 0 0 1.5rem;
+        text-wrap: balance;
+      }
+
+      .hero-h1-accent {
+        display: block;
+        color: var(--color-accent);
+        background: linear-gradient(90deg, #ff5722, #ff9a5a);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
 
       .hero-sub {
-        font-size: clamp(1rem, 2vw, 1.2rem);
-        color: rgba(255, 255, 255, 0.72);
-        line-height: 1.8;
-        max-width: 720px;
-        margin: 0 auto 2.5rem;
+        font-size: clamp(1rem, 1.6vw, 1.18rem);
+        line-height: 1.75;
+        color: rgba(255, 255, 255, 0.8);
+        max-width: 600px;
+        margin: 0 0 2.25rem;
       }
 
       .hero-actions {
         display: flex;
-        gap: 1rem;
-        justify-content: center;
         flex-wrap: wrap;
-        margin-bottom: 3rem;
+        gap: 0.85rem;
       }
 
-      .hero-stats {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        flex-wrap: wrap;
-
-        .hero-stats-hidden {
-          visibility: hidden;
-        }
-      }
-
-      .h-stat {
+      .hero-card {
         display: flex;
         flex-direction: column;
+        gap: 0.4rem;
+        padding: 1.1rem;
+        border-radius: var(--radius-xl);
+        background: rgba(18, 18, 18, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(18px) saturate(140%);
+        -webkit-backdrop-filter: blur(18px) saturate(140%);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+      }
+
+      .hero-card-stats:empty {
+        display: none;
+      }
+
+      .hero-card-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+        gap: 0.4rem;
+        margin-bottom: 0.3rem;
+      }
+
+      .hc-stat {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 1.1rem;
+        border-radius: var(--radius-lg);
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .hc-stat-n {
+        display: inline-flex;
         align-items: center;
-        min-width: 170px;
-        padding: 1rem 1.2rem;
-        border-radius: 20px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
-      }
-
-      .h-stat-n {
-        font-size: 2.4rem;
+        gap: 0.35rem;
+        font-size: 2.1rem;
         font-weight: 800;
-        color: var(--color-accent);
+        letter-spacing: -0.04em;
         line-height: 1;
+        color: #fff;
       }
 
-      .h-stat-l {
-        font-size: 0.78rem;
-        color: var(--color-text-muted);
+      .hc-stat-l {
+        margin-top: 0.4rem;
+        font-size: 0.74rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
         text-transform: uppercase;
-        letter-spacing: 0.08em;
-        margin-top: 0.35rem;
+        color: var(--ink-faint);
+      }
+
+      .hc-row {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+        padding: 0.85rem 1rem;
+        border-radius: var(--radius-lg);
+        transition: background 0.25s;
+      }
+
+      .hc-row:hover {
+        background: rgba(255, 255, 255, 0.07);
+      }
+
+      .hc-row svg {
+        flex-shrink: 0;
+        color: var(--color-accent);
+      }
+
+      .hc-row span {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.3;
+      }
+
+      .hc-row strong {
+        font-size: 0.95rem;
+      }
+
+      .hc-row small {
+        font-size: 0.8rem;
+        color: var(--ink-faint);
       }
 
       .hero-scroll {
         position: absolute;
-        bottom: 2rem;
         left: 50%;
-        transform: translateX(-50%);
-        color: var(--color-text-muted);
-        animation: floatDown 2s ease-in-out infinite;
+        bottom: 1.6rem;
+        width: 22px;
+        height: 36px;
+        margin-left: -11px;
+        border-radius: 12px;
+        border: 2px solid rgba(255, 255, 255, 0.35);
       }
 
-      @keyframes floatDown {
-        0%,
+      .hero-scroll span {
+        position: absolute;
+        left: 50%;
+        top: 6px;
+        width: 4px;
+        height: 7px;
+        margin-left: -2px;
+        border-radius: 2px;
+        background: #fff;
+        animation: scrollDot 1.8s var(--ease) infinite;
+      }
+
+      @keyframes scrollDot {
+        0% {
+          opacity: 0;
+          transform: translateY(0);
+        }
+        30% {
+          opacity: 1;
+        }
         100% {
-          transform: translateX(-50%) translateY(0);
-          opacity: 0.4;
+          opacity: 0;
+          transform: translateY(12px);
         }
-        50% {
-          transform: translateX(-50%) translateY(8px);
-          opacity: 0.8;
+      }
+
+      /* ═══ TICKER ═══ */
+      .ticker {
+        overflow: hidden;
+        background: var(--color-accent);
+        color: #fff;
+        transform: rotate(-1.2deg);
+        margin: 1.5rem -1rem 0;
+        box-shadow: 0 20px 50px rgba(255, 87, 34, 0.2);
+      }
+
+      .ticker-track {
+        display: flex;
+        width: max-content;
+        animation: ticker 38s linear infinite;
+      }
+
+      .ticker-item,
+      .ticker-sep {
+        padding: 1rem 1.1rem;
+        white-space: nowrap;
+        font-size: 1rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .ticker-sep {
+        opacity: 0.6;
+      }
+
+      @keyframes ticker {
+        to {
+          transform: translateX(-50%);
         }
+      }
+
+      /* ═══ SERVICES ═══ */
+      .svc-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 1fr;
+        gap: 1.25rem;
+      }
+
+      .svc-card {
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        min-height: 560px;
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        isolation: isolate;
+        border: 1px solid var(--line);
+      }
+
+      .svc-card img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+        transition: transform 1.2s var(--ease);
+      }
+
+      .svc-card:hover img {
+        transform: scale(1.05);
+      }
+
+      .svc-card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: linear-gradient(
+          180deg,
+          rgba(10, 10, 10, 0) 15%,
+          rgba(10, 10, 10, 0.75) 50%,
+          rgba(10, 10, 10, 0.95) 85%
+        );
+      }
+
+      .svc-body {
+        padding: clamp(1.5rem, 3vw, 2.5rem);
+      }
+
+      .svc-body h2 {
+        font-size: clamp(1.8rem, 3vw, 2.6rem);
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        line-height: 1.05;
+        margin: 1rem 0 0.6rem;
+      }
+
+      .svc-body p {
+        color: rgba(255, 255, 255, 0.78);
+        line-height: 1.65;
+        max-width: 460px;
+        margin-bottom: 1.4rem;
+      }
+
+      .svc-tags {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.6rem;
+      }
+
+      .svc-tags li {
+        padding: 0.45rem 0.85rem;
+        border-radius: 999px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+      }
+
+      .btn-wa {
+        background: #25d366;
+      }
+
+      .btn-wa:hover {
+        background: #1fbd59;
+        box-shadow: 0 8px 32px rgba(37, 211, 102, 0.3);
+      }
+
+      /* ═══ CATEGORIES ═══ */
+      .cat-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr;
+        grid-template-rows: repeat(2, 260px);
+        gap: 1rem;
+      }
+
+      .cat-tile {
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        isolation: isolate;
+        padding: 1.4rem;
+        border: 1px solid var(--line);
+      }
+
+      .cat-tile-wide {
+        grid-row: span 2;
+      }
+
+      .cat-tile:nth-child(4) {
+        grid-column: span 2;
+      }
+
+      .cat-tile img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+        transition: transform 1s var(--ease);
+      }
+
+      .cat-tile::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: linear-gradient(
+          180deg,
+          transparent 35%,
+          rgba(10, 10, 10, 0.85) 100%
+        );
+        transition: background 0.4s;
+      }
+
+      .cat-tile:hover img {
+        transform: scale(1.07);
+      }
+
+      .cat-index {
+        position: absolute;
+        top: 1.2rem;
+        left: 1.4rem;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      .cat-text {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+
+      .cat-text strong {
+        font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+      }
+
+      .cat-text small {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .cat-arrow {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        display: grid;
+        place-items: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.14);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        transition:
+          background 0.3s,
+          transform 0.4s var(--ease);
+      }
+
+      .cat-tile:hover .cat-arrow {
+        background: var(--color-accent);
+        transform: rotate(45deg);
       }
 
       /* ═══ VALUES ═══ */
       .values-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 1.5rem;
-        margin-top: 3rem;
+        border-top: 1px solid var(--line-strong);
       }
 
       .value-card {
+        padding: 2rem 1.75rem 0.5rem 0;
         position: relative;
-        background:
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.05),
-            rgba(255, 255, 255, 0.015)
-          ),
-          var(--color-surface);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 22px;
-        padding: 2rem 1.6rem;
-        transition:
-          border-color 0.3s,
-          transform 0.3s,
-          box-shadow 0.3s;
       }
 
-      .value-card:hover {
-        border-color: var(--color-accent);
-        transform: translateY(-6px);
-        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.18);
+      .value-card + .value-card {
+        padding-left: 1.75rem;
+        border-left: 1px solid var(--line);
       }
 
-      .value-icon {
-        width: 48px;
-        height: 48px;
-        border-radius: 12px;
-        background: rgba(255, 87, 34, 0.1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 1.25rem;
-        color: var(--color-accent);
+      .value-card::before {
+        content: '';
+        position: absolute;
+        top: -1px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--color-accent);
+        transition: width 0.6s var(--ease);
+      }
+
+      .value-card:hover::before {
+        width: 100%;
+      }
+
+      .value-num {
+        display: block;
+        font-size: 3rem;
+        font-weight: 800;
+        letter-spacing: -0.05em;
+        line-height: 1;
+        color: transparent;
+        -webkit-text-stroke: 1.5px var(--color-accent);
+        margin-bottom: 1.5rem;
       }
 
       .value-card h3 {
-        font-size: 1.05rem;
+        font-size: 1.15rem;
         font-weight: 700;
-        color: var(--color-text);
-        margin: 0 0 0.5rem;
+        margin-bottom: 0.6rem;
       }
 
       .value-card p {
-        font-size: 0.9rem;
-        color: var(--color-text-secondary);
-        line-height: 1.6;
-        margin: 0;
+        font-size: 0.93rem;
+        line-height: 1.7;
+        color: var(--ink-soft);
       }
 
-      /* ═══ SHOWROOM PREVIEW ═══ */
-      .section-head-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        margin-bottom: 2.5rem;
-        gap: 1.25rem;
-      }
-
-      .view-all-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        flex-shrink: 0;
-        padding: 0.85rem 1.1rem;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
+      /* ═══ BIKE GRIDS ═══ */
       .bike-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 1.5rem;
       }
 
-      /* ═══ TRUST ═══ */
-      .trust-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.25rem;
-        margin-top: 2.5rem;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .trust-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 1rem;
-        background: rgba(255, 255, 255, 0.035);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 18px;
-        padding: 1.35rem 1.5rem;
-      }
-
-      .trust-check {
-        flex-shrink: 0;
-        margin-top: 2px;
-      }
-
-      .trust-item p {
-        font-size: 0.95rem;
-        color: var(--color-text-secondary);
-        line-height: 1.5;
-        margin: 0;
-      }
-
-      /* ═══ BRAND STORY ═══ */
-      .story-layout {
+      /* ═══ STORY ═══ */
+      .story-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 4rem;
-        align-items: start;
-        padding: 0.4rem;
+        gap: clamp(2.5rem, 6vw, 5.5rem);
+        align-items: center;
+      }
+
+      .story-media {
+        position: relative;
+        padding: 0 3rem 3rem 0;
+      }
+
+      .story-img-main {
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        border-radius: var(--radius-xl);
+      }
+
+      .story-img-small {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 46%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: var(--radius-lg);
+        border: 6px solid var(--color-bg);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+      }
+
+      .story-badge {
+        position: absolute;
+        top: 1.5rem;
+        left: -1rem;
+        padding: 0.75rem 1.1rem;
+        border-radius: 14px;
+        font-weight: 800;
+        font-size: 0.9rem;
+        background: var(--color-accent);
+        color: #fff;
+        box-shadow: 0 16px 40px rgba(255, 87, 34, 0.35);
+        transform: rotate(-3deg);
       }
 
       .story-body {
         font-size: 1.1rem;
         line-height: 1.8;
-        color: var(--color-text-secondary);
-        margin-top: 1.5rem;
+        color: var(--ink-soft);
+        margin-bottom: 2.25rem;
       }
 
       .story-values {
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
-        padding-top: 1rem;
       }
 
       .story-value {
         display: flex;
         gap: 1.25rem;
-        align-items: flex-start;
+        padding: 1.25rem 0;
+        border-top: 1px solid var(--line);
       }
 
       .sv-num {
-        font-size: 1.5rem;
+        font-size: 0.85rem;
         font-weight: 800;
         color: var(--color-accent);
-        line-height: 1;
-        flex-shrink: 0;
-        margin-top: 0.2rem;
+        padding-top: 0.2rem;
       }
 
       .story-value h3 {
-        font-size: 1rem;
+        font-size: 1.05rem;
         font-weight: 700;
-        color: var(--color-text);
-        margin: 0 0 0.3rem;
+        margin-bottom: 0.3rem;
       }
 
       .story-value p {
-        font-size: 0.9rem;
-        color: var(--color-text-secondary);
-        line-height: 1.5;
-        margin: 0;
+        font-size: 0.93rem;
+        line-height: 1.65;
+        color: var(--ink-soft);
       }
 
-      /* ═══ SHOP GALLERY ═══ */
+      .trust-panel {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 2.5rem;
+        margin-top: clamp(3.5rem, 7vw, 5.5rem);
+        padding: clamp(1.75rem, 4vw, 3rem);
+        border-radius: var(--radius-xl);
+        background:
+          radial-gradient(
+            ellipse 70% 90% at 0% 0%,
+            rgba(255, 87, 34, 0.16),
+            transparent 60%
+          ),
+          var(--card);
+        border: 1px solid var(--line);
+      }
+
+      .trust-title {
+        font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+        font-weight: 800;
+        letter-spacing: -0.035em;
+        line-height: 1.1;
+        margin-bottom: 0.8rem;
+      }
+
+      .trust-head p {
+        color: var(--ink-soft);
+        line-height: 1.7;
+      }
+
+      .trust-list {
+        list-style: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+        align-content: center;
+      }
+
+      .trust-list li {
+        display: flex;
+        gap: 0.8rem;
+        align-items: flex-start;
+        padding: 1.1rem;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--line);
+        font-size: 0.93rem;
+        line-height: 1.55;
+      }
+
+      .trust-check {
+        flex-shrink: 0;
+        display: grid;
+        place-items: center;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: var(--color-accent);
+        color: #fff;
+      }
+
+      /* ═══ GALLERY ═══ */
       .gallery-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-        margin-top: 3rem;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 220px;
+        gap: 0.8rem;
       }
 
       .gallery-item {
         position: relative;
-        border-radius: 20px;
         overflow: hidden;
-        cursor: pointer;
-        aspect-ratio: 4 / 3;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: 0 16px 44px rgba(0, 0, 0, 0.14);
+        border-radius: 16px;
+        border: none;
+        padding: 0;
+        cursor: zoom-in;
+        background: var(--color-surface);
+      }
+
+      .gallery-item:first-child {
+        grid-column: span 2;
+        grid-row: span 2;
       }
 
       .gallery-item img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.4s ease;
+        transition: transform 0.9s var(--ease);
       }
 
       .gallery-item:hover img {
@@ -1748,16 +1952,16 @@ interface Testimonial {
       .gallery-overlay {
         position: absolute;
         inset: 0;
-        background: rgba(0, 0, 0, 0.35);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
+        display: grid;
+        place-items: center;
         color: #fff;
+        background: rgba(255, 87, 34, 0.35);
+        opacity: 0;
+        transition: opacity 0.35s;
       }
 
-      .gallery-item:hover .gallery-overlay {
+      .gallery-item:hover .gallery-overlay,
+      .gallery-item:focus-visible .gallery-overlay {
         opacity: 1;
       }
 
@@ -1766,7 +1970,7 @@ interface Testimonial {
         position: fixed;
         inset: 0;
         z-index: 9999;
-        background: rgba(0, 0, 0, 0.92);
+        background: rgba(0, 0, 0, 0.94);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1801,7 +2005,6 @@ interface Testimonial {
         cursor: pointer;
         line-height: 1;
         opacity: 0.8;
-        transition: opacity 0.2s;
         z-index: 10;
       }
 
@@ -1823,16 +2026,12 @@ interface Testimonial {
         display: flex;
         align-items: center;
         justify-content: center;
-        opacity: 0.7;
-        transition:
-          opacity 0.2s,
-          background 0.2s;
         z-index: 10;
+        transition: background 0.2s;
       }
 
       .lightbox-nav:hover {
-        opacity: 1;
-        background: rgba(255, 255, 255, 0.2);
+        background: var(--color-accent);
       }
 
       .lightbox-prev {
@@ -1854,293 +2053,283 @@ interface Testimonial {
         letter-spacing: 0.05em;
       }
 
-      /* ═══ REPAIR SHOWCASE SECTION ═══ */
-      .repair-section {
-        padding: 6rem 0;
-        background: linear-gradient(
-          180deg,
-          rgba(0, 0, 0, 0.02) 0%,
-          transparent 100%
-        );
+      /* ═══ BIKE CHECK ═══ */
+      .bikecheck-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
       }
 
-      .repair-showcase {
-        margin-top: 3rem;
-        max-width: 900px;
+      .bikecheck-photo {
+        position: relative;
+        min-height: 420px;
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+      }
+
+      .bikecheck-photo img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .bikecheck-price {
+        position: absolute;
+        left: 1.25rem;
+        bottom: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 1.25rem;
+        border-radius: 18px;
+        background: var(--color-accent);
+        box-shadow: 0 18px 40px rgba(255, 87, 34, 0.35);
+      }
+
+      .bikecheck-price strong {
+        font-size: 2.4rem;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -0.04em;
+      }
+
+      .bikecheck-price small {
+        font-size: 0.8rem;
+        font-weight: 600;
+        opacity: 0.9;
+      }
+
+      .bikecheck-card {
+        display: flex;
+        flex-direction: column;
+        padding: 1.75rem;
+        border-radius: var(--radius-xl);
+        background: var(--card);
+        border: 1px solid var(--line);
+      }
+
+      .bikecheck-free {
+        background:
+          linear-gradient(
+            160deg,
+            rgba(34, 197, 94, 0.12),
+            transparent 55%
+          ),
+          var(--card);
+      }
+
+      .bikecheck-card h3 {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 1.25rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin-bottom: 1.25rem;
+      }
+
+      .bikecheck-icon {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        background: rgba(255, 87, 34, 0.14);
+        color: var(--color-accent);
+      }
+
+      .bikecheck-free .bikecheck-icon {
+        background: rgba(34, 197, 94, 0.14);
+        color: var(--color-success);
+      }
+
+      .bikecheck-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .bikecheck-list li {
+        position: relative;
+        padding: 0.7rem 0 0.7rem 1.6rem;
+        font-size: 0.93rem;
+        color: rgba(255, 255, 255, 0.82);
+        border-bottom: 1px dashed var(--line);
+      }
+
+      .bikecheck-list li:last-child {
+        border-bottom: none;
+      }
+
+      .bikecheck-list li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 8px;
+        height: 8px;
+        margin-top: -4px;
+        border-radius: 50%;
+        background: var(--color-accent);
+      }
+
+      .bikecheck-free .bikecheck-list li::before {
+        background: var(--color-success);
+      }
+
+      .liability-badge {
+        align-self: flex-start;
+        margin-top: auto;
+        padding: 0.4rem 0.8rem;
+        border-radius: 999px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #fca5a5;
+        background: rgba(239, 68, 68, 0.12);
+        border: 1px solid rgba(239, 68, 68, 0.25);
+      }
+
+      .bikecheck-footer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.75rem;
+        margin-top: 1rem;
+        padding: 1.1rem 1.4rem;
+        border-radius: 16px;
+        font-size: 0.92rem;
+        color: var(--ink-soft);
+        background: var(--card);
+        border: 1px solid var(--line);
+      }
+
+      .bikecheck-footer svg {
+        color: var(--color-accent);
+        flex-shrink: 0;
+      }
+
+      .bikecheck-footer strong {
         margin-left: auto;
-        margin-right: auto;
+        color: var(--color-text);
+      }
+
+      /* ═══ REPAIR SHOWCASE ═══ */
+      .repair-showcase {
+        display: grid;
+        gap: 1rem;
       }
 
       .repair-main-image {
         position: relative;
-        border-radius: 16px;
+        aspect-ratio: 16 / 8;
+        border-radius: var(--radius-xl);
         overflow: hidden;
-        aspect-ratio: 16 / 10;
-        background: #111;
+        background: var(--color-surface);
       }
 
       .repair-main-image img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: opacity 0.5s ease;
       }
 
       .repair-image-counter {
         position: absolute;
         top: 1rem;
         right: 1rem;
-        background: rgba(0, 0, 0, 0.6);
-        color: #fff;
-        padding: 4px 12px;
-        border-radius: 20px;
-        font-size: 0.75rem;
-        font-weight: 600;
-        letter-spacing: 0.05em;
+        padding: 0.35rem 0.75rem;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        background: rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
       }
 
       .repair-overlay {
         position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        padding: 2rem 1.5rem 1.5rem;
-        background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
-        color: #fff;
+        inset: auto 0 0 0;
+        padding: 3rem 2rem 1.75rem;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.88), transparent);
       }
 
       .repair-overlay h3 {
-        font-size: 1.2rem;
-        font-weight: 700;
-        margin: 0 0 0.3rem;
+        font-size: 1.5rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin-bottom: 0.35rem;
       }
 
       .repair-overlay p {
-        font-size: 0.85rem;
-        margin: 0;
-        opacity: 0.85;
-        line-height: 1.4;
+        color: rgba(255, 255, 255, 0.78);
+        max-width: 640px;
+        line-height: 1.6;
       }
 
       .repair-thumbs {
         display: flex;
         gap: 0.75rem;
-        margin-top: 1rem;
         overflow-x: auto;
-        padding-bottom: 0.5rem;
+        padding-bottom: 0.25rem;
       }
 
       .repair-thumb {
-        flex-shrink: 0;
-        width: 120px;
-        border: 2px solid transparent;
-        border-radius: 10px;
-        overflow: hidden;
+        flex: 0 0 160px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        padding: 0.4rem;
+        border-radius: 14px;
+        border: 1px solid var(--line);
+        background: var(--card);
+        color: var(--color-text);
         cursor: pointer;
-        background: #222;
-        padding: 0;
+        text-align: left;
+        opacity: 0.65;
         transition:
-          border-color 0.2s,
-          transform 0.2s;
+          opacity 0.25s,
+          border-color 0.25s;
       }
 
+      .repair-thumb:hover,
       .repair-thumb.active {
-        border-color: #e8c547;
-        transform: scale(1.05);
-      }
-
-      .repair-thumb:hover {
-        border-color: rgba(232, 197, 71, 0.5);
+        opacity: 1;
+        border-color: var(--color-accent);
       }
 
       .repair-thumb img {
         width: 100%;
-        height: 70px;
+        height: 80px;
         object-fit: cover;
-        display: block;
+        border-radius: 10px;
       }
 
       .repair-thumb-label {
-        display: block;
-        padding: 4px 6px;
-        font-size: 0.65rem;
+        font-size: 0.78rem;
         font-weight: 600;
-        color: rgba(255, 255, 255, 0.8);
-        text-align: center;
+        padding: 0 0.25rem 0.2rem;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
       }
 
-      /* ═══ BIKE CHECK SECTION ═══ */
-      .bikecheck-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-        margin-top: 3rem;
-      }
-
-      .bikecheck-card {
-        background: rgba(255, 255, 255, 0.035);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 22px;
-        padding: 2.5rem;
-        transition:
-          transform 0.3s ease,
-          box-shadow 0.3s ease;
-      }
-
-      .bikecheck-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-      }
-
-      .bikecheck-free {
-        border-color: rgba(227, 135, 30, 0.3);
-        background: linear-gradient(
-          135deg,
-          rgba(227, 135, 30, 0.06) 0%,
-          rgba(255, 255, 255, 0.02) 100%
-        );
-      }
-
-      .bikecheck-card-header {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-        margin-bottom: 1.5rem;
-      }
-
-      .bikecheck-card-header h3 {
-        font-size: 1.3rem;
-        font-weight: 700;
-        color: var(--color-text);
-      }
-
-      .bikecheck-icon {
-        width: 52px;
-        height: 52px;
-        border-radius: 14px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .free-icon {
-        background: rgba(227, 135, 30, 0.15);
-        color: var(--color-accent);
-      }
-
-      .repair-icon {
-        background: rgba(255, 255, 255, 0.08);
-        color: rgba(255, 255, 255, 0.7);
-      }
-
-      .bikecheck-badge {
-        display: inline-block;
-        background: var(--color-accent);
-        color: #000;
-        font-size: 0.7rem;
-        font-weight: 700;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        padding: 0.3rem 0.8rem;
-        border-radius: 20px;
-        width: fit-content;
-      }
-
-      .bikecheck-badge.liability-badge {
-        background: rgba(239, 68, 68, 0.15);
-        color: #fca5a5;
-        border: 1px solid rgba(239, 68, 68, 0.3);
-      }
-
-      .bikecheck-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .bikecheck-list li {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        color: rgba(255, 255, 255, 0.85);
-        font-size: 1rem;
-        font-weight: 500;
-      }
-
-      .bikecheck-free .bikecheck-list li svg {
-        color: var(--color-accent);
-        flex-shrink: 0;
-      }
-
-      .bikecheck-repair .bikecheck-list li svg {
-        color: rgba(255, 255, 255, 0.5);
-        flex-shrink: 0;
-      }
-
-      .bikecheck-footer {
-        margin-top: 2.5rem;
-        text-align: center;
-      }
-
-      .bikecheck-note {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 10px;
-        padding: 0.8rem 1.5rem;
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 0.9rem;
-      }
-
-      .bikecheck-note svg {
-        color: var(--color-accent);
-        flex-shrink: 0;
-      }
-
-      .bikecheck-fair {
-        margin-top: 1rem;
-        color: var(--color-accent);
-        font-weight: 700;
-        font-size: 1rem;
-        letter-spacing: 0.03em;
-      }
-
-      /* ═══ TESTIMONIALS / GOOGLE REVIEWS SECTION ═══ */
-      .testimonials-section {
-        padding: 6rem 0;
-        background: var(--color-bg);
-      }
-
+      /* ═══ REVIEWS ═══ */
       .google-rating-badge {
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
         gap: 1rem;
-        background: rgba(255, 255, 255, 0.035);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 22px;
-        padding: 1.25rem 1.75rem;
-        margin-top: 2rem;
-        width: fit-content;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .google-icon {
         flex-shrink: 0;
+        padding: 1rem 1.25rem;
+        border-radius: var(--radius-lg);
+        background: var(--card);
+        border: 1px solid var(--line);
       }
 
       .google-rating-info {
         display: flex;
         flex-direction: column;
-        gap: 0.15rem;
       }
 
       .google-rating-stars {
@@ -2150,9 +2339,9 @@ interface Testimonial {
       }
 
       .google-rating-value {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--color-text);
+        font-size: 1.6rem;
+        font-weight: 800;
+        line-height: 1;
       }
 
       .google-stars-row {
@@ -2161,95 +2350,84 @@ interface Testimonial {
       }
 
       .google-review-count {
-        font-size: 0.85rem;
-        color: var(--color-text-secondary);
+        font-size: 0.8rem;
+        color: var(--ink-faint);
       }
 
       .google-review-link {
-        display: flex;
+        display: inline-flex;
         align-items: center;
-        gap: 0.35rem;
-        margin-left: 1rem;
-        padding: 0.5rem 1rem;
-        border-radius: 8px;
-        background: var(--color-accent);
-        color: white;
+        gap: 0.4rem;
         font-size: 0.85rem;
-        font-weight: 600;
-        text-decoration: none;
-        white-space: nowrap;
-        transition: opacity 0.2s;
-      }
-
-      .google-review-link:hover {
-        opacity: 0.9;
-      }
-
-      .author-photo {
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        object-fit: cover;
+        font-weight: 700;
+        color: var(--color-accent);
       }
 
       .testimonials-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 1.5rem;
-        margin-top: 3rem;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
       }
 
       .testimonial-card {
-        background: rgba(255, 255, 255, 0.035);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.1rem;
         padding: 1.75rem;
+        border-radius: var(--radius-lg);
+        background: var(--card);
+        border: 1px solid var(--line);
         transition:
-          transform 0.3s ease,
-          box-shadow 0.3s ease;
+          border-color 0.3s,
+          transform 0.4s var(--ease);
       }
 
       .testimonial-card:hover {
+        border-color: var(--line-strong);
         transform: translateY(-4px);
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
       }
 
       .testimonial-stars {
         display: flex;
         gap: 2px;
-        color: #f59e0b;
-        margin-bottom: 1rem;
       }
 
       .testimonial-text {
-        font-size: 1rem;
+        position: relative;
+        flex: 1;
+        margin: 0;
+        font-size: 0.98rem;
         line-height: 1.7;
-        color: var(--color-text);
-        margin: 0 0 1.25rem;
-        font-style: italic;
+        color: rgba(255, 255, 255, 0.85);
+        display: -webkit-box;
+        -webkit-line-clamp: 7;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
       }
 
       .testimonial-author {
         display: flex;
         align-items: center;
-        gap: 0.75rem;
+        gap: 0.8rem;
+        padding-top: 1.1rem;
+        border-top: 1px solid var(--line);
       }
 
+      .author-photo,
       .author-avatar {
         width: 44px;
         height: 44px;
         border-radius: 50%;
-        background: linear-gradient(
-          135deg,
-          var(--color-accent) 0%,
-          #ff7043 100%
-        );
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 700;
+        flex-shrink: 0;
+      }
+
+      .author-avatar {
+        display: grid;
+        place-items: center;
         font-size: 0.85rem;
-        color: white;
+        font-weight: 800;
+        color: #fff;
+        background: linear-gradient(135deg, #ff5722, #ff9a5a);
       }
 
       .author-info {
@@ -2258,163 +2436,187 @@ interface Testimonial {
       }
 
       .author-name {
-        font-weight: 600;
-        font-size: 0.95rem;
-        color: var(--color-text);
         font-style: normal;
+        font-weight: 700;
+        font-size: 0.95rem;
       }
 
       .author-detail {
         font-size: 0.8rem;
-        color: var(--color-text-secondary);
+        color: var(--ink-faint);
       }
 
       .trust-badges {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 2rem;
-        margin-top: 3rem;
-        padding-top: 2rem;
-        border-top: 1px solid var(--color-border);
+        gap: 0.75rem;
+        margin-top: 2.5rem;
       }
 
       .trust-badge {
-        display: flex;
+        display: inline-flex;
         align-items: center;
-        gap: 0.5rem;
-        color: var(--color-text-secondary);
-        font-size: 0.9rem;
+        gap: 0.6rem;
+        padding: 0.7rem 1.15rem;
+        border-radius: 999px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        background: var(--card);
+        border: 1px solid var(--line);
       }
 
       .trust-badge svg {
         color: var(--color-accent);
       }
 
-      /* ═══ FAQ SECTION ═══ */
-      .faq-section {
-        padding: 6rem 0;
-        background: var(--color-bg);
+      /* ═══ FAQ ═══ */
+      .faq-layout {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: clamp(2rem, 6vw, 5rem);
+        align-items: start;
+      }
+
+      .faq-intro {
+        position: sticky;
+        top: 7rem;
+      }
+
+      .faq-intro .section-subtitle {
+        margin-bottom: 1.75rem;
       }
 
       .faq-list {
-        max-width: 800px;
-        margin: 3rem auto 0;
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 0.75rem;
       }
 
       .faq-item {
-        background: rgba(255, 255, 255, 0.035);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 18px;
-        overflow: hidden;
-        transition: all 0.3s ease;
-      }
-
-      .faq-item:hover {
-        border-color: var(--color-accent);
+        border-radius: var(--radius-lg);
+        background: var(--card);
+        border: 1px solid var(--line);
+        transition:
+          border-color 0.3s,
+          background 0.3s;
       }
 
       .faq-item[open] {
-        background: var(--color-surface-alt);
+        border-color: rgba(255, 87, 34, 0.45);
+        background: rgba(255, 87, 34, 0.05);
       }
 
       .faq-question {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 1.25rem 1.5rem;
+        gap: 1rem;
+        padding: 1.3rem 1.5rem;
+        font-weight: 700;
+        font-size: 1.02rem;
         cursor: pointer;
-        font-weight: 600;
-        font-size: 1rem;
-        color: var(--color-text);
         list-style: none;
-        transition: all 0.2s ease;
       }
 
       .faq-question::-webkit-details-marker {
         display: none;
       }
 
-      .faq-question:hover {
-        color: var(--color-accent);
-      }
-
-      .faq-chevron {
+      .faq-toggle {
+        position: relative;
         flex-shrink: 0;
-        color: var(--color-text-muted);
-        transition: transform 0.3s ease;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.07);
+        transition:
+          background 0.3s,
+          transform 0.4s var(--ease);
       }
 
-      .faq-item[open] .faq-chevron {
-        transform: rotate(180deg);
-        color: var(--color-accent);
+      .faq-toggle::before,
+      .faq-toggle::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 12px;
+        height: 2px;
+        margin: -1px 0 0 -6px;
+        border-radius: 2px;
+        background: currentColor;
+      }
+
+      .faq-toggle::after {
+        transform: rotate(90deg);
+      }
+
+      .faq-item[open] .faq-toggle {
+        background: var(--color-accent);
+        transform: rotate(45deg);
       }
 
       .faq-answer {
-        padding: 0 1.5rem 1.25rem;
-        color: var(--color-text-secondary);
-        font-size: 0.95rem;
-        line-height: 1.7;
+        padding: 0 1.5rem 1.4rem;
+        line-height: 1.75;
+        color: var(--ink-soft);
       }
 
-      /* ═══ CTA SECTION ═══ */
+      /* ═══ CTA ═══ */
       .cta-section {
         position: relative;
-        padding: 6rem 0;
-        background: linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.04) 0%,
-          rgba(15, 18, 24, 0.95) 100%
-        );
-        text-align: center;
+        isolation: isolate;
         overflow: hidden;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding: clamp(6rem, 14vw, 11rem) 0;
+        text-align: center;
       }
 
-      .cta-section::before {
-        content: '';
+      .cta-img {
         position: absolute;
         inset: 0;
-        background: radial-gradient(
-          circle at 50% 50%,
-          rgba(255, 87, 34, 0.06) 0%,
-          transparent 60%
-        );
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
       }
 
-      .cta-inner {
-        position: relative;
-        z-index: 1;
+      .cta-shade {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background:
+          linear-gradient(180deg, var(--color-bg) 0%, transparent 30%),
+          linear-gradient(0deg, var(--color-bg) 0%, transparent 35%),
+          rgba(10, 10, 10, 0.55);
       }
 
       .cta-h2 {
-        font-size: clamp(1.75rem, 4vw, 2.75rem);
+        font-size: clamp(2.4rem, 6vw, 4.8rem);
         font-weight: 800;
-        color: var(--color-text);
-        margin: 0 0 1rem;
+        letter-spacing: -0.05em;
+        line-height: 1;
+        max-width: 900px;
+        margin: 0 auto 1.25rem;
+        text-wrap: balance;
       }
 
       .cta-sub {
         font-size: 1.1rem;
-        color: var(--color-text-secondary);
-        max-width: 550px;
-        margin: 0 auto 2rem;
-        line-height: 1.6;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.8);
+        max-width: 580px;
+        margin: 0 auto 2.25rem;
       }
 
-      .cta-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 1.05rem;
-        padding: 1rem 2.5rem;
+      .cta-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.85rem;
       }
 
-      /* ═══ SKELETON LOADING ═══ */
+      /* ═══ SKELETON ═══ */
       .skeleton-row {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -2428,8 +2630,8 @@ interface Testimonial {
         border: 1px solid var(--color-border);
       }
 
-      .sk-img {
-        aspect-ratio: 16/11;
+      .sk-img,
+      .sk-line {
         background: linear-gradient(
           90deg,
           var(--color-surface) 25%,
@@ -2438,6 +2640,10 @@ interface Testimonial {
         );
         background-size: 200% 100%;
         animation: shimmer 1.5s infinite;
+      }
+
+      .sk-img {
+        aspect-ratio: 16/11;
       }
 
       .sk-body {
@@ -2447,14 +2653,6 @@ interface Testimonial {
       .sk-line {
         height: 12px;
         border-radius: 6px;
-        background: linear-gradient(
-          90deg,
-          var(--color-surface) 25%,
-          var(--color-surface-alt) 50%,
-          var(--color-surface) 75%
-        );
-        background-size: 200% 100%;
-        animation: shimmer 1.5s infinite;
         margin-bottom: 0.65rem;
       }
 
@@ -2474,293 +2672,148 @@ interface Testimonial {
         }
       }
 
-      /* ═══ ANIMATIONS ═══ */
-      .fade-in {
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeInUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-      }
-
-      .d1 {
-        animation-delay: 0.1s;
-      }
-      .d2 {
-        animation-delay: 0.2s;
-      }
-      .d3 {
-        animation-delay: 0.3s;
-      }
-      .d4 {
-        animation-delay: 0.4s;
-      }
-
-      @keyframes fadeInUp {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      /* ═══ SERVICE CARDS ═══ */
-      .svc-cards-section {
-        background: var(--color-bg);
-        padding: 0 0 4rem;
-      }
-      .svc-cards-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.25rem;
-        padding-top: 2.5rem;
-      }
-      .svc-card {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-        padding: 2rem 1.75rem;
-        border-radius: 16px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        background: rgba(255, 255, 255, 0.03);
-        transition:
-          border-color 0.2s,
-          transform 0.2s;
-        position: relative;
-        overflow: hidden;
-      }
-      .svc-card::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        opacity: 0;
-        transition: opacity 0.3s;
-        pointer-events: none;
-      }
-      .svc-card-repair::before {
-        background: radial-gradient(
-          ellipse at top left,
-          rgba(255, 80, 20, 0.08) 0%,
-          transparent 60%
-        );
-      }
-      .svc-card-angebote::before {
-        background: radial-gradient(
-          ellipse at top left,
-          rgba(255, 150, 20, 0.08) 0%,
-          transparent 60%
-        );
-      }
-      .svc-card:hover {
-        border-color: rgba(255, 255, 255, 0.18);
-        transform: translateY(-3px);
-      }
-      .svc-card:hover::before {
-        opacity: 1;
-      }
-      .svc-card-icon {
-        width: 48px;
-        height: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(255, 255, 255, 0.06);
-        border-radius: 12px;
-        color: var(--color-accent);
-        margin-bottom: 0.25rem;
-      }
-      .svc-card-icon svg {
-        width: 24px;
-        height: 24px;
-      }
-      .svc-card-badge {
-        display: inline-block;
-        background: var(--color-accent);
-        color: #fff;
-        font-size: 0.68rem;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        padding: 0.25rem 0.65rem;
-        border-radius: 2rem;
-        width: fit-content;
-      }
-      .svc-card-title {
-        font-size: 1.25rem;
-        font-weight: 800;
-        color: #ffffff;
-        line-height: 1.2;
-        margin: 0;
-      }
-      .svc-card-sub {
-        font-size: 0.9rem;
-        color: rgba(255, 255, 255, 0.55);
-        line-height: 1.6;
-        margin: 0;
-        flex: 1;
-      }
-      .svc-card-cta {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        color: var(--color-accent);
-        font-size: 0.875rem;
-        font-weight: 700;
-        text-decoration: none;
-        margin-top: 0.5rem;
-        transition: gap 0.2s;
-      }
-      .svc-card-cta:hover {
-        gap: 0.65rem;
-      }
-      .svc-card-list {
-        list-style: none;
-        padding: 0;
-        margin: 0.25rem 0 0.5rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.45rem;
-      }
-      .svc-card-list li {
-        font-size: 0.875rem;
-        color: rgba(255, 255, 255, 0.75);
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-      .svc-card-list li::before {
-        content: '✔';
-        color: var(--color-accent);
-        font-size: 0.75rem;
-        flex-shrink: 0;
-      }
-      .svc-card-cta-whatsapp {
-        color: #25d366;
-      }
-
-      /* ═══ HERO (standalone) ═══ */
-      .slide-hero {
-        position: relative;
-        min-height: 100vh;
-        min-height: 100dvh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: var(--color-bg);
-        overflow: hidden;
-      }
-
       /* ═══ RESPONSIVE ═══ */
       @media (max-width: 1024px) {
-        .section .container,
-        .repair-section .container,
-        .testimonials-section .container,
-        .faq-section .container {
-          padding: 1.7rem;
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
         }
-
+        .hero-card {
+          max-width: 520px;
+        }
+        .svc-card {
+          min-height: 480px;
+        }
         .values-grid {
           grid-template-columns: repeat(2, 1fr);
         }
-        .bike-grid {
+        .value-card:nth-child(3) {
+          border-left: none;
+          padding-left: 0;
+        }
+        .bike-grid,
+        .testimonials-grid {
           grid-template-columns: repeat(2, 1fr);
         }
-        .story-layout {
+        .bikecheck-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .bikecheck-photo {
+          grid-column: span 2;
+          min-height: 300px;
+        }
+        .trust-panel {
           grid-template-columns: 1fr;
-          gap: 2.5rem;
-        }
-        .skeleton-row {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .gallery-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .svc-cards-grid {
-          grid-template-columns: repeat(2, 1fr);
         }
       }
 
       @media (max-width: 768px) {
-        .google-rating-badge {
-          flex-wrap: wrap;
-          justify-content: center;
-          padding: 1rem;
-        }
-        .google-review-link {
-          margin-left: 0;
-          margin-top: 0.5rem;
-        }
-        .svc-cards-grid {
-          grid-template-columns: 1fr;
-          gap: 1rem;
-        }
-        .svc-card {
-          padding: 1.5rem 1.25rem;
-        }
-        .repair-thumb {
-          width: 90px;
-        }
-        .repair-thumb img {
-          height: 55px;
-        }
-      }
-
-      @media (max-width: 640px) {
-        .section .container,
-        .repair-section .container,
-        .testimonials-section .container,
-        .faq-section .container {
-          padding: 1.2rem;
-          border-radius: 22px;
-        }
-
-        .hero-inner {
-          padding: 7rem 1rem 5rem;
-        }
-
-        .hero-h1 {
-          font-size: clamp(2.8rem, 15vw, 4rem);
-        }
-
-        .values-grid {
-          grid-template-columns: 1fr;
-        }
-        .bike-grid {
-          grid-template-columns: 1fr;
-        }
-        .trust-grid {
-          grid-template-columns: 1fr;
-        }
-        .section-head-row {
+        .block-head {
           flex-direction: column;
           align-items: flex-start;
           gap: 1rem;
         }
-        .skeleton-row {
+        .hero-shade {
+          background:
+            linear-gradient(
+              180deg,
+              rgba(10, 10, 10, 0.55) 0%,
+              rgba(10, 10, 10, 0.75) 45%,
+              var(--color-bg) 100%
+            );
+        }
+        .hero-grid {
+          padding-top: 7.5rem;
+        }
+        .hero-scroll {
+          display: none;
+        }
+        .svc-grid,
+        .story-grid,
+        .faq-layout {
           grid-template-columns: 1fr;
         }
-        .hero-stats {
-          gap: 0.75rem;
+        .faq-intro {
+          position: static;
         }
-        .gallery-grid {
-          grid-template-columns: 1fr;
+        .cat-grid {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: none;
+          grid-auto-rows: 200px;
         }
-        .lightbox-nav {
-          width: 36px;
-          height: 36px;
+        .cat-tile-wide {
+          grid-row: auto;
+          grid-column: span 2;
         }
-        .lightbox-prev {
+        .cat-tile:nth-child(4) {
+          grid-column: auto;
+        }
+        .story-media {
+          padding: 0 1.5rem 2rem 0;
+        }
+        .story-img-main {
+          aspect-ratio: 4 / 3;
+        }
+        .story-badge {
           left: 0.75rem;
         }
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+          grid-auto-rows: 160px;
+        }
+        .bikecheck-footer strong {
+          margin-left: 0;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .values-grid,
+        .bike-grid,
+        .testimonials-grid,
+        .skeleton-row,
+        .trust-list,
+        .bikecheck-grid {
+          grid-template-columns: 1fr;
+        }
+        .bikecheck-photo {
+          grid-column: auto;
+          min-height: 240px;
+        }
+        .value-card,
+        .value-card + .value-card {
+          padding: 1.75rem 0 1rem;
+          border-left: none;
+          border-bottom: 1px solid var(--line);
+        }
+        .hero-actions > a {
+          flex: 1 1 100%;
+          justify-content: center;
+        }
+        .svc-card {
+          min-height: 520px;
+        }
+        .lightbox-nav {
+          width: 38px;
+          height: 38px;
+        }
+        .lightbox-prev {
+          left: 0.6rem;
+        }
         .lightbox-next {
-          right: 0.75rem;
+          right: 0.6rem;
         }
-        .bikecheck-card {
-          padding: 1.5rem;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .hero-img,
+        .ticker-track,
+        .eyebrow-dot,
+        .hero-scroll span,
+        .reveal {
+          animation: none !important;
         }
-        .bikecheck-card-header h3 {
-          font-size: 1.15rem;
-        }
-        .bikecheck-note {
-          flex-direction: column;
-          text-align: center;
+        .fade-in {
+          animation-duration: 0.01s;
         }
       }
     `,
@@ -2777,6 +2830,68 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   t = this.translationService.translations;
   lang = this.translationService.currentLanguage;
+
+  // Hero headline split at the em dash so the second half can be accented
+  heroTitle = computed(() => {
+    const [main, ...rest] = this.t().heroH1.split(' — ');
+    return [main, rest.join(' — ')];
+  });
+
+  tickerItems = computed(() => [
+    this.t().value1Title,
+    this.t().value2Title,
+    this.t().value3Title,
+    this.t().value4Title,
+    this.t().bikeCheckTitle,
+    this.t().svcRepairTitle,
+  ]);
+
+  categoryTiles = computed(() => [
+    { img: '/assets/stock/city.webp', label: this.t().catCity },
+    { img: '/assets/stock/ebike.webp', label: this.t().catEBike },
+    { img: '/assets/stock/mtb.webp', label: this.t().catMountain },
+    { img: '/assets/stock/rennrad.webp', label: this.t().catRennrad },
+  ]);
+
+  trustItems = computed(() => [
+    this.t().trust1,
+    this.t().trust2,
+    this.t().trust3,
+    this.t().trust4,
+  ]);
+
+  freeCheckItems = computed(() => [
+    this.t().bikeCheckBrakeCheck,
+    this.t().bikeCheckGearTest,
+    this.t().bikeCheckTireChain,
+    this.t().bikeCheckLightCheck,
+    this.t().bikeCheckReflectorCheck,
+    this.t().bikeCheckBellCheck,
+    this.t().bikeCheckSafetyCheck,
+  ]);
+
+  repairServiceItems = computed(() => [
+    this.t().bikeCheckBrakeAdjust,
+    this.t().bikeCheckChainCassette,
+    this.t().bikeCheckGearAdjust,
+    this.t().bikeCheckTireService,
+    this.t().bikeCheckCableReplace,
+    this.t().bikeCheckBottomBracket,
+    this.t().bikeCheckSpokeRepair,
+    this.t().bikeCheckLightInstall,
+    this.t().bikeCheckPedalReplace,
+  ]);
+
+  faqItems = computed(() => [
+    { q: this.t().faq1Q, a: this.t().faq1A },
+    { q: this.t().faq2Q, a: this.t().faq2A },
+    { q: this.t().faq3Q, a: this.t().faq3A },
+    { q: this.t().faq4Q, a: this.t().faq4A },
+    { q: this.t().faq5Q, a: this.t().faq5A },
+  ]);
+
+  readonly whatsappPath =
+    'M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z';
 
   listings = signal<KleinanzeigenListing[]>([]);
   categories = signal<KleinanzeigenCategory[]>([]);

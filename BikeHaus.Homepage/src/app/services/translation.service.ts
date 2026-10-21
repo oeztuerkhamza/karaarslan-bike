@@ -163,6 +163,13 @@ export interface Translations {
   ctaSectionTitle: string;
   ctaSectionSub: string;
   ctaSectionButton: string;
+  heroEyebrow: string;
+  catLabel: string;
+  catTitle: string;
+  catSub: string;
+  catCta: string;
+  ctaWhatsapp: string;
+  ctaRoute: string;
 
   // About
   aboutLabel: string;
@@ -585,6 +592,13 @@ const TRANSLATIONS: Record<Language, Translations> = {
     ctaSectionSub:
       'Besuchen Sie unseren Showroom oder stöbern Sie online durch unser aktuelles Angebot.',
     ctaSectionButton: 'Jetzt Fahrrad finden',
+    heroEyebrow: 'Fahrradladen & Werkstatt in Lünen',
+    catLabel: 'SORTIMENT',
+    catTitle: 'Für jeden Weg das richtige Rad.',
+    catSub: 'Vom Alltagsrad bis zum E-Bike — geprüft, eingestellt und sofort fahrbereit.',
+    catCta: 'Im Showroom ansehen',
+    ctaWhatsapp: 'Per WhatsApp schreiben',
+    ctaRoute: 'Route planen',
 
     aboutLabel: 'ÜBER UNS',
     aboutTitle: 'Wer wir sind.',
@@ -1052,6 +1066,13 @@ const TRANSLATIONS: Record<Language, Translations> = {
     ctaSectionTitle: 'Ready for your next adventure?',
     ctaSectionSub: 'Visit our showroom or browse our current selection online.',
     ctaSectionButton: 'Find a Bike Now',
+    heroEyebrow: 'Bike shop & workshop in Lünen',
+    catLabel: 'RANGE',
+    catTitle: 'The right bike for every road.',
+    catSub: 'From everyday bikes to e-bikes — inspected, tuned and ready to ride.',
+    catCta: 'View in showroom',
+    ctaWhatsapp: 'Message us on WhatsApp',
+    ctaRoute: 'Get directions',
 
     aboutLabel: 'ABOUT US',
     aboutTitle: 'Who we are.',
@@ -1507,6 +1528,13 @@ const TRANSLATIONS: Record<Language, Translations> = {
     ctaSectionSub:
       'Visitez notre showroom ou parcourez notre sélection en ligne.',
     ctaSectionButton: 'Trouver un vélo',
+    heroEyebrow: 'Magasin & atelier vélo à Lünen',
+    catLabel: 'GAMME',
+    catTitle: 'Le bon vélo pour chaque trajet.',
+    catSub: 'Du vélo du quotidien au VAE — contrôlé, réglé et prêt à rouler.',
+    catCta: 'Voir au showroom',
+    ctaWhatsapp: 'Écrire sur WhatsApp',
+    ctaRoute: 'Itinéraire',
 
     aboutLabel: 'À PROPOS',
     aboutTitle: 'Qui nous sommes.',
@@ -1979,6 +2007,13 @@ const TRANSLATIONS: Record<Language, Translations> = {
     ctaSectionSub:
       "Showroom'umuzu ziyaret edin veya güncel seçkimize online göz atın.",
     ctaSectionButton: 'Bisiklet Bul',
+    heroEyebrow: "Lünen'de bisiklet mağazası & atölye",
+    catLabel: 'ÜRÜNLER',
+    catTitle: 'Her yol için doğru bisiklet.',
+    catSub: 'Günlük bisikletten e-bisiklete — kontrol edilmiş, ayarlanmış ve hemen sürüşe hazır.',
+    catCta: "Showroom'da gör",
+    ctaWhatsapp: "WhatsApp'tan yaz",
+    ctaRoute: 'Yol tarifi al',
 
     aboutLabel: 'HAKKIMIZDA',
     aboutTitle: 'Biz kimiz.',
