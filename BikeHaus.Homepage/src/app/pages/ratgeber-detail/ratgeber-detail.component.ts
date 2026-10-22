@@ -466,18 +466,18 @@ import {
             rgba(255, 87, 34, 0.08),
             transparent 30%
           ),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 22%),
+          linear-gradient(180deg, rgba(var(--ink-rgb), 0.015), transparent 22%),
           var(--color-bg);
       }
 
       .breadcrumb {
         padding: 6.5rem 0 1rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        border-bottom: 1px solid rgba(var(--ink-rgb), 0.08);
       }
 
       .article-header {
         padding: 2.75rem 0 2.2rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        border-bottom: 1px solid rgba(var(--ink-rgb), 0.08);
       }
 
       h1 {
@@ -487,7 +487,7 @@ import {
       }
 
       .excerpt {
-        color: rgba(255, 255, 255, 0.72);
+        color: rgba(var(--ink-rgb), 0.72);
       }
 
       .tldr-box,
@@ -519,7 +519,7 @@ import {
 
       .related-section,
       .back-link {
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        border-top: 1px solid rgba(var(--ink-rgb), 0.08);
       }
     `,
   ],

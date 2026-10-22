@@ -112,8 +112,8 @@ const BASE_URL = 'https://karaarslan-bike.de';
     `
       :host {
         display: block;
-        --line: rgba(255, 255, 255, 0.08);
-        --card: rgba(255, 255, 255, 0.035);
+        --line: rgba(var(--ink-rgb), 0.08);
+        --card: rgba(var(--ink-rgb), 0.035);
       }
       .container {
         max-width: 880px;
@@ -130,7 +130,7 @@ const BASE_URL = 'https://karaarslan-bike.de';
         display: flex;
         gap: 0.5rem;
         font-size: 0.82rem;
-        color: rgba(255, 255, 255, 0.55);
+        color: rgba(var(--ink-rgb), 0.55);
         margin-bottom: 1.25rem;
       }
       .crumbs a:hover {
@@ -144,7 +144,7 @@ const BASE_URL = 'https://karaarslan-bike.de';
         margin-bottom: 1rem;
       }
       .faq-sub {
-        color: rgba(255, 255, 255, 0.7);
+        color: rgba(var(--ink-rgb), 0.7);
         line-height: 1.7;
         max-width: 640px;
         margin-bottom: 2rem;
@@ -158,7 +158,7 @@ const BASE_URL = 'https://karaarslan-bike.de';
         left: 1.1rem;
         top: 50%;
         transform: translateY(-50%);
-        color: rgba(255, 255, 255, 0.5);
+        color: rgba(var(--ink-rgb), 0.5);
       }
       .faq-search input {
         width: 100%;
@@ -250,7 +250,7 @@ const BASE_URL = 'https://karaarslan-bike.de';
         width: 30px;
         height: 30px;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.07);
+        background: rgba(var(--ink-rgb), 0.07);
         transition:
           transform 0.35s ease,
           background 0.3s;
@@ -277,7 +277,7 @@ const BASE_URL = 'https://karaarslan-bike.de';
         padding: 0 1.35rem 1.25rem;
       }
       .faq-answer p {
-        color: rgba(255, 255, 255, 0.72);
+        color: rgba(var(--ink-rgb), 0.72);
         line-height: 1.75;
       }
       .faq-link {
@@ -290,7 +290,7 @@ const BASE_URL = 'https://karaarslan-bike.de';
       .faq-none {
         padding: 3rem 0;
         text-align: center;
-        color: rgba(255, 255, 255, 0.6);
+        color: rgba(var(--ink-rgb), 0.6);
       }
       .faq-cta {
         margin-top: 3.5rem;

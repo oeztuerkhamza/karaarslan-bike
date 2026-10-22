@@ -18,6 +18,7 @@ export interface LandingLink {
 export interface LandingCard {
   title: string;
   text: string;
+  image?: string;
   href?: string;
   linkLabel?: string;
 }
@@ -98,8 +99,8 @@ export interface LandingPage {
 
 const USED: LandingPage = {
   slug: 'gebrauchte-fahrraeder',
-  heroImage: '/assets/shop/shop-8.webp',
-  ctaImage: '/assets/stock/ausfahrt.webp',
+  heroImage: '/assets/stock/city-sun.webp',
+  ctaImage: '/assets/stock/seaside.webp',
   content: {
     de: {
       metaTitle:
@@ -163,12 +164,12 @@ const USED: LandingPage = {
           intro:
             'Ob für den Weg zur Arbeit, die Runde an der Lippe oder den Schulweg — wir haben das passende Gebrauchtrad.',
           cards: [
-            { title: 'Gebrauchte Citybikes & Hollandräder', text: 'Bequem, robust und alltagstauglich — ideal für Einkäufe und kurze Wege in Lünen.' },
-            { title: 'Gebrauchte Trekkingräder', text: 'Für Pendler und Touren auf der Römer-Lippe-Route: Gepäckträger, Licht und viele Gänge.' },
-            { title: 'Gebrauchte Mountainbikes', text: 'Federgabel, griffige Reifen und stabile Rahmen — für Wald, Halden und Feldwege.' },
-            { title: 'Gebrauchte Kinderfahrräder', text: 'Von 12 bis 26 Zoll. Kinder wachsen schnell — gebraucht spart hier besonders viel.', href: '/de/ratgeber/kinderfahrrad-groesse', linkLabel: 'Welche Größe passt?' },
-            { title: 'Gebrauchte E-Bikes', text: 'Ab ca. 800 € — mit geprüftem Antrieb und dokumentiertem Akkuzustand.', href: '/de/ratgeber/e-bike-gebraucht-kaufen', linkLabel: 'Ratgeber gebrauchtes E-Bike' },
-            { title: 'Damen- & Herrenräder', text: 'Tiefer Einstieg oder sportlicher Diamantrahmen — in vielen Rahmengrößen vorrätig.', href: '/de/ratgeber/fahrrad-rahmengroesse-berechnen', linkLabel: 'Rahmengröße berechnen' },
+            { image: '/assets/stock/city.webp', title: 'Gebrauchte Citybikes & Hollandräder', text: 'Bequem, robust und alltagstauglich — ideal für Einkäufe und kurze Wege in Lünen.' },
+            { image: '/assets/stock/lake.webp', title: 'Gebrauchte Trekkingräder', text: 'Für Pendler und Touren auf der Römer-Lippe-Route: Gepäckträger, Licht und viele Gänge.' },
+            { image: '/assets/stock/mtb.webp', title: 'Gebrauchte Mountainbikes', text: 'Federgabel, griffige Reifen und stabile Rahmen — für Wald, Halden und Feldwege.' },
+            { image: '/assets/stock/kids-hero.webp', title: 'Gebrauchte Kinderfahrräder', text: 'Von 12 bis 26 Zoll. Kinder wachsen schnell — gebraucht spart hier besonders viel.', href: '/de/ratgeber/kinderfahrrad-groesse', linkLabel: 'Welche Größe passt?' },
+            { image: '/assets/stock/ebike-white.webp', title: 'Gebrauchte E-Bikes', text: 'Ab ca. 800 € — mit geprüftem Antrieb und dokumentiertem Akkuzustand.', href: '/de/ratgeber/e-bike-gebraucht-kaufen', linkLabel: 'Ratgeber gebrauchtes E-Bike' },
+            { image: '/assets/stock/happy.webp', title: 'Damen- & Herrenräder', text: 'Tiefer Einstieg oder sportlicher Diamantrahmen — in vielen Rahmengrößen vorrätig.', href: '/de/ratgeber/fahrrad-rahmengroesse-berechnen', linkLabel: 'Rahmengröße berechnen' },
           ],
         },
         {
@@ -279,12 +280,12 @@ const USED: LandingPage = {
           intro:
             'Commuting to work, a ride along the Lippe or the way to school — we have the right second-hand bike.',
           cards: [
-            { title: 'Used city & Dutch bikes', text: 'Comfortable, robust and practical — ideal for shopping and short trips around Lünen.' },
-            { title: 'Used trekking bikes', text: 'For commuters and tours on the Römer-Lippe-Route: rack, lights and plenty of gears.' },
-            { title: 'Used mountain bikes', text: 'Suspension fork, grippy tyres and solid frames — for forests, spoil tips and farm tracks.' },
-            { title: 'Used kids’ bikes', text: 'From 12 to 26 inches. Children grow fast — buying used saves the most here.', href: '/en/guide/childrens-bike-size-guide', linkLabel: 'Which size fits?' },
-            { title: 'Used e-bikes', text: 'From approx. €800 — with an inspected drive system and documented battery condition.', href: '/en/guide/buying-used-e-bike-guide', linkLabel: 'Used e-bike guide' },
-            { title: 'Women’s & men’s bikes', text: 'Step-through or sporty diamond frame — in stock in many frame sizes.', href: '/en/guide/bike-frame-size-calculator-guide', linkLabel: 'Calculate frame size' },
+            { image: '/assets/stock/city.webp', title: 'Used city & Dutch bikes', text: 'Comfortable, robust and practical — ideal for shopping and short trips around Lünen.' },
+            { image: '/assets/stock/lake.webp', title: 'Used trekking bikes', text: 'For commuters and tours on the Römer-Lippe-Route: rack, lights and plenty of gears.' },
+            { image: '/assets/stock/mtb.webp', title: 'Used mountain bikes', text: 'Suspension fork, grippy tyres and solid frames — for forests, spoil tips and farm tracks.' },
+            { image: '/assets/stock/kids-hero.webp', title: 'Used kids’ bikes', text: 'From 12 to 26 inches. Children grow fast — buying used saves the most here.', href: '/en/guide/childrens-bike-size-guide', linkLabel: 'Which size fits?' },
+            { image: '/assets/stock/ebike-white.webp', title: 'Used e-bikes', text: 'From approx. €800 — with an inspected drive system and documented battery condition.', href: '/en/guide/buying-used-e-bike-guide', linkLabel: 'Used e-bike guide' },
+            { image: '/assets/stock/happy.webp', title: 'Women’s & men’s bikes', text: 'Step-through or sporty diamond frame — in stock in many frame sizes.', href: '/en/guide/bike-frame-size-calculator-guide', linkLabel: 'Calculate frame size' },
           ],
         },
         {
@@ -395,12 +396,12 @@ const USED: LandingPage = {
           intro:
             'Trajet domicile-travail, balade le long de la Lippe ou chemin de l’école — nous avons le vélo d’occasion qu’il vous faut.',
           cards: [
-            { title: 'Vélos de ville & hollandais', text: 'Confortables, robustes et pratiques — parfaits pour les courses et les petits trajets.' },
-            { title: 'Vélos trekking', text: 'Pour les pendulaires et les sorties sur la Römer-Lippe-Route : porte-bagages, éclairage et nombreuses vitesses.' },
-            { title: 'VTT d’occasion', text: 'Fourche suspendue, pneus crantés et cadres solides — pour la forêt et les chemins.' },
-            { title: 'Vélos enfant d’occasion', text: 'De 12 à 26 pouces. Les enfants grandissent vite — l’occasion fait faire de vraies économies.', href: '/fr/guide/taille-velo-enfant-guide', linkLabel: 'Quelle taille choisir ?' },
-            { title: 'Vélos électriques d’occasion', text: 'Dès env. 800 € — moteur contrôlé et état de la batterie documenté.', href: '/fr/guide/acheter-velo-electrique-occasion', linkLabel: 'Guide VAE d’occasion' },
-            { title: 'Vélos femme & homme', text: 'Cadre ouvert ou cadre diamant sportif — disponibles dans de nombreuses tailles.', href: '/fr/guide/calculer-taille-cadre-velo', linkLabel: 'Calculer la taille du cadre' },
+            { image: '/assets/stock/city.webp', title: 'Vélos de ville & hollandais', text: 'Confortables, robustes et pratiques — parfaits pour les courses et les petits trajets.' },
+            { image: '/assets/stock/lake.webp', title: 'Vélos trekking', text: 'Pour les pendulaires et les sorties sur la Römer-Lippe-Route : porte-bagages, éclairage et nombreuses vitesses.' },
+            { image: '/assets/stock/mtb.webp', title: 'VTT d’occasion', text: 'Fourche suspendue, pneus crantés et cadres solides — pour la forêt et les chemins.' },
+            { image: '/assets/stock/kids-hero.webp', title: 'Vélos enfant d’occasion', text: 'De 12 à 26 pouces. Les enfants grandissent vite — l’occasion fait faire de vraies économies.', href: '/fr/guide/taille-velo-enfant-guide', linkLabel: 'Quelle taille choisir ?' },
+            { image: '/assets/stock/ebike-white.webp', title: 'Vélos électriques d’occasion', text: 'Dès env. 800 € — moteur contrôlé et état de la batterie documenté.', href: '/fr/guide/acheter-velo-electrique-occasion', linkLabel: 'Guide VAE d’occasion' },
+            { image: '/assets/stock/happy.webp', title: 'Vélos femme & homme', text: 'Cadre ouvert ou cadre diamant sportif — disponibles dans de nombreuses tailles.', href: '/fr/guide/calculer-taille-cadre-velo', linkLabel: 'Calculer la taille du cadre' },
           ],
         },
         {
@@ -511,12 +512,12 @@ const USED: LandingPage = {
           intro:
             "İşe gidiş, Lippe kenarında tur ya da okul yolu — size uygun ikinci el bisiklet bizde.",
           cards: [
-            { title: 'İkinci el şehir & Hollanda bisikletleri', text: "Rahat, sağlam ve kullanışlı — alışveriş ve Lünen'de kısa yollar için ideal." },
-            { title: 'İkinci el trekking bisikletleri', text: 'İşe gidenler ve Römer-Lippe-Route turları için: bagaj, ışık ve çok vites.' },
-            { title: 'İkinci el dağ bisikletleri', text: 'Amortisörlü çatal, tutunan lastikler ve sağlam kadrolar — orman ve toprak yollar için.' },
-            { title: 'İkinci el çocuk bisikletleri', text: '12 ile 26 inç arası. Çocuklar hızlı büyür — burada ikinci el en çok kazandırır.', href: '/tr/ratgeber/kinderfahrrad-groesse', linkLabel: 'Hangi boy uygun?' },
-            { title: 'İkinci el e-bisikletler', text: "Yaklaşık 800 €'dan başlayan fiyatlarla — kontrol edilmiş motor ve belgelenmiş batarya durumu.", href: '/tr/ratgeber/e-bike-gebraucht-kaufen', linkLabel: 'İkinci el e-bisiklet rehberi' },
-            { title: 'Kadın & erkek bisikletleri', text: 'Alçak girişli ya da sportif kadro — birçok kadro boyunda stokta.', href: '/tr/ratgeber/fahrrad-rahmengroesse-berechnen', linkLabel: 'Kadro boyunu hesapla' },
+            { image: '/assets/stock/city.webp', title: 'İkinci el şehir & Hollanda bisikletleri', text: "Rahat, sağlam ve kullanışlı — alışveriş ve Lünen'de kısa yollar için ideal." },
+            { image: '/assets/stock/lake.webp', title: 'İkinci el trekking bisikletleri', text: 'İşe gidenler ve Römer-Lippe-Route turları için: bagaj, ışık ve çok vites.' },
+            { image: '/assets/stock/mtb.webp', title: 'İkinci el dağ bisikletleri', text: 'Amortisörlü çatal, tutunan lastikler ve sağlam kadrolar — orman ve toprak yollar için.' },
+            { image: '/assets/stock/kids-hero.webp', title: 'İkinci el çocuk bisikletleri', text: '12 ile 26 inç arası. Çocuklar hızlı büyür — burada ikinci el en çok kazandırır.', href: '/tr/ratgeber/kinderfahrrad-groesse', linkLabel: 'Hangi boy uygun?' },
+            { image: '/assets/stock/ebike-white.webp', title: 'İkinci el e-bisikletler', text: "Yaklaşık 800 €'dan başlayan fiyatlarla — kontrol edilmiş motor ve belgelenmiş batarya durumu.", href: '/tr/ratgeber/e-bike-gebraucht-kaufen', linkLabel: 'İkinci el e-bisiklet rehberi' },
+            { image: '/assets/stock/happy.webp', title: 'Kadın & erkek bisikletleri', text: 'Alçak girişli ya da sportif kadro — birçok kadro boyunda stokta.', href: '/tr/ratgeber/fahrrad-rahmengroesse-berechnen', linkLabel: 'Kadro boyunu hesapla' },
           ],
         },
         {
@@ -627,12 +628,12 @@ const USED: LandingPage = {
           intro:
             'Woon-werkverkeer, een rondje langs de Lippe of naar school — wij hebben de juiste tweedehands fiets.',
           cards: [
-            { title: 'Tweedehands stads- & omafietsen', text: 'Comfortabel, robuust en praktisch — ideaal voor boodschappen en korte ritten.' },
-            { title: 'Tweedehands trekkingfietsen', text: 'Voor forenzen en tochten over de Römer-Lippe-Route: bagagedrager, licht en veel versnellingen.' },
-            { title: 'Tweedehands mountainbikes', text: 'Verende voorvork, grip-banden en stevige frames — voor bos en onverharde paden.' },
-            { title: 'Tweedehands kinderfietsen', text: 'Van 12 tot 26 inch. Kinderen groeien snel — tweedehands bespaart hier het meest.', href: '/en/guide/childrens-bike-size-guide', linkLabel: 'Welke maat past? (EN)' },
-            { title: 'Tweedehands e-bikes', text: 'Vanaf ca. €800 — met gecontroleerde aandrijving en gedocumenteerde accustaat.', href: '/en/guide/buying-used-e-bike-guide', linkLabel: 'Gids tweedehands e-bike (EN)' },
-            { title: 'Dames- & herenfietsen', text: 'Lage instap of sportief diamantframe — in veel framematen op voorraad.', href: '/en/guide/bike-frame-size-calculator-guide', linkLabel: 'Framemaat berekenen (EN)' },
+            { image: '/assets/stock/city.webp', title: 'Tweedehands stads- & omafietsen', text: 'Comfortabel, robuust en praktisch — ideaal voor boodschappen en korte ritten.' },
+            { image: '/assets/stock/lake.webp', title: 'Tweedehands trekkingfietsen', text: 'Voor forenzen en tochten over de Römer-Lippe-Route: bagagedrager, licht en veel versnellingen.' },
+            { image: '/assets/stock/mtb.webp', title: 'Tweedehands mountainbikes', text: 'Verende voorvork, grip-banden en stevige frames — voor bos en onverharde paden.' },
+            { image: '/assets/stock/kids-hero.webp', title: 'Tweedehands kinderfietsen', text: 'Van 12 tot 26 inch. Kinderen groeien snel — tweedehands bespaart hier het meest.', href: '/en/guide/childrens-bike-size-guide', linkLabel: 'Welke maat past? (EN)' },
+            { image: '/assets/stock/ebike-white.webp', title: 'Tweedehands e-bikes', text: 'Vanaf ca. €800 — met gecontroleerde aandrijving en gedocumenteerde accustaat.', href: '/en/guide/buying-used-e-bike-guide', linkLabel: 'Gids tweedehands e-bike (EN)' },
+            { image: '/assets/stock/happy.webp', title: 'Dames- & herenfietsen', text: 'Lage instap of sportief diamantframe — in veel framematen op voorraad.', href: '/en/guide/bike-frame-size-calculator-guide', linkLabel: 'Framemaat berekenen (EN)' },
           ],
         },
         {
@@ -716,12 +717,12 @@ const XMAS: LandingPage = {
           intro:
             'Wer soll sich an Heiligabend freuen? Hier sind unsere Empfehlungen — vor Ort zeigen wir Ihnen gern passende Räder.',
           cards: [
-            { title: 'Für Kinder', text: 'Ein Kinderfahrrad von 12 bis 26 Zoll — das Geschenk, das Kinder nie vergessen. Gebraucht besonders günstig, weil sie schnell herauswachsen.', href: '/de/ratgeber/kinderfahrrad-groesse', linkLabel: 'Welche Größe passt?' },
-            { title: 'Für Jugendliche', text: 'Ein Mountainbike oder sportliches Trekkingrad für Schulweg, Freunde und Ausflüge an die Lippe.' },
-            { title: 'Für Partner & Partnerin', text: 'Ein bequemes Citybike oder Trekkingrad für gemeinsame Touren auf der Römer-Lippe-Route.' },
-            { title: 'Für Eltern & Großeltern', text: 'Ein E-Bike schenkt neue Freiheit: Gegenwind und Steigungen verlieren ihren Schrecken. Gebrauchte E-Bikes ab ca. 800 €.', href: '/de/ratgeber/e-bike-gebraucht-kaufen', linkLabel: 'Ratgeber gebrauchtes E-Bike' },
-            { title: 'Für Pendler', text: 'Ein verlässliches Alltagsrad mit Licht und Gepäckträger — spart jeden Tag Sprit und Parkplatzsuche.', href: '/de/ratgeber/fahrrad-pendler-stadtraeder', linkLabel: 'Ratgeber Pendlerrad' },
-            { title: 'Für Studierende', text: 'Ein geprüftes Gebrauchtrad ab ca. 80 € — das perfekte Geschenk mit kleinem Budget.', href: '/de/gebrauchte-fahrraeder', linkLabel: 'Gebrauchte Fahrräder' },
+            { image: '/assets/stock/kids-hero.webp', title: 'Für Kinder', text: 'Ein Kinderfahrrad von 12 bis 26 Zoll — das Geschenk, das Kinder nie vergessen. Gebraucht besonders günstig, weil sie schnell herauswachsen.', href: '/de/ratgeber/kinderfahrrad-groesse', linkLabel: 'Welche Größe passt?' },
+            { image: '/assets/stock/mtb.webp', title: 'Für Jugendliche', text: 'Ein Mountainbike oder sportliches Trekkingrad für Schulweg, Freunde und Ausflüge an die Lippe.' },
+            { image: '/assets/stock/seaside.webp', title: 'Für Partner & Partnerin', text: 'Ein bequemes Citybike oder Trekkingrad für gemeinsame Touren auf der Römer-Lippe-Route.' },
+            { image: '/assets/stock/ebike-white.webp', title: 'Für Eltern & Großeltern', text: 'Ein E-Bike schenkt neue Freiheit: Gegenwind und Steigungen verlieren ihren Schrecken. Gebrauchte E-Bikes ab ca. 800 €.', href: '/de/ratgeber/e-bike-gebraucht-kaufen', linkLabel: 'Ratgeber gebrauchtes E-Bike' },
+            { image: '/assets/stock/city-sun.webp', title: 'Für Pendler', text: 'Ein verlässliches Alltagsrad mit Licht und Gepäckträger — spart jeden Tag Sprit und Parkplatzsuche.', href: '/de/ratgeber/fahrrad-pendler-stadtraeder', linkLabel: 'Ratgeber Pendlerrad' },
+            { image: '/assets/stock/happy.webp', title: 'Für Studierende', text: 'Ein geprüftes Gebrauchtrad ab ca. 80 € — das perfekte Geschenk mit kleinem Budget.', href: '/de/gebrauchte-fahrraeder', linkLabel: 'Gebrauchte Fahrräder' },
           ],
         },
         {
@@ -812,12 +813,12 @@ const XMAS: LandingPage = {
           intro:
             'Who should be smiling on Christmas Eve? Here are our recommendations — in store we are happy to show you suitable bikes.',
           cards: [
-            { title: 'For kids', text: 'A kids’ bike from 12 to 26 inches — the gift children never forget. Buying used is especially good value because they outgrow bikes quickly.', href: '/en/guide/childrens-bike-size-guide', linkLabel: 'Which size fits?' },
-            { title: 'For teenagers', text: 'A mountain bike or sporty trekking bike for school, friends and trips along the Lippe.' },
-            { title: 'For your partner', text: 'A comfortable city or trekking bike for rides together on the Römer-Lippe-Route.' },
-            { title: 'For parents & grandparents', text: 'An e-bike gives new freedom: headwinds and hills lose their sting. Used e-bikes from approx. €800.', href: '/en/guide/buying-used-e-bike-guide', linkLabel: 'Used e-bike guide' },
-            { title: 'For commuters', text: 'A reliable everyday bike with lights and a rack — saves fuel and parking every day.', href: '/en/guide/commuter-bike-luenen-guide', linkLabel: 'Commuter bike guide' },
-            { title: 'For students', text: 'An inspected used bike from approx. €80 — the perfect gift on a small budget.', href: '/en/gebrauchte-fahrraeder', linkLabel: 'Used bikes' },
+            { image: '/assets/stock/kids-hero.webp', title: 'For kids', text: 'A kids’ bike from 12 to 26 inches — the gift children never forget. Buying used is especially good value because they outgrow bikes quickly.', href: '/en/guide/childrens-bike-size-guide', linkLabel: 'Which size fits?' },
+            { image: '/assets/stock/mtb.webp', title: 'For teenagers', text: 'A mountain bike or sporty trekking bike for school, friends and trips along the Lippe.' },
+            { image: '/assets/stock/seaside.webp', title: 'For your partner', text: 'A comfortable city or trekking bike for rides together on the Römer-Lippe-Route.' },
+            { image: '/assets/stock/ebike-white.webp', title: 'For parents & grandparents', text: 'An e-bike gives new freedom: headwinds and hills lose their sting. Used e-bikes from approx. €800.', href: '/en/guide/buying-used-e-bike-guide', linkLabel: 'Used e-bike guide' },
+            { image: '/assets/stock/city-sun.webp', title: 'For commuters', text: 'A reliable everyday bike with lights and a rack — saves fuel and parking every day.', href: '/en/guide/commuter-bike-luenen-guide', linkLabel: 'Commuter bike guide' },
+            { image: '/assets/stock/happy.webp', title: 'For students', text: 'An inspected used bike from approx. €80 — the perfect gift on a small budget.', href: '/en/gebrauchte-fahrraeder', linkLabel: 'Used bikes' },
           ],
         },
         {
@@ -908,12 +909,12 @@ const XMAS: LandingPage = {
           intro:
             'Qui doit sourire le soir de Noël ? Voici nos recommandations — en magasin, nous vous montrons volontiers les vélos adaptés.',
           cards: [
-            { title: 'Pour les enfants', text: 'Un vélo enfant de 12 à 26 pouces — le cadeau inoubliable. L’occasion est idéale, car ils grandissent vite.', href: '/fr/guide/taille-velo-enfant-guide', linkLabel: 'Quelle taille choisir ?' },
-            { title: 'Pour les ados', text: 'Un VTT ou un vélo trekking sportif pour l’école, les amis et les sorties le long de la Lippe.' },
-            { title: 'Pour votre partenaire', text: 'Un vélo de ville ou trekking confortable pour rouler ensemble sur la Römer-Lippe-Route.' },
-            { title: 'Pour parents & grands-parents', text: 'Un vélo électrique offre une nouvelle liberté : vent et côtes ne font plus peur. VAE d’occasion dès env. 800 €.', href: '/fr/guide/acheter-velo-electrique-occasion', linkLabel: 'Guide VAE d’occasion' },
-            { title: 'Pour les pendulaires', text: 'Un vélo du quotidien fiable avec éclairage et porte-bagages — économie d’essence et de stationnement chaque jour.', href: '/fr/guide/velo-pendulaire-luenen-guide', linkLabel: 'Guide vélo pendulaire' },
-            { title: 'Pour les étudiants', text: 'Un vélo d’occasion contrôlé dès env. 80 € — le cadeau parfait à petit budget.', href: '/fr/gebrauchte-fahrraeder', linkLabel: 'Vélos d’occasion' },
+            { image: '/assets/stock/kids-hero.webp', title: 'Pour les enfants', text: 'Un vélo enfant de 12 à 26 pouces — le cadeau inoubliable. L’occasion est idéale, car ils grandissent vite.', href: '/fr/guide/taille-velo-enfant-guide', linkLabel: 'Quelle taille choisir ?' },
+            { image: '/assets/stock/mtb.webp', title: 'Pour les ados', text: 'Un VTT ou un vélo trekking sportif pour l’école, les amis et les sorties le long de la Lippe.' },
+            { image: '/assets/stock/seaside.webp', title: 'Pour votre partenaire', text: 'Un vélo de ville ou trekking confortable pour rouler ensemble sur la Römer-Lippe-Route.' },
+            { image: '/assets/stock/ebike-white.webp', title: 'Pour parents & grands-parents', text: 'Un vélo électrique offre une nouvelle liberté : vent et côtes ne font plus peur. VAE d’occasion dès env. 800 €.', href: '/fr/guide/acheter-velo-electrique-occasion', linkLabel: 'Guide VAE d’occasion' },
+            { image: '/assets/stock/city-sun.webp', title: 'Pour les pendulaires', text: 'Un vélo du quotidien fiable avec éclairage et porte-bagages — économie d’essence et de stationnement chaque jour.', href: '/fr/guide/velo-pendulaire-luenen-guide', linkLabel: 'Guide vélo pendulaire' },
+            { image: '/assets/stock/happy.webp', title: 'Pour les étudiants', text: 'Un vélo d’occasion contrôlé dès env. 80 € — le cadeau parfait à petit budget.', href: '/fr/gebrauchte-fahrraeder', linkLabel: 'Vélos d’occasion' },
           ],
         },
         {
@@ -1004,12 +1005,12 @@ const XMAS: LandingPage = {
           intro:
             'Kimi sevindirmek istiyorsunuz? İşte önerilerimiz — mağazada uygun bisikletleri memnuniyetle gösteririz.',
           cards: [
-            { title: 'Çocuklar için', text: '12 ile 26 inç arası bir çocuk bisikleti — çocukların asla unutmadığı hediye. Hızlı büyüdükleri için ikinci el özellikle avantajlı.', href: '/tr/ratgeber/kinderfahrrad-groesse', linkLabel: 'Hangi boy uygun?' },
-            { title: 'Gençler için', text: 'Okul, arkadaşlar ve Lippe kenarındaki gezintiler için dağ bisikleti ya da sportif trekking bisikleti.' },
-            { title: 'Eşiniz için', text: 'Römer-Lippe-Route üzerinde birlikte turlar için rahat bir şehir ya da trekking bisikleti.' },
-            { title: 'Anne-baba & büyükler için', text: "E-bisiklet yeni bir özgürlük sunar: rüzgar ve yokuşlar artık sorun değil. İkinci el e-bisikletler yaklaşık 800 €'dan.", href: '/tr/ratgeber/e-bike-gebraucht-kaufen', linkLabel: 'İkinci el e-bisiklet rehberi' },
-            { title: 'İşe bisikletle gidenler için', text: 'Işıklı ve bagajlı güvenilir bir günlük bisiklet — her gün yakıttan ve park derdinden tasarruf.', href: '/tr/ratgeber/fahrrad-pendler-stadtraeder', linkLabel: 'İşe gidiş bisikleti rehberi' },
-            { title: 'Öğrenciler için', text: "Yaklaşık 80 €'dan başlayan kontrol edilmiş ikinci el bisiklet — küçük bütçeye mükemmel hediye.", href: '/tr/gebrauchte-fahrraeder', linkLabel: 'İkinci el bisikletler' },
+            { image: '/assets/stock/kids-hero.webp', title: 'Çocuklar için', text: '12 ile 26 inç arası bir çocuk bisikleti — çocukların asla unutmadığı hediye. Hızlı büyüdükleri için ikinci el özellikle avantajlı.', href: '/tr/ratgeber/kinderfahrrad-groesse', linkLabel: 'Hangi boy uygun?' },
+            { image: '/assets/stock/mtb.webp', title: 'Gençler için', text: 'Okul, arkadaşlar ve Lippe kenarındaki gezintiler için dağ bisikleti ya da sportif trekking bisikleti.' },
+            { image: '/assets/stock/seaside.webp', title: 'Eşiniz için', text: 'Römer-Lippe-Route üzerinde birlikte turlar için rahat bir şehir ya da trekking bisikleti.' },
+            { image: '/assets/stock/ebike-white.webp', title: 'Anne-baba & büyükler için', text: "E-bisiklet yeni bir özgürlük sunar: rüzgar ve yokuşlar artık sorun değil. İkinci el e-bisikletler yaklaşık 800 €'dan.", href: '/tr/ratgeber/e-bike-gebraucht-kaufen', linkLabel: 'İkinci el e-bisiklet rehberi' },
+            { image: '/assets/stock/city-sun.webp', title: 'İşe bisikletle gidenler için', text: 'Işıklı ve bagajlı güvenilir bir günlük bisiklet — her gün yakıttan ve park derdinden tasarruf.', href: '/tr/ratgeber/fahrrad-pendler-stadtraeder', linkLabel: 'İşe gidiş bisikleti rehberi' },
+            { image: '/assets/stock/happy.webp', title: 'Öğrenciler için', text: "Yaklaşık 80 €'dan başlayan kontrol edilmiş ikinci el bisiklet — küçük bütçeye mükemmel hediye.", href: '/tr/gebrauchte-fahrraeder', linkLabel: 'İkinci el bisikletler' },
           ],
         },
         {
@@ -1100,12 +1101,12 @@ const XMAS: LandingPage = {
           intro:
             'Wie wilt u op kerstavond blij maken? Dit zijn onze tips — in de winkel laten we u graag passende fietsen zien.',
           cards: [
-            { title: 'Voor kinderen', text: 'Een kinderfiets van 12 tot 26 inch — het cadeau dat kinderen nooit vergeten. Tweedehands extra voordelig, want ze groeien er snel uit.', href: '/en/guide/childrens-bike-size-guide', linkLabel: 'Welke maat past? (EN)' },
-            { title: 'Voor tieners', text: 'Een mountainbike of sportieve trekkingfiets voor school, vrienden en tochtjes langs de Lippe.' },
-            { title: 'Voor uw partner', text: 'Een comfortabele stads- of trekkingfiets voor samen fietsen op de Römer-Lippe-Route.' },
-            { title: 'Voor (groot)ouders', text: 'Een e-bike geeft nieuwe vrijheid: tegenwind en heuvels zijn geen probleem meer. Tweedehands e-bikes vanaf ca. €800.', href: '/en/guide/buying-used-e-bike-guide', linkLabel: 'Gids tweedehands e-bike (EN)' },
-            { title: 'Voor forenzen', text: 'Een betrouwbare dagelijkse fiets met licht en bagagedrager — bespaart elke dag brandstof en parkeerstress.', href: '/en/guide/commuter-bike-luenen-guide', linkLabel: 'Gids forensenfiets (EN)' },
-            { title: 'Voor studenten', text: 'Een gecontroleerde tweedehands fiets vanaf ca. €80 — het perfecte cadeau met een klein budget.', href: '/nl/gebrauchte-fahrraeder', linkLabel: 'Tweedehands fietsen' },
+            { image: '/assets/stock/kids-hero.webp', title: 'Voor kinderen', text: 'Een kinderfiets van 12 tot 26 inch — het cadeau dat kinderen nooit vergeten. Tweedehands extra voordelig, want ze groeien er snel uit.', href: '/en/guide/childrens-bike-size-guide', linkLabel: 'Welke maat past? (EN)' },
+            { image: '/assets/stock/mtb.webp', title: 'Voor tieners', text: 'Een mountainbike of sportieve trekkingfiets voor school, vrienden en tochtjes langs de Lippe.' },
+            { image: '/assets/stock/seaside.webp', title: 'Voor uw partner', text: 'Een comfortabele stads- of trekkingfiets voor samen fietsen op de Römer-Lippe-Route.' },
+            { image: '/assets/stock/ebike-white.webp', title: 'Voor (groot)ouders', text: 'Een e-bike geeft nieuwe vrijheid: tegenwind en heuvels zijn geen probleem meer. Tweedehands e-bikes vanaf ca. €800.', href: '/en/guide/buying-used-e-bike-guide', linkLabel: 'Gids tweedehands e-bike (EN)' },
+            { image: '/assets/stock/city-sun.webp', title: 'Voor forenzen', text: 'Een betrouwbare dagelijkse fiets met licht en bagagedrager — bespaart elke dag brandstof en parkeerstress.', href: '/en/guide/commuter-bike-luenen-guide', linkLabel: 'Gids forensenfiets (EN)' },
+            { image: '/assets/stock/happy.webp', title: 'Voor studenten', text: 'Een gecontroleerde tweedehands fiets vanaf ca. €80 — het perfecte cadeau met een klein budget.', href: '/nl/gebrauchte-fahrraeder', linkLabel: 'Tweedehands fietsen' },
           ],
         },
         {

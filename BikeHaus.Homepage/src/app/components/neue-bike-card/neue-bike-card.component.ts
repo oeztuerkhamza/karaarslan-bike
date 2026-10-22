@@ -153,30 +153,30 @@ import { environment } from '../../../environments/environment';
         flex-direction: column;
         position: relative;
         background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
+          linear-gradient(180deg, rgba(var(--ink-rgb), 0.045), rgba(var(--ink-rgb), 0.015)),
           var(--color-surface);
-        border: 1px solid rgba(255, 255, 255, 0.09);
+        border: 1px solid rgba(var(--ink-rgb), 0.09);
         border-radius: 22px;
         overflow: hidden;
         text-decoration: none;
         color: var(--color-text);
         transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 16px 44px rgba(0, 0, 0, 0.18);
+        box-shadow: 0 16px 44px rgba(60, 45, 30, 0.081);
       }
 
       .card::before {
         content: '';
         position: absolute;
         inset: 0;
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 38%);
+        background: linear-gradient(135deg, rgba(var(--ink-rgb), 0.06), transparent 38%);
         pointer-events: none;
         opacity: 0.8;
       }
 
       .card:hover {
-        border-color: rgba(255, 255, 255, 0.2);
+        border-color: rgba(var(--ink-rgb), 0.2);
         transform: translateY(-6px);
-        box-shadow: 0 24px 54px rgba(0, 0, 0, 0.26);
+        box-shadow: 0 24px 54px rgba(60, 45, 30, 0.117);
       }
 
       .card-media {
@@ -192,7 +192,7 @@ import { environment } from '../../../environments/environment';
         position: absolute;
         inset: auto 0 0 0;
         height: 55%;
-        background: linear-gradient(180deg, transparent, rgba(4, 6, 12, 0.42));
+        background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.42));
         pointer-events: none;
       }
 
@@ -252,9 +252,9 @@ import { environment } from '../../../environments/environment';
         position: absolute;
         top: 0.85rem;
         left: 0.85rem;
-        background: rgba(6, 10, 15, 0.7);
+        background: rgba(255, 255, 255, 0.7);
         backdrop-filter: blur(12px);
-        color: #fff;
+        color: var(--color-text);
         font-size: 0.64rem;
         font-weight: 700;
         padding: 0.34rem 0.7rem;
@@ -262,7 +262,7 @@ import { environment } from '../../../environments/environment';
         letter-spacing: 0.08em;
         text-transform: uppercase;
         z-index: 1;
-        border: 1px solid rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(var(--ink-rgb), 0.12);
       }
 
       .card-condition {
@@ -271,7 +271,7 @@ import { environment } from '../../../environments/environment';
         right: 0.85rem;
         background: rgba(76, 175, 80, 0.9);
         backdrop-filter: blur(12px);
-        color: #fff;
+        color: var(--color-text);
         font-size: 0.65rem;
         font-weight: 700;
         padding: 0.3rem 0.62rem;
@@ -279,16 +279,16 @@ import { environment } from '../../../environments/environment';
         letter-spacing: 0.06em;
         text-transform: uppercase;
         z-index: 1;
-        border: 1px solid rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(var(--ink-rgb), 0.12);
       }
 
       .card-count {
         position: absolute;
         bottom: 0.85rem;
         right: 0.85rem;
-        background: rgba(6, 10, 15, 0.72);
+        background: rgba(255, 255, 255, 0.72);
         backdrop-filter: blur(12px);
-        color: #fff;
+        color: var(--color-text);
         font-size: 0.72rem;
         font-weight: 600;
         padding: 0.28rem 0.58rem;
@@ -297,7 +297,7 @@ import { environment } from '../../../environments/environment';
         align-items: center;
         gap: 0.3rem;
         z-index: 1;
-        border: 1px solid rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(var(--ink-rgb), 0.12);
       }
 
       .card-body {
@@ -325,7 +325,7 @@ import { environment } from '../../../environments/environment';
         align-items: center;
         gap: 0.35rem;
         font-size: 0.8rem;
-        color: rgba(255, 255, 255, 0.56);
+        color: rgba(var(--ink-rgb), 0.56);
         margin: 0 0 0.9rem;
       }
 
@@ -340,7 +340,7 @@ import { environment } from '../../../environments/environment';
         align-items: center;
         margin-top: auto;
         padding-top: 0.9rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        border-top: 1px solid rgba(var(--ink-rgb), 0.08);
       }
 
       .card-price {
@@ -376,7 +376,7 @@ import { environment } from '../../../environments/environment';
         left: 0.85rem;
         background: rgba(239, 68, 68, 0.92);
         backdrop-filter: blur(12px);
-        color: #fff;
+        color: var(--color-text);
         font-size: 0.65rem;
         font-weight: 700;
         padding: 0.3rem 0.62rem;
@@ -384,11 +384,11 @@ import { environment } from '../../../environments/environment';
         letter-spacing: 0.06em;
         text-transform: uppercase;
         z-index: 1;
-        border: 1px solid rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(var(--ink-rgb), 0.12);
       }
 
       .card-arrow {
-        color: rgba(255, 255, 255, 0.44);
+        color: rgba(var(--ink-rgb), 0.44);
         transition: all 0.3s;
         display: flex;
       }

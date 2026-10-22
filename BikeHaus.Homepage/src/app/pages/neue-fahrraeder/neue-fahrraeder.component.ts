@@ -25,6 +25,7 @@ type SortOption = 'newest' | 'price-asc' | 'price-desc' | 'az';
     <div class="showroom-page">
       <!-- Header -->
       <header class="page-header">
+        <img class="page-header-photo" src="/assets/stock/neurad.webp" alt="" width="1200" height="800" />
         <div class="container">
           <span class="section-label">{{ t().neueFahrraeder }}</span>
           <h1>{{ t().neueFahrraederTitle }}</h1>
@@ -653,7 +654,7 @@ type SortOption = 'newest' | 'price-asc' | 'price-desc' | 'az';
         background: linear-gradient(
           90deg,
           var(--color-bg-secondary) 25%,
-          rgba(255, 255, 255, 0.04) 50%,
+          rgba(var(--ink-rgb), 0.04) 50%,
           var(--color-bg-secondary) 75%
         );
         background-size: 200% 100%;
@@ -671,7 +672,7 @@ type SortOption = 'newest' | 'price-asc' | 'price-desc' | 'az';
         background: linear-gradient(
           90deg,
           var(--color-bg-secondary) 25%,
-          rgba(255, 255, 255, 0.04) 50%,
+          rgba(var(--ink-rgb), 0.04) 50%,
           var(--color-bg-secondary) 75%
         );
         background-size: 200% 100%;
@@ -771,7 +772,7 @@ type SortOption = 'newest' | 'price-asc' | 'price-desc' | 'az';
             rgba(255, 87, 34, 0.08),
             transparent 32%
           ),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 24%),
+          linear-gradient(180deg, rgba(var(--ink-rgb), 0.015), transparent 24%),
           var(--color-bg);
       }
 
@@ -779,7 +780,7 @@ type SortOption = 'newest' | 'price-asc' | 'price-desc' | 'az';
         position: relative;
         padding: 7.5rem 0 3.5rem;
         background: transparent;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        border-bottom: 1px solid rgba(var(--ink-rgb), 0.08);
       }
 
       .page-header .container {
@@ -804,9 +805,9 @@ type SortOption = 'newest' | 'price-asc' | 'price-desc' | 'az';
         gap: 0.5rem;
         padding: 0.85rem 1.05rem;
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        color: rgba(255, 255, 255, 0.72);
+        background: rgba(var(--ink-rgb), 0.04);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
+        color: rgba(var(--ink-rgb), 0.72);
       }
 
       .shop-layout {
@@ -820,13 +821,13 @@ type SortOption = 'newest' | 'price-asc' | 'price-desc' | 'az';
         background:
           linear-gradient(
             180deg,
-            rgba(255, 255, 255, 0.045),
-            rgba(255, 255, 255, 0.015)
+            rgba(var(--ink-rgb), 0.045),
+            rgba(var(--ink-rgb), 0.015)
           ),
           var(--color-surface);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
         border-radius: 24px;
-        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 24px 60px rgba(60, 45, 30, 0.09);
       }
 
       .s-input,
@@ -834,9 +835,9 @@ type SortOption = 'newest' | 'price-asc' | 'price-desc' | 'az';
       .sort-select,
       .clear-btn,
       .filter-toggle {
-        border-color: rgba(255, 255, 255, 0.08);
+        border-color: rgba(var(--ink-rgb), 0.08);
         border-radius: 14px;
-        background: rgba(9, 11, 15, 0.72);
+        background: rgba(255, 255, 255, 0.72);
       }
 
       .checkbox-item {
@@ -845,8 +846,8 @@ type SortOption = 'newest' | 'price-asc' | 'price-desc' | 'az';
       }
 
       .checkbox-item:hover {
-        background: rgba(255, 255, 255, 0.04);
-        border-color: rgba(255, 255, 255, 0.06);
+        background: rgba(var(--ink-rgb), 0.04);
+        border-color: rgba(var(--ink-rgb), 0.06);
       }
 
       .checkbox-item.active {
@@ -858,20 +859,20 @@ type SortOption = 'newest' | 'price-asc' | 'price-desc' | 'az';
         background:
           linear-gradient(
             180deg,
-            rgba(255, 255, 255, 0.045),
-            rgba(255, 255, 255, 0.015)
+            rgba(var(--ink-rgb), 0.045),
+            rgba(var(--ink-rgb), 0.015)
           ),
           var(--color-surface);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
         border-radius: 28px;
-        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+        box-shadow: 0 24px 60px rgba(60, 45, 30, 0.081);
       }
 
       .toolbar {
         padding: 1rem 1.05rem;
         border-radius: 18px;
-        background: rgba(255, 255, 255, 0.035);
-        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: rgba(var(--ink-rgb), 0.035);
+        border: 1px solid rgba(var(--ink-rgb), 0.06);
       }
 
       .active-pill {
@@ -879,7 +880,7 @@ type SortOption = 'newest' | 'price-asc' | 'price-desc' | 'az';
       }
 
       .result-count {
-        color: rgba(255, 255, 255, 0.58);
+        color: rgba(var(--ink-rgb), 0.58);
       }
 
       @media (max-width: 900px) {

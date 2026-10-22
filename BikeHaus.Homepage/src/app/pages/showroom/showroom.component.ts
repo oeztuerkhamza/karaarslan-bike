@@ -34,6 +34,7 @@ const TYP_PATTERN =
     <div class="showroom-page">
       <!-- Header -->
       <header class="page-header">
+        <img class="page-header-photo" src="/assets/shop/shop-8.webp" alt="" width="1200" height="800" />
         <div class="container">
           <span class="section-label">{{
             isAccessoriesMode() ? t().accessories : t().showroomLabel
@@ -548,7 +549,7 @@ const TYP_PATTERN =
         min-height: 60vh;
         background:
           radial-gradient(circle at top, rgba(255, 87, 34, 0.08), transparent 32%),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 24%),
+          linear-gradient(180deg, rgba(var(--ink-rgb), 0.015), transparent 24%),
           var(--color-bg);
       }
 
@@ -556,7 +557,7 @@ const TYP_PATTERN =
         position: relative;
         padding: 7.5rem 0 3.5rem;
         background: transparent;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        border-bottom: 1px solid rgba(var(--ink-rgb), 0.08);
         overflow: hidden;
       }
 
@@ -566,7 +567,7 @@ const TYP_PATTERN =
         inset: -6rem 0 0;
         background:
           radial-gradient(circle at 20% 10%, rgba(255, 87, 34, 0.13), transparent 28%),
-          radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.05), transparent 24%);
+          radial-gradient(circle at 80% 0%, rgba(var(--ink-rgb), 0.05), transparent 24%);
         pointer-events: none;
       }
 
@@ -602,9 +603,9 @@ const TYP_PATTERN =
         gap: 0.55rem;
         padding: 0.9rem 1.1rem;
         font-size: 0.95rem;
-        color: rgba(255, 255, 255, 0.74);
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: rgba(var(--ink-rgb), 0.74);
+        background: rgba(var(--ink-rgb), 0.04);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
         border-radius: 999px;
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
       }
@@ -627,13 +628,13 @@ const TYP_PATTERN =
         top: 5rem;
         padding: 1.35rem;
         background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
+          linear-gradient(180deg, rgba(var(--ink-rgb), 0.045), rgba(var(--ink-rgb), 0.015)),
           var(--color-surface);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
         border-radius: 24px;
         max-height: calc(100vh - 6rem);
         overflow-y: auto;
-        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 24px 60px rgba(60, 45, 30, 0.09);
       }
 
       .sidebar::before {
@@ -641,7 +642,7 @@ const TYP_PATTERN =
         position: absolute;
         inset: 0;
         border-radius: inherit;
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent 40%);
+        background: linear-gradient(135deg, rgba(var(--ink-rgb), 0.05), transparent 40%);
         pointer-events: none;
       }
 
@@ -666,9 +667,9 @@ const TYP_PATTERN =
       .s-input {
         width: 100%;
         padding: 0.8rem 0.9rem 0.8rem 2.35rem;
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
         border-radius: 14px;
-        background: rgba(9, 11, 15, 0.72);
+        background: rgba(255, 255, 255, 0.72);
         color: var(--color-text);
         font-size: 0.85rem;
         font-family: var(--font-family);
@@ -688,7 +689,7 @@ const TYP_PATTERN =
 
       .sidebar-divider {
         border: none;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        border-top: 1px solid rgba(var(--ink-rgb), 0.08);
         margin: 1rem 0;
       }
 
@@ -734,8 +735,8 @@ const TYP_PATTERN =
       }
 
       .checkbox-item:hover {
-        background: rgba(255, 255, 255, 0.04);
-        border-color: rgba(255, 255, 255, 0.06);
+        background: rgba(var(--ink-rgb), 0.04);
+        border-color: rgba(var(--ink-rgb), 0.06);
         color: var(--color-text);
       }
 
@@ -783,7 +784,7 @@ const TYP_PATTERN =
         font-size: 0.75rem;
         font-weight: 600;
         color: var(--color-text-muted);
-        background: rgba(255, 255, 255, 0.03);
+        background: rgba(var(--ink-rgb), 0.03);
         padding: 0.2rem 0.55rem;
         border-radius: 999px;
       }
@@ -812,7 +813,7 @@ const TYP_PATTERN =
         font-size: 0.65rem;
         font-weight: 600;
         color: var(--color-text-muted);
-        background: rgba(14, 16, 22, 0.92);
+        background: rgba(255, 255, 255, 0.92);
         padding: 0 4px;
         text-transform: uppercase;
         letter-spacing: 0.05em;
@@ -821,9 +822,9 @@ const TYP_PATTERN =
       .price-field input {
         width: 100%;
         padding: 0.7rem 1.6rem 0.7rem 0.7rem;
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
         border-radius: 12px;
-        background: rgba(9, 11, 15, 0.72);
+        background: rgba(255, 255, 255, 0.72);
         color: var(--color-text);
         font-size: 0.85rem;
         font-family: var(--font-family);
@@ -865,9 +866,9 @@ const TYP_PATTERN =
         width: 100%;
         padding: 0.8rem 0.9rem;
         margin-top: 1rem;
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
         border-radius: 14px;
-        background: rgba(255, 255, 255, 0.02);
+        background: rgba(var(--ink-rgb), 0.02);
         color: var(--color-text-secondary);
         font-size: 0.82rem;
         font-family: var(--font-family);
@@ -884,11 +885,11 @@ const TYP_PATTERN =
         min-width: 0;
         padding: 1.35rem;
         background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
+          linear-gradient(180deg, rgba(var(--ink-rgb), 0.045), rgba(var(--ink-rgb), 0.015)),
           var(--color-surface);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
         border-radius: 28px;
-        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+        box-shadow: 0 24px 60px rgba(60, 45, 30, 0.081);
       }
 
       .toolbar {
@@ -899,8 +900,8 @@ const TYP_PATTERN =
         flex-wrap: wrap;
         padding: 1rem 1.05rem;
         border-radius: 18px;
-        background: rgba(255, 255, 255, 0.035);
-        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: rgba(var(--ink-rgb), 0.035);
+        border: 1px solid rgba(var(--ink-rgb), 0.06);
       }
 
       .filter-toggle {
@@ -908,9 +909,9 @@ const TYP_PATTERN =
         align-items: center;
         gap: 0.4rem;
         padding: 0.65rem 1rem;
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
         border-radius: 50px;
-        background: rgba(255, 255, 255, 0.03);
+        background: rgba(var(--ink-rgb), 0.03);
         color: var(--color-text-secondary);
         font-size: 0.85rem;
         font-family: var(--font-family);
@@ -990,9 +991,9 @@ const TYP_PATTERN =
 
       .sort-select {
         padding: 0.55rem 0.8rem;
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
         border-radius: 12px;
-        background: rgba(255, 255, 255, 0.03);
+        background: rgba(var(--ink-rgb), 0.03);
         color: var(--color-text);
         font-size: 0.82rem;
         font-family: var(--font-family);
@@ -1007,7 +1008,7 @@ const TYP_PATTERN =
 
       .result-count {
         font-size: 0.82rem;
-        color: rgba(255, 255, 255, 0.58);
+        color: rgba(var(--ink-rgb), 0.58);
         white-space: nowrap;
       }
 
@@ -1079,9 +1080,9 @@ const TYP_PATTERN =
       .no-results {
         text-align: center;
         padding: 4rem 1rem;
-        border: 1px dashed rgba(255, 255, 255, 0.12);
+        border: 1px dashed rgba(var(--ink-rgb), 0.12);
         border-radius: 24px;
-        background: rgba(255, 255, 255, 0.02);
+        background: rgba(var(--ink-rgb), 0.02);
       }
       .no-results svg {
         margin-bottom: 1rem;
@@ -1105,7 +1106,7 @@ const TYP_PATTERN =
         padding: 2rem 0 0;
         font-size: 0.8rem;
         color: var(--color-text-muted);
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        border-top: 1px solid rgba(var(--ink-rgb), 0.08);
         margin-top: 3rem;
       }
 

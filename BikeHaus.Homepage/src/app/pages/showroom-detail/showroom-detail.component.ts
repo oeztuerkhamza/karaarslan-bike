@@ -458,14 +458,14 @@ import { environment } from '../../../environments/environment';
         padding-bottom: 4rem;
         background:
           radial-gradient(circle at top, rgba(255, 87, 34, 0.08), transparent 32%),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 24%),
+          linear-gradient(180deg, rgba(var(--ink-rgb), 0.015), transparent 24%),
           var(--color-bg);
       }
 
       .breadcrumb-bar {
         position: relative;
         padding: 6.75rem 0 1.75rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        border-bottom: 1px solid rgba(var(--ink-rgb), 0.08);
         margin-bottom: 2.5rem;
         overflow: hidden;
       }
@@ -476,7 +476,7 @@ import { environment } from '../../../environments/environment';
         inset: 0;
         background:
           radial-gradient(circle at 12% 0%, rgba(255, 87, 34, 0.12), transparent 22%),
-          radial-gradient(circle at 88% 0%, rgba(255, 255, 255, 0.05), transparent 18%);
+          radial-gradient(circle at 88% 0%, rgba(var(--ink-rgb), 0.05), transparent 18%);
         pointer-events: none;
       }
 
@@ -486,15 +486,15 @@ import { environment } from '../../../environments/environment';
         gap: 0.5rem;
         position: relative;
         z-index: 1;
-        color: rgba(255, 255, 255, 0.72);
+        color: rgba(var(--ink-rgb), 0.72);
         text-decoration: none;
         font-size: 0.88rem;
         font-weight: 600;
         transition: color 0.2s;
         padding: 0.9rem 1.05rem;
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(var(--ink-rgb), 0.04);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
       }
 
       .back-link:hover {
@@ -519,10 +519,10 @@ import { environment } from '../../../environments/environment';
         border-radius: 28px;
         overflow: hidden;
         background: #0d0d0d;
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
         aspect-ratio: 4/3;
         margin: 0;
-        box-shadow: 0 28px 70px rgba(0, 0, 0, 0.22);
+        box-shadow: 0 28px 70px rgba(60, 45, 30, 0.099);
       }
 
       .main-image-wrap::after {
@@ -560,7 +560,7 @@ import { environment } from '../../../environments/environment';
         border: none;
         background: rgba(0, 0, 0, 0.55);
         backdrop-filter: blur(8px);
-        color: #fff;
+        color: var(--color-text);
         cursor: pointer;
         display: flex;
         align-items: center;
@@ -592,7 +592,7 @@ import { environment } from '../../../environments/environment';
         transform: translateX(-50%);
         background: rgba(0, 0, 0, 0.6);
         backdrop-filter: blur(6px);
-        color: #fff;
+        color: var(--color-text);
         padding: 0.3rem 0.9rem;
         border-radius: 50px;
         font-size: 0.78rem;
@@ -617,7 +617,7 @@ import { environment } from '../../../environments/environment';
         height: 62px;
         border-radius: 14px;
         overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(var(--ink-rgb), 0.1);
         cursor: pointer;
         padding: 0;
         background: none;
@@ -653,12 +653,12 @@ import { environment } from '../../../environments/environment';
 
       .details-inner {
         background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
+          linear-gradient(180deg, rgba(var(--ink-rgb), 0.045), rgba(var(--ink-rgb), 0.015)),
           var(--color-surface);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
         border-radius: 28px;
         padding: 2rem;
-        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+        box-shadow: 0 24px 60px rgba(60, 45, 30, 0.081);
       }
 
       .badge-row {
@@ -671,7 +671,7 @@ import { environment } from '../../../environments/environment';
 
       .condition-badge {
         display: inline-block;
-        background: rgba(255, 255, 255, 0.05);
+        background: rgba(var(--ink-rgb), 0.05);
         color: var(--color-text-secondary);
         font-size: 0.72rem;
         font-weight: 700;
@@ -679,7 +679,7 @@ import { environment } from '../../../environments/environment';
         text-transform: uppercase;
         padding: 0.42rem 0.95rem;
         border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
       }
 
       .condition-badge.is-new {
@@ -734,7 +734,7 @@ import { environment } from '../../../environments/environment';
         gap: 0.8rem;
         margin-bottom: 1.8rem;
         padding-bottom: 1.5rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        border-bottom: 1px solid rgba(var(--ink-rgb), 0.08);
       }
 
       .meta-row {
@@ -767,8 +767,8 @@ import { environment } from '../../../environments/environment';
         margin-top: 0.8rem;
         padding: 0.9rem 1.5rem;
         border-radius: 16px;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(var(--ink-rgb), 0.03);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
         color: var(--color-text-secondary);
         font-size: 0.88rem;
         font-weight: 600;
@@ -787,8 +787,8 @@ import { environment } from '../../../environments/environment';
         margin-top: 1.6rem;
         padding: 1.1rem;
         border-radius: 20px;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(var(--ink-rgb), 0.03);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
       }
 
       .whatsapp-header {
@@ -826,7 +826,7 @@ import { environment } from '../../../environments/environment';
         width: 100%;
         padding: 0.85rem;
         border-radius: 14px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
         background: rgba(0, 0, 0, 0.18);
         color: var(--color-text);
         font-size: 0.9rem;
@@ -872,7 +872,7 @@ import { environment } from '../../../environments/environment';
       .desc-section {
         margin-top: 3rem;
         padding-top: 2.5rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        border-top: 1px solid rgba(var(--ink-rgb), 0.08);
         max-width: 800px;
       }
 
@@ -894,7 +894,7 @@ import { environment } from '../../../environments/environment';
       .related-section {
         margin-top: 3rem;
         padding-top: 2.5rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        border-top: 1px solid rgba(var(--ink-rgb), 0.08);
       }
 
       .related-section h2 {
@@ -914,9 +914,9 @@ import { environment } from '../../../environments/environment';
         text-decoration: none;
         border-radius: 20px;
         overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
         background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
+          linear-gradient(180deg, rgba(var(--ink-rgb), 0.045), rgba(var(--ink-rgb), 0.015)),
           var(--color-surface);
         transition:
           border-color 0.25s,
@@ -967,7 +967,7 @@ import { environment } from '../../../environments/environment';
       .blog-cta-section {
         margin-top: 2.5rem;
         padding-top: 2rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        border-top: 1px solid rgba(var(--ink-rgb), 0.08);
       }
 
       .blog-cta-section h2 {

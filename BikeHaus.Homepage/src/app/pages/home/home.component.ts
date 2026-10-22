@@ -47,10 +47,10 @@ interface Testimonial {
     <section class="hero" aria-labelledby="hero-heading">
       <img
         class="hero-img"
-        src="/assets/stock/hero.webp"
+        src="/assets/stock/light-hero.webp"
         alt=""
-        width="2200"
-        height="1467"
+        width="1800"
+        height="1201"
         fetchpriority="high"
         decoding="async"
       />
@@ -86,7 +86,7 @@ interface Testimonial {
             </a>
             <a
               [routerLink]="['/' + lang(), 'showroom']"
-              class="btn-secondary btn-glass"
+              class="btn-secondary"
               >{{ t().ctaSecondary }}</a
             >
           </div>
@@ -336,25 +336,83 @@ interface Testimonial {
         </header>
         <div class="values-grid">
           <article class="value-card reveal">
+            <img
+              class="value-img"
+              src="/assets/stock/check.webp"
+              alt=""
+              loading="lazy"
+              width="600"
+              height="450"
+            />
             <span class="value-num">01</span>
             <h3>{{ t().value1Title }}</h3>
             <p>{{ t().value1Desc }}</p>
           </article>
           <article class="value-card reveal">
+            <img
+              class="value-img"
+              src="/assets/stock/shop-interior.webp"
+              alt=""
+              loading="lazy"
+              width="600"
+              height="450"
+            />
             <span class="value-num">02</span>
             <h3>{{ t().value2Title }}</h3>
             <p>{{ t().value2Desc }}</p>
           </article>
           <article class="value-card reveal">
+            <img
+              class="value-img"
+              src="/assets/stock/happy.webp"
+              alt=""
+              loading="lazy"
+              width="600"
+              height="450"
+            />
             <span class="value-num">03</span>
             <h3>{{ t().value3Title }}</h3>
             <p>{{ t().value3Desc }}</p>
           </article>
           <article class="value-card reveal">
+            <img
+              class="value-img"
+              src="/assets/stock/nature-path.webp"
+              alt=""
+              loading="lazy"
+              width="600"
+              height="450"
+            />
             <span class="value-num">04</span>
             <h3>{{ t().value4Title }}</h3>
             <p>{{ t().value4Desc }}</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ LIFESTYLE MOSAIC ═══ -->
+    <section class="block" aria-labelledby="life-heading">
+      <div class="container">
+        <header class="block-head reveal">
+          <div>
+            <span class="section-label">{{ t().lifeLabel }}</span>
+            <h2 id="life-heading" class="section-title">{{ t().lifeTitle }}</h2>
+          </div>
+          <p class="section-subtitle">{{ t().lifeSub }}</p>
+        </header>
+        <div class="life-grid">
+          @for (img of lifePhotos; track img; let i = $index) {
+            <figure class="life-item reveal" [class]="'life-' + i">
+              <img
+                [src]="'/assets/stock/' + img + '.webp'"
+                [alt]="t().lifeTitle"
+                loading="lazy"
+                width="1400"
+                height="933"
+              />
+            </figure>
+          }
         </div>
       </div>
     </section>
@@ -1026,13 +1084,21 @@ interface Testimonial {
             href="https://wa.me/491637390301"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn-secondary btn-glass"
+            class="btn-secondary"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
               <path [attr.d]="whatsappPath" />
             </svg>
             {{ t().ctaWhatsapp }}
           </a>
+          <img
+            class="faq-photo"
+            src="/assets/stock/family.webp"
+            alt=""
+            loading="lazy"
+            width="1400"
+            height="933"
+          />
         </div>
 
         <div class="faq-list">
@@ -1053,11 +1119,11 @@ interface Testimonial {
     <section class="cta-section" aria-labelledby="cta-heading">
       <img
         class="cta-img"
-        src="/assets/stock/ausfahrt.webp"
+        src="/assets/stock/seaside.webp"
         alt=""
         loading="lazy"
-        width="1800"
-        height="1013"
+        width="2000"
+        height="1333"
       />
       <div class="cta-shade" aria-hidden="true"></div>
       <div class="container cta-inner reveal">
@@ -1081,7 +1147,7 @@ interface Testimonial {
             href="https://maps.app.goo.gl/Q1fXe7A6PRb8E5wV7"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn-secondary btn-glass"
+            class="btn-secondary"
             >{{ t().ctaRoute }}</a
           >
         </div>
@@ -1108,11 +1174,11 @@ interface Testimonial {
     `
       :host {
         display: block;
-        --line: rgba(255, 255, 255, 0.08);
-        --line-strong: rgba(255, 255, 255, 0.14);
-        --ink-soft: rgba(255, 255, 255, 0.68);
-        --ink-faint: rgba(255, 255, 255, 0.46);
-        --card: rgba(255, 255, 255, 0.035);
+        --line: rgba(var(--ink-rgb), 0.08);
+        --line-strong: rgba(var(--ink-rgb), 0.14);
+        --ink-soft: rgba(var(--ink-rgb), 0.68);
+        --ink-faint: rgba(var(--ink-rgb), 0.46);
+        --card: rgba(var(--ink-rgb), 0.035);
         --radius-xl: 28px;
         --radius-lg: 20px;
         --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -1199,6 +1265,7 @@ interface Testimonial {
       }
 
       .btn-glass {
+        color: #fff;
         background: rgba(255, 255, 255, 0.08);
         border-color: rgba(255, 255, 255, 0.22);
         backdrop-filter: blur(10px);
@@ -1291,9 +1358,27 @@ interface Testimonial {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: 60% 50%;
+        object-position: 70% 40%;
         z-index: -2;
         animation: heroZoom 18s ease-out forwards;
+      }
+
+      @media (min-width: 1025px) {
+        .hero-img {
+          left: auto;
+          width: 60%;
+          object-position: 40% 35%;
+          -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 35%);
+          mask-image: linear-gradient(90deg, transparent 0%, #000 35%);
+        }
+
+        .hero-shade {
+          background: linear-gradient(0deg, var(--color-bg) 0%, transparent 18%);
+        }
+
+        .hero-copy {
+          max-width: 700px;
+        }
       }
 
       @keyframes heroZoom {
@@ -1312,12 +1397,12 @@ interface Testimonial {
         background:
           linear-gradient(
             90deg,
-            rgba(10, 10, 10, 0.92) 0%,
-            rgba(10, 10, 10, 0.7) 38%,
-            rgba(10, 10, 10, 0.15) 75%
+            rgba(248, 245, 240, 0.97) 0%,
+            rgba(248, 245, 240, 0.88) 34%,
+            rgba(248, 245, 240, 0.25) 62%,
+            rgba(248, 245, 240, 0) 80%
           ),
-          linear-gradient(0deg, var(--color-bg) 0%, transparent 35%),
-          linear-gradient(180deg, rgba(10, 10, 10, 0.6) 0%, transparent 25%);
+          linear-gradient(0deg, var(--color-bg) 0%, transparent 18%);
       }
 
       .hero-grid {
@@ -1337,9 +1422,9 @@ interface Testimonial {
         border-radius: 999px;
         font-size: 0.82rem;
         font-weight: 600;
-        color: #fff;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.16);
+        color: var(--color-text);
+        background: rgba(255, 255, 255, 0.85);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         margin-bottom: 1.6rem;
@@ -1384,7 +1469,7 @@ interface Testimonial {
       .hero-sub {
         font-size: clamp(1rem, 1.6vw, 1.18rem);
         line-height: 1.75;
-        color: rgba(255, 255, 255, 0.8);
+        color: var(--color-text-secondary);
         max-width: 600px;
         margin: 0 0 2.25rem;
       }
@@ -1401,11 +1486,11 @@ interface Testimonial {
         gap: 0.4rem;
         padding: 1.1rem;
         border-radius: var(--radius-xl);
-        background: rgba(18, 18, 18, 0.55);
-        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.86);
+        border: 1px solid rgba(255, 255, 255, 0.9);
         backdrop-filter: blur(18px) saturate(140%);
         -webkit-backdrop-filter: blur(18px) saturate(140%);
-        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+        box-shadow: 0 30px 70px rgba(60, 45, 30, 0.18);
       }
 
       .hero-card-stats:empty {
@@ -1424,7 +1509,7 @@ interface Testimonial {
         flex-direction: column;
         padding: 1rem 1.1rem;
         border-radius: var(--radius-lg);
-        background: rgba(255, 255, 255, 0.05);
+        background: var(--color-bg);
       }
 
       .hc-stat-n {
@@ -1435,7 +1520,7 @@ interface Testimonial {
         font-weight: 800;
         letter-spacing: -0.04em;
         line-height: 1;
-        color: #fff;
+        color: var(--color-text);
       }
 
       .hc-stat-l {
@@ -1457,7 +1542,7 @@ interface Testimonial {
       }
 
       .hc-row:hover {
-        background: rgba(255, 255, 255, 0.07);
+        background: var(--color-bg);
       }
 
       .hc-row svg {
@@ -1488,7 +1573,7 @@ interface Testimonial {
         height: 36px;
         margin-left: -11px;
         border-radius: 12px;
-        border: 2px solid rgba(255, 255, 255, 0.35);
+        border: 2px solid rgba(var(--ink-rgb), 0.3);
       }
 
       .hero-scroll span {
@@ -1499,7 +1584,7 @@ interface Testimonial {
         height: 7px;
         margin-left: -2px;
         border-radius: 2px;
-        background: #fff;
+        background: var(--color-text);
         animation: scrollDot 1.8s var(--ease) infinite;
       }
 
@@ -1566,6 +1651,7 @@ interface Testimonial {
 
       .xmas-card {
         position: relative;
+        color: #fff;
         display: flex;
         align-items: center;
         min-height: 280px;
@@ -1637,6 +1723,7 @@ interface Testimonial {
 
       .svc-card {
         position: relative;
+        color: #fff;
         display: flex;
         align-items: flex-end;
         min-height: 560px;
@@ -1730,6 +1817,7 @@ interface Testimonial {
 
       .cat-tile {
         position: relative;
+        color: #fff;
         display: flex;
         align-items: flex-end;
         border-radius: var(--radius-lg);
@@ -1887,15 +1975,74 @@ interface Testimonial {
         width: 100%;
       }
 
+      .value-img {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        border-radius: 18px;
+        margin-bottom: 1.4rem;
+        box-shadow: 0 14px 34px rgba(60, 45, 30, 0.12);
+        transition: transform 0.6s var(--ease);
+      }
+
+      .value-card:hover .value-img {
+        transform: translateY(-4px);
+      }
+
+      /* ═══ LIFESTYLE MOSAIC ═══ */
+      .life-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 250px;
+        gap: 1rem;
+      }
+
+      .life-item {
+        margin: 0;
+        overflow: hidden;
+        border-radius: 22px;
+        box-shadow: 0 16px 40px rgba(60, 45, 30, 0.12);
+      }
+
+      .life-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 1s var(--ease);
+      }
+
+      .life-item:hover img {
+        transform: scale(1.05);
+      }
+
+      .life-0 {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+
+      .life-3 {
+        grid-column: span 2;
+      }
+
+      .faq-photo {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        border-radius: 22px;
+        margin-top: 2rem;
+        box-shadow: 0 16px 40px rgba(60, 45, 30, 0.12);
+      }
+
       .value-num {
         display: block;
-        font-size: 3rem;
+        font-size: 2.2rem;
         font-weight: 800;
         letter-spacing: -0.05em;
         line-height: 1;
         color: transparent;
         -webkit-text-stroke: 1.5px var(--color-accent);
-        margin-bottom: 1.5rem;
+        margin-bottom: 0.9rem;
       }
 
       .value-card h3 {
@@ -1946,7 +2093,7 @@ interface Testimonial {
         object-fit: cover;
         border-radius: var(--radius-lg);
         border: 6px solid var(--color-bg);
-        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+        box-shadow: 0 24px 60px rgba(60, 45, 30, 0.203);
       }
 
       .story-badge {
@@ -2045,7 +2192,7 @@ interface Testimonial {
         align-items: flex-start;
         padding: 1.1rem;
         border-radius: 16px;
-        background: rgba(255, 255, 255, 0.04);
+        background: rgba(var(--ink-rgb), 0.04);
         border: 1px solid var(--line);
         font-size: 0.93rem;
         line-height: 1.55;
@@ -2301,7 +2448,7 @@ interface Testimonial {
         position: relative;
         padding: 0.7rem 0 0.7rem 1.6rem;
         font-size: 0.93rem;
-        color: rgba(255, 255, 255, 0.82);
+        color: rgba(var(--ink-rgb), 0.82);
         border-bottom: 1px dashed var(--line);
       }
 
@@ -2545,7 +2692,7 @@ interface Testimonial {
         margin: 0;
         font-size: 0.98rem;
         line-height: 1.7;
-        color: rgba(255, 255, 255, 0.85);
+        color: rgba(var(--ink-rgb), 0.85);
         display: -webkit-box;
         -webkit-line-clamp: 7;
         -webkit-box-orient: vertical;
@@ -2676,7 +2823,7 @@ interface Testimonial {
         width: 32px;
         height: 32px;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.07);
+        background: rgba(var(--ink-rgb), 0.07);
         transition:
           background 0.3s,
           transform 0.4s var(--ease);
@@ -2733,9 +2880,7 @@ interface Testimonial {
         inset: 0;
         z-index: -1;
         background:
-          linear-gradient(180deg, var(--color-bg) 0%, transparent 30%),
-          linear-gradient(0deg, var(--color-bg) 0%, transparent 35%),
-          rgba(10, 10, 10, 0.55);
+          linear-gradient(180deg, var(--color-bg) 0%, rgba(248, 245, 240, 0.7) 30%, rgba(248, 245, 240, 0.35) 70%, rgba(248, 245, 240, 0.1) 100%);
       }
 
       .cta-h2 {
@@ -2751,7 +2896,7 @@ interface Testimonial {
       .cta-sub {
         font-size: 1.1rem;
         line-height: 1.7;
-        color: rgba(255, 255, 255, 0.8);
+        color: var(--color-text-secondary);
         max-width: 580px;
         margin: 0 auto 2.25rem;
       }
@@ -2861,13 +3006,12 @@ interface Testimonial {
           gap: 1rem;
         }
         .hero-shade {
-          background:
-            linear-gradient(
-              180deg,
-              rgba(10, 10, 10, 0.55) 0%,
-              rgba(10, 10, 10, 0.75) 45%,
-              var(--color-bg) 100%
-            );
+          background: linear-gradient(
+            180deg,
+            rgba(248, 245, 240, 0.55) 0%,
+            rgba(248, 245, 240, 0.9) 40%,
+            var(--color-bg) 100%
+          );
         }
         .hero-grid {
           padding-top: 7.5rem;
@@ -2907,6 +3051,13 @@ interface Testimonial {
         .gallery-grid {
           grid-template-columns: repeat(2, 1fr);
           grid-auto-rows: 160px;
+        }
+        .life-grid {
+          grid-template-columns: repeat(2, 1fr);
+          grid-auto-rows: 170px;
+        }
+        .faq-photo {
+          display: none;
         }
         .bikecheck-footer strong {
           margin-left: 0;
@@ -3120,6 +3271,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   repairActiveIndex = 0;
   repairImageIndex = 0;
   private repairInterval: ReturnType<typeof setInterval> | null = null;
+
+  // Lifestyle mosaic (stock photos, see assets/stock)
+  lifePhotos = ['family', 'ebike-white', 'lake', 'city-sun'];
 
   // Shop gallery
   shopPhotos: string[] = [

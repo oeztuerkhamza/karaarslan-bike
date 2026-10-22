@@ -458,6 +458,9 @@ export interface Translations {
   blogCta2: string;
   blogCta3: string;
   navUsedBikes: string;
+  lifeLabel: string;
+  lifeTitle: string;
+  lifeSub: string;
   navSizeGuide: string;
   navKidsAge: string;
   guideLinksLabel: string;
@@ -947,6 +950,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     blogCta2: 'Welches Fahrrad passt zu mir?',
     blogCta3: 'Fahrrad Inspektion — Was kostet es?',
     navUsedBikes: 'Gebrauchte Fahrräder',
+    lifeLabel: 'UNTERWEGS',
+    lifeTitle: 'Raus aufs Rad — rund um Lünen.',
+    lifeSub: 'Ob Familientour an der Lippe, Pendeln nach Dortmund oder Feierabendrunde: Wir haben das passende Rad für jeden Moment.',
     navSizeGuide: 'Welche Fahrradgröße passt?',
     navKidsAge: 'Kinderfahrrad nach Alter',
     guideLinksLabel: 'Ratgeber:',
@@ -1412,6 +1418,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     blogCta2: 'Which Bike Fits Me?',
     blogCta3: 'Bike Inspection — What Does It Cost?',
     navUsedBikes: 'Used Bikes',
+    lifeLabel: 'ON THE ROAD',
+    lifeTitle: 'Get out and ride — around Lünen.',
+    lifeSub: 'Family rides along the Lippe, commuting to Dortmund or an evening loop: we have the right bike for every moment.',
     navSizeGuide: 'Which bike size fits?',
     navKidsAge: 'Kids’ bike by age',
     guideLinksLabel: 'Guides:',
@@ -1902,6 +1911,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     blogCta2: 'Quel vélo me convient?',
     blogCta3: 'Révision vélo — Combien ça coûte?',
     navUsedBikes: "Vélos d'occasion",
+    lifeLabel: 'EN ROUTE',
+    lifeTitle: 'En selle — autour de Lünen.',
+    lifeSub: 'Balade en famille le long de la Lippe, trajet vers Dortmund ou sortie du soir : nous avons le bon vélo pour chaque moment.',
     navSizeGuide: 'Quelle taille de vélo ?',
     navKidsAge: 'Vélo enfant selon l’âge',
     guideLinksLabel: 'Guides :',
@@ -2387,6 +2399,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     blogCta2: 'Hangi Bisiklet Bana Uyar?',
     blogCta3: 'Bisiklet Bakımı — Ne Kadara Mal Olur?',
     navUsedBikes: 'İkinci El Bisikletler',
+    lifeLabel: 'YOLDA',
+    lifeTitle: 'Bisiklete binin — Lünen çevresinde.',
+    lifeSub: "Lippe kenarında aile turu, Dortmund'a işe gidiş ya da akşam turu: her an için doğru bisiklet bizde.",
     navSizeGuide: 'Hangi bisiklet boyu uyar?',
     navKidsAge: 'Yaşa göre çocuk bisikleti',
     guideLinksLabel: 'Rehberler:',
@@ -2859,6 +2874,9 @@ const TRANSLATIONS: Record<Language, Translations> = {
     blogCta2: 'Welke fiets past bij mij?',
     blogCta3: 'Fietsinspectie — wat kost dat?',
     navUsedBikes: 'Tweedehands fietsen',
+    lifeLabel: 'ONDERWEG',
+    lifeTitle: 'Op de fiets — rond Lünen.',
+    lifeSub: 'Een gezinstocht langs de Lippe, forenzen naar Dortmund of een avondrondje: wij hebben de juiste fiets voor elk moment.',
     navSizeGuide: 'Welke fietsmaat past?',
     navKidsAge: 'Kinderfiets per leeftijd',
     guideLinksLabel: 'Gidsen:',

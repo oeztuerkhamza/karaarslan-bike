@@ -188,8 +188,8 @@ import { TranslationService } from '../../services/translation.service';
       }
 
       .horizontal .cat-item.active .cat-count {
-        background: rgba(255, 255, 255, 0.2);
-        color: #fff;
+        background: rgba(var(--ink-rgb), 0.2);
+        color: var(--color-text);
       }
 
       .horizontal .cat-icon {

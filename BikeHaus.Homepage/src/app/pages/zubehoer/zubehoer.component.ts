@@ -456,7 +456,7 @@ import { environment } from '../../../environments/environment';
         gap: 4px;
         padding: 4px 8px;
         background: rgba(0, 0, 0, 0.6);
-        color: #fff;
+        color: var(--color-text);
         border-radius: 6px;
         font-size: 0.75rem;
         font-weight: 600;
@@ -544,7 +544,7 @@ import { environment } from '../../../environments/environment';
             rgba(255, 87, 34, 0.08),
             transparent 30%
           ),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 22%),
+          linear-gradient(180deg, rgba(var(--ink-rgb), 0.015), transparent 22%),
           var(--color-bg);
       }
 
@@ -580,27 +580,27 @@ import { environment } from '../../../environments/environment';
         background:
           linear-gradient(
             180deg,
-            rgba(255, 255, 255, 0.045),
-            rgba(255, 255, 255, 0.015)
+            rgba(var(--ink-rgb), 0.045),
+            rgba(var(--ink-rgb), 0.015)
           ),
           var(--color-surface);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
+        box-shadow: 0 24px 60px rgba(60, 45, 30, 0.081);
       }
 
       .search-box {
         max-width: 460px;
         padding: 0.8rem 1rem;
         border-radius: 14px;
-        background: rgba(9, 11, 15, 0.72);
-        border-color: rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.72);
+        border-color: rgba(var(--ink-rgb), 0.08);
       }
 
       .cat-btn {
         padding: 0.58rem 1rem;
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.035);
-        border-color: rgba(255, 255, 255, 0.08);
+        background: rgba(var(--ink-rgb), 0.035);
+        border-color: rgba(var(--ink-rgb), 0.08);
       }
 
       .accessory-card {
@@ -609,17 +609,17 @@ import { environment } from '../../../environments/environment';
         background:
           linear-gradient(
             180deg,
-            rgba(255, 255, 255, 0.045),
-            rgba(255, 255, 255, 0.015)
+            rgba(var(--ink-rgb), 0.045),
+            rgba(var(--ink-rgb), 0.015)
           ),
           var(--color-surface);
-        border-color: rgba(255, 255, 255, 0.08);
-        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.16);
+        border-color: rgba(var(--ink-rgb), 0.08);
+        box-shadow: 0 18px 44px rgba(60, 45, 30, 0.072);
       }
 
       .accessory-card:hover {
         transform: translateY(-6px);
-        box-shadow: 0 24px 54px rgba(0, 0, 0, 0.24);
+        box-shadow: 0 24px 54px rgba(60, 45, 30, 0.108);
       }
 
       .card-image::after {
@@ -627,18 +627,18 @@ import { environment } from '../../../environments/environment';
         position: absolute;
         inset: auto 0 0 0;
         height: 50%;
-        background: linear-gradient(180deg, transparent, rgba(4, 6, 12, 0.42));
+        background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.42));
         pointer-events: none;
       }
 
       .category-tag,
       .image-count {
-        border: 1px solid rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(var(--ink-rgb), 0.12);
         backdrop-filter: blur(12px);
       }
 
       .category-tag {
-        background: rgba(6, 10, 15, 0.72);
+        background: rgba(255, 255, 255, 0.72);
       }
 
       .hover-overlay {

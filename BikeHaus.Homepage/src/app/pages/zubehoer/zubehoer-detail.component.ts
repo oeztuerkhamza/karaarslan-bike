@@ -184,7 +184,7 @@ import { environment } from '../../../environments/environment';
         border: 1px solid var(--color-border);
         cursor: pointer;
         font-size: 1.5rem;
-        color: #fff;
+        color: var(--color-text);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -210,7 +210,7 @@ import { environment } from '../../../environments/environment';
         right: 12px;
         padding: 4px 10px;
         background: rgba(0, 0, 0, 0.6);
-        color: #fff;
+        color: var(--color-text);
         border-radius: 6px;
         font-size: 0.8rem;
         font-weight: 600;
@@ -365,7 +365,7 @@ import { environment } from '../../../environments/environment';
       .detail-page {
         background:
           radial-gradient(circle at top, rgba(255, 87, 34, 0.08), transparent 30%),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 22%),
+          linear-gradient(180deg, rgba(var(--ink-rgb), 0.015), transparent 22%),
           var(--color-bg);
       }
 
@@ -375,16 +375,16 @@ import { environment } from '../../../environments/environment';
         gap: 0.35rem;
         padding: 0.85rem 1rem;
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(var(--ink-rgb), 0.04);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
       }
 
       .main-image,
       .no-image-large,
       .info {
         border-radius: 24px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: 0 24px 54px rgba(0, 0, 0, 0.18);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
+        box-shadow: 0 24px 54px rgba(60, 45, 30, 0.081);
       }
 
       .main-image,
@@ -395,24 +395,24 @@ import { environment } from '../../../environments/environment';
       .info {
         padding: 1.5rem;
         background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
+          linear-gradient(180deg, rgba(var(--ink-rgb), 0.045), rgba(var(--ink-rgb), 0.015)),
           var(--color-surface);
       }
 
       .thumb {
         border-radius: 14px;
-        border-color: rgba(255, 255, 255, 0.1);
+        border-color: rgba(var(--ink-rgb), 0.1);
       }
 
       .category-badge,
       .image-counter {
-        border: 1px solid rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(var(--ink-rgb), 0.12);
         backdrop-filter: blur(12px);
       }
 
       .price-block {
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        border-top: 1px solid rgba(var(--ink-rgb), 0.08);
+        border-bottom: 1px solid rgba(var(--ink-rgb), 0.08);
       }
     `,
   ],

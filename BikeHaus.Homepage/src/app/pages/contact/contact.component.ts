@@ -15,6 +15,7 @@ import { HolidayNoticeComponent } from '../../components/holiday-notice/holiday-
     <div class="contact-page">
       <!-- Header -->
       <header class="page-header">
+        <img class="page-header-photo" src="/assets/stock/happy.webp" alt="" width="1200" height="800" />
         <div class="container">
           <span class="label">{{ t().contactLabel }}</span>
           <h1>{{ t().contactTitle }}</h1>
@@ -601,7 +602,7 @@ import { HolidayNoticeComponent } from '../../components/holiday-notice/holiday-
             rgba(255, 87, 34, 0.08),
             transparent 30%
           ),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 22%),
+          linear-gradient(180deg, rgba(var(--ink-rgb), 0.015), transparent 22%),
           var(--color-bg);
       }
 
@@ -609,7 +610,7 @@ import { HolidayNoticeComponent } from '../../components/holiday-notice/holiday-
         position: relative;
         padding: 7rem 0 3.2rem;
         background: transparent;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        border-bottom: 1px solid rgba(var(--ink-rgb), 0.08);
       }
 
       .page-header h1 {
@@ -713,18 +714,18 @@ import { HolidayNoticeComponent } from '../../components/holiday-notice/holiday-
         background:
           linear-gradient(
             180deg,
-            rgba(255, 255, 255, 0.045),
-            rgba(255, 255, 255, 0.015)
+            rgba(var(--ink-rgb), 0.045),
+            rgba(var(--ink-rgb), 0.015)
           ),
           var(--color-surface);
-        border-color: rgba(255, 255, 255, 0.08);
-        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.16);
+        border-color: rgba(var(--ink-rgb), 0.08);
+        box-shadow: 0 18px 44px rgba(60, 45, 30, 0.072);
       }
 
       .contact-card:hover,
       .ka-card:hover {
         transform: translateY(-4px);
-        box-shadow: 0 24px 54px rgba(0, 0, 0, 0.22);
+        box-shadow: 0 24px 54px rgba(60, 45, 30, 0.099);
       }
 
       .card-icon {
@@ -734,8 +735,8 @@ import { HolidayNoticeComponent } from '../../components/holiday-notice/holiday-
 
       .map-container {
         border-radius: 24px;
-        border-color: rgba(255, 255, 255, 0.08);
-        box-shadow: 0 24px 54px rgba(0, 0, 0, 0.18);
+        border-color: rgba(var(--ink-rgb), 0.08);
+        box-shadow: 0 24px 54px rgba(60, 45, 30, 0.081);
       }
 
       .review-btn {

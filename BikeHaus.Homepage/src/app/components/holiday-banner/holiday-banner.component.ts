@@ -51,7 +51,7 @@ import { HolidayService } from '../../services/holiday.service';
         z-index: 1100;
         background: linear-gradient(90deg, #ff5722 0%, #e64a19 100%);
         color: #fff;
-        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 6px 24px rgba(60, 45, 30, 0.113);
       }
 
       .banner-inner {

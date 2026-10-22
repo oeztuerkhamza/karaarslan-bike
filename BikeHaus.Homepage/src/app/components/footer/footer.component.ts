@@ -205,7 +205,7 @@ import { ShopInfoService } from '../../services/shop-info.service';
 
       .footer-col nav a:hover,
       .footer-langs a:hover {
-        color: #fff;
+        color: var(--color-text);
       }
 
       .footer-langs a.active {
@@ -262,7 +262,7 @@ import { ShopInfoService } from '../../services/shop-info.service';
 
       .footer-credit:hover {
         border-color: var(--color-accent);
-        color: #fff;
+        color: var(--color-text);
       }
 
       .footer-bottom p {
@@ -325,9 +325,9 @@ import { ShopInfoService } from '../../services/shop-info.service';
             rgba(255, 87, 34, 0.08),
             transparent 34%
           ),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 18%),
+          linear-gradient(180deg, rgba(var(--ink-rgb), 0.03), transparent 18%),
           var(--color-bg-secondary);
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        border-top: 1px solid rgba(var(--ink-rgb), 0.08);
       }
 
       .footer::before {
@@ -336,7 +336,7 @@ import { ShopInfoService } from '../../services/shop-info.service';
         inset: 0;
         background: linear-gradient(
           135deg,
-          rgba(255, 255, 255, 0.04),
+          rgba(var(--ink-rgb), 0.04),
           transparent 42%
         );
         pointer-events: none;
@@ -353,8 +353,8 @@ import { ShopInfoService } from '../../services/shop-info.service';
       .footer-col {
         padding: 1.1rem 1.15rem;
         border-radius: 20px;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: rgba(var(--ink-rgb), 0.03);
+        border: 1px solid rgba(var(--ink-rgb), 0.06);
       }
 
       .footer-logo {
@@ -365,8 +365,8 @@ import { ShopInfoService } from '../../services/shop-info.service';
         width: 40px;
         height: 40px;
         border-radius: 12px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(var(--ink-rgb), 0.05);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
       }
 
       .footer-col nav a,
@@ -384,7 +384,7 @@ import { ShopInfoService } from '../../services/shop-info.service';
       .footer-bottom {
         position: relative;
         z-index: 1;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        border-top: 1px solid rgba(var(--ink-rgb), 0.08);
       }
     `,
   ],

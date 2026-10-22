@@ -17,6 +17,7 @@ import {
   template: `
     <div class="ratgeber-page">
       <header class="page-header">
+        <img class="page-header-photo" src="/assets/stock/nature-path.webp" alt="" width="1200" height="800" />
         <div class="container">
           <span class="label">{{ t().ratgeberLabel }}</span>
           <h1>{{ t().ratgeberTitle }}</h1>
@@ -247,14 +248,14 @@ import {
             rgba(255, 87, 34, 0.08),
             transparent 30%
           ),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 22%),
+          linear-gradient(180deg, rgba(var(--ink-rgb), 0.015), transparent 22%),
           var(--color-bg);
       }
 
       .page-header {
         position: relative;
         padding: 7rem 0 3rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        border-bottom: 1px solid rgba(var(--ink-rgb), 0.08);
       }
 
       .page-header .container {
@@ -271,7 +272,7 @@ import {
 
       .sub {
         max-width: 640px;
-        color: rgba(255, 255, 255, 0.72);
+        color: rgba(var(--ink-rgb), 0.72);
       }
 
       .articles-grid {
@@ -284,17 +285,17 @@ import {
         background:
           linear-gradient(
             180deg,
-            rgba(255, 255, 255, 0.045),
-            rgba(255, 255, 255, 0.015)
+            rgba(var(--ink-rgb), 0.045),
+            rgba(var(--ink-rgb), 0.015)
           ),
           var(--color-surface, #111);
-        border-color: rgba(255, 255, 255, 0.08);
-        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.16);
+        border-color: rgba(var(--ink-rgb), 0.08);
+        box-shadow: 0 18px 44px rgba(60, 45, 30, 0.072);
       }
 
       .article-card:hover {
         transform: translateY(-6px);
-        box-shadow: 0 24px 54px rgba(0, 0, 0, 0.24);
+        box-shadow: 0 24px 54px rgba(60, 45, 30, 0.108);
       }
 
       .card-image::after {
@@ -302,7 +303,7 @@ import {
         position: absolute;
         inset: auto 0 0 0;
         height: 50%;
-        background: linear-gradient(180deg, transparent, rgba(4, 6, 12, 0.4));
+        background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.4));
         pointer-events: none;
       }
 

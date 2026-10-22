@@ -79,7 +79,7 @@ const MAPS_URL = 'https://maps.app.goo.gl/Q1fXe7A6PRb8E5wV7';
               [href]="whatsappUrl"
               target="_blank"
               rel="noopener noreferrer"
-              class="btn-secondary lp-glass"
+              class="btn-secondary"
               >{{ t().ctaWhatsapp }}</a
             >
           </div>
@@ -205,7 +205,17 @@ const MAPS_URL = 'https://maps.app.goo.gl/Q1fXe7A6PRb8E5wV7';
                   }
                   <div class="lp-cards">
                     @for (card of s.cards; track card.title; let i = $index) {
-                      <article class="lp-card">
+                      <article class="lp-card" [class.lp-card-photo]="card.image">
+                        @if (card.image) {
+                          <img
+                            class="lp-card-img"
+                            [src]="card.image"
+                            alt=""
+                            loading="lazy"
+                            width="900"
+                            height="600"
+                          />
+                        }
                         <span class="lp-card-num">0{{ i + 1 }}</span>
                         <h3>{{ card.title }}</h3>
                         <p>{{ card.text }}</p>
@@ -399,7 +409,7 @@ const MAPS_URL = 'https://maps.app.goo.gl/Q1fXe7A6PRb8E5wV7';
               [href]="whatsappUrl"
               target="_blank"
               rel="noopener noreferrer"
-              class="btn-secondary lp-glass"
+              class="btn-secondary"
               >{{ t().ctaWhatsapp }}</a
             >
           </div>
@@ -439,7 +449,7 @@ const MAPS_URL = 'https://maps.app.goo.gl/Q1fXe7A6PRb8E5wV7';
               [href]="mapsUrl"
               target="_blank"
               rel="noopener noreferrer"
-              class="btn-secondary lp-glass"
+              class="btn-secondary"
               >{{ t().ctaRoute }}</a
             >
           </div>
@@ -454,9 +464,9 @@ const MAPS_URL = 'https://maps.app.goo.gl/Q1fXe7A6PRb8E5wV7';
     `
       :host {
         display: block;
-        --line: rgba(255, 255, 255, 0.08);
-        --ink-soft: rgba(255, 255, 255, 0.7);
-        --card: rgba(255, 255, 255, 0.035);
+        --line: rgba(var(--ink-rgb), 0.08);
+        --ink-soft: rgba(var(--ink-rgb), 0.7);
+        --card: rgba(var(--ink-rgb), 0.035);
         --ease: cubic-bezier(0.22, 1, 0.36, 1);
       }
 
@@ -485,11 +495,12 @@ const MAPS_URL = 'https://maps.app.goo.gl/Q1fXe7A6PRb8E5wV7';
         background:
           linear-gradient(
             90deg,
-            rgba(10, 10, 10, 0.94) 0%,
-            rgba(10, 10, 10, 0.72) 45%,
-            rgba(10, 10, 10, 0.25) 100%
+            rgba(248, 245, 240, 0.97) 0%,
+            rgba(248, 245, 240, 0.88) 40%,
+            rgba(248, 245, 240, 0.3) 68%,
+            rgba(248, 245, 240, 0) 85%
           ),
-          linear-gradient(0deg, var(--color-bg) 0%, transparent 40%);
+          linear-gradient(0deg, var(--color-bg) 0%, transparent 20%);
       }
       .lp-hero-inner {
         padding-top: 8.5rem;
@@ -499,11 +510,11 @@ const MAPS_URL = 'https://maps.app.goo.gl/Q1fXe7A6PRb8E5wV7';
         display: flex;
         gap: 0.5rem;
         font-size: 0.82rem;
-        color: rgba(255, 255, 255, 0.6);
+        color: var(--color-text-muted);
         margin-bottom: 1.25rem;
       }
       .lp-crumbs a:hover {
-        color: #fff;
+        color: var(--color-accent);
       }
       .lp-eyebrow {
         display: inline-flex;
@@ -513,10 +524,8 @@ const MAPS_URL = 'https://maps.app.goo.gl/Q1fXe7A6PRb8E5wV7';
         border-radius: 999px;
         font-size: 0.82rem;
         font-weight: 600;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
         margin-bottom: 1.4rem;
       }
       .lp-dot {
@@ -545,7 +554,7 @@ const MAPS_URL = 'https://maps.app.goo.gl/Q1fXe7A6PRb8E5wV7';
         max-width: 640px;
         font-size: clamp(1rem, 1.6vw, 1.15rem);
         line-height: 1.75;
-        color: rgba(255, 255, 255, 0.82);
+        color: var(--color-text-secondary);
         margin-bottom: 2rem;
       }
       .lp-actions {
@@ -578,8 +587,8 @@ const MAPS_URL = 'https://maps.app.goo.gl/Q1fXe7A6PRb8E5wV7';
         border-radius: 999px;
         font-size: 0.82rem;
         font-weight: 600;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
       }
       .lp-usps svg {
         color: var(--color-accent);
@@ -680,7 +689,7 @@ const MAPS_URL = 'https://maps.app.goo.gl/Q1fXe7A6PRb8E5wV7';
         font-weight: 700;
       }
       .lp-them {
-        color: rgba(255, 255, 255, 0.5);
+        color: rgba(var(--ink-rgb), 0.5);
       }
       .lp-us {
         background: rgba(255, 87, 34, 0.08);
@@ -699,7 +708,7 @@ const MAPS_URL = 'https://maps.app.goo.gl/Q1fXe7A6PRb8E5wV7';
       .lp-note {
         margin-top: 1rem;
         font-size: 0.88rem;
-        color: rgba(255, 255, 255, 0.55);
+        color: rgba(var(--ink-rgb), 0.55);
         line-height: 1.6;
         max-width: 720px;
       }
@@ -744,7 +753,7 @@ const MAPS_URL = 'https://maps.app.goo.gl/Q1fXe7A6PRb8E5wV7';
       }
       .lp-calc-fields small {
         font-weight: 400;
-        color: rgba(255, 255, 255, 0.5);
+        color: rgba(var(--ink-rgb), 0.5);
         line-height: 1.4;
       }
       .lp-calc-result {
@@ -857,6 +866,21 @@ const MAPS_URL = 'https://maps.app.goo.gl/Q1fXe7A6PRb8E5wV7';
         border-color: rgba(255, 87, 34, 0.45);
         transform: translateY(-4px);
       }
+      .lp-card-photo {
+        padding-top: 0;
+        overflow: hidden;
+      }
+      .lp-card-img {
+        width: calc(100% + 3.2rem);
+        max-width: none;
+        margin: 0 -1.6rem 1.2rem;
+        aspect-ratio: 3 / 2;
+        object-fit: cover;
+        transition: transform 0.8s var(--ease);
+      }
+      .lp-card:hover .lp-card-img {
+        transform: scale(1.04);
+      }
       .lp-card-num {
         font-size: 0.8rem;
         font-weight: 800;
@@ -964,7 +988,7 @@ const MAPS_URL = 'https://maps.app.goo.gl/Q1fXe7A6PRb8E5wV7';
         width: 30px;
         height: 30px;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.07);
+        background: rgba(var(--ink-rgb), 0.07);
         transition: transform 0.4s var(--ease), background 0.3s;
       }
       .lp-toggle::before,
@@ -1006,9 +1030,12 @@ const MAPS_URL = 'https://maps.app.goo.gl/Q1fXe7A6PRb8E5wV7';
         position: absolute;
         inset: 0;
         z-index: -1;
-        background:
-          linear-gradient(180deg, var(--color-bg) 0%, transparent 35%),
-          rgba(10, 10, 10, 0.62);
+        background: linear-gradient(
+          180deg,
+          var(--color-bg) 0%,
+          rgba(248, 245, 240, 0.78) 35%,
+          rgba(248, 245, 240, 0.5) 100%
+        );
       }
       .lp-cta h2 {
         font-size: clamp(2.2rem, 5vw, 4rem);
@@ -1021,13 +1048,13 @@ const MAPS_URL = 'https://maps.app.goo.gl/Q1fXe7A6PRb8E5wV7';
       .lp-cta-inner > p {
         max-width: 580px;
         margin: 0 auto 2rem;
-        color: rgba(255, 255, 255, 0.82);
+        color: var(--color-text-secondary);
         line-height: 1.7;
       }
       .lp-cta-inner > .lp-address {
         margin: 2rem auto 0;
         font-size: 0.85rem;
-        color: rgba(255, 255, 255, 0.6);
+        color: var(--color-text-muted);
       }
 
       @media (max-width: 1024px) {
@@ -1045,8 +1072,8 @@ const MAPS_URL = 'https://maps.app.goo.gl/Q1fXe7A6PRb8E5wV7';
         .lp-hero-shade {
           background: linear-gradient(
             180deg,
-            rgba(10, 10, 10, 0.6) 0%,
-            rgba(10, 10, 10, 0.8) 50%,
+            rgba(248, 245, 240, 0.55) 0%,
+            rgba(248, 245, 240, 0.92) 45%,
             var(--color-bg) 100%
           );
         }

@@ -93,10 +93,10 @@ import { HolidayService } from '../../services/holiday.service';
 
       .navbar.scrolled {
         padding: 0.6rem 0;
-        background: rgba(10, 10, 10, 0.92);
+        background: rgba(255, 255, 255, 0.92);
         backdrop-filter: blur(20px) saturate(180%);
         -webkit-backdrop-filter: blur(20px) saturate(180%);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        border-bottom: 1px solid rgba(var(--ink-rgb), 0.06);
       }
 
       .nav-inner {
@@ -125,7 +125,7 @@ import { HolidayService } from '../../services/holiday.service';
       .brand-name {
         font-weight: 700;
         font-size: 1.1rem;
-        color: #fff;
+        color: var(--color-text);
         letter-spacing: -0.02em;
       }
 
@@ -200,7 +200,7 @@ import { HolidayService } from '../../services/holiday.service';
 
       .nav-menu a:hover,
       .nav-menu a.active {
-        color: #fff;
+        color: var(--color-text);
       }
 
       .nav-menu a.active::after,
@@ -236,7 +236,7 @@ import { HolidayService } from '../../services/holiday.service';
       }
 
       .lang-switch button.active {
-        color: #fff;
+        color: var(--color-text);
         background: var(--color-surface-elevated);
         border-color: var(--color-border-hover);
       }
@@ -257,7 +257,7 @@ import { HolidayService } from '../../services/holiday.service';
           left: 0;
           right: 0;
           bottom: 0;
-          background: #000;
+          background: var(--color-surface);
           backdrop-filter: blur(18px) saturate(140%);
           -webkit-backdrop-filter: blur(18px) saturate(140%);
           flex-direction: column;
@@ -281,7 +281,7 @@ import { HolidayService } from '../../services/holiday.service';
         }
 
         .nav-menu a.active {
-          color: #fff;
+          color: var(--color-text);
         }
 
         .lang-switch {
@@ -306,9 +306,9 @@ import { HolidayService } from '../../services/holiday.service';
       .nav-inner {
         padding: 0.9rem 1.25rem;
         border-radius: 999px;
-        background: rgba(10, 12, 18, 0.62);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16);
+        background: rgba(255, 255, 255, 0.62);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
+        box-shadow: 0 18px 40px rgba(60, 45, 30, 0.072);
         position: relative;
         isolation: isolate;
       }
@@ -335,16 +335,16 @@ import { HolidayService } from '../../services/holiday.service';
       }
 
       .navbar.scrolled .nav-inner {
-        background: rgba(8, 10, 16, 0.78);
-        box-shadow: 0 22px 44px rgba(0, 0, 0, 0.22);
+        background: rgba(255, 255, 255, 0.78);
+        box-shadow: 0 22px 44px rgba(60, 45, 30, 0.099);
       }
 
       .brand-logo {
         width: 44px;
         height: 44px;
         border-radius: 14px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(var(--ink-rgb), 0.05);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
       }
 
       .nav-menu a {
@@ -354,12 +354,12 @@ import { HolidayService } from '../../services/holiday.service';
       .lang-switch {
         margin-left: 0.9rem;
         padding-left: 1.2rem;
-        border-left-color: rgba(255, 255, 255, 0.08);
+        border-left-color: rgba(var(--ink-rgb), 0.08);
       }
 
       .lang-switch button.active {
-        background: rgba(255, 255, 255, 0.08);
-        border-color: rgba(255, 255, 255, 0.12);
+        background: rgba(var(--ink-rgb), 0.08);
+        border-color: rgba(var(--ink-rgb), 0.12);
       }
 
       /* Push the fixed navbar below the holiday banner.
@@ -389,7 +389,7 @@ import { HolidayService } from '../../services/holiday.service';
               rgba(255, 87, 34, 0.12),
               transparent 28%
             ),
-            rgba(5, 8, 13, 0.985);
+            rgba(255, 255, 255, 0.985);
         }
       }
     `,

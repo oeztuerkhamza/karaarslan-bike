@@ -15,6 +15,7 @@ import { HolidayNoticeComponent } from '../../components/holiday-notice/holiday-
     <div class="about-page">
       <!-- Header -->
       <header class="page-header">
+        <img class="page-header-photo" src="/assets/shop/shop-1.webp" alt="" width="1200" height="800" />
         <div class="container">
           <span class="label">{{ t().aboutLabel }}</span>
           <h1>{{ t().aboutTitle }}</h1>
@@ -1006,7 +1007,7 @@ import { HolidayNoticeComponent } from '../../components/holiday-notice/holiday-
             rgba(255, 87, 34, 0.08),
             transparent 30%
           ),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 22%),
+          linear-gradient(180deg, rgba(var(--ink-rgb), 0.015), transparent 22%),
           var(--color-bg);
       }
 
@@ -1014,7 +1015,7 @@ import { HolidayNoticeComponent } from '../../components/holiday-notice/holiday-
         position: relative;
         padding: 7rem 0 3.2rem;
         background: transparent;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        border-bottom: 1px solid rgba(var(--ink-rgb), 0.08);
       }
 
       .page-header h1,

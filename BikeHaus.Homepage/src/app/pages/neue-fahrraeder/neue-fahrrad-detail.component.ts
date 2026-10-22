@@ -438,7 +438,7 @@ import { environment } from '../../../environments/environment';
         aspect-ratio: 4/3;
         object-fit: contain;
         display: block;
-        background: #0a0a0a;
+        background: var(--color-surface);
       }
       .no-image {
         aspect-ratio: 4/3;
@@ -453,7 +453,7 @@ import { environment } from '../../../environments/environment';
         transform: translateY(-50%);
         background: rgba(0, 0, 0, 0.6);
         border: none;
-        color: #fff;
+        color: var(--color-text);
         width: 36px;
         height: 36px;
         border-radius: 50%;
@@ -478,7 +478,7 @@ import { environment } from '../../../environments/environment';
         left: 50%;
         transform: translateX(-50%);
         background: rgba(0, 0, 0, 0.7);
-        color: #fff;
+        color: var(--color-text);
         font-size: 0.75rem;
         padding: 0.25rem 0.75rem;
         border-radius: 50px;
@@ -690,7 +690,7 @@ import { environment } from '../../../environments/environment';
         background: linear-gradient(
           90deg,
           var(--color-bg-secondary) 25%,
-          rgba(255, 255, 255, 0.04) 50%,
+          rgba(var(--ink-rgb), 0.04) 50%,
           var(--color-bg-secondary) 75%
         );
         background-size: 200% 100%;
@@ -708,7 +708,7 @@ import { environment } from '../../../environments/environment';
         background: linear-gradient(
           90deg,
           var(--color-bg-secondary) 25%,
-          rgba(255, 255, 255, 0.04) 50%,
+          rgba(var(--ink-rgb), 0.04) 50%,
           var(--color-bg-secondary) 75%
         );
         background-size: 200% 100%;
@@ -754,13 +754,13 @@ import { environment } from '../../../environments/environment';
             rgba(255, 87, 34, 0.08),
             transparent 32%
           ),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 24%),
+          linear-gradient(180deg, rgba(var(--ink-rgb), 0.015), transparent 24%),
           var(--color-bg);
       }
 
       .breadcrumb-bar {
         padding: 6.75rem 0 1.75rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        border-bottom: 1px solid rgba(var(--ink-rgb), 0.08);
       }
 
       .back-link {
@@ -769,15 +769,15 @@ import { environment } from '../../../environments/environment';
         gap: 0.5rem;
         padding: 0.9rem 1.05rem;
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(var(--ink-rgb), 0.04);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
         text-decoration: none;
       }
 
       .main-image-wrap {
         border-radius: 28px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: 0 28px 70px rgba(0, 0, 0, 0.22);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
+        box-shadow: 0 28px 70px rgba(60, 45, 30, 0.099);
       }
 
       .g-nav,
@@ -790,7 +790,7 @@ import { environment } from '../../../environments/environment';
 
       .thumb {
         border-radius: 14px;
-        border-color: rgba(255, 255, 255, 0.1);
+        border-color: rgba(var(--ink-rgb), 0.1);
       }
 
       .details-inner {
@@ -799,12 +799,12 @@ import { environment } from '../../../environments/environment';
         background:
           linear-gradient(
             180deg,
-            rgba(255, 255, 255, 0.045),
-            rgba(255, 255, 255, 0.015)
+            rgba(var(--ink-rgb), 0.045),
+            rgba(var(--ink-rgb), 0.015)
           ),
           var(--color-surface);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+        border: 1px solid rgba(var(--ink-rgb), 0.08);
+        box-shadow: 0 24px 60px rgba(60, 45, 30, 0.081);
       }
 
       .price-card {
@@ -825,7 +825,7 @@ import { environment } from '../../../environments/environment';
       }
 
       .description-section {
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        border-top: 1px solid rgba(var(--ink-rgb), 0.08);
       }
     `,
   ],

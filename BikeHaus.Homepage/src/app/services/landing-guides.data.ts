@@ -33,7 +33,7 @@ const kidsRows = (y: string, from: string): string[][] => [
 export const SIZE_GUIDE: LandingPage = {
   slug: 'fahrradgroesse-berechnen',
   heroImage: '/assets/stock/size-hero.webp',
-  ctaImage: '/assets/stock/ausfahrt.webp',
+  ctaImage: '/assets/stock/lake.webp',
   content: {
     de: {
       metaTitle:
@@ -456,7 +456,7 @@ export const SIZE_GUIDE: LandingPage = {
 export const KIDS_GUIDE: LandingPage = {
   slug: 'kinderfahrrad-alter',
   heroImage: '/assets/stock/kids-hero.webp',
-  ctaImage: '/assets/stock/xmas-winter.webp',
+  ctaImage: '/assets/stock/family.webp',
   content: {
     de: {
       metaTitle:
