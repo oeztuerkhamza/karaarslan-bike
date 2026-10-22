@@ -15,7 +15,7 @@ services:
       - Jwt__Key=${JWT_SECRET_KEY}
       - IndexNow__ApiKey=${INDEXNOW_API_KEY}
       - GooglePlaces__ApiKey=${GOOGLE_PLACES_API_KEY}
-      - GooglePlaces__PlaceId=${GOOGLE_PLACES_PLACE_ID}
+      - GooglePlaces__PlaceId=${GOOGLE_PLACES_PLACE_ID:-ChIJOzn3h9MPuUcR6wJUK41lwI8}
       - PLAYWRIGHT_BROWSERS_PATH=/app/.playwright
       - Smtp__Host=${SMTP_HOST:-mail.karaarslan-bike.de}
       - Smtp__Port=${SMTP_PORT:-587}

@@ -77,7 +77,7 @@ cat > .env <<EOF
 JWT_SECRET_KEY=your-very-long-random-secret-key-min-32-chars
 INDEXNOW_API_KEY=your-indexnow-api-key
 GOOGLE_PLACES_API_KEY=your-google-places-key
-GOOGLE_PLACES_PLACE_ID=your-place-id
+GOOGLE_PLACES_PLACE_ID=ChIJOzn3h9MPuUcR6wJUK41lwI8
 SMTP_PASSWORD=your-smtp-password
 SMTP_USE_SSL=false
 SMTP_FROM_EMAIL=no-reply@karaarslan-bike.de

@@ -47,42 +47,46 @@ public class GoogleReviewsService : IGoogleReviewsService
                 return null;
             }
 
+            // Places API (New) — the legacy place/details endpoint cannot be
+            // enabled on new Google Cloud projects anymore.
             var client = _httpClientFactory.CreateClient("GooglePlaces");
-            var url = $"https://maps.googleapis.com/maps/api/place/details/json?place_id={Uri.EscapeDataString(placeId)}&fields=rating,user_ratings_total,reviews,url&reviews_sort=newest&language=de&key={apiKey}";
+            using var request = new HttpRequestMessage(HttpMethod.Get,
+                $"https://places.googleapis.com/v1/places/{Uri.EscapeDataString(placeId)}?languageCode=de");
+            request.Headers.Add("X-Goog-Api-Key", apiKey);
+            request.Headers.Add("X-Goog-FieldMask", "rating,userRatingCount,reviews,googleMapsUri");
 
-            var response = await client.GetAsync(url);
+            var response = await client.SendAsync(request);
+            var json = await response.Content.ReadAsStringAsync();
             if (!response.IsSuccessStatusCode)
             {
-                _logger.LogError("Google Places API returned {StatusCode}", response.StatusCode);
+                _logger.LogError("Google Places API returned {StatusCode}: {Body}", response.StatusCode, json);
                 return _cache; // Return stale cache if available
             }
 
-            var json = await response.Content.ReadAsStringAsync();
             using var doc = JsonDocument.Parse(json);
-            var root = doc.RootElement;
-
-            var status = root.GetProperty("status").GetString();
-            if (status != "OK")
-            {
-                _logger.LogError("Google Places API status: {Status}", status);
-                return _cache;
-            }
-
-            var result = root.GetProperty("result");
+            var result = doc.RootElement;
             var reviews = new List<GoogleReviewDto>();
 
             if (result.TryGetProperty("reviews", out var reviewsElement))
             {
                 foreach (var review in reviewsElement.EnumerateArray())
                 {
+                    review.TryGetProperty("authorAttribution", out var author);
+                    var text = GetText(review, "text");
+                    if (string.IsNullOrEmpty(text)) text = GetText(review, "originalText");
+                    long time = 0;
+                    if (review.TryGetProperty("publishTime", out var pt)
+                        && DateTimeOffset.TryParse(pt.GetString(), out var published))
+                        time = published.ToUnixTimeSeconds();
+
                     reviews.Add(new GoogleReviewDto
                     {
-                        AuthorName = review.TryGetProperty("author_name", out var an) ? an.GetString() ?? "" : "",
-                        AuthorPhotoUrl = review.TryGetProperty("profile_photo_url", out var pp) ? pp.GetString() ?? "" : "",
+                        AuthorName = author.ValueKind == JsonValueKind.Object && author.TryGetProperty("displayName", out var an) ? an.GetString() ?? "" : "",
+                        AuthorPhotoUrl = author.ValueKind == JsonValueKind.Object && author.TryGetProperty("photoUri", out var pp) ? pp.GetString() ?? "" : "",
                         Rating = review.TryGetProperty("rating", out var r) ? r.GetInt32() : 5,
-                        Text = review.TryGetProperty("text", out var t) ? t.GetString() ?? "" : "",
-                        RelativeTime = review.TryGetProperty("relative_time_description", out var rt) ? rt.GetString() ?? "" : "",
-                        Time = review.TryGetProperty("time", out var tm) ? tm.GetInt64() : 0,
+                        Text = text,
+                        RelativeTime = review.TryGetProperty("relativePublishTimeDescription", out var rt) ? rt.GetString() ?? "" : "",
+                        Time = time,
                     });
                 }
             }
@@ -90,9 +94,9 @@ public class GoogleReviewsService : IGoogleReviewsService
             _cache = new GoogleReviewsResponse
             {
                 Rating = result.TryGetProperty("rating", out var rating) ? rating.GetDouble() : 0,
-                TotalReviews = result.TryGetProperty("user_ratings_total", out var total) ? total.GetInt32() : 0,
+                TotalReviews = result.TryGetProperty("userRatingCount", out var total) ? total.GetInt32() : 0,
                 Reviews = reviews,
-                PlaceUrl = result.TryGetProperty("url", out var placeUrl) ? placeUrl.GetString() ?? "" : "",
+                PlaceUrl = result.TryGetProperty("googleMapsUri", out var placeUrl) ? placeUrl.GetString() ?? "" : "",
             };
             _cacheExpiry = DateTime.UtcNow.AddHours(24);
 
@@ -109,4 +113,9 @@ public class GoogleReviewsService : IGoogleReviewsService
             _semaphore.Release();
         }
     }
+
+    private static string GetText(JsonElement review, string property) =>
+        review.TryGetProperty(property, out var el) && el.TryGetProperty("text", out var t)
+            ? t.GetString() ?? ""
+            : "";
 }
