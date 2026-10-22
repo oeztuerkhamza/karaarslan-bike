@@ -429,6 +429,7 @@ import { TranslationService } from '../../services/translation.service';
         width: 90%;
         max-width: 600px;
         max-height: 90vh;
+        max-height: 90dvh;
         overflow-y: auto;
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
       }

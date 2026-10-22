@@ -124,6 +124,7 @@ import { SettingsService } from '../../services/settings.service';
         align-items: center;
         justify-content: center;
         min-height: 100vh;
+        min-height: 100dvh;
         background:
           radial-gradient(
             70% 55% at 85% 0%,

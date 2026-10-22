@@ -623,9 +623,13 @@ import { DialogComponent } from './components/dialog/dialog.component';
   `,
   styles: [
     `
+      /* 100vh on iOS Safari is taller than the visible area (it ignores the
+         browser toolbar), which hid the bottom of the page. dvh follows the
+         toolbar; 100vh stays as fallback for older browsers. */
       :host {
         display: block;
         height: 100vh;
+        height: 100dvh;
       }
 
       /* ══ SKIP LINK (Barrierefreiheit) ══ */
