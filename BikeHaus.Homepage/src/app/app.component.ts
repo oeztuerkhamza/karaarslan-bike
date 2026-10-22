@@ -12,9 +12,17 @@ import { Meta, Title } from '@angular/platform-browser';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HolidayBannerComponent } from './components/holiday-banner/holiday-banner.component';
-import { TranslationService } from './services/translation.service';
+import { TranslationService, Language } from './services/translation.service';
 import { SeoService } from './services/seo.service';
 import { HolidayService } from './services/holiday.service';
+
+const OG_LOCALES: Record<Language, string> = {
+  de: 'de_DE',
+  en: 'en_US',
+  fr: 'fr_FR',
+  tr: 'tr_TR',
+  nl: 'nl_NL',
+};
 
 @Component({
   selector: 'app-root',
@@ -108,6 +116,10 @@ export class AppComponent implements OnInit {
     const t = this.translationService.translations();
     this.title.setTitle(t.metaTitle);
     this.meta.updateTag({ name: 'description', content: t.metaDescription });
+    this.meta.updateTag({
+      property: 'og:locale',
+      content: OG_LOCALES[this.translationService.currentLanguage()],
+    });
   }
 
   private updateLanguageAttribute(): void {

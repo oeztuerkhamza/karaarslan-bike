@@ -21,7 +21,9 @@ export interface CityLanding {
   cityName: string;
   distanceKm: number;
   driveMinutes: number;
-  translations: Record<Language, CityLandingTranslation>;
+  /** nl (and future languages) fall back to English */
+  translations: Record<'de' | 'en' | 'fr' | 'tr', CityLandingTranslation> &
+    Partial<Record<Language, CityLandingTranslation>>;
 }
 
 export const CITY_LANDINGS: CityLanding[] = [

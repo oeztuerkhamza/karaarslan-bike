@@ -9,7 +9,11 @@ import {
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
-import { TranslationService } from '../../services/translation.service';
+import {
+  TranslationService,
+  Language,
+  CONTENT_LANGUAGES,
+} from '../../services/translation.service';
 import {
     BLOG_ARTICLES,
     BlogArticle,
@@ -553,7 +557,7 @@ export class RatgeberDetailComponent implements OnInit, OnDestroy {
       if (found) {
         this.article.set(found);
         const lang = this.lang();
-        const trans = found.translations[lang] || found.translations['de'];
+        const trans = found.translations[lang] ?? found.translations.en;
         this.translation.set(trans);
 
         // Related articles
@@ -584,7 +588,7 @@ export class RatgeberDetailComponent implements OnInit, OnDestroy {
   }
 
   getTranslation(article: BlogArticle): BlogArticleTranslation {
-    return article.translations[this.lang()] || article.translations['de'];
+    return article.translations[this.lang()] ?? article.translations.en;
   }
 
   private setMeta(
@@ -628,8 +632,9 @@ export class RatgeberDetailComponent implements OnInit, OnDestroy {
     this.document
       .querySelectorAll('link[rel="alternate"][hreflang]')
       .forEach((el) => el.remove());
-    const SUPPORTED_LANGS = ['de', 'en', 'fr', 'tr'];
-    for (const l of SUPPORTED_LANGS) {
+    // Only languages with real article text get hreflang; others (nl) show
+    // the English article and canonicalise to it below.
+    for (const l of CONTENT_LANGUAGES) {
       const langSlug = getBlogSlug(article, l as any);
       const langPath = getBlogBasePath(l as any);
       const link = this.document.createElement('link');
@@ -648,8 +653,15 @@ export class RatgeberDetailComponent implements OnInit, OnDestroy {
     let canonical = this.document.querySelector(
       'link[rel="canonical"]',
     ) as HTMLLinkElement | null;
-    if (canonical) {
-      canonical.href = url;
+    if (!canonical) {
+      canonical = this.document.createElement('link');
+      canonical.rel = 'canonical';
+      this.document.head.appendChild(canonical);
+    }
+    {
+      canonical.href = CONTENT_LANGUAGES.includes(lang as Language)
+        ? url
+        : `https://karaarslan-bike.de/en/${getBlogBasePath('en')}/${getBlogSlug(article, 'en')}`;
     }
   }
 
@@ -734,12 +746,14 @@ export class RatgeberDetailComponent implements OnInit, OnDestroy {
       en: 'Home',
       fr: 'Accueil',
       tr: 'Anasayfa',
+      nl: 'Home',
     };
     const blogListNames: Record<string, string> = {
       de: 'Ratgeber',
       en: 'Guide',
       fr: 'Guide',
       tr: 'Rehber',
+      nl: 'Gids',
     };
 
     const schema = {

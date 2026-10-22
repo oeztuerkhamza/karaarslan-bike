@@ -1,14 +1,18 @@
-import { Component, inject, OnInit, OnDestroy, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  effect,
+  inject,
+  OnDestroy,
+  signal,
+} from '@angular/core';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { TranslationService } from '../../services/translation.service';
+import { FAQ_CONTENT, FaqCategory } from '../../services/faq.data';
 
-interface FaqItem {
-  question: string;
-  answer: string;
-  open: boolean;
-}
+const BASE_URL = 'https://karaarslan-bike.de';
 
 @Component({
   selector: 'app-faq',
@@ -16,69 +20,88 @@ interface FaqItem {
   imports: [CommonModule, RouterModule],
   template: `
     <div class="faq-page">
-      <!-- Breadcrumb -->
-      <nav class="breadcrumb" aria-label="Breadcrumb">
+      <header class="faq-hero">
         <div class="container">
-          <a [routerLink]="['/' + lang()]">{{ t().home }}</a>
-          <span class="sep">/</span>
-          <span class="current">{{ t().faqTitle }}</span>
-        </div>
-      </nav>
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <a [routerLink]="['/' + lang()]">{{ t().home }}</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">{{ c().h1 }}</span>
+          </nav>
+          <h1>{{ c().h1 }}</h1>
+          <p class="faq-sub">{{ c().sub }}</p>
 
-      <header class="faq-header">
-        <div class="container">
-          <h1>{{ t().faqTitle }}</h1>
-          <p class="faq-sub">{{ t().faqSub }}</p>
+          <div class="faq-search">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <path d="m20 20-3.5-3.5" />
+            </svg>
+            <input
+              type="search"
+              [placeholder]="c().searchPlaceholder"
+              [attr.aria-label]="c().searchPlaceholder"
+              (input)="query.set($any($event.target).value)"
+            />
+          </div>
+
+          <nav class="faq-chips" aria-label="Topics">
+            @for (cat of c().categories; track cat.id) {
+              <a [href]="'#' + cat.id" (click)="scrollTo($event, cat.id)">{{
+                cat.title
+              }}</a>
+            }
+          </nav>
         </div>
       </header>
 
       <section class="faq-body">
         <div class="container">
-          @for (item of faqItems(); track $index) {
-            <div
-              class="faq-item"
-              [class.faq-open]="item.open"
-              (click)="toggle($index)"
-              (keydown.enter)="toggle($index)"
-              (keydown.space)="toggle($index)"
-              role="button"
-              tabindex="0"
-              [attr.aria-expanded]="item.open"
-            >
-              <div class="faq-question">
-                <h2>{{ item.question }}</h2>
-                <svg
-                  class="faq-chevron"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
+          @for (cat of visible(); track cat.id) {
+            <section class="faq-cat" [id]="cat.id">
+              <h2>{{ cat.title }}</h2>
+              <div class="faq-list">
+                @for (item of cat.items; track item.q) {
+                  <details class="faq-item" [open]="!!query()">
+                    <summary>
+                      <h3>{{ item.q }}</h3>
+                      <span class="faq-toggle" aria-hidden="true"></span>
+                    </summary>
+                    <div class="faq-answer">
+                      <p>{{ item.a }}</p>
+                      @if (item.link) {
+                        <a [routerLink]="item.link.href" class="faq-link"
+                          >{{ item.link.label }} →</a
+                        >
+                      }
+                    </div>
+                  </details>
+                }
               </div>
-              <div class="faq-answer" [class.visible]="item.open">
-                <p>{{ item.answer }}</p>
-              </div>
-            </div>
+            </section>
+          } @empty {
+            <p class="faq-none">{{ c().noMatch }}</p>
           }
 
-          <!-- CTA -->
           <div class="faq-cta">
             <p>{{ t().faqCtaText }}</p>
             <div class="faq-cta-actions">
-              <a [routerLink]="['/' + lang(), 'contact']" class="btn-primary">{{
-                t().faqCtaButton
-              }}</a>
               <a
                 href="https://wa.me/491637390301"
                 target="_blank"
-                rel="noopener"
-                class="btn-secondary"
-                >WhatsApp</a
+                rel="noopener noreferrer"
+                class="btn-primary"
+                >{{ t().ctaWhatsapp }}</a
               >
+              <a [routerLink]="['/' + lang(), 'contact']" class="btn-secondary">{{
+                t().faqCtaButton
+              }}</a>
             </div>
           </div>
         </div>
@@ -89,209 +112,214 @@ interface FaqItem {
     `
       :host {
         display: block;
-      }
-      .faq-page {
-        min-height: 100vh;
-        padding-bottom: 4rem;
+        --line: rgba(255, 255, 255, 0.08);
+        --card: rgba(255, 255, 255, 0.035);
       }
       .container {
-        max-width: 780px;
-        margin: 0 auto;
-        padding: 0 1.5rem;
+        max-width: 880px;
       }
-      .breadcrumb {
-        padding: 1rem 0;
-        font-size: 0.8rem;
-        color: var(--color-text-muted, #666);
-        border-bottom: 1px solid var(--color-border, #222);
+      .faq-hero {
+        padding: 8.5rem 0 2.5rem;
+        background: radial-gradient(
+          ellipse 70% 80% at 50% 0%,
+          rgba(255, 87, 34, 0.12),
+          transparent 70%
+        );
       }
-      .breadcrumb a {
-        color: var(--color-text-secondary, #aaa);
-        text-decoration: none;
+      .crumbs {
+        display: flex;
+        gap: 0.5rem;
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.55);
+        margin-bottom: 1.25rem;
       }
-      .breadcrumb a:hover {
-        color: var(--color-accent, #ff5722);
+      .crumbs a:hover {
+        color: var(--color-accent);
       }
-      .breadcrumb .sep {
-        margin: 0 0.4rem;
-        color: var(--color-text-muted, #444);
-      }
-      .breadcrumb .current {
-        color: var(--color-text, #fff);
-      }
-      .faq-header {
-        padding: 2.5rem 0 2rem;
-        border-bottom: 1px solid var(--color-border, #222);
-      }
-      .faq-header h1 {
-        font-size: 2rem;
+      h1 {
+        font-size: clamp(2.4rem, 6vw, 4.2rem);
         font-weight: 800;
-        color: var(--color-text, #fff);
-        margin: 0 0 0.5rem;
+        letter-spacing: -0.05em;
+        line-height: 1;
+        margin-bottom: 1rem;
       }
       .faq-sub {
-        color: var(--color-text-secondary, #aaa);
-        font-size: 1.05rem;
-        line-height: 1.6;
-        margin: 0;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.7;
+        max-width: 640px;
+        margin-bottom: 2rem;
+      }
+      .faq-search {
+        position: relative;
+        margin-bottom: 1.25rem;
+      }
+      .faq-search svg {
+        position: absolute;
+        left: 1.1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .faq-search input {
+        width: 100%;
+        padding: 1.05rem 1.2rem 1.05rem 3.2rem;
+        border-radius: 999px;
+        font-size: 1rem;
+        outline: none;
+      }
+      .faq-search input:focus {
+        border-color: var(--color-accent);
+      }
+      .faq-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .faq-chips a {
+        padding: 0.5rem 0.95rem;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        background: var(--card);
+        border: 1px solid var(--line);
+        transition:
+          border-color 0.25s,
+          color 0.25s;
+      }
+      .faq-chips a:hover {
+        border-color: var(--color-accent);
+        color: var(--color-accent);
       }
       .faq-body {
-        padding-top: 1.5rem;
+        padding: 1rem 0 5rem;
+      }
+      .faq-cat {
+        padding-top: 2.5rem;
+        scroll-margin-top: 6rem;
+      }
+      .faq-cat h2 {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        font-size: 1.4rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin-bottom: 1rem;
+      }
+      .faq-cat h2::before {
+        content: '';
+        width: 24px;
+        height: 2px;
+        background: var(--color-accent);
+      }
+      .faq-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
       }
       .faq-item {
-        border-bottom: 1px solid var(--color-border, #222);
-        cursor: pointer;
-        user-select: none;
+        border-radius: 18px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        transition: border-color 0.3s;
       }
-      .faq-question {
+      .faq-item[open] {
+        border-color: rgba(255, 87, 34, 0.45);
+        background: rgba(255, 87, 34, 0.04);
+      }
+      summary {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1.25rem 0;
         gap: 1rem;
+        padding: 1.15rem 1.35rem;
+        cursor: pointer;
+        list-style: none;
       }
-      .faq-question h2 {
-        font-size: 1.05rem;
-        font-weight: 600;
-        color: var(--color-text, #fff);
-        margin: 0;
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      summary h3 {
+        font-size: 1rem;
+        font-weight: 700;
         line-height: 1.4;
       }
-      .faq-chevron {
+      .faq-toggle {
+        position: relative;
         flex-shrink: 0;
-        color: var(--color-text-muted, #666);
-        transition: transform 0.2s;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.07);
+        transition:
+          transform 0.35s ease,
+          background 0.3s;
       }
-      .faq-open .faq-chevron {
-        transform: rotate(180deg);
-        color: var(--color-accent, #ff5722);
+      .faq-toggle::before,
+      .faq-toggle::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 12px;
+        height: 2px;
+        margin: -1px 0 0 -6px;
+        background: currentColor;
+      }
+      .faq-toggle::after {
+        transform: rotate(90deg);
+      }
+      .faq-item[open] .faq-toggle {
+        background: var(--color-accent);
+        transform: rotate(45deg);
       }
       .faq-answer {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-      }
-      .faq-answer.visible {
-        max-height: 300px;
+        padding: 0 1.35rem 1.25rem;
       }
       .faq-answer p {
-        color: var(--color-text-secondary, #ccc);
-        font-size: 0.95rem;
-        line-height: 1.7;
-        margin: 0;
-        padding-bottom: 1.25rem;
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.75;
+      }
+      .faq-link {
+        display: inline-block;
+        margin-top: 0.75rem;
+        font-weight: 700;
+        font-size: 0.9rem;
+        color: var(--color-accent);
+      }
+      .faq-none {
+        padding: 3rem 0;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.6);
       }
       .faq-cta {
-        margin-top: 2.5rem;
-        background: var(--color-surface, #111);
-        border: 1px solid var(--color-border, #222);
-        border-radius: 12px;
+        margin-top: 3.5rem;
         padding: 2rem;
+        border-radius: 24px;
         text-align: center;
+        background: var(--card);
+        border: 1px solid var(--line);
       }
       .faq-cta p {
-        color: var(--color-text, #fff);
-        font-weight: 600;
-        font-size: 1.1rem;
-        margin: 0 0 1rem;
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin-bottom: 1.25rem;
       }
       .faq-cta-actions {
         display: flex;
-        gap: 0.75rem;
-        justify-content: center;
         flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
       }
-      .btn-primary {
-        background: var(--color-accent, #ff5722);
-        color: #fff;
-        font-weight: 700;
-        font-size: 0.9rem;
-        padding: 0.7rem 1.5rem;
-        border-radius: 8px;
-        text-decoration: none;
-        transition: opacity 0.2s;
-      }
-      .btn-primary:hover {
-        opacity: 0.85;
-      }
-      .btn-secondary {
-        background: transparent;
-        color: var(--color-accent, #ff5722);
-        border: 1px solid var(--color-accent, #ff5722);
-        font-weight: 700;
-        font-size: 0.9rem;
-        padding: 0.7rem 1.5rem;
-        border-radius: 8px;
-        text-decoration: none;
-        transition: background 0.2s;
-      }
-      .btn-secondary:hover {
-        background: rgba(255, 87, 34, 0.08);
-      }
-      @media (max-width: 640px) {
-        .faq-header h1 {
-          font-size: 1.5rem;
+      @media (max-width: 768px) {
+        .faq-hero {
+          padding-top: 7rem;
         }
-      }
-
-      .faq-page {
-        background:
-          radial-gradient(circle at top, rgba(255, 87, 34, 0.08), transparent 30%),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 22%),
-          var(--color-bg);
-      }
-
-      .breadcrumb {
-        padding: 6.5rem 0 1rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .breadcrumb .container,
-      .faq-header .container,
-      .faq-body .container {
-        position: relative;
-        z-index: 1;
-      }
-
-      .faq-header {
-        padding: 2.75rem 0 2.2rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .faq-header h1 {
-        font-size: clamp(2.1rem, 5vw, 3.6rem);
-        line-height: 0.98;
-        letter-spacing: -0.04em;
-      }
-
-      .faq-sub {
-        color: rgba(255, 255, 255, 0.72);
-      }
-
-      .faq-item {
-        padding: 0 1.2rem;
-        margin-bottom: 0.85rem;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.03);
-      }
-
-      .faq-question {
-        padding: 1.15rem 0;
-      }
-
-      .faq-cta {
-        border-radius: 24px;
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
-          var(--color-surface, #111);
-        border-color: rgba(255, 255, 255, 0.08);
-        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.16);
       }
     `,
   ],
 })
-export class FaqComponent implements OnInit, OnDestroy {
+export class FaqComponent implements OnDestroy {
   private titleService = inject(Title);
   private metaService = inject(Meta);
   private document = inject(DOCUMENT);
@@ -299,77 +327,71 @@ export class FaqComponent implements OnInit, OnDestroy {
 
   t = this.translationService.translations;
   lang = this.translationService.currentLanguage;
+  c = computed(() => FAQ_CONTENT[this.lang()]);
 
-  faqItems = signal<FaqItem[]>([]);
-  private faqSchemaElement: HTMLScriptElement | null = null;
+  query = signal('');
+  visible = computed<FaqCategory[]>(() => {
+    const q = this.query().trim().toLowerCase();
+    if (!q) return this.c().categories;
+    return this.c()
+      .categories.map((cat) => ({
+        ...cat,
+        items: cat.items.filter((i) =>
+          (i.q + ' ' + i.a).toLowerCase().includes(q),
+        ),
+      }))
+      .filter((cat) => cat.items.length);
+  });
 
-  ngOnInit(): void {
+  private schemaEl: HTMLScriptElement | null = null;
+
+  // Meta + schema follow the active language
+  private seoEffect = effect(() => {
     const trans = this.t();
-
+    const url = `${BASE_URL}/${this.lang()}/faq`;
     this.titleService.setTitle(trans.faqMetaTitle);
-    this.metaService.updateTag({
-      name: 'description',
-      content: trans.faqMetaDescription,
-    });
-    this.metaService.updateTag({
-      property: 'og:title',
-      content: trans.faqMetaTitle,
-    });
-    this.metaService.updateTag({
-      property: 'og:description',
-      content: trans.faqMetaDescription,
-    });
-    this.metaService.updateTag({
-      property: 'og:url',
-      content: `https://karaarslan-bike.de/${this.lang()}/faq`,
-    });
+    this.metaService.updateTag({ name: 'description', content: trans.faqMetaDescription });
+    this.metaService.updateTag({ property: 'og:title', content: trans.faqMetaTitle });
+    this.metaService.updateTag({ property: 'og:description', content: trans.faqMetaDescription });
+    this.metaService.updateTag({ property: 'og:url', content: url });
 
-    const items: FaqItem[] = [
-      { question: trans.faqQ1, answer: trans.faqA1, open: false },
-      { question: trans.faqQ2, answer: trans.faqA2, open: false },
-      { question: trans.faqQ3, answer: trans.faqA3, open: false },
-      { question: trans.faqQ4, answer: trans.faqA4, open: false },
-      { question: trans.faqQ5, answer: trans.faqA5, open: false },
-      { question: trans.faqQ6, answer: trans.faqA6, open: false },
-      { question: trans.faqQ7, answer: trans.faqA7, open: false },
-      { question: trans.faqQ8, answer: trans.faqA8, open: false },
-      { question: trans.faqQ9, answer: trans.faqA9, open: false },
-      { question: trans.faqQ10, answer: trans.faqA10, open: false },
-    ];
-    this.faqItems.set(items);
-
-    this.addFaqSchema(items);
-  }
-
-  ngOnDestroy(): void {
-    if (this.faqSchemaElement?.parentNode) {
-      this.faqSchemaElement.parentNode.removeChild(this.faqSchemaElement);
-    }
-  }
-
-  toggle(index: number): void {
-    const items = [...this.faqItems()];
-    items[index] = { ...items[index], open: !items[index].open };
-    this.faqItems.set(items);
-  }
-
-  private addFaqSchema(items: FaqItem[]): void {
+    const all = this.c().categories.flatMap((cat) => cat.items);
     const schema = {
       '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: items.map((item) => ({
-        '@type': 'Question',
-        name: item.question,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: item.answer,
+      '@graph': [
+        {
+          '@type': 'FAQPage',
+          '@id': `${url}#faq`,
+          url,
+          inLanguage: this.lang(),
+          mainEntity: all.map((i) => ({
+            '@type': 'Question',
+            name: i.q,
+            acceptedAnswer: { '@type': 'Answer', text: i.a },
+          })),
         },
-      })),
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: trans.home, item: `${BASE_URL}/${this.lang()}` },
+            { '@type': 'ListItem', position: 2, name: this.c().h1, item: url },
+          ],
+        },
+      ],
     };
+    this.schemaEl?.remove();
+    this.schemaEl = this.document.createElement('script');
+    this.schemaEl.type = 'application/ld+json';
+    this.schemaEl.text = JSON.stringify(schema);
+    this.document.head.appendChild(this.schemaEl);
+  });
 
-    this.faqSchemaElement = this.document.createElement('script');
-    this.faqSchemaElement.type = 'application/ld+json';
-    this.faqSchemaElement.text = JSON.stringify(schema);
-    this.document.head.appendChild(this.faqSchemaElement);
+  ngOnDestroy(): void {
+    this.schemaEl?.remove();
+  }
+
+  scrollTo(event: Event, id: string): void {
+    event.preventDefault();
+    this.document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   }
 }

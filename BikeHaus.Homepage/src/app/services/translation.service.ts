@@ -7,7 +7,12 @@ import {
   signal,
 } from '@angular/core';
 
-export type Language = 'de' | 'en' | 'fr' | 'tr';
+export type Language = 'de' | 'en' | 'fr' | 'tr' | 'nl';
+
+export const SUPPORTED_LANGUAGES: Language[] = ['de', 'en', 'fr', 'tr', 'nl'];
+
+/** Languages that have full long-form content (blog, city pages). Others fall back to English. */
+export const CONTENT_LANGUAGES: Language[] = ['de', 'en', 'fr', 'tr'];
 
 export interface Translations {
   // Meta / SEO
@@ -452,6 +457,15 @@ export interface Translations {
   blogCta1: string;
   blogCta2: string;
   blogCta3: string;
+  navUsedBikes: string;
+  navSizeGuide: string;
+  navKidsAge: string;
+  guideLinksLabel: string;
+  navXmasGift: string;
+  xmasTeaserLabel: string;
+  xmasTeaserTitle: string;
+  xmasTeaserText: string;
+  xmasTeaserCta: string;
 }
 
 const TRANSLATIONS: Record<Language, Translations> = {
@@ -674,7 +688,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     faq3A: 'Barzahlung, EC-Karte, Überweisung und PayPal.',
     faq4Q: 'Reparieren Sie auch Fahrräder?',
     faq4A:
-      'Wir sind auf Verkauf spezialisiert. Für Reparaturen kontaktieren Sie uns bitte vorab per Telefon oder E-Mail.',
+      'Ja: kostenloser Fahrrad-Check und Reparaturen auf Wunsch (nicht für E-Bikes und Rennräder). Melden Sie sich am besten vorher per WhatsApp an.',
     faq5Q: 'Wo finde ich Sie?',
     faq5A:
       'Alstedder Straße 5, 44534 Lünen. Kommen Sie einfach während der Öffnungszeiten vorbei — kein Termin nötig.',
@@ -932,6 +946,15 @@ const TRANSLATIONS: Record<Language, Translations> = {
     blogCta1: 'Gebrauchtes Fahrrad kaufen — Tipps & Checkliste',
     blogCta2: 'Welches Fahrrad passt zu mir?',
     blogCta3: 'Fahrrad Inspektion — Was kostet es?',
+    navUsedBikes: 'Gebrauchte Fahrräder',
+    navSizeGuide: 'Welche Fahrradgröße passt?',
+    navKidsAge: 'Kinderfahrrad nach Alter',
+    guideLinksLabel: 'Ratgeber:',
+    navXmasGift: 'Fahrrad als Weihnachtsgeschenk',
+    xmasTeaserLabel: 'WEIHNACHTEN & NEUJAHR',
+    xmasTeaserTitle: 'Ein Fahrrad unterm Weihnachtsbaum?',
+    xmasTeaserText: 'Kinderfahrrad, E-Bike oder Zubehör: unsere Geschenkideen für Weihnachten — neu und gebraucht, persönlich beraten in Lünen.',
+    xmasTeaserCta: 'Geschenkideen ansehen',
   },
 
   en: {
@@ -1148,7 +1171,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     faq3A: 'Cash, debit card, bank transfer, and PayPal.',
     faq4Q: 'Do you also repair bikes?',
     faq4A:
-      'We specialize in sales. For repairs, please contact us in advance by phone or email.',
+      'Yes: a free bike check and repairs on request (not for e-bikes or road bikes). Best let us know in advance via WhatsApp.',
     faq5Q: 'Where can I find you?',
     faq5A:
       'Alstedder Straße 5, 44534 Lünen. Just drop by during opening hours — no appointment needed.',
@@ -1388,12 +1411,21 @@ const TRANSLATIONS: Record<Language, Translations> = {
     blogCta1: 'Buying a Used Bike — Tips & Checklist',
     blogCta2: 'Which Bike Fits Me?',
     blogCta3: 'Bike Inspection — What Does It Cost?',
+    navUsedBikes: 'Used Bikes',
+    navSizeGuide: 'Which bike size fits?',
+    navKidsAge: 'Kids’ bike by age',
+    guideLinksLabel: 'Guides:',
+    navXmasGift: 'Bike as a Christmas gift',
+    xmasTeaserLabel: 'CHRISTMAS & NEW YEAR',
+    xmasTeaserTitle: 'A bike under the Christmas tree?',
+    xmasTeaserText: "Kids' bike, e-bike or accessories: our Christmas gift ideas — new and used, with personal advice in Lünen.",
+    xmasTeaserCta: 'See gift ideas',
   },
 
   fr: {
     metaTitle: 'Acheter un vélo à Lünen | Karaarslan Bike',
     metaDescription:
-      'Votre magasin de vélos à Lünen-Alstedde ✓ Achat & location ✓ 100+ vélos contrôlés ✓ Ville, Trekking, VAE ✓ Location avec tarifs journaliers par vélo ✓ 3 mois de garantie. Sans rendez-vous — Alstedder Straße 5!',
+      'Votre magasin de vélos à Lünen-Alstedde ✓ Vélos neufs & d’occasion ✓ 100+ vélos contrôlés ✓ Ville, Trekking, VAE ✓ Contrôle vélo gratuit ✓ 3 mois de garantie. Sans rendez-vous — Alstedder Straße 5!',
 
     home: 'Accueil',
     showroom: 'Showroom',
@@ -1403,7 +1435,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     heroH1: 'Vélos à Lünen — neufs & occasion.',
     heroSub:
-      "Achetez ou louez votre vélo à Lünen ✓ Vélos inspectés dès 80 € ✓ Location avec tarifs journaliers définis par vélo ✓ Retrait immédiat.",
+      "Achetez votre vélo à Lünen ✓ Vélos d’occasion contrôlés dès 80 € ✓ Ville, Trekking & VAE ✓ À emporter le jour même.",
     ctaPrimary: 'Découvrir les nouveaux vélos',
     ctaSecondary: 'Voir le showroom',
 
@@ -1612,7 +1644,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     faq3A: 'Espèces, carte bancaire, virement et PayPal.',
     faq4Q: 'Réparez-vous aussi les vélos ?',
     faq4A:
-      "Nous nous spécialisons dans la vente. Pour les réparations, contactez-nous à l'avance par téléphone ou e-mail.",
+      "Oui : contrôle gratuit et réparations sur demande (hors VAE et vélos de route). Prévenez-nous de préférence par WhatsApp.",
     faq5Q: 'Où vous trouver ?',
     faq5A:
       "Alstedder Straße 5, 44534 Lünen. Passez simplement pendant les heures d'ouverture — pas de rendez-vous nécessaire.",
@@ -1791,7 +1823,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     ratgeberMetaTitle:
       'Guide Vélo Lünen — Conseils & Astuces | Karaarslan Bike',
     ratgeberMetaDescription:
-      "Guides d'achat vélo, conseils location et itinéraires cyclables à Lünen. Expertise de votre vélociste local — Karaarslan Bike.",
+      "Guides d'achat vélo, conseils de taille et itinéraires cyclables à Lünen. Expertise de votre vélociste local — Karaarslan Bike.",
     ratgeberReadMore: 'Lire la suite',
     ratgeberReadTime: 'de lecture',
     ratgeberTip: 'Conseil de Karaarslan Bike',
@@ -1869,6 +1901,15 @@ const TRANSLATIONS: Record<Language, Translations> = {
     blogCta1: "Acheter un vélo d'occasion — Conseils & Checklist",
     blogCta2: 'Quel vélo me convient?',
     blogCta3: 'Révision vélo — Combien ça coûte?',
+    navUsedBikes: "Vélos d'occasion",
+    navSizeGuide: 'Quelle taille de vélo ?',
+    navKidsAge: 'Vélo enfant selon l’âge',
+    guideLinksLabel: 'Guides :',
+    navXmasGift: 'Vélo cadeau de Noël',
+    xmasTeaserLabel: 'NOËL & NOUVEL AN',
+    xmasTeaserTitle: 'Un vélo sous le sapin ?',
+    xmasTeaserText: 'Vélo enfant, vélo électrique ou accessoires : nos idées cadeaux de Noël — neuf et occasion, conseil personnalisé à Lünen.',
+    xmasTeaserCta: 'Voir les idées cadeaux',
   },
 
   tr: {
@@ -2089,7 +2130,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     faq3A: 'Nakit, banka kartı, havale ve PayPal.',
     faq4Q: 'Bisiklet tamiri de yapıyor musunuz?',
     faq4A:
-      'Satış konusunda uzmanız. Tamir için önceden telefon veya e-posta ile iletişime geçin.',
+      "Evet: ücretsiz bisiklet kontrolü ve isteğe bağlı tamir (e-bisiklet ve yol bisikleti hariç). Önceden WhatsApp'tan haber vermeniz en iyisi.",
     faq5Q: 'Sizi nerede bulabilirim?',
     faq5A:
       'Alstedder Straße 5, 44534 Lünen. Açılış saatlerinde gelin — randevu gerekmiyor.',
@@ -2345,6 +2386,487 @@ const TRANSLATIONS: Record<Language, Translations> = {
     blogCta1: 'İkinci El Bisiklet Alma — İpuçları & Kontrol Listesi',
     blogCta2: 'Hangi Bisiklet Bana Uyar?',
     blogCta3: 'Bisiklet Bakımı — Ne Kadara Mal Olur?',
+    navUsedBikes: 'İkinci El Bisikletler',
+    navSizeGuide: 'Hangi bisiklet boyu uyar?',
+    navKidsAge: 'Yaşa göre çocuk bisikleti',
+    guideLinksLabel: 'Rehberler:',
+    navXmasGift: 'Yılbaşı hediyesi bisiklet',
+    xmasTeaserLabel: 'NOEL & YILBAŞI',
+    xmasTeaserTitle: 'Yılbaşı ağacının altında bir bisiklet?',
+    xmasTeaserText: "Çocuk bisikleti, e-bisiklet ya da aksesuar: yılbaşı hediye fikirlerimiz — yeni ve ikinci el, Lünen'de kişisel danışmanlık.",
+    xmasTeaserCta: 'Hediye fikirlerini gör',
+  },
+  nl: {
+    metaTitle: 'Fiets kopen in Lünen | Fietsenwinkel | Karaarslan Bike',
+    metaDescription:
+      'Fietsenwinkel in Lünen-Alstedde ✓ Fiets kopen ✓ 100+ gecontroleerde fietsen ✓ Stads-, trekking- & e-bikes ✓ 3 maanden garantie. Zonder afspraak — Alstedder Straße 5!',
+
+    home: 'Home',
+    showroom: 'Showroom',
+    accessories: 'Accessoires',
+    about: 'Over ons',
+    contact: 'Contact',
+
+    heroH1: 'Fietsen in Lünen — nieuw & tweedehands.',
+    heroSub:
+      'Fiets kopen in Lünen ✓ Gecontroleerde tweedehands fietsen vanaf €80 ✓ Stads-, trekking- & e-bikes ✓ Dezelfde dag meenemen.',
+    ctaPrimary: 'Nieuwe fietsen ontdekken',
+    ctaSecondary: 'Showroom bekijken',
+
+    valueLabel: 'WAAROM WIJ',
+    valueTitle: 'Meer dan alleen een fietsenwinkel.',
+    value1Title: 'Gecontroleerde kwaliteit',
+    value1Desc:
+      'Elke tweedehands fiets doorloopt een inspectie- en opknapproces in meerdere stappen.',
+    value2Title: 'Eerlijke prijzen',
+    value2Desc: 'Transparant berekend. Geen onderhandelen, geen kleine lettertjes.',
+    value3Title: 'Persoonlijk advies',
+    value3Desc: 'Samen vinden we de fiets die écht bij u past.',
+    value4Title: 'Duurzaam handelen',
+    value4Desc:
+      'Tweedehands fietsen verlengen de levensduur en sparen grondstoffen.',
+
+    showroomLabel: 'SHOWROOM',
+    showroomTitle: 'Actuele fietsen.',
+    showroomSub: 'Ontdek ons aanbod — regelmatig bijgewerkt.',
+    viewAll: 'Alles bekijken',
+    viewDetails: 'Details',
+    newBikes: 'Nieuwe fietsen',
+    usedBikes: 'Tweedehands fietsen',
+    allBikes: 'Alle fietsen',
+
+    newBikesLabel: 'NIEUW BINNEN',
+    newBikesTitle: 'Nieuwe fietsen ontdekken.',
+    newBikesSub: 'Fabrieksnieuwe fietsen met 2 jaar winkelgarantie.',
+    browseNewBikes: 'Nieuwe fietsen bekijken',
+    usedBikesLabel: 'GECONTROLEERD & KLAAR',
+    usedBikesTitle: 'Tweedehands fietsen ontdekken.',
+    usedBikesSub: 'Zorgvuldig gecontroleerd, opgeknapt en direct rijklaar.',
+    browseUsedBikes: 'Tweedehands fietsen bekijken',
+
+    allCategories: 'Alle',
+    noBikesFound: 'Momenteel geen fietsen in deze categorie.',
+    searchPlaceholder: 'Zoek op merk, type of maat...',
+    priceOnRequest: 'Prijs op aanvraag',
+    viewOnKleinanzeigen: 'Bekijken op Kleinanzeigen',
+    lastUpdated: 'Laatst bijgewerkt',
+    bikesAvailable: 'Fietsen beschikbaar',
+    filterByCategory: 'Categorie',
+    sortBy: 'Sorteren',
+    sortNewest: 'Nieuwste eerst',
+    sortPriceLow: 'Prijs oplopend',
+    sortPriceHigh: 'Prijs aflopend',
+    sortAZ: 'A — Z',
+    priceRange: 'Prijsklasse',
+    allPrices: 'Alle prijzen',
+    under500: 'Onder €500',
+    range500to1000: '€500 — €1.000',
+    over1000: 'Boven €1.000',
+    filters: 'Filters',
+    clearFilters: 'Filters wissen',
+    showFilters: 'Filters tonen',
+    hideFilters: 'Filters verbergen',
+
+    description: 'Beschrijving',
+    price: 'Prijs',
+    category: 'Categorie',
+    location: 'Locatie',
+    photos: "Foto's",
+    backToShowroom: 'Terug naar de showroom',
+
+    trustLabel: 'KWALITEIT',
+    trustTitle: 'Kwaliteit waarop u kunt vertrouwen.',
+    trustSub:
+      'Elke fiets bij Karaarslan Bike wordt zorgvuldig gecontroleerd voordat hij in onze showroom komt.',
+    trust1: 'Technische inspectie van alle veiligheidsrelevante onderdelen',
+    trust2: 'Professioneel opknappen en grondig reinigen',
+    trust3: 'Eerlijke taxatie en transparante prijzen',
+    trust4: 'Garantie: 24 maanden (nieuw) / 3 maanden (tweedehands)',
+
+    storyLabel: 'ONS VERHAAL',
+    storyTitle: 'Uit passie voor het fietsen.',
+    storyText:
+      'Karaarslan Bike is opgericht vanuit de overtuiging dat goede fietsen niet duur hoeven te zijn — en dat elke fiets een tweede kans verdient.',
+    storyValue1Title: 'Duurzaamheid',
+    storyValue1Desc:
+      'Elke tweedehands fiets die we opknappen betekent minder afval en meer mobiliteit.',
+    storyValue2Title: 'Gemeenschap',
+    storyValue2Desc: 'We brengen mensen op de fiets — ongeacht het budget.',
+    storyValue3Title: 'Vakmanschap',
+    storyValue3Desc:
+      'Techniek ontmoet passie. Elke fiets wordt met zorg behandeld.',
+
+    galleryLabel: 'ONZE WINKEL',
+    galleryTitle: 'Een kijkje bij Karaarslan Bike.',
+    gallerySub:
+      'Bekijk onze winkel in Lünen — hier staat uw volgende fiets op u te wachten.',
+
+    bikeCheckLabel: 'SERVICE',
+    bikeCheckTitle: 'Gratis fietscheck!',
+    bikeCheckSub:
+      'Reparaties alleen op verzoek — eerlijke prijzen, transparant advies.',
+    bikeCheckFreeTitle: 'Gratis check',
+    bikeCheckBrakeCheck: 'Remmen controleren',
+    bikeCheckGearTest: 'Versnellingen testen',
+    bikeCheckTireChain: 'Banden & ketting controleren',
+    bikeCheckLightCheck: 'Verlichting controleren',
+    bikeCheckReflectorCheck: 'Reflectoren & zichtbaarheid',
+    bikeCheckBellCheck: 'Bel controleren',
+    bikeCheckSafetyCheck: 'Algemene veiligheidscontrole',
+    bikeCheckRepairTitle: 'Service op verzoek',
+    bikeCheckBrakeAdjust: 'Remmen afstellen',
+    bikeCheckChainCassette: 'Ketting & cassette vervangen',
+    bikeCheckGearAdjust: 'Versnellingen afstellen',
+    bikeCheckTireService: 'Bandenservice',
+    bikeCheckCableReplace: 'Kabels vervangen',
+    bikeCheckBottomBracket: 'Trapas onderhouden',
+    bikeCheckSpokeRepair: 'Spaken repareren & wiel richten',
+    bikeCheckLightInstall: 'Verlichting monteren',
+    bikeCheckPedalReplace: 'Pedalen vervangen',
+    bikeCheckNote: 'Alleen voor gewone fietsen',
+    bikeCheckExclusion: 'Geen e-bikes, geen racefietsen',
+    bikeCheckNoLiability: 'Geen aansprakelijkheid voor reparaties',
+    bikeCheckFairPrices: 'Eerlijke prijzen — transparant advies.',
+
+    ctaSectionTitle: 'Klaar voor uw volgende avontuur?',
+    ctaSectionSub:
+      'Bezoek onze showroom of bekijk ons actuele aanbod online.',
+    ctaSectionButton: 'Nu een fiets vinden',
+    heroEyebrow: 'Fietsenwinkel & werkplaats in Lünen',
+    catLabel: 'ASSORTIMENT',
+    catTitle: 'Voor elke weg de juiste fiets.',
+    catSub:
+      'Van alledaagse fiets tot e-bike — gecontroleerd, afgesteld en direct rijklaar.',
+    catCta: 'Bekijken in de showroom',
+    ctaWhatsapp: 'Stuur ons een WhatsApp',
+    ctaRoute: 'Route plannen',
+
+    aboutLabel: 'OVER ONS',
+    aboutTitle: 'Wie wij zijn.',
+    aboutText:
+      'Wij zijn een onafhankelijke fietshandel in Lünen. Ons assortiment bestaat uit gecontroleerde tweedehands fietsen en geselecteerde nieuwe fietsen — voor elk doel en elk budget.',
+    aboutMission:
+      'Onze missie: hoogwaardige mobiliteit toegankelijk maken — duurzaam, eerlijk en persoonlijk.',
+    openingHours: 'Openingstijden',
+    findUs: 'Zo vindt u ons',
+
+    contactLabel: 'CONTACT',
+    contactTitle: 'Neem contact op.',
+    contactSub: 'We adviseren u graag — persoonlijk in de winkel of telefonisch.',
+    phone: 'Telefoon',
+    email: 'E-mail',
+    address: 'Adres',
+    visitUs: 'Kom langs',
+
+    footerTagline: 'Nieuwe & tweedehands fietsen in Lünen.',
+    quickLinks: 'Navigatie',
+    legalNotice: 'Colofon',
+    privacy: 'Privacyverklaring',
+    warrantyTerms: 'Garantievoorwaarden',
+    terms: 'Algemene voorwaarden',
+    allRights: 'Alle rechten voorbehouden.',
+
+    // Warranty Page
+    warrantyPageLabel: 'JURIDISCH',
+    warrantyPageTitle: 'Garantievoorwaarden',
+    warrantyNewTitle: 'Nieuwe fietsen',
+    warrantyNewText:
+      'Deze fiets is nieuw en valt onder de wettelijke garantie van 2 jaar. De factuur wordt meegeleverd. De verkoper garandeert dat de fiets bij overdracht vrij is van gebreken. De koper heeft het recht de fiets binnen 3 dagen zonder opgave van redenen te retourneren, mits de fiets compleet en onbeschadigd wordt teruggebracht.',
+    warrantyUsedTitle: 'Tweedehands fietsen',
+    warrantyUsedText:
+      '3 maanden garantie op: ketting, versnellingen, achterderailleur, dynamo, pedalen en hydraulische remmen.',
+    warrantyRepairNote:
+      'Garantiereparaties mogen uitsluitend door Karaarslan Bike worden uitgevoerd.',
+    warrantyExcludedTitle: 'Uitgesloten van garantie',
+    warrantyExcludedItems:
+      'Banden, binnenbanden, remblokken, lampen. Eveneens uitgesloten: schade door ongevallen of onjuist gebruik.',
+    warrantyReturnTitle: 'Retourrecht',
+    warrantyReturnText: 'Binnen 3 werkdagen.',
+
+    loading: 'Laden...',
+    error: 'Er is een fout opgetreden.',
+    noResults: 'Geen resultaten.',
+    categories: 'Categorieën',
+    ourShowroom: 'Showroom',
+    conditionNew: 'Nieuw',
+    conditionUsed: 'Tweedehands',
+    conditionLikeNew: 'Vernieuwd',
+    contactEmailHint: 'We antwoorden binnen 24 uur',
+    contactKaHint: 'Bekijk al onze advertenties op Kleinanzeigen',
+
+    testimonialsLabel: 'KLANTERVARINGEN',
+    testimonialsTitle: 'Wat onze klanten zeggen',
+    testimonialsSub: 'Meer dan 500 tevreden klanten in Lünen vertrouwen ons',
+
+    repairLabel: 'WERKPLAATS',
+    repairTitle: 'Onze reparaties',
+    repairSub: 'Een kijkje in onze professionele fietswerkplaats',
+
+    faqLabel: 'FAQ',
+    faqTitle: 'Vragen & antwoorden',
+    faqSub: 'Alles wat u over onze service moet weten.',
+    faq1Q: 'Kan ik een fiets testen voordat ik hem koop?',
+    faq1A:
+      'Ja! Kom gewoon langs tijdens onze openingstijden — een afspraak is niet nodig.',
+    faq2Q: 'Geeft u garantie op tweedehands fietsen?',
+    faq2A:
+      'Elke tweedehands fiets wordt technisch gecontroleerd. 3 dagen retourrecht, 3 maanden garantie op tweedehands fietsen, 24 maanden op nieuwe fietsen.',
+    faq3Q: 'Hoe kan ik betalen?',
+    faq3A: 'Contant, met pinpas, per overschrijving en met PayPal.',
+    faq4Q: 'Repareert u ook fietsen?',
+    faq4A:
+      'Ja: gratis fietscheck en reparaties op verzoek (niet voor e-bikes en racefietsen). Meld u het liefst vooraf via WhatsApp.',
+    faq5Q: 'Waar vind ik u?',
+    faq5A:
+      'Alstedder Straße 5, 44534 Lünen. Kom gewoon langs tijdens de openingstijden — zonder afspraak.',
+
+    whatsappTitle: 'Contact met de verkoper',
+    whatsappPlaceholder: 'Uw vraag of bericht...',
+    whatsappSend: 'Versturen via WhatsApp',
+    whatsappInterested: 'Ik heb interesse in deze fiets:',
+    whatsappQuestion: 'Mijn vraag:',
+
+    ankaufTitle: 'Fiets verkopen?',
+    ankaufDesc:
+      "Wij kopen uw tweedehands fiets! Stuur ons foto's en uw vraagprijs via WhatsApp.",
+    ankaufCta: 'Aanbod versturen',
+    ankaufHint: "Foto's + vraagprijs via WhatsApp",
+    reviewTitle: 'Tevreden? Laat een review achter!',
+    reviewDesc: 'Uw Google-review helpt ons en andere klanten. Bedankt!',
+    reviewCta: 'Google-review schrijven',
+    reviewCountLabel: 'reviews',
+    ankaufMessage:
+      "Hallo, ik wil graag mijn fiets verkopen.\n\nMerk/model:\nStaat:\nVraagprijs:\n\n(Foto's graag bijvoegen)",
+
+    aboutBadge: 'Familiebedrijf sinds 2021',
+    aboutHeadline: 'Meer dan alleen fietsen.',
+    aboutHeadlineAccent: 'Een passie.',
+    aboutIntroText:
+      'Wat begon als een bescheiden idee, is uitgegroeid tot een plek waar mensen van alle leeftijden hun perfecte fiets vinden. Als klein familiebedrijf in Lünen geloven we dat elke fiets een verhaal vertelt — en dat iedereen de vrijheid verdient om zijn eigen verhaal op twee wielen te schrijven.',
+    aboutFeatureInvoice: 'Factuur & koopovereenkomst',
+    aboutFeatureTrust: 'Vertrouwen & kwaliteit',
+    aboutQuote:
+      'Elke fiets die we verkopen brengt vreugde — en dat is de mooiste beloning.',
+    aboutQuoteAuthor: '— De familie achter Karaarslan Bike',
+    aboutMetaTitle: 'Over ons — Karaarslan Bike | Uw fietshandel in Lünen',
+    aboutMetaDescription:
+      'Maak kennis met Karaarslan Bike. Eerlijk, duurzaam, persoonlijk — uw lokale fietshandel in Lünen voor nieuwe en tweedehands fietsen.',
+
+    brandsLabel: 'MERKEN',
+    brandsTitle: 'Onze merken — nieuw & tweedehands',
+    brandsIntro:
+      'In onze winkel bieden we een zorgvuldig geselecteerd assortiment fietsen. Let op: we zijn niet voor alle merken officieel dealer, maar verkopen fietsen die via legale kanalen zijn verkregen.',
+    brandsNewTitle: 'Nieuwe fietsen',
+    brandVictoriaDesc: 'Robuuste en elegante stadsfietsen',
+    brandConwayDesc: 'Betrouwbare prestaties in mountainbikes en stadsfietsen',
+    brandBikestarDesc: 'Kinder- en jeugdfietsen',
+    brandPyroDesc: 'Lichte en snelle sportfietsen',
+    brandXtractDesc: 'Functionele en betaalbare modellen',
+    brandsUsedTitle: 'Tweedehands fietsen',
+    brandsUsedDesc:
+      'We hebben tweedehands fietsen van bekende merken. Deze komen rechtstreeks van particulieren of uit andere legale bronnen.',
+    brandsAndMore: 'en nog veel meer',
+    brandsDisclaimerLabel: 'Let op:',
+    brandsDisclaimer:
+      'We gebruiken merknamen om producten te beschrijven. Zonder geautoriseerd partnerschap kunnen we geen officiële garantie of service van de fabrikant bieden.',
+
+    monday: 'Maandag',
+    tuesday: 'Dinsdag',
+    wednesday: 'Woensdag',
+    thursday: 'Donderdag',
+    friday: 'Vrijdag',
+    saturday: 'Zaterdag',
+    sunday: 'Zondag',
+    closed: 'Gesloten',
+    restDay: 'Gesloten',
+    openGoogleMaps: 'Google Maps openen',
+
+    // Holiday closure
+    holidayLabel: 'Vakantiesluiting',
+    holidayClosedNow:
+      'We zijn met vakantie van {from} tot {to} — de winkel is gesloten.',
+    holidayClosedSoon:
+      'Onze winkel is wegens vakantie gesloten van {from} tot {to}.',
+    holidayClosedRange: 'Gesloten {from} – {to}',
+    holidayReopen: 'We zijn er weer voor u op {weekday} {reopen}.',
+    holidayContactHint:
+      'WhatsApp-berichten en e-mails beantwoorden we zodra we terug zijn.',
+
+    monShort: 'Ma',
+    tueShort: 'Di',
+    wedShort: 'Wo',
+    thuShort: 'Do',
+    friShort: 'Vr',
+    satShort: 'Za',
+    sunShort: 'Zo',
+
+    contactWhatsappHint: 'Direct schrijven',
+    contactMetaTitle: 'Contact — Karaarslan Bike | Adres & openingstijden',
+    contactMetaDescription:
+      'Karaarslan Bike ✓ Alstedder Straße 5, 44534 Lünen ✓ Ma–za 9–18 uur ✓ WhatsApp: +49 163 7390 301 ✓ Zonder afspraak — kom gewoon langs!',
+
+    trustBadgeSince: 'Sinds 2020 in Lünen',
+    trustBadgeCustomers: '500+ tevreden klanten',
+    ariaStarsRating: '5 van de 5 sterren',
+
+    filterCondition: 'Staat',
+    filterCategory: 'Categorie',
+    filterTireSize: 'Bandenmaat (inch)',
+    filterGears: 'Versnellingen',
+    gearsUnit: 'versnellingen',
+    filterFrameSize: 'Framemaat',
+    showroomMetaTitle:
+      'Tweedehands fiets kopen in Lünen | Showroom | Karaarslan Bike',
+    showroomMetaDescription:
+      'Tweedehands & nieuwe fietsen kopen in Lünen ✓ 100+ gecontroleerde fietsen ✓ Stads-, trekking-, mountain- & e-bikes ✓ 3 maanden garantie ✓ Direct rijklaar. Karaarslan Bike.',
+
+    detailMetaDescSuffix: 'Nu bekijken bij Karaarslan Bike in 44534 Lünen.',
+    bikeFallbackCategory: 'Fiets',
+
+    legalLabel: 'Juridisch',
+    languageLabel: 'Taal',
+
+    bikeAltSuffix: ' — fiets bij Karaarslan Bike',
+
+    catDamen: 'Damesfietsen',
+    catHerren: 'Herenfietsen',
+    catKinder: 'Kinderfietsen',
+    catZubehoer: 'Accessoires',
+    catEBike: 'E-bikes',
+    catTrekking: 'Trekkingfietsen',
+    catMountain: 'Mountainbikes',
+    catCity: 'Stadsfietsen',
+    catRennrad: 'Racefietsen',
+    catSonstige: 'Overige fietsen',
+
+    accessoriesMetaTitle:
+      'Fietsaccessoires Lünen | Helmen, tassen & sloten | Karaarslan Bike',
+    accessoriesMetaDescription:
+      'Fietsaccessoires kopen in Lünen ✓ Helmen, tassen, sloten, verlichting & meer ✓ In de winkel bij Karaarslan Bike — Alstedder Straße 5, 44534 Lünen.',
+    accessoriesTitle: 'Accessoires',
+    accessoriesSub: 'Tassen, helmen, sloten en meer voor uw fiets.',
+    accessoriesNoItems: 'Momenteel geen accessoires beschikbaar.',
+    accessoriesAllCategories: 'Alle categorieën',
+    accessoriesViewDetails: 'Details bekijken',
+    accessoriesBrand: 'Merk',
+    accessoriesPriceOnRequest: 'Prijs op aanvraag',
+
+    neueFahrraeder: 'Nieuwe fietsen',
+    neueFahrraederMetaTitle:
+      'Nieuwe fietsen Lünen | Stads-, trekking- & e-bikes | Karaarslan Bike',
+    neueFahrraederMetaDescription:
+      'Nieuwe fietsen kopen in Lünen ✓ Stads-, trekking-, mountain- & e-bikes ✓ 2 jaar garantie ✓ Op voorraad & rijklaar ✓ Eerlijke prijzen. Bezoek onze showroom — Karaarslan Bike.',
+    neueFahrraederTitle: 'Nieuwe fietsen',
+    neueFahrraederSub: 'Fabrieksnieuwe fietsen met 2 jaar winkelgarantie.',
+    neueFahrraederBrand: 'Merk',
+    neueFahrraederModel: 'Model',
+    neueFahrraederColor: 'Kleur',
+    neueFahrraederFrameSize: 'Framemaat',
+    neueFahrraederWheelSize: 'Wielmaat',
+    neueFahrraederGears: 'Versnellingen',
+    neueFahrraederCondition: 'Staat',
+    neueFahrraederWarranty: '2 jaar garantie',
+    neueFahrraederBackToList: 'Terug naar het overzicht',
+    neueFahrraederNoItems: 'Momenteel geen nieuwe fietsen beschikbaar.',
+    neueFahrraederContactUs: 'Neem contact op',
+    neueFahrraederInterested: 'Interesse in deze fiets?',
+
+    // Ratgeber / Blog
+    ratgeberNav: 'Gids',
+    ratgeberLabel: 'Kennis & tips',
+    ratgeberTitle: 'Fietsgids',
+    ratgeberSub:
+      'Tips, checklists en alles wat u over fietsen moet weten — van uw fietshandel in Lünen.',
+    ratgeberMetaTitle:
+      'Fietsgids Lünen — tips, checklists & advies | Karaarslan Bike',
+    ratgeberMetaDescription:
+      'Koopgidsen voor fietsen en fietsroutes rond Lünen. Deskundig advies van uw lokale fietsenwinkel — Karaarslan Bike.',
+    ratgeberReadMore: 'Lees meer',
+    ratgeberReadTime: 'leestijd',
+    ratgeberTip: 'Tip van Karaarslan Bike',
+    ratgeberTldr: 'Samenvatting',
+    ratgeberRelated: 'Gerelateerde gidsen',
+    ratgeberBackToList: 'Terug naar alle gidsen',
+    faqMetaTitle:
+      'FAQ — Fietsenwinkel Lünen | Veelgestelde vragen | Karaarslan Bike',
+    faqMetaDescription:
+      'Veelgestelde vragen over fietsen kopen in Lünen: garantie, e-bikes, proefritten, openingstijden, prijzen. Beantwoord door Karaarslan Bike.',
+    garantieMetaTitle: 'Garantievoorwaarden — Karaarslan Bike',
+    garantieMetaDescription:
+      'Garantievoorwaarden voor nieuwe en tweedehands fietsen bij Karaarslan Bike. 2 jaar voor nieuwe fietsen, 3 maanden voor tweedehands fietsen.',
+    impressumMetaTitle: 'Colofon — Karaarslan Bike',
+    impressumMetaDescription:
+      'Colofon en bedrijfsgegevens van Karaarslan Bike volgens § 5 TMG.',
+    datenschutzMetaTitle: 'Privacyverklaring — Karaarslan Bike',
+    datenschutzMetaDescription:
+      'Privacyverklaring van Karaarslan Bike. Informatie over de verwerking van uw persoonsgegevens.',
+    faqCtaText: 'Nog vragen? Neem contact met ons op!',
+    faqCtaButton: 'Contact opnemen',
+    faqQ1: 'Waar kan ik in Lünen een fiets kopen?',
+    faqA1:
+      'Bij Karaarslan Bike, Alstedder Straße 5, 44534 Lünen. We hebben meer dan 100 nieuwe en tweedehands fietsen op voorraad — kom gewoon langs, zonder afspraak.',
+    faqQ2: 'Kan ik een proefrit maken voordat ik koop?',
+    faqA2:
+      'Ja! Alle fietsen kunnen tijdens onze openingstijden worden getest — een afspraak is niet nodig.',
+    faqQ3: 'Geeft u garantie op tweedehands fietsen?',
+    faqA3:
+      'Elke tweedehands fiets wordt technisch gecontroleerd. U krijgt 3 dagen retourrecht en 3 maanden garantie op alle tweedehands fietsen. Nieuwe fietsen hebben 24 maanden garantie.',
+    faqQ4: 'Wat kost een tweedehands fiets?',
+    faqA4:
+      'Tweedehands fietsen vanaf ca. €80. Tweedehands e-bikes vanaf ca. €800. Alle prijzen zijn eerlijk berekend.',
+    faqQ5: 'Heeft u tweedehands e-bikes?',
+    faqA5:
+      'Ja, we bieden hoogwaardige tweedehands e-bikes met gedocumenteerde accustaat en garantie.',
+    faqQ6: 'Welke betaalmethoden accepteert u?',
+    faqA6: 'We accepteren contant, pinpas, creditcard, PayPal en overschrijving.',
+    faqQ7: 'Koopt u tweedehands fietsen in?',
+    faqA7:
+      'Ja, we kopen tweedehands fietsen in goede staat in tegen eerlijke prijzen. Breng uw fiets gewoon langs.',
+    faqQ8: 'Welke soorten fietsen heeft u?',
+    faqA8:
+      'Stadsfietsen, trekkingfietsen, mountainbikes, e-bikes, kinderfietsen, omafietsen en racefietsen — zowel nieuw als tweedehands.',
+    faqQ9: 'Wat zijn uw openingstijden?',
+    faqA9:
+      'Maandag t/m donderdag: 09:00–18:00. Vrijdag: 09:00–13:00 & 15:00–18:00. Zaterdag: 09:00–18:00. Zon- en feestdagen: gesloten.',
+    faqQ10: 'Kan ik mijn oude fiets inruilen?',
+    faqA10:
+      'Ja, inruilen is in individuele gevallen mogelijk. Spreek ons gewoon aan — we vinden een oplossing.',
+
+    svcRepairBadge: 'Service',
+    svcRepairTitle: 'Fietsreparatie',
+    svcRepairSub: 'Professioneel onderhoud & reparaties – snel, betrouwbaar, eerlijk.',
+    svcRepairItem1: 'Remmen, versnellingen, banden',
+    svcRepairItem2: 'Complete inspectie',
+    svcRepairItem3: 'Fietsdiagnose & onderhoud',
+    svcRepairItem4: 'Onderdelen op voorraad',
+    svcRepairCta: 'Afspraak aanvragen',
+    svcRepairWaCta: 'Afspraak via WhatsApp',
+    svcAngeboteBadge: 'Nieuwe fietsen',
+    svcAngeboteTitle: 'Nieuwe fietsen',
+    svcAngeboteSub:
+      'Fabrieksnieuwe fietsen met 2 jaar dealergarantie – direct uit Lünen.',
+    svcAngeboteCta: 'Alle nieuwe fietsen',
+
+    cityWarrantyIncl: 'Incl. garantie',
+    cityMin: 'min.',
+    cityDirectionsFrom: 'Route vanaf',
+    cityOpenMap: 'Route openen in Google Maps →',
+    cityViewShowroom: 'Showroom bekijken',
+    footerLocations: 'Locaties',
+
+    relatedBikes: 'Vergelijkbare fietsen',
+    blogCta1: 'Tweedehands fiets kopen — tips & checklist',
+    blogCta2: 'Welke fiets past bij mij?',
+    blogCta3: 'Fietsinspectie — wat kost dat?',
+    navUsedBikes: 'Tweedehands fietsen',
+    navSizeGuide: 'Welke fietsmaat past?',
+    navKidsAge: 'Kinderfiets per leeftijd',
+    guideLinksLabel: 'Gidsen:',
+    navXmasGift: 'Fiets als kerstcadeau',
+    xmasTeaserLabel: 'KERST & OUD EN NIEUW',
+    xmasTeaserTitle: 'Een fiets onder de kerstboom?',
+    xmasTeaserText: 'Kinderfiets, e-bike of accessoires: onze kerstcadeau-ideeën — nieuw en tweedehands, met persoonlijk advies in Lünen.',
+    xmasTeaserCta: 'Cadeau-ideeën bekijken',
   },
 };
 
@@ -2373,11 +2895,11 @@ export class TranslationService {
     }
 
     const stored = localStorage.getItem('bikehaus-homepage-language');
-    if (stored && ['de', 'en', 'fr', 'tr'].includes(stored)) {
+    if (stored && SUPPORTED_LANGUAGES.includes(stored as Language)) {
       return stored as Language;
     }
     const browserLang = navigator.language.substring(0, 2);
-    if (['de', 'en', 'fr', 'tr'].includes(browserLang)) {
+    if (SUPPORTED_LANGUAGES.includes(browserLang as Language)) {
       return browserLang as Language;
     }
     return 'de';

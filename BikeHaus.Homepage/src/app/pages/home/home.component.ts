@@ -171,6 +171,32 @@ interface Testimonial {
       </div>
     </div>
 
+    <!-- ═══ SEASONAL: CHRISTMAS TEASER (Nov–early Jan, browser only) ═══ -->
+    @if (showXmasTeaser()) {
+      <section class="block xmas-block" aria-labelledby="xmas-heading">
+        <div class="container">
+          <a
+            class="xmas-card"
+            [routerLink]="['/' + lang(), 'weihnachtsgeschenk-fahrrad']"
+          >
+            <img
+              src="/assets/stock/xmas-hero.webp"
+              alt=""
+              loading="lazy"
+              width="1800"
+              height="1200"
+            />
+            <span class="xmas-body">
+              <span class="chip">{{ t().xmasTeaserLabel }}</span>
+              <strong id="xmas-heading">{{ t().xmasTeaserTitle }}</strong>
+              <span class="xmas-text">{{ t().xmasTeaserText }}</span>
+              <span class="xmas-cta">{{ t().xmasTeaserCta }} →</span>
+            </span>
+          </a>
+        </div>
+      </section>
+    }
+
     <!-- ═══ SERVICES ═══ -->
     <section class="block" aria-label="Services">
       <div class="container svc-grid">
@@ -282,6 +308,18 @@ interface Testimonial {
             </a>
           }
         </div>
+        <nav class="guide-links reveal" [attr.aria-label]="t().guideLinksLabel">
+          <span>{{ t().guideLinksLabel }}</span>
+          <a [routerLink]="['/' + lang(), 'gebrauchte-fahrraeder']">{{
+            t().navUsedBikes
+          }}</a>
+          <a [routerLink]="['/' + lang(), 'fahrradgroesse-berechnen']">{{
+            t().navSizeGuide
+          }}</a>
+          <a [routerLink]="['/' + lang(), 'kinderfahrrad-alter']">{{
+            t().navKidsAge
+          }}</a>
+        </nav>
       </div>
     </section>
 
@@ -1521,6 +1559,75 @@ interface Testimonial {
         }
       }
 
+      /* ═══ CHRISTMAS TEASER ═══ */
+      .xmas-block {
+        padding-bottom: 0;
+      }
+
+      .xmas-card {
+        position: relative;
+        display: flex;
+        align-items: center;
+        min-height: 280px;
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        isolation: isolate;
+        border: 1px solid var(--line);
+      }
+
+      .xmas-card img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+        transition: transform 1.2s var(--ease);
+      }
+
+      .xmas-card:hover img {
+        transform: scale(1.04);
+      }
+
+      .xmas-card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: linear-gradient(
+          90deg,
+          rgba(10, 10, 10, 0.92) 0%,
+          rgba(10, 10, 10, 0.6) 55%,
+          rgba(10, 10, 10, 0.1) 100%
+        );
+      }
+
+      .xmas-body {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+        max-width: 560px;
+        padding: clamp(1.5rem, 4vw, 3rem);
+      }
+
+      .xmas-body strong {
+        font-size: clamp(1.6rem, 3.4vw, 2.5rem);
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        line-height: 1.05;
+      }
+
+      .xmas-text {
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.6;
+      }
+
+      .xmas-cta {
+        font-weight: 700;
+        color: var(--color-accent);
+      }
+
       /* ═══ SERVICES ═══ */
       .svc-grid {
         display: grid;
@@ -1714,6 +1821,38 @@ interface Testimonial {
       .cat-tile:hover .cat-arrow {
         background: var(--color-accent);
         transform: rotate(45deg);
+      }
+
+      .guide-links {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.6rem;
+        margin-top: 1.5rem;
+      }
+
+      .guide-links span {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--ink-faint);
+        margin-right: 0.25rem;
+      }
+
+      .guide-links a {
+        padding: 0.55rem 1rem;
+        border-radius: 999px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        background: var(--card);
+        border: 1px solid var(--line);
+        transition:
+          border-color 0.25s,
+          color 0.25s;
+      }
+
+      .guide-links a:hover {
+        border-color: var(--color-accent);
+        color: var(--color-accent);
       }
 
       /* ═══ VALUES ═══ */
@@ -3051,7 +3190,17 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   private reviewSchemaElement: HTMLScriptElement | null = null;
 
+  // Christmas teaser runs 1 Nov – 6 Jan. Browser-only: prerendered HTML is
+  // built once per deploy and must not freeze the season it was built in.
+  showXmasTeaser = signal(false);
+
   ngOnInit(): void {
+    if (this.isBrowser) {
+      const now = new Date();
+      const m = now.getMonth();
+      this.showXmasTeaser.set(m === 10 || m === 11 || (m === 0 && now.getDate() <= 6));
+    }
+
     // SEO - Reset to homepage defaults
     this.titleService.setTitle(this.t().metaTitle);
     this.metaService.updateTag({

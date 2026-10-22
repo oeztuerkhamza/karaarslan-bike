@@ -356,6 +356,6 @@ export class RatgeberComponent implements OnInit {
   }
 
   getTranslation(article: BlogArticle) {
-    return article.translations[this.lang()] || article.translations['de'];
+    return article.translations[this.lang()] ?? article.translations.en;
   }
 }
