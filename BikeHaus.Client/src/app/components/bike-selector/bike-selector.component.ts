@@ -212,10 +212,10 @@ import { TranslationService } from '../../services/translation.service';
         width: 100%;
         padding: 12px;
         border-style: dashed;
-        color: var(--accent-primary, #6366f1);
+        color: var(--accent-primary, #e64a19);
       }
       .quick-add-btn:hover {
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.1));
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.1));
       }
     `,
   ],

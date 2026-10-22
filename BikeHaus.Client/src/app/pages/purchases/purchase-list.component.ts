@@ -259,17 +259,17 @@ import { PaginationComponent } from '../../components/pagination/pagination.comp
       }
       .search-input:focus {
         outline: none;
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         box-shadow: 0 0 0 3px
-          var(--accent-primary-light, rgba(99, 102, 241, 0.1));
+          var(--accent-primary-light, rgba(230, 74, 25, 0.1));
       }
       .filter-toggle {
         position: relative;
       }
       .filter-toggle.active {
-        border-color: var(--accent-primary, #6366f1);
-        color: var(--accent-primary, #6366f1);
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.06));
+        border-color: var(--accent-primary, #e64a19);
+        color: var(--accent-primary, #e64a19);
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.06));
       }
       .filter-badge {
         display: inline-flex;
@@ -278,7 +278,7 @@ import { PaginationComponent } from '../../components/pagination/pagination.comp
         min-width: 18px;
         height: 18px;
         padding: 0 5px;
-        background: var(--accent-primary, #6366f1);
+        background: var(--accent-primary, #e64a19);
         color: white;
         border-radius: 50px;
         font-size: 0.7rem;
@@ -340,9 +340,9 @@ import { PaginationComponent } from '../../components/pagination/pagination.comp
       .filter-item select:focus,
       .filter-item input:focus {
         outline: none;
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         box-shadow: 0 0 0 3px
-          var(--accent-primary-light, rgba(99, 102, 241, 0.1));
+          var(--accent-primary-light, rgba(230, 74, 25, 0.1));
       }
       .table-container {
         background: var(--bg-card);
@@ -386,7 +386,7 @@ import { PaginationComponent } from '../../components/pagination/pagination.comp
         font-family: 'SF Mono', 'Consolas', monospace;
         font-size: 0.82rem;
         color: var(--accent-primary);
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.08));
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.08));
         padding: 2px 8px;
         border-radius: 6px;
         font-weight: 600;

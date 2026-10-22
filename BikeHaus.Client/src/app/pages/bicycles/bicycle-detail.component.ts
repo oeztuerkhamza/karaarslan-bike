@@ -482,9 +482,9 @@ import {
       .field select:focus,
       .field textarea:focus {
         outline: none;
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         box-shadow: 0 0 0 3px
-          var(--accent-primary-light, rgba(99, 102, 241, 0.1));
+          var(--accent-primary-light, rgba(230, 74, 25, 0.1));
       }
       .readonly-field {
         background: var(--table-hover, #f1f5f9) !important;
@@ -511,12 +511,12 @@ import {
         transition: all 0.15s ease;
       }
       .color-chip:hover {
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         background: var(--table-hover, #f1f5f9);
       }
       .color-chip.selected {
-        border-color: var(--accent-primary, #6366f1);
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.08));
+        border-color: var(--accent-primary, #e64a19);
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.08));
         font-weight: 600;
       }
       .chip-dot {
@@ -550,7 +550,7 @@ import {
       }
       .checkbox-label input {
         width: auto;
-        accent-color: var(--accent-primary, #6366f1);
+        accent-color: var(--accent-primary, #e64a19);
       }
 
       /* Documents */
@@ -618,13 +618,13 @@ import {
         border-color: var(--border-light, #e2e8f0);
       }
       .btn-outline:hover {
-        border-color: var(--accent-primary, #6366f1);
-        color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
+        color: var(--accent-primary, #e64a19);
       }
       .btn-primary {
-        background: var(--accent-primary, #6366f1);
+        background: var(--accent-primary, #e64a19);
         color: #fff;
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
       }
       .btn-primary:hover {
         opacity: 0.9;

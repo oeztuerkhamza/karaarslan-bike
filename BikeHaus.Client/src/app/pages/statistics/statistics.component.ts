@@ -294,15 +294,15 @@ type PeriodType = 'today' | 'week' | 'month' | 'quarter' | 'year' | 'custom';
       }
 
       .period-selector button:hover {
-        border-color: var(--accent-primary, #6366f1);
-        color: var(--accent-primary, #6366f1);
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.06));
+        border-color: var(--accent-primary, #e64a19);
+        color: var(--accent-primary, #e64a19);
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.06));
       }
 
       .period-selector button.active {
-        background: var(--accent-primary, #6366f1);
+        background: var(--accent-primary, #e64a19);
         color: white;
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         box-shadow: var(--shadow-sm);
       }
 
@@ -342,9 +342,9 @@ type PeriodType = 'today' | 'week' | 'month' | 'quarter' | 'year' | 'custom';
 
       .date-field input:focus {
         outline: none;
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         box-shadow: 0 0 0 3px
-          var(--accent-primary-light, rgba(99, 102, 241, 0.1));
+          var(--accent-primary-light, rgba(230, 74, 25, 0.1));
       }
 
       .loading {
@@ -398,7 +398,7 @@ type PeriodType = 'today' | 'week' | 'month' | 'quarter' | 'year' | 'custom';
       }
 
       .card.profit .big-number {
-        color: var(--accent-primary, #6366f1);
+        color: var(--accent-primary, #e64a19);
       }
 
       .card.expenses .big-number {
@@ -480,11 +480,11 @@ type PeriodType = 'today' | 'week' | 'month' | 'quarter' | 'year' | 'custom';
       }
 
       tr.has-activity {
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.04));
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.04));
       }
 
       tr.has-activity:hover {
-        background: rgba(99, 102, 241, 0.08);
+        background: rgba(230, 74, 25, 0.08);
       }
 
       td.positive {
@@ -522,14 +522,14 @@ type PeriodType = 'today' | 'week' | 'month' | 'quarter' | 'year' | 'custom';
       }
 
       .brand-item:hover {
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         box-shadow: var(--shadow-xs);
       }
 
       .brand-item .rank {
         width: 30px;
         font-weight: 800;
-        color: var(--accent-primary, #6366f1);
+        color: var(--accent-primary, #e64a19);
       }
 
       .brand-item .brand-name {
@@ -546,7 +546,7 @@ type PeriodType = 'today' | 'week' | 'month' | 'quarter' | 'year' | 'custom';
 
       .brand-item .revenue {
         font-weight: 700;
-        color: var(--accent-primary, #6366f1);
+        color: var(--accent-primary, #e64a19);
       }
 
       .no-data {

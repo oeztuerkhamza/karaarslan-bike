@@ -142,8 +142,8 @@ import { TranslationService } from '../../services/translation.service';
         justify-content: center;
         min-width: 28px;
         padding: 2px 8px;
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.08));
-        color: var(--accent-primary, #6366f1);
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.08));
+        color: var(--accent-primary, #e64a19);
         border-radius: 8px;
         font-size: 0.8rem;
         font-weight: 700;
@@ -178,9 +178,9 @@ import { TranslationService } from '../../services/translation.service';
       }
       .page-size-select:focus {
         outline: none;
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         box-shadow: 0 0 0 3px
-          var(--accent-primary-light, rgba(99, 102, 241, 0.08));
+          var(--accent-primary-light, rgba(230, 74, 25, 0.08));
       }
 
       .page-buttons {
@@ -203,11 +203,11 @@ import { TranslationService } from '../../services/translation.service';
         transition: all 0.15s;
       }
       .page-btn:hover:not(:disabled) {
-        background: var(--accent-primary, #6366f1);
+        background: var(--accent-primary, #e64a19);
         color: #fff;
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         transform: translateY(-1px);
-        box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
+        box-shadow: 0 2px 8px rgba(230, 74, 25, 0.25);
       }
       .page-btn:active:not(:disabled) {
         transform: translateY(0);
@@ -223,12 +223,12 @@ import { TranslationService } from '../../services/translation.service';
         justify-content: center;
         min-width: 34px;
         height: 34px;
-        background: var(--accent-primary, #6366f1);
+        background: var(--accent-primary, #e64a19);
         color: #fff;
         border-radius: var(--radius-md, 10px);
         font-size: 0.82rem;
         font-weight: 700;
-        box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
+        box-shadow: 0 2px 8px rgba(230, 74, 25, 0.25);
       }
 
       @media (max-width: 600px) {

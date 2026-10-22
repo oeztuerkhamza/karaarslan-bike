@@ -140,7 +140,7 @@ import { TranslationService } from '../../services/translation.service';
       }
 
       .card-icon {
-        color: var(--accent-primary, #6366f1);
+        color: var(--accent-primary, #e64a19);
         margin-bottom: 16px;
       }
 
@@ -209,9 +209,9 @@ import { TranslationService } from '../../services/translation.service';
       }
       .date-field input:focus {
         outline: none;
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         box-shadow: 0 0 0 3px
-          var(--accent-primary-light, rgba(99, 102, 241, 0.1));
+          var(--accent-primary-light, rgba(230, 74, 25, 0.1));
       }
       .date-separator {
         font-size: 1.2rem;
@@ -224,7 +224,7 @@ import { TranslationService } from '../../services/translation.service';
         align-items: center;
         gap: 8px;
         padding: 12px 28px;
-        background: var(--accent-primary, #6366f1);
+        background: var(--accent-primary, #e64a19);
         color: #fff;
         border: none;
         border-radius: var(--radius-md, 10px);
@@ -234,7 +234,7 @@ import { TranslationService } from '../../services/translation.service';
         transition: var(--transition-fast);
       }
       .btn-export:hover:not(:disabled) {
-        background: var(--accent-primary-hover, #4f46e5);
+        background: var(--accent-primary-hover, #c43c0f);
         transform: translateY(-1px);
       }
       .btn-export:disabled {

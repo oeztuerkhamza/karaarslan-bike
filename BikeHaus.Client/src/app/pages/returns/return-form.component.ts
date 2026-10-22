@@ -295,9 +295,9 @@ import {
       .field select:focus,
       .field textarea:focus {
         outline: none;
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         box-shadow: 0 0 0 3px
-          var(--accent-primary-light, rgba(99, 102, 241, 0.1));
+          var(--accent-primary-light, rgba(230, 74, 25, 0.1));
       }
       .field textarea {
         resize: vertical;
@@ -356,9 +356,9 @@ import {
       }
       .sale-search-input:focus {
         outline: none;
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         box-shadow: 0 0 0 3px
-          var(--accent-primary-light, rgba(99, 102, 241, 0.1));
+          var(--accent-primary-light, rgba(230, 74, 25, 0.1));
       }
       .sale-search-clear {
         position: absolute;
@@ -411,8 +411,8 @@ import {
         background: var(--table-hover, #f1f5f9);
       }
       .sale-option.selected {
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.08));
-        border-left: 3px solid var(--accent-primary, #6366f1);
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.08));
+        border-left: 3px solid var(--accent-primary, #e64a19);
       }
       .sale-option-header {
         display: flex;
@@ -423,7 +423,7 @@ import {
       .sale-beleg {
         font-weight: 700;
         font-size: 0.88rem;
-        color: var(--accent-primary, #6366f1);
+        color: var(--accent-primary, #e64a19);
         font-family: 'SF Mono', 'Consolas', monospace;
       }
       .sale-price {
@@ -451,11 +451,11 @@ import {
         transition: var(--transition-fast);
       }
       .btn-primary {
-        background: var(--accent-primary, #6366f1);
+        background: var(--accent-primary, #e64a19);
         color: #fff;
       }
       .btn-primary:hover {
-        background: var(--accent-primary-hover, #4f46e5);
+        background: var(--accent-primary-hover, #c43c0f);
         box-shadow: var(--shadow-sm);
       }
       .btn-primary:disabled {
@@ -468,8 +468,8 @@ import {
         border: 1.5px solid var(--border-light, #e2e8f0);
       }
       .btn-outline:hover {
-        border-color: var(--accent-primary, #6366f1);
-        color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
+        color: var(--accent-primary, #e64a19);
       }
     `,
   ],

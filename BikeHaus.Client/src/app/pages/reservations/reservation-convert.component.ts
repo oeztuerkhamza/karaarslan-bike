@@ -280,9 +280,9 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
         background: var(--bg-card, #fff);
         padding: 18px;
         border-radius: var(--radius-lg, 14px);
-        border-left: 4px solid var(--accent-primary, #6366f1);
+        border-left: 4px solid var(--accent-primary, #e64a19);
         border: 1.5px solid var(--border-light, #e2e8f0);
-        border-left: 4px solid var(--accent-primary, #6366f1);
+        border-left: 4px solid var(--accent-primary, #e64a19);
       }
 
       .info-card h3 {
@@ -328,17 +328,17 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
       }
 
       .btn-outline:hover {
-        border-color: var(--accent-primary, #6366f1);
-        color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
+        color: var(--accent-primary, #e64a19);
       }
 
       .btn-primary {
-        background: var(--accent-primary, #6366f1);
+        background: var(--accent-primary, #e64a19);
         color: white;
       }
 
       .btn-primary:hover:not(:disabled) {
-        background: var(--accent-primary-hover, #4f46e5);
+        background: var(--accent-primary-hover, #c43c0f);
         box-shadow: var(--shadow-sm);
       }
 
@@ -422,9 +422,9 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
       select:focus,
       textarea:focus {
         outline: none;
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         box-shadow: 0 0 0 3px
-          var(--accent-primary-light, rgba(99, 102, 241, 0.1));
+          var(--accent-primary-light, rgba(230, 74, 25, 0.1));
       }
 
       textarea {
@@ -579,7 +579,7 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
       }
 
       .link {
-        color: var(--accent-primary, #6366f1);
+        color: var(--accent-primary, #e64a19);
         text-decoration: none;
         font-weight: 600;
       }
@@ -609,7 +609,7 @@ import { AccessoryAutocompleteComponent } from '../../components/accessory-autoc
 
       .total-amount strong {
         font-size: 1.5rem;
-        color: var(--accent-primary, #6366f1);
+        color: var(--accent-primary, #e64a19);
         font-weight: 800;
       }
 

@@ -188,7 +188,7 @@ import { DialogService } from '../../services/dialog.service';
       .stat-num {
         font-size: 1.8rem;
         font-weight: 800;
-        color: var(--accent-primary, #6366f1);
+        color: var(--accent-primary, #e64a19);
         line-height: 1;
       }
       .stat.muted .stat-num {
@@ -216,7 +216,7 @@ import { DialogService } from '../../services/dialog.service';
       }
       .input:focus {
         outline: none;
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
       }
       button {
         cursor: pointer;
@@ -228,7 +228,7 @@ import { DialogService } from '../../services/dialog.service';
       .btn-primary {
         margin-top: 16px;
         padding: 12px 26px;
-        background: var(--accent-primary, #6366f1);
+        background: var(--accent-primary, #e64a19);
         color: #fff;
         border: none;
       }
@@ -238,11 +238,11 @@ import { DialogService } from '../../services/dialog.service';
       .btn-secondary {
         padding: 11px 20px;
         background: transparent;
-        color: var(--accent-primary, #6366f1);
-        border: 1.5px solid var(--accent-primary, #6366f1);
+        color: var(--accent-primary, #e64a19);
+        border: 1.5px solid var(--accent-primary, #e64a19);
       }
       .btn-secondary:hover:not(:disabled) {
-        background: var(--accent-light, rgba(99, 102, 241, 0.08));
+        background: var(--accent-light, rgba(230, 74, 25, 0.08));
       }
       .btn-ghost {
         margin-left: auto;
@@ -280,7 +280,7 @@ import { DialogService } from '../../services/dialog.service';
       }
       .progress-fill {
         height: 100%;
-        background: var(--accent-primary, #6366f1);
+        background: var(--accent-primary, #e64a19);
         transition: width 0.4s ease;
       }
       .progress-fill.failed {

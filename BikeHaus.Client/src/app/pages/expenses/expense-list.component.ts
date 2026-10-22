@@ -324,7 +324,7 @@ import { TranslationService } from '../../services/translation.service';
 
       .btn-primary {
         padding: 10px 20px;
-        background: var(--accent-primary, #6366f1);
+        background: var(--accent-primary, #e64a19);
         color: #fff;
         border: none;
         border-radius: var(--radius-md, 10px);
@@ -334,7 +334,7 @@ import { TranslationService } from '../../services/translation.service';
         transition: var(--transition-fast);
       }
       .btn-primary:hover {
-        background: var(--accent-primary-hover, #4f46e5);
+        background: var(--accent-primary-hover, #c43c0f);
       }
       .btn-primary:disabled {
         opacity: 0.6;
@@ -376,9 +376,9 @@ import { TranslationService } from '../../services/translation.service';
       }
       .search-bar input:focus {
         outline: none;
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         box-shadow: 0 0 0 3px
-          var(--accent-primary-light, rgba(99, 102, 241, 0.1));
+          var(--accent-primary-light, rgba(230, 74, 25, 0.1));
       }
 
       .expense-summary {
@@ -429,6 +429,7 @@ import { TranslationService } from '../../services/translation.service';
         width: 90%;
         max-width: 600px;
         max-height: 90vh;
+        max-height: 90dvh;
         overflow-y: auto;
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
       }
@@ -482,9 +483,9 @@ import { TranslationService } from '../../services/translation.service';
       .form-group select:focus,
       .form-group textarea:focus {
         outline: none;
-        border-color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
         box-shadow: 0 0 0 3px
-          var(--accent-primary-light, rgba(99, 102, 241, 0.1));
+          var(--accent-primary-light, rgba(230, 74, 25, 0.1));
       }
       .form-group textarea {
         resize: vertical;
@@ -541,8 +542,8 @@ import { TranslationService } from '../../services/translation.service';
         border-radius: 20px;
         font-size: 0.78rem;
         font-weight: 600;
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.08));
-        color: var(--accent-primary, #6366f1);
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.08));
+        color: var(--accent-primary, #e64a19);
       }
 
       .actions-cell {
@@ -563,9 +564,9 @@ import { TranslationService } from '../../services/translation.service';
         color: var(--text-secondary, #64748b);
       }
       .btn-icon.edit:hover {
-        border-color: var(--accent-primary, #6366f1);
-        color: var(--accent-primary, #6366f1);
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.06));
+        border-color: var(--accent-primary, #e64a19);
+        color: var(--accent-primary, #e64a19);
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.06));
       }
       .btn-icon.delete:hover {
         border-color: var(--accent-danger, #ef4444);
@@ -626,7 +627,7 @@ import { TranslationService } from '../../services/translation.service';
         width: 18px;
         height: 18px;
         cursor: pointer;
-        accent-color: var(--accent-primary, #6366f1);
+        accent-color: var(--accent-primary, #e64a19);
       }
       .status-badge {
         display: inline-block;
@@ -654,17 +655,17 @@ import { TranslationService } from '../../services/translation.service';
         align-items: center;
         gap: 8px;
         padding: 10px 18px;
-        border: 1.5px dashed var(--accent-primary, #6366f1);
+        border: 1.5px dashed var(--accent-primary, #e64a19);
         border-radius: var(--radius-md, 10px);
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.06));
-        color: var(--accent-primary, #6366f1);
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.06));
+        color: var(--accent-primary, #e64a19);
         cursor: pointer;
         font-size: 0.88rem;
         font-weight: 600;
         transition: var(--transition-fast);
       }
       .file-upload-btn:hover {
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.12));
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.12));
         border-style: solid;
       }
       .file-upload-btn input[type='file'] {

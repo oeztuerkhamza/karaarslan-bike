@@ -419,6 +419,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
             </span>
             <span class="nav-label">E-Mail Kampagne</span>
           </a>
+          <div class="nav-spacer"></div>
           <a
             routerLink="/settings"
             routerLinkActive="active"
@@ -484,6 +485,25 @@ import { DialogComponent } from './components/dialog/dialog.component';
             class="topbar-logo"
             [class.no-filter]="hasCustomLogo()"
           />
+          <div class="topbar-date">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+            </svg>
+            <span>{{ todayLabel() }}</span>
+          </div>
           <div class="topbar-spacer"></div>
           <div class="topbar-right">
             <button
@@ -603,9 +623,13 @@ import { DialogComponent } from './components/dialog/dialog.component';
   `,
   styles: [
     `
+      /* 100vh on iOS Safari is taller than the visible area (it ignores the
+         browser toolbar), which hid the bottom of the page. dvh follows the
+         toolbar; 100vh stays as fallback for older browsers. */
       :host {
         display: block;
         height: 100vh;
+        height: 100dvh;
       }
 
       /* ══ SKIP LINK (Barrierefreiheit) ══ */
@@ -614,7 +638,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
         top: -100px;
         left: 16px;
         padding: 12px 24px;
-        background: var(--accent-primary, #6366f1);
+        background: var(--accent-primary);
         color: #fff;
         text-decoration: none;
         font-weight: 600;
@@ -624,7 +648,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
       }
       .skip-link:focus {
         top: 16px;
-        outline: 2px solid var(--accent-primary, #6366f1);
+        outline: 2px solid var(--accent-primary);
         outline-offset: 2px;
       }
 
@@ -635,41 +659,39 @@ import { DialogComponent } from './components/dialog/dialog.component';
 
       /* ══ SIDEBAR ══ */
       .sidebar {
-        width: 260px;
-        min-width: 260px;
+        width: 256px;
+        min-width: 256px;
         background: var(--sidebar-bg);
         color: var(--text-sidebar);
         display: flex;
         flex-direction: column;
         transition: transform var(--transition-smooth, 0.35s);
-        border-right: 1px solid rgba(255, 255, 255, 0.04);
+        border-right: 1px solid rgba(255, 255, 255, 0.06);
         z-index: 100;
       }
 
       .brand {
         display: flex;
         align-items: center;
-        gap: 14px;
-        padding: 24px 22px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        gap: 12px;
+        padding: 22px 20px 18px;
       }
       .brand-icon-wrap {
-        width: 44px;
-        height: 44px;
+        width: 42px;
+        height: 42px;
         border-radius: 12px;
-        background: linear-gradient(
-          135deg,
-          rgba(99, 102, 241, 0.3),
-          rgba(79, 70, 229, 0.2)
-        );
+        background: linear-gradient(135deg, #ff7a45 0%, #ff5722 50%, #e64a19 100%);
+        box-shadow:
+          0 6px 18px -4px rgba(255, 87, 34, 0.55),
+          inset 0 1px 0 rgba(255, 255, 255, 0.25);
         display: flex;
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
       }
       .brand-logo {
-        width: 28px;
-        height: 28px;
+        width: 26px;
+        height: 26px;
         object-fit: contain;
         filter: brightness(0) invert(1);
       }
@@ -679,100 +701,143 @@ import { DialogComponent } from './components/dialog/dialog.component';
       .brand-info {
         display: flex;
         flex-direction: column;
+        min-width: 0;
       }
       .brand-name {
         font-weight: 800;
-        font-size: 1.15rem;
+        font-size: 1.08rem;
         letter-spacing: -0.02em;
         line-height: 1.2;
+        white-space: nowrap;
       }
       .brand-sub {
-        font-size: 0.72rem;
-        font-weight: 400;
-        opacity: 0.5;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.66rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.45);
         text-transform: uppercase;
-        letter-spacing: 0.15em;
+        letter-spacing: 0.18em;
+        margin-top: 2px;
+      }
+      .brand-sub::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #ff5722;
+        box-shadow: 0 0 8px #ff5722;
       }
 
       .nav-section-label {
-        padding: 16px 22px 6px;
-        font-size: 0.68rem;
+        padding: 14px 22px 6px;
+        font-size: 0.64rem;
         font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: rgba(255, 255, 255, 0.3);
+        letter-spacing: 0.16em;
+        color: rgba(255, 255, 255, 0.32);
       }
 
       .nav-divider {
-        margin: 4px 22px;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        margin: 8px 22px 2px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
       }
 
       nav {
         flex: 1;
-        padding: 4px 0 12px;
+        padding: 0 0 12px;
         display: flex;
         flex-direction: column;
-        gap: 1px;
+        gap: 2px;
         overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.12) transparent;
+      }
+      nav::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.12);
       }
       nav a {
         display: flex;
         align-items: center;
         gap: 12px;
-        padding: 10px 22px;
-        margin: 0 10px;
-        color: rgba(255, 255, 255, 0.55);
+        padding: 6px 10px;
+        margin: 0 12px;
+        color: rgba(255, 255, 255, 0.6);
         text-decoration: none;
-        font-size: 0.88rem;
+        font-size: 0.86rem;
         font-weight: 500;
         border-radius: 10px;
-        transition: all 0.2s ease;
+        border: 1px solid transparent;
+        transition:
+          color 0.18s ease,
+          background 0.18s ease,
+          border-color 0.18s ease;
         position: relative;
       }
       nav a:hover {
-        color: rgba(255, 255, 255, 0.9);
-        background: rgba(255, 255, 255, 0.06);
+        color: #fff;
+        background: rgba(255, 255, 255, 0.05);
         text-decoration: none;
       }
       nav a.active {
         color: #fff;
         background: linear-gradient(
-          135deg,
-          rgba(99, 102, 241, 0.25),
-          rgba(99, 102, 241, 0.12)
+          90deg,
+          rgba(255, 87, 34, 0.2) 0%,
+          rgba(255, 87, 34, 0.06) 100%
         );
-        box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
+        border-color: rgba(255, 87, 34, 0.22);
+        font-weight: 600;
       }
       nav a.active::before {
         content: '';
         position: absolute;
-        left: 0;
+        left: -12px;
         top: 50%;
         transform: translateY(-50%);
         width: 3px;
-        height: 20px;
-        background: #818cf8;
+        height: 22px;
+        background: #ff5722;
         border-radius: 0 4px 4px 0;
+        box-shadow: 0 0 12px rgba(255, 87, 34, 0.8);
       }
       .nav-icon {
         display: flex;
         align-items: center;
-        opacity: 0.8;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        opacity: 0.85;
         flex-shrink: 0;
+        transition:
+          background 0.18s ease,
+          color 0.18s ease;
+      }
+      .nav-icon svg {
+        width: 18px;
+        height: 18px;
+      }
+      nav a:hover .nav-icon {
+        opacity: 1;
       }
       nav a.active .nav-icon {
         opacity: 1;
-        color: #a5b4fc;
+        color: #fff;
+        background: linear-gradient(135deg, #ff7a45, #e64a19);
+        box-shadow: 0 4px 12px -2px rgba(255, 87, 34, 0.5);
       }
       .nav-label {
         white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       .nav-badge {
         margin-left: auto;
-        background: #ef4444;
+        background: #ff5722;
         color: #fff;
-        font-size: 0.7rem;
+        font-size: 0.68rem;
         font-weight: 700;
         min-width: 20px;
         height: 20px;
@@ -782,12 +847,20 @@ import { DialogComponent } from './components/dialog/dialog.component';
         justify-content: center;
         padding: 0 6px;
         line-height: 1;
+        box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.18);
       }
 
-      nav .nav-settings {
-        margin-top: auto;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        padding-top: 14px;
+      .nav-spacer {
+        flex: 1;
+        min-height: 18px;
+      }
+      nav .nav-settings::after {
+        content: '';
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        top: -9px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
       }
 
       /* ══ MAIN ══ */
@@ -801,15 +874,15 @@ import { DialogComponent } from './components/dialog/dialog.component';
 
       /* ══ TOPBAR ══ */
       .topbar {
-        padding: 0 28px;
+        padding: 0 32px;
         height: 64px;
-        background: var(--bg-secondary);
+        background: color-mix(in srgb, var(--bg-secondary) 85%, transparent);
+        backdrop-filter: saturate(180%) blur(12px);
         border-bottom: 1px solid var(--border-light);
         display: flex;
         align-items: center;
         gap: 16px;
-        transition: all var(--transition-smooth, 0.35s);
-        box-shadow: var(--shadow-xs, 0 1px 2px rgba(0, 0, 0, 0.04));
+        transition: background var(--transition-smooth, 0.35s);
         position: relative;
         z-index: 10;
       }
@@ -817,6 +890,22 @@ import { DialogComponent } from './components/dialog/dialog.component';
         width: 30px;
         height: 30px;
         display: none;
+      }
+      .topbar-date {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: var(--bg-primary);
+        border: 1px solid var(--border-light);
+        color: var(--text-secondary);
+        font-size: 0.8rem;
+        font-weight: 500;
+        white-space: nowrap;
+      }
+      .topbar-date svg {
+        color: var(--accent-primary);
       }
       .menu-toggle {
         display: none;
@@ -829,7 +918,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
         transition: all 0.15s;
       }
       .menu-toggle:hover {
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.08));
+        background: var(--accent-primary-light);
         color: var(--accent-primary);
       }
 
@@ -840,7 +929,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
       .topbar-right {
         display: flex;
         align-items: center;
-        gap: 16px;
+        gap: 12px;
       }
       .user-info {
         display: flex;
@@ -848,58 +937,62 @@ import { DialogComponent } from './components/dialog/dialog.component';
         gap: 10px;
         position: relative;
         cursor: pointer;
-        padding: 4px 8px;
-        border-radius: 10px;
-        transition: background 0.15s;
+        padding: 4px 4px 4px 4px;
+        border-radius: 12px;
+        border: 1px solid transparent;
+        transition:
+          background 0.15s,
+          border-color 0.15s;
       }
-      .user-info:hover {
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.08));
+      .user-info:hover,
+      .user-info.open {
+        background: var(--bg-primary);
+        border-color: var(--border-light);
       }
       .user-dropdown {
         position: absolute;
         top: calc(100% + 8px);
         right: 0;
-        background: var(--bg-secondary);
-        border: 1px solid var(--border-light);
-        border-radius: 10px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-        min-width: 160px;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        box-shadow: var(--shadow-xl);
+        min-width: 180px;
         z-index: 200;
         overflow: hidden;
+        padding: 6px;
+        animation: scaleIn 0.15s ease both;
+        transform-origin: top right;
       }
       .dropdown-item {
         display: flex;
         align-items: center;
         gap: 10px;
         width: 100%;
-        padding: 11px 16px;
+        padding: 10px 12px;
         background: none;
         border: none;
+        border-radius: 8px;
         cursor: pointer;
-        font-size: 0.88rem;
+        font-family: inherit;
+        font-size: 0.86rem;
         font-weight: 500;
         color: var(--text-primary);
         transition: background 0.15s;
         text-align: left;
       }
-      .dropdown-item:hover {
-        background: var(--bg-hover, rgba(0, 0, 0, 0.04));
-      }
       .dropdown-logout {
-        color: #ef4444;
+        color: var(--accent-danger);
       }
       .dropdown-logout:hover {
-        background: rgba(239, 68, 68, 0.08);
+        background: var(--accent-danger-light);
       }
       .user-avatar {
         width: 36px;
         height: 36px;
         border-radius: 10px;
-        background: linear-gradient(
-          135deg,
-          var(--accent-primary),
-          var(--accent-primary-hover, #4f46e5)
-        );
+        background: var(--accent-gradient);
+        box-shadow: 0 4px 12px -4px var(--accent-glow);
         color: #fff;
         display: flex;
         align-items: center;
@@ -909,31 +1002,12 @@ import { DialogComponent } from './components/dialog/dialog.component';
         letter-spacing: 0.02em;
       }
       .user-name {
-        font-size: 0.88rem;
+        font-size: 0.86rem;
         font-weight: 600;
-        color: var(--text-primary);
+        color: var(--text-heading);
       }
 
-      .btn-theme-toggle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 38px;
-        height: 38px;
-        padding: 0;
-        background: transparent;
-        border: 1.5px solid var(--border-color);
-        border-radius: 10px;
-        cursor: pointer;
-        color: var(--text-muted);
-        transition: all 0.2s;
-      }
-      .btn-theme-toggle:hover {
-        background: var(--accent-light, rgba(79, 70, 229, 0.08));
-        border-color: var(--accent);
-        color: var(--accent);
-      }
-
+      .btn-theme-toggle,
       .btn-logout {
         display: flex;
         align-items: center;
@@ -941,15 +1015,33 @@ import { DialogComponent } from './components/dialog/dialog.component';
         width: 38px;
         height: 38px;
         padding: 0;
-        background: transparent;
-        border: 1.5px solid var(--border-color);
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
         border-radius: 10px;
         cursor: pointer;
-        color: var(--text-muted);
+        color: var(--text-secondary);
         transition: all 0.2s;
       }
+      .btn-theme-toggle svg,
+      .btn-logout svg {
+        width: 18px;
+        height: 18px;
+      }
+      .btn-theme-toggle:hover {
+        background: var(--accent-primary-light);
+        border-color: var(--accent-primary);
+        color: var(--accent-primary);
+      }
+      .btn-logout {
+        width: 34px;
+        height: 34px;
+      }
+      .btn-logout svg {
+        width: 16px;
+        height: 16px;
+      }
       .btn-logout:hover {
-        background: var(--accent-danger-light, rgba(239, 68, 68, 0.08));
+        background: var(--accent-danger-light);
         border-color: var(--accent-danger);
         color: var(--accent-danger);
       }
@@ -958,7 +1050,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
       .content-area {
         flex: 1;
         overflow-y: auto;
-        padding: 28px;
+        padding: 32px;
         background: var(--bg-primary);
         transition: background var(--transition-smooth, 0.35s);
       }
@@ -978,7 +1070,11 @@ import { DialogComponent } from './components/dialog/dialog.component';
         }
         .sidebar.open {
           transform: translateX(0);
-          box-shadow: 8px 0 30px rgba(0, 0, 0, 0.3);
+          box-shadow: 12px 0 40px rgba(0, 0, 0, 0.4);
+        }
+        .topbar {
+          padding: 0 16px;
+          gap: 10px;
         }
         .menu-toggle {
           display: flex;
@@ -986,6 +1082,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
         .topbar-logo {
           display: block;
         }
+        .topbar-date,
         .user-name {
           display: none;
         }
@@ -993,9 +1090,9 @@ import { DialogComponent } from './components/dialog/dialog.component';
           display: block;
           position: fixed;
           inset: 0;
-          background: rgba(0, 0, 0, 0.5);
+          background: rgba(0, 0, 0, 0.55);
           z-index: 99;
-          backdrop-filter: blur(2px);
+          backdrop-filter: blur(3px);
         }
         .content-area {
           padding: 20px 16px;
@@ -1071,6 +1168,17 @@ export class AppComponent implements OnInit {
 
   get t() {
     return this.translationService.translations();
+  }
+
+  todayLabel(): string {
+    const locale =
+      this.translationService.currentLanguage() === 'tr' ? 'tr-TR' : 'de-DE';
+    return new Date().toLocaleDateString(locale, {
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    });
   }
 
   getInitials(): string {

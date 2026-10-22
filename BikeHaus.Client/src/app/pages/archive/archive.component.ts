@@ -478,7 +478,7 @@ import {
       }
       .search-box:focus-within {
         border-color: var(--accent);
-        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.13);
+        box-shadow: 0 0 0 3px rgba(230, 74, 25, 0.13);
       }
       .search-icon {
         color: var(--text-tertiary);
@@ -557,7 +557,7 @@ import {
       }
       .result-card:hover {
         border-color: var(--accent);
-        box-shadow: 0 2px 12px rgba(99, 102, 241, 0.1);
+        box-shadow: 0 2px 12px rgba(230, 74, 25, 0.1);
         transform: translateY(-1px);
       }
       .result-main {
@@ -582,7 +582,7 @@ import {
         font-size: 0.78rem;
         font-weight: 600;
         color: var(--accent);
-        background: rgba(99, 102, 241, 0.1);
+        background: rgba(230, 74, 25, 0.1);
         padding: 1px 8px;
         border-radius: 6px;
       }
@@ -674,8 +674,8 @@ import {
         border-radius: 14px;
         background: linear-gradient(
           135deg,
-          rgba(99, 102, 241, 0.15),
-          rgba(79, 70, 229, 0.1)
+          rgba(230, 74, 25, 0.15),
+          rgba(196, 60, 15, 0.1)
         );
         display: flex;
         align-items: center;
@@ -792,7 +792,7 @@ import {
         z-index: 1;
       }
       .dot-purchase {
-        background: rgba(99, 102, 241, 0.15);
+        background: rgba(230, 74, 25, 0.15);
         color: var(--accent);
       }
       .dot-sale {
@@ -829,7 +829,7 @@ import {
         transition: border-color 0.2s;
       }
       .timeline-card:hover {
-        border-color: rgba(99, 102, 241, 0.3);
+        border-color: rgba(230, 74, 25, 0.3);
       }
 
       .event-header {
@@ -847,7 +847,7 @@ import {
         border-radius: 6px;
       }
       .label-purchase {
-        background: rgba(99, 102, 241, 0.12);
+        background: rgba(230, 74, 25, 0.12);
         color: var(--accent);
       }
       .label-sale {
@@ -918,7 +918,7 @@ import {
         font-size: 0.78rem;
         font-family: 'SF Mono', 'Fira Code', monospace;
         color: var(--accent);
-        background: rgba(99, 102, 241, 0.08);
+        background: rgba(230, 74, 25, 0.08);
         padding: 2px 8px;
         border-radius: 6px;
       }
@@ -945,9 +945,9 @@ import {
         transition: all 0.2s;
       }
       .btn-doc:hover {
-        background: rgba(99, 102, 241, 0.08);
+        background: rgba(230, 74, 25, 0.08);
         color: var(--accent);
-        border-color: rgba(99, 102, 241, 0.3);
+        border-color: rgba(230, 74, 25, 0.3);
       }
 
       /* ── Responsive ── */

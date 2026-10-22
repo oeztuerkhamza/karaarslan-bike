@@ -475,13 +475,13 @@ interface EmailAccountForm {
                 >
                   <div
                     *ngFor="let email of companyEmailsList"
-                    style="display: flex; align-items: center; gap: 8px; background: var(--accent-blue, rgba(99, 102, 241, 0.1)); padding: 6px 12px; border-radius: 20px; font-size: 0.9rem;"
+                    style="display: flex; align-items: center; gap: 8px; background: var(--accent-blue, rgba(230, 74, 25, 0.1)); padding: 6px 12px; border-radius: 20px; font-size: 0.9rem;"
                   >
                     <span>{{ email }}</span>
                     <button
                       type="button"
                       (click)="changeCompanyEmailPassword(email)"
-                      style="background: none; border: none; cursor: pointer; color: var(--accent-primary, #6366f1); font-size: 0.95rem; padding: 0; line-height: 1;"
+                      style="background: none; border: none; cursor: pointer; color: var(--accent-primary, #e64a19); font-size: 0.95rem; padding: 0; line-height: 1;"
                       title="Passwort ändern"
                     >
                       🔑
@@ -1184,7 +1184,7 @@ interface EmailAccountForm {
         box-shadow: var(--shadow-xs);
       }
       .toggle-switch input:checked + .toggle-slider {
-        background: var(--accent-primary, #6366f1);
+        background: var(--accent-primary, #e64a19);
       }
       .toggle-switch input:checked + .toggle-slider:before {
         transform: translateX(22px);
@@ -1231,9 +1231,9 @@ interface EmailAccountForm {
         color: var(--text-secondary, #64748b);
       }
       .upload-area:hover {
-        border-color: var(--accent-primary, #6366f1);
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.04));
-        color: var(--accent-primary, #6366f1);
+        border-color: var(--accent-primary, #e64a19);
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.04));
+        color: var(--accent-primary, #e64a19);
       }
       .upload-icon {
         font-size: 2rem;
@@ -1347,7 +1347,7 @@ interface EmailAccountForm {
         display: flex;
         gap: 8px;
         padding: 12px 16px;
-        background: var(--accent-primary-light, rgba(99, 102, 241, 0.08));
+        background: var(--accent-primary-light, rgba(230, 74, 25, 0.08));
         border-radius: var(--radius-md, 10px);
         margin-bottom: 20px;
         font-size: 0.9rem;
@@ -1357,7 +1357,7 @@ interface EmailAccountForm {
       }
       .user-value {
         font-weight: 600;
-        color: var(--accent-primary, #6366f1);
+        color: var(--accent-primary, #e64a19);
       }
       .account-form {
         padding: 16px 0;
@@ -1552,7 +1552,7 @@ interface EmailAccountForm {
       }
       .tab-btn.active {
         background: var(--bg-card, #fff);
-        color: var(--accent-primary, #6366f1);
+        color: var(--accent-primary, #e64a19);
         box-shadow: var(--shadow-sm);
       }
       .section-header-row {
@@ -1603,7 +1603,7 @@ interface EmailAccountForm {
       .checkbox-label input[type='checkbox'] {
         width: 16px;
         height: 16px;
-        accent-color: var(--accent-primary, #6366f1);
+        accent-color: var(--accent-primary, #e64a19);
         cursor: pointer;
       }
       .email-table {
@@ -1663,8 +1663,8 @@ interface EmailAccountForm {
         margin-left: 4px;
       }
       .badge-primary {
-        background: rgba(99, 102, 241, 0.12);
-        color: var(--accent-primary, #6366f1);
+        background: rgba(230, 74, 25, 0.12);
+        color: var(--accent-primary, #e64a19);
       }
       .badge-success {
         background: rgba(16, 185, 129, 0.1);

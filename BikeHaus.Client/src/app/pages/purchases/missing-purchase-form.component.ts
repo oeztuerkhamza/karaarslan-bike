@@ -472,7 +472,7 @@ import { forkJoin, Observable } from 'rxjs';
         color: #fff;
       }
       .btn-primary:hover {
-        background: var(--accent-primary-hover, #4f46e5);
+        background: var(--accent-primary-hover, #c43c0f);
       }
       .btn-primary:disabled {
         opacity: 0.5;

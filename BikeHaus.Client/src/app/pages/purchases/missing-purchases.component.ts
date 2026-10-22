@@ -140,7 +140,7 @@ import { MissingSale } from '../../models/models';
         color: #fff;
       }
       .btn-primary:hover {
-        background: var(--accent-primary-hover, #4f46e5);
+        background: var(--accent-primary-hover, #c43c0f);
       }
 
       .loading {
@@ -193,7 +193,7 @@ import { MissingSale } from '../../models/models';
       }
       .missing-card:hover {
         border-color: var(--accent-primary);
-        box-shadow: 0 4px 20px rgba(99, 102, 241, 0.08);
+        box-shadow: 0 4px 20px rgba(230, 74, 25, 0.08);
       }
 
       .card-header {
