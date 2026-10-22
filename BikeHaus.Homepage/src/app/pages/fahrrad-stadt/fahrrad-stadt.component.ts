@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { RouterModule, ActivatedRoute, Router } from '@angular/router';
-import { Meta, Title } from '@angular/platform-browser';
+import { DomSanitizer, Meta, Title } from '@angular/platform-browser';
 import { TranslationService } from '../../services/translation.service';
 import { CITY_LANDINGS, CityLanding } from '../../services/city-landing.data';
 import { HOLIDAY_SCHEMA_SPEC } from '../../services/holiday.service';
@@ -97,7 +97,7 @@ import { HOLIDAY_SCHEMA_SPEC } from '../../services/holiday.service';
               <p class="directions-text">{{ t.directions }}</p>
               <div class="map-wrapper">
                 <iframe
-                  [src]="mapUrl()"
+                  [src]="mapUrl"
                   width="100%"
                   height="350"
                   style="border:0; border-radius:12px;"
@@ -403,10 +403,11 @@ export class FahrradStadtComponent implements OnInit, OnDestroy {
     return c.translations[this.lang()] ?? c.translations.en;
   });
 
-  mapUrl = computed(() => {
-    if (!this.city()) return '';
-    return `https://www.google.com/maps?q=Alstedder+Stra%C3%9Fe+5,+44534+L%C3%BCnen&output=embed`;
-  });
+  // Fixed Google Maps embed of the shop. Angular blocks plain strings in an
+  // iframe [src] (NG0904), which left the map empty — trust this constant.
+  readonly mapUrl = inject(DomSanitizer).bypassSecurityTrustResourceUrl(
+    'https://www.google.com/maps?q=Alstedder+Stra%C3%9Fe+5,+44534+L%C3%BCnen&output=embed',
+  );
 
   private schemaEl?: HTMLScriptElement;
 

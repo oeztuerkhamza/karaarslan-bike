@@ -1888,7 +1888,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     },
   },
 
-  // ─── Article 11: Cycling in Lünen — Routes & Rentals (EN-first) ───
+  // ─── Article 11: Cycling in Lünen — Routes (EN-first) ───
   {
     slug: 'cycling-luenen-routes-guide',
     slugTranslations: {
@@ -2084,9 +2084,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           },
           {
             type: 'cta',
-            content: 'Bisiklet kirala',
-            link: '/fahrradverleih',
-            linkText: 'Kiralama Sayfası',
+            content: 'Turunuz için uygun bisikleti bulun',
+            link: '/showroom',
+            linkText: "Showroom'a git",
           },
         ],
       },

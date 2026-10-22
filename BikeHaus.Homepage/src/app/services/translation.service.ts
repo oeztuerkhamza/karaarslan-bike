@@ -1425,7 +1425,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
   fr: {
     metaTitle: 'Acheter un vélo à Lünen | Karaarslan Bike',
     metaDescription:
-      'Votre magasin de vélos à Lünen-Alstedde ✓ Achat & location ✓ 100+ vélos contrôlés ✓ Ville, Trekking, VAE ✓ Location avec tarifs journaliers par vélo ✓ 3 mois de garantie. Sans rendez-vous — Alstedder Straße 5!',
+      'Votre magasin de vélos à Lünen-Alstedde ✓ Vélos neufs & d’occasion ✓ 100+ vélos contrôlés ✓ Ville, Trekking, VAE ✓ Contrôle vélo gratuit ✓ 3 mois de garantie. Sans rendez-vous — Alstedder Straße 5!',
 
     home: 'Accueil',
     showroom: 'Showroom',
@@ -1435,7 +1435,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
 
     heroH1: 'Vélos à Lünen — neufs & occasion.',
     heroSub:
-      "Achetez ou louez votre vélo à Lünen ✓ Vélos inspectés dès 80 € ✓ Location avec tarifs journaliers définis par vélo ✓ Retrait immédiat.",
+      "Achetez votre vélo à Lünen ✓ Vélos d’occasion contrôlés dès 80 € ✓ Ville, Trekking & VAE ✓ À emporter le jour même.",
     ctaPrimary: 'Découvrir les nouveaux vélos',
     ctaSecondary: 'Voir le showroom',
 
@@ -1823,7 +1823,7 @@ const TRANSLATIONS: Record<Language, Translations> = {
     ratgeberMetaTitle:
       'Guide Vélo Lünen — Conseils & Astuces | Karaarslan Bike',
     ratgeberMetaDescription:
-      "Guides d'achat vélo, conseils location et itinéraires cyclables à Lünen. Expertise de votre vélociste local — Karaarslan Bike.",
+      "Guides d'achat vélo, conseils de taille et itinéraires cyclables à Lünen. Expertise de votre vélociste local — Karaarslan Bike.",
     ratgeberReadMore: 'Lire la suite',
     ratgeberReadTime: 'de lecture',
     ratgeberTip: 'Conseil de Karaarslan Bike',
